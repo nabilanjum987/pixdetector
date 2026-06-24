@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Compliance Checker - Free | PixDetector</title>
+<meta name="description" content="Ensure your images comply with platform policies, legal requirements and standards.">
+<link rel="canonical" href="https://pixdetector.com/tools/ai-image-compliance-checker">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+window.TOOL_PROMPT = `Check this image for compliance with general platform policies and standards. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Compliant" OR "Non-Compliant" OR "Review Required" OR "AI Generated" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence compliance assessment.", "details": {"content_safe": "Yes/No/Uncertain", "policy_compliant": "Yes/No/Uncertain", "copyright_risk": "Low/Medium/High", "brand_safe": "Yes/No/Uncertain", "age_appropriate": "Yes/No/Uncertain", "compliance_score": "Pass/Review/Fail"}}`;
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      AI Image Compliance Checker
+    </div>
+    <div class="tool-page-header">
+      <h1>✔️ AI Image Compliance Checker</h1>
+      <p>Ensure your images comply with platform policies, legal requirements, and industry standards with AI-powered compliance checking.</p>
+    </div>
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" accept="image/*" id="fileInput" onchange="handleFile(this.files[0])">
+      <div class="upload-icon">📁</div>
+      <h3>Drop your image here</h3>
+      <p>or click to browse from your device</p>
+      <div class="upload-formats">
+        <span class="format-tag">JPG</span>
+        <span class="format-tag">PNG</span>
+        <span class="format-tag">WebP</span>
+        <span class="format-tag">HEIC</span>
+      </div>
+    </div>
+    <div class="preview-wrap" id="previewWrap">
+      <img id="imgPreview" class="preview-img" src="" alt="Preview">
+      <div class="preview-info">
+        <div class="preview-name" id="previewName"></div>
+        <div class="preview-meta" id="previewMeta"></div>
+        <button class="btn-analyze" id="analyzeBtn" onclick="analyzeImage()">🔍 Check Compliance</button>
+      </div>
+    </div>
+    <div class="loading-wrap" id="loadingWrap">
+      <div class="spinner"></div>
+      <div class="loading-title">Checking image compliance...</div>
+      <div class="loading-step" id="loadingStep">Scanning pixel patterns...</div>
+    </div>
+    <div class="error-box" id="errorBox"></div>
+    <div class="results-wrap" id="resultsWrap">
+      <div class="result-card">
+        <div class="verdict-row">
+          <div class="verdict-emoji" id="verdictEmoji">🤔</div>
+          <div>
+            <div class="verdict-label">Verdict</div>
+            <div class="verdict-text" id="verdictText">Analyzing...</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>AI/Issue probability</span><span id="aiPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-ai" id="aiBar" style="width:0%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Real/Authentic probability</span><span id="realPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-real" id="realBar" style="width:0%"></div></div>
+        </div>
+        <div class="details-grid" id="detailsGrid"></div>
+        <div class="analysis-box">
+          <div class="analysis-label">AI Analysis</div>
+          <div class="analysis-text" id="analysisText"></div>
+        </div>
+        <button class="btn-reset" onclick="resetTool()">🔄 Check Another Image</button>
+      </div>
+    </div>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>Compliance checking helps businesses ensure their images meet platform policies, legal standards, and industry requirements before publication.</p>
+      <h2 style="margin-top:28px">Who Uses This Tool?</h2>
+      <div class="use-cases"><div class="use-case"><h4>📢 Advertisers</h4><p>Ad policy compliance</p></div><div class="use-case"><h4>🛒 Marketplaces</h4><p>Listing compliance</p></div><div class="use-case"><h4>⚖️ Legal</h4><p>Legal compliance check</p></div><div class="use-case"><h4>🏢 Enterprise</h4><p>Brand compliance</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid">
+        <a href="ai-generated-image-checker.html" class="related-card"><h4>🤖 AI Image Checker</h4><p>Detect AI-generated images</p></a>
+        <a href="ai-deepfake-checker.html" class="related-card"><h4>👁️ Deepfake Checker</h4><p>Detect face manipulation</p></a>
+        <a href="ai-image-authenticity-checker.html" class="related-card"><h4>✅ Authenticity Checker</h4><p>Verify genuine photos</p></a>
+        <a href="ai-image-analyzer.html" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full AI image analysis</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools. Trusted worldwide.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="ai-generated-image-checker.html">AI Image Checker</a>
+        <a href="ai-deepfake-checker.html">Deepfake Checker</a>
+        <a href="ai-fake-image-checker.html">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="ai-image-analyzer.html">Image Analyzer</a>
+        <a href="ai-image-quality-checker.html">Quality Checker</a>
+        <a href="ai-image-seo-checker.html">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="../about.html">About Us</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector.com — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<script src="../js/api-config.js"></script>
+<script src="../js/tool.js"></script>
+</body>
+</html>

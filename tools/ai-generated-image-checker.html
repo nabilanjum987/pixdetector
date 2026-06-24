@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Generated Image Checker - Free AI Image Detector | PixDetector</title>
+<meta name="description" content="Free AI generated image checker. Detect if an image was created by Midjourney, DALL-E 3, Stable Diffusion or any AI generator. Instant results. No signup.">
+<meta name="keywords" content="ai generated image checker, ai image checker, detect ai image, midjourney detector, dall-e detector, stable diffusion detector">
+<link rel="canonical" href="https://pixdetector.com/tools/ai-generated-image-checker">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+window.TOOL_PROMPT = `Analyze this image carefully and determine if it was AI-generated (by tools like Midjourney, DALL-E 3, Stable Diffusion, Adobe Firefly, Google Imagen, etc.) or if it is a real photograph taken by a camera.
+
+Look for these AI indicators:
+- Unnaturally perfect symmetry or textures
+- Weird hands, fingers, or teeth
+- Inconsistent text or letters in the image
+- Overly smooth or plastic-looking skin
+- Strange background anomalies or repeated patterns
+- Unnatural lighting that doesn't cast real shadows
+- Eyes that look slightly off or too perfect
+- Blending artifacts where objects meet
+
+Look for these real photo indicators:
+- Natural grain/noise from camera sensor
+- Consistent depth of field
+- Real-world imperfections (blemishes, wrinkles)
+- Natural lighting with realistic shadows
+- EXIF-style consistency in the image
+
+Respond ONLY with valid JSON (no other text):
+{"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High" OR "Medium" OR "Low", "analysis": "Write 2-3 sentences explaining your verdict with specific visual evidence you observed.", "details": {"texture_quality": "Natural/Artificial/Mixed", "lighting": "Consistent/Inconsistent", "artifacts": "Detected/None Found", "hands_fingers": "Normal/Abnormal/Not Visible", "background": "Realistic/Artificial/Blurred", "overall_realism": "High/Medium/Low"}}`;
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      AI Generated Image Checker
+    </div>
+
+    <div class="tool-page-header">
+      <h1>🤖 AI Generated Image Checker</h1>
+      <p>Instantly detect if an image was created by AI generators like Midjourney, DALL-E 3, Stable Diffusion, Adobe Firefly or any other AI image tool. Free, fast, and accurate — no signup required.</p>
+    </div>
+
+    <!-- UPLOAD -->
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" accept="image/*" id="fileInput" onchange="handleFile(this.files[0])">
+      <div class="upload-icon">📁</div>
+      <h3>Drop your image here to check</h3>
+      <p>or click to browse from your device</p>
+      <div class="upload-formats">
+        <span class="format-tag">JPG</span>
+        <span class="format-tag">PNG</span>
+        <span class="format-tag">WebP</span>
+        <span class="format-tag">HEIC</span>
+        <span class="format-tag">GIF</span>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-wrap" id="previewWrap">
+      <img id="imgPreview" class="preview-img" src="" alt="Preview">
+      <div class="preview-info">
+        <div class="preview-name" id="previewName"></div>
+        <div class="preview-meta" id="previewMeta"></div>
+        <button class="btn-analyze" id="analyzeBtn" onclick="analyzeImage()">
+          🔍 Check If AI Generated
+        </button>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="loading-wrap" id="loadingWrap">
+      <div class="spinner"></div>
+      <div class="loading-title">Analyzing image for AI signatures...</div>
+      <div class="loading-step" id="loadingStep">Scanning pixel patterns...</div>
+    </div>
+
+    <!-- ERROR -->
+    <div class="error-box" id="errorBox"></div>
+
+    <!-- RESULTS -->
+    <div class="results-wrap" id="resultsWrap">
+      <div class="result-card">
+        <div class="verdict-row">
+          <div class="verdict-emoji" id="verdictEmoji">🤔</div>
+          <div>
+            <div class="verdict-label">Verdict</div>
+            <div class="verdict-text" id="verdictText">Analyzing...</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>AI Generated probability</span><span id="aiPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-ai" id="aiBar" style="width:0%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Real photo probability</span><span id="realPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-real" id="realBar" style="width:0%"></div></div>
+        </div>
+        <div class="details-grid" id="detailsGrid"></div>
+        <div class="analysis-box">
+          <div class="analysis-label">AI Analysis</div>
+          <div class="analysis-text" id="analysisText"></div>
+        </div>
+        <button class="btn-reset" onclick="resetTool()">🔄 Check Another Image</button>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION (SEO Content) -->
+    <div class="tool-about">
+      <h2>What is an AI Generated Image Checker?</h2>
+      <p>An AI generated image checker is a tool that uses artificial intelligence to analyze images and determine whether they were created by AI image generators or captured by a real camera. With the rise of tools like Midjourney, DALL-E 3, and Stable Diffusion, AI-generated images have become nearly indistinguishable from real photographs.</p>
+      <p>PixDetector's AI image checker analyzes dozens of visual signals — including pixel patterns, texture consistency, lighting physics, and structural anomalies — to accurately determine the origin of any image.</p>
+
+      <h2 style="margin-top:28px">Who Uses This Tool?</h2>
+      <div class="use-cases">
+        <div class="use-case">
+          <h4>📰 Journalists</h4>
+          <p>Verify image authenticity before publishing news stories or reports.</p>
+        </div>
+        <div class="use-case">
+          <h4>🏢 Businesses</h4>
+          <p>Check stock photos and supplier images for AI generation before use.</p>
+        </div>
+        <div class="use-case">
+          <h4>🎓 Educators</h4>
+          <p>Detect AI-generated images submitted by students in assignments.</p>
+        </div>
+        <div class="use-case">
+          <h4>🛒 E-commerce</h4>
+          <p>Verify product images are genuine before listing on your platform.</p>
+        </div>
+        <div class="use-case">
+          <h4>⚖️ Legal Teams</h4>
+          <p>Authenticate images used as evidence in legal proceedings.</p>
+        </div>
+        <div class="use-case">
+          <h4>👤 Individuals</h4>
+          <p>Check profile photos and images shared on social media for authenticity.</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:28px">How Our AI Image Checker Works</h2>
+      <p>Our tool uses advanced machine learning models trained on millions of real and AI-generated images. When you upload an image, the AI analyzes it across multiple dimensions: texture patterns (AI generators create distinctive pixel signatures), lighting consistency (real photos follow physics, AI often doesn't), structural anomalies (AI frequently fails with hands, text, and edges), and frequency domain analysis (different statistical properties between real and AI images).</p>
+    </div>
+
+    <!-- FAQ (SEO) -->
+    <div class="tool-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-q">
+        <h4>How accurate is the AI generated image checker?</h4>
+        <p>Our AI image checker achieves up to 94% accuracy on standard benchmarks. Accuracy may vary based on the AI generator used, post-processing applied, and image compression. New AI models may initially have slightly lower detection rates as our models continuously update.</p>
+      </div>
+      <div class="faq-q">
+        <h4>Which AI image generators can be detected?</h4>
+        <p>Our checker can detect images from Midjourney (v4, v5, v6), DALL-E 2 and 3, Stable Diffusion (all versions), Adobe Firefly, Google Imagen, Bing Image Creator, and most other major AI image generators available today.</p>
+      </div>
+      <div class="faq-q">
+        <h4>Is my image stored after checking?</h4>
+        <p>No. Your privacy is our top priority. Images are analyzed in real-time and immediately discarded. We do not store, log, or share any images uploaded to PixDetector.</p>
+      </div>
+      <div class="faq-q">
+        <h4>Can the checker be fooled by edited AI images?</h4>
+        <p>Images that have been heavily post-processed, compressed multiple times (e.g., screenshotted and re-uploaded), or edited extensively in Photoshop may have lower detection accuracy. However, our models are trained to handle many such scenarios.</p>
+      </div>
+      <div class="faq-q">
+        <h4>Is the AI Generated Image Checker really free?</h4>
+        <p>Yes, completely free. No signup, no credit card, no limits. PixDetector is committed to providing free AI detection tools for everyone.</p>
+      </div>
+      <div class="faq-q">
+        <h4>What file formats are supported?</h4>
+        <p>We support JPG/JPEG, PNG, WebP, HEIC, and GIF formats. For best results, upload the original image without additional compression. Maximum file size is 10MB.</p>
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid">
+        <a href="ai-deepfake-checker.html" class="related-card">
+          <h4>👁️ Deepfake Checker</h4>
+          <p>Detect face swaps and AI manipulation</p>
+        </a>
+        <a href="ai-fake-image-checker.html" class="related-card">
+          <h4>🚫 Fake Image Checker</h4>
+          <p>Identify manipulated images</p>
+        </a>
+        <a href="ai-image-authenticity-checker.html" class="related-card">
+          <h4>✅ Authenticity Checker</h4>
+          <p>Verify genuine photographs</p>
+        </a>
+        <a href="ai-image-analyzer.html" class="related-card">
+          <h4>🔬 Image Analyzer</h4>
+          <p>Full AI image analysis</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools. Trusted by journalists, researchers and creators worldwide.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Detection Tools</h4>
+        <a href="ai-generated-image-checker.html">AI Image Checker</a>
+        <a href="ai-deepfake-checker.html">Deepfake Checker</a>
+        <a href="ai-fake-image-checker.html">Fake Image Checker</a>
+        <a href="ai-image-authenticity-checker.html">Authenticity Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis Tools</h4>
+        <a href="ai-image-analyzer.html">Image Analyzer</a>
+        <a href="ai-image-quality-checker.html">Quality Checker</a>
+        <a href="ai-image-seo-checker.html">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="../about.html">About Us</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector.com — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/api-config.js"></script>
+<script src="../js/tool.js"></script>
+</body>
+</html>

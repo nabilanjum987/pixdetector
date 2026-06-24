@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Moderation Tool - Free Tool | PixDetector</title>
+<meta name="description" content="Free AI image moderation tool. Automatically moderate images for inappropriate content, NSFW material and policy violations.">
+<meta name="keywords" content="ai image moderation tool, image moderator, auto image moderation, content moderation tool">
+<link rel="canonical" href="https://pixdetector.com/tools/ai-image-moderation-tool">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+window.TOOL_PROMPT = `Perform content moderation analysis on this image. Determine if it violates common platform policies. Check for explicit content, violence, hate speech indicators, spam/scam patterns, or other policy violations. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Approved" OR "Review Required" OR "Rejected", "confidence": "High/Medium/Low", "analysis": "2-3 sentences explaining the moderation decision.", "details": {"explicit_content": "None/Low/Medium/High", "violence": "None/Low/Medium/High", "hate_speech_indicators": "None/Possible/Detected", "spam_indicators": "None/Possible/Detected", "policy_violation": "None/Possible/Confirmed", "action": "Approve/Human Review/Remove", "safe_for_all_ages": "Yes/No"}}`;
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      AI Image Moderation Tool
+    </div>
+    <div class="tool-page-header">
+      <h1>⚖️ AI Image Moderation Tool</h1>
+      <p>Automatically moderate images at scale. Our AI quickly identifies inappropriate, NSFW, violent or policy-violating content to keep your platform safe and compliant.</p>
+    </div>
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" accept="image/*" id="fileInput" onchange="handleFile(this.files[0])">
+      <div class="upload-icon">📁</div>
+      <h3>Drop your image here</h3>
+      <p>or click to browse from your device</p>
+      <div class="upload-formats">
+        <span class="format-tag">JPG</span><span class="format-tag">PNG</span>
+        <span class="format-tag">WebP</span><span class="format-tag">HEIC</span>
+      </div>
+    </div>
+    <div class="preview-wrap" id="previewWrap">
+      <img id="imgPreview" class="preview-img" src="" alt="Preview">
+      <div class="preview-info">
+        <div class="preview-name" id="previewName"></div>
+        <div class="preview-meta" id="previewMeta"></div>
+        <button class="btn-analyze" id="analyzeBtn" onclick="analyzeImage()">🔍 Moderate This Image</button>
+      </div>
+    </div>
+    <div class="loading-wrap" id="loadingWrap">
+      <div class="spinner"></div>
+      <div class="loading-title">Running content moderation checks...</div>
+      <div class="loading-step" id="loadingStep">Scanning pixel patterns...</div>
+    </div>
+    <div class="error-box" id="errorBox"></div>
+    <div class="results-wrap" id="resultsWrap">
+      <div class="result-card">
+        <div class="verdict-row">
+          <div class="verdict-emoji" id="verdictEmoji">🤔</div>
+          <div>
+            <div class="verdict-label">Verdict</div>
+            <div class="verdict-text" id="verdictText">Analyzing...</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>AI/Issue probability</span><span id="aiPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-ai" id="aiBar" style="width:0%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Real/Authentic probability</span><span id="realPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-real" id="realBar" style="width:0%"></div></div>
+        </div>
+        <div class="details-grid" id="detailsGrid"></div>
+        <div class="analysis-box">
+          <div class="analysis-label">AI Analysis</div>
+          <div class="analysis-text" id="analysisText"></div>
+        </div>
+        <button class="btn-reset" onclick="resetTool()">🔄 Check Another Image</button>
+      </div>
+    </div>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>AI image moderation helps platforms automatically screen user-uploaded content at scale. By flagging potentially inappropriate images before human review, it saves time and helps maintain community standards.</p>
+      <h2 style="margin-top:28px">Who Uses This Tool?</h2>
+      <div class="use-cases"><div class="use-case"><h4>📱 Social Media</h4><p>Screen uploads before they go live</p></div><div class="use-case"><h4>🛒 Marketplaces</h4><p>Auto-moderate seller image uploads</p></div><div class="use-case"><h4>🎮 Gaming</h4><p>Moderate player-uploaded content</p></div><div class="use-case"><h4>💬 Forums</h4><p>Keep community images appropriate</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="ai-image-content-checker.html" class="related-card"><h4>🛡️ Content Checker</h4><p>Content safety check</p></a><a href="ai-image-compliance-checker.html" class="related-card"><h4>✔️ Compliance Checker</h4><p>Policy compliance</p></a><a href="ai-image-scanning-tool.html" class="related-card"><h4>📡 Scanning Tool</h4><p>Deep image scan</p></a><a href="ai-image-validation-tool.html" class="related-card"><h4>✅ Validation Tool</h4><p>Image validation</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="ai-generated-image-checker.html">AI Image Checker</a>
+        <a href="ai-deepfake-checker.html">Deepfake Checker</a>
+        <a href="ai-fake-image-checker.html">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="ai-image-analyzer.html">Image Analyzer</a>
+        <a href="ai-image-quality-checker.html">Quality Checker</a>
+        <a href="ai-image-seo-checker.html">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="../about.html">About Us</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector.com — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<script src="../js/api-config.js"></script>
+<script src="../js/tool.js"></script>
+</body>
+</html>

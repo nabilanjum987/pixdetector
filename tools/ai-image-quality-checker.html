@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Quality Checker - Free Tool | PixDetector</title>
+<meta name="description" content="Free AI image quality checker. Analyze sharpness, noise, exposure and overall technical quality of any image. Instant free results.">
+<meta name="keywords" content="ai image quality checker, image quality analyzer, check image quality, photo quality checker">
+<link rel="canonical" href="https://pixdetector.com/tools/ai-image-quality-checker">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+window.TOOL_PROMPT = `Analyze the technical quality of this image. Evaluate sharpness, noise/grain levels, exposure (over/under/correct), color accuracy, contrast, compression artifacts, and overall print/web suitability. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Excellent Quality" OR "Good Quality" OR "Average Quality" OR "Poor Quality", "confidence": "High", "analysis": "2-3 sentences describing the main quality characteristics and any issues found.", "details": {"sharpness": "Sharp/Soft/Blurry", "noise_level": "Low/Medium/High", "exposure": "Correct/Overexposed/Underexposed", "color_accuracy": "Accurate/Oversaturated/Desaturated/Washed Out", "compression": "Minimal/Moderate/Heavy", "web_ready": "Yes/Needs Optimization/No", "print_ready": "Yes/Possibly/No", "overall_score": "Excellent/Good/Average/Poor"}}`;
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      AI Image Quality Checker
+    </div>
+    <div class="tool-page-header">
+      <h1>⭐ AI Image Quality Checker</h1>
+      <p>Analyze the technical quality of any image. Get detailed scores for sharpness, noise levels, exposure, color accuracy and overall quality — powered by AI.</p>
+    </div>
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" accept="image/*" id="fileInput" onchange="handleFile(this.files[0])">
+      <div class="upload-icon">📁</div>
+      <h3>Drop your image here</h3>
+      <p>or click to browse from your device</p>
+      <div class="upload-formats">
+        <span class="format-tag">JPG</span><span class="format-tag">PNG</span>
+        <span class="format-tag">WebP</span><span class="format-tag">HEIC</span>
+      </div>
+    </div>
+    <div class="preview-wrap" id="previewWrap">
+      <img id="imgPreview" class="preview-img" src="" alt="Preview">
+      <div class="preview-info">
+        <div class="preview-name" id="previewName"></div>
+        <div class="preview-meta" id="previewMeta"></div>
+        <button class="btn-analyze" id="analyzeBtn" onclick="analyzeImage()">🔍 Check Image Quality</button>
+      </div>
+    </div>
+    <div class="loading-wrap" id="loadingWrap">
+      <div class="spinner"></div>
+      <div class="loading-title">Analyzing image quality parameters...</div>
+      <div class="loading-step" id="loadingStep">Scanning pixel patterns...</div>
+    </div>
+    <div class="error-box" id="errorBox"></div>
+    <div class="results-wrap" id="resultsWrap">
+      <div class="result-card">
+        <div class="verdict-row">
+          <div class="verdict-emoji" id="verdictEmoji">🤔</div>
+          <div>
+            <div class="verdict-label">Verdict</div>
+            <div class="verdict-text" id="verdictText">Analyzing...</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>AI/Issue probability</span><span id="aiPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-ai" id="aiBar" style="width:0%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Real/Authentic probability</span><span id="realPct">0%</span></div>
+          <div class="bar-track"><div class="bar-fill bar-real" id="realBar" style="width:0%"></div></div>
+        </div>
+        <div class="details-grid" id="detailsGrid"></div>
+        <div class="analysis-box">
+          <div class="analysis-label">AI Analysis</div>
+          <div class="analysis-text" id="analysisText"></div>
+        </div>
+        <button class="btn-reset" onclick="resetTool()">🔄 Check Another Image</button>
+      </div>
+    </div>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>An AI image quality checker evaluates the technical aspects of an image to determine its suitability for various uses. It analyzes sharpness, noise, exposure, color, and other parameters to give you an objective quality assessment.</p>
+      <h2 style="margin-top:28px">Who Uses This Tool?</h2>
+      <div class="use-cases"><div class="use-case"><h4>📸 Photography</h4><p>Check photos before delivering to clients</p></div><div class="use-case"><h4>🖨️ Printing</h4><p>Verify images are print-ready</p></div><div class="use-case"><h4>🌐 Web</h4><p>Ensure images are optimized for web</p></div><div class="use-case"><h4>🛒 E-commerce</h4><p>Quality control for product photos</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="ai-image-quality-analyzer.html" class="related-card"><h4>📈 Quality Analyzer</h4><p>In-depth quality analysis</p></a><a href="ai-image-resolution-checker.html" class="related-card"><h4>🖼️ Resolution Checker</h4><p>Check resolution and DPI</p></a><a href="ai-image-seo-checker.html" class="related-card"><h4>📱 SEO Checker</h4><p>Image SEO analysis</p></a><a href="ai-image-analyzer.html" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="ai-generated-image-checker.html">AI Image Checker</a>
+        <a href="ai-deepfake-checker.html">Deepfake Checker</a>
+        <a href="ai-fake-image-checker.html">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="ai-image-analyzer.html">Image Analyzer</a>
+        <a href="ai-image-quality-checker.html">Quality Checker</a>
+        <a href="ai-image-seo-checker.html">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="../about.html">About Us</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector.com — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<script src="../js/api-config.js"></script>
+<script src="../js/tool.js"></script>
+</body>
+</html>

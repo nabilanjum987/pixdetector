@@ -1,5 +1,3 @@
-const GROQ_API_KEY = "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";
-
 let selectedFile = null;
 
 function handleFile(file) {
@@ -23,54 +21,30 @@ async function analyzeImage() {
   document.getElementById('errorBox').style.display = 'none';
 
   try {
-    const base64 = await fileToBase64(selectedFile);
+    const dataUrl = await fileToBase64(selectedFile);
+    const mimeType = selectedFile.type;
+    const base64 = dataUrl.split(',')[1];
     const prompt = window.TOOL_PROMPT || `Analyze this image carefully. Respond ONLY with valid JSON, no extra text:
 {"ai_probability": 75, "verdict": "AI Generated", "confidence": "High", "analysis": "Explain your verdict in 2-3 sentences.", "details": {"texture_quality": "Natural", "lighting": "Consistent", "artifacts": "None Found", "hands_fingers": "Normal", "background": "Realistic", "overall_realism": "High"}}
 
 verdict must be one of: "AI Generated", "Real Photo", "Likely AI", "Likely Real", "Uncertain"
 confidence must be one of: "High", "Medium", "Low"`;
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    // Calls our own serverless function (/api/analyze), which holds the Groq
+    // API key server-side. Never call the Groq API directly from the browser —
+    // that exposes the key to anyone viewing page source.
+    const response = await fetch('/api/analyze', {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: 'meta-llama/llama-4-scout-17b-16e-instruct',
-        messages: [
-          {
-            role: 'user',
-            content: [
-              {
-                type: 'image_url',
-                image_url: { url: base64 }
-              },
-              {
-                type: 'text',
-                text: prompt
-              }
-            ]
-          }
-        ],
-        max_tokens: 1000,
-        temperature: 0.1
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: base64, mimeType, prompt })
     });
 
     if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error?.message || 'API error: ' + response.status);
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err.error || 'API error: ' + response.status);
     }
 
-    const data = await response.json();
-    if (!data.choices || !data.choices[0]) throw new Error('No response from API');
-
-    const text = data.choices[0].message.content;
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error('Invalid response format');
-
-    const result = JSON.parse(jsonMatch[0]);
+    const result = await response.json();
     showResults(result);
 
   } catch (e) {

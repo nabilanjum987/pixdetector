@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pixdetector.com/sitemap.xml
+Sitemap: https://pixdetector.vercel.app/sitemap.xml

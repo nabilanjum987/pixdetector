@@ -131,7 +131,7 @@ TEMPLATE = '''<!DOCTYPE html>
 <title>{title} - Free Tool | PixDetector</title>
 <meta name="description" content="{meta_desc}">
 <meta name="keywords" content="{keywords}">
-<link rel="canonical" href="https://pixdetector.com/tools/{slug}">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/{slug}">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <script>

@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <script>
-window.TOOL_PROMPT = `Evaluate this image across multiple dimensions. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence evaluation summary.", "details": {"authenticity": "Authentic/Synthetic/Uncertain", "image_quality": "High/Medium/Low", "content_safety": "Safe/Unsafe/Uncertain", "visual_appeal": "High/Medium/Low", "technical_score": "Excellent/Good/Fair/Poor", "usability": "High/Medium/Low"}}`;
+window.TOOL_PROMPT = `Evaluate whether this image is fit for use in different real-world contexts, to help the user decide where it can be safely used. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence summary of what this image is best suited for and why.", "details": {"suitable_for_web": "Yes/No, with reason", "suitable_for_print": "Yes/No, with reason", "suitable_for_social_media": "Yes/No, with reason", "suitable_for_commercial_use": "Yes/No, with reason", "recommendation": "one-line final recommendation"}}`;
 </script>
 </head>
 <body>
@@ -88,9 +88,11 @@ window.TOOL_PROMPT = `Evaluate this image across multiple dimensions. Respond ON
     </div>
     <div class="tool-about">
       <h2>About This Tool</h2>
-      <p>Multi-dimensional image evaluation provides comprehensive scoring to help you make informed decisions about image quality, authenticity, and suitability for your needs.</p>
+      <p>This evaluation tool answers a practical question: where can you actually use this image? It checks fitness for web, print, social media and commercial use separately, so you get a clear yes/no per context instead of one generic quality score.</p>
       <h2 style="margin-top:28px">Who Uses This Tool?</h2>
       <div class="use-cases"><div class="use-case"><h4>🛒 E-commerce</h4><p>Product image evaluation</p></div><div class="use-case"><h4>📱 Apps</h4><p>User content evaluation</p></div><div class="use-case"><h4>🎯 Marketing</h4><p>Campaign asset review</p></div><div class="use-case"><h4>🏫 Education</h4><p>Educational content check</p></div></div>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <div class="use-cases"><div class="use-case"><h4>Why separate scores for web, print, social and commercial?</h4><p>An image can be fine for a social post but too low-resolution for print, or fine personally but risky for commercial use. One overall score would hide that.</p></div><div class="use-case"><h4>How is this different from the Assessment Tool?</h4><p>The Assessment Tool grades the image itself (A-F). This tool tells you what to actually do with it.</p></div></div>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

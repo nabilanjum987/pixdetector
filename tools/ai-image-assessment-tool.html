@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <script>
-window.TOOL_PROMPT = `Assess this image professionally across multiple dimensions. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence professional assessment.", "details": {"authenticity_score": "High/Medium/Low", "technical_quality": "Excellent/Good/Fair/Poor", "composition_quality": "Excellent/Good/Fair/Poor", "lighting_quality": "Natural/Artificial/Mixed", "detail_richness": "High/Medium/Low", "professional_grade": "Yes/No/Uncertain"}}`;
+window.TOOL_PROMPT = `Assess this image using a numeric scoring rubric, like a professional grading checklist. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence summary of the overall score and why.", "details": {"authenticity_score": "numeric score out of 100", "quality_score": "numeric score out of 100", "composition_score": "numeric score out of 100", "technical_score": "numeric score out of 100", "overall_grade": "letter grade A to F based on the average"}}`;
 </script>
 </head>
 <body>
@@ -88,9 +88,11 @@ window.TOOL_PROMPT = `Assess this image professionally across multiple dimension
     </div>
     <div class="tool-about">
       <h2>About This Tool</h2>
-      <p>Professional image assessment gives you detailed scoring across authenticity, quality, composition, and technical parameters. Perfect for content creators and businesses.</p>
+      <p>This assessment tool grades an image on a numeric 0-100 rubric across authenticity, quality, composition and technical execution, then rolls those scores up into a single letter grade — closer to a report card than a plain description.</p>
       <h2 style="margin-top:28px">Who Uses This Tool?</h2>
       <div class="use-cases"><div class="use-case"><h4>📸 Photographers</h4><p>Portfolio assessment</p></div><div class="use-case"><h4>🏢 Businesses</h4><p>Content quality control</p></div><div class="use-case"><h4>🎓 Educators</h4><p>Student work evaluation</p></div><div class="use-case"><h4>📱 Influencers</h4><p>Content optimization</p></div></div>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <div class="use-cases"><div class="use-case"><h4>What does the letter grade mean?</h4><p>It's an average of the four numeric scores (authenticity, quality, composition, technical), so an A means strong across the board and a D or F flags a real problem area.</p></div><div class="use-case"><h4>Is this the same as the Evaluation Tool?</h4><p>No — this tool grades the image itself. The Evaluation Tool instead tells you which real-world uses (web, print, social, commercial) the image is fit for.</p></div></div>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

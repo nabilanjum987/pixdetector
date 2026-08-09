@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <script>
-window.TOOL_PROMPT = `Perform comprehensive analysis of this image. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence comprehensive analysis.", "details": {"content_type": "Photo/Illustration/AI Art/Mixed", "subject_matter": "describe main subject", "color_analysis": "Natural/Saturated/Artificial", "composition": "Professional/Amateur/Generated", "technical_quality": "High/Medium/Low", "overall_assessment": "Authentic/Synthetic/Uncertain"}}`;
+window.TOOL_PROMPT = `Perform a technical quality analysis of this image, focused on the underlying image data rather than subject matter. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence technical summary covering sharpness, exposure and compression quality.", "details": {"sharpness_focus": "Sharp/Soft/Blurred, note if focus looks natural or AI-smoothed", "exposure_balance": "Well-exposed/Overexposed/Underexposed", "noise_grain_level": "Low/Medium/High, and whether it looks like real sensor noise", "compression_artifacts": "None/Mild/Heavy", "color_accuracy": "Natural/Oversaturated/Artificial", "technical_verdict": "one-line technical quality rating"}}`;
 </script>
 </head>
 <body>
@@ -88,9 +88,11 @@ window.TOOL_PROMPT = `Perform comprehensive analysis of this image. Respond ONLY
     </div>
     <div class="tool-about">
       <h2>About This Tool</h2>
-      <p>AI image analysis provides deep insights into every aspect of your images, from technical quality to content authenticity. Get comprehensive reports in seconds.</p>
+      <p>This AI image analysis tool focuses on the technical data behind an image rather than what's in the picture — sharpness, exposure, noise, compression and color accuracy. It's built for people who need to know if an image file itself is technically sound, not just whether it looks good.</p>
       <h2 style="margin-top:28px">Who Uses This Tool?</h2>
       <div class="use-cases"><div class="use-case"><h4>📊 Analysts</h4><p>Deep image insights</p></div><div class="use-case"><h4>🎯 Marketers</h4><p>Content quality check</p></div><div class="use-case"><h4>🔬 Researchers</h4><p>Visual data analysis</p></div><div class="use-case"><h4>📱 Social Media</h4><p>Content verification</p></div></div>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <div class="use-cases"><div class="use-case"><h4>How is this different from the AI Image Analyzer?</h4><p>The Analyzer covers general content (objects, scenes, mood). This tool drills into technical image data — sharpness, exposure, noise and compression — for a technical read on file quality.</p></div><div class="use-case"><h4>Can it tell if compression has ruined a photo?</h4><p>Yes — it flags compression artifacts and noise levels so you know if a file has been over-compressed or re-saved too many times.</p></div></div>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <script>
-window.TOOL_PROMPT = `Review this image comprehensively and provide actionable feedback. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence review with specific feedback.", "details": {"authenticity_review": "Authentic/Synthetic/Mixed", "quality_review": "Excellent/Good/Fair/Poor", "composition_review": "Strong/Average/Weak", "color_review": "Natural/Enhanced/Artificial", "subject_clarity": "Clear/Moderate/Unclear", "recommendation": "Approved/Needs Work/Rejected"}}`;
+window.TOOL_PROMPT = `Review this image like an editor giving actionable feedback before it gets used or published. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "AI Generated" OR "Real Photo" OR "Likely AI" OR "Likely Real" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence editorial review with specific feedback.", "details": {"strengths": "1-2 specific things done well", "weaknesses": "1-2 specific issues to fix", "improvement_tips": "one concrete suggestion to improve it", "ready_to_use": "Yes/Needs Edits/No, with a short reason"}}`;
 </script>
 </head>
 <body>
@@ -88,9 +88,11 @@ window.TOOL_PROMPT = `Review this image comprehensively and provide actionable f
     </div>
     <div class="tool-about">
       <h2>About This Tool</h2>
-      <p>AI image review provides detailed feedback and actionable recommendations to help you improve or verify your images before using them.</p>
+      <p>This review tool acts like an editor giving you a second opinion before you publish or send an image out — specific strengths, specific weaknesses, one concrete tip to improve it, and a straight answer on whether it's ready to use as-is.</p>
       <h2 style="margin-top:28px">Who Uses This Tool?</h2>
       <div class="use-cases"><div class="use-case"><h4>✅ Editors</h4><p>Pre-publication review</p></div><div class="use-case"><h4>🎨 Designers</h4><p>Design asset review</p></div><div class="use-case"><h4>📸 Photographers</h4><p>Photo review</p></div><div class="use-case"><h4>🏢 Agencies</h4><p>Client work review</p></div></div>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <div class="use-cases"><div class="use-case"><h4>Will it just tell me the image is good or bad?</h4><p>No — it gives specific strengths and weaknesses plus one concrete improvement tip, not just a pass/fail label.</p></div><div class="use-case"><h4>How is this different from the other analysis tools?</h4><p>Other tools score or classify the image. This one is written like editorial feedback — what's working, what to fix, and whether it's ready to use.</p></div></div>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

@@ -88,9 +88,17 @@ window.TOOL_PROMPT = `Verify if this image is authentic or has been manipulated/
     </div>
     <div class="tool-about">
       <h2>About This Tool</h2>
-      <p>Image verification is the process of confirming whether a photograph is genuine or has been digitally altered. This is critical for journalism, legal proceedings, and any situation where image integrity matters.</p>
+      <p>Image verification is the process of confirming whether a photograph is genuine or has been digitally altered. This tool is built around a professional workflow — the kind of check a journalist or legal team runs before an image goes into a story or a case file, not a casual curiosity check.</p>
+      <h2 style="margin-top:28px">How It Works</h2>
+      <p>The AI model examines the image for signs commonly associated with digital manipulation or synthetic generation: inconsistent lighting and shadows, unnatural edges around objects, repeating or overly smooth pixel patterns, and other artifacts that tend to survive even after an image is re-saved or lightly edited. It weighs these signals together into a probability and a plain verdict, along with a written explanation of what drove that conclusion.</p>
+      <h2 style="margin-top:28px">What the Results Mean</h2>
+      <p>Treat the <strong>verdict</strong> as a starting point for editorial judgment, not a final ruling — especially at "Uncertain" or "Suspicious," which mean the model found mixed or ambiguous signals rather than a clean answer either way. For anything going into publication or a legal record, pair this result with a source check (who sent it, where it was originally posted) rather than relying on the tool alone.</p>
       <h2 style="margin-top:28px">Who Uses This Tool?</h2>
       <div class="use-cases"><div class="use-case"><h4>📰 Journalists</h4><p>Verify images before publishing</p></div><div class="use-case"><h4>⚖️ Legal Teams</h4><p>Authenticate evidence images</p></div><div class="use-case"><h4>🏢 Businesses</h4><p>Verify supplier photos</p></div><div class="use-case"><h4>🔬 Researchers</h4><p>Validate research imagery</p></div></div>
+      <h2 style="margin-top:28px">Limitations</h2>
+      <p>No automated tool can serve as sole proof of authenticity in a legal or journalistic context. A "Real Photo" verdict means the model found no red flags, not a guarantee of provenance — it doesn't know where the image came from or who took it.</p>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <div class="use-cases"><div class="use-case"><h4>Can this be used as legal evidence?</h4><p>No — treat it as an investigative aid, not proof. Courts require chain-of-custody and forensic documentation this tool doesn't provide.</p></div><div class="use-case"><h4>What's the difference from the Authenticity Checker?</h4><p>This tool is built around a professional pre-publication workflow with a written explanation. The <a href="ai-image-authenticity-checker.html">Authenticity Checker</a> gives a quicker genuine-vs-manipulated read for everyday use.</p></div><div class="use-case"><h4>Does it detect AI-generated images too?</h4><p>Yes — the same signal analysis flags both AI-generated images and manually manipulated real photos.</p></div></div>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

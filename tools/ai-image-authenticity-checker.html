@@ -87,9 +87,17 @@ window.TOOL_PROMPT = `Analyze this image for its authenticity. Is it an original
     </div>
     <div class="tool-about">
       <h2>About This Tool</h2>
-      <p>Image authenticity checking verifies whether a photograph is an original unmodified image or has been digitally altered. This is crucial for journalism, legal proceedings, and any situation where image integrity matters.</p>
+      <p>Image authenticity checking verifies whether a photograph is an original unmodified image or has been digitally altered. This tool is built for a quick, everyday version of that check — upload a photo and get a fast genuine-vs-manipulated read, without the multi-step workflow of a professional verification process.</p>
+      <h2 style="margin-top:28px">How It Works</h2>
+      <p>The model looks at the image for telltale signs of editing or synthetic generation — unnatural blending at object edges, lighting that doesn't match across the frame, cloned or repeated pixel regions, and the kind of overly smooth texture that AI generators tend to produce in skin, hair and backgrounds. These signals are combined into a probability score and a short plain-English explanation.</p>
+      <h2 style="margin-top:28px">What the Results Mean</h2>
+      <p>A high <strong>ai_probability</strong> with "AI Generated" or "Manipulated" as the verdict means the model found several of these signals together. A low score with "Real Photo" means it found none — but subtle, professional-grade edits (color grading, minor retouching) can sometimes pass undetected, since they don't disturb the same pixel-level patterns as heavier manipulation or full AI generation.</p>
       <h2 style="margin-top:28px">Who Uses This Tool?</h2>
       <div class="use-cases"><div class="use-case"><h4>⚖️ Legal</h4><p>Authenticate images for legal proceedings</p></div><div class="use-case"><h4>📸 Photography</h4><p>Verify contest submission authenticity</p></div><div class="use-case"><h4>🏦 Insurance</h4><p>Check claim images for manipulation</p></div><div class="use-case"><h4>🎓 Academic</h4><p>Verify research images are unaltered</p></div></div>
+      <h2 style="margin-top:28px">Limitations</h2>
+      <p>This is a quick check, not a forensic one — it won't catch every subtle edit, and screenshots or heavily compressed images can produce less reliable results. For anything formal (legal, insurance, publication), use the <a href="ai-image-verification-tool.html">Verification Tool</a> instead, which is built for that workflow.</p>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <div class="use-cases"><div class="use-case"><h4>Can it detect subtle photo edits like color correction?</h4><p>Not reliably — minor retouching and color grading don't leave the same pixel-level trace as heavier manipulation or AI generation, so they can pass through undetected.</p></div><div class="use-case"><h4>How is this different from the Verification Tool?</h4><p>This is a faster, everyday check. The <a href="ai-image-verification-tool.html">Verification Tool</a> is built for a more formal pre-publication or legal workflow.</p></div><div class="use-case"><h4>Does it work on old or low-resolution photos?</h4><p>Yes, but confidence drops — low resolution and heavy compression remove some of the detail the model relies on.</p></div></div>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

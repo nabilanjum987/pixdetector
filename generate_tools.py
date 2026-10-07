@@ -14,7 +14,7 @@ tools = [
         "prompt": """Analyze this image for signs of deepfake or face manipulation. Look for: face blending artifacts, skin texture mismatches between face and neck/ears, unnatural eye reflections or asymmetry, lighting inconsistencies specifically on the face vs background, blurry or inconsistent edges around hair and face, and unnatural teeth. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Deepfake Detected" OR "Appears Authentic" OR "Suspicious" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence explanation with specific evidence.", "details": {"face_blending": "Natural/Artificial/Suspicious", "skin_texture": "Consistent/Inconsistent", "eye_authenticity": "Natural/Suspicious", "lighting_match": "Yes/No", "edge_quality": "Clean/Blurred/Suspicious", "overall_face": "Authentic/Manipulated/Uncertain"}}""",
         "about": "A deepfake checker analyzes images to detect when a real person's face has been replaced or altered using AI. Deepfakes can be used maliciously to create fake news, fraud, or non-consensual content.",
         "uses": [("🗞️ Media Verification", "Verify if news photos show real people"), ("💼 HR/KYC", "Check ID photos during verification"), ("⚖️ Legal Evidence", "Authenticate images in legal cases"), ("🔐 Security", "Detect fake profiles used in scams")],
-        "related": [("ai-generated-image-checker.html", "🤖 AI Image Checker", "Detect AI-generated images"), ("ai-fake-image-checker.html", "🚫 Fake Image Checker", "Identify manipulated images"), ("ai-image-authenticity-checker.html", "✅ Authenticity Checker", "Verify real photos"), ("ai-image-verification-tool.html", "🔐 Verification Tool", "Professional verification")]
+        "related": [("/tools/ai-generated-image-checker", "🤖 AI Image Checker", "Detect AI-generated images"), ("/tools/ai-fake-image-checker", "🚫 Fake Image Checker", "Identify manipulated images"), ("/tools/ai-image-authenticity-checker", "✅ Authenticity Checker", "Verify real photos"), ("/tools/ai-image-verification-tool", "🔐 Verification Tool", "Professional verification")]
     },
     {
         "slug": "ai-fake-image-checker",
@@ -29,7 +29,7 @@ tools = [
         "prompt": """Analyze this image to determine if it is fake, manipulated, AI-generated, or being used to spread misinformation. Look for: cloning or copy-paste artifacts, inconsistent shadows and lighting, unnatural edges around edited objects, compression artifacts from re-saving, AI generation patterns, scale inconsistencies between objects. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Likely Fake" OR "Likely Real" OR "Manipulated" OR "AI Generated" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence explanation with specific evidence.", "details": {"manipulation": "Detected/Not Detected/Possible", "ai_generated": "Yes/No/Uncertain", "inconsistencies": "Yes/No", "trust_score": "High/Medium/Low", "misinformation_risk": "High/Medium/Low", "editing_artifacts": "Present/None"}}""",
         "about": "Fake image checkers help identify digitally manipulated or AI-generated images that may be used to spread false information. With the rise of powerful AI tools, fake images have become increasingly convincing.",
         "uses": [("📰 Fact Checking", "Verify images in news and social media"), ("🏛️ Research", "Authenticate images for academic work"), ("🛡️ Brand Safety", "Protect your brand from fake images"), ("👤 Personal", "Verify images before sharing online")],
-        "related": [("ai-generated-image-checker.html", "🤖 AI Image Checker", "Detect AI images"), ("ai-deepfake-checker.html", "👁️ Deepfake Checker", "Detect face manipulation"), ("ai-image-authenticity-checker.html", "✅ Authenticity Checker", "Verify genuine photos"), ("ai-image-verification-tool.html", "🔐 Verification Tool", "Professional verification")]
+        "related": [("/tools/ai-generated-image-checker", "🤖 AI Image Checker", "Detect AI images"), ("/tools/ai-deepfake-checker", "👁️ Deepfake Checker", "Detect face manipulation"), ("/tools/ai-image-authenticity-checker", "✅ Authenticity Checker", "Verify genuine photos"), ("/tools/ai-image-verification-tool", "🔐 Verification Tool", "Professional verification")]
     },
     {
         "slug": "ai-image-authenticity-checker",
@@ -44,7 +44,7 @@ tools = [
         "prompt": """Analyze this image for its authenticity. Is it an original, unmodified genuine photograph? Or has it been digitally altered, AI-generated, or manipulated? Look for editing traces, clone stamps, content-aware fill artifacts, AI generation signatures, inconsistent noise patterns, and unnatural elements. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Authentic" OR "Manipulated" OR "AI Generated" OR "Likely Authentic" OR "Uncertain", "confidence": "High/Medium/Low", "analysis": "2-3 sentence explanation of your assessment.", "details": {"originality": "High/Medium/Low", "editing_traces": "Found/Not Found/Possible", "ai_signatures": "Present/Absent", "noise_pattern": "Natural/Artificial", "metadata_consistency": "Consistent/Inconsistent/Unknown", "authenticity_score": "High/Medium/Low"}}""",
         "about": "Image authenticity checking verifies whether a photograph is an original unmodified image or has been digitally altered. This is crucial for journalism, legal proceedings, and any situation where image integrity matters.",
         "uses": [("⚖️ Legal", "Authenticate images for legal proceedings"), ("📸 Photography", "Verify contest submission authenticity"), ("🏦 Insurance", "Check claim images for manipulation"), ("🎓 Academic", "Verify research images are unaltered")],
-        "related": [("ai-generated-image-checker.html", "🤖 AI Image Checker", "Detect AI images"), ("ai-deepfake-checker.html", "👁️ Deepfake Checker", "Detect deepfakes"), ("ai-fake-image-checker.html", "🚫 Fake Checker", "Detect fake images"), ("ai-image-verification-tool.html", "🔐 Verification Tool", "Professional verification")]
+        "related": [("/tools/ai-generated-image-checker", "🤖 AI Image Checker", "Detect AI images"), ("/tools/ai-deepfake-checker", "👁️ Deepfake Checker", "Detect deepfakes"), ("/tools/ai-fake-image-checker", "🚫 Fake Checker", "Detect fake images"), ("/tools/ai-image-verification-tool", "🔐 Verification Tool", "Professional verification")]
     },
     {
         "slug": "ai-image-analyzer",
@@ -59,7 +59,7 @@ tools = [
         "prompt": """Perform a comprehensive analysis of this image. Identify and describe everything you observe including objects, people, scenes, text, colors, mood, composition, and technical qualities. Also assess if it appears AI-generated or real. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Analysis Complete", "confidence": "High", "analysis": "Write 3-4 detailed sentences describing everything important in the image.", "details": {"scene_type": "describe the scene", "main_subjects": "list main subjects", "dominant_colors": "list 2-3 colors", "mood_atmosphere": "describe mood", "has_text": "Yes/No", "has_people": "Yes/No", "composition": "describe composition briefly", "image_origin": "Real Photo/AI Generated/Uncertain"}}""",
         "about": "An AI image analyzer uses advanced computer vision and machine learning to automatically analyze and extract information from images. It can identify objects, scenes, people, text, colors, and much more.",
         "uses": [("🛒 E-commerce", "Auto-tag product images at scale"), ("📱 Social Media", "Understand image content for moderation"), ("🔍 Research", "Extract data from image datasets"), ("♿ Accessibility", "Generate alt text for images")],
-        "related": [("ai-image-analysis-tool.html", "📊 Analysis Tool", "Comprehensive analysis"), ("ai-image-content-checker.html", "🛡️ Content Checker", "Check content safety"), ("ai-image-quality-checker.html", "⭐ Quality Checker", "Check image quality"), ("ai-image-seo-checker.html", "📈 SEO Checker", "SEO optimization")]
+        "related": [("/tools/ai-image-analysis-tool", "📊 Analysis Tool", "Comprehensive analysis"), ("/tools/ai-image-content-checker", "🛡️ Content Checker", "Check content safety"), ("/tools/ai-image-quality-checker", "⭐ Quality Checker", "Check image quality"), ("/tools/ai-image-seo-checker", "📈 SEO Checker", "SEO optimization")]
     },
     {
         "slug": "ai-image-quality-checker",
@@ -74,7 +74,7 @@ tools = [
         "prompt": """Analyze the technical quality of this image. Evaluate sharpness, noise/grain levels, exposure (over/under/correct), color accuracy, contrast, compression artifacts, and overall print/web suitability. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Excellent Quality" OR "Good Quality" OR "Average Quality" OR "Poor Quality", "confidence": "High", "analysis": "2-3 sentences describing the main quality characteristics and any issues found.", "details": {"sharpness": "Sharp/Soft/Blurry", "noise_level": "Low/Medium/High", "exposure": "Correct/Overexposed/Underexposed", "color_accuracy": "Accurate/Oversaturated/Desaturated/Washed Out", "compression": "Minimal/Moderate/Heavy", "web_ready": "Yes/Needs Optimization/No", "print_ready": "Yes/Possibly/No", "overall_score": "Excellent/Good/Average/Poor"}}""",
         "about": "An AI image quality checker evaluates the technical aspects of an image to determine its suitability for various uses. It analyzes sharpness, noise, exposure, color, and other parameters to give you an objective quality assessment.",
         "uses": [("📸 Photography", "Check photos before delivering to clients"), ("🖨️ Printing", "Verify images are print-ready"), ("🌐 Web", "Ensure images are optimized for web"), ("🛒 E-commerce", "Quality control for product photos")],
-        "related": [("ai-image-quality-analyzer.html", "📈 Quality Analyzer", "In-depth quality analysis"), ("ai-image-resolution-checker.html", "🖼️ Resolution Checker", "Check resolution and DPI"), ("ai-image-seo-checker.html", "📱 SEO Checker", "Image SEO analysis"), ("ai-image-analyzer.html", "🔬 Image Analyzer", "Full image analysis")]
+        "related": [("/tools/ai-image-quality-analyzer", "📈 Quality Analyzer", "In-depth quality analysis"), ("/tools/ai-image-resolution-checker", "🖼️ Resolution Checker", "Check resolution and DPI"), ("/tools/ai-image-seo-checker", "📱 SEO Checker", "Image SEO analysis"), ("/tools/ai-image-analyzer", "🔬 Image Analyzer", "Full image analysis")]
     },
     {
         "slug": "ai-image-seo-checker",
@@ -89,7 +89,7 @@ tools = [
         "prompt": """Analyze this image from an SEO perspective. Assess what the image shows, suggest optimal alt text (specific and descriptive, under 125 characters), evaluate if the format/quality is web-optimized, check if it would rank well for image search, and identify SEO improvement opportunities. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Well Optimized" OR "Needs Optimization" OR "Poorly Optimized", "confidence": "High", "analysis": "2-3 sentences with specific SEO recommendations for this image.", "details": {"suggested_alt_text": "write a specific descriptive alt text under 125 chars", "image_subject": "describe main subject for SEO", "web_format_optimal": "Yes/No - suggest WebP if not", "file_size_estimate": "Small/Medium/Large", "search_intent_match": "High/Medium/Low", "accessibility_score": "Good/Fair/Poor", "seo_score": "High/Medium/Low"}}""",
         "about": "Image SEO is crucial for driving organic traffic from Google Images and improving overall page SEO. An AI image SEO checker helps you optimize alt text, format, size, and other factors that affect image search rankings.",
         "uses": [("🌐 Bloggers", "Optimize blog images for Google Images"), ("🛒 E-commerce", "Rank product images in search"), ("🏢 Businesses", "Improve website image SEO"), ("📊 SEO Agencies", "Audit client image optimization")],
-        "related": [("ai-image-seo-analyzer.html", "🚀 SEO Analyzer", "Detailed SEO analysis"), ("ai-image-quality-checker.html", "⭐ Quality Checker", "Check image quality"), ("ai-image-performance-analyzer.html", "⚡ Performance Analyzer", "Web performance analysis"), ("ai-image-analyzer.html", "🔬 Image Analyzer", "Full image analysis")]
+        "related": [("/tools/ai-image-seo-analyzer", "🚀 SEO Analyzer", "Detailed SEO analysis"), ("/tools/ai-image-quality-checker", "⭐ Quality Checker", "Check image quality"), ("/tools/ai-image-performance-analyzer", "⚡ Performance Analyzer", "Web performance analysis"), ("/tools/ai-image-analyzer", "🔬 Image Analyzer", "Full image analysis")]
     },
     {
         "slug": "ai-image-content-checker",
@@ -104,7 +104,7 @@ tools = [
         "prompt": """Analyze the content of this image for safety and appropriateness. Identify what is shown, assess if it is suitable for general audiences, and flag any potentially problematic content. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Safe Content" OR "Potentially Sensitive" OR "Restricted Content" OR "Unsafe Content", "confidence": "High/Medium/Low", "analysis": "2-3 sentences describing the image content and any safety concerns.", "details": {"content_type": "describe main content type", "audience_suitability": "All Ages/Teen+/Adult Only", "nsfw": "None/Mild/Moderate/Explicit", "violence": "None/Mild/Moderate/Graphic", "hate_symbols": "None/Detected", "platform_safe": "Yes/Review Needed/No", "main_objects": "list what is visible"}}""",
         "about": "An AI image content checker automatically analyzes images to determine if they are appropriate for your platform, audience, or use case. Essential for content moderation, user-generated content platforms, and brand safety.",
         "uses": [("📱 Social Platforms", "Moderate user-generated image content"), ("🛒 Marketplaces", "Check product listing images"), ("🎓 Education", "Ensure appropriate content for students"), ("💼 Business", "Maintain brand-safe image libraries")],
-        "related": [("ai-image-moderation-tool.html", "⚖️ Moderation Tool", "Automated moderation"), ("ai-image-content-analyzer.html", "🔎 Content Analyzer", "Deep content analysis"), ("ai-image-compliance-checker.html", "✔️ Compliance Checker", "Policy compliance"), ("ai-image-analyzer.html", "🔬 Image Analyzer", "Full image analysis")]
+        "related": [("/tools/ai-image-moderation-tool", "⚖️ Moderation Tool", "Automated moderation"), ("/tools/ai-image-content-analyzer", "🔎 Content Analyzer", "Deep content analysis"), ("/tools/ai-image-compliance-checker", "✔️ Compliance Checker", "Policy compliance"), ("/tools/ai-image-analyzer", "🔬 Image Analyzer", "Full image analysis")]
     },
     {
         "slug": "ai-image-moderation-tool",
@@ -119,7 +119,7 @@ tools = [
         "prompt": """Perform content moderation analysis on this image. Determine if it violates common platform policies. Check for explicit content, violence, hate speech indicators, spam/scam patterns, or other policy violations. Respond ONLY with valid JSON: {"ai_probability": 0-100, "verdict": "Approved" OR "Review Required" OR "Rejected", "confidence": "High/Medium/Low", "analysis": "2-3 sentences explaining the moderation decision.", "details": {"explicit_content": "None/Low/Medium/High", "violence": "None/Low/Medium/High", "hate_speech_indicators": "None/Possible/Detected", "spam_indicators": "None/Possible/Detected", "policy_violation": "None/Possible/Confirmed", "action": "Approve/Human Review/Remove", "safe_for_all_ages": "Yes/No"}}""",
         "about": "AI image moderation helps platforms automatically screen user-uploaded content at scale. By flagging potentially inappropriate images before human review, it saves time and helps maintain community standards.",
         "uses": [("📱 Social Media", "Screen uploads before they go live"), ("🛒 Marketplaces", "Auto-moderate seller image uploads"), ("🎮 Gaming", "Moderate player-uploaded content"), ("💬 Forums", "Keep community images appropriate")],
-        "related": [("ai-image-content-checker.html", "🛡️ Content Checker", "Content safety check"), ("ai-image-compliance-checker.html", "✔️ Compliance Checker", "Policy compliance"), ("ai-image-scanning-tool.html", "📡 Scanning Tool", "Deep image scan"), ("ai-image-validation-tool.html", "✅ Validation Tool", "Image validation")]
+        "related": [("/tools/ai-image-content-checker", "🛡️ Content Checker", "Content safety check"), ("/tools/ai-image-compliance-checker", "✔️ Compliance Checker", "Policy compliance"), ("/tools/ai-image-scanning-tool", "📡 Scanning Tool", "Deep image scan"), ("/tools/ai-image-validation-tool", "✅ Validation Tool", "Image validation")]
     },
 ]
 
@@ -231,21 +231,21 @@ window.TOOL_PROMPT = `{prompt}`;
       </div>
       <div class="footer-links">
         <h4>Top Tools</h4>
-        <a href="ai-generated-image-checker.html">AI Image Checker</a>
-        <a href="ai-deepfake-checker.html">Deepfake Checker</a>
-        <a href="ai-fake-image-checker.html">Fake Image Checker</a>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-fake-image-checker">Fake Image Checker</a>
       </div>
       <div class="footer-links">
         <h4>Analysis</h4>
-        <a href="ai-image-analyzer.html">Image Analyzer</a>
-        <a href="ai-image-quality-checker.html">Quality Checker</a>
-        <a href="ai-image-seo-checker.html">SEO Checker</a>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
       </div>
       <div class="footer-links">
         <h4>Company</h4>
-        <a href="../about.html">About Us</a>
-        <a href="../privacy.html">Privacy Policy</a>
-        <a href="../terms.html">Terms</a>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
       </div>
     </div>
     <div class="footer-bottom">

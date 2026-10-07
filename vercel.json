@@ -44,6 +44,71 @@
   ],
   "redirects": [
     {
+      "source": "/tools/ai-image-scanning-tool",
+      "destination": "/tools/ai-image-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-content-analyzer",
+      "destination": "/tools/ai-image-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-validation-tool",
+      "destination": "/tools/ai-image-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-inspection-tool",
+      "destination": "/tools/ai-image-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-performance-analyzer",
+      "destination": "/tools/ai-image-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-quality-analyzer",
+      "destination": "/tools/ai-image-quality-checker",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-originality-checker",
+      "destination": "/tools/ai-image-authenticity-checker",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-assessment-tool",
+      "destination": "/tools/ai-image-evaluation-tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-review-tool",
+      "destination": "/tools/ai-image-evaluation-tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-seo-analyzer",
+      "destination": "/tools/ai-image-seo-checker",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-fake-image-checker",
+      "destination": "/tools/ai-generated-image-checker",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-compliance-checker",
+      "destination": "/tools/ai-image-moderation-tool",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-image-content-checker",
+      "destination": "/tools/ai-image-moderation-tool",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

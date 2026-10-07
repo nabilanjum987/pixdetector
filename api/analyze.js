@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: process.env.GROQ_MODEL || 'qwen/qwen3.6-27b',
+        model: process.env.GROQ_MODEL || 'qwen/qwen3.8-27b',
         messages: [
           {
             role: 'user',

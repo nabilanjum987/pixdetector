@@ -14,37 +14,56 @@ export default async function handler(req, res) {
     const GROQ_API_KEY = process.env.GROQ_API_KEY;
     if (!GROQ_API_KEY) return res.status(500).json({ error: 'API key not configured' });
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: process.env.GROQ_MODEL || 'qwen/qwen3.8-27b',
-        messages: [
-          {
-            role: 'user',
-            content: [
-              {
-                type: 'image_url',
-                image_url: { url: `data:${mimeType};base64,${image}` }
-              },
-              {
-                type: 'text',
-                text: prompt
-              }
-            ]
-          }
-        ],
-        max_tokens: 1000,
-        temperature: 0.1
-      })
-    });
+    // Vision models to try, in order. If Groq retires one or the account
+    // lacks access to it, fall through to the next instead of erroring out.
+    const candidateModels = [...new Set([
+      process.env.GROQ_MODEL,
+      'qwen/qwen3.8-27b',
+      'qwen/qwen3.6-27b'
+    ].filter(Boolean))];
 
-    if (!response.ok) {
-      const err = await response.json();
-      return res.status(response.status).json({ error: err.error?.message || 'Groq API error' });
+    let response = null;
+    let lastError = null;
+    for (const model of candidateModels) {
+      response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${GROQ_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            {
+              role: 'user',
+              content: [
+                {
+                  type: 'image_url',
+                  image_url: { url: `data:${mimeType};base64,${image}` }
+                },
+                {
+                  type: 'text',
+                  text: prompt
+                }
+              ]
+            }
+          ],
+          max_tokens: 1000,
+          temperature: 0.1
+        })
+      });
+
+      if (response.ok) break;
+
+      const err = await response.json().catch(() => ({}));
+      lastError = err.error?.message || 'Groq API error';
+      // Only fall through to the next model for model-availability errors.
+      if (!/model|access|not exist|not found/i.test(lastError)) break;
+      response = null;
+    }
+
+    if (!response) {
+      return res.status(502).json({ error: lastError || 'Groq API error' });
     }
 
     const data = await response.json();

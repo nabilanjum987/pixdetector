@@ -32,7 +32,8 @@
     { "@type": "Question", "name": "How do I find my IP on Windows/Mac/iPhone/Android?", "acceptedAnswer": { "@type": "Answer", "text": "For your public IP, open this page on any device — it shows it instantly. For your private (local) IP: on Windows run ipconfig in Command Prompt; on Mac open System Settings, then Network (or run ifconfig); on iPhone or Android open Wi-Fi settings and tap your connected network." } },
     { "@type": "Question", "name": "How do I hide/change my IP?", "acceptedAnswer": { "@type": "Answer", "text": "A VPN or proxy makes websites see a different public IP. Restarting your router often gives you a new dynamic IP. Tor also hides your IP. None of these makes you anonymous on its own — a VPN changes what your provider sees, and shifts some trust to the VPN provider." } },
     { "@type": "Question", "name": "Is it safe to give my IP to support?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for troubleshooting. Support teams ask for it to check your connection and location. An IP alone does not reveal your name, exact address or private files." } },
-    { "@type": "Question", "name": "How do I get just the IP as plain text (curl)?", "acceptedAnswer": { "@type": "Answer", "text": "From a terminal, run curl https://api.ipify.org to print just your public IPv4 address, or curl https://api64.ipify.org for IPv6 when your connection supports it. These are the same free services this page uses." } }
+    { "@type": "Question", "name": "How do I get just the IP as plain text (curl)?", "acceptedAnswer": { "@type": "Answer", "text": "From a terminal, run curl https://api.ipify.org to print just your public IPv4 address, or curl https://api64.ipify.org for IPv6 when your connection supports it. These are the same free services this page uses." } },
+    { "@type": "Question", "name": "Why do two different IP checkers show different results?", "acceptedAnswer": { "@type": "Answer", "text": "Because they can take different paths to you: one may show your IPv4 address and the other your IPv6 address, and they may use different location databases or see you through different network routes (VPN, mobile data, CGNAT). Both addresses are yours — they are just different views of the same connection." } }
   ]
 }
 </script>
@@ -153,6 +154,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <button type="button" class="btn alt" id="refreshIp">Check again</button>
         </div>
         <p class="trust">This page shows your IP in your browser. We do not store it.</p>
+        <p class="trust" id="detectNote">How this was detected: your IPv4 comes from api.ipify.org, your IPv6 from api64.ipify.org, and your location from ipwho.is — free public services called from your browser, nothing stored. Checked at <span id="detectTime">…</span>.</p>
       </div>
       <div class="bc-panel" aria-label="WebRTC leak check">
         <h2>WebRTC leak check</h2>
@@ -297,6 +299,10 @@ curl https://ipinfo.io/ip         # another plain-text option</div>
         <summary>How do I get just the IP as plain text (curl)?</summary>
         <p>From a terminal, run curl https://api.ipify.org to print just your public IPv4 address, or curl https://api64.ipify.org for IPv6 when your connection supports it. These are the same free services this page uses.</p>
       </details>
+      <details class="faq">
+        <summary>Why do two different IP checkers show different results?</summary>
+        <p>Because they can take different paths to you: one may show your IPv4 address while the other shows your IPv6 address, and they may use different location databases or see you through different network routes (VPN, mobile data, CGNAT). Both addresses are yours — they are just different views of the same connection.</p>
+      </details>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -381,6 +387,7 @@ curl https://ipinfo.io/ip         # another plain-text option</div>
       state.ipv4 = ip;
       $("ipValue").textContent = ip;
       $("ipStatus").textContent = "Your public IP address is shown below.";
+      var dt = $("detectTime"); if (dt) dt.textContent = new Date().toLocaleString();
       $("copyIp").disabled = false;
       $("copyAll").disabled = false;
       return fetch("https://ipwho.is/" + encodeURIComponent(ip)).then(function (r2) { return r2.json(); }).then(function (info) {

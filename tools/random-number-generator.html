@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Random Number Generator | PixDetector</title>
+<meta name="description" content="Generate random numbers free in any range — pick how many, allow or block repeats, sort and copy. No signup, instant, private.">
+<meta name="keywords" content="random number generator, random number generator free, generate random numbers, random number picker, random integer generator">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/random-number-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/random-number-generator">
+<meta property="og:title" content="Free Random Number Generator | PixDetector">
+<meta property="og:description" content="Generate random numbers free in any range — pick how many, allow or block repeats, sort and copy. No signup, instant, private.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this random number generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Generate as many numbers as you like with no signup, no payment and no download. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I generate a random number between 1 and 100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Leave the minimum at 1 and the maximum at 100, set how many numbers you want, and press Generate. Both 1 and 100 can come up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get unique numbers with no repeats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 tick \u201cNo repeats\u201d. The tool draws without replacement, so no number appears twice. If you ask for more unique numbers than the range holds, it shows an error instead of cheating."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the minimum or maximum be negative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Any whole numbers work, including negatives, as long as the minimum is not bigger than the maximum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the numbers really random?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are drawn with your browser's secure random source (crypto.getRandomValues) and rejection sampling, so every number in the range has exactly the same chance. Good enough for raffles, games and sampling \u2014 not for cryptography or gambling systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many numbers can I generate at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 100 in one click. Copy them all with one button or download them as a .txt file."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to generate random numbers",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your range",
+      "text": "Enter a minimum and maximum. Both ends are included, and negative numbers work."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose how many",
+      "text": "Pick how many numbers you need, from 1 to 100, and tick No repeats if each number may only appear once."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generate and copy",
+      "text": "Press Generate, then copy all the results or download them as a .txt file."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field{margin-bottom:14px}
+input[type=text],input[type=number],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:12px 14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn.big{font-size:16px;padding:14px 26px;width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-big{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;padding:18px 10px;word-break:break-word;line-height:1.3}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:70px}
+.die-face{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--bg3);border:2px solid var(--border2);font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin:4px}
+.die-face.crit{background:#166534;border-color:#22c55e;color:#fff}
+.die-face.fumble{background:#7f1d1d;border-color:#ef4444;color:#fff}
+.num-chip{display:inline-block;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:6px 12px;font-size:15px;font-weight:600;margin:3px}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{border:2px solid var(--border2);border-radius:8px;padding:6px;cursor:pointer;text-align:center;font-size:12px;color:var(--text2);background:var(--bg2)}
+.thumb.sel{border-color:var(--accent)}
+.thumb canvas{max-width:110px;height:auto;display:block;margin:0 auto 4px}
+.preview-wrap{position:relative;margin-top:14px;border:1px solid var(--border2);border-radius:10px;overflow:hidden;background:#fff}
+.preview-wrap canvas{display:block;width:100%;height:auto}
+.annot{position:absolute;cursor:pointer;border:1px dashed transparent;padding:2px 4px;word-break:break-word}
+.annot:hover,.annot.sel{border-color:var(--accent)}
+.annot img{display:block;max-width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.gcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.gcard img{max-width:100%;height:auto;border-radius:6px;background:#fff}
+.gcard p{font-size:12px;color:var(--text2);margin:8px 0;line-height:1.5;word-break:break-word}
+.gcard .btn{padding:7px 12px;font-size:12px}
+.check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
+.check-row input{width:auto;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Random Number Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Random Number Generator</h1>
+      <p>Generate one or many random numbers in any range you choose, with an option for unique numbers only. Free, no signup, instant — and your numbers never leave your browser.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> Every number in your range has exactly equal odds. <strong>“No repeats” cannot give you more unique numbers than the range holds</strong> — that is a maths limit, not a bug. These numbers are for draws, games and sampling, not for cryptography or gambling.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Random number generator">
+        <h2>Generate random numbers</h2>
+        <div class="field"><label class="flabel" for="rngMin">Minimum</label><input type="number" id="rngMin" value="1" step="1"></div>
+        <div class="field"><label class="flabel" for="rngMax">Maximum</label><input type="number" id="rngMax" value="100" step="1"></div>
+        <div class="field"><label class="flabel" for="rngCount">How many numbers (1\u2013100)</label><input type="number" id="rngCount" value="1" min="1" max="100" step="1"></div>
+        <label class="check-row"><input type="checkbox" id="rngUnique"> No repeats (unique numbers only)</label>
+        <label class="check-row"><input type="checkbox" id="rngSort"> Sort results smallest first</label>
+        <div class="actions"><button type="button" class="btn big" id="rngGo">Generate</button></div>
+        <p class="hint">Both ends are included: 1 to 100 can give you 1 or 100. Negative numbers work too.</p>
+      </div>
+      <div class="bc-panel" aria-label="Results">
+        <h2>Results</h2>
+        <div class="result-box" id="rngOut"><p class="status">Your numbers will appear here.</p></div>
+        <p class="status" id="rngStats"></p>
+        <div class="actions">
+          <button type="button" class="btn alt" id="rngCopy" disabled>Copy all</button>
+          <button type="button" class="btn alt" id="rngDl" disabled>Download .txt</button>
+        </div>
+        <p class="trust">Free, no signup. Numbers are drawn with your browser's secure random source.</p>
+      </div>
+    </div>
+
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Generate random numbers free in any range — unique option, copy and download. No signup, instant.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Generate%20random%20numbers%20free%20in%20any%20range%20%E2%80%94%20unique%20option%2C%20copy%20and%20download.%20No%20signup%2C%20instant.&amp;url=https%3A//pixdetector.vercel.app/tools/random-number-generator" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/random-number-generator" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Generate%20random%20numbers%20free%20in%20any%20range%20%E2%80%94%20unique%20option%2C%20copy%20and%20download.%20No%20signup%2C%20instant.%20https%3A//pixdetector.vercel.app/tools/random-number-generator" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+
+      <!-- PROBLEM -->
+      <h2>The problem: "random" tools that are not random enough to trust</h2>
+      <p>People reach for a random number generator for things that matter a little — a raffle draw, a lottery-style pick, a classroom sample, a game. The complaints that follow them around are familiar: tools that only generate one number at a time, tools that quietly allow repeats when you needed unique numbers, tools that cap the count at a uselessly small number, and tools buried under ads. The other complaint is subtler — people are not sure the numbers are fair at all, because the tool never says how it picks them. What people want is plain: any range, as many numbers as they need, a clear unique option, and an honest statement about how the numbers are drawn.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I generate a random number?</h2>
+      <p>Enter a minimum and a maximum, choose how many numbers you need, and press Generate — free, with no signup, and the numbers appear instantly in your browser. Both ends of the range are included, so 1 to 100 can give you 1 or 100. Tick "No repeats" for a lottery-style draw where no number may appear twice, and "Sort results" if you want them in order. Every number in your range has exactly the same chance of being picked.</p>
+      <p>A random number generator is a tool that picks numbers from a range with no pattern and no memory. This one draws each number from your browser's secure random source, crypto.getRandomValues, using rejection sampling — a method that throws away the few raw values that would favour smaller numbers — so every number in the range has exactly equal odds.</p>
+      <!-- HOW TO -->
+      <h2>How to generate random numbers in 3 steps</h2>
+      <p><strong>Step 1:</strong> set your minimum and maximum — negative numbers work, so -50 to 50 is fine. <strong>Step 2:</strong> choose how many numbers you need (1 to 100) and tick "No repeats" if each number may only appear once. <strong>Step 3:</strong> press Generate, then copy all the results or download them as a .txt file.</p>
+      <h2>When to allow repeats — and when not to</h2>
+      <p>Allow repeats when each draw is independent, like rolling a die again or simulating coin flips. Block repeats ("No repeats") when you are drawing winners, lottery numbers or a sample — anywhere the same number appearing twice would be wrong. If you ask for more unique numbers than the range holds, for example 7 unique numbers between 1 and 6, the tool tells you plainly instead of silently giving you repeats. That is a maths limit, not a bug: there are only 6 numbers to draw from.</p>
+      <h2>Are these numbers random enough for a raffle?</h2>
+      <p>Yes, for everyday draws — raffles, giveaways, classroom picks, games and sampling. The generator uses the same class of randomness browsers use for passwords and encryption keys, which is far stronger than the plain Math.random used by most simple tools. It is not suitable for cryptography, gambling systems or security keys: for those you need a dedicated cryptographic tool, and no web page generator should be trusted with that job.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this random number generator really free?</summary><p>Yes. Generate as many numbers as you like with no signup, no payment and no download. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>How do I generate a random number between 1 and 100?</summary><p>Leave the minimum at 1 and the maximum at 100, set how many numbers you want, and press Generate. Both 1 and 100 can come up.</p></details>
+      <details class="faq"><summary>Can I get unique numbers with no repeats?</summary><p>Yes — tick “No repeats”. The tool draws without replacement, so no number appears twice. If you ask for more unique numbers than the range holds, it shows an error instead of cheating.</p></details>
+      <details class="faq"><summary>Can the minimum or maximum be negative?</summary><p>Yes. Any whole numbers work, including negatives, as long as the minimum is not bigger than the maximum.</p></details>
+      <details class="faq"><summary>Are the numbers really random?</summary><p>They are drawn with your browser's secure random source (crypto.getRandomValues) and rejection sampling, so every number in the range has exactly the same chance. Good enough for raffles, games and sampling — not for cryptography or gambling systems.</p></details>
+      <details class="faq"><summary>How many numbers can I generate at once?</summary><p>Up to 100 in one click. Copy them all with one button or download them as a .txt file.</p></details>
+      
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I generate a random number between 1 and 100?</strong> Yes — that is the default range. Change the minimum and maximum to any whole numbers you like.</p>
+      <p><strong>Can the numbers be negative?</strong> Yes. Set a negative minimum, such as -50 to 50, and the draw includes negative numbers.</p>
+      <p><strong>What does "no repeats" do?</strong> It draws each number only once, like pulling names from a hat. You cannot ask for more unique numbers than the range holds.</p>
+      <p><strong>Are the numbers really random?</strong> They come from your browser's secure random source with rejection sampling, so every number in the range has exactly equal odds. Each draw is independent of the last.</p>
+
+    </div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/dice-roller" class="related-card"><h4>🎲 Dice Roller</h4><p>Roll d4 to d20 free</p></a><a href="/tools/spin-the-wheel" class="related-card"><h4>🎰 Spin the Wheel</h4><p>Fair random picker</p></a><a href="/tools/random-name-picker" class="related-card"><h4>🎲 Random Name Picker</h4><p>Pick from your own list</p></a><a href="/tools/team-name-generator" class="related-card"><h4>👥 Team Name Generator</h4><p>Name your team</p></a></div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+
+(function () {
+  function toast(msg) { var t = document.getElementById("toast"); if (!t) return; t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  window.__pdToast = toast;
+  var cl = document.getElementById("copyLink");
+  if (cl) cl.addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); });
+  var cs = document.getElementById("copyShareLine");
+  if (cs) cs.addEventListener("click", function () { var el = document.querySelector(".share-line"); if (el && navigator.clipboard) navigator.clipboard.writeText(el.textContent + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); });
+})();
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var toast = window.__pdToast || function () {};
+  var last = [];
+  function secureInt(min, max) {
+    var range = max - min + 1;
+    if (window.crypto && crypto.getRandomValues) {
+      var a = new Uint32Array(1), limit = Math.floor(4294967296 / range) * range;
+      do { crypto.getRandomValues(a); } while (a[0] >= limit);
+      return min + (a[0] % range);
+    }
+    return min + Math.floor(Math.random() * range);
+  }
+  function saveBlob(blob, name) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400); }
+  $("rngGo").addEventListener("click", function () {
+    var min = parseInt($("rngMin").value, 10), max = parseInt($("rngMax").value, 10), count = parseInt($("rngCount").value, 10);
+    var out = $("rngOut"), stats = $("rngStats");
+    if (isNaN(min) || isNaN(max)) { out.innerHTML = '<p class="err">Enter a minimum and a maximum.</p>'; return; }
+    if (min > max) { out.innerHTML = '<p class="err">The minimum is bigger than the maximum. Swap them round.</p>'; return; }
+    if (isNaN(count) || count < 1) count = 1;
+    if (count > 100) count = 100;
+    var unique = $("rngUnique").checked, size = max - min + 1;
+    if (unique && count > size) { out.innerHTML = '<p class="err">You asked for ' + count + ' unique numbers, but the range ' + min + ' to ' + max + ' only holds ' + size + '. Lower the count or widen the range.</p>'; return; }
+    var res = [];
+    if (unique) {
+      var pool = []; for (var v = min; v <= max; v++) pool.push(v);
+      for (var i = pool.length - 1; i > 0; i--) { var j = secureInt(0, i); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+      res = pool.slice(0, count);
+    } else {
+      for (var k = 0; k < count; k++) res.push(secureInt(min, max));
+    }
+    if ($("rngSort").checked) res.sort(function (a, b) { return a - b; });
+    last = res;
+    out.innerHTML = res.map(function (n) { return '<span class="num-chip">' + n + '</span>'; }).join("");
+    var sum = res.reduce(function (a, b) { return a + b; }, 0);
+    var mean = (sum / res.length).toFixed(2);
+    stats.textContent = res.length + " number" + (res.length === 1 ? "" : "s") + " between " + min + " and " + max + "  \u00b7  Smallest " + Math.min.apply(null, res) + "  \u00b7  Largest " + Math.max.apply(null, res) + "  \u00b7  Average " + mean;
+    $("rngCopy").disabled = false; $("rngDl").disabled = false;
+  });
+  $("rngCopy").addEventListener("click", function () {
+    if (!last.length) return;
+    if (navigator.clipboard) navigator.clipboard.writeText(last.join(", ")).then(function () { toast("Numbers copied."); }, function () { toast("Copy was blocked."); });
+  });
+  $("rngDl").addEventListener("click", function () {
+    if (!last.length) return;
+    saveBlob(new Blob([last.join("\n")], { type: "text/plain;charset=utf-8" }), "random-numbers.txt");
+    toast("Numbers downloaded.");
+  });
+})();
+
+</script>
+</body>
+</html>

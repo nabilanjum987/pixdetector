@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free PDF Editor — Add Text &amp; Sign Online | PixDetector</title>
+<meta name="description" content="Edit a PDF free in your browser — add text, draw a signature, rotate and reorder pages. No signup, no upload, no watermark.">
+<meta name="keywords" content="pdf editor, pdf editor free, edit pdf online, free pdf editor, sign pdf online, add text to pdf">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/pdf-editor">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/pdf-editor">
+<meta property="og:title" content="Free PDF Editor — Add Text &amp; Sign Online | PixDetector">
+<meta property="og:description" content="Edit a PDF free in your browser — add text, draw a signature, rotate and reorder pages. No signup, no upload, no watermark.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this PDF editor really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add text, sign, rotate, reorder and delete pages with no signup, no payment, no watermark and no page limit on this page. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change the text that is already in my PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A PDF stores finished pages, not an editable document, so this editor cannot reflow or rewrite existing text. It adds new text, signatures and page changes on top. To change existing wording, convert the PDF to Word first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I sign a PDF here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Draw your signature on the pad, or type your name for a script-style signature, press \u201cUse this signature\u201d, then click on the page where it should go. Download the PDF and the signature is part of the file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate or reorder pages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Select a page and rotate it left or right in 90-degree steps, move it up or down, or delete it. The download keeps your new page order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my PDF uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the signature legally valid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The signature is a visible image on the page, like a scanned handwritten signature. It is not a certified digital signature with cryptographic proof, so for contracts that need formal e-signing, use a dedicated e-signature service."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to edit a PDF online",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your PDF",
+      "text": "Choose a PDF file. It is read in your browser and never uploaded."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Add text or a signature",
+      "text": "Click on the page preview to place text or your drawn or typed signature."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Fix the pages",
+      "text": "Rotate sideways pages, move pages up or down, or delete pages you do not need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download the edited PDF",
+      "text": "Press Download edited PDF and save the new file."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field{margin-bottom:14px}
+input[type=text],input[type=number],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:12px 14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn.big{font-size:16px;padding:14px 26px;width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-big{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;padding:18px 10px;word-break:break-word;line-height:1.3}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:70px}
+.die-face{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--bg3);border:2px solid var(--border2);font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin:4px}
+.die-face.crit{background:#166534;border-color:#22c55e;color:#fff}
+.die-face.fumble{background:#7f1d1d;border-color:#ef4444;color:#fff}
+.num-chip{display:inline-block;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:6px 12px;font-size:15px;font-weight:600;margin:3px}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{border:2px solid var(--border2);border-radius:8px;padding:6px;cursor:pointer;text-align:center;font-size:12px;color:var(--text2);background:var(--bg2)}
+.thumb.sel{border-color:var(--accent)}
+.thumb canvas{max-width:110px;height:auto;display:block;margin:0 auto 4px}
+.preview-wrap{position:relative;margin-top:14px;border:1px solid var(--border2);border-radius:10px;overflow:hidden;background:#fff}
+.preview-wrap canvas{display:block;width:100%;height:auto}
+.annot{position:absolute;cursor:pointer;border:1px dashed transparent;padding:2px 4px;word-break:break-word}
+.annot:hover,.annot.sel{border-color:var(--accent)}
+.annot img{display:block;max-width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.gcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.gcard img{max-width:100%;height:auto;border-radius:6px;background:#fff}
+.gcard p{font-size:12px;color:var(--text2);margin:8px 0;line-height:1.5;word-break:break-word}
+.gcard .btn{padding:7px 12px;font-size:12px}
+.check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
+.check-row input{width:auto;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      PDF Editor
+    </div>
+    <div class="tool-page-header">
+      <h1>Free PDF Editor</h1>
+      <p>Edit a PDF free in your browser — add text, draw or type a signature, rotate pages and reorder them, then download the edited PDF. No signup, no upload, no watermark.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> This editor <strong>adds new content on top of your PDF</strong> — it <strong>cannot reflow or edit the text already in the document</strong>. A drawn signature is a visible image, not a certified digital signature. Your file never leaves your device.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="PDF editor">
+        <h2>1. Upload your PDF</h2>
+        <label class="flabel" for="peFile">Choose a PDF file</label>
+        <input type="file" id="peFile" accept="application/pdf,.pdf">
+        <div class="drop" id="peDrop">Or drag and drop your PDF here.<br>It is read in your browser \u2014 nothing is uploaded.</div>
+        <p class="status" id="peStatus">No file chosen yet.</p>
+        <p class="err" id="peError" role="alert" hidden></p>
+        <h2 style="margin-top:20px">2. Edit the selected page</h2>
+        <span class="flabel">Tool</span>
+        <div class="chips" id="peToolChips">
+          <button type="button" class="chip" data-tool="text" aria-pressed="true">Add text</button>
+          <button type="button" class="chip" data-tool="sig" aria-pressed="false">Add signature</button>
+        </div>
+        <div id="peTextOpts" style="margin-top:14px">
+          <div class="field"><label class="flabel" for="peText">Text to add</label><input type="text" id="peText" value="Approved" autocomplete="off"></div>
+          <div class="field"><label class="flabel" for="peSize">Text size (points)</label><input type="number" id="peSize" value="16" min="8" max="72" step="1"></div>
+          <div class="field"><label class="flabel" for="peColor">Text colour</label><input type="color" id="peColor" value="#111111" style="width:60px;height:36px;padding:2px"></div>
+          <p class="hint">With "Add text" active, click on the page preview to place the text there.</p>
+        </div>
+        <div id="peSigOpts" style="margin-top:14px" hidden>
+          <label class="flabel">Draw your signature</label>
+          <canvas id="peSigPad" width="300" height="120" style="background:#fff;border:1px solid var(--border2);border-radius:10px;max-width:100%;touch-action:none"></canvas>
+          <div class="actions">
+            <button type="button" class="btn alt" id="peSigClear">Clear</button>
+            <button type="button" class="btn alt" id="peSigType">Type it instead</button>
+            <button type="button" class="btn" id="peSigUse">Use this signature</button>
+          </div>
+          <div class="field" style="margin-top:10px"><label class="flabel" for="peSigName">Name for typed signature</label><input type="text" id="peSigName" value="" placeholder="Type your name" autocomplete="off"></div>
+          <p class="hint" id="peSigState">No signature set yet. Draw one above, or type your name and press "Type it instead", then "Use this signature". Then click on the page preview to place it.</p>
+        </div>
+        <div class="actions" style="margin-top:16px">
+          <button type="button" class="btn alt" id="peRotL" disabled>\u21ba Rotate left</button>
+          <button type="button" class="btn alt" id="peRotR" disabled>Rotate right \u21bb</button>
+          <button type="button" class="btn alt" id="peMoveUp" disabled>Move page up</button>
+          <button type="button" class="btn alt" id="peMoveDown" disabled>Move page down</button>
+          <button type="button" class="btn alt" id="peDelPage" disabled>Delete page</button>
+        </div>
+        <p class="hint">Click an added text box or signature on the preview to select it, then press Delete on your keyboard or the button below to remove it.</p>
+        <div class="actions"><button type="button" class="btn alt" id="peDelAnnot" disabled>Remove selected item</button></div>
+        <div class="actions" style="margin-top:16px"><button type="button" class="btn big" id="peDownload" disabled>Download edited PDF</button></div>
+        <p class="trust">Free, no signup, no watermark. Your PDF never leaves your device.</p>
+      </div>
+      <div class="bc-panel" aria-label="Page preview">
+        <h2>Pages <span id="pePageLabel" style="color:var(--text2);font-weight:400"></span></h2>
+        <div class="thumb-strip" id="peThumbs"></div>
+        <div class="preview-wrap" id="pePreviewWrap" hidden>
+          <canvas id="pePreview"></canvas>
+          <div id="peOverlay" style="position:absolute;inset:0"></div>
+        </div>
+        <p class="status" id="pePreviewNote">Upload a PDF to see its pages here.</p>
+      </div>
+    </div>
+
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Edit a PDF free in your browser — add text, sign, rotate and reorder pages. No signup, no upload.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Edit%20a%20PDF%20free%20in%20your%20browser%20%E2%80%94%20add%20text%2C%20sign%2C%20rotate%20and%20reorder%20pages.%20No%20signup%2C%20no%20upload.&amp;url=https%3A//pixdetector.vercel.app/tools/pdf-editor" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/pdf-editor" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Edit%20a%20PDF%20free%20in%20your%20browser%20%E2%80%94%20add%20text%2C%20sign%2C%20rotate%20and%20reorder%20pages.%20No%20signup%2C%20no%20upload.%20https%3A//pixdetector.vercel.app/tools/pdf-editor" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+
+      <!-- PROBLEM -->
+      <h2>The problem: editing a PDF means paying Adobe or uploading your life</h2>
+      <p>Someone sends you a form, a contract or a letter as a PDF, and all you need is to add a few words, sign it, and fix one sideways page. The usual route is miserable: the big-name editors want an account and a subscription, the "free" ones upload your document to a server and stamp a watermark on the download, and the desktop apps cost money for a two-minute job. People ask the same questions again and again on forums and help threads: is there a PDF editor that is actually free, can I sign a PDF without printing it, and will my document stay private? What they want is a small, honest editor — add text, sign, rotate, reorder — with no account and no upload.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I edit a PDF for free?</h2>
+      <p>Upload your PDF here, click on any page to add text or place your drawn or typed signature, rotate or reorder pages as needed, then download the edited PDF — free, with no signup, no watermark and no upload, because everything runs in your browser. A PDF editor is a tool that adds new content on top of a PDF — text boxes, a signature image, a new page order — and saves the result as a new PDF file.</p>
+      <p>This toolkit is built on pdf-lib, a library that rebuilds your PDF in your own browser. Your original file is never sent anywhere, and the downloaded file is a real PDF that opens in any reader. It cannot reflow or edit the text that is already in the document — a PDF stores finished pages, not an editable document — so if you need to change existing wording, convert the file to Word first and make a new PDF from there.</p>
+      <!-- HOW TO -->
+      <h2>How to edit a PDF in 4 steps</h2>
+      <p><strong>Step 1:</strong> upload your PDF (or drag it onto the drop zone). <strong>Step 2:</strong> click a page thumbnail to select it, then click on the preview to place text or your signature — draw your signature on the pad, or type your name for a script-style signature. <strong>Step 3:</strong> rotate a sideways page, move pages up or down, or delete a page you do not need. <strong>Step 4:</strong> press Download edited PDF and save the new file.</p>
+      <h2>What this editor can and cannot do</h2>
+      <p>It can add text boxes in a size and colour you choose, place a drawn or typed signature anywhere on a page, rotate pages by 90 degrees, reorder pages, and delete pages. It cannot change, delete or reflow the text that is already printed in the PDF — that text is baked into the page, and no browser editor can rewrite it as if it were a Word document. White-out is not included either: covering old text with a white box only hides it visually, it does not remove it from the file. For forms, adding text over the blank lines works well; for changing existing wording, use the <a href="/tools/pdf-to-word-converter">PDF to Word converter</a> instead.</p>
+      <h2>Is my PDF private here?</h2>
+      <p>Yes. The file is read with pdf.js and rebuilt with pdf-lib entirely in your browser. Nothing is uploaded, stored or shared, and there is no account that could keep a copy. That is the right setup for contracts, forms and personal documents. One honest note: a signature drawn here is an image on the page, not a certified digital signature — it looks and prints like a signature, but it does not carry the cryptographic proof a formal e-signature service provides.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this PDF editor really free?</summary><p>Yes. Add text, sign, rotate, reorder and delete pages with no signup, no payment, no watermark and no page limit on this page. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>Can I change the text that is already in my PDF?</summary><p>No. A PDF stores finished pages, not an editable document, so this editor cannot reflow or rewrite existing text. It adds new text, signatures and page changes on top. To change existing wording, convert the PDF to Word first.</p></details>
+      <details class="faq"><summary>How do I sign a PDF here?</summary><p>Draw your signature on the pad, or type your name for a script-style signature, press “Use this signature”, then click on the page where it should go. Download the PDF and the signature is part of the file.</p></details>
+      <details class="faq"><summary>Can I rotate or reorder pages?</summary><p>Yes. Select a page and rotate it left or right in 90-degree steps, move it up or down, or delete it. The download keeps your new page order.</p></details>
+      <details class="faq"><summary>Is my PDF uploaded to a server?</summary><p>No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared.</p></details>
+      <details class="faq"><summary>Is the signature legally valid?</summary><p>The signature is a visible image on the page, like a scanned handwritten signature. It is not a certified digital signature with cryptographic proof, so for contracts that need formal e-signing, use a dedicated e-signature service.</p></details>
+      
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I edit a PDF for free without Adobe?</strong> Yes — this page adds text, a signature, rotation and reordering free in your browser, no Adobe account needed.</p>
+      <p><strong>Can I change the text already in my PDF?</strong> No. This editor adds new content on top; it cannot reflow or rewrite existing text. Convert to Word to change the wording.</p>
+      <p><strong>Can I sign a PDF here?</strong> Yes — draw your signature or type your name, place it on the page, and download. It is a visible signature image, not a certified digital signature.</p>
+      <p><strong>Is my PDF uploaded to a server?</strong> No. Everything runs in your browser with pdf.js and pdf-lib. Your file never leaves your device.</p>
+
+    </div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/rotate-pdf" class="related-card"><h4>🔄 Rotate PDF</h4><p>Fix sideways PDF pages</p></a><a href="/tools/extract-images-from-pdf" class="related-card"><h4>🖼️ Extract Images from PDF</h4><p>Save embedded images</p></a><a href="/tools/pdf-to-word-converter" class="related-card"><h4>📄 PDF to Word Converter</h4><p>Convert PDF to Word</p></a><a href="/tools/online-signature-generator" class="related-card"><h4>✍️ Signature Generator</h4><p>Create a signature</p></a></div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+
+(function () {
+  function toast(msg) { var t = document.getElementById("toast"); if (!t) return; t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  window.__pdToast = toast;
+  var cl = document.getElementById("copyLink");
+  if (cl) cl.addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); });
+  var cs = document.getElementById("copyShareLine");
+  if (cs) cs.addEventListener("click", function () { var el = document.querySelector(".share-line"); if (el && navigator.clipboard) navigator.clipboard.writeText(el.textContent + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); });
+})();
+
+function __pdLoadScript(src) {
+  return new Promise(function (resolve, reject) {
+    if (document.querySelector('script[src="' + src + '"]')) { resolve(); return; }
+    var s = document.createElement("script"); s.src = src; s.onload = function () { resolve(); }; s.onerror = function () { reject(new Error("Could not load " + src)); };
+    document.head.appendChild(s);
+  });
+}
+function __pdLoadPdfJs() {
+  if (typeof pdfjsLib !== "undefined") return Promise.resolve();
+  return __pdLoadScript("../js/pdf.min.js").then(function () {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "../js/pdf.worker.min.js";
+  });
+}
+function __pdLoadPdfLib() {
+  if (typeof PDFLib !== "undefined") return Promise.resolve();
+  return __pdLoadScript("../js/pdf-lib.min.js");
+}
+function __pdSaveBlob(blob, name) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400); }
+function __pdHexRgb(hex) { var h = hex.replace("#", ""); return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255 }; }
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var toast = window.__pdToast || function () {};
+  var pdfBytes = null, pdfDoc = null, baseName = "edited";
+  var pages = []; // {orig (1-based), rot (added deg), annots: [{type,x,y,text,size,color} | {type:'sig',x,y,wFrac,dataUrl}]}
+  var sel = 0, tool = "text", sigDataUrl = null, selAnnot = -1, pageW = 0, pageH = 0;
+  function err(m) { var e = $("peError"); e.hidden = false; e.textContent = m; }
+  function clearErr() { $("peError").hidden = true; }
+  function setStatus(m) { $("peStatus").textContent = m; }
+
+  /* ---------- signature pad ---------- */
+  var pad = $("peSigPad"), pctx = pad.getContext("2d"), drawing = false, padTouched = false;
+  pctx.lineWidth = 2.5; pctx.lineCap = "round"; pctx.strokeStyle = "#111";
+  function padPos(e) { var r = pad.getBoundingClientRect(); var t = e.touches ? e.touches[0] : e; return { x: (t.clientX - r.left) * pad.width / r.width, y: (t.clientY - r.top) * pad.height / r.height }; }
+  pad.addEventListener("pointerdown", function (e) { drawing = true; padTouched = true; var p = padPos(e); pctx.beginPath(); pctx.moveTo(p.x, p.y); e.preventDefault(); });
+  pad.addEventListener("pointermove", function (e) { if (!drawing) return; var p = padPos(e); pctx.lineTo(p.x, p.y); pctx.stroke(); });
+  window.addEventListener("pointerup", function () { drawing = false; });
+  $("peSigClear").addEventListener("click", function () { pctx.clearRect(0, 0, pad.width, pad.height); padTouched = false; });
+  $("peSigType").addEventListener("click", function () {
+    var name = $("peSigName").value.trim();
+    if (!name) { toast("Type your name first."); return; }
+    pctx.clearRect(0, 0, pad.width, pad.height);
+    pctx.font = "52px 'Brush Script MT','Segoe Script',cursive"; pctx.fillStyle = "#111";
+    pctx.fillText(name, 12, 78); padTouched = true;
+  });
+  $("peSigUse").addEventListener("click", function () {
+    if (!padTouched) { toast("Draw or type a signature first."); return; }
+    sigDataUrl = pad.toDataURL("image/png");
+    $("peSigState").textContent = "Signature ready. Click on the page preview to place it.";
+    toast("Signature ready \u2014 click the page to place it.");
+  });
+
+  /* ---------- tools ---------- */
+  $("peToolChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    tool = b.getAttribute("data-tool");
+    var chips = this.querySelectorAll(".chip");
+    for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", chips[i] === b ? "true" : "false");
+    $("peTextOpts").hidden = tool !== "text";
+    $("peSigOpts").hidden = tool !== "sig";
+  });
+
+  /* ---------- file loading ---------- */
+  function setFile(f) {
+    clearErr();
+    if (!f) return;
+    if (!/\.pdf$/i.test(f.name) && f.type !== "application/pdf") { err("Please choose a PDF file."); return; }
+    setStatus("Reading your PDF\u2026");
+    var reader = new FileReader();
+    reader.onload = function () {
+      pdfBytes = reader.result;
+      baseName = f.name.replace(/\.pdf$/i, "") || "document";
+      __pdLoadPdfJs().then(function () {
+        return pdfjsLib.getDocument({ data: new Uint8Array(pdfBytes) }).promise;
+      }).then(function (pdf) {
+        pdfDoc = pdf;
+        pages = [];
+        for (var i = 1; i <= pdf.numPages; i++) pages.push({ orig: i, rot: 0, annots: [] });
+        sel = 0;
+        setStatus("Loaded: " + f.name + " (" + pdf.numPages + " page" + (pdf.numPages === 1 ? "" : "s") + "). Click a page, then add text or a signature.");
+        ["peRotL", "peRotR", "peMoveUp", "peMoveDown", "peDelPage", "peDownload"].forEach(function (id) { $(id).disabled = false; });
+        renderThumbs(); renderPreview();
+      }).catch(function (e) {
+        setStatus("Could not read this PDF.");
+        err("Could not read this PDF (" + (e && e.message ? e.message : "unknown error") + "). It may be damaged or password-protected.");
+      });
+    };
+    reader.readAsArrayBuffer(f);
+  }
+  $("peFile").addEventListener("change", function () { setFile(this.files[0]); });
+  var dz = $("peDrop");
+  dz.addEventListener("dragover", function (e) { e.preventDefault(); dz.classList.add("over"); });
+  dz.addEventListener("dragleave", function () { dz.classList.remove("over"); });
+  dz.addEventListener("drop", function (e) { e.preventDefault(); dz.classList.remove("over"); if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]); });
+
+  /* ---------- rendering ---------- */
+  function renderThumbs() {
+    var strip = $("peThumbs"); strip.innerHTML = "";
+    pages.forEach(function (pg, idx) {
+      var d = document.createElement("div");
+      d.className = "thumb" + (idx === sel ? " sel" : "");
+      var c = document.createElement("canvas");
+      var label = document.createElement("div");
+      label.textContent = "Page " + (idx + 1) + (pg.rot ? " \u00b7 " + pg.rot + "\u00b0" : "") + (pg.annots.length ? " \u00b7 " + pg.annots.length + " item" + (pg.annots.length === 1 ? "" : "s") : "");
+      d.appendChild(c); d.appendChild(label);
+      d.addEventListener("click", function () { sel = idx; selAnnot = -1; renderThumbs(); renderPreview(); });
+      strip.appendChild(d);
+      pdfDoc.getPage(pg.orig).then(function (page) {
+        var vp = page.getViewport({ scale: 0.22, rotation: (page.getViewport({ scale: 1 }).rotation || 0) + pg.rot });
+        c.width = vp.width; c.height = vp.height;
+        page.render({ canvasContext: c.getContext("2d"), viewport: vp });
+      });
+    });
+  }
+  function renderPreview() {
+    if (!pages.length) return;
+    var pg = pages[sel];
+    $("pePageLabel").textContent = "\u2014 page " + (sel + 1) + " of " + pages.length + " (original page " + pg.orig + ")";
+    pdfDoc.getPage(pg.orig).then(function (page) {
+      var base = page.getViewport({ scale: 1 });
+      pageW = base.width; pageH = base.height;
+      var scale = 640 / pageW;
+      var vp = page.getViewport({ scale: scale, rotation: (base.rotation || 0) + pg.rot });
+      var cv = $("pePreview");
+      cv.width = vp.width; cv.height = vp.height;
+      $("pePreviewWrap").hidden = false;
+      page.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise.then(function () { renderOverlay(); });
+      $("pePreviewNote").textContent = "Click on the preview to place " + (tool === "text" ? "your text" : "your signature") + " there. Click an existing item to select it.";
+    });
+  }
+  function renderOverlay() {
+    var ov = $("peOverlay"); ov.innerHTML = "";
+    var cv = $("pePreview");
+    var cssW = cv.clientWidth || cv.width;
+    var pg = pages[sel];
+    pg.annots.forEach(function (a, idx) {
+      var el = document.createElement("div");
+      el.className = "annot" + (idx === selAnnot ? " sel" : "");
+      el.style.left = (a.x * 100) + "%"; el.style.top = (a.y * 100) + "%";
+      if (a.type === "text") {
+        el.textContent = a.text;
+        el.style.color = a.color;
+        el.style.fontSize = Math.max(8, a.size * cssW / pageW) + "px";
+        el.style.fontFamily = "'DM Sans',sans-serif";
+        el.style.transform = "translateY(-100%)";
+      } else {
+        var img = document.createElement("img");
+        img.src = a.dataUrl; img.style.width = (a.wFrac * cssW) + "px";
+        el.appendChild(img);
+      }
+      el.addEventListener("click", function (e) { e.stopPropagation(); selAnnot = idx; $("peDelAnnot").disabled = false; renderOverlay(); });
+      ov.appendChild(el);
+    });
+    $("peDelAnnot").disabled = selAnnot < 0;
+  }
+  $("pePreviewWrap").addEventListener("click", function (e) {
+    if (!pages.length) return;
+    var r = $("pePreview").getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    var pg = pages[sel];
+    if (tool === "text") {
+      var t = $("peText").value.trim();
+      if (!t) { toast("Type the text to add first."); return; }
+      pg.annots.push({ type: "text", x: x, y: y, text: t, size: parseInt($("peSize").value, 10) || 16, color: $("peColor").value });
+    } else {
+      if (!sigDataUrl) { toast("Set up your signature first (draw it, then \u201cUse this signature\u201d)."); return; }
+      pg.annots.push({ type: "sig", x: x, y: y, wFrac: 0.35, dataUrl: sigDataUrl });
+    }
+    selAnnot = -1; renderOverlay(); renderThumbs();
+  });
+  $("peDelAnnot").addEventListener("click", function () {
+    if (selAnnot < 0) return;
+    pages[sel].annots.splice(selAnnot, 1); selAnnot = -1; renderOverlay(); renderThumbs();
+  });
+  document.addEventListener("keydown", function (e) {
+    if ((e.key === "Delete" || e.key === "Backspace") && selAnnot >= 0 && document.activeElement && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+      pages[sel].annots.splice(selAnnot, 1); selAnnot = -1; renderOverlay(); renderThumbs();
+    }
+  });
+
+  /* ---------- page ops ---------- */
+  function rotateSel(d) { if (!pages.length) return; pages[sel].rot = (pages[sel].rot + d + 360) % 360; renderThumbs(); renderPreview(); }
+  $("peRotL").addEventListener("click", function () { rotateSel(-90); });
+  $("peRotR").addEventListener("click", function () { rotateSel(90); });
+  $("peMoveUp").addEventListener("click", function () { if (sel > 0) { var t = pages[sel - 1]; pages[sel - 1] = pages[sel]; pages[sel] = t; sel--; renderThumbs(); renderPreview(); } });
+  $("peMoveDown").addEventListener("click", function () { if (sel < pages.length - 1) { var t = pages[sel + 1]; pages[sel + 1] = pages[sel]; pages[sel] = t; sel++; renderThumbs(); renderPreview(); } });
+  $("peDelPage").addEventListener("click", function () {
+    if (!pages.length) return;
+    pages.splice(sel, 1);
+    if (sel >= pages.length) sel = pages.length - 1;
+    if (!pages.length) { $("peThumbs").innerHTML = ""; $("pePreviewWrap").hidden = true; $("pePageLabel").textContent = ""; setStatus("All pages deleted. Upload a PDF to start again."); return; }
+    renderThumbs(); renderPreview();
+  });
+
+  /* ---------- download ---------- */
+  $("peDownload").addEventListener("click", function () {
+    if (!pages.length) return;
+    setStatus("Building your edited PDF\u2026");
+    __pdLoadPdfLib().then(function () {
+      return PDFLib.PDFDocument.load(pdfBytes);
+    }).then(function (src) {
+      var out = PDFLib.PDFDocument.create();
+      var fontP = out.embedFont(PDFLib.StandardFonts.Helvetica);
+      var jobs = pages.map(function (pg) {
+        return out.copyPages(src, [pg.orig - 1]).then(function (copied) {
+          var p = copied[0];
+          var origRot = src.getPage(pg.orig - 1).getRotation().angle;
+          p.setRotation(PDFLib.degrees((origRot + pg.rot) % 360));
+          out.addPage(p);
+          return { page: p, pg: pg };
+        });
+      });
+      return Promise.all(jobs).then(function (done) { return { out: out, done: done, fontP: fontP }; });
+    }).then(function (ctx) {
+      return ctx.fontP.then(function (font) {
+        var sigJobs = [];
+        ctx.done.forEach(function (d) {
+          var p = d.page, pg = d.pg;
+          var w = p.getWidth(), h = p.getHeight();
+          pg.annots.forEach(function (a) {
+            if (a.type === "text") {
+              var c = __pdHexRgb(a.color);
+              p.drawText(a.text, { x: a.x * w, y: (1 - a.y) * h - a.size, size: a.size, font: font, color: PDFLib.rgb(c.r, c.g, c.b) });
+            } else {
+              sigJobs.push(out_embedSig(ctx.out, p, a, w, h));
+            }
+          });
+        });
+        return Promise.all(sigJobs).then(function () { return ctx.out; });
+      });
+    }).then(function (out) { return out.save(); }).then(function (bytes) {
+      __pdSaveBlob(new Blob([bytes], { type: "application/pdf" }), baseName + "-edited.pdf");
+      setStatus("Done \u2014 your edited PDF has been downloaded.");
+      toast("Edited PDF downloaded.");
+    }).catch(function (e) {
+      setStatus("Download failed.");
+      err("Could not build the edited PDF (" + (e && e.message ? e.message : "unknown error") + "). Try again, or use fewer/smaller edits.");
+    });
+    function out_embedSig(doc, page, a, w, h) {
+      return doc.embedPng(a.dataUrl).then(function (img) {
+        var iw = a.wFrac * w, ih = iw * img.height / img.width;
+        page.drawImage(img, { x: a.x * w, y: (1 - a.y) * h - ih, width: iw, height: ih });
+      });
+    }
+  });
+})();
+
+</script>
+</body>
+</html>

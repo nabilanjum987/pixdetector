@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Gradient Generator — CSS & PNG Export</title>
+<meta name="description" content="Build beautiful gradients free — 2+ colour stops, angle, linear or radial. Copy the CSS or download a PNG. No signup, instant.">
+<meta name="keywords" content="gradient generator, css gradient generator, linear gradient generator, radial gradient, gradient maker free">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/gradient-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/gradient-generator">
+<meta property="og:title" content="Free Gradient Generator — CSS & PNG Export">
+<meta property="og:description" content="Build beautiful gradients free — 2+ colour stops, angle, linear or radial. Copy the CSS or download a PNG. No signup, instant.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this gradient generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Build and export as many gradients as you like \u2014 no signup, no watermark, no upload. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my gradient have a grey middle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers blend in sRGB by default, and the line between opposite colours passes through grey. Add a bright middle stop, pick colours closer in hue, or interpolate in OKLCH with linear-gradient(in oklch \u2026)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between linear and radial gradients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A linear gradient blends along a straight line at an angle you set. A radial gradient blends outward from a centre point, like a glow. Both use the same colour stops."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many colour stops can I add?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 5 stops here \u2014 enough for almost every real design. Two or three colours is the sweet spot; more than that usually looks busy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use the CSS or the PNG download?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the CSS for websites: it stays sharp at any size and adds no image weight. Use the PNG for slides, documents and social posts where CSS is not available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a transparent gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in the CSS by hand \u2014 use an 8-digit hex or rgba() value in a stop. This tool's stops are solid colours; fade to the same colour at zero alpha rather than the transparent keyword, or the middle goes grey."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to create a CSS gradient",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pick your colours",
+      "text": "Start from a preset or set two stops yourself; add up to 5 stops."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Set the direction",
+      "text": "Choose linear or radial, then set the angle for linear gradients."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy or download",
+      "text": "Copy the CSS into your stylesheet, or download the gradient as a PNG."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=number],input[type=text],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=color]{width:44px;height:34px;padding:0;border:1px solid var(--border2);border-radius:8px;background:none;cursor:pointer}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+.preview-img{max-width:100%;max-height:340px;border-radius:10px;display:block;margin:0 auto}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.swatch-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.swatch{width:34px;height:34px;border-radius:8px;border:1px solid var(--border2);cursor:pointer;padding:0}
+.out-row{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.out-row .lab{font-size:12px;font-weight:700;color:var(--text2);width:44px;letter-spacing:.5px}
+.out-row code{flex:1;font-size:15px;color:var(--text);word-break:break-all}
+.out-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.big-swatch{height:110px;border-radius:12px;border:1px solid var(--border2);margin-bottom:14px}
+.slider-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row output{text-align:right;color:var(--text)}
+.canvas-wrap{position:relative;text-align:center}
+.canvas-wrap canvas{max-width:100%;border-radius:10px;cursor:crosshair}
+.code-block{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;font-family:monospace;font-size:13px;color:var(--text);white-space:pre-wrap;word-break:break-all;line-height:1.7}
+.grad-preview{height:180px;border-radius:12px;border:1px solid var(--border2);margin-bottom:14px}
+.stop-row{display:grid;grid-template-columns:44px 1fr 64px 30px;gap:10px;align-items:center;margin-bottom:10px}
+.stop-row input[type=range]{margin:0}
+.stop-row .rm{background:none;border:none;color:#f87171;font-size:18px;cursor:pointer}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:14px}
+.tile-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px;text-align:center}
+.tile-card img{max-width:100%;border-radius:6px;display:block}
+.tile-card p{font-size:11px;color:var(--text2);margin:8px 0}
+.tile-card button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.pos-grid{display:grid;grid-template-columns:repeat(3,44px);gap:6px}
+.pos-grid button{width:44px;height:34px;background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:8px;cursor:pointer;font-size:15px}
+.pos-grid button[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.badge{display:inline-block;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin:2px}
+.badge.pass{background:#065f46;color:#a7f3d0}
+.badge.fail{background:#7f1d1d;color:#fecaca}
+.ratio-big{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;text-align:center;line-height:1.1}
+.ratio-sub{text-align:center;font-size:13px;color:var(--text2);margin-bottom:14px}
+table.facts{width:100%;border-collapse:collapse;font-size:13px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Gradient Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Gradient Generator</h1>
+      <p>Build a smooth gradient — add colour stops, set the angle, pick linear or radial — then copy the CSS or download a PNG.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> The CSS this page copies is a <strong>plain sRGB gradient</strong>, the browser default. Blends between opposite colours (blue to yellow) can go grey in the middle — add a bright middle stop to fix it. The PNG download is a flat 1200×675 snapshot, not a scalable gradient.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Gradient settings">
+        <h2>Your gradient</h2>
+        <div class="grad-preview" id="gradPreview"></div>
+        <span class="flabel">Type</span>
+        <div class="chips" id="typeChips">
+          <button type="button" class="chip" data-type="linear" aria-pressed="true">Linear</button>
+          <button type="button" class="chip" data-type="radial" aria-pressed="false">Radial</button>
+        </div>
+        <div style="margin-top:16px" id="angleRow">
+          <label class="flabel" for="angleInput">Angle: <span id="angleOut">90°</span></label>
+          <input type="range" id="angleInput" min="0" max="360" value="90">
+        </div>
+        <div style="margin-top:16px">
+          <span class="flabel">Colour stops (2–5)</span>
+          <div id="stopList"></div>
+          <div class="actions"><button type="button" class="btn alt" id="addStop">+ Add colour stop</button></div>
+        </div>
+        <span class="flabel" style="margin-top:16px">Presets</span>
+        <div class="chips" id="presetChips">
+          <button type="button" class="chip" data-stops="#FF6B6B,#4ECDC4">Sunset</button>
+          <button type="button" class="chip" data-stops="#667eea,#764ba2">Purple dusk</button>
+          <button type="button" class="chip" data-stops="#11998e,#38ef7d">Ocean green</button>
+          <button type="button" class="chip" data-stops="#f7971e,#ffd200">Warm amber</button>
+          <button type="button" class="chip" data-stops="#2193b0,#6dd5ed">Sky blue</button>
+        </div>
+      </div>
+      <div class="bc-panel" aria-label="Export">
+        <h2>CSS code</h2>
+        <div class="code-block" id="cssOut">background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);</div>
+        <div class="actions">
+          <button type="button" class="btn" id="copyCss">Copy CSS</button>
+          <button type="button" class="btn alt" id="dlPng">Download PNG (1200×675)</button>
+        </div>
+        <p class="trust">Paste the CSS as a <code>background</code> value on any element — a hero, a button, a card. The PNG is the same gradient as a flat image.</p>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Build gradients free — colour stops, angle, linear or radial. Copy the CSS or grab a PNG.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Build%20gradients%20free%20%E2%80%94%20colour%20stops%2C%20angle%2C%20linear%20or%20radial.%20Copy%20the%20CSS%20or%20grab%20a%20PNG.&amp;url=https%3A//pixdetector.vercel.app/tools/gradient-generator" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/gradient-generator" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Build%20gradients%20free%20%E2%80%94%20colour%20stops%2C%20angle%2C%20linear%20or%20radial.%20Copy%20the%20CSS%20or%20grab%20a%20PNG.%20https%3A//pixdetector.vercel.app/tools/gradient-generator" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: your gradient goes grey in the middle</h2>
+      <p>Every developer has lived this one: you pick a beautiful blue and a beautiful yellow, write the gradient, and the middle comes out a muddy grey-brown that belongs in no design system. It is the single most asked-about gradient problem online, and the reason is colour maths — browsers blend in sRGB by default, and the straight line between opposite colours passes through grey. The second frustration is simpler: people know the two colours they want but not the CSS syntax, the angle numbers, or how to add a third stop in the right place. They want to see the blend live, nudge it until it looks right, and copy one line of code that pastes straight into their stylesheet.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I make a CSS gradient for free?</h2>
+      <p>Pick two or more colours here, set each stop's position, choose linear or radial and the angle, then click Copy CSS and paste the line into your stylesheet as a background value. It is free, with no signup, and the preview updates live as you change anything. If the middle of your blend looks grey, add a bright colour stop in the middle — that is the quick fix for the muddy-middle problem — or pick colours closer together on the colour wheel.</p>
+      <p>A CSS gradient is a smooth transition between two or more colours, drawn by the browser itself — no image file is needed. A linear gradient blends along a straight line at an angle (90deg runs left to right); a radial gradient blends outward from a centre point. Each colour stop pairs a colour with a position from 0% to 100% along the blend.</p>
+      <!-- HOW TO -->
+      <h2>How to build a gradient in 3 steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Pick your colours</h3><p>Start from a preset or set two stops yourself. Add up to 5 stops for richer blends.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Set direction</h3><p>Choose linear or radial, then set the angle for linear gradients — 90° runs left to right, 180° top to bottom.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Copy or download</h3><p>Copy the CSS into your stylesheet, or download the gradient as a 1200×675 PNG for slides and social posts.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Why does my gradient look grey or muddy in the middle?</h2>
+      <p>Browsers interpolate gradients in sRGB by default, and the straight line between two opposite colours in RGB space passes through grey — blue (#0000FF) to yellow (#FFFF00) has a midpoint of roughly #808080, literally grey. The fixes, in order: <strong>add a middle stop</strong> with a bright colour between them, which forces the blend through that colour instead of grey; <strong>pick colours closer in hue</strong>; or <strong>interpolate in OKLCH</strong> with <code>linear-gradient(in oklch to right, …)</code>, which follows the perceptual colour wheel and stays vivid (supported in current Chrome, Edge, Firefox and Safari — older browsers ignore the line, so keep a plain sRGB gradient above it as a fallback). A second grey culprit is transparency: the keyword <code>transparent</code> is transparent black, so fading to it passes through grey — fade to the same colour at zero alpha instead, like <code>rgba(0, 0, 0, 0)</code> for black.</p>
+      <h2 style="margin-top:28px">Linear or radial — which one?</h2>
+      <p>Linear gradients suit backgrounds, buttons and overlays: a 90° or 135° diagonal is the classic hero background. Radial gradients suit glows, spotlights and vignettes — a light centre fading outward. Keep it to two or three colours: gradients with many unrelated colours look busy. For text over a gradient, check the contrast at the gradient's worst spot, not its average — run the pair through the <a href="/tools/color-contrast-checker">Color Contrast Checker</a>.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this gradient generator really free?</summary><p>Yes. Build and export as many gradients as you like — no signup, no watermark, no upload. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>Why does my gradient have a grey middle?</summary><p>Browsers blend in sRGB by default, and the line between opposite colours passes through grey. Add a bright middle stop, pick colours closer in hue, or interpolate in OKLCH with linear-gradient(in oklch …).</p></details>
+      <details class="faq"><summary>What is the difference between linear and radial gradients?</summary><p>A linear gradient blends along a straight line at an angle you set. A radial gradient blends outward from a centre point, like a glow. Both use the same colour stops.</p></details>
+      <details class="faq"><summary>How many colour stops can I add?</summary><p>Up to 5 stops here — enough for almost every real design. Two or three colours is the sweet spot; more than that usually looks busy.</p></details>
+      <details class="faq"><summary>Should I use the CSS or the PNG download?</summary><p>Use the CSS for websites: it stays sharp at any size and adds no image weight. Use the PNG for slides, documents and social posts where CSS is not available.</p></details>
+      <details class="faq"><summary>Can I make a transparent gradient?</summary><p>Yes in the CSS by hand — use an 8-digit hex or rgba() value in a stop. This tool's stops are solid colours; fade to the same colour at zero alpha rather than the transparent keyword, or the middle goes grey.</p></details>
+      
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>What angle should a hero gradient use?</strong> 90° (left to right) and 135° (diagonal) are the most common. 180° runs top to bottom and suits overlays on photos.</p>
+      <p><strong>How do I use a gradient on a button?</strong> Paste the CSS as the button's background value. Keep the text contrast at 4.5:1 against the lightest part of the gradient.</p>
+      <p><strong>Why does my gradient look different in Figma?</strong> Figma and browsers interpolate colour differently. Trust the browser preview here — it is what your visitors will see.</p>
+      <p><strong>Can I animate a gradient?</strong> Not directly in CSS, but you can animate the background position of a large gradient. This tool exports a static gradient only.</p>
+    </div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker" class="related-card"><h4>🎨 Color Picker</h4><p>HEX, RGB & HSL codes</p></a><a href="/tools/color-mixer" class="related-card"><h4>🎨 Color Mixer</h4><p>Blend two colours</p></a><a href="/tools/color-contrast-checker" class="related-card"><h4>◐ Contrast Checker</h4><p>WCAG AA/AAA check</p></a><a href="/tools/youtube-thumbnail-maker" class="related-card"><h4>🖼️ Thumbnail Maker</h4><p>YouTube thumbnails free</p></a></div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var type = "linear", angle = 90;
+  var stops = [{ color: "#ff6b6b", pos: 0 }, { color: "#4ecdc4", pos: 100 }];
+  function cssText() {
+    var parts = stops.slice().sort(function (a, b) { return a.pos - b.pos; })
+      .map(function (s) { return s.color.toUpperCase() + " " + s.pos + "%"; }).join(", ");
+    return type === "linear"
+      ? "background: linear-gradient(" + angle + "deg, " + parts + ");"
+      : "background: radial-gradient(circle, " + parts + ");";
+  }
+  function render() {
+    var css = cssText();
+    $("gradPreview").style.background = css.replace(/^background:\s*/, "").replace(/;$/, "");
+    $("cssOut").textContent = css;
+    var list = $("stopList"); list.innerHTML = "";
+    stops.forEach(function (s, i) {
+      var row = document.createElement("div"); row.className = "stop-row";
+      var col = document.createElement("input"); col.type = "color"; col.value = s.color;
+      col.addEventListener("input", function () { s.color = this.value; render(); });
+      var rng = document.createElement("input"); rng.type = "range"; rng.min = 0; rng.max = 100; rng.value = s.pos;
+      rng.addEventListener("input", function () { s.pos = parseInt(this.value, 10); num.value = s.pos; render(); });
+      var num = document.createElement("input"); num.type = "number"; num.min = 0; num.max = 100; num.value = s.pos; num.style.padding = "6px 8px";
+      num.addEventListener("input", function () { s.pos = Math.max(0, Math.min(100, parseInt(this.value, 10) || 0)); render(); });
+      var rm = document.createElement("button"); rm.type = "button"; rm.className = "rm"; rm.textContent = "×"; rm.title = "Remove stop";
+      rm.addEventListener("click", function () {
+        if (stops.length <= 2) { toast("A gradient needs at least 2 stops."); return; }
+        stops.splice(i, 1); render();
+      });
+      row.appendChild(col); row.appendChild(rng); row.appendChild(num); row.appendChild(rm);
+      list.appendChild(row);
+    });
+    $("angleRow").style.display = type === "linear" ? "" : "none";
+  }
+  $("typeChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    type = b.getAttribute("data-type");
+    document.querySelectorAll("#typeChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    render();
+  });
+  $("angleInput").addEventListener("input", function () { angle = parseInt(this.value, 10); $("angleOut").textContent = angle + "°"; render(); });
+  $("addStop").addEventListener("click", function () {
+    if (stops.length >= 5) { toast("Maximum 5 stops."); return; }
+    var sorted = stops.slice().sort(function (a, b) { return a.pos - b.pos; });
+    var mid = 50, widest = 0;
+    for (var i = 0; i < sorted.length - 1; i++) {
+      var gap = sorted[i + 1].pos - sorted[i].pos;
+      if (gap > widest) { widest = gap; mid = Math.round((sorted[i].pos + sorted[i + 1].pos) / 2); }
+    }
+    stops.push({ color: sorted[sorted.length - 1].color, pos: mid });
+    render();
+  });
+  $("presetChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    var cols = b.getAttribute("data-stops").split(",");
+    stops = cols.map(function (c, i) { return { color: c, pos: cols.length === 1 ? 0 : Math.round(i * 100 / (cols.length - 1)) }; });
+    render();
+  });
+  $("copyCss").addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(cssText()).then(function () { toast("CSS copied — paste it as a background value."); });
+  });
+  $("dlPng").addEventListener("click", function () {
+    var cv = document.createElement("canvas"); cv.width = 1200; cv.height = 675;
+    var ctx = cv.getContext("2d");
+    var sorted = stops.slice().sort(function (a, b) { return a.pos - b.pos; });
+    var g;
+    if (type === "linear") {
+      var rad = (angle - 90) * Math.PI / 180;
+      var dx = Math.cos(rad), dy = Math.sin(rad);
+      var cx = 600, cy = 337.5, half = Math.abs(600 * dx) + Math.abs(337.5 * dy);
+      g = ctx.createLinearGradient(cx - dx * half, cy - dy * half, cx + dx * half, cy + dy * half);
+    } else {
+      g = ctx.createRadialGradient(600, 337.5, 0, 600, 337.5, Math.max(600, 337.5));
+    }
+    sorted.forEach(function (s) { g.addColorStop(s.pos / 100, s.color); });
+    ctx.fillStyle = g; ctx.fillRect(0, 0, 1200, 675);
+    cv.toBlob(function (blob) {
+      var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+      a.download = "gradient-1200x675.png"; document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+      toast("Gradient PNG downloaded.");
+    }, "image/png");
+  });
+  render();
+
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  $("copyShare").addEventListener("click", function () {
+    var line = document.querySelector(".share-line").textContent + " " + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+})();
+</script>
+</body>
+</html>

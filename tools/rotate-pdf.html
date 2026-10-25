@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotate PDF Free — Fix Sideways Pages | PixDetector</title>
+<meta name="description" content="Rotate PDF pages free — turn some or all pages 90, 180 or 270 degrees and download a fixed PDF. No signup, no upload, no watermark.">
+<meta name="keywords" content="rotate pdf, rotate pdf online, rotate pdf free, rotate pdf pages, fix sideways pdf, rotate pdf 90 degrees">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/rotate-pdf">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/rotate-pdf">
+<meta property="og:title" content="Rotate PDF Free — Fix Sideways Pages | PixDetector">
+<meta property="og:description" content="Rotate PDF pages free — turn some or all pages 90, 180 or 270 degrees and download a fixed PDF. No signup, no upload, no watermark.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this PDF rotator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Rotate as many pages and files as you like with no signup, no payment and no watermark. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I rotate a PDF page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload your PDF, click the page to select it, and press \u201cSelected page left\u201d or \u201cSelected page right\u201d. Each press turns the page 90 degrees. Download the fixed PDF when you are done."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate only one page, not the whole PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click a page thumbnail to select it, then rotate just that page. Use \u201cAll pages\u201d only when the whole document is sideways."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate a page 180 degrees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 press rotate twice in the same direction. Two 90-degree turns make a half turn, which fixes an upside-down page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does rotating a PDF lose quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A 90-degree rotation only changes the page's rotation setting. The text, images and fonts are copied unchanged, so the output is exactly as sharp as the original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my PDF uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to rotate a PDF",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your PDF",
+      "text": "Choose a PDF file. It is read in your browser and never uploaded."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Rotate the pages",
+      "text": "Click a page to select it and rotate it left or right, or rotate all pages at once."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download the fixed PDF",
+      "text": "Press Download rotated PDF and save the file. It opens the right way up everywhere."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field{margin-bottom:14px}
+input[type=text],input[type=number],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:12px 14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn.big{font-size:16px;padding:14px 26px;width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-big{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;padding:18px 10px;word-break:break-word;line-height:1.3}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:70px}
+.die-face{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--bg3);border:2px solid var(--border2);font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin:4px}
+.die-face.crit{background:#166534;border-color:#22c55e;color:#fff}
+.die-face.fumble{background:#7f1d1d;border-color:#ef4444;color:#fff}
+.num-chip{display:inline-block;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:6px 12px;font-size:15px;font-weight:600;margin:3px}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{border:2px solid var(--border2);border-radius:8px;padding:6px;cursor:pointer;text-align:center;font-size:12px;color:var(--text2);background:var(--bg2)}
+.thumb.sel{border-color:var(--accent)}
+.thumb canvas{max-width:110px;height:auto;display:block;margin:0 auto 4px}
+.preview-wrap{position:relative;margin-top:14px;border:1px solid var(--border2);border-radius:10px;overflow:hidden;background:#fff}
+.preview-wrap canvas{display:block;width:100%;height:auto}
+.annot{position:absolute;cursor:pointer;border:1px dashed transparent;padding:2px 4px;word-break:break-word}
+.annot:hover,.annot.sel{border-color:var(--accent)}
+.annot img{display:block;max-width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.gcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.gcard img{max-width:100%;height:auto;border-radius:6px;background:#fff}
+.gcard p{font-size:12px;color:var(--text2);margin:8px 0;line-height:1.5;word-break:break-word}
+.gcard .btn{padding:7px 12px;font-size:12px}
+.check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
+.check-row input{width:auto;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Rotate PDF
+    </div>
+    <div class="tool-page-header">
+      <h1>Rotate PDF</h1>
+      <p>Fix sideways or upside-down PDF pages free — rotate one page or all of them, 90 degrees at a time, and download a fixed PDF. No signup, no upload, no watermark.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> This tool does <strong>rotation only</strong>, in 90-degree steps. It <strong>cannot straighten a crooked scan by a few degrees</strong> — that needs a deskew tool. Rotation never reduces quality: your text and images are copied unchanged.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Rotate PDF">
+        <h2>Rotate your PDF pages</h2>
+        <label class="flabel" for="roFile">Choose a PDF file</label>
+        <input type="file" id="roFile" accept="application/pdf,.pdf">
+        <div class="drop" id="roDrop">Or drag and drop your PDF here.<br>It is read in your browser \u2014 nothing is uploaded.</div>
+        <p class="status" id="roStatus">No file chosen yet.</p>
+        <p class="err" id="roError" role="alert" hidden></p>
+        <h2 style="margin-top:20px">Rotate</h2>
+        <div class="actions">
+          <button type="button" class="btn" id="roLeft" disabled>\u21ba Selected page left</button>
+          <button type="button" class="btn" id="roRight" disabled>Selected page right \u21bb</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn alt" id="roAllLeft" disabled>All pages left</button>
+          <button type="button" class="btn alt" id="roAllRight" disabled>All pages right</button>
+          <button type="button" class="btn alt" id="roReset" disabled>Reset all</button>
+        </div>
+        <div class="actions" style="margin-top:16px"><button type="button" class="btn big" id="roDownload" disabled>Download rotated PDF</button></div>
+        <p class="trust">Free, no signup, no watermark. Only the page rotation changes \u2014 your content is untouched.</p>
+      </div>
+      <div class="bc-panel" aria-label="Page preview">
+        <h2>Pages <span id="roPageLabel" style="color:var(--text2);font-weight:400"></span></h2>
+        <div class="thumb-strip" id="roThumbs"></div>
+        <div class="preview-wrap" id="roPreviewWrap" hidden>
+          <canvas id="roPreview"></canvas>
+        </div>
+        <p class="status" id="roPreviewNote">Upload a PDF to see its pages here.</p>
+      </div>
+    </div>
+
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Rotate PDF pages free — fix sideways pages in 90-degree steps, no signup, no upload.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Rotate%20PDF%20pages%20free%20%E2%80%94%20fix%20sideways%20pages%20in%2090-degree%20steps%2C%20no%20signup%2C%20no%20upload.&amp;url=https%3A//pixdetector.vercel.app/tools/rotate-pdf" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/rotate-pdf" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Rotate%20PDF%20pages%20free%20%E2%80%94%20fix%20sideways%20pages%20in%2090-degree%20steps%2C%20no%20signup%2C%20no%20upload.%20https%3A//pixdetector.vercel.app/tools/rotate-pdf" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+
+      <!-- PROBLEM -->
+      <h2>The problem: a sideways page in an otherwise perfect PDF</h2>
+      <p>Scanned documents are the usual culprit. One page of a scan comes out sideways or upside down, and every reader shows it that way — so you tilt your head, or you rotate the view and the next page is wrong instead. The fix people actually need is permanent: rotate the page inside the file, once, so it opens the right way up everywhere. The complaints about online rotators are familiar ones: upload limits, a paywall after the first file, tools that rotate the whole document when only two pages are wrong, and tools that re-compress the file and soften the text. What people want is a rotator that touches only the rotation, leaves the content alone, and does not make them create an account for a ten-second job.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I rotate a PDF?</h2>
+      <p>Upload your PDF here, click a page to select it, press "Selected page left" or "Selected page right" to turn it 90 degrees at a time, then download the fixed PDF — free, with no signup and no upload, because everything runs in your browser. To fix every page at once, use "All pages left" or "All pages right" instead. A PDF rotation is a setting stored on the page, not a change to the content: the text and images are untouched, the page simply opens turned.</p>
+      <p>This tool rotates PDF pages only — that focus is the point. It does one job, it does it in your browser with pdf-lib, and the downloaded file is a real PDF with the rotation baked in, so it opens the right way up in any reader, on any device.</p>
+      <!-- HOW TO -->
+      <h2>How to rotate a PDF in 3 steps</h2>
+      <p><strong>Step 1:</strong> upload your PDF (or drag it onto the drop zone). <strong>Step 2:</strong> click a page thumbnail to select it and rotate it left or right in 90-degree steps — or rotate all pages at once if the whole document is sideways. <strong>Step 3:</strong> press Download rotated PDF and save the fixed file.</p>
+      <h2>Why is my PDF sideways in the first place?</h2>
+      <p>Most sideways PDFs come from scanners and phone cameras. A scanner saves the page the way the paper went in, and a phone stores an orientation tag instead of turning the pixels — some apps respect the tag and some do not, so the same file can look right in one app and sideways in another. Rotating the page inside the PDF fixes it everywhere at once, because the rotation is part of the file. A related problem is the "sideways" PDF that is actually a landscape page: if the page was designed wide, rotating it makes it worse. Check the preview before you download — this tool shows every page, so you can see exactly what will change.</p>
+      <h2>Does rotating a PDF lose quality?</h2>
+      <p>No. A 90-degree rotation only changes the page's rotation setting — the text, images and fonts are copied unchanged into the new file. There is no re-compression and no resampling, so the output is exactly as sharp as the original. That is also why this tool only offers 90-degree steps: rotating by an arbitrary angle, like 3 degrees to straighten a crooked scan, would need the whole page to be re-rendered as an image, which does lose quality. For a crooked scan, a deskew tool is the right answer, not a rotator.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this PDF rotator really free?</summary><p>Yes. Rotate as many pages and files as you like with no signup, no payment and no watermark. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>How do I rotate a PDF page?</summary><p>Upload your PDF, click the page to select it, and press “Selected page left” or “Selected page right”. Each press turns the page 90 degrees. Download the fixed PDF when you are done.</p></details>
+      <details class="faq"><summary>Can I rotate only one page, not the whole PDF?</summary><p>Yes. Click a page thumbnail to select it, then rotate just that page. Use “All pages” only when the whole document is sideways.</p></details>
+      <details class="faq"><summary>Can I rotate a page 180 degrees?</summary><p>Yes — press rotate twice in the same direction. Two 90-degree turns make a half turn, which fixes an upside-down page.</p></details>
+      <details class="faq"><summary>Does rotating a PDF lose quality?</summary><p>No. A 90-degree rotation only changes the page's rotation setting. The text, images and fonts are copied unchanged, so the output is exactly as sharp as the original.</p></details>
+      <details class="faq"><summary>Is my PDF uploaded to a server?</summary><p>No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared.</p></details>
+      
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I rotate only some pages of a PDF?</strong> Yes — click a page to select it, then rotate just that page. Other pages are left alone.</p>
+      <p><strong>Can I rotate a PDF by 180 degrees?</strong> Yes. Press rotate twice in the same direction, or rotate left twice — two 90-degree turns make 180.</p>
+      <p><strong>Does rotating a PDF reduce its quality?</strong> No. The rotation is a page setting; the text and images are copied unchanged, so the output is exactly as sharp as the original.</p>
+      <p><strong>Is my PDF uploaded anywhere?</strong> No. The PDF is read and rebuilt entirely in your browser with pdf.js and pdf-lib. Nothing is uploaded, stored, or shared.</p>
+
+    </div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/pdf-editor" class="related-card"><h4>📝 PDF Editor</h4><p>Edit PDFs in your browser</p></a><a href="/tools/extract-images-from-pdf" class="related-card"><h4>🖼️ Extract Images from PDF</h4><p>Save embedded images</p></a><a href="/tools/pdf-to-word-converter" class="related-card"><h4>📄 PDF to Word Converter</h4><p>Convert PDF to Word</p></a><a href="/tools/file-converter" class="related-card"><h4>🔄 File Converter</h4><p>Convert files free</p></a></div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+
+(function () {
+  function toast(msg) { var t = document.getElementById("toast"); if (!t) return; t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  window.__pdToast = toast;
+  var cl = document.getElementById("copyLink");
+  if (cl) cl.addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); });
+  var cs = document.getElementById("copyShareLine");
+  if (cs) cs.addEventListener("click", function () { var el = document.querySelector(".share-line"); if (el && navigator.clipboard) navigator.clipboard.writeText(el.textContent + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); });
+})();
+
+function __pdLoadScript(src) {
+  return new Promise(function (resolve, reject) {
+    if (document.querySelector('script[src="' + src + '"]')) { resolve(); return; }
+    var s = document.createElement("script"); s.src = src; s.onload = function () { resolve(); }; s.onerror = function () { reject(new Error("Could not load " + src)); };
+    document.head.appendChild(s);
+  });
+}
+function __pdLoadPdfJs() {
+  if (typeof pdfjsLib !== "undefined") return Promise.resolve();
+  return __pdLoadScript("../js/pdf.min.js").then(function () {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "../js/pdf.worker.min.js";
+  });
+}
+function __pdLoadPdfLib() {
+  if (typeof PDFLib !== "undefined") return Promise.resolve();
+  return __pdLoadScript("../js/pdf-lib.min.js");
+}
+function __pdSaveBlob(blob, name) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400); }
+function __pdHexRgb(hex) { var h = hex.replace("#", ""); return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255 }; }
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var toast = window.__pdToast || function () {};
+  var pdfBytes = null, pdfDoc = null, baseName = "rotated";
+  var pages = []; // {orig, rot}
+  var sel = 0;
+  function err(m) { var e = $("roError"); e.hidden = false; e.textContent = m; }
+  function clearErr() { $("roError").hidden = true; }
+  function setStatus(m) { $("roStatus").textContent = m; }
+  function setFile(f) {
+    clearErr();
+    if (!f) return;
+    if (!/\.pdf$/i.test(f.name) && f.type !== "application/pdf") { err("Please choose a PDF file."); return; }
+    setStatus("Reading your PDF\u2026");
+    var reader = new FileReader();
+    reader.onload = function () {
+      pdfBytes = reader.result;
+      baseName = f.name.replace(/\.pdf$/i, "") || "document";
+      __pdLoadPdfJs().then(function () {
+        return pdfjsLib.getDocument({ data: new Uint8Array(reader.result) }).promise;
+      }).then(function (pdf) {
+        pdfDoc = pdf;
+        pages = [];
+        for (var i = 1; i <= pdf.numPages; i++) pages.push({ orig: i, rot: 0 });
+        sel = 0;
+        setStatus("Loaded: " + f.name + " (" + pdf.numPages + " page" + (pdf.numPages === 1 ? "" : "s") + "). Click a page to select it, then rotate it \u2014 or rotate all pages at once.");
+        ["roLeft", "roRight", "roAllLeft", "roAllRight", "roReset", "roDownload"].forEach(function (id) { $(id).disabled = false; });
+        renderThumbs(); renderPreview();
+      }).catch(function (e) {
+        setStatus("Could not read this PDF.");
+        err("Could not read this PDF (" + (e && e.message ? e.message : "unknown error") + "). It may be damaged or password-protected.");
+      });
+    };
+    reader.readAsArrayBuffer(f);
+  }
+  $("roFile").addEventListener("change", function () { setFile(this.files[0]); });
+  var dz = $("roDrop");
+  dz.addEventListener("dragover", function (e) { e.preventDefault(); dz.classList.add("over"); });
+  dz.addEventListener("dragleave", function () { dz.classList.remove("over"); });
+  dz.addEventListener("drop", function (e) { e.preventDefault(); dz.classList.remove("over"); if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]); });
+  function renderThumbs() {
+    var strip = $("roThumbs"); strip.innerHTML = "";
+    pages.forEach(function (pg, idx) {
+      var d = document.createElement("div");
+      d.className = "thumb" + (idx === sel ? " sel" : "");
+      var c = document.createElement("canvas");
+      var label = document.createElement("div");
+      label.textContent = "Page " + (idx + 1) + (pg.rot ? " \u00b7 " + pg.rot + "\u00b0" : "");
+      d.appendChild(c); d.appendChild(label);
+      d.addEventListener("click", function () { sel = idx; renderThumbs(); renderPreview(); });
+      strip.appendChild(d);
+      pdfDoc.getPage(pg.orig).then(function (page) {
+        var vp = page.getViewport({ scale: 0.22, rotation: (page.getViewport({ scale: 1 }).rotation || 0) + pg.rot });
+        c.width = vp.width; c.height = vp.height;
+        page.render({ canvasContext: c.getContext("2d"), viewport: vp });
+      });
+    });
+  }
+  function renderPreview() {
+    if (!pages.length) return;
+    var pg = pages[sel];
+    $("roPageLabel").textContent = "\u2014 page " + (sel + 1) + " of " + pages.length + (pg.rot ? " (rotated " + pg.rot + "\u00b0)" : " (not rotated)");
+    pdfDoc.getPage(pg.orig).then(function (page) {
+      var base = page.getViewport({ scale: 1 });
+      var scale = 640 / base.width;
+      var vp = page.getViewport({ scale: scale, rotation: (base.rotation || 0) + pg.rot });
+      var cv = $("roPreview");
+      cv.width = vp.width; cv.height = vp.height;
+      $("roPreviewWrap").hidden = false;
+      page.render({ canvasContext: cv.getContext("2d"), viewport: vp });
+      $("roPreviewNote").textContent = "This is page " + (sel + 1) + ". Use the buttons to rotate it, or rotate all pages at once.";
+    });
+  }
+  function rotSel(d) { if (!pages.length) return; pages[sel].rot = (pages[sel].rot + d + 360) % 360; renderThumbs(); renderPreview(); }
+  $("roLeft").addEventListener("click", function () { rotSel(-90); });
+  $("roRight").addEventListener("click", function () { rotSel(90); });
+  $("roAllLeft").addEventListener("click", function () { pages.forEach(function (p) { p.rot = (p.rot - 90 + 360) % 360; }); renderThumbs(); renderPreview(); });
+  $("roAllRight").addEventListener("click", function () { pages.forEach(function (p) { p.rot = (p.rot + 90) % 360; }); renderThumbs(); renderPreview(); });
+  $("roReset").addEventListener("click", function () { pages.forEach(function (p) { p.rot = 0; }); renderThumbs(); renderPreview(); toast("Rotations reset."); });
+  $("roDownload").addEventListener("click", function () {
+    if (!pages.length) return;
+    setStatus("Building your rotated PDF\u2026");
+    __pdLoadPdfLib().then(function () {
+      return PDFLib.PDFDocument.load(pdfBytes);
+    }).then(function (src) {
+      var out = PDFLib.PDFDocument.create();
+      var jobs = pages.map(function (pg) {
+        return out.copyPages(src, [pg.orig - 1]).then(function (copied) {
+          var p = copied[0];
+          var origRot = src.getPage(pg.orig - 1).getRotation().angle;
+          p.setRotation(PDFLib.degrees((origRot + pg.rot) % 360));
+          out.addPage(p);
+        });
+      });
+      return Promise.all(jobs).then(function () { return out.save(); });
+    }).then(function (bytes) {
+      __pdSaveBlob(new Blob([bytes], { type: "application/pdf" }), baseName + "-rotated.pdf");
+      setStatus("Done \u2014 your rotated PDF has been downloaded.");
+      toast("Rotated PDF downloaded.");
+    }).catch(function (e) {
+      setStatus("Download failed.");
+      err("Could not build the rotated PDF (" + (e && e.message ? e.message : "unknown error") + "). Try again.");
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

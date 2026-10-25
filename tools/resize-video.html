@@ -55,7 +55,7 @@
       "name": "Does resizing keep the original audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The export is video-only, with no audio track. If your resized clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead."
+        "text": "Yes, when your browser allows it \u2014 the resized export carries the clip\u2019s original audio. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your resized clip needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead."
       }
     },
     {
@@ -199,7 +199,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <p>Resize videos for TikTok, Reels and YouTube — free, in your browser. Presets or a custom size, no signup, no watermark, nothing uploaded.</p>
     </div>
 
-    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and <strong>video-only, with no audio track</strong>. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and they <strong>keep the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only instead. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
     <div class="vd-panel" aria-label="Video editor">
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose video files">
         <span class="dz-icon">🎬</span>
@@ -293,7 +293,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           </div>
         </div>
         <p class="error" id="errorBox" role="alert"></p>
-        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it is <strong>video-only, with no audio track</strong> — if you need the original sound, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
+        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it <strong>keeps the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only, and if you need the original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
       </div>
     </div>
 
@@ -312,7 +312,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <h2 style="margin-top:28px">Which size for which platform — and crop, pad or blur?</h2>
       <p><strong>Resizing a video</strong> means changing its width, height or aspect ratio so it fits where it will be watched. The sizes that matter are the ones the platforms expect: <strong>9:16 (1080×1920)</strong> is the full-screen vertical shape for TikTok, Instagram Reels and YouTube Shorts; <strong>1:1 (1080×1080)</strong> is the square post that still works across feeds; <strong>16:9 (1920×1080)</strong> is the landscape shape for YouTube and embeds; <strong>4:5 (1080×1350)</strong> is the tall feed shape that takes up more screen on Instagram without going full vertical. Picking the preset is the whole job — the tool does the re-encoding.</p>
 <p>The fit setting decides what happens to the picture that does not match the new shape. <strong>Crop to fill</strong> cuts the edges so the frame is full — best when the subject is centred and the edges are expendable, which is most talking-head and product footage. <strong>Pad with black bars</strong> keeps the whole picture and adds bars top and bottom (or at the sides) — best when nothing can be cut, like a screen recording with text at the edges. <strong>Blurred fill</strong> puts a blurred, enlarged copy of the video behind the full picture, so there are no black bars and nothing is cut — the look most creators use for landscape clips posted vertically. If your subject sits at the edge of the frame, crop will cut it; check the preview before you export.</p>
-<p>Two honest limits before you start. First, the export is WebM, not MP4, and video-only with no audio track — if the resized clip needs its original sound, use a desktop editor. Second, resizing cannot add detail that is not there: stretching a small clip to 1080×1920 will look soft, because the pixels have to be invented. For the sharpest result, start from the highest-resolution source you have, and do not upscale beyond it unless you accept the softness.</p>
+<p>Two honest limits before you start. First, the export is WebM, not MP4, and it keeps the audio only when your browser allows it — if the resized clip needs its original sound guaranteed, use a desktop editor. Second, resizing cannot add detail that is not there: stretching a small clip to 1080×1920 will look soft, because the pixels have to be invented. For the sharpest result, start from the highest-resolution source you have, and do not upscale beyond it unless you accept the softness.</p>
 
       <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
@@ -334,7 +334,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 </details>
 <details class="faq">
 <summary>Does resizing keep the original audio?</summary>
-<p>No. The export is video-only, with no audio track. If your resized clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
+<p>Yes, when your browser allows it — the resized export carries the clip’s original audio. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your resized clip needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
 </details>
 <details class="faq">
 <summary>Can I resize a video without uploading it?</summary>
@@ -418,9 +418,37 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
             downloadLink = $("downloadLink");
 
         function pickMime() {
-          var cands = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          var cands = ["video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
           for (var i = 0; i < cands.length; i++) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {} }
           return "";
+        }
+        /* Audio carry (same approach as js/video-converter.js, Batch B1):
+           one shared AudioContext + MediaStreamDestination. Each export
+           clip is wired into it as it plays, so its sound flows into the
+           recording; the clip's playbackRate applies to the routed audio
+           too, so a speed-changed export carries audio at the new speed.
+           Anything that throws here just means video-only for that clip --
+           the export never breaks because of audio. */
+        var audioCtx = null, audioDest = null, audioOK = false;
+        function ensureAudioDest() {
+          try {
+            if (!audioCtx) {
+              audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+              audioDest = audioCtx.createMediaStreamDestination();
+            }
+            if (audioCtx.state === "suspended") audioCtx.resume();
+            return audioDest;
+          } catch (e) { return null; }
+        }
+        function attachAudio(src) {
+          try {
+            var dest = ensureAudioDest();
+            if (!dest) return false;
+            var node = audioCtx.createMediaElementSource(src);
+            node.connect(dest);
+            audioOK = true;
+            return true;
+          } catch (e) { return false; }
         }
         function activeClip() { return state.clips[state.active] || null; }
 
@@ -577,7 +605,12 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
         function playSegment(seg, ctx, W, H, onProg) {
           return new Promise(function (resolve, reject) {
             var src = document.createElement("video");
-            src.muted = true; src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            /* Audio: wire this clip into the shared destination when the browser
+               allows it. A routed clip makes no sound out of the speakers --
+               its audio goes only into the recording. If wiring fails, keep
+               the clip muted and the export continues video-only. */
+            src.muted = !attachAudio(src);
             var raf = 0, done = false;
             function finish() {
               if (done) return; done = true;
@@ -643,6 +676,18 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           var mime = pickMime();
           var stream;
           try { stream = canvas.captureStream(30); } catch (e) { showError("Could not start the video capture stream in this browser. Try Chrome or Firefox."); return; }
+          /* Audio: add the shared destination's audio track to the recording
+             stream so the export keeps its sound. If the browser blocks the
+             AudioContext, the track is simply absent and the export runs
+             video-only, as before. */
+          audioOK = false;
+          try {
+            var dest = ensureAudioDest();
+            if (dest) {
+              var atracks = dest.stream.getAudioTracks();
+              if (atracks.length) stream.addTrack(atracks[0]);
+            }
+          } catch (e) {}
           var rec;
           try {
             rec = mime ? new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 5000000 })
@@ -665,7 +710,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
             var modeName = { trim: "trimmed", merge: "merged", resize: "resized", speed: "speed-changed" }[state.mode];
             downloadLink.href = state.outUrl;
             downloadLink.download = base + "-" + modeName + ".webm";
-            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), video-only (no audio track).";
+            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), " + (audioOK ? "with audio" : "video-only \u2014 this browser would not let the audio track through") + ".";
             resultBox.style.display = "block";
             resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
             toast("Export finished — " + fmtBytes(blob.size));

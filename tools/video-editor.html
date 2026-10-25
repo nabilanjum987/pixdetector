@@ -47,7 +47,7 @@
       "name": "Does the export keep the original audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The export is video-only, with no audio track. If your clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead \u2014 they keep audio and handle long files better."
+        "text": "Yes, when your browser allows it \u2014 the export carries the clip\u2019s original audio into the WebM file. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your clip needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead \u2014 they keep audio and handle long files better."
       }
     },
     {
@@ -88,7 +88,7 @@
     {
       "@type": "HowToStep",
       "name": "Export and download",
-      "text": "Press Export video and wait \u2014 it runs in real time. Then download the finished WebM file, video-only, with no watermark."
+      "text": "Press Export video and wait \u2014 it runs in real time. Then download the finished WebM file, with no watermark."
     }
   ]
 }
@@ -199,7 +199,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <p>Trim, merge, resize and change the speed of your videos right here in your browser. Free, no signup, no watermark — your video never uploads to a server.</p>
     </div>
 
-    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and <strong>video-only, with no audio track</strong>. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and they <strong>keep the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only instead. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
     <div class="vd-panel" aria-label="Video editor">
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose video files">
         <span class="dz-icon">🎬</span>
@@ -293,7 +293,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           </div>
         </div>
         <p class="error" id="errorBox" role="alert"></p>
-        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it is <strong>video-only, with no audio track</strong> — if you need the original sound, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
+        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it <strong>keeps the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only, and if you need the original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
       </div>
     </div>
 
@@ -307,12 +307,12 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <!-- HOW TO -->
       <h2 style="margin-top:28px">How to edit a video online in three steps</h2>
       <div class="steps">
-        <div class="step"><span class="num">STEP 1</span><h3>Upload your video</h3><p>Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. Add several clips if you want to merge them.</p></div><div class="step"><span class="num">STEP 2</span><h3>Pick an edit</h3><p>Choose Trim, Merge, Resize or Speed at the top of the tool, set the start and end points, the size, or the speed, and preview it right away.</p></div><div class="step"><span class="num">STEP 3</span><h3>Export and download</h3><p>Press Export video and wait — it runs in real time. Then download the finished WebM file, video-only, with no watermark.</p></div>
+        <div class="step"><span class="num">STEP 1</span><h3>Upload your video</h3><p>Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. Add several clips if you want to merge them.</p></div><div class="step"><span class="num">STEP 2</span><h3>Pick an edit</h3><p>Choose Trim, Merge, Resize or Speed at the top of the tool, set the start and end points, the size, or the speed, and preview it right away.</p></div><div class="step"><span class="num">STEP 3</span><h3>Export and download</h3><p>Press Export video and wait — it runs in real time. Then download the finished WebM file, with no watermark.</p></div>
       </div>
       <h2 style="margin-top:28px">Trim, merge, resize and speed — when to use each</h2>
       <p><strong>A free video editor</strong> is a tool that edits video in the browser without installing software. This one covers the four edits most people actually need. <strong>Trim</strong> cuts the dead air off the start and end of a clip — the rambling intro, the seconds spent reaching for the stop button — and keeps only the part worth sharing. <strong>Merge</strong> joins several clips into one video, in the order you choose, so a phone full of short takes becomes a single story. <strong>Resize</strong> reframes a clip for where it will be watched: 9:16 for TikTok and Reels, 1:1 for a square feed post, 16:9 for YouTube, 4:5 for a feed that crops tall video. <strong>Speed</strong> makes a slow process watchable at 2× or turns a quick moment into slow motion at 0.5×.</p>
 <p>The reason to edit in the browser is that there is nothing to install and nothing to upload. A desktop editor is stronger — multi-track timelines, effects, keyframes, colour grading, audio mixing — but it takes an install, a learning curve, and usually a paid plan before the watermark disappears. A browser editor is the right tool for the small job: a clip that needs a trim before it goes to a client, three takes joined into one, a landscape video reframed for Reels. If the job grows into a full production with music, titles and colour work, that is the honest moment to open a desktop editor instead.</p>
-<p>A few practical notes make the difference between a clean export and a frustrating one. Work with clips under a few minutes: export runs in real time, and a long file ties up the tab for as long as the video itself. Keep the tab in the foreground while exporting — a background tab can pause and stall the encoder. Remember the two hard limits before you start: the output is WebM, not MP4, and it has no audio track, so plan the sound separately if the clip needs it. And if your source file is over about 100 MB, expect slowness — that is where every browser editor, not just this one, starts losing to desktop software.</p>
+<p>A few practical notes make the difference between a clean export and a frustrating one. Work with clips under a few minutes: export runs in real time, and a long file ties up the tab for as long as the video itself. Keep the tab in the foreground while exporting — a background tab can pause and stall the encoder. Remember the two hard limits before you start: the output is WebM, not MP4, and it keeps the audio only when your browser allows it, so plan the sound separately if the clip needs it guaranteed. And if your source file is over about 100 MB, expect slowness — that is where every browser editor, not just this one, starts losing to desktop software.</p>
 
       <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
@@ -330,7 +330,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 </details>
 <details class="faq">
 <summary>Does the export keep the original audio?</summary>
-<p>No. The export is video-only, with no audio track. If your clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead — they keep audio and handle long files better.</p>
+<p>Yes, when your browser allows it — the export carries the clip’s original audio into the WebM file. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your clip needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead — they keep audio and handle long files better.</p>
 </details>
 <details class="faq">
 <summary>How long does editing and export take?</summary>
@@ -344,7 +344,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <!-- RELATED QUESTIONS -->
       <h2 style="margin-top:28px">Related questions</h2>
       <ul class="rq-list">
-        <li><strong>Can I edit videos online free without a watermark?</strong><br>Yes — this editor is free with no watermark, no signup and no daily cap. The export is WebM, video-only.</li><li><strong>What is the best free alternative to CapCut?</strong><br>For basic trim, merge, resize and speed in the browser, this tool is a free, no-signup option. For full productions with effects and audio, a desktop editor such as Shotcut or DaVinci Resolve is the honest choice.</li><li><strong>Can I merge videos online without uploading them?</strong><br>Yes. This tool merges clips entirely in your browser — your videos never leave your device.</li><li><strong>Why do free video editors cap exports at 3 a day?</strong><br>Caps and watermarks are how paid plans are sold. This tool has no cap because there is no paid tier behind it — but it only does basic edits.</li>
+        <li><strong>Can I edit videos online free without a watermark?</strong><br>Yes — this editor is free with no watermark, no signup and no daily cap. The export is WebM, with audio when your browser allows it.</li><li><strong>What is the best free alternative to CapCut?</strong><br>For basic trim, merge, resize and speed in the browser, this tool is a free, no-signup option. For full productions with effects and audio, a desktop editor such as Shotcut or DaVinci Resolve is the honest choice.</li><li><strong>Can I merge videos online without uploading them?</strong><br>Yes. This tool merges clips entirely in your browser — your videos never leave your device.</li><li><strong>Why do free video editors cap exports at 3 a day?</strong><br>Caps and watermarks are how paid plans are sold. This tool has no cap because there is no paid tier behind it — but it only does basic edits.</li>
       </ul>
     </div>
 
@@ -418,9 +418,37 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
             downloadLink = $("downloadLink");
 
         function pickMime() {
-          var cands = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          var cands = ["video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
           for (var i = 0; i < cands.length; i++) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {} }
           return "";
+        }
+        /* Audio carry (same approach as js/video-converter.js, Batch B1):
+           one shared AudioContext + MediaStreamDestination. Each export
+           clip is wired into it as it plays, so its sound flows into the
+           recording; the clip's playbackRate applies to the routed audio
+           too, so a speed-changed export carries audio at the new speed.
+           Anything that throws here just means video-only for that clip --
+           the export never breaks because of audio. */
+        var audioCtx = null, audioDest = null, audioOK = false;
+        function ensureAudioDest() {
+          try {
+            if (!audioCtx) {
+              audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+              audioDest = audioCtx.createMediaStreamDestination();
+            }
+            if (audioCtx.state === "suspended") audioCtx.resume();
+            return audioDest;
+          } catch (e) { return null; }
+        }
+        function attachAudio(src) {
+          try {
+            var dest = ensureAudioDest();
+            if (!dest) return false;
+            var node = audioCtx.createMediaElementSource(src);
+            node.connect(dest);
+            audioOK = true;
+            return true;
+          } catch (e) { return false; }
         }
         function activeClip() { return state.clips[state.active] || null; }
 
@@ -577,7 +605,12 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
         function playSegment(seg, ctx, W, H, onProg) {
           return new Promise(function (resolve, reject) {
             var src = document.createElement("video");
-            src.muted = true; src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            /* Audio: wire this clip into the shared destination when the browser
+               allows it. A routed clip makes no sound out of the speakers --
+               its audio goes only into the recording. If wiring fails, keep
+               the clip muted and the export continues video-only. */
+            src.muted = !attachAudio(src);
             var raf = 0, done = false;
             function finish() {
               if (done) return; done = true;
@@ -643,6 +676,18 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           var mime = pickMime();
           var stream;
           try { stream = canvas.captureStream(30); } catch (e) { showError("Could not start the video capture stream in this browser. Try Chrome or Firefox."); return; }
+          /* Audio: add the shared destination's audio track to the recording
+             stream so the export keeps its sound. If the browser blocks the
+             AudioContext, the track is simply absent and the export runs
+             video-only, as before. */
+          audioOK = false;
+          try {
+            var dest = ensureAudioDest();
+            if (dest) {
+              var atracks = dest.stream.getAudioTracks();
+              if (atracks.length) stream.addTrack(atracks[0]);
+            }
+          } catch (e) {}
           var rec;
           try {
             rec = mime ? new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 5000000 })
@@ -665,7 +710,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
             var modeName = { trim: "trimmed", merge: "merged", resize: "resized", speed: "speed-changed" }[state.mode];
             downloadLink.href = state.outUrl;
             downloadLink.download = base + "-" + modeName + ".webm";
-            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), video-only (no audio track).";
+            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), " + (audioOK ? "with audio" : "video-only \u2014 this browser would not let the audio track through") + ".";
             resultBox.style.display = "block";
             resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
             toast("Export finished — " + fmtBytes(blob.size));

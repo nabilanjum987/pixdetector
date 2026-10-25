@@ -47,7 +47,7 @@
       "name": "Does the speed-changed video keep the original audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The export is video-only, with no audio track. If your clip needs its original sound at the new speed, use a desktop editor such as Shotcut or DaVinci Resolve instead."
+        "text": "Yes, when your browser allows it \u2014 the export carries the original audio playing at the new speed, so a 2\u00d7 export sounds twice as fast. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your clip needs its original sound at the new speed guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead."
       }
     },
     {
@@ -199,7 +199,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <p>Speed up or slow down any video — free, in your browser, from 0.25× to 4×. Preview instantly at the new speed, then download. No signup, no watermark.</p>
     </div>
 
-    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and <strong>video-only, with no audio track</strong>. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and they <strong>keep the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only instead. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
     <div class="vd-panel" aria-label="Video editor">
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose video files">
         <span class="dz-icon">🎬</span>
@@ -293,7 +293,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           </div>
         </div>
         <p class="error" id="errorBox" role="alert"></p>
-        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it is <strong>video-only, with no audio track</strong> — if you need the original sound, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
+        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it <strong>keeps the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only, and if you need the original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
       </div>
     </div>
 
@@ -312,7 +312,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <h2 style="margin-top:28px">What each speed is good for</h2>
       <p><strong>Changing video speed</strong> means playing the footage faster or slower than it was recorded. <strong>2×</strong> is the workhorse: it halves the length of a slow process, a long walkthrough or a rambling explanation, and it is the speed most people reach for first. <strong>4×</strong> turns a long, boring stretch — a drive, a build, a download bar — into a quick time-lapse. <strong>1.25× and 1.5×</strong> are the subtle ones: they tighten a talking-head video just enough to feel snappier without sounding rushed. On the slow side, <strong>0.5×</strong> doubles the length and shows detail the eye misses at full speed — a golf swing, a magic trick, a product feature — and <strong>0.25×</strong> is full slow motion for the single moment worth savouring.</p>
 <p>Speed changes work best on short clips, because export runs in real time: a 2× export of a 2-minute clip takes about a minute, but a 0.5× export of the same clip takes about four. That is also why the instant preview matters — you can hear and see the speed before you commit to the export, instead of waiting minutes to find out 4× was too fast. Try the preview first, especially at the extremes: 4× can make camera shake feel violent, and 0.25× can make a shaky handheld shot feel like an earthquake.</p>
-<p>Two honest limits before you start. First, the export is WebM, not MP4, and video-only with no audio track — speed changes the picture only, so if the clip needs its original sound at the new speed, use a desktop editor. Second, slowing a video down cannot add frames that were never recorded: 0.25× on 30 fps footage shows each frame four times, which looks steppy rather than silky. True smooth slow motion needs a high-frame-rate source — 60 fps or 120 fps — so shoot fast if you plan to slow down.</p>
+<p>Two honest limits before you start. First, the export is WebM, not MP4, and it keeps the audio only when your browser allows it — speed changes the picture and the sound together, so if the clip needs its original sound at the new speed guaranteed, use a desktop editor. Second, slowing a video down cannot add frames that were never recorded: 0.25× on 30 fps footage shows each frame four times, which looks steppy rather than silky. True smooth slow motion needs a high-frame-rate source — 60 fps or 120 fps — so shoot fast if you plan to slow down.</p>
 
       <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
@@ -330,7 +330,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 </details>
 <details class="faq">
 <summary>Does the speed-changed video keep the original audio?</summary>
-<p>No. The export is video-only, with no audio track. If your clip needs its original sound at the new speed, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
+<p>Yes, when your browser allows it — the export carries the original audio playing at the new speed, so a 2× export sounds twice as fast. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your clip needs its original sound at the new speed guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
 </details>
 <details class="faq">
 <summary>Can I preview the speed before exporting?</summary>
@@ -418,9 +418,37 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
             downloadLink = $("downloadLink");
 
         function pickMime() {
-          var cands = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          var cands = ["video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
           for (var i = 0; i < cands.length; i++) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {} }
           return "";
+        }
+        /* Audio carry (same approach as js/video-converter.js, Batch B1):
+           one shared AudioContext + MediaStreamDestination. Each export
+           clip is wired into it as it plays, so its sound flows into the
+           recording; the clip's playbackRate applies to the routed audio
+           too, so a speed-changed export carries audio at the new speed.
+           Anything that throws here just means video-only for that clip --
+           the export never breaks because of audio. */
+        var audioCtx = null, audioDest = null, audioOK = false;
+        function ensureAudioDest() {
+          try {
+            if (!audioCtx) {
+              audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+              audioDest = audioCtx.createMediaStreamDestination();
+            }
+            if (audioCtx.state === "suspended") audioCtx.resume();
+            return audioDest;
+          } catch (e) { return null; }
+        }
+        function attachAudio(src) {
+          try {
+            var dest = ensureAudioDest();
+            if (!dest) return false;
+            var node = audioCtx.createMediaElementSource(src);
+            node.connect(dest);
+            audioOK = true;
+            return true;
+          } catch (e) { return false; }
         }
         function activeClip() { return state.clips[state.active] || null; }
 
@@ -577,7 +605,12 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
         function playSegment(seg, ctx, W, H, onProg) {
           return new Promise(function (resolve, reject) {
             var src = document.createElement("video");
-            src.muted = true; src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            /* Audio: wire this clip into the shared destination when the browser
+               allows it. A routed clip makes no sound out of the speakers --
+               its audio goes only into the recording. If wiring fails, keep
+               the clip muted and the export continues video-only. */
+            src.muted = !attachAudio(src);
             var raf = 0, done = false;
             function finish() {
               if (done) return; done = true;
@@ -643,6 +676,18 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           var mime = pickMime();
           var stream;
           try { stream = canvas.captureStream(30); } catch (e) { showError("Could not start the video capture stream in this browser. Try Chrome or Firefox."); return; }
+          /* Audio: add the shared destination's audio track to the recording
+             stream so the export keeps its sound. If the browser blocks the
+             AudioContext, the track is simply absent and the export runs
+             video-only, as before. */
+          audioOK = false;
+          try {
+            var dest = ensureAudioDest();
+            if (dest) {
+              var atracks = dest.stream.getAudioTracks();
+              if (atracks.length) stream.addTrack(atracks[0]);
+            }
+          } catch (e) {}
           var rec;
           try {
             rec = mime ? new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 5000000 })
@@ -665,7 +710,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
             var modeName = { trim: "trimmed", merge: "merged", resize: "resized", speed: "speed-changed" }[state.mode];
             downloadLink.href = state.outUrl;
             downloadLink.download = base + "-" + modeName + ".webm";
-            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), video-only (no audio track).";
+            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), " + (audioOK ? "with audio" : "video-only \u2014 this browser would not let the audio track through") + ".";
             resultBox.style.display = "block";
             resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
             toast("Export finished — " + fmtBytes(blob.size));

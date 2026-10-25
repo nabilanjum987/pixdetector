@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free QR Code Generator — PNG &amp; SVG | PixDetector</title>
+<meta name="description" content="Make a QR code free — links, text, WiFi, email or phone. Pick size and error correction, download PNG or SVG. No signup, never expires.">
+<meta name="keywords" content="qr code generator, qr code generator free, create qr code, free qr code maker, qr code maker online, make qr code">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/qr-code-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/qr-code-generator">
+<meta property="og:title" content="Free QR Code Generator — PNG &amp; SVG | PixDetector">
+<meta property="og:description" content="Make a QR code free — links, text, WiFi, email or phone. Pick size and error correction, download PNG or SVG. No signup, never expires.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this QR code generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Create and download unlimited QR codes as PNG or SVG with no signup, no watermark and no scan limit. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the QR codes expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. These are static QR codes with the data encoded directly in the pattern, so they work forever as long as the destination still works. There is no subscription keeping them alive, unlike dynamic codes that stop when you stop paying."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I put in a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Website links, plain text, WiFi network details, email addresses with a subject and message, phone numbers that dial when scanned, and SMS messages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which error-correction level should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "M (medium) is the reliable default. Use Q or H for codes that may get dirty, wet or damaged, and L when you need to fit the most text into the code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I download PNG or SVG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PNG for screens, messages and ordinary documents. SVG for professional printing and signage, because it stays perfectly sharp at any size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track scans of my QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This generator makes a static image with no redirect and no tracking. If you need scan analytics, you need a dynamic QR service instead."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to make a QR code",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pick what the code should do",
+      "text": "Choose a website link, plain text, WiFi login, email, phone call or SMS, and fill in the details."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose size and error correction",
+      "text": "Pick an image size and an error-correction level. M is the best all-rounder."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download and test it",
+      "text": "Download the PNG or SVG, then test it with your own phone camera before printing."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field{margin-bottom:14px}
+input[type=text],input[type=number],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:12px 14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn.big{font-size:16px;padding:14px 26px;width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-big{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;padding:18px 10px;word-break:break-word;line-height:1.3}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:70px}
+.die-face{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--bg3);border:2px solid var(--border2);font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin:4px}
+.die-face.crit{background:#166534;border-color:#22c55e;color:#fff}
+.die-face.fumble{background:#7f1d1d;border-color:#ef4444;color:#fff}
+.num-chip{display:inline-block;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:6px 12px;font-size:15px;font-weight:600;margin:3px}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{border:2px solid var(--border2);border-radius:8px;padding:6px;cursor:pointer;text-align:center;font-size:12px;color:var(--text2);background:var(--bg2)}
+.thumb.sel{border-color:var(--accent)}
+.thumb canvas{max-width:110px;height:auto;display:block;margin:0 auto 4px}
+.preview-wrap{position:relative;margin-top:14px;border:1px solid var(--border2);border-radius:10px;overflow:hidden;background:#fff}
+.preview-wrap canvas{display:block;width:100%;height:auto}
+.annot{position:absolute;cursor:pointer;border:1px dashed transparent;padding:2px 4px;word-break:break-word}
+.annot:hover,.annot.sel{border-color:var(--accent)}
+.annot img{display:block;max-width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.gcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.gcard img{max-width:100%;height:auto;border-radius:6px;background:#fff}
+.gcard p{font-size:12px;color:var(--text2);margin:8px 0;line-height:1.5;word-break:break-word}
+.gcard .btn{padding:7px 12px;font-size:12px}
+.check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
+.check-row input{width:auto;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      QR Code Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Free QR Code Generator</h1>
+      <p>Make a QR code free — for a website link, plain text, WiFi login, email, phone call or SMS. Pick a size and error-correction level, download PNG or SVG. No signup, no watermark, never expires.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> Every code here is <strong>static</strong> — the data is baked into the pattern, so it <strong>never expires and cannot be switched off</strong>. That also means it <strong>cannot be edited after download</strong> and <strong>cannot track scans</strong>. Keep the white margin (quiet zone) around the code.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="QR code generator">
+        <h2>Make your QR code</h2>
+        <span class="flabel">What should the code open or say?</span>
+        <div class="chips" id="qrTypeChips" role="group" aria-label="Content type">
+          <button type="button" class="chip" data-type="url" aria-pressed="true">Website link</button>
+          <button type="button" class="chip" data-type="text" aria-pressed="false">Plain text</button>
+          <button type="button" class="chip" data-type="wifi" aria-pressed="false">WiFi</button>
+          <button type="button" class="chip" data-type="email" aria-pressed="false">Email</button>
+          <button type="button" class="chip" data-type="phone" aria-pressed="false">Phone</button>
+          <button type="button" class="chip" data-type="sms" aria-pressed="false">SMS</button>
+        </div>
+        <div style="margin-top:16px" id="qrFieldsUrl">
+          <div class="field"><label class="flabel" for="qrUrl">Website address</label><input type="text" id="qrUrl" value="https://pixdetector.vercel.app" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+        </div>
+        <div style="margin-top:16px" id="qrFieldsText" hidden>
+          <div class="field"><label class="flabel" for="qrText">Text</label><textarea id="qrText" rows="3">Hello from PixDetector!</textarea></div>
+        </div>
+        <div style="margin-top:16px" id="qrFieldsWifi" hidden>
+          <div class="field"><label class="flabel" for="qrSsid">Network name (SSID)</label><input type="text" id="qrSsid" autocomplete="off"></div>
+          <div class="field"><label class="flabel" for="qrWifiPass">Password</label><input type="text" id="qrWifiPass" autocomplete="off"></div>
+          <div class="field"><label class="flabel" for="qrWifiSec">Security</label><select id="qrWifiSec"><option value="WPA">WPA / WPA2</option><option value="WEP">WEP</option><option value="nopass">No password</option></select></div>
+        </div>
+        <div style="margin-top:16px" id="qrFieldsEmail" hidden>
+          <div class="field"><label class="flabel" for="qrEmail">Email address</label><input type="email" id="qrEmail" autocomplete="off" placeholder="hello@example.com"></div>
+          <div class="field"><label class="flabel" for="qrSubject">Subject (optional)</label><input type="text" id="qrSubject" autocomplete="off"></div>
+          <div class="field"><label class="flabel" for="qrBody">Message (optional)</label><textarea id="qrBody" rows="2"></textarea></div>
+        </div>
+        <div style="margin-top:16px" id="qrFieldsPhone" hidden>
+          <div class="field"><label class="flabel" for="qrPhone">Phone number</label><input type="tel" id="qrPhone" autocomplete="off" placeholder="+1 555 010 1234"></div>
+        </div>
+        <div style="margin-top:16px" id="qrFieldsSms" hidden>
+          <div class="field"><label class="flabel" for="qrSmsNum">Phone number</label><input type="tel" id="qrSmsNum" autocomplete="off" placeholder="+1 555 010 1234"></div>
+          <div class="field"><label class="flabel" for="qrSmsMsg">Message</label><textarea id="qrSmsMsg" rows="2"></textarea></div>
+        </div>
+        <div class="field" style="margin-top:16px"><label class="flabel" for="qrSize">Image size</label><select id="qrSize"><option value="256">256 px \u2014 screens and chats</option><option value="512" selected>512 px \u2014 documents and flyers</option><option value="1024">1024 px \u2014 posters and print</option></select></div>
+        <div class="field"><label class="flabel" for="qrEc">Error correction</label><select id="qrEc"><option value="L">L \u2014 low (most data fits)</option><option value="M" selected>M \u2014 medium (best all-rounder)</option><option value="Q">Q \u2014 high (dirty or damaged prints)</option><option value="H">H \u2014 highest (logos or rough handling)</option></select></div>
+        <div class="field"><label class="flabel" for="qrFg">Code colour</label><input type="color" id="qrFg" value="#111111" style="width:60px;height:36px;padding:2px"></div>
+        <div class="field"><label class="flabel" for="qrBg">Background colour</label><input type="color" id="qrBg" value="#ffffff" style="width:60px;height:36px;padding:2px"></div>
+        <p class="err" id="qrError" role="alert" hidden></p>
+        <p class="status" id="qrMeta"></p>
+      </div>
+      <div class="bc-panel" aria-label="QR code preview">
+        <h2>Your QR code</h2>
+        <div style="text-align:center;background:#fff;border-radius:10px;padding:18px">
+          <canvas id="qrCanvas" width="512" height="512" style="max-width:100%;height:auto" role="img" aria-label="Generated QR code"></canvas>
+        </div>
+        <div class="actions" style="justify-content:center">
+          <button type="button" class="btn" id="qrDlPng">Download PNG</button>
+          <button type="button" class="btn alt" id="qrDlSvg">Download SVG</button>
+          <button type="button" class="btn alt" id="qrCopy">Copy PNG</button>
+        </div>
+        <p class="hint" style="text-align:center">Test the code with your own phone camera before you print a hundred copies.</p>
+      </div>
+    </div>
+
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Make a QR code free — links, text, WiFi, email or phone. PNG or SVG download, no signup, never expires.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Make%20a%20QR%20code%20free%20%E2%80%94%20links%2C%20text%2C%20WiFi%2C%20email%20or%20phone.%20PNG%20or%20SVG%20download%2C%20no%20signup%2C%20never%20expires.&amp;url=https%3A//pixdetector.vercel.app/tools/qr-code-generator" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/qr-code-generator" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Make%20a%20QR%20code%20free%20%E2%80%94%20links%2C%20text%2C%20WiFi%2C%20email%20or%20phone.%20PNG%20or%20SVG%20download%2C%20no%20signup%2C%20never%20expires.%20https%3A//pixdetector.vercel.app/tools/qr-code-generator" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+
+      <!-- PROBLEM -->
+      <h2>The problem: "free" QR codes that switch off after you print them</h2>
+      <p>A restaurant prints a thousand menus with a QR code. Six months later the code opens a "this link has expired" page, because the generator sold them a dynamic code — a redirect that only works while the subscription is paid. That is the most common complaint about QR generators, and it is a nasty one: the printed square never changes, but the desk behind it closes. The other complaints are smaller but constant: download buttons hidden behind an account wall, watermarks stamped on the code, scan limits on the free plan, and no way to make a WiFi or email code without signing up. What people want is the opposite — a plain static code, made in seconds, that works forever and belongs to them.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I make a QR code for free?</h2>
+      <p>Type your link or text above, pick a size and an error-correction level, and download the code as a PNG or SVG — free, with no signup, no watermark and no expiry, because the code is generated entirely in your browser. A QR code is your text drawn as a machine-readable grid of black and white squares. Any phone camera can read it, and because the data lives inside the image itself, there is no server in the middle that can switch it off.</p>
+      <p>Every code made here is static: the link or text is baked into the pattern, so it works offline and works forever, as long as the destination itself still exists. That is different from a dynamic code, which points at the provider's redirect and stops working when you stop paying. Static is the right choice for anything printed — menus, business cards, posters, packaging — because printed things cannot be updated anyway.</p>
+      <!-- HOW TO -->
+      <h2>How to make a QR code in 3 steps</h2>
+      <p><strong>Step 1:</strong> pick what the code should do — a website link, plain text, a WiFi login, an email, a phone call or an SMS — and fill in the details. <strong>Step 2:</strong> choose a size (512 px suits most documents; 1024 px for posters) and an error-correction level — M is the best all-rounder. <strong>Step 3:</strong> download the PNG for screens and documents, or the SVG for professional printing, then test it with your own phone before you print a hundred copies.</p>
+      <h2>Which error-correction level should I use?</h2>
+      <p>Error correction is spare capacity that lets a damaged code still scan. L (low) fits the most data and suits clean screens. M (medium) is the reliable default for most uses. Q or H recover more of the pattern if the print gets dirty, wet or scratched — but the pattern gets denser for the same content, so very long links may not fit at H. Rule of thumb: use M for menus and flyers, H for anything that will live outdoors or be handled roughly. And keep the quiet zone — the white margin around the code — intact. Never crop it off; scanners need it to find the code.</p>
+      <h2>How big should I print a QR code?</h2>
+      <p>A useful rule: the printed code should be at least one tenth as wide as the distance people scan it from. A code scanned from 50 cm across a table should be at least 5 cm wide. The PNG here exports at up to 1024 px with a full quiet zone, which stays sharp at full-page size; the SVG scales to any size at all, which is why it is the better choice for signage and packaging. Always test-scan a proof before the print run, and remember that dark code on a light background scans best — light-on-dark codes often fail.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this QR code generator really free?</summary><p>Yes. Create and download unlimited QR codes as PNG or SVG with no signup, no watermark and no scan limit. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>Do the QR codes expire?</summary><p>No. These are static QR codes with the data encoded directly in the pattern, so they work forever as long as the destination still works. There is no subscription keeping them alive, unlike dynamic codes that stop when you stop paying.</p></details>
+      <details class="faq"><summary>What can I put in a QR code?</summary><p>Website links, plain text, WiFi network details, email addresses with a subject and message, phone numbers that dial when scanned, and SMS messages.</p></details>
+      <details class="faq"><summary>Which error-correction level should I use?</summary><p>M (medium) is the reliable default. Use Q or H for codes that may get dirty, wet or damaged, and L when you need to fit the most text into the code.</p></details>
+      <details class="faq"><summary>Should I download PNG or SVG?</summary><p>PNG for screens, messages and ordinary documents. SVG for professional printing and signage, because it stays perfectly sharp at any size.</p></details>
+      <details class="faq"><summary>Can I track scans of my QR code?</summary><p>No. This generator makes a static image with no redirect and no tracking. If you need scan analytics, you need a dynamic QR service instead.</p></details>
+      
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Do QR codes made here expire?</strong> No. They are static codes with the data encoded directly in the pattern. They work as long as the link or destination still works.</p>
+      <p><strong>Can I change the link after downloading?</strong> No — a static code cannot be edited. Make a new code for the new link and use it on your next print run.</p>
+      <p><strong>Should I download PNG or SVG?</strong> PNG for screens, chats and ordinary documents. SVG for professional printing, because it stays sharp at any size.</p>
+      <p><strong>Can I track how many people scan my code?</strong> No — and that is by design. This generator makes a static image with no redirect, so there is nothing to count scans with. If you need analytics, you need a dynamic QR service.</p>
+
+    </div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/qr-code-scanner" class="related-card"><h4>📷 QR Code Scanner</h4><p>Scan QR codes free</p></a><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/favicon-generator" class="related-card"><h4>✨ Favicon Generator</h4><p>Make a favicon</p></a><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a></div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+
+(function () {
+  function toast(msg) { var t = document.getElementById("toast"); if (!t) return; t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  window.__pdToast = toast;
+  var cl = document.getElementById("copyLink");
+  if (cl) cl.addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); });
+  var cs = document.getElementById("copyShareLine");
+  if (cs) cs.addEventListener("click", function () { var el = document.querySelector(".share-line"); if (el && navigator.clipboard) navigator.clipboard.writeText(el.textContent + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); });
+})();
+
+function __pdLoadScript(src) {
+  return new Promise(function (resolve, reject) {
+    if (document.querySelector('script[src="' + src + '"]')) { resolve(); return; }
+    var s = document.createElement("script"); s.src = src; s.onload = function () { resolve(); }; s.onerror = function () { reject(new Error("Could not load " + src)); };
+    document.head.appendChild(s);
+  });
+}
+function __pdLoadPdfJs() {
+  if (typeof pdfjsLib !== "undefined") return Promise.resolve();
+  return __pdLoadScript("../js/pdf.min.js").then(function () {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "../js/pdf.worker.min.js";
+  });
+}
+function __pdLoadPdfLib() {
+  if (typeof PDFLib !== "undefined") return Promise.resolve();
+  return __pdLoadScript("../js/pdf-lib.min.js");
+}
+function __pdSaveBlob(blob, name) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400); }
+function __pdHexRgb(hex) { var h = hex.replace("#", ""); return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255 }; }
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var toast = window.__pdToast || function () {};
+  var type = "url", libReady = false, lastQr = null, lastText = "";
+  var FIELDS = { url: "qrFieldsUrl", text: "qrFieldsText", wifi: "qrFieldsWifi", email: "qrFieldsEmail", phone: "qrFieldsPhone", sms: "qrFieldsSms" };
+  function err(m) { var e = $("qrError"); e.hidden = false; e.textContent = m; }
+  function clearErr() { $("qrError").hidden = true; }
+  $("qrTypeChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    type = b.getAttribute("data-type");
+    var chips = this.querySelectorAll(".chip");
+    for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", chips[i] === b ? "true" : "false");
+    for (var k in FIELDS) $(FIELDS[k]).hidden = k !== type;
+    generate();
+  });
+  function payload() {
+    if (type === "url") {
+      var u = $("qrUrl").value.trim();
+      if (!u) return "";
+      if (!/^[a-z][a-z0-9+.-]*:/i.test(u)) u = "https://" + u;
+      return u;
+    }
+    if (type === "text") return $("qrText").value;
+    if (type === "wifi") {
+      var ssid = $("qrSsid").value.trim();
+      if (!ssid) return "";
+      var sec = $("qrWifiSec").value, pass = $("qrWifiPass").value;
+      var esc = function (s) { return s.replace(/([\\;,:"])/g, "\\$1"); };
+      return "WIFI:T:" + sec + ";S:" + esc(ssid) + ";P:" + esc(pass) + ";;";
+    }
+    if (type === "email") {
+      var em = $("qrEmail").value.trim();
+      if (!em) return "";
+      var q = [];
+      if ($("qrSubject").value.trim()) q.push("subject=" + encodeURIComponent($("qrSubject").value.trim()));
+      if ($("qrBody").value.trim()) q.push("body=" + encodeURIComponent($("qrBody").value.trim()));
+      return "mailto:" + em + (q.length ? "?" + q.join("&") : "");
+    }
+    if (type === "phone") {
+      var ph = $("qrPhone").value.trim();
+      if (!ph) return "";
+      return "tel:" + ph.replace(/[\s()-]/g, "");
+    }
+    if (type === "sms") {
+      var n = $("qrSmsNum").value.trim();
+      if (!n) return "";
+      return "SMSTO:" + n.replace(/[\s()-]/g, "") + ":" + $("qrSmsMsg").value;
+    }
+    return "";
+  }
+  function ensureLib() {
+    if (libReady) return Promise.resolve();
+    return __pdLoadScript("../js/qrcode.min.js").then(function () {
+      if (typeof qrcode === "undefined") throw new Error("QR library failed to load");
+      libReady = true;
+    });
+  }
+  var timer = null;
+  function generate() {
+    clearTimeout(timer);
+    timer = setTimeout(doGenerate, 250);
+  }
+  function doGenerate() {
+    var text = payload();
+    clearErr();
+    if (!text) { $("qrMeta").textContent = "Enter something above to make your QR code."; lastQr = null; return; }
+    lastText = text;
+    ensureLib().then(function () {
+      try {
+        var ec = $("qrEc").value;
+        var qr = qrcode(0, ec);
+        qr.addData(text);
+        qr.make();
+        lastQr = qr;
+        drawQr(qr);
+        $("qrMeta").textContent = "Done \u2014 " + qr.getModuleCount() + " \u00d7 " + qr.getModuleCount() + " modules, error correction " + ec + ", " + text.length + " characters encoded. This is a static code: it never expires.";
+      } catch (e) {
+        lastQr = null;
+        err("That is too much text for a QR code (the limit is about 3,000 characters at low error correction, less at higher levels). Shorten it and try again.");
+      }
+    }).catch(function () {
+      err("The QR code engine could not be loaded. Check your connection and reload the page.");
+    });
+  }
+  function drawQr(qr) {
+    var n = qr.getModuleCount(), size = parseInt($("qrSize").value, 10);
+    var quiet = 4, total = n + quiet * 2, cell = size / total;
+    var cv = $("qrCanvas");
+    cv.width = size; cv.height = size;
+    var ctx = cv.getContext("2d");
+    ctx.fillStyle = $("qrBg").value; ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = $("qrFg").value;
+    for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) {
+      if (qr.isDark(r, c)) ctx.fillRect((c + quiet) * cell, (r + quiet) * cell, Math.ceil(cell), Math.ceil(cell));
+    }
+  }
+  function svgString() {
+    if (!lastQr) return null;
+    var n = lastQr.getModuleCount(), quiet = 4, total = n + quiet * 2;
+    var parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="' + total + '" height="' + total + '" viewBox="0 0 ' + total + ' ' + total + '">'];
+    parts.push('<rect width="' + total + '" height="' + total + '" fill="' + $("qrBg").value + '"/>');
+    parts.push('<path fill="' + $("qrFg").value + '" d="');
+    for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) {
+      if (lastQr.isDark(r, c)) parts.push("M" + (c + quiet) + " " + (r + quiet) + "h1v1h-1z");
+    }
+    parts.push('"/></svg>');
+    return parts.join("");
+  }
+  ["qrUrl", "qrText", "qrSsid", "qrWifiPass", "qrEmail", "qrSubject", "qrBody", "qrPhone", "qrSmsNum", "qrSmsMsg"].forEach(function (id) {
+    $(id).addEventListener("input", generate);
+  });
+  ["qrSize", "qrEc", "qrFg", "qrBg", "qrWifiSec"].forEach(function (id) {
+    $(id).addEventListener("change", generate);
+  });
+  $("qrDlPng").addEventListener("click", function () {
+    if (!lastQr) { toast("Make a QR code first."); return; }
+    $("qrCanvas").toBlob(function (blob) { __pdSaveBlob(blob, "qr-code.png"); toast("PNG downloaded."); }, "image/png");
+  });
+  $("qrDlSvg").addEventListener("click", function () {
+    if (!lastQr) { toast("Make a QR code first."); return; }
+    var svg = svgString();
+    __pdSaveBlob(new Blob([svg], { type: "image/svg+xml;charset=utf-8" }), "qr-code.svg");
+    toast("SVG downloaded \u2014 sharp at any size.");
+  });
+  $("qrCopy").addEventListener("click", function () {
+    if (!lastQr) { toast("Make a QR code first."); return; }
+    if (!navigator.clipboard || typeof ClipboardItem === "undefined") { toast("Copy isn't supported in this browser \u2014 use Download PNG."); return; }
+    $("qrCanvas").toBlob(function (blob) {
+      navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]).then(
+        function () { toast("QR code copied \u2014 paste it anywhere."); },
+        function () { toast("Copy was blocked \u2014 use Download PNG instead."); });
+    }, "image/png");
+  });
+  generate();
+})();
+
+</script>
+</body>
+</html>

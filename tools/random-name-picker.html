@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Random Name Picker — No Signup | PixDetector</title>
+<meta name="description" content="Pick a random name from your own list — paste names, pick one or several, no repeats if you want. Free, no signup, nothing uploaded.">
+<meta name="keywords" content="random name picker, random name picker free, pick a random name, random student picker, classroom name picker, pick a name from a list">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/random-name-picker">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/random-name-picker">
+<meta property="og:title" content="Free Random Name Picker — No Signup | PixDetector">
+<meta property="og:description" content="Pick a random name from your own list — paste names, pick one or several, no repeats if you want. Free, no signup, nothing uploaded.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this random name picker really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Pick as many names as you like with no signup, no payment and no download. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool have built-in names?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The list comes from you \u2014 paste your own names, one per line. This picker chooses from your list; it does not invent names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I pick a random student for my class?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste your class list, one name per line, leave \u201cNo repeats\u201d on, and press PICK A NAME. Each student sits out until the whole class has had a turn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pick more than one name at a time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 choose how many to pick, from 1 to 10. With \u201cNo repeats\u201d on, all the picked names are different."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the same name be picked twice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you turn \u201cNo repeats\u201d off. With it on, a picked name stays out of the pool until you start a new round."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my list of names uploaded or saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your names stay in your browser tab and are never sent to a server, stored, or shared. Close the page and they are gone."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to pick a random name",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your names",
+      "text": "Paste your names one per line. The list comes from you \u2014 the tool has no built-in names."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose how many",
+      "text": "Pick 1 to 10 names at a time. Leave No repeats on so nobody is picked twice in a round."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick a name",
+      "text": "Press PICK A NAME. When everyone has had a turn, start a new round to reset the pool."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field{margin-bottom:14px}
+input[type=text],input[type=number],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:12px 14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn.big{font-size:16px;padding:14px 26px;width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-big{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;padding:18px 10px;word-break:break-word;line-height:1.3}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:70px}
+.die-face{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:var(--bg3);border:2px solid var(--border2);font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin:4px}
+.die-face.crit{background:#166534;border-color:#22c55e;color:#fff}
+.die-face.fumble{background:#7f1d1d;border-color:#ef4444;color:#fff}
+.num-chip{display:inline-block;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:6px 12px;font-size:15px;font-weight:600;margin:3px}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{border:2px solid var(--border2);border-radius:8px;padding:6px;cursor:pointer;text-align:center;font-size:12px;color:var(--text2);background:var(--bg2)}
+.thumb.sel{border-color:var(--accent)}
+.thumb canvas{max-width:110px;height:auto;display:block;margin:0 auto 4px}
+.preview-wrap{position:relative;margin-top:14px;border:1px solid var(--border2);border-radius:10px;overflow:hidden;background:#fff}
+.preview-wrap canvas{display:block;width:100%;height:auto}
+.annot{position:absolute;cursor:pointer;border:1px dashed transparent;padding:2px 4px;word-break:break-word}
+.annot:hover,.annot.sel{border-color:var(--accent)}
+.annot img{display:block;max-width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.gcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.gcard img{max-width:100%;height:auto;border-radius:6px;background:#fff}
+.gcard p{font-size:12px;color:var(--text2);margin:8px 0;line-height:1.5;word-break:break-word}
+.gcard .btn{padding:7px 12px;font-size:12px}
+.check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
+.check-row input{width:auto;accent-color:var(--accent)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Random Name Picker
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Random Name Picker</h1>
+      <p>Pick a random name from your own list — paste your names, pick one or several, and never pick the same person twice in a round unless you want to. Free, no signup, nothing uploaded.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>This tool has no built-in names</strong> — the list comes from you. It picks from names you paste; it does not invent them. Your list is never uploaded and is gone when you close the page.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Random name picker">
+        <h2>Your list of names</h2>
+        <p class="hint" style="margin-top:0"><strong>This tool has no built-in names.</strong> The list comes from you \u2014 paste your own names below. Nothing is uploaded.</p>
+        <label class="flabel" for="pickList">Paste names, one per line</label>
+        <textarea id="pickList" rows="10" spellcheck="false">Ava
+Liam
+Mia
+Noah
+Sofia
+Lucas
+Amara
+Ethan
+Zara
+Omar</textarea>
+        <div class="field" style="margin-top:14px"><label class="flabel" for="pickCount">How many to pick (1\u201310)</label><input type="number" id="pickCount" value="1" min="1" max="10" step="1"></div>
+        <label class="check-row"><input type="checkbox" id="pickNoRepeat" checked> No repeats \u2014 each name can only be picked once per round</label>
+        <div class="actions">
+          <button type="button" class="btn big" id="pickBtn">PICK A NAME</button>
+          <button type="button" class="btn alt" id="pickClear">Clear list</button>
+        </div>
+        <p class="hint" id="pickCountLine"></p>
+      </div>
+      <div class="bc-panel" aria-label="Picked names">
+        <h2>Picked</h2>
+        <div class="result-box"><div class="result-big" id="pickResult">?</div></div>
+        <p class="status" id="pickStatus">Paste your names, then pick.</p>
+        <h2 style="margin-top:16px">Picked so far</h2>
+        <p class="status" id="pickHistory">Nobody picked yet.</p>
+        <div class="actions"><button type="button" class="btn alt" id="pickReset">Start a new round</button></div>
+      </div>
+    </div>
+
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Pick a random name from your own list — free, no signup, no repeats unless you want them.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Pick%20a%20random%20name%20from%20your%20own%20list%20%E2%80%94%20free%2C%20no%20signup%2C%20no%20repeats%20unless%20you%20want%20them.&amp;url=https%3A//pixdetector.vercel.app/tools/random-name-picker" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/random-name-picker" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Pick%20a%20random%20name%20from%20your%20own%20list%20%E2%80%94%20free%2C%20no%20signup%2C%20no%20repeats%20unless%20you%20want%20them.%20https%3A//pixdetector.vercel.app/tools/random-name-picker" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+
+      <!-- PROBLEM -->
+      <h2>The problem: calling on the same few people every time</h2>
+      <p>Every teacher knows it: ask a question and the same three hands go up, while the rest of the class quietly checks out. Every giveaway host knows the other version: draw a winner by hand and someone in the comments says it was fixed. The complaints about name pickers follow the same pattern as the wheel — tools that ship with fake sample names you have to delete first, tools that pick the same person twice in a row with no way to stop it, and tools that make you create an account before you can use your own class list. What teachers and hosts actually want is the simplest possible thing: paste my list, pick one fairly, and do not pick the same person twice until everyone has had a turn.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I pick a random name from a list?</h2>
+      <p>Paste your names below, one per line, choose how many to pick, and press PICK A NAME — free, with no signup, and the pick happens instantly in your browser. With "No repeats" turned on, each name sits out until the whole list has had a turn, then everyone is back in the pool. Every name in your list has exactly the same chance of being picked.</p>
+      <p>A random name picker is a tool that chooses one or more names from a list you provide. This one has no built-in names — the list comes from you, whether that is a class register, a team roster, or a list of giveaway entrants — and the pick is made with your browser's secure random generator, so the result cannot be steered.</p>
+      <!-- HOW TO -->
+      <h2>How to pick a random name in 3 steps</h2>
+      <p><strong>Step 1:</strong> paste your names, one per line — copy them straight from a spreadsheet or a document. <strong>Step 2:</strong> choose how many names to pick (1 to 10) and leave "No repeats" on if nobody should be picked twice. <strong>Step 3:</strong> press PICK A NAME. When everyone has had a turn, press "Start a new round" to put all names back in.</p>
+      <h2>Fair picks for classrooms</h2>
+      <p>The "No repeats" mode is built for classrooms: it works like drawing names from a hat, one at a time, without putting them back. Nobody is called on twice while someone else has never been called on, which keeps the whole class paying attention — anyone could be next. When the round is over, one button resets the pool. If you want a visible draw the class can watch, the <a href="/tools/spin-the-wheel">spin the wheel</a> tool picks from the same kind of list with an animated wheel instead.</p>
+      <h2>What this picker cannot do</h2>
+      <p>It cannot invent names for you. If you need name ideas — for a character, a baby, a team or a business — that is a different tool: a name generator creates names, while this picker only chooses from names you already have. It also cannot save your list between visits: your names stay in this browser tab and are gone when you close the page, which is also why nothing you paste is ever uploaded or seen by anyone else.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this random name picker really free?</summary><p>Yes. Pick as many names as you like with no signup, no payment and no download. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>Does this tool have built-in names?</summary><p>No. The list comes from you — paste your own names, one per line. This picker chooses from your list; it does not invent names.</p></details>
+      <details class="faq"><summary>How do I pick a random student for my class?</summary><p>Paste your class list, one name per line, leave “No repeats” on, and press PICK A NAME. Each student sits out until the whole class has had a turn.</p></details>
+      <details class="faq"><summary>Can I pick more than one name at a time?</summary><p>Yes — choose how many to pick, from 1 to 10. With “No repeats” on, all the picked names are different.</p></details>
+      <details class="faq"><summary>Can the same name be picked twice?</summary><p>Only if you turn “No repeats” off. With it on, a picked name stays out of the pool until you start a new round.</p></details>
+      <details class="faq"><summary>Is my list of names uploaded or saved?</summary><p>No. Your names stay in your browser tab and are never sent to a server, stored, or shared. Close the page and they are gone.</p></details>
+      
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Does this picker have built-in names?</strong> No. The list comes from you — paste your own names, one per line. That is the whole point: it picks from your list, it does not invent one.</p>
+      <p><strong>Can the same name be picked twice?</strong> Only if you turn "No repeats" off. With it on, each name sits out until everyone has been picked once.</p>
+      <p><strong>How many names can I paste?</strong> There is no hard cap on the list, but lists of up to a few hundred names work best. Pick 1 to 10 names at a time.</p>
+      <p><strong>Is my class list uploaded anywhere?</strong> No. Your names stay in your browser on your own device and are never sent to a server.</p>
+
+    </div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/spin-the-wheel" class="related-card"><h4>🎰 Spin the Wheel</h4><p>Fair random picker</p></a><a href="/tools/random-number-generator" class="related-card"><h4>🔢 Random Number Generator</h4><p>Random numbers in any range</p></a><a href="/tools/team-name-generator" class="related-card"><h4>👥 Team Name Generator</h4><p>Name your team</p></a><a href="/tools/username-generator" class="related-card"><h4>👤 Username Generator</h4><p>Create usernames</p></a></div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+
+(function () {
+  function toast(msg) { var t = document.getElementById("toast"); if (!t) return; t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  window.__pdToast = toast;
+  var cl = document.getElementById("copyLink");
+  if (cl) cl.addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); });
+  var cs = document.getElementById("copyShareLine");
+  if (cs) cs.addEventListener("click", function () { var el = document.querySelector(".share-line"); if (el && navigator.clipboard) navigator.clipboard.writeText(el.textContent + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); });
+})();
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var toast = window.__pdToast || function () {};
+  var picked = [];
+  function names() {
+    return $("pickList").value.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+  function secureInt(n) {
+    if (window.crypto && crypto.getRandomValues) {
+      var a = new Uint32Array(1), max = Math.floor(4294967296 / n) * n;
+      do { crypto.getRandomValues(a); } while (a[0] >= max);
+      return a[0] % n;
+    }
+    return Math.floor(Math.random() * n);
+  }
+  function refreshCount() {
+    var n = names().length;
+    $("pickCountLine").textContent = n + " name" + (n === 1 ? "" : "s") + " in your list" + (picked.length ? "  \u00b7  " + picked.length + " already picked this round" : "") + ".";
+  }
+  $("pickList").addEventListener("input", refreshCount);
+  $("pickClear").addEventListener("click", function () { $("pickList").value = ""; picked = []; $("pickResult").textContent = "?"; $("pickHistory").textContent = "Nobody picked yet."; refreshCount(); });
+  $("pickReset").addEventListener("click", function () { picked = []; $("pickHistory").textContent = "Nobody picked yet."; $("pickStatus").textContent = "New round started \u2014 everyone is back in the pool."; refreshCount(); });
+  $("pickBtn").addEventListener("click", function () {
+    var list = names();
+    if (list.length < 1) { $("pickStatus").textContent = "Paste at least one name first."; return; }
+    var count = parseInt($("pickCount").value, 10); if (isNaN(count) || count < 1) count = 1; if (count > 10) count = 10;
+    var noRepeat = $("pickNoRepeat").checked;
+    var pool = noRepeat ? list.filter(function (n) { return picked.indexOf(n) === -1; }) : list.slice();
+    if (!pool.length) { $("pickStatus").textContent = "Everyone has been picked this round. Press \u201cStart a new round\u201d to put all names back in."; return; }
+    if (count > pool.length) count = pool.length;
+    var btn = $("pickBtn"); btn.disabled = true;
+    var ticks = 0, iv = setInterval(function () {
+      $("pickResult").textContent = pool[secureInt(pool.length)];
+      ticks++;
+      if (ticks >= 8) {
+        clearInterval(iv);
+        var chosen = [];
+        for (var i = 0; i < count; i++) {
+          var idx = secureInt(pool.length);
+          chosen.push(pool[idx]);
+          if (noRepeat) pool.splice(idx, 1);
+        }
+        chosen.forEach(function (n) { if (picked.indexOf(n) === -1) picked.push(n); });
+        $("pickResult").textContent = chosen.join("  \u00b7  ");
+        $("pickStatus").textContent = chosen.length === 1 ? "Picked: " + chosen[0] : "Picked " + chosen.length + " names.";
+        $("pickHistory").textContent = "Picked this round: " + picked.join(", ");
+        refreshCount();
+        btn.disabled = false;
+        toast("Picked: " + chosen.join(", "));
+      }
+    }, 70);
+  });
+  refreshCount();
+})();
+
+</script>
+</body>
+</html>

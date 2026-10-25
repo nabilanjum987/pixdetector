@@ -28,42 +28,114 @@
     },
     {
       "@type": "Question",
-      "name": "Why doesn't the compass work on my laptop?",
+      "name": "Why is my phone compass wrong?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Laptops and desktops do not have a magnetometer \u2014 the sensor this tool reads. No website can fix missing hardware. This page tells you that instead of showing a fake reading. Open it on your phone instead."
+        "text": "Almost always magnetic interference (fridge, speaker, magnet, metal case, wireless charger) or an uncalibrated sensor. Move away from metal, remove magnetic accessories, and calibrate with a figure-8 wave."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does my iPhone ask for permission?",
+      "name": "How do I calibrate my phone compass?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "iOS requires an explicit prompt before a website can read motion and orientation sensors. Tap Start compass, then Allow when Safari asks. Without it, the compass cannot start."
+        "text": "Wave the phone in a figure-8 pattern, rotating your wrist, 3–4 times, away from metal objects. The magnetometer recalibrates against local interference and the reading should stabilise within seconds. See the figure-8 walkthrough on this page."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my compass inaccurate?",
+      "name": "Why doesn't the compass work on my laptop or desktop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nearby metal, magnets, speakers, laptops and magnetic phone cases distort the magnetic field. Move away from them, remove a magnetic case, and wave the phone in a slow figure-8 to recalibrate."
+        "text": "Laptops and desktops do not have a magnetometer — the sensor this tool reads. No website can fix missing hardware. This page tells you that instead of showing a fake reading, and offers a demo mode so you can still try the dial. Open it on your phone for a live reading."
       }
     },
     {
       "@type": "Question",
-      "name": "Does the online compass use GPS or my location?",
+      "name": "Does an online compass use GPS or my location?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It only reads the magnetometer \u2014 the chip that senses magnetic fields. It does not know or care where on the planet you are, and nothing is sent to a server."
+        "text": "No, not for the heading — it only reads the magnetometer, the chip that senses magnetic fields. Location is used only if you turn on Qibla mode, and only in your browser to calculate the bearing; nothing is sent to a server."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it show magnetic north or true north?",
+      "name": "What is the difference between magnetic north and true north?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Magnetic north \u2014 that is what the phone sensor measures. True north is a few degrees away depending on your location; for everyday orientation the difference does not matter."
+        "text": "A phone compass points to magnetic north, which drifts and sits a few degrees off the geographic North Pole; the offset (magnetic declination) depends on where you are. For everyday orientation it barely matters; for map navigation, allow for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is a phone compass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most phones get within 5–10 degrees of the correct heading after calibration — plenty for hiking, checking window direction or pointing an antenna, but not surveyor-grade. This page shows an accuracy indicator when your device reports one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my compass show different directions in different rooms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Magnetic interference varies room to room — wiring, appliances, metal furniture. The sensor is fine; the environment changes. Move away from metal and recalibrate with a figure-8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install an app to use a compass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a browser compass reads the same sensor through the DeviceOrientation API; no app, no download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my compass need permission on iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iOS requires an explicit motion and orientation permission. Tap Start compass, then Allow when Safari asks. If you denied it, re-enable it in Settings → Safari → Motion & Orientation Access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use an online compass without internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, once the page has loaded — the compass runs entirely on your phone's hardware and sensor data stays local; you could switch to airplane mode and it would keep working."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my compass only show east and never west?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A stuck or badly uncalibrated magnetometer — calibrate with the figure-8, move away from metal, and if it persists the sensor may be damaged. The cause of any specific stuck-sensor report is not verified."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find Qibla direction with my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a compass with a Qibla mode (this page has one), or look up your city's Qibla bearing in degrees and rotate until the compass shows it. Calibrate first — an uncalibrated phone compass is the main reason Qibla apps read wrong. Note the Qibla bearing is from true north, while the phone reads magnetic north, so allow a few degrees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a compass bearing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your heading in degrees clockwise from north: N = 0°, E = 90°, S = 180°, W = 270°."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my compass data sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On this page, no — sensor data stays on your device and nothing is uploaded. Location is used only inside your browser for the Qibla calculation, and only when you ask for it. Check any compass page's privacy statement before trusting it."
       }
     }
   ]
@@ -164,7 +236,7 @@ table.facts td{color:var(--text2)}
       <h1>Online Compass Free</h1>
       <p>Point your phone and see which way you are facing — live heading in degrees and as a direction like NE. Free, no app, no signup, and your heading never leaves your device.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> <strong>Needs a phone or tablet with a magnetometer</strong> — most phones have one, most laptops and desktops do not. On a desktop this page will tell you honestly that there is no sensor, instead of faking a reading. The compass shows <strong>magnetic north</strong>, which sits a few degrees off true north depending on where you are.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Needs a phone or tablet with a magnetometer</strong> — most phones have one, most laptops and desktops do not. On a desktop this page will tell you honestly that there is no sensor, instead of faking a reading — try the demo mode below to see how the dial works. The compass shows <strong>magnetic north</strong>, which sits a few degrees off true north depending on where you are. Qibla mode needs your location (or coordinates you type in); its bearing is from true north, so allow a few degrees against the magnetic-north dial.</div>
     
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Compass dial" style="text-align:center">
@@ -182,14 +254,20 @@ table.facts td{color:var(--text2)}
             <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:28px">🧭</span>
           </div>
           <span style="position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-size:20px;color:var(--accent)">▼</span>
+          <div id="qiblaRing" style="position:absolute;inset:0;pointer-events:none" hidden>
+            <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:20px;color:#22c55e" title="Qibla direction">▲</span>
+          </div>
         </div>
         <p style="font-family:'Syne',sans-serif;font-size:40px;font-weight:800" id="headingOut">—°</p>
         <p style="font-size:18px;font-weight:700" id="cardinalOut">No reading yet</p>
+        <p class="trust" id="accuracyOut">Compass accuracy: no reading yet — start the compass on a phone to see it.</p>
         <p class="trust" id="compassStatus">Tap Start compass on your phone. On iPhone you will get an extra prompt to allow motion access — tap Allow.</p>
         <div class="actions" style="justify-content:center">
           <button type="button" class="btn" id="startCompass">Start compass</button>
           <button type="button" class="btn alt" id="stopCompass" disabled>Stop</button>
+          <button type="button" class="btn alt" id="demoBtn">Try demo mode</button>
         </div>
+        <p class="trust" id="demoHint" hidden>Demo mode: drag the dial, or use the ← → arrow keys (hold Shift for 10° steps). This is a demonstration, not a sensor reading.</p>
         <p class="err" id="compassError" role="alert" hidden></p>
       </div>
       <div class="bc-panel" aria-label="How to read it">
@@ -208,14 +286,54 @@ table.facts td{color:var(--text2)}
         <p class="trust" style="margin-top:14px"><strong>Reading looks wrong?</strong> Wave your phone in a slow figure-8 a few times to recalibrate, and move away from metal objects, magnets, speakers and laptops — they bend the magnetic field your phone measures.</p>
       </div>
     </div>
+    <div class="bc-panel" aria-label="Qibla mode" style="margin-bottom:8px">
+      <h2>Qibla mode</h2>
+      <p class="trust" style="margin-top:0">Point the phone at the Qibla (the direction of the Kaaba in Makkah) for prayer. The bearing is calculated in your browser from your latitude and longitude — nothing is sent to a server. Calibrate the compass first (figure-8, away from metal): an uncalibrated phone compass is the main reason Qibla apps read wrong. The bearing is measured from <strong>true north</strong>, while your phone compass reads <strong>magnetic north</strong>, so allow a few degrees of difference.</p>
+      <div class="actions" style="margin-top:0">
+        <button type="button" class="btn" id="qiblaLocBtn">Use my location</button>
+      </div>
+      <p class="trust" id="qiblaLocStatus">Or pick a city below, or type your coordinates. If location permission is denied, this page says so and falls back to the coordinates you enter.</p>
+      <div class="grid2" style="margin-top:12px">
+        <div><label class="flabel" for="qiblaCity">City (preset)</label>
+          <select id="qiblaCity">
+            <option value="40.7128,-74.0060" selected>New York, USA</option>
+            <option value="32.7767,-96.7970">Dallas, USA</option>
+            <option value="43.6532,-79.3832">Toronto, Canada</option>
+            <option value="51.5074,-0.1278">London, UK</option>
+            <option value="25.2048,55.2708">Dubai, UAE</option>
+            <option value="31.5204,74.3587">Lahore, Pakistan</option>
+            <option value="24.8607,67.0011">Karachi, Pakistan</option>
+            <option value="3.1390,101.6869">Kuala Lumpur, Malaysia</option>
+            <option value="-33.8688,151.2093">Sydney, Australia</option>
+          </select>
+        </div>
+        <div><label class="flabel" for="qiblaPlace">Place label (optional)</label><input type="text" id="qiblaPlace" placeholder="e.g. My city" maxlength="60"></div>
+      </div>
+      <div class="grid2" style="margin-top:12px">
+        <div><label class="flabel" for="qiblaLat">Latitude</label><input type="number" id="qiblaLat" step="0.0001" value="40.7128"></div>
+        <div><label class="flabel" for="qiblaLon">Longitude</label><input type="number" id="qiblaLon" step="0.0001" value="-74.0060"></div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="qiblaCalcBtn">Calculate Qibla direction</button>
+        <button type="button" class="btn alt" id="qiblaOffBtn" disabled>Turn Qibla mode off</button>
+      </div>
+      <p class="trust" id="qiblaOut">No Qibla bearing yet — use your location, pick a city, or enter coordinates, then press Calculate Qibla direction. Default coordinates are New York; change them to your own city for an accurate bearing.</p>
+      <p class="trust" id="qiblaGuide" style="font-weight:700"></p>
+      <p class="trust" style="margin-top:14px"><strong>Or set any target bearing:</strong> useful for hiking or aligning a satellite dish. Enter a heading in degrees (0–359) and the page tells you how far to turn.</p>
+      <div class="grid2">
+        <div><label class="flabel" for="targetInput">Target bearing (degrees)</label><input type="number" id="targetInput" min="0" max="359" step="1" placeholder="e.g. 90"></div>
+        <div style="display:flex;align-items:flex-end;gap:10px"><button type="button" class="btn" id="targetSetBtn">Set target</button><button type="button" class="btn alt" id="targetClearBtn">Clear</button></div>
+      </div>
+      <p class="trust" id="targetGuide"></p>
+    </div>
     <div class="share-box"><h2>Share this tool</h2><p class="share-line">Free online compass — point your phone and find north. No app.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Free%20online%20compass%20%E2%80%94%20point%20your%20phone%20and%20find%20north.%20No%20app&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-compass" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-compass" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Free%20online%20compass%20%E2%80%94%20point%20your%20phone%20and%20find%20north.%20No%20app.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-compass" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: "online compass not working"</h2>
-      <p>"Compass not working" is the most common thing people type after opening an online compass — and the reasons are almost always the same three. First, they opened it on a laptop or desktop, which has no magnetometer at all, and the page either showed a fake spinning needle or nothing at all. Second, they opened it on an iPhone, where Safari needs an extra permission for motion and orientation, and nobody told them to tap Allow. Third, the needle points the wrong way because the phone has never been calibrated, or because it is sitting next to a laptop, a speaker, or a magnetic phone case. People want a simple answer — which way is north, right now — and what they get instead is a page that pretends to know on hardware that cannot know. This page does the opposite: it reads the real sensor when one exists, and says so plainly when one does not.</p>
+      <p>The most common compass complaints are the same ones users report in forums and app reviews. First, the reading is wrong: magnetic interference from fridges, washing machines, speakers, magnets, metal cases and wireless chargers can skew a phone compass so much that readings differ wildly even within the same room — and for Qibla direction, the highest-stakes use case, a wrong reading is not a minor bug. Second, two devices disagree: one user photographed a Garmin watch showing 040° next to a phone compass showing about 127° at the same spot. Third, the compass gets stuck, showing only some directions and never others — a stuck or uncalibrated sensor. And fourth, people open a compass on a laptop or desktop, which has no magnetometer at all, and get a fake spinning needle or nothing at all. People want a simple answer — which way is north, right now — and what they get instead is a page that pretends to know on hardware that cannot know.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I use an online compass for free?</h2>
-      <p>Tap Start compass on your phone, allow motion access, and hold the phone flat — the dial turns live and shows your heading in degrees and as a direction like NE. It reads your phone's magnetometer, so it is free with no app or signup. A laptop or desktop has no such sensor, so this page tells you that honestly instead of faking a reading.</p>
+      <p>Tap Start compass on your phone, allow motion access, and hold the phone flat — the dial turns and shows your heading in degrees and as a direction like NE. It reads your phone's magnetometer, free with no app or signup. A laptop has no such sensor, so this page says so honestly and offers a demo mode instead.</p>
       <p>An online compass is a web page that reads the magnetometer — the tiny electronic compass chip — inside your phone or tablet, through the browser's DeviceOrientation sensor, and turns that reading into a heading. Magnetic north is where a compass needle points; true (geographic) north is the direction of the North Pole. The gap between them, called magnetic declination, is a few degrees and depends on where on Earth you are.</p>
       <!-- HOW TO -->
       <h2>How to use the online compass in 4 steps</h2>
@@ -223,14 +341,41 @@ table.facts td{color:var(--text2)}
       <h2>Magnetic north vs true north</h2>
       <table class="facts"><thead><tr><th></th><th>Magnetic north</th><th>True north</th></tr></thead><tbody>
       <tr><td>What it is</td><td>Where a compass needle points — the Earth's magnetic pole</td><td>The geographic North Pole, the top of the Earth's axis</td></tr>
-      <tr><td>What this page shows</td><td>Yes — this is what your phone's sensor measures</td><td>No — correcting for it needs your location and a magnetic model</td></tr>
+      <tr><td>What this page shows</td><td>Yes — this is what your phone's sensor measures</td><td>No — correcting for it needs your location and a magnetic model, which this page does not implement. The Qibla bearing is given from true north, so allow a few degrees against the magnetic-north dial.</td></tr>
       <tr><td>How far apart</td><td colspan="2">A few degrees in most places; more near the poles. For everyday use — hiking, checking a window's direction, pointing an antenna — magnetic north is close enough.</td></tr>
       </tbody></table>
+      <h2>How to calibrate: the figure-8 walkthrough</h2>
+      <p>Phone magnetometers need calibrating before use — without it, headings can be off by several degrees to 45 degrees or more. Do this whenever the reading looks wrong, after dropping the phone, or when you change rooms:</p>
+      <p><strong>Step 1:</strong> step away from metal — move away from fridges, washing machines, speakers, laptops, wireless chargers and magnetic cases; remove a magnetic phone case. <strong>Step 2:</strong> hold the phone in your hand, screen up. <strong>Step 3:</strong> wave it in a slow figure-8 pattern, rotating your wrist as you go, 3–4 times. <strong>Step 4:</strong> hold the phone flat again and watch the heading — it should stabilise within seconds. If it keeps jumping, move further from metal and repeat. The figure-8 is the visual language of this whole niche: compass apps show it as pink figure-8 arrows for a reason.</p>
+      <h2>Why is my compass wrong? A troubleshooter</h2>
+      <table class="facts"><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody>
+      <tr><td>Reading changes room to room</td><td>Magnetic interference varies — wiring, appliances, metal furniture</td><td>The sensor is fine; the environment changes. Move away from metal and recalibrate with a figure-8.</td></tr>
+      <tr><td>Two devices show different headings</td><td>One of them is near interference, or uncalibrated</td><td>Calibrate both away from metal, then compare again in the same spot.</td></tr>
+      <tr><td>Compass only shows some directions, never others</td><td>Stuck or badly uncalibrated magnetometer</td><td>Figure-8 calibration, move away from metal; if it persists, the sensor may be damaged (cause not verified for any specific report).</td></tr>
+      <tr><td>Nothing happens on iPhone</td><td>Motion permission denied or never granted</td><td>Tap Start compass, then Allow. If you denied it, re-enable it in Settings → Safari → Motion &amp; Orientation Access.</td></tr>
+      <tr><td>Nothing happens on a laptop or desktop</td><td>No magnetometer in the device</td><td>There is no software workaround for missing hardware. Use a phone or tablet — or try the demo mode on this page to see how the dial works.</td></tr>
+      <tr><td>Heading is a few degrees off a map</td><td>Magnetic north vs true north (declination)</td><td>Normal — the offset is a few degrees where you are. For everyday orientation it barely matters.</td></tr>
+      </tbody></table>
+      <h2>Finding the Qibla direction</h2>
+      <p>Qibla direction is the use case that drives most compass-app installs: a traveller in a new city, or anyone praying away from home, needs to know which way to face. The classic failure is an uncalibrated phone compass — readings can be off by a large margin near fridges and washing machines, and GPS does not help, because GPS only tells you where you are, not which way you are facing. So calibrate first, away from metal, then turn on Qibla mode above: use your location or pick your city, and the page shows the Qibla bearing in degrees plus a live "turn left / turn right" guide — turn until the green marker reaches the top and the guide says you are facing it. None of the five top pages we checked in our research mentions a Qibla mode, which is why this page has one.</p>
+      <h2>How this compass compares with the top online compasses</h2>
+      <p>We checked the five pages ranking highest for this search in October 2026. The field is thin — one result is an off-topic school program — and the differences are calibration help, true-north correction, Qibla and accuracy display.</p>
+      <table class="facts">
+        <thead><tr><th>Tool</th><th>What it offers</th><th>Cost</th><th>What is missing</th></tr></thead>
+        <tbody>
+          <tr><td>247compass.org</td><td>Live heading in degrees + cardinal direction; figure-8 calibration tip; "move away from metal objects / laptops"; iPhone motion-permission prompt explained; one-time location link</td><td>Free</td><td>No true-north toggle, no bearing lock, no Qibla, no accuracy indicator mentioned in the fetched text</td></tr>
+          <tr><td>Surrey Schools COMPASS</td><td>A BC school district graduation program</td><td>—</td><td>Off-topic: does not solve the searched problem at all — a relevance gap</td></tr>
+          <tr><td>onlinecompassapp.com</td><td>True + magnetic north; sensor data stays local, no app, works offline; true-north toggle with World Magnetic Model declination (needs location); explains magnetic vs true north and calibration</td><td>Free</td><td>No Qibla, no bearing lock, no accuracy indicator, no desktop demo mode in the fetched text</td></tr>
+          <tr><td>wutools.com (Digital Compass)</td><td>Live heading 0–360°; compass rose with 8 cardinal directions; session recorder with min/max/circular-mean/jitter stats; CSV/JSON export; degree marks every 5°; fullscreen; honest feature detection</td><td>Free</td><td>Technician framing — no Qibla, no true-north toggle, no beginner-friendly calibration walkthrough in the fetched text</td></tr>
+          <tr><td>elevation.place/compass</td><td>Heading + degrees; target bearing input; GPS course comparison; honest accuracy section; manual coordinate entry; privacy-first</td><td>Free</td><td>Sparse tool-first page; no calibration guide, no Qibla, no dial/rose described in the fetched text</td></tr>
+          <tr><td>This page (PixDetector)</td><td>Live heading + dial; figure-8 calibration walkthrough; Qibla mode with turn guidance; accuracy indicator; desktop demo mode; target bearing; sensor data stays local</td><td>Free</td><td>No true-north toggle (declination correction needs a magnetic model — not implemented); the Qibla bearing is from true north while the phone reads magnetic north, so allow a few degrees</td></tr>
+        </tbody>
+      </table>
       <h2>What to use it for — and what not to</h2>
       <p>Good uses: orienting a map on a hike, checking which way a window faces before buying a plant, aligning a satellite dish or solar panel, setting up a telescope, or satisfying simple curiosity about the direction you are looking. Not for: safety-critical navigation, surveying, or anywhere a wrong heading could put you in danger — a phone compass is accurate to about 5–10° after calibration, and that is plenty for everyday orientation but not for precision work.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this online compass really free?</summary><p>Yes. Free, no signup, no app to install, and no limit on use.</p></details><details class="faq"><summary>Why doesn't the compass work on my laptop?</summary><p>Laptops and desktops do not have a magnetometer — the sensor this tool reads. No website can fix missing hardware. This page tells you that instead of showing a fake reading. Open it on your phone instead.</p></details><details class="faq"><summary>Why does my iPhone ask for permission?</summary><p>iOS requires an explicit prompt before a website can read motion and orientation sensors. Tap Start compass, then Allow when Safari asks. Without it, the compass cannot start.</p></details><details class="faq"><summary>Why is my compass inaccurate?</summary><p>Nearby metal, magnets, speakers, laptops and magnetic phone cases distort the magnetic field. Move away from them, remove a magnetic case, and wave the phone in a slow figure-8 to recalibrate.</p></details><details class="faq"><summary>Does the online compass use GPS or my location?</summary><p>No. It only reads the magnetometer — the chip that senses magnetic fields. It does not know or care where on the planet you are, and nothing is sent to a server.</p></details><details class="faq"><summary>Does it show magnetic north or true north?</summary><p>Magnetic north — that is what the phone sensor measures. True north is a few degrees away depending on your location; for everyday orientation the difference does not matter.</p></details>
+      <details class="faq"><summary>Is this online compass really free?</summary><p>Yes. Free, no signup, no app to install, and no limit on use.</p></details><details class="faq"><summary>Why is my phone compass wrong?</summary><p>Almost always magnetic interference (fridge, speaker, magnet, metal case, wireless charger) or an uncalibrated sensor. Move away from metal, remove magnetic accessories, and calibrate with a figure-8 wave.</p></details><details class="faq"><summary>How do I calibrate my phone compass?</summary><p>Wave the phone in a figure-8 pattern, rotating your wrist, 3–4 times, away from metal objects. The magnetometer recalibrates against local interference and the reading should stabilise within seconds. See the figure-8 walkthrough on this page.</p></details><details class="faq"><summary>Why doesn't the compass work on my laptop or desktop?</summary><p>Laptops and desktops do not have a magnetometer — the sensor this tool reads. No website can fix missing hardware. This page tells you that instead of showing a fake reading, and offers a demo mode so you can still try the dial. Open it on your phone for a live reading.</p></details><details class="faq"><summary>Does an online compass use GPS or my location?</summary><p>No, not for the heading — it only reads the magnetometer, the chip that senses magnetic fields. Location is used only if you turn on Qibla mode, and only in your browser to calculate the bearing; nothing is sent to a server.</p></details><details class="faq"><summary>What is the difference between magnetic north and true north?</summary><p>A phone compass points to magnetic north, which drifts and sits a few degrees off the geographic North Pole; the offset (magnetic declination) depends on where you are. For everyday orientation it barely matters; for map navigation, allow for it.</p></details><details class="faq"><summary>How accurate is a phone compass?</summary><p>Most phones get within 5–10 degrees of the correct heading after calibration — plenty for hiking, checking window direction or pointing an antenna, but not surveyor-grade. This page shows an accuracy indicator when your device reports one.</p></details><details class="faq"><summary>Why does my compass show different directions in different rooms?</summary><p>Magnetic interference varies room to room — wiring, appliances, metal furniture. The sensor is fine; the environment changes. Move away from metal and recalibrate with a figure-8.</p></details><details class="faq"><summary>Do I need to install an app to use a compass?</summary><p>No — a browser compass reads the same sensor through the DeviceOrientation API; no app, no download.</p></details><details class="faq"><summary>Why does my compass need permission on iPhone?</summary><p>iOS requires an explicit motion and orientation permission. Tap Start compass, then Allow when Safari asks. If you denied it, re-enable it in Settings → Safari → Motion &amp; Orientation Access.</p></details><details class="faq"><summary>Can I use an online compass without internet?</summary><p>Yes, once the page has loaded — the compass runs entirely on your phone's hardware and sensor data stays local; you could switch to airplane mode and it would keep working.</p></details><details class="faq"><summary>Why does my compass only show east and never west?</summary><p>A stuck or badly uncalibrated magnetometer — calibrate with the figure-8, move away from metal, and if it persists the sensor may be damaged. The cause of any specific stuck-sensor report is not verified.</p></details><details class="faq"><summary>How do I find Qibla direction with my phone?</summary><p>Use a compass with a Qibla mode (this page has one), or look up your city's Qibla bearing in degrees and rotate until the compass shows it. Calibrate first — an uncalibrated phone compass is the main reason Qibla apps read wrong. Note the Qibla bearing is from true north, while the phone reads magnetic north, so allow a few degrees.</p></details><details class="faq"><summary>What is a compass bearing?</summary><p>Your heading in degrees clockwise from north: N = 0°, E = 90°, S = 180°, W = 270°.</p></details><details class="faq"><summary>Is my compass data sent to a server?</summary><p>On this page, no — sensor data stays on your device and nothing is uploaded. Location is used only inside your browser for the Qibla calculation, and only when you ask for it. Check any compass page's privacy statement before trusting it.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I use the compass without internet?</strong> Yes — once the page has loaded, the compass runs entirely on your phone's hardware.</p>
@@ -285,15 +430,47 @@ table.facts td{color:var(--text2)}
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   var listening = false, gotReading = false, waitTimer = null;
+  var demoMode = false, demoHeading = 0, demoDragging = false;
+  var lastHeading = null, qiblaOn = false, qiblaBearing = null, qiblaPlace = "";
+  var targetBearing = null;
   var NAMES = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   function cardinal(deg) { return NAMES[Math.round(deg / 45) % 8]; }
   function showHeading(deg) {
     deg = ((deg % 360) + 360) % 360;
     gotReading = true;
+    lastHeading = deg;
     $("headingOut").textContent = Math.round(deg) + "°";
     $("cardinalOut").textContent = cardinal(deg) + " — " + ["North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"][Math.round(deg / 45) % 8];
     $("dial").style.transform = "rotate(" + (-deg) + "deg)";
-    $("compassStatus").textContent = "Live — hold the phone flat, top edge pointing where you face.";
+    if (!demoMode) { $("compassStatus").textContent = "Live — hold the phone flat, top edge pointing where you face."; }
+    updateGuides();
+  }
+  function turnText(heading, target) {
+    var diff = ((target - heading) % 360 + 360) % 360;
+    if (diff <= 5 || diff >= 355) return "you are facing it (within a few degrees)";
+    if (diff < 180) return "turn " + Math.round(diff) + "° to the right";
+    return "turn " + Math.round(360 - diff) + "° to the left";
+  }
+  function updateGuides() {
+    if (lastHeading === null) return;
+    if (qiblaOn && qiblaBearing !== null) {
+      $("qiblaRing").style.transform = "rotate(" + (qiblaBearing - lastHeading) + "deg)";
+      $("qiblaGuide").textContent = "Qibla is " + Math.round(qiblaBearing) + "°" + (qiblaPlace ? " from " + qiblaPlace : "") + " — " + turnText(lastHeading, qiblaBearing) + ". (Allow a few degrees: the bearing is from true north, the phone reads magnetic north.)";
+    }
+    if (targetBearing !== null) {
+      $("targetGuide").textContent = "Target " + Math.round(targetBearing) + "° — " + turnText(lastHeading, targetBearing) + ".";
+    }
+  }
+  function updateAccuracy(ev) {
+    var el = $("accuracyOut");
+    var acc = (ev && typeof ev.webkitCompassAccuracy === "number") ? ev.webkitCompassAccuracy : null;
+    if (acc === null || isNaN(acc)) {
+      el.textContent = "Compass accuracy: not reported by this device. Most phones do not report a number — calibrate with a figure-8 and compare against a known direction instead.";
+      return;
+    }
+    var level = acc <= 10 ? "High" : (acc <= 25 ? "Medium" : "Low");
+    var advice = level === "High" ? "Trust the reading for everyday use." : level === "Medium" ? "Usable, but calibrate with a figure-8 away from metal before trusting it." : "Do not trust this reading yet — move away from metal and magnets, remove a magnetic case, and calibrate with a figure-8.";
+    el.textContent = "Compass accuracy: ±" + Math.round(acc) + "° — " + level + ". " + advice;
   }
   function onOrientation(ev) {
     var heading = null;
@@ -301,15 +478,17 @@ table.facts td{color:var(--text2)}
     else if (ev.absolute === true && typeof ev.alpha === "number" && ev.alpha !== null) heading = 360 - ev.alpha;
     else if (typeof ev.alpha === "number" && ev.alpha !== null) heading = 360 - ev.alpha;
     if (heading !== null && !isNaN(heading)) showHeading(heading);
+    updateAccuracy(ev);
   }
   function noSensor(msg) {
     var e = $("compassError"); e.hidden = false;
-    e.textContent = msg || "No compass sensor found on this device. Most laptops and desktops have no magnetometer — open this page on a phone or tablet for a live reading.";
+    e.textContent = msg || "No compass sensor found on this device. Most laptops and desktops have no magnetometer — open this page on a phone or tablet for a live reading. You can still try the demo mode below to see how the dial works.";
     $("compassStatus").textContent = "No live reading on this device.";
     $("startCompass").disabled = false; $("stopCompass").disabled = true;
   }
   $("startCompass").addEventListener("click", function () {
     $("compassError").hidden = true;
+    stopDemo();
     if (typeof DeviceOrientationEvent === "undefined") { noSensor("This browser does not expose orientation sensors. Try Chrome or Safari on a phone."); return; }
     var begin = function () {
       listening = true; gotReading = false;
@@ -343,6 +522,132 @@ table.facts td{color:var(--text2)}
     if (!gotReading) $("compassStatus").textContent = "Compass stopped.";
   }
   $("stopCompass").addEventListener("click", function () { stopListening(); toast("Compass stopped."); });
+
+  /* ---------------- Qibla mode ---------------- */
+  function qiblaBearingFrom(lat, lon) {
+    var KAABA_LAT = 21.4225, KAABA_LON = 39.8262;
+    var phi1 = lat * Math.PI / 180, phi2 = KAABA_LAT * Math.PI / 180;
+    var dLon = (KAABA_LON - lon) * Math.PI / 180;
+    var y = Math.sin(dLon);
+    var x = Math.cos(phi1) * Math.tan(phi2) - Math.sin(phi1) * Math.cos(dLon);
+    var b = Math.atan2(y, x) * 180 / Math.PI;
+    return ((b % 360) + 360) % 360;
+  }
+  function setQibla(lat, lon, place) {
+    if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+      $("qiblaOut").textContent = "Those coordinates do not look valid — latitude must be -90 to 90 and longitude -180 to 180.";
+      return;
+    }
+    qiblaBearing = qiblaBearingFrom(lat, lon);
+    qiblaOn = true;
+    qiblaPlace = place || ("(" + lat.toFixed(4) + ", " + lon.toFixed(4) + ")");
+    $("qiblaRing").hidden = false;
+    $("qiblaOffBtn").disabled = false;
+    $("qiblaOut").textContent = "Qibla bearing: " + Math.round(qiblaBearing) + "° from true north, for " + qiblaPlace + ". The green ▲ on the dial points to the Qibla — turn until it reaches the top marker.";
+    updateGuides();
+    toast("Qibla mode on — bearing " + Math.round(qiblaBearing) + "°.");
+  }
+  $("qiblaCity").addEventListener("change", function () {
+    var parts = this.value.split(",");
+    $("qiblaLat").value = parts[0];
+    $("qiblaLon").value = parts[1];
+  });
+  $("qiblaCalcBtn").addEventListener("click", function () {
+    var lat = parseFloat($("qiblaLat").value);
+    var lon = parseFloat($("qiblaLon").value);
+    var place = $("qiblaPlace").value.trim() || $("qiblaCity").options[$("qiblaCity").selectedIndex].text;
+    setQibla(lat, lon, place);
+  });
+  $("qiblaLocBtn").addEventListener("click", function () {
+    if (!navigator.geolocation) {
+      $("qiblaLocStatus").textContent = "Geolocation is not available in this browser. Enter your latitude and longitude below, or pick a city.";
+      return;
+    }
+    $("qiblaLocStatus").textContent = "Asking for your location…";
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      var lat = pos.coords.latitude, lon = pos.coords.longitude;
+      $("qiblaLat").value = lat.toFixed(4);
+      $("qiblaLon").value = lon.toFixed(4);
+      $("qiblaLocStatus").textContent = "Location found (" + lat.toFixed(4) + ", " + lon.toFixed(4) + "). Bearing calculated from your location — accuracy depends on your GPS fix.";
+      setQibla(lat, lon, "your location (" + lat.toFixed(4) + ", " + lon.toFixed(4) + ")");
+    }, function (err) {
+      var why = err && err.code === 1 ? "permission was denied" : "location was unavailable";
+      $("qiblaLocStatus").textContent = "Location " + why + ". No problem — enter your latitude and longitude below, or pick a city (default is New York).";
+    }, { timeout: 10000 });
+  });
+  $("qiblaOffBtn").addEventListener("click", function () {
+    qiblaOn = false; qiblaBearing = null; qiblaPlace = "";
+    $("qiblaRing").hidden = true;
+    $("qiblaGuide").textContent = "";
+    $("qiblaOffBtn").disabled = true;
+    $("qiblaOut").textContent = "Qibla mode off. Use your location, pick a city, or enter coordinates, then press Calculate Qibla direction.";
+  });
+  $("targetSetBtn").addEventListener("click", function () {
+    var v = parseFloat($("targetInput").value);
+    if (isNaN(v) || v < 0 || v > 359) { $("targetGuide").textContent = "Enter a bearing between 0 and 359 degrees."; return; }
+    targetBearing = v;
+    updateGuides();
+    if (lastHeading === null) $("targetGuide").textContent = "Target " + Math.round(v) + "° set — start the compass or demo mode to see how far to turn.";
+  });
+  $("targetClearBtn").addEventListener("click", function () {
+    targetBearing = null;
+    $("targetInput").value = "";
+    $("targetGuide").textContent = "";
+  });
+
+  /* ---------------- desktop demo mode ---------------- */
+  function demoAngleFromEvent(ev) {
+    var wrap = $("dialWrap");
+    var r = wrap.getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    var dx = ev.clientX - cx, dy = ev.clientY - cy;
+    var a = Math.atan2(dx, -dy) * 180 / Math.PI;
+    return ((a % 360) + 360) % 360;
+  }
+  function setDemoHeading(deg) {
+    demoHeading = ((deg % 360) + 360) % 360;
+    showHeading(demoHeading);
+    $("compassStatus").textContent = "Demo mode — drag the dial, or use the ← → arrow keys (hold Shift for 10° steps). This is a demonstration, not a sensor reading.";
+    $("accuracyOut").textContent = "Compass accuracy: demo mode — no sensor is being read, so there is no accuracy to report.";
+  }
+  function startDemo() {
+    if (listening) stopListening();
+    demoMode = true;
+    $("demoHint").hidden = false;
+    $("demoBtn").textContent = "Exit demo mode";
+    $("compassError").hidden = true;
+    setDemoHeading(demoHeading);
+  }
+  function stopDemo() {
+    if (!demoMode) return;
+    demoMode = false;
+    $("demoHint").hidden = true;
+    $("demoBtn").textContent = "Try demo mode";
+    $("compassStatus").textContent = "Demo mode off. Tap Start compass on your phone for a live reading.";
+  }
+  $("demoBtn").addEventListener("click", function () {
+    if (demoMode) stopDemo(); else startDemo();
+  });
+  $("dialWrap").addEventListener("pointerdown", function (ev) {
+    if (!demoMode) return;
+    demoDragging = true;
+    try { this.setPointerCapture(ev.pointerId); } catch (_) {}
+    setDemoHeading(demoAngleFromEvent(ev));
+  });
+  $("dialWrap").addEventListener("pointermove", function (ev) {
+    if (!demoMode || !demoDragging) return;
+    setDemoHeading(demoAngleFromEvent(ev));
+  });
+  $("dialWrap").addEventListener("pointerup", function () { demoDragging = false; });
+  $("dialWrap").addEventListener("pointercancel", function () { demoDragging = false; });
+  document.addEventListener("keydown", function (ev) {
+    if (!demoMode) return;
+    if (ev.key === "ArrowLeft" || ev.key === "ArrowRight") {
+      ev.preventDefault();
+      var step = ev.shiftKey ? 10 : 1;
+      setDemoHeading(demoHeading + (ev.key === "ArrowRight" ? step : -step));
+    }
+  });
 
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }

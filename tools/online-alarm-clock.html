@@ -19,11 +19,20 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Is this online alarm clock really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Set as many alarms as you like, free, with no signup, no app and no ads. Everything runs in your browser." } },
-    { "@type": "Question", "name": "Will the alarm ring if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, the alarm rings while the tab is open, even in the background, as long as the device stays awake. If the tab is closed or the laptop sleeps, the alarm cannot sound — so keep the tab open and the device awake." } },
-    { "@type": "Question", "name": "Why didn't my online alarm go off?", "acceptedAnswer": { "@type": "Answer", "text": "The usual causes are: the tab was closed, the laptop went to sleep, the volume was muted, or the time was set to AM instead of PM. Check all four, and test the sound with the Test sound button before relying on the alarm." } },
-    { "@type": "Question", "name": "Can I set more than one alarm?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add as many alarms as you need, each with its own time and label — for example 7:00 Wake up, 7:30 Leave, 12:30 Lunch. Each alarm rings at its own time." } },
-    { "@type": "Question", "name": "Does it have a snooze button?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. When an alarm rings, press Snooze to silence it for 5 minutes — a new snoozed alarm is added automatically. Press Stop alarm to turn it off completely." } },
-    { "@type": "Question", "name": "Can I use this as my morning wake-up alarm?", "acceptedAnswer": { "@type": "Answer", "text": "You can, but be honest about the limits: a browser alarm only works while the tab is open and the device is awake. For a wake-up you must not miss, use this as a backup to your phone alarm, not a replacement for it." } }
+    { "@type": "Question", "name": "Does an online alarm clock work if I close the browser?", "acceptedAnswer": { "@type": "Answer", "text": "No. The alarm runs inside the browser tab. Close the tab or quit the browser and the alarm is lost. Minimising the window or switching to another tab is fine — the tab only needs to stay open." } },
+    { "@type": "Question", "name": "Will the alarm work if my computer goes to sleep?", "acceptedAnswer": { "@type": "Answer", "text": "No. Sleep and hibernation suspend the browser, so the alarm will not fire. Keep the computer awake while the alarm is pending — on a laptop, plug it in and set sleep to Never for that period." } },
+    { "@type": "Question", "name": "Why didn't my online alarm go off?", "acceptedAnswer": { "@type": "Answer", "text": "The usual causes are: the tab was closed, the laptop went to sleep, the volume was muted, the sound went to Bluetooth headphones, or the time was set to AM instead of PM. Work through the troubleshooter on this page, and test the alarm with the Test alarm in 1 minute button before relying on it." } },
+    { "@type": "Question", "name": "Why does my online alarm make no sound?", "acceptedAnswer": { "@type": "Answer", "text": "Usually three causes: the system is muted or the volume is low, the sound is routed to Bluetooth headphones, or the browser blocked audio because you never clicked the page (autoplay policy). Click anywhere on the page after loading it, then press Test sound." } },
+    { "@type": "Question", "name": "Can I set multiple alarms at the same time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. On this page you can set as many alarms as you like, each with its own time and label — for example 7:00 Wake up, 7:30 Leave, 12:30 Lunch. Some other tools allow only one alarm at a time, or cap it at five." } },
+    { "@type": "Question", "name": "How do I set an alarm online for free?", "acceptedAnswer": { "@type": "Answer", "text": "Open the page, pick the hour and minute, add a label, and click Add alarm — no app, no account, no download. Or tap a quick preset like 10 min or Nap 25 min. Keep the tab open." } },
+    { "@type": "Question", "name": "Can I set an alarm for tomorrow morning?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If the time you pick has already passed today, the alarm is scheduled for the same time tomorrow automatically. The page tells you when that happens. But a browser alarm is a backup for wake-ups — also set your phone alarm." } },
+    { "@type": "Question", "name": "Is an online alarm clock loud enough to wake me up?", "acceptedAnswer": { "@type": "Answer", "text": "It plays at your device volume, so turn the system volume to maximum and press Test sound first. For heavy sleepers a phone alarm or dedicated app is more reliable than a browser tab, because it also works when the device is locked or asleep." } },
+    { "@type": "Question", "name": "Does an online alarm clock work on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, in a mobile browser, but less reliably — some phones mute browser audio when the screen locks and aggressively suspend background tabs. Keep the screen on, and treat a phone browser alarm as a reminder, not a wake-up." } },
+    { "@type": "Question", "name": "What is the difference between an alarm clock and a timer?", "acceptedAnswer": { "@type": "Answer", "text": "An alarm rings at a specific time of day (7:00 AM); a timer counts down from a duration (20 minutes). Same page family, different job. For durations, use the free online timer on this site." } },
+    { "@type": "Question", "name": "Do online alarm clocks work without internet?", "acceptedAnswer": { "@type": "Answer", "text": "After the page has loaded, yes — the alarm is JavaScript in the browser and fires offline. You need internet only to load the page." } },
+    { "@type": "Question", "name": "Can I use my own song or sound as the alarm?", "acceptedAnswer": { "@type": "Answer", "text": "Not on this page — it has one built-in beep sound. Most free browser tools offer built-in tones only (bell, beep, rooster, siren); uploading a custom MP3 is rare on free browser tools, and was not verified for any top-ranked page in our research." } },
+    { "@type": "Question", "name": "How do I set a nap alarm for 20 minutes?", "acceptedAnswer": { "@type": "Answer", "text": "Use the Nap 25 min quick chip: 20 minutes of sleep plus about 5 minutes to drift off. A 20-minute power nap leaves you fresh; 30 to 60 minutes wakes you from deep sleep and leaves you groggy." } },
+    { "@type": "Question", "name": "Is a browser alarm as reliable as my phone alarm?", "acceptedAnswer": { "@type": "Answer", "text": "No. A phone alarm fires even with the app closed and the phone locked; a browser alarm needs the tab open and the computer awake. Use the browser alarm as a backup or for desk reminders, naps and meetings, and the phone alarm for wake-ups that cannot fail." } }
   ]
 }
 </script>
@@ -84,6 +93,10 @@ table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
+.timer-suite{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.timer-suite h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.timer-suite p{font-size:14px;color:var(--text2);line-height:1.8;margin:0}
+.timer-suite a{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -136,11 +149,13 @@ table.facts td{color:var(--text2)}
         <div class="actions">
           <button type="button" class="btn" id="addAlarm">Add alarm</button>
           <button type="button" class="btn alt" id="testSound">Test sound</button>
+          <button type="button" class="btn alt" id="testAlarmBtn">Test alarm in 1 minute</button>
         </div>
         <span class="flabel" style="margin-top:16px">Quick alarm — ring in</span>
         <div class="chips" id="quickChips">
           <button type="button" class="chip" data-min="10">10 min</button>
           <button type="button" class="chip" data-min="20">20 min</button>
+          <button type="button" class="chip" data-min="25">Nap 25 min</button>
           <button type="button" class="chip" data-min="30">30 min</button>
           <button type="button" class="chip" data-min="45">45 min</button>
           <button type="button" class="chip" data-min="60">1 hour</button>
@@ -150,6 +165,10 @@ table.facts td{color:var(--text2)}
         <ul class="alarm-list" id="alarmList"></ul>
         <p class="trust" id="noAlarms">No alarms set yet. Add one above — it rings while this tab stays open.</p>
       </div>
+    </div>
+    <div class="timer-suite">
+      <h2>Timer tools</h2>
+      <p>One shared timer, five pages — pick the job: <a href="/tools/countdown-timer">Countdown Timer</a> · <a href="/tools/timer-online">Online Timer</a> · <a href="/tools/online-alarm-clock">Online Alarm Clock</a> · <a href="/tools/stopwatch-online">Online Stopwatch</a> · <a href="/tools/pomodoro-timer">Pomodoro Timer</a>.</p>
     </div>
     <div class="share-box">
       <h2>Share this tool</h2>
@@ -165,10 +184,10 @@ table.facts td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: "my alarm didn't go off"</h2>
-      <p>"My alarm didn't go off" is one of the most searched alarm complaints in the world — and the causes are almost always the same four. The tab was closed, so nothing was left to ring. The laptop went to sleep, and a sleeping computer runs no JavaScript. The volume was muted, or the alarm volume was turned down separately from the media volume. Or the time was set to AM when PM was meant — the classic 12-hour mistake. Add a fifth: too many alarms, stacked so thickly they become background noise you learn to ignore. People want a loud, reliable alarm they can set in seconds, with a label that says what it is for — and they want to know, honestly, when a browser alarm can and cannot be trusted.</p>
+      <p>The most common online-alarm complaints are the same everywhere: the alarm never rings because the tab was closed or the computer went to sleep; it rings but makes no sound because the system is muted, the volume is low, or the sound is routed to Bluetooth headphones still connected from the night before; or it rings and the sleeper sleeps straight through it. Power nappers have their own version of the failure — a nap without an alarm turns into a full sleep, and a nap longer than 20 minutes leaves you groggy and wrecks the following night. And on several popular tools you can only set one alarm at a time, so a wake-up plus a meeting reminder plus a nap will not fit. People want a loud, testable alarm they can set in seconds — and an honest answer about when a browser alarm can and cannot be trusted.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I set an online alarm clock for free?</h2>
-      <p>Pick the time, add a label like "Wake up" or "Meeting", and press Add alarm — or tap a quick preset like "in 30 minutes" and the alarm is set with the exact ring time worked out for you. The alarm rings while this tab stays open, even in the background, and a loud beep repeats until you press Stop alarm or Snooze. It is free, with no signup and no app. Before you rely on it, press Test sound once to confirm the beep is loud enough and your volume is on.</p>
+      <p>Pick a time, add a label like "Wake up", and press Add alarm — or tap a quick preset. It rings while this tab stays open, with a loud beep that repeats until you press Stop or Snooze. Free, no signup, no app — but keep the tab open and the computer awake, or it cannot ring.</p>
       <p>An online alarm clock is a browser tool that plays a sound at a time you choose, without installing an app. Unlike a phone alarm, which is handled by the operating system, a browser alarm only exists while the page is open and the device is awake — that is the one limit that matters, and it is why this page says it upfront instead of hiding it in small print.</p>
       <!-- HOW TO -->
       <h2>How to set an alarm in 3 steps</h2>
@@ -183,6 +202,49 @@ table.facts td{color:var(--text2)}
           <tr><td>AM / PM right</td><td>Double-check the time picker: 07:00 is morning, 19:00 is evening. Set the alarm a minute ahead first to test it.</td></tr>
         </tbody>
       </table>
+      <h2>Why didn't my alarm ring? A troubleshooter</h2>
+      <p>Work through this list in order — the cause is almost always one of these. Test in the afternoon, not the night before you need it: set the test alarm below, wait one minute, and confirm you hear it.</p>
+      <table class="facts">
+        <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>No sound at all, no banner</td><td>The tab was closed, or the computer slept</td><td>Keep this tab open and set the computer not to sleep while the alarm is pending.</td></tr>
+          <tr><td>Banner appears, but silent</td><td>System muted, volume low, or sound routed to Bluetooth headphones</td><td>Raise the system volume, disconnect Bluetooth headphones, and press Test sound.</td></tr>
+          <tr><td>Silent the first time only</td><td>Browser autoplay policy — audio is blocked until you click the page</td><td>Click anywhere on this page once after loading it, then press Test sound.</td></tr>
+          <tr><td>Rang at the wrong time</td><td>AM/PM mix-up, or the wrong timezone</td><td>Check the time picker: 07:00 is morning, 19:00 is evening. Set a test alarm one minute ahead first.</td></tr>
+          <tr><td>Rang, but you slept through it</td><td>One quiet beep is easy to sleep through</td><td>Turn the volume to maximum, and set a second alarm 5 minutes later as a backup. For a wake-up that cannot fail, also set your phone alarm.</td></tr>
+        </tbody>
+      </table>
+      <div class="actions">
+        <button type="button" class="btn" id="testAlarmBtn2">Test alarm in 1 minute</button>
+      </div>
+      <p class="trust">The test sets a real alarm for one minute from now. Keep the tab open and listen for it — if you hear it, the alarm will work the same way tonight.</p>
+      <h2>The 20-minute nap rule</h2>
+      <p>A nap without an alarm is a sleep, not a nap. The rule from nap guides is simple: 20 minutes of sleep leaves you fresh; 30 to 60 minutes wakes you from deep sleep and leaves you groggy, and can also disturb the following night; around 90 minutes is a full sleep cycle and works if you have the time. Set the alarm for 25 minutes — 20 minutes of sleep plus about 5 minutes to drift off — and get up as soon as it rings. The "Nap 25 min" quick chip above does exactly that in one tap.</p>
+      <h2>How this alarm compares with the top online alarm clocks</h2>
+      <p>We checked the five pages ranking highest for this search in October 2026. All five are free in the browser; the differences are in alarm limits, sound and honesty about reliability.</p>
+      <table class="facts">
+        <thead><tr><th>Tool</th><th>What it offers</th><th>Cost</th><th>What is missing</th></tr></thead>
+        <tbody>
+          <tr><td>FreeTimer (freetimer.app)</td><td>Up to 5 alarms with custom sound, label and repeat days; works offline after load; alarms saved in the browser</td><td>Free</td><td>Only 5 alarms; no escalating volume; no test-your-alarm checklist</td></tr>
+          <tr><td>analog-clock.org</td><td>Claims unlimited alarms; comparison table vs apps and desktop clocks; step-by-step guide</td><td>Free</td><td>Heavy self-promotion; a "99.9% reliability" claim with no source given; testimonial quotes are unverified marketing copy</td></tr>
+          <tr><td>TimerClock.org</td><td>Loud chime preloaded at 90% volume; 12-hour AM/PM picker; bundles countdown, stopwatch, world clock and sleep calculator</td><td>Free</td><td>Chime plays only up to 12 seconds; thin on reliability guidance</td></tr>
+          <tr><td>AppBrain (Alarm Clock app listing)</td><td>Android app: loud tones, gradual volume increase, bedtime reminder, sleep timer, sleep music, offline</td><td>Free app</td><td>It is an app download, not a browser tool — a mismatch for "online alarm clock free"</td></tr>
+          <tr><td>prompt2tool.com</td><td>Unlimited alarms, custom sounds (bell, beep, chime, rooster, buzzer), labels, browser notifications, alarms saved in the browser</td><td>Free</td><td>Small unknown brand; no sound-test-before-set emphasis; no reliability checklist</td></tr>
+          <tr><td>This page (PixDetector)</td><td>Unlimited labelled alarms, quick presets including Nap 25 min, snooze, test sound and a 1-minute test alarm, troubleshooter</td><td>Free</td><td>One built-in beep sound only; no repeat-day scheduling; no escalating volume</td></tr>
+        </tbody>
+      </table>
+      <h2>Browser alarm vs phone alarm — when to use which</h2>
+      <table class="facts">
+        <thead><tr><th></th><th>Browser alarm (this page)</th><th>Phone alarm</th></tr></thead>
+        <tbody>
+          <tr><td>Rings if the tab/app is closed</td><td>No — the tab must stay open</td><td>Yes — handled by the operating system</td></tr>
+          <tr><td>Rings if the device sleeps or locks</td><td>No</td><td>Yes</td></tr>
+          <tr><td>Works offline after load</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Multiple alarms with labels</td><td>Yes, unlimited</td><td>Yes</td></tr>
+          <tr><td>Volume</td><td>Your device volume, one beep tone</td><td>Your device volume, many tones, often escalating</td></tr>
+          <tr><td>Best for</td><td>Desk reminders, naps, meetings, study breaks</td><td>Wake-ups that cannot fail</td></tr>
+        </tbody>
+      </table>
       <h2>What people use an online alarm for</h2>
       <p>Wake-ups and morning routines are the obvious use, but most online alarms are set for shorter things: a 20-minute power nap, a study break, a meeting in 30 minutes, medication, laundry, or a parking meter. Labels matter most for that second group — "Take medicine" or "Leave in 10" tells you what to do the moment the alarm rings, instead of just telling you the time. Keep the list short: three alarms for waking up and three for the day is enough. More than that turns into noise.</p>
       <!-- FAQ -->
@@ -192,28 +254,65 @@ table.facts td{color:var(--text2)}
         <p>Yes. Set as many alarms as you like, free, with no signup, no app and no ads. Everything runs in your browser.</p>
       </details>
       <details class="faq">
-        <summary>Will the alarm ring if I switch tabs?</summary>
-        <p>Yes, the alarm rings while the tab is open, even in the background, as long as the device stays awake. If the tab is closed or the laptop sleeps, the alarm cannot sound — so keep the tab open and the device awake.</p>
+        <summary>Does an online alarm clock work if I close the browser?</summary>
+        <p>No. The alarm runs inside the browser tab. Close the tab or quit the browser and the alarm is lost. Minimising the window or switching to another tab is fine — the tab only needs to stay open.</p>
+      </details>
+      <details class="faq">
+        <summary>Will the alarm work if my computer goes to sleep?</summary>
+        <p>No. Sleep and hibernation suspend the browser, so the alarm will not fire. Keep the computer awake while the alarm is pending — on a laptop, plug it in and set sleep to Never for that period.</p>
       </details>
       <details class="faq">
         <summary>Why didn't my online alarm go off?</summary>
-        <p>The usual causes are: the tab was closed, the laptop went to sleep, the volume was muted, or the time was set to AM instead of PM. Check all four, and test the sound with the Test sound button before relying on the alarm.</p>
+        <p>The usual causes are: the tab was closed, the laptop went to sleep, the volume was muted, the sound went to Bluetooth headphones, or the time was set to AM instead of PM. Work through the troubleshooter on this page, and test the alarm with the Test alarm in 1 minute button before relying on it.</p>
       </details>
       <details class="faq">
-        <summary>Can I set more than one alarm?</summary>
-        <p>Yes. Add as many alarms as you need, each with its own time and label — for example 7:00 Wake up, 7:30 Leave, 12:30 Lunch. Each alarm rings at its own time.</p>
+        <summary>Why does my online alarm make no sound?</summary>
+        <p>Usually three causes: the system is muted or the volume is low, the sound is routed to Bluetooth headphones, or the browser blocked audio because you never clicked the page (autoplay policy). Click anywhere on the page after loading it, then press Test sound.</p>
       </details>
       <details class="faq">
-        <summary>Does it have a snooze button?</summary>
-        <p>Yes. When an alarm rings, press Snooze to silence it for 5 minutes — a new snoozed alarm is added automatically. Press Stop alarm to turn it off completely.</p>
+        <summary>Can I set multiple alarms at the same time?</summary>
+        <p>Yes. On this page you can set as many alarms as you like, each with its own time and label — for example 7:00 Wake up, 7:30 Leave, 12:30 Lunch. Some other tools allow only one alarm at a time, or cap it at five.</p>
       </details>
       <details class="faq">
-        <summary>Can I use this as my morning wake-up alarm?</summary>
-        <p>You can, but be honest about the limits: a browser alarm only works while the tab is open and the device is awake. For a wake-up you must not miss, use this as a backup to your phone alarm, not a replacement for it.</p>
+        <summary>How do I set an alarm online for free?</summary>
+        <p>Open the page, pick the hour and minute, add a label, and click Add alarm — no app, no account, no download. Or tap a quick preset like 10 min or Nap 25 min. Keep the tab open.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I set an alarm for tomorrow morning?</summary>
+        <p>Yes. If the time you pick has already passed today, the alarm is scheduled for the same time tomorrow automatically. The page tells you when that happens. But a browser alarm is a backup for wake-ups — also set your phone alarm.</p>
+      </details>
+      <details class="faq">
+        <summary>Is an online alarm clock loud enough to wake me up?</summary>
+        <p>It plays at your device volume, so turn the system volume to maximum and press Test sound first. For heavy sleepers a phone alarm or dedicated app is more reliable than a browser tab, because it also works when the device is locked or asleep.</p>
+      </details>
+      <details class="faq">
+        <summary>Does an online alarm clock work on my phone?</summary>
+        <p>Yes, in a mobile browser, but less reliably — some phones mute browser audio when the screen locks and aggressively suspend background tabs. Keep the screen on, and treat a phone browser alarm as a reminder, not a wake-up.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between an alarm clock and a timer?</summary>
+        <p>An alarm rings at a specific time of day (7:00 AM); a timer counts down from a duration (20 minutes). Same page family, different job. For durations, use the free online timer on this site.</p>
+      </details>
+      <details class="faq">
+        <summary>Do online alarm clocks work without internet?</summary>
+        <p>After the page has loaded, yes — the alarm is JavaScript in the browser and fires offline. You need internet only to load the page.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use my own song or sound as the alarm?</summary>
+        <p>Not on this page — it has one built-in beep sound. Most free browser tools offer built-in tones only (bell, beep, rooster, siren); uploading a custom MP3 is rare on free browser tools, and was not verified for any top-ranked page in our research.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I set a nap alarm for 20 minutes?</summary>
+        <p>Use the Nap 25 min quick chip: 20 minutes of sleep plus about 5 minutes to drift off. A 20-minute power nap leaves you fresh; 30 to 60 minutes wakes you from deep sleep and leaves you groggy.</p>
+      </details>
+      <details class="faq">
+        <summary>Is a browser alarm as reliable as my phone alarm?</summary>
+        <p>No. A phone alarm fires even with the app closed and the phone locked; a browser alarm needs the tab open and the computer awake. Use the browser alarm as a backup or for desk reminders, naps and meetings, and the phone alarm for wake-ups that cannot fail.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>How do I set an alarm for 10 minutes from now?</strong> Tap the "10 min" quick preset — the alarm is set for exactly 10 minutes from now, with the ring time shown in the list.</p>
+      <p><strong>Does it have a snooze button?</strong> Yes. When an alarm rings, press Snooze to silence it for 5 minutes — a new snoozed alarm is added automatically. Press Stop alarm to turn it off completely.</p>
       <p><strong>Can I set a repeating daily alarm?</strong> Not on this page — alarms here are one-time, for today. For a daily wake-up, use your phone's clock app, which repeats by design.</p>
       <p><strong>Does the alarm work on my phone?</strong> Yes, in your phone's browser, as long as the tab stays open and the phone stays awake. Phones lock and sleep aggressively, so a phone browser alarm is a reminder, not a reliable wake-up.</p>
       <p><strong>What is the difference between an alarm and a timer?</strong> An alarm rings at a clock time (7:00 AM). A timer rings after a duration (in 30 minutes). For durations, use the <a href="/tools/timer-online">free online timer</a>.</p>
@@ -338,6 +437,14 @@ table.facts td{color:var(--text2)}
     T.testSound();
     T.toast('That is the alarm sound. Turn your volume up if it was quiet.');
   });
+  function testAlarmInOneMinute() {
+    var a = clock.addIn(1, 'Test alarm');
+    renderList();
+    T.toast('Test alarm set for ' + fmtTime(a.minutes) + ' — one minute from now. Keep the tab open and listen for it.');
+  }
+  $('testAlarmBtn').addEventListener('click', testAlarmInOneMinute);
+  var testBtn2 = $('testAlarmBtn2');
+  if (testBtn2) testBtn2.addEventListener('click', testAlarmInOneMinute);
   $('stopRing').addEventListener('click', function () {
     clock.stopRinging();
     $('ringBanner').hidden = true;

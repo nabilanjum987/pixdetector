@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this screen recorder really free?",
+      "name": "How do I record my screen online for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Record as much as you like \u2014 no watermark, no sign-up, no time limit and no install. Everything is made in your browser, and nothing is uploaded."
+        "text": "Open a browser-based recorder, click Start, pick a tab, window or your full screen, allow the permission, record, then stop and download the WebM — no install or signup on this page."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need to install anything or sign up?",
+      "name": "Is there a free screen recorder with no watermark?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. There is no extension, no download and no account. Press Record, pick a screen, window or tab in your browser's picker, and record. It works best in Chrome, Edge or Firefox."
+        "text": "Yes — this page and browser tools like Jupitrr and Waridi Tech export watermark-free files; Screenlet’s free plan adds a small watermark (removed by its $29 one-time Lifetime plan); YoRecord’s free exports carry a small “yorecord.com” watermark. Check the watermark line before you record."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is the recording a WebM file, not MP4?",
+      "name": "How do I record my screen with sound?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Browsers can only record into formats they natively support, and WebM is the one every modern browser can write. WebM plays in browsers and most players, but it will not open in iMovie, Photos or some versions of Premiere \u2014 convert it to MP4 with HandBrake or FFmpeg if you need MP4."
+        "text": "In Chrome, tick “Share tab audio” (or system audio when sharing the whole screen) in the browser’s share window — if you skip that checkbox, the computer’s sound is not included. Add your microphone separately for narration."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is there no system audio in my recording?",
+      "name": "Can I record my screen on my iPhone or Android in the browser?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "System-audio capture often fails, or only works when you share a tab rather than a whole screen. Share a tab and tick the browser's own \u201cShare audio\u201d box in its picker. If it still fails, that is a browser limit, not a bug in the page."
+        "text": "No — phones do not allow screen capture in the browser; use the phone’s built-in recorder (iPhone: Control Center screen recording; Android: built-in recorder in quick settings)."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I record my webcam at the same time?",
+      "name": "Why does my screen recording have no sound?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. This tool records the screen plus microphone only. For a picture-in-picture webcam, use OBS or your operating system's camera app."
+        "text": "Usually one of three things: the microphone was off in the recorder, “Share tab audio” or system audio wasn’t ticked, or the app blocks audio (FaceTime, Netflix, WhatsApp calls mute it). Check the toggles first, then the app."
       }
     },
     {
       "@type": "Question",
-      "name": "Is there a time limit on recordings?",
+      "name": "How long can I record for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No time limit is imposed by this tool \u2014 but long recordings are bounded by your browser's memory, so very long captures can slow the browser down. For hour-long recordings, a desktop recorder such as OBS is the safer choice."
+        "text": "It varies by tool: Loom’s free plan stops at 5 minutes, YoRecord caps free recordings at 10 minutes (20 on Pro), while Waridi Tech and Jupitrr claim no time limit. This page imposes no time limit, but long recordings are bounded by your browser’s memory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to download anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No for browser recorders — they run in Chrome, Edge, Firefox and Safari. Screenlet needs a Chrome extension; OBS and ShareX are desktop downloads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format will my recording be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WebM on this page — the browser-native format; most browser tools offer MP4 (Jupitrr, Waridi, YoRecord), and Drefly also exports MOV, MKV, AVI and GIF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I record my screen and webcam at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes on some tools — Capscreen, Screenlet, Zight and Drefly all offer screen plus camera together, with the webcam as a picture-in-picture overlay. This page records screen plus microphone only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an online screen recorder private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browser-based ones record locally — the file stays on your device and is never uploaded on this page (Jupitrr, Waridi and Drefly work the same way); tools that offer share links or cloud sync (Zight, ScreenApp, Drefly’s Drive sync) upload only when you choose to share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my recording black when I record Netflix or a video call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copy-protected content (Netflix, Apple Music) and some calls (FaceTime, WhatsApp) block capture or mute audio for legal and privacy reasons — no recorder can bypass that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I record just one window instead of my whole screen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the browser’s capture picker offers tab, window, or entire screen; Game Bar on Windows records one app window only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on Mac and Safari?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser recorders run on macOS in Chrome, Firefox, Edge and Safari; macOS built-in Cmd + Shift + 5 records the screen but not system sound without an extra driver. This page works best in Chrome, Edge or Firefox; Safari support is limited."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pause and resume a recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some tools can (ScreenApp); many simple browser tools cannot — this page can: press Pause, then Resume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I record a Zoom or Teams meeting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Record the meeting window or tab with microphone plus system or tab audio ticked; on a phone use the built-in recorder; note that some meeting apps notify participants or block capture — check the app’s own rules first."
       }
     }
   ]
@@ -171,6 +243,11 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 .timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
 .rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.2}}
+table.formats{width:100%;border-collapse:collapse;font-size:13px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+table.formats .fname{color:var(--text);font-weight:600;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -228,10 +305,10 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>Why screen recording usually means an install or a watermark</h2>
-      <p>The demand for a no-install recorder is loud: one Hacker News launch put it plainly — “screen recorders either cost $18/month, add watermarks or need installs” — and a Reel with 21K likes promoted an open-source Screen Studio alternative on the same promise. The free tiers people actually find watermark the export, cap recordings at 5 minutes, or need an extension or an install before they will start. Then there is the format trap: browser recorders output WebM, which will not open in iMovie, Photos or some versions of Premiere, so the recording needs a second transcode to MP4. Add weak Safari support and system audio that often fails unless you share a tab, and the picture is clear: people want to hit record, capture screen plus mic, and download a clean file — no install, no account, no watermark, no time limit. That is what this tool does, with the honest limits stated above.</p>
+      <p>The demand for a no-install recorder is loud in social video: one creator opens by hitting record on Loom, then shows the text overlay — he “hits the limit halfway through a client walkthrough and it stops at five minutes”, noting Loom “quietly dropped it without much warning”. Another video pitches recording “without paying $60 for software that adds a watermark”. The complaints repeat across videos: watermarks on free exports, time limits that cut a recording mid-work, and the silent failure nobody warns about — system audio missing because the “Share tab audio” box was never ticked. Add the format trap (browser recorders output WebM, which will not open in iMovie, Photos or some versions of Premiere, so the recording needs a second transcode to MP4) and weak Safari support, and the picture is clear: people want to hit record, capture screen plus mic, and download a clean file — no install, no account, no watermark, no time limit. That is what this tool does, with the honest limits stated above.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I record my screen for free without installing anything?</h2>
-      <div class="answer-box"><strong>Direct answer:</strong> to record your screen free with no install, press Start recording on this page, pick a screen, window or tab in your browser's picker, and press Stop when you are done. The recording is made in your browser and downloads as a WebM file — no signup, no watermark, no time limit, and nothing is uploaded. It works best in Chrome, Edge or Firefox.</div>
+      <div class="answer-box"><strong>Direct answer:</strong> to record your screen free with no install, press Start recording, pick a screen, window or tab in your browser&rsquo;s picker, and press Stop when you are done. The recording downloads as a WebM file &mdash; no signup, no watermark, no time limit, nothing uploaded. Works best in Chrome, Edge or Firefox.</div>
       <!-- HOW TO -->
       <h2 style="margin-top:28px">How to record your screen in three steps</h2>
       <div class="steps">
@@ -242,34 +319,89 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <p>Microphone audio is separate from system audio, and the two fail in different ways. The microphone is straightforward: tick “Include microphone”, allow access, and your voice is recorded alongside the screen. System audio is the flaky one — it often fails outright, or only works on a tab share, depending on the browser and the operating system. If your recording comes back without system sound, that is the usual cause, not a bug in the page: share a tab, tick “Share audio”, and try again. And if you need webcam and screen together, this tool cannot do it — it records screen plus microphone only. For a picture-in-picture webcam, use OBS or your operating system's camera app.</p>
 <p>Two honest limits before you record. First, the output is WebM, not MP4 — WebM will not open in iMovie, Photos or some versions of Premiere, so plan a second transcode with HandBrake or FFmpeg if your editor needs MP4. Second, this is for quick captures and demos, not production: there are no scenes, no live streaming and no multi-source mixing, and long recordings are bounded by your browser's memory. For a full production with scenes and a webcam, OBS is the honest choice — and it is free. For a quick “show me how this works” capture, this page is faster: press record, show it, stop, download.</p>
 
-      <!-- FAQ -->
+      
+      <h2 style="margin-top:28px">How this page compares to the top 5 free screen recorders</h2>
+      <p>Live SERP top 5 (US, 25 Oct 2026 research run). The pattern in this niche: the free tier is fine until the watermark, the 5-minute cap, or the silent missing audio shows up.</p>
+      <table class="formats">
+        <thead><tr><th>Tool</th><th>What it offers free</th><th>What is missing / the catch</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">Waridi Tech</td><td>Free forever, no watermark, no time limits, MP4 output, full screen, tab or window, mic plus system audio, 100% browser-based, no upload, PWA works offline after first load</td><td>Small unknown brand; no webcam overlay mentioned; no trim or edit mentioned; no stated resolution cap.</td></tr>
+          <tr><td class="fname">Screenlet</td><td>Free Chrome extension recorder: device mockups, webcam plus voiceover, cinematic zoom, MP4 and WebM export, no signup</td><td>Requires a Chrome extension install (not pure browser); free plan adds a small watermark; $29 one-time Lifetime removes it.</td></tr>
+          <tr><td class="fname">Zight</td><td>Mac, Windows, Chrome, iOS; free plan: recordings up to 5 minutes at up to 720p, system audio plus mic, share link on stop, trim and split on desktop, GIFs up to 15 seconds</td><td>5-minute cap and 720p cap on free; desktop app install for the full feature set; paid plans for unlimited, 4K and transcripts.</td></tr>
+          <tr><td class="fname">Capscreen</td><td>Free and open-source; browser recorder plus a macOS CLI; camera plus mic, auto zoom, click and keystroke effects, drawing overlay, in-browser trim, split and merge, export GIF, MP4, WebM, HTML and PPTX, noise suppression, AI transcription</td><td>Feature-dense to the point of overwhelming a first-time user; open-source project with thin support.</td></tr>
+          <tr><td class="fname">Jupitrr</td><td>Free, no signup, no watermark, no install; MP4 up to Full HD; mic plus tab audio merged into one track; recordings stay on the device, never uploaded; pick tab, window or full screen</td><td>No stated time limit (not verified &mdash; could exist); no webcam overlay mentioned in the fetched snippet.</td></tr>
+          <tr><td class="fname">This page</td><td>Free, no watermark, no time limit, no signup, no install; screen, window or tab; mic plus system-audio toggles; pause and resume; nothing uploaded</td><td>WebM output only (not MP4); no webcam overlay; no trim; browser recording does not work on phones.</td></tr>
+        </tbody>
+      </table>
+      <h2 style="margin-top:28px">Built-in recorders already on your computer</h2>
+      <p><strong>Windows &mdash; Game Bar (Win + Alt + R):</strong> built in since 2015, starts immediately in Full HD (1920&times;1080) with audio, no time limit, no watermark; the file lands in Videos, then Captures. The catch: it records only one app window, not the desktop or File Explorer. <strong>Windows &mdash; Snipping Tool video (Win + Shift + S):</strong> opens the Snipping Tool in video mode for a quick capture. <strong>Mac (Cmd + Shift + 5):</strong> the built-in screen recorder; it records the screen but not system sound without an extra driver. For a full setup with webcam, OBS is free and open-source.</p>
+      <h2 style="margin-top:28px">Why is there no sound? &mdash; the three checks</h2>
+      <p><strong>1. The microphone was off in the recorder</strong> &mdash; tick &ldquo;Include microphone&rdquo; before you press Record. <strong>2. &ldquo;Share tab audio&rdquo; or system audio wasn&rsquo;t ticked</strong> &mdash; in Chrome, tick &ldquo;Share tab audio&rdquo; (or system audio when sharing the whole screen) in the browser&rsquo;s share window; if you skip that checkbox, the computer&rsquo;s sound is not included. <strong>3. The app blocks audio</strong> &mdash; FaceTime, Netflix and WhatsApp calls mute it. And if the picture is black on Netflix or a video call, that is copy protection (Netflix, Apple Music) &mdash; no recorder can bypass it.</p>
+
+    <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
-      <details class="faq">
-<summary>Is this screen recorder really free?</summary>
-<p>Yes. Record as much as you like — no watermark, no sign-up, no time limit and no install. Everything is made in your browser, and nothing is uploaded.</p>
+<details class="faq">
+  <summary>How do I record my screen online for free?</summary>
+  <p>Open a browser-based recorder, click Start, pick a tab, window or your full screen, allow the permission, record, then stop and download the WebM — no install or signup on this page.</p>
 </details>
 <details class="faq">
-<summary>Do I need to install anything or sign up?</summary>
-<p>No. There is no extension, no download and no account. Press Record, pick a screen, window or tab in your browser's picker, and record. It works best in Chrome, Edge or Firefox.</p>
+  <summary>Is there a free screen recorder with no watermark?</summary>
+  <p>Yes — this page and browser tools like Jupitrr and Waridi Tech export watermark-free files; Screenlet’s free plan adds a small watermark (removed by its $29 one-time Lifetime plan); YoRecord’s free exports carry a small “yorecord.com” watermark. Check the watermark line before you record.</p>
 </details>
 <details class="faq">
-<summary>Why is the recording a WebM file, not MP4?</summary>
-<p>Browsers can only record into formats they natively support, and WebM is the one every modern browser can write. WebM plays in browsers and most players, but it will not open in iMovie, Photos or some versions of Premiere — convert it to MP4 with HandBrake or FFmpeg if you need MP4.</p>
+  <summary>How do I record my screen with sound?</summary>
+  <p>In Chrome, tick “Share tab audio” (or system audio when sharing the whole screen) in the browser’s share window — if you skip that checkbox, the computer’s sound is not included. Add your microphone separately for narration.</p>
 </details>
 <details class="faq">
-<summary>Why is there no system audio in my recording?</summary>
-<p>System-audio capture often fails, or only works when you share a tab rather than a whole screen. Share a tab and tick the browser's own “Share audio” box in its picker. If it still fails, that is a browser limit, not a bug in the page.</p>
+  <summary>Can I record my screen on my iPhone or Android in the browser?</summary>
+  <p>No — phones do not allow screen capture in the browser; use the phone’s built-in recorder (iPhone: Control Center screen recording; Android: built-in recorder in quick settings).</p>
 </details>
 <details class="faq">
-<summary>Can I record my webcam at the same time?</summary>
-<p>No. This tool records the screen plus microphone only. For a picture-in-picture webcam, use OBS or your operating system's camera app.</p>
+  <summary>Why does my screen recording have no sound?</summary>
+  <p>Usually one of three things: the microphone was off in the recorder, “Share tab audio” or system audio wasn’t ticked, or the app blocks audio (FaceTime, Netflix, WhatsApp calls mute it). Check the toggles first, then the app.</p>
 </details>
 <details class="faq">
-<summary>Is there a time limit on recordings?</summary>
-<p>No time limit is imposed by this tool — but long recordings are bounded by your browser's memory, so very long captures can slow the browser down. For hour-long recordings, a desktop recorder such as OBS is the safer choice.</p>
+  <summary>How long can I record for free?</summary>
+  <p>It varies by tool: Loom’s free plan stops at 5 minutes, YoRecord caps free recordings at 10 minutes (20 on Pro), while Waridi Tech and Jupitrr claim no time limit. This page imposes no time limit, but long recordings are bounded by your browser’s memory.</p>
+</details>
+<details class="faq">
+  <summary>Do I need to download anything?</summary>
+  <p>No for browser recorders — they run in Chrome, Edge, Firefox and Safari. Screenlet needs a Chrome extension; OBS and ShareX are desktop downloads.</p>
+</details>
+<details class="faq">
+  <summary>What format will my recording be?</summary>
+  <p>WebM on this page — the browser-native format; most browser tools offer MP4 (Jupitrr, Waridi, YoRecord), and Drefly also exports MOV, MKV, AVI and GIF.</p>
+</details>
+<details class="faq">
+  <summary>Can I record my screen and webcam at the same time?</summary>
+  <p>Yes on some tools — Capscreen, Screenlet, Zight and Drefly all offer screen plus camera together, with the webcam as a picture-in-picture overlay. This page records screen plus microphone only.</p>
+</details>
+<details class="faq">
+  <summary>Is an online screen recorder private?</summary>
+  <p>Browser-based ones record locally — the file stays on your device and is never uploaded on this page (Jupitrr, Waridi and Drefly work the same way); tools that offer share links or cloud sync (Zight, ScreenApp, Drefly’s Drive sync) upload only when you choose to share.</p>
+</details>
+<details class="faq">
+  <summary>Why is my recording black when I record Netflix or a video call?</summary>
+  <p>Copy-protected content (Netflix, Apple Music) and some calls (FaceTime, WhatsApp) block capture or mute audio for legal and privacy reasons — no recorder can bypass that.</p>
+</details>
+<details class="faq">
+  <summary>Can I record just one window instead of my whole screen?</summary>
+  <p>Yes — the browser’s capture picker offers tab, window, or entire screen; Game Bar on Windows records one app window only.</p>
+</details>
+<details class="faq">
+  <summary>Does it work on Mac and Safari?</summary>
+  <p>Yes — browser recorders run on macOS in Chrome, Firefox, Edge and Safari; macOS built-in Cmd + Shift + 5 records the screen but not system sound without an extra driver. This page works best in Chrome, Edge or Firefox; Safari support is limited.</p>
+</details>
+<details class="faq">
+  <summary>Can I pause and resume a recording?</summary>
+  <p>Some tools can (ScreenApp); many simple browser tools cannot — this page can: press Pause, then Resume.</p>
+</details>
+<details class="faq">
+  <summary>How do I record a Zoom or Teams meeting?</summary>
+  <p>Record the meeting window or tab with microphone plus system or tab audio ticked; on a phone use the built-in recorder; note that some meeting apps notify participants or block capture — check the app’s own rules first.</p>
 </details>
 
-      <!-- RELATED QUESTIONS -->
+    <!-- RELATED QUESTIONS -->
       <h2 style="margin-top:28px">Related questions</h2>
       <ul class="rq-list">
         <li><strong>How do I record my screen without a watermark?</strong><br>Use this page: press Record, pick a screen, window or tab, and download — free, no watermark, no signup.</li><li><strong>Can I record my screen on a phone?</strong><br>Phones cannot capture the screen this way in a browser. Use your phone's built-in screen recorder instead.</li><li><strong>Does this screen recorder work in Safari?</strong><br>Safari support is limited. Use Chrome, Edge or Firefox on a computer for the best result.</li><li><strong>How do I record a specific window instead of the whole screen?</strong><br>In the browser's picker, choose the Window tab and pick the app you want — the viewer sees that app only.</li>
@@ -277,7 +409,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     </div>
 
     <div class="share-box">
-      <h3>Share this free tool</h3>
+      <h3>Share this tool</h3>
       <p class="share-line">I recorded my screen free in the browser — no install, no account, no watermark, no time limit.</p>
       <div class="share-row">
         <button type="button" class="share-btn" id="copyLinkBtn">Copy link</button>

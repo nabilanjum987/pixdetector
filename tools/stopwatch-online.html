@@ -19,11 +19,20 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Is this online stopwatch really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Time as much as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
-    { "@type": "Question", "name": "How accurate is the stopwatch?", "acceptedAnswer": { "@type": "Answer", "text": "It displays hundredths of a second and measures elapsed time from your device clock, so it stays accurate even if you switch tabs. The biggest source of error is your own finger on Start and Stop, not the clock." } },
+    { "@type": "Question", "name": "How accurate is an online stopwatch?", "acceptedAnswer": { "@type": "Answer", "text": "To about 10–50 ms under normal conditions. The display shows hundredths, but your finger press adds about 0.1 seconds or more of error. Good for workouts, cooking and study — not for official sports results." } },
     { "@type": "Question", "name": "Does the stopwatch keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Elapsed time is calculated from timestamps, not by counting ticks, so switching tabs or minimising the window does not lose time. The display redraws with the correct time as soon as you come back." } },
-    { "@type": "Question", "name": "What is the difference between a lap and a split?", "acceptedAnswer": { "@type": "Answer", "text": "The split is the time for one lap on its own — from the last lap press to this one. The total is the time since you first pressed Start. This stopwatch shows both for every lap, and highlights your fastest and slowest laps." } },
-    { "@type": "Question", "name": "Can I copy my lap times?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Press Copy laps to put the whole lap list on your clipboard as plain text — lap number, split and total — ready to paste into a spreadsheet or a note." } },
-    { "@type": "Question", "name": "What is the difference between a stopwatch and a timer?", "acceptedAnswer": { "@type": "Answer", "text": "A stopwatch counts up from zero to measure how long something takes. A timer counts down from a set time to zero and rings when it ends. For countdowns, use the free online timer on this site." } }
+    { "@type": "Question", "name": "Will I lose my laps if I refresh the page?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — on this page a refresh resets the stopwatch to zero and the laps are gone. Most online stopwatches keep laps only in memory. Press Copy laps before you refresh or close the tab." } },
+    { "@type": "Question", "name": "What is the difference between a lap time and a split time?", "acceptedAnswer": { "@type": "Answer", "text": "The split is the time for one lap on its own — from the last lap press to this one. The total is the time since you first pressed Start. If laps are 0:30, 0:32, 0:31, the totals are 0:30, 1:02, 1:33. This stopwatch shows both for every lap." } },
+    { "@type": "Question", "name": "Can I export my lap times to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Press Copy laps to put the whole lap list on your clipboard as tab-separated text — lap number, split and total — then paste it into Google Sheets or Excel. There is no CSV download button on this page; the copied text pastes as columns." } },
+    { "@type": "Question", "name": "How do I use a stopwatch for running intervals?", "acceptedAnswer": { "@type": "Answer", "text": "Press Start, hit Lap at the end of each interval (for example each 400m), and read the split column for your pace per lap; fastest/slowest highlighting shows where you faded." } },
+    { "@type": "Question", "name": "What are the keyboard shortcuts?", "acceptedAnswer": { "@type": "Answer", "text": "Space = start/pause, L = lap, R = reset, F is not bound here — use the Fullscreen button instead. Shortcuts are ignored while you are typing in a form field." } },
+    { "@type": "Question", "name": "Does an online stopwatch work offline?", "acceptedAnswer": { "@type": "Answer", "text": "After the page loads, yes — it runs entirely in your browser. You need internet only to load the page." } },
+    { "@type": "Question", "name": "Can I time multiple events at once?", "acceptedAnswer": { "@type": "Answer", "text": "One stopwatch times one duration. Use the lap function to mark individual events inside one session, or open a second tab for a second clock." } },
+    { "@type": "Question", "name": "What is the difference between a stopwatch and a timer?", "acceptedAnswer": { "@type": "Answer", "text": "A stopwatch counts up from zero to measure how long something takes. A timer counts down from a set time to zero and rings when it ends. For countdowns, use the free online timer on this site." } },
+    { "@type": "Question", "name": "Can I use an online stopwatch on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All top tools are browser-based and mobile-responsive; place the phone where the display stays visible during reps. On a phone, use the on-screen buttons — the keyboard shortcuts need a keyboard." } },
+    { "@type": "Question", "name": "How do I time a presentation or speech?", "acceptedAnswer": { "@type": "Answer", "text": "Start the stopwatch and use fullscreen mode so the room can see the time. Press Lap at each section of the talk so you can see afterwards which section ran long." } },
+    { "@type": "Question", "name": "Is a phone stopwatch better than an online one?", "acceptedAnswer": { "@type": "Answer", "text": "For pocket timing, a phone app is handier; for laps, export, fullscreen display and keyboard control, a browser stopwatch wins. Accuracy is comparable — both are limited by your reaction time." } },
+    { "@type": "Question", "name": "How long can a stopwatch run?", "acceptedAnswer": { "@type": "Answer", "text": "No practical limit — after an hour the display adds hours and keeps counting. The risk is a refresh or closed tab, not the clock itself. Copy your laps before you close the page." } }
   ]
 }
 </script>
@@ -67,6 +76,14 @@ table.laps tr.slowest td{color:#b91c1c;font-weight:700}
 details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
 details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
 details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.timer-suite{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.timer-suite h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.timer-suite p{font-size:14px;color:var(--text2);line-height:1.8;margin:0}
+.timer-suite a{color:var(--text);font-weight:600}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
 .share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
 .share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
 .share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
@@ -99,7 +116,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <h1>Free Online Stopwatch</h1>
       <p>Time anything to the hundredth of a second — with laps, splits, fastest/slowest highlights and copyable lap times. No signup, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> this is a browser stopwatch, not certified race or lab equipment. It is accurate to hundredths for workouts, cooking, study and presentations — but <strong>do not use it where an official or safety-critical result matters</strong>. Reloading the page resets it to zero.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> this is a browser stopwatch, not certified race or lab equipment. The screen shows hundredths, but <strong>your finger adds about 0.1 seconds or more</strong> of error on Start and Stop — hundredths are display precision, not measurement precision. Keep the tab open: <strong>reloading the page resets it to zero and loses your laps</strong>, so copy them first. It is accurate for workouts, cooking, study and presentations — but <strong>do not use it where an official or safety-critical result matters</strong>.</div>
     <div class="mode-tabs" aria-label="Time tools">
       <a href="/tools/countdown-timer">Countdown</a>
       <a href="/tools/timer-online">Timer</a>
@@ -131,6 +148,10 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         </div>
       </div>
     </div>
+    <div class="timer-suite">
+      <h2>Timer tools</h2>
+      <p>One shared timer, five pages — pick the job: <a href="/tools/countdown-timer">Countdown Timer</a> · <a href="/tools/timer-online">Online Timer</a> · <a href="/tools/online-alarm-clock">Online Alarm Clock</a> · <a href="/tools/stopwatch-online">Online Stopwatch</a> · <a href="/tools/pomodoro-timer">Pomodoro Timer</a>.</p>
+    </div>
     <div class="share-box">
       <h2>Share this tool</h2>
       <p class="share-line">Free online stopwatch — laps, splits and hundredths, no signup. Accurate in background tabs.</p>
@@ -144,17 +165,34 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     </div>
     <div class="tool-about">
       <!-- PROBLEM -->
-      <h2>The problem: stopwatches that freeze when you switch tabs</h2>
-      <p>The most reported problem with online stopwatches is the same one that haunts online timers: start timing, switch to the thing you are actually timing, and the clock has frozen or lost time. The cause is identical — a stopwatch that counts its own ticks is at the mercy of how often the browser lets a hidden tab run, and browsers deliberately slow hidden tabs down to save battery. The second frustration is lap lists that tell you nothing: a wall of times with no split, no total, and no way to see which lap was fastest. And the third is the simplest — a stopwatch with no way to copy the laps out, so you end up retyping them by hand.</p>
+      <h2>The problem: stopwatches that freeze, lose laps, or lie about precision</h2>
+      <p>The most reported problems with online stopwatches are the same ones users name in guides and competitor FAQs. First, the run vanishes: most browser stopwatches keep time only in memory, so a refresh or a closed tab wipes a whole workout's splits. Second, the display freezes or jumps in a background tab — browsers throttle hidden tabs, and a stopwatch that counts its own ticks drifts or appears frozen, so users think the timing is wrong. Third, the digits over-promise: the screen shows hundredths, but a finger press is off by a tenth of a second or more, and users over-trust the display. And fourth, laps are trapped on the page — no export, so a training log means copying every lap by hand.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I use a free online stopwatch?</h2>
-      <p>Press Start — or hit the Space bar — and the stopwatch counts up from zero in hundredths of a second. Press Lap (or L) at each split to record it without stopping the clock; every lap shows its split time and the running total, with your fastest lap highlighted green and your slowest red. Press Space to pause and resume exactly where you left off, and R to reset. It is free, with no signup and no ads, and the Copy laps button puts the whole list on your clipboard as plain text.</p>
+      <p>Press Start — or hit Space — and the stopwatch counts up from zero in hundredths of a second. Press Lap (or L) at each split to record it without stopping the clock; every lap shows its split and the running total, fastest in green, slowest in red. Free, no signup, no ads.</p>
       <p>A stopwatch is a tool that measures elapsed time: it counts up from zero and records how long something takes, lap by lap. A lap is one section of what you are timing — a running lap, a swim length, a section of a talk — and the split is how long that section alone took, while the total is the time since you first pressed Start. A good online stopwatch shows both numbers for every lap, because the split is what tells you where you sped up or slowed down.</p>
       <!-- HOW TO -->
       <h2>How to time laps in 3 steps</h2>
       <p><strong>Step 1:</strong> press Start (or Space). The display counts up in hundredths. <strong>Step 2:</strong> press Lap (or L) at each split — the clock keeps running while the lap is recorded. <strong>Step 3:</strong> press Space to pause, then Copy laps to save the list, or R to reset and start over.</p>
       <h2>What people time with an online stopwatch</h2>
       <p>Runners and athletes time laps and intervals, and the fastest/slowest highlight is exactly what interval training needs. Cooks and bakers time steps in a recipe. Students time study sessions and presentations — a talk that runs 12 minutes when it should run 10 shows up clearly in the lap list. Teachers time classroom activities, and speakers use laps to mark the sections of a talk. The lap list turns one total into a record of each part, so you can see where a session took more or less time than you expected.</p>
+      <h2>Use cases with real numbers</h2>
+      <p><strong>Running 400m splits:</strong> press Lap at the end of each 400m and read the split column for your pace per lap — the fastest/slowest highlight shows where you faded. <strong>Gym rest periods:</strong> lifters commonly rest about 90 seconds between heavy compound sets and about 60 seconds between accessory sets — but most people who eyeball "about a minute" actually rest two to three minutes, so timing it keeps the workout honest. <strong>Exam practice:</strong> time a full practice paper, then lap each section to see which one eats the clock. <strong>Cooking:</strong> lap each stage of a recipe so a step that should take 10 minutes does not quietly take 25. <strong>Presentations:</strong> run fullscreen so the room can see the time, and lap each section of the talk.</p>
+      <h2>Stopwatch vs timer vs interval — which one do you need?</h2>
+      <p>A <strong>stopwatch</strong> counts up from zero to measure how long something took. A <strong>timer</strong> counts down from a set duration and rings at zero — use the <a href="/tools/timer-online">free online timer</a> for that. An <strong>interval timer</strong> runs work/rest rounds with alerts, for HIIT or Tabata — this page does not have an interval mode, so use the stopwatch's Lap button at the end of each interval and read the split column, or use the <a href="/tools/pomodoro-timer">Pomodoro timer</a> for fixed work/rest cycles. Need a sound at a clock time instead? That is the <a href="/tools/online-alarm-clock">online alarm clock</a>.</p>
+      <h2>How this stopwatch compares with the top online stopwatches</h2>
+      <p>We checked the five pages ranking highest for this search in October 2026. All five are free in the browser; the differences are laps, export, background-tab accuracy and honesty about precision.</p>
+      <table class="facts">
+        <thead><tr><th>Tool</th><th>What it offers</th><th>Cost</th><th>What is missing</th></tr></thead>
+        <tbody>
+          <tr><td>AgeCalcAI</td><td>10 ms precision, unlimited laps with fastest-green/slowest-red, interval timer mode (HIIT/Pomodoro), keyboard shortcuts (Space/L/R/F), one-click lap copy</td><td>Free</td><td>No CSV export mentioned; no refresh-survival mentioned; interval mode is a secondary tab</td></tr>
+          <tr><td>ToolsMatic</td><td>Free, no signup, client-side, comparison matrix vs generic tools</td><td>Free</td><td>Thin, generic copy; no lap export detail; no accuracy honesty in the fetched snippet</td></tr>
+          <tr><td>FreeTimer</td><td>Millisecond accuracy, lap times, fullscreen, works offline, runs locally; use-case sections (5K splits, gym rest periods)</td><td>Free</td><td>No lap export/CSV mentioned; no refresh-survival; no fastest/slowest highlighting mentioned</td></tr>
+          <tr><td>Chronoid</td><td>Millisecond accuracy even in background tabs, laps with fastest/slowest highlighted, tab-title live time, keyboard shortcuts</td><td>Free</td><td>The page is a lead magnet for a paid Mac time-tracker ($15/month) — the stopwatch itself is thin and the upsell dominates the middle of the page</td></tr>
+          <tr><td>Clockfresh</td><td>Centisecond display, unlimited laps with copyable table + CSV export, fullscreen, keyboard shortcuts, system-clock timing, offline-ready, 7 languages</td><td>Free</td><td>Thin on guide content — no use-case sections, no accuracy honesty, no interval mode</td></tr>
+          <tr><td>This page (PixDetector)</td><td>Timestamp-based timing, laps with split + total, fastest/slowest highlighting, one-click lap copy, fullscreen, keyboard shortcuts</td><td>Free</td><td>Laps are lost on refresh — copy them first; no CSV download button; no interval mode</td></tr>
+        </tbody>
+      </table>
       <h2>Why this stopwatch does not lose time in background tabs</h2>
       <p>Elapsed time is calculated from timestamps — the moment you pressed Start, and the current moment — not by counting ticks. The display stops redrawing while the tab is hidden, because the browser will not let it, but the timestamps keep their meaning: when you come back, the display shows the correct time again. The same deadline-and-timestamp method is what keeps the countdown timer and the Pomodoro timer accurate on this site.</p>
       <!-- FAQ -->
@@ -164,24 +202,60 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <p>Yes. Time as much as you like, free, with no signup, no ads and no download. Everything runs in your browser.</p>
       </details>
       <details class="faq">
-        <summary>How accurate is the stopwatch?</summary>
-        <p>It displays hundredths of a second and measures elapsed time from your device clock, so it stays accurate even if you switch tabs. The biggest source of error is your own finger on Start and Stop, not the clock.</p>
+        <summary>How accurate is an online stopwatch?</summary>
+        <p>To about 10–50 ms under normal conditions. The display shows hundredths, but your finger press adds about 0.1 seconds or more of error. Good for workouts, cooking and study — not for official sports results.</p>
       </details>
       <details class="faq">
         <summary>Does the stopwatch keep running if I switch tabs?</summary>
         <p>Yes. Elapsed time is calculated from timestamps, not by counting ticks, so switching tabs or minimising the window does not lose time. The display redraws with the correct time as soon as you come back.</p>
       </details>
       <details class="faq">
-        <summary>What is the difference between a lap and a split?</summary>
-        <p>The split is the time for one lap on its own — from the last lap press to this one. The total is the time since you first pressed Start. This stopwatch shows both for every lap, and highlights your fastest and slowest laps.</p>
+        <summary>Will I lose my laps if I refresh the page?</summary>
+        <p>Yes — on this page a refresh resets the stopwatch to zero and the laps are gone. Most online stopwatches keep laps only in memory. Press Copy laps before you refresh or close the tab.</p>
       </details>
       <details class="faq">
-        <summary>Can I copy my lap times?</summary>
-        <p>Yes. Press Copy laps to put the whole lap list on your clipboard as plain text — lap number, split and total — ready to paste into a spreadsheet or a note.</p>
+        <summary>What is the difference between a lap time and a split time?</summary>
+        <p>The split is the time for one lap on its own — from the last lap press to this one. The total is the time since you first pressed Start. If laps are 0:30, 0:32, 0:31, the totals are 0:30, 1:02, 1:33. This stopwatch shows both for every lap.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I export my lap times to Excel?</summary>
+        <p>Yes. Press Copy laps to put the whole lap list on your clipboard as tab-separated text — lap number, split and total — then paste it into Google Sheets or Excel. There is no CSV download button on this page; the copied text pastes as columns.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I use a stopwatch for running intervals?</summary>
+        <p>Press Start, hit Lap at the end of each interval (for example each 400m), and read the split column for your pace per lap; fastest/slowest highlighting shows where you faded.</p>
+      </details>
+      <details class="faq">
+        <summary>What are the keyboard shortcuts?</summary>
+        <p>Space = start/pause, L = lap, R = reset, F is not bound here — use the Fullscreen button instead. Shortcuts are ignored while you are typing in a form field.</p>
+      </details>
+      <details class="faq">
+        <summary>Does an online stopwatch work offline?</summary>
+        <p>After the page loads, yes — it runs entirely in your browser. You need internet only to load the page.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I time multiple events at once?</summary>
+        <p>One stopwatch times one duration. Use the lap function to mark individual events inside one session, or open a second tab for a second clock.</p>
       </details>
       <details class="faq">
         <summary>What is the difference between a stopwatch and a timer?</summary>
         <p>A stopwatch counts up from zero to measure how long something takes. A timer counts down from a set time to zero and rings when it ends. For countdowns, use the free online timer on this site.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use an online stopwatch on my phone?</summary>
+        <p>Yes. All top tools are browser-based and mobile-responsive; place the phone where the display stays visible during reps. On a phone, use the on-screen buttons — the keyboard shortcuts need a keyboard.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I time a presentation or speech?</summary>
+        <p>Start the stopwatch and use fullscreen mode so the room can see the time. Press Lap at each section of the talk so you can see afterwards which section ran long.</p>
+      </details>
+      <details class="faq">
+        <summary>Is a phone stopwatch better than an online one?</summary>
+        <p>For pocket timing, a phone app is handier; for laps, export, fullscreen display and keyboard control, a browser stopwatch wins. Accuracy is comparable — both are limited by your reaction time.</p>
+      </details>
+      <details class="faq">
+        <summary>How long can a stopwatch run?</summary>
+        <p>No practical limit — after an hour the display adds hours and keeps counting. The risk is a refresh or closed tab, not the clock itself. Copy your laps before you close the page.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

@@ -39,7 +39,7 @@
       "name": "Can I convert a website URL to PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not here \u2014 this tool converts HTML code or a file, not a web address. Save the page as HTML first (right-click, Save as), then upload the file."
+        "text": "Not here — this tool converts HTML code or a file, not a web address. Save the page as HTML first (right-click, Save as), then upload the file."
       }
     },
     {
@@ -64,6 +64,70 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A4 and US Letter, in portrait or landscape. Long pages are split across as many PDF pages as needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I save a webpage as a clean PDF without ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Press Ctrl+P (Cmd+P on Mac), choose Save as PDF, then uncheck “Headers and footers” and turn off “Background graphics” — that strips sidebars, pop-ups and ads from the saved PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a login-protected page to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually not with an online converter — it can't log in as you. Use your browser's print-to-PDF while logged in, or a screenshot/PDF extension."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my table split across two pages in the PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Page-break rules are ignored inside flexbox/grid layouts and by some renderers. Add break-inside: avoid on tables in a @media print stylesheet, or pick a converter with smart page-break handling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert HTML to PDF on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser-based converters work on mobile, and on iPhone or Android you can also use the browser's Share, then Print, then Save as PDF flow. Step-by-step for every phone browser was not verified in our research."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to upload my HTML to a free converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Risky for private content — invoices and internal pages go to the converter's server. Sejda auto-deletes files after 2 hours. For sensitive pages, use in-browser rendering or your own browser's print-to-PDF, where nothing is uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert multiple web pages to PDF at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sejda accepts several URLs, one per line, in a single task. Batch conversion is otherwise usually a paid feature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between HTML to PDF and print to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Same idea: a converter renders your HTML or URL on its server with extra controls (page size, batch, headers); print-to-PDF renders the page exactly as your browser shows it, free, with no upload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best free HTML to PDF converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For occasional use, Sejda is the most-cited free option — URL, file and pasted code, page controls, no watermark within its free limits (3 tasks an hour, 30 MB). iLovePDF is the usual pick for URL-to-PDF with a live preview. This is roundup consensus, not a measured ranking."
       }
     }
   ]
@@ -159,7 +223,7 @@ table.facts td{color:var(--text2)}
       <h1>HTML to PDF Converter Free</h1>
       <p>Paste HTML code or upload a .html file and download a PDF — free, no signup, no watermark, nothing uploaded. Your page is rendered in your browser first, then saved as a PDF.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> <strong>What it keeps:</strong> text, headings, basic layout, colours, tables and images that load in your browser. <strong>What it loses:</strong> JavaScript behaviour, videos, and some advanced CSS — this is a browser render turned into a PDF, not a full print engine. External images and web fonts may not load. For a pixel-perfect copy of a live web page, use your browser's Print to PDF instead.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>What it keeps:</strong> text, headings, basic layout, colours, tables and images that load in your browser. <strong>What it loses:</strong> JavaScript behaviour, videos, and some advanced CSS — this is a browser render turned into a PDF, not a full print engine. External images and web fonts may not load. For a pixel-perfect copy of a live web page, use your browser's Print to PDF instead. The conversion is client-side rendering in your browser, not a server engine — the PDF's fidelity is limited to what your browser can render.</div>
     
     <div class="bc-tool">
       <div class="bc-panel" aria-label="HTML input">
@@ -211,9 +275,43 @@ table.facts td{color:var(--text2)}
       </tbody></table>
       <h2>When to use your browser's Print to PDF instead</h2>
       <p>If you need selectable text, clickable links, or a pixel-perfect copy of a live web page, use the browser: open the page, press Ctrl+P (Cmd+P on Mac), choose "Save as PDF". That uses the browser's own print engine and keeps text as text. Use this tool when you have raw HTML code or a file, when you want a quick PDF without opening a print dialog, or when you need the same result on any device without touching browser settings.</p>
+      <!-- CTRL+P TRICK -->
+      <h2>The Ctrl+P trick: a clean PDF in 10 seconds</h2>
+      <p>The most-shared free method on social media is not a converter at all — it is your browser's print dialog. Open the page, press Ctrl+P (Cmd+P on Mac), set the destination to &ldquo;Save as PDF&rdquo;, then make two changes before you save: uncheck &ldquo;Headers and footers&rdquo; (which removes the page URL and date from every page) and turn off &ldquo;Background graphics&rdquo; (which removes background colours and images, stripping most ads and sidebars). What is left is the article or document, clean. This works on any page you can open — including pages behind a login, which no online converter can reach — and nothing is uploaded anywhere.</p>
+      <!-- COMPARISON -->
+      <h2>What the top search results actually do</h2>
+      <p>The top search results for a free HTML to PDF converter are mostly not HTML-to-PDF tools at all &mdash; from the live search results of 25 Oct 2026. The real converters surface in guides and roundups instead, so they are listed second.</p>
+      <table class="facts"><thead><tr><th>Search result</th><th>What it actually does</th><th>Why it doesn't solve this</th></tr></thead><tbody>
+      <tr><td>DocHost</td><td>Converts an .html file into a shareable link, not a PDF (free 1 MB, links last 7 days; Pro $7/mo)</td><td>Doesn't make a PDF at all</td></tr>
+      <tr><td>TestMu AI HTML to PNG</td><td>Renders HTML to a PNG image, in-browser via html2canvas, no upload or signup</td><td>PNG output, not PDF &mdash; wrong format</td></tr>
+      <tr><td>FreeConvert HTML Converter</td><td>Generic converter hub (500+ formats, 1 GB max file, files deleted after 8 hours, 256-bit SSL)</td><td>A general converter page, not a dedicated HTML-to-PDF tool; no page controls or preview shown</td></tr>
+      <tr><td>Convertality HTML to Text</td><td>Strips HTML to plain text and downloads as Word/PDF/TXT (20,000 words per conversion)</td><td>Destroys layout by design &mdash; the opposite of what an HTML-to-PDF searcher wants</td></tr>
+      <tr><td>HTML to Image Converter</td><td>HTML/CSS to PNG/JPG/WebP in-browser, no signup</td><td>Image output only; external stylesheets and fonts need CORS, inline CSS most reliable</td></tr>
+      </tbody></table>
+      <h2>The real converters (from guides and roundups)</h2>
+      <table class="facts"><thead><tr><th>Tool</th><th>What it offers</th><th>Free limits / cost</th><th>What's missing</th></tr></thead><tbody>
+      <tr><td>Sejda</td><td>URL, file and pasted code; page size, orientation and margins; one-long-page mode; multiple URLs per task; files auto-deleted after 2 hours</td><td>Free: 30 MB, 3 tasks/hour</td><td>Server upload &mdash; not for private pages</td></tr>
+      <tr><td>iLovePDF</td><td>Paste a URL, live preview, screen/page size, orientation and margin controls before converting</td><td>Free with daily limits; batch on paid</td><td>Fails on blocked or slow servers and script-heavy sites</td></tr>
+      <tr><td>Adobe Acrobat</td><td>Best CSS accuracy and API automation</td><td>Free conversions limited, from $12/mo</td><td>Paid for real use; account needed</td></tr>
+      <tr><td>Convertio</td><td>Local .html/.htm files</td><td>Free basic tier</td><td>Few webpage layout controls</td></tr>
+      <tr><td>This page</td><td>Paste code or upload a file, preview, A4/Letter, portrait/landscape; fully in-browser, nothing uploaded</td><td>Free</td><td>No URL input, no clickable links (the PDF is a rendered image), no batch</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this HTML to PDF converter really free?</summary><p>Yes. Convert as many pages as you like, free, with no signup, no watermark and no page limit set by us.</p></details><details class="faq"><summary>Why does my PDF look different from the web page?</summary><p>The PDF is a rendered image of your HTML, made in your browser. JavaScript does not run, some advanced CSS is approximated, and web fonts or external images that fail to load fall back to defaults.</p></details><details class="faq"><summary>Can I convert a website URL to PDF?</summary><p>Not here — this tool converts HTML code or a file, not a web address. Save the page as HTML first (right-click, Save as), then upload the file.</p></details><details class="faq"><summary>Does the PDF keep clickable links?</summary><p>No. The PDF is a rendered image of the page, so links appear as text but are not clickable. For clickable links, use your browser's Print to PDF.</p></details><details class="faq"><summary>Is my HTML uploaded to a server?</summary><p>No. The HTML is rendered and converted entirely in your browser. Nothing is uploaded, stored, or shared.</p></details><details class="faq"><summary>What page sizes are supported?</summary><p>A4 and US Letter, in portrait or landscape. Long pages are split across as many PDF pages as needed.</p></details>
+      <details class="faq"><summary>Is this HTML to PDF converter really free?</summary><p>Yes. Convert as many pages as you like, free, with no signup, no watermark and no page limit set by us.</p></details>
+      <details class="faq"><summary>Why does my PDF look different from the web page?</summary><p>The PDF is a rendered image of your HTML, made in your browser. JavaScript does not run, some advanced CSS is approximated, and web fonts or external images that fail to load fall back to defaults.</p></details>
+      <details class="faq"><summary>Can I convert a website URL to PDF?</summary><p>Not here — this tool converts HTML code or a file, not a web address. Save the page as HTML first (right-click, Save as), then upload the file.</p></details>
+      <details class="faq"><summary>Does the PDF keep clickable links?</summary><p>No. The PDF is a rendered image of the page, so links appear as text but are not clickable. For clickable links, use your browser's Print to PDF.</p></details>
+      <details class="faq"><summary>Is my HTML uploaded to a server?</summary><p>No. The HTML is rendered and converted entirely in your browser. Nothing is uploaded, stored, or shared.</p></details>
+      <details class="faq"><summary>What page sizes are supported?</summary><p>A4 and US Letter, in portrait or landscape. Long pages are split across as many PDF pages as needed.</p></details>
+      <details class="faq"><summary>How do I save a webpage as a clean PDF without ads?</summary><p>Press Ctrl+P (Cmd+P on Mac), choose Save as PDF, then uncheck “Headers and footers” and turn off “Background graphics” — that strips sidebars, pop-ups and ads from the saved PDF.</p></details>
+      <details class="faq"><summary>Can I convert a login-protected page to PDF?</summary><p>Usually not with an online converter — it can't log in as you. Use your browser's print-to-PDF while logged in, or a screenshot/PDF extension.</p></details>
+      <details class="faq"><summary>Why is my table split across two pages in the PDF?</summary><p>Page-break rules are ignored inside flexbox/grid layouts and by some renderers. Add break-inside: avoid on tables in a @media print stylesheet, or pick a converter with smart page-break handling.</p></details>
+      <details class="faq"><summary>Can I convert HTML to PDF on my phone?</summary><p>Yes — browser-based converters work on mobile, and on iPhone or Android you can also use the browser's Share, then Print, then Save as PDF flow. Step-by-step for every phone browser was not verified in our research.</p></details>
+      <details class="faq"><summary>Is it safe to upload my HTML to a free converter?</summary><p>Risky for private content — invoices and internal pages go to the converter's server. Sejda auto-deletes files after 2 hours. For sensitive pages, use in-browser rendering or your own browser's print-to-PDF, where nothing is uploaded.</p></details>
+      <details class="faq"><summary>How do I convert multiple web pages to PDF at once?</summary><p>Sejda accepts several URLs, one per line, in a single task. Batch conversion is otherwise usually a paid feature.</p></details>
+      <details class="faq"><summary>What is the difference between HTML to PDF and print to PDF?</summary><p>Same idea: a converter renders your HTML or URL on its server with extra controls (page size, batch, headers); print-to-PDF renders the page exactly as your browser shows it, free, with no upload.</p></details>
+      <details class="faq"><summary>What is the best free HTML to PDF converter?</summary><p>For occasional use, Sejda is the most-cited free option — URL, file and pasted code, page controls, no watermark within its free limits (3 tasks an hour, 30 MB). iLovePDF is the usual pick for URL-to-PDF with a live preview. This is roundup consensus, not a measured ranking.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I convert a whole website to PDF?</strong> Not with this tool — it takes HTML code or a file. For a live site, use your browser's Print to PDF.</p>

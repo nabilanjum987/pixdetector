@@ -20,10 +20,19 @@
   "mainEntity": [
     { "@type": "Question", "name": "Is this Pomodoro timer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Run as many focus sessions as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
     { "@type": "Question", "name": "What is the Pomodoro Technique?", "acceptedAnswer": { "@type": "Answer", "text": "The Pomodoro Technique is a time-management method created by Francesco Cirillo in the late 1980s: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15 to 30 minute break after four sessions. The small commitment makes starting easy, and the breaks keep your attention fresh." } },
-    { "@type": "Question", "name": "Why 25 minutes? Can I change it?", "acceptedAnswer": { "@type": "Answer", "text": "25 minutes is the classic default, not a law — Cirillo chose it because it felt manageable. This timer lets you change every interval: try 50/10 for deep work like writing or coding, or 15/3 if 25 feels too long. Match the interval to the work." } },
-    { "@type": "Question", "name": "What should I do during the break?", "acceptedAnswer": { "@type": "Answer", "text": "Step away from the screen: stand up, stretch, drink water, look out a window, take a short walk. Do not check email or social media — that is a context switch, not rest, and it is the most common reason breaks turn into 20 lost minutes." } },
-    { "@type": "Question", "name": "What if the timer rings while I am in flow?", "acceptedAnswer": { "@type": "Answer", "text": "If you are genuinely in flow, it is fine to keep working and take your break at the next natural stopping point — the method should serve your focus, not interrupt it. If it happens often, lengthen your focus interval to 50 minutes. But do not skip breaks entirely; that is how the technique degrades back into the grind it was designed to prevent." } },
-    { "@type": "Question", "name": "Does the Pomodoro timer keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The timer is measured against your device clock, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the session." } }
+    { "@type": "Question", "name": "Why is it 25 minutes? Can I change it?", "acceptedAnswer": { "@type": "Answer", "text": "25 minutes is the classic default, not a law — Cirillo chose it because it felt manageable. This timer lets you change every interval: try 50/10 for deep work like writing or coding, or 15/3 if 25 feels too long. Match the interval to the work." } },
+    { "@type": "Question", "name": "Does the Pomodoro Technique really work?", "acceptedAnswer": { "@type": "Answer", "text": "For most people, yes — it lowers the barrier to starting and structures attention. But it is not scientifically proven as a fixed method; its principles (short sprints plus breaks) are what the research supports. The timer helps only if the phone is out of reach and the breaks are real rest." } },
+    { "@type": "Question", "name": "What should I do during a Pomodoro break?", "acceptedAnswer": { "@type": "Answer", "text": "Step away from the screen: stand up, stretch, drink water, look out a window, take a short walk. Do not check email or social media — that is a context switch, not rest, and it is the most common reason breaks turn into 20 lost minutes." } },
+    { "@type": "Question", "name": "What if 25 minutes is too short for my work?", "acceptedAnswer": { "@type": "Answer", "text": "Use a longer rhythm — 50/10 for deep work, 45/15 for slow warm-ups, or the 90-minute long-focus preset. The 25/5 split is a starting point, not a rule." } },
+    { "@type": "Question", "name": "How many pomodoros should I do in a day?", "acceptedAnswer": { "@type": "Answer", "text": "No evidence-based quota exists; 8–12 completed cycles (roughly 4–6 hours of real focus) is a realistic ceiling, and beginners do well starting with four in a protected two-hour window. Count sessions, not hours." } },
+    { "@type": "Question", "name": "Can I use a Pomodoro timer on my phone without downloading an app?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — browser timers work on iPhone (Safari) and Android (Chrome). Keep the tab open; closing it stops the session. Some timers can be added to the home screen and behave like a native app." } },
+    { "@type": "Question", "name": "What is Flowtime?", "acceptedAnswer": { "@type": "Answer", "text": "Flowtime means working as long as your focus lasts, then taking a break — no fixed 25-minute cut-off. It suits people whose timer keeps interrupting them mid-thought. This page does not have a no-limit Flowtime mode; the closest is the 90-minute long-focus preset, which is a long fixed block, not true Flowtime." } },
+    { "@type": "Question", "name": "Does the Pomodoro timer keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The timer is measured against your device clock, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the session." } },
+    { "@type": "Question", "name": "Why do I keep failing at Pomodoro?", "acceptedAnswer": { "@type": "Answer", "text": "The usual causes are phone use during the session, no single task chosen, and breaks spent on social media. Put the phone in another room, pick one task, and keep a parking-lot note for intrusive thoughts. See the focus guidance on this page." } },
+    { "@type": "Question", "name": "Is Pomodoro good for studying?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — it is the most common student use case. Students pair it with app-blocking and gamified rewards. Use 25/5 for review and memorisation, and 50/10 for essays and problem sets that need setup time." } },
+    { "@type": "Question", "name": "Can I use Pomodoro for remote work?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — remote workers use it to replace the office's natural rhythm. It defines when to work, when to rest, and creates a measurable record of productive effort." } },
+    { "@type": "Question", "name": "What is a long break and when do I take it?", "acceptedAnswer": { "@type": "Answer", "text": "After four pomodoros, take a 15–30 minute break before the next set. Standard: 15 minutes on 25/5, 30 minutes on 50/10. This timer switches to the long break automatically after the fourth session." } },
+    { "@type": "Question", "name": "What should I do if I get interrupted mid-pomodoro?", "acceptedAnswer": { "@type": "Answer", "text": "Jot the interruption on paper (the parking lot) and return to it after the timer ends. If the interruption cannot wait, end the pomodoro and restart it fresh — that is Cirillo's original rule." } }
   ]
 }
 </script>
@@ -84,6 +93,10 @@ table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
+.timer-suite{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.timer-suite h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.timer-suite p{font-size:14px;color:var(--text2);line-height:1.8;margin:0}
+.timer-suite a{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -109,7 +122,7 @@ table.facts td{color:var(--text2)}
       <h1>Free Pomodoro Timer</h1>
       <p>Work in 25-minute focus sessions with 5-minute breaks and a long break after four — with a session counter and adjustable intervals. No signup, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> a timer cannot create focus by itself — it only protects the time you give it. Pick <strong>one task</strong> before you press Start, and take the breaks away from the screen. Skipping breaks is how the technique stops working.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> a timer cannot create focus by itself — it only protects the time you give it. Pick <strong>one task</strong> before you press Start, and take the breaks away from the screen. Skipping breaks is how the technique stops working. This is a browser timer: it keeps running in a background tab and shows the time left in the tab title, but <strong>closing the tab stops the session</strong>.</div>
     <div class="mode-tabs" aria-label="Time tools">
       <a href="/tools/countdown-timer">Countdown</a>
       <a href="/tools/timer-online">Timer</a>
@@ -135,7 +148,7 @@ table.facts td{color:var(--text2)}
           <button type="button" class="chip" data-focus="25" data-short="5" data-long="15" aria-pressed="true">Classic 25 / 5</button>
           <button type="button" class="chip" data-focus="50" data-short="10" data-long="30" aria-pressed="false">Deep work 50 / 10</button>
           <button type="button" class="chip" data-focus="15" data-short="3" data-long="10" aria-pressed="false">Short 15 / 3</button>
-          <button type="button" class="chip" data-focus="90" data-short="20" data-long="30" aria-pressed="false">Flow 90 / 20</button>
+          <button type="button" class="chip" data-focus="90" data-short="20" data-long="30" aria-pressed="false">Long focus 90 / 20</button>
         </div>
         <div class="grid3" style="margin-top:16px">
           <div><label class="flabel" for="focusInput">Focus (min)</label><input type="number" id="focusInput" min="1" max="180" value="25"></div>
@@ -148,6 +161,10 @@ table.facts td{color:var(--text2)}
         </div>
         <p class="trust" id="pomCounter">0 focus sessions done · 0 minutes focused today.</p>
       </div>
+    </div>
+    <div class="timer-suite">
+      <h2>Timer tools</h2>
+      <p>One shared timer, five pages — pick the job: <a href="/tools/countdown-timer">Countdown Timer</a> · <a href="/tools/timer-online">Online Timer</a> · <a href="/tools/online-alarm-clock">Online Alarm Clock</a> · <a href="/tools/stopwatch-online">Online Stopwatch</a> · <a href="/tools/pomodoro-timer">Pomodoro Timer</a>.</p>
     </div>
     <div class="share-box">
       <h2>Share this tool</h2>
@@ -163,10 +180,10 @@ table.facts td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: "Pomodoro doesn't work for me"</h2>
-      <p>Search for "Pomodoro not working" and the same three complaints come up again and again. First, the rigid 25 minutes: people doing deep creative work — writing, coding, design — hit flow around minute 18 and get interrupted by the bell at minute 25. The timer that was supposed to help focus ends up breaking it. Second, the break becomes the distraction: a five-minute break spent scrolling social media turns into fifteen minutes and leaves the mind more cluttered than before. Third, the pomodoro with no clear task: start the timer without deciding what you will do, and 25 minutes of busywork follows. People want a timer that adapts — longer intervals for deep work, a session counter that shows progress, and a break that actually restores attention.</p>
+      <p>The number-one reason people say Pomodoro fails is the phone: they pick up the phone mid-session, and the 25 minutes are gone. Study creators put it bluntly — most people fail at Pomodoro because they misuse their phone during the 25-minute work period, and the fix is to put the phone in another room before starting. The second complaint is the rigid 25 minutes: people doing deep work — coding, writing, design — need a warm-up, and the bell rings just as flow starts. The third is the break that becomes the distraction: a five-minute break scrolling social media becomes fifteen minutes and leaves the mind more cluttered than before. And the fourth is the timer becoming the goal — optimising for completed pomodoros instead of meaningful progress, and feeling guilty when a session breaks. People want a timer that adapts, and a method that survives contact with a real phone.</p>
       <!-- DIRECT ANSWER -->
       <h2>What is the Pomodoro Technique?</h2>
-      <p>The Pomodoro Technique is a time-management method created by Francesco Cirillo in the late 1980s: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15 to 30 minute break after four sessions. It works because the commitment is small — anyone can focus for 25 minutes — and the timer turns starting into a game you can win repeatedly. This timer runs the whole cycle for you: press Start, focus on one task until the chime, take the break, and watch the session dots fill in. After four sessions, you earn the long break.</p>
+      <p>The Pomodoro Technique is a time-management method: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15-minute break after four sessions. This timer runs the whole cycle for you — press Start, focus on one task until the chime, take the break, and watch the session dots fill in.</p>
       <p>A pomodoro is one 25-minute focus session, named after the tomato-shaped kitchen timer ("pomodoro" is Italian for tomato) Cirillo used as a student. The technique is not the timer itself — it is the rhythm: short, protected sprints of single-task work, separated by real rest. The exact 25/5 split is a practical default, not a scientifically optimal number, so treat it as a starting point and adjust it to the work.</p>
       <!-- HOW TO -->
       <h2>How to run a Pomodoro session in 3 steps</h2>
@@ -183,6 +200,35 @@ table.facts td{color:var(--text2)}
       </table>
       <h2>The break is not optional — and it is not your phone</h2>
       <p>Breaks are where the technique actually works: attention declines the longer you work, and short breaks restore energy and reduce fatigue. But a break only restores attention if it removes attention demands. Checking email or scrolling social media during a five-minute break is not rest — it is directed attention in a different direction, and it is the most common way the method fails. Stand up, stretch, refill your water, look out a window, take a short walk. And if the timer rings while you are genuinely in flow, keep going and take the break at the next natural stopping point — the method should serve your focus, not interrupt it. If that happens often, switch to the 50/10 rhythm.</p>
+      <h2>The phone is the problem — three steps before you press Start</h2>
+      <p>Phone distraction during the 25 minutes is the failure mode named most often by people who actually use Pomodoro timers. A browser timer cannot block your apps — be honest about that — but three steps before you start make the session work:</p>
+      <p><strong>1. Put the phone in another room.</strong> Not face-down on the desk, not on silent — in another room. The whole point is that reaching for it costs effort. Some study apps block Facebook, Instagram, WhatsApp and Messages during focus; this free browser timer does not, so physical distance is your blocker. <strong>2. Commit to ONE task.</strong> Write down what "done" means for this session before the timer starts — "finish outline section 1", not "work on the report". A session with no single task becomes 25 minutes of busywork. <strong>3. Keep a "parking lot" note.</strong> Intrusive thoughts will arrive mid-session. Write each one on paper and deal with it after the bell, instead of opening a tab or an app to "just check".</p>
+      <h2>Why Pomodoro fails — and the fix for each</h2>
+      <table class="facts">
+        <thead><tr><th>Failure</th><th>Why it happens</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Phone use mid-session</td><td>The phone is within reach and the session feels long</td><td>Phone in another room; one task; parking-lot note for intrusive thoughts</td></tr>
+          <tr><td>25 minutes is too short</td><td>Deep work needs a warm-up; flow starts around minute 18</td><td>Use 50/10 for deep work, or the 90-minute long-focus preset; see "Which interval fits your work?" above</td></tr>
+          <tr><td>The bell breaks flow</td><td>Stopping because a timer went off feels counterproductive when you are in the zone</td><td>Keep working to the next natural stopping point, then take the break; if it happens often, lengthen the interval</td></tr>
+          <tr><td>Breaks turn into distractions</td><td>A 5-minute social-media break becomes 15 minutes and leaves the mind cluttered</td><td>Breaks are screen-free: stand, stretch, water, walk, window — no email, no feeds</td></tr>
+          <tr><td>The timer becomes the goal</td><td>Optimising for completed pomodoros instead of meaningful progress</td><td>Count sessions, not hours — but judge the day by what the sessions produced, not by the dot count</td></tr>
+          <tr><td>Guilt when a session breaks</td><td>Tallying pomodoros becomes a self-critical scoreboard</td><td>A broken session is not a failure — end it, note the interruption, and restart fresh</td></tr>
+          <tr><td>Rigid schedule vs real work</td><td>Meetings and calls do not follow 25-minute cycles</td><td>Use Pomodoro for the protected blocks between meetings, not for the whole day</td></tr>
+        </tbody>
+      </table>
+      <h2>How this Pomodoro timer compares with the top free Pomodoro timers</h2>
+      <p>We checked the five pages ranking highest for this search in October 2026. All five are free in the browser with no signup; the differences are Flowtime, task lists, sounds and tracking.</p>
+      <table class="facts">
+        <thead><tr><th>Tool</th><th>What it offers</th><th>Cost</th><th>What is missing</th></tr></thead>
+        <tbody>
+          <tr><td>KraftyLab</td><td>Time left in the browser tab; survives switching tabs; custom lengths 5–120 min focus / 1–30 min break; presets 25/5 and 50/10; remembers rhythm; mute bell; dots per session</td><td>Free</td><td>Timer inside a blog post; no task list, no ambient sounds, no session stats visible in the fetched text</td></tr>
+          <tr><td>HelloPomodoro</td><td>Fullscreen countdown; session tracking and streaks; Flowtime mode; 25/5, 50/10 and custom intervals; explains the technique inline</td><td>Free</td><td>No task list, no sounds, no tab-title time mentioned in the fetched text</td></tr>
+          <tr><td>PomodoTree</td><td>Task tracking, ambient sounds, weekly analytics, badge achievements; mobile browser, "Add to Home Screen", offline-capable</td><td>Free</td><td>Gamification is the pitch — a plain-timer user has to wade past it; no Flowtime mentioned in the fetched text</td></tr>
+          <tr><td>Bracadia</td><td>Presets Standard 25/5/30, Studying (15 min), Deep Work (50–90 min), custom intervals; auto-start flow; session tracking; audio notifications; beginner's guide</td><td>Free</td><td>No task list, no sounds, no streaks/stats mentioned in the fetched text</td></tr>
+          <tr><td>openpomodoro</td><td>Adjustable work/short/long intervals (45/15, 50/10 examples); four-step "how it works" guide; "everything you need, nothing you don't"</td><td>Free</td><td>Thinnest feature set of the five in the fetched text — no tracking, no sounds, no Flowtime, no tab-title time</td></tr>
+          <tr><td>This page (PixDetector)</td><td>Presets 25/5, 50/10, 15/3 and 90/20 plus custom intervals; session dots and counter; auto-start; sound toggle; tab-title countdown; keeps running in background tabs</td><td>Free</td><td>No task list, no ambient sounds, no streaks or stats, no true Flowtime mode (no fixed limit) — the 90-minute preset is a long fixed block</td></tr>
+        </tbody>
+      </table>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
@@ -194,24 +240,60 @@ table.facts td{color:var(--text2)}
         <p>The Pomodoro Technique is a time-management method created by Francesco Cirillo in the late 1980s: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15 to 30 minute break after four sessions. The small commitment makes starting easy, and the breaks keep your attention fresh.</p>
       </details>
       <details class="faq">
-        <summary>Why 25 minutes? Can I change it?</summary>
+        <summary>Why is it 25 minutes? Can I change it?</summary>
         <p>25 minutes is the classic default, not a law — Cirillo chose it because it felt manageable. This timer lets you change every interval: try 50/10 for deep work like writing or coding, or 15/3 if 25 feels too long. Match the interval to the work.</p>
       </details>
       <details class="faq">
-        <summary>What should I do during the break?</summary>
+        <summary>Does the Pomodoro Technique really work?</summary>
+        <p>For most people, yes — it lowers the barrier to starting and structures attention. But it is not scientifically proven as a fixed method; its principles (short sprints plus breaks) are what the research supports. The timer helps only if the phone is out of reach and the breaks are real rest.</p>
+      </details>
+      <details class="faq">
+        <summary>What should I do during a Pomodoro break?</summary>
         <p>Step away from the screen: stand up, stretch, drink water, look out a window, take a short walk. Do not check email or social media — that is a context switch, not rest, and it is the most common reason breaks turn into 20 lost minutes.</p>
       </details>
       <details class="faq">
-        <summary>What if the timer rings while I am in flow?</summary>
-        <p>If you are genuinely in flow, it is fine to keep working and take your break at the next natural stopping point — the method should serve your focus, not interrupt it. If it happens often, lengthen your focus interval to 50 minutes. But do not skip breaks entirely; that is how the technique degrades back into the grind it was designed to prevent.</p>
+        <summary>What if 25 minutes is too short for my work?</summary>
+        <p>Use a longer rhythm — 50/10 for deep work, 45/15 for slow warm-ups, or the 90-minute long-focus preset. The 25/5 split is a starting point, not a rule.</p>
+      </details>
+      <details class="faq">
+        <summary>How many pomodoros should I do in a day?</summary>
+        <p>No evidence-based quota exists; 8–12 completed cycles (roughly 4–6 hours of real focus) is a realistic ceiling, and beginners do well starting with four in a protected two-hour window. Count sessions, not hours.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use a Pomodoro timer on my phone without downloading an app?</summary>
+        <p>Yes — browser timers work on iPhone (Safari) and Android (Chrome). Keep the tab open; closing it stops the session. Some timers can be added to the home screen and behave like a native app.</p>
+      </details>
+      <details class="faq">
+        <summary>What is Flowtime?</summary>
+        <p>Flowtime means working as long as your focus lasts, then taking a break — no fixed 25-minute cut-off. It suits people whose timer keeps interrupting them mid-thought. This page does not have a no-limit Flowtime mode; the closest is the 90-minute long-focus preset, which is a long fixed block, not true Flowtime.</p>
       </details>
       <details class="faq">
         <summary>Does the Pomodoro timer keep running if I switch tabs?</summary>
         <p>Yes. The timer is measured against your device clock, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the session.</p>
       </details>
+      <details class="faq">
+        <summary>Why do I keep failing at Pomodoro?</summary>
+        <p>The usual causes are phone use during the session, no single task chosen, and breaks spent on social media. Put the phone in another room, pick one task, and keep a parking-lot note for intrusive thoughts. See the focus guidance on this page.</p>
+      </details>
+      <details class="faq">
+        <summary>Is Pomodoro good for studying?</summary>
+        <p>Yes — it is the most common student use case. Students pair it with app-blocking and gamified rewards. Use 25/5 for review and memorisation, and 50/10 for essays and problem sets that need setup time.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use Pomodoro for remote work?</summary>
+        <p>Yes — remote workers use it to replace the office's natural rhythm. It defines when to work, when to rest, and creates a measurable record of productive effort.</p>
+      </details>
+      <details class="faq">
+        <summary>What is a long break and when do I take it?</summary>
+        <p>After four pomodoros, take a 15–30 minute break before the next set. Standard: 15 minutes on 25/5, 30 minutes on 50/10. This timer switches to the long break automatically after the fourth session.</p>
+      </details>
+      <details class="faq">
+        <summary>What should I do if I get interrupted mid-pomodoro?</summary>
+        <p>Jot the interruption on paper (the parking lot) and return to it after the timer ends. If the interruption cannot wait, end the pomodoro and restart it fresh — that is Cirillo's original rule.</p>
+      </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
-      <p><strong>How many Pomodoros should I do in a day?</strong> There is no fixed number. Four sessions (about two hours of focused work) is a solid day for most people; eight is a very full one. Count sessions, not hours — the counter on this page tracks them for you.</p>
+      <p><strong>What if the timer rings while I am in flow?</strong> If you are genuinely in flow, it is fine to keep working and take your break at the next natural stopping point — the method should serve your focus, not interrupt it. If it happens often, lengthen your focus interval to 50 minutes. But do not skip breaks entirely; that is how the technique degrades back into the grind it was designed to prevent.</p>
       <p><strong>Can I use Pomodoro for studying?</strong> Yes — it is one of the most common uses. Use 25/5 for review and memorisation, and 50/10 for essays and problem sets that need setup time.</p>
       <p><strong>Does Pomodoro work for ADHD?</strong> Many people with ADHD find the short, fixed window helps with task initiation — starting is the hard part, and 25 minutes feels manageable. Try the 15/3 rhythm first and build up.</p>
       <p><strong>What is the difference between a Pomodoro timer and a regular timer?</strong> A Pomodoro timer runs the full focus-break cycle automatically and counts your sessions. A regular timer just counts down once. For a single countdown, use the <a href="/tools/timer-online">free online timer</a>.</p>

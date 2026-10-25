@@ -65,6 +65,70 @@
         "@type": "Answer",
         "text": "Yes. Pause stops capturing without ending the take, and Resume continues the same recording. The timer only counts time spent actively recording."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my recording silent, or the waveform flat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the wrong microphone is selected, the mic is muted or too low in system settings, or another app — Zoom, Teams or Discord — is holding the microphone. Close the other app, pick the right input, and watch the sound bar move before you speak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I record on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser recorders work on iPhone and Android through Safari or Chrome. On a phone, enable microphone permission for the browser in the phone's settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I trim my recording before downloading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this page — there is no trim tool here, so a flubbed take means recording again. Some recorders offer trimming (SnipSound has waveform handles; 123apps trims silence automatically), but this one keeps it simple: record, play back, download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I turn my voice recording into text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in the recorder itself — this tool records audio only. SnipSound offers free on-device transcription in 99 languages; otherwise, download the file and run it through an audio-to-text tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my browser crashes while recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The recording lives in browser memory and is usually lost — download immediately after stopping. Close the tab without downloading and it is gone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a USB mic or Bluetooth headset?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — any microphone your operating system recognises for video calls works. Pick it from your system's sound settings before you start recording."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to record a meeting or interview in a browser tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if the tool processes locally. This recorder keeps audio on your device and never uploads it — prefer local processing for client calls and interviews. Server-stored tools such as Vocaroo keep a copy on their servers with shareable links."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my recording sound noisy or echoey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Built-in laptop microphones pick up room noise. Get closer to the mic, use a headset, and record in a quiet room. Noise reduction is a paid feature on some tools (VEED's Dolby, Riverside's Magic Audio); this page has no noise reduction, so the room matters."
+      }
     }
   ]
 }
@@ -164,7 +228,7 @@ table.facts td{color:var(--text2)}
       <h1>Voice Recorder Online Free</h1>
       <p>Press record and speak — pause and resume whenever you like, play it back, then download the file. Free, no signup, no install, and your audio never leaves your browser.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> <strong>Needs microphone permission</strong> — your browser will ask for it. <strong>The download is a WebM file, not an MP3</strong> — most browsers and players accept WebM, but check your editor or app first. Closing the tab before downloading loses the recording.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Needs microphone permission</strong> — your browser will ask for it. <strong>The download is a WebM file, not an MP3</strong> — most browsers and players accept WebM, but check your editor or app first. Closing the tab before downloading loses the recording. This is a browser recorder only — it records your microphone, not your computer's system audio, and it cannot record phone calls.</div>
     
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Recorder">
@@ -194,7 +258,7 @@ table.facts td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: you need a voice note, not an account</h2>
-      <p>Most of the time a voice recording is a small job: a quick voice note, a draft of a presentation, practising how a talk actually sounds, a language exercise, a narration test before the real take. But the free recorders people find online keep turning a small job into a big one — sign up first, a time limit on the free tier, a watermark, or an export that only unlocks after an account. On social media the same wish keeps coming up: people asking for a free alternative to paid voice tools, a free download with no signup, and then complaining when the tool they were sent stops working or the site behind it has gone dead. What they want is the simplest version: press record, speak, listen back, keep the file. That is what this page does — and it says the one honest catch up front, that the file is WebM, not MP3.</p>
+      <p>People reach for an online voice recorder for a small job — a voice note, a meeting that needs notes, a lecture, a language exercise. The number-one thing that goes wrong is the microphone: the browser asks for permission, the user clicked Block once, and the tool simply does nothing — or the wrong mic is selected, or Zoom is still holding it. The next pain is losing the take: most in-browser recorders keep audio only in browser memory, so closing the tab without downloading loses it. Then there is the format surprise — Chrome records WebM, Safari MP4, and users expecting MP3 get a file their editor will not open — and the free-tier walls: MP3-only exports, low bitrates, time caps, and transcription sold as a second tool.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I record my voice online for free?</h2>
       <p>Press record, allow the microphone, and speak — pause and resume whenever you like, play it back, then download the file. It is free, with no signup and no install, and your audio never leaves your browser. The download is a WebM file, not an MP3, so check your player or editor accepts WebM first.</p>
@@ -210,9 +274,33 @@ table.facts td{color:var(--text2)}
       <tr><td>Safari</td><td>MP4 / M4A</td><td>Apple devices, QuickTime, most players</td></tr>
       <tr><td>Need MP3?</td><td>Convert the download</td><td>Use any audio converter — this page does not export MP3 directly, and saying otherwise would be a lie</td></tr>
       </tbody></table>
+      <!-- COMPARISON -->
+      <h2>How this recorder compares with the top free recorders</h2>
+      <p>The top search results for a free online voice recorder are all small browser tools. Here is what each one actually offers, what it charges or caps, and what it leaves out &mdash; from the live search results of 25 Oct 2026.</p>
+      <table class="facts"><thead><tr><th>Tool</th><th>Free offer</th><th>What it costs / caps</th><th>What's missing</th></tr></thead><tbody>
+      <tr><td>Castos</td><td>Free, no account, no watermark; pause/resume; MP3 export; optional noise reduction, silence trim and loudness normalize; fully in-browser, nothing uploaded</td><td>Free</td><td>MP3 at 128 kbps only, no format choice, no trim UI, no transcription</td></tr>
+      <tr><td>Wave</td><td>Free, no account, no watermark, no time limit; runs entirely in the browser</td><td>Free</td><td>Download is the browser's format (WebM on Chrome, MP4/M4A on Safari) &mdash; no MP3 conversion; audio-only, transcription is a separate tool</td></tr>
+      <tr><td>SnipSound</td><td>Free, no signup; live waveform, pause/resume, trim before download, MP3/WAV/FLAC/OGG/AAC/M4A; free on-device transcription in 99 languages; 100% in-browser</td><td>Free</td><td>Small unknown brand; the transcription model downloads on first use</td></tr>
+      <tr><td>Canva</td><td>Free tier exists; record voice plus video/screen, edit, trim, fade, Beat Sync</td><td>Free tier; AI noise cancellation is Pro only</td><td>Account required; recording sits inside a design/video editor, not a one-click recorder</td></tr>
+      <tr><td>Shiken</td><td>Free, no signup, no install, no time limits; record, play back, download; private by design, never leaves the browser</td><td>Free; upsells a paid Meeting Recorder</td><td>Bare-bones: no pause mentioned, no trim, no format choice stated, no transcription</td></tr>
+      <tr><td>This page</td><td>Free, no signup; pause/resume, live waveform, playback; WebM (MP4/M4A on Safari); nothing uploaded</td><td>Free</td><td>No MP3 export, no trim, no transcription, no noise reduction</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this voice recorder really free?</summary><p>Yes. Record as often as you like, free, with no signup, no install and no time limit imposed by us.</p></details><details class="faq"><summary>Why is the download WebM and not MP3?</summary><p>Browsers record in WebM (Opus) natively; turning it into MP3 needs an extra conversion step. This page gives you the honest native file instead of pretending it records MP3. Convert it with any audio converter if you need MP3.</p></details><details class="faq"><summary>Why is my microphone not working?</summary><p>Your browser blocked microphone access. Click the microphone or padlock icon in the address bar, allow the microphone, and reload the page. On a phone, enable the microphone for this site in the browser settings.</p></details><details class="faq"><summary>Is my recording uploaded anywhere?</summary><p>No. It is captured and stored only in this tab on your device. If you close the tab without downloading, the recording is gone.</p></details><details class="faq"><summary>Is there a time limit on recordings?</summary><p>No limit set by this tool. Very long recordings use more memory, so keep the tab open and download when you finish.</p></details><details class="faq"><summary>Can I pause and resume a recording?</summary><p>Yes. Pause stops capturing without ending the take, and Resume continues the same recording. The timer only counts time spent actively recording.</p></details>
+      <details class="faq"><summary>Is this voice recorder really free?</summary><p>Yes. Record as often as you like, free, with no signup, no install and no time limit imposed by us.</p></details>
+      <details class="faq"><summary>Why is the download WebM and not MP3?</summary><p>Browsers record in WebM (Opus) natively; turning it into MP3 needs an extra conversion step. This page gives you the honest native file instead of pretending it records MP3. Convert it with any audio converter if you need MP3.</p></details>
+      <details class="faq"><summary>Why is my microphone not working?</summary><p>Your browser blocked microphone access. Click the microphone or padlock icon in the address bar, allow the microphone, and reload the page. On a phone, enable the microphone for this site in the browser settings.</p></details>
+      <details class="faq"><summary>Is my recording uploaded anywhere?</summary><p>No. It is captured and stored only in this tab on your device. If you close the tab without downloading, the recording is gone.</p></details>
+      <details class="faq"><summary>Is there a time limit on recordings?</summary><p>No limit set by this tool. Very long recordings use more memory, so keep the tab open and download when you finish.</p></details>
+      <details class="faq"><summary>Can I pause and resume a recording?</summary><p>Yes. Pause stops capturing without ending the take, and Resume continues the same recording. The timer only counts time spent actively recording.</p></details>
+      <details class="faq"><summary>Why is my recording silent, or the waveform flat?</summary><p>Usually the wrong microphone is selected, the mic is muted or too low in system settings, or another app — Zoom, Teams or Discord — is holding the microphone. Close the other app, pick the right input, and watch the sound bar move before you speak.</p></details>
+      <details class="faq"><summary>Can I record on my phone?</summary><p>Yes — browser recorders work on iPhone and Android through Safari or Chrome. On a phone, enable microphone permission for the browser in the phone's settings.</p></details>
+      <details class="faq"><summary>Can I trim my recording before downloading?</summary><p>Not on this page — there is no trim tool here, so a flubbed take means recording again. Some recorders offer trimming (SnipSound has waveform handles; 123apps trims silence automatically), but this one keeps it simple: record, play back, download.</p></details>
+      <details class="faq"><summary>Can I turn my voice recording into text?</summary><p>Not in the recorder itself — this tool records audio only. SnipSound offers free on-device transcription in 99 languages; otherwise, download the file and run it through an audio-to-text tool.</p></details>
+      <details class="faq"><summary>What happens if my browser crashes while recording?</summary><p>The recording lives in browser memory and is usually lost — download immediately after stopping. Close the tab without downloading and it is gone.</p></details>
+      <details class="faq"><summary>Can I use a USB mic or Bluetooth headset?</summary><p>Yes — any microphone your operating system recognises for video calls works. Pick it from your system's sound settings before you start recording.</p></details>
+      <details class="faq"><summary>Is it safe to record a meeting or interview in a browser tool?</summary><p>Only if the tool processes locally. This recorder keeps audio on your device and never uploads it — prefer local processing for client calls and interviews. Server-stored tools such as Vocaroo keep a copy on their servers with shareable links.</p></details>
+      <details class="faq"><summary>Why does my recording sound noisy or echoey?</summary><p>Built-in laptop microphones pick up room noise. Get closer to the mic, use a headset, and record in a quiet room. Noise reduction is a paid feature on some tools (VEED's Dolby, Riverside's Magic Audio); this page has no noise reduction, so the room matters.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I record on my phone?</strong> Yes — open this page in your phone browser, allow the microphone, and record the same way.</p>

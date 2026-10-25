@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this metronome really free?",
+      "name": "What is BPM?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. It is free with no sign-up, no app install and no watermark. It runs entirely in your browser and works offline after the page loads."
+        "text": "Beats per minute — the number of steady pulses in one minute. 60 BPM is one beat per second; 120 BPM is a common pop and march tempo."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is this metronome more accurate than other browser metronomes?",
+      "name": "How do I use an online metronome?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most browser metronomes use setInterval, which lags, stutters and throttles in background tabs. This one uses Web Audio lookahead scheduling, checking the audio clock every 25 milliseconds and scheduling clicks 0.1 seconds ahead."
+        "text": "Set the tempo with the slider, the plus and minus buttons, typing the number, or tap tempo; pick a time signature and press Start."
       }
     },
     {
       "@type": "Question",
-      "name": "Can the metronome tell me if I am playing in time?",
+      "name": "How do I find the BPM of a song?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It only plays the click; it cannot listen to your playing or tell you whether you rushed or dragged."
+        "text": "Use tap tempo — tap the button (or press T) along with the beat and the metronome calculates the BPM from the average of your taps."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it have tap tempo and odd time signatures?",
+      "name": "What tempo should I practise at?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Tap tempo, 2/4, 3/4, 4/4 and 6/8, with quarter, eighth or sixteenth-note subdivisions and an accent on beat 1."
+        "text": "Start at a tempo where you can play the passage cleanly and relaxed, then increase 2–5 BPM at a time. It is always better to play slowly and perfectly than fast with mistakes."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does the click sound late on Bluetooth headphones?",
+      "name": "How accurate is an online metronome?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bluetooth and wireless audio add latency, so the click you hear arrives slightly after it was scheduled. Use wired headphones or speakers for the most accurate timing."
+        "text": "It depends on how it is built — ones using the Web Audio API schedule clicks ahead of time and stay accurate to about a millisecond without drifting; ones built on setTimeout or setInterval drift, especially at high tempos and in background tabs."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it work offline?",
+      "name": "Can I use a metronome on my phone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Once the page has loaded, the metronome works without an internet connection."
+        "text": "Yes — this page works in any modern mobile browser; add the page to your home screen for one-tap access at rehearsals and gigs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What time signatures does an online metronome support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common ones are 2/4, 3/4, 4/4, 5/4, 6/8, 7/8, 9/8 and 12/8; this page offers 2/4, 3/4, 4/4 and 6/8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are subdivisions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extra clicks between the beats — eighths give two clicks per beat, triplets three, sixteenths four — the fastest way to tighten up fast passages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are accent beats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A louder, distinct click on chosen beats (usually beat 1) so you can hear where the bar starts; this page accents beat 1 when the checkbox is on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does an online metronome work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some do — this page keeps working offline once it has loaded; most tools need the page loaded first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the click stop or slow down when I switch tabs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers throttle JavaScript timers in background tabs; metronomes built on setTimeout lose time, while Web Audio API ones keep scheduling ahead. This page uses Web Audio lookahead scheduling, so the click keeps time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I practise with a metronome effectively?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start slow, keep every note even, increase BPM gradually — 2–5 BPM at a time — and drop back down the moment technique falls apart."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a metronome help with odd time signatures or polyrhythms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — pick 5/4 or 7/8 with an accented downbeat, or set a polyrhythm like 4-against-3 with different sounds per layer; only some free tools offer this, and this page does not — it covers 2/4, 3/4, 4/4 and 6/8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an online metronome really free with no signup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — every top-ranked tool in this run is free in the browser with no account and no download, and this page is too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a metronome and tap tempo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A metronome plays a steady click at a set BPM; tap tempo is the feature that finds a BPM by measuring your taps — it sets the metronome, it is not a separate tool."
       }
     }
   ]
@@ -189,7 +261,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p class="trust-line"><strong>Free, no signup, no watermark, files stay in your browser.</strong> Nothing is uploaded to a server — everything on this page runs on your own device.</p>
     </div>
     
-    <div class="limit-note" role="note"><strong>Honest limit — read this first:</strong> a metronome <strong>cannot measure your timing</strong> — it only plays the click. Without microphone access it cannot tell you whether you rushed or dragged; it has no listening or feedback. Also, <strong>Bluetooth / wireless audio adds latency</strong>, so the click you hear is slightly late — wired headphones or speakers are more accurate. This tool's job is one thing: a steady, accurate click.</div>
+    <div class="limit-note" role="note"><strong>Honest limit — read this first:</strong> a metronome <strong>cannot measure your timing</strong> — it only plays the click. Without microphone access it cannot tell you whether you rushed or dragged; it has no listening or feedback. <strong>Keep the tab open while you practise</strong> — closing the tab stops the click. Also, <strong>Bluetooth / wireless audio adds latency</strong>, so the click you hear is slightly late — wired headphones or speakers are more accurate. This tool’s job is one thing: a steady, accurate click.</div>
 
     
     <div class="bc-tool">
@@ -248,11 +320,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <div class="tool-about">
     <!-- PROBLEM -->
     <h2>Browser metronomes drift — and that ruins practice</h2>
-      <p>Musicians want a simple thing: a steady, accurate click with tap tempo, time signatures and subdivisions — free, in the browser, no app install. Social chatter on this is thin (almost nothing solid was found on social; one Instagram Reel, 27K likes, about a free browser metronome with tap tempo and subdivisions), but musician and developer sources name the real problems clearly, and they are technical, not cosmetic.</p>
+      <p>Musicians want a simple thing: a steady, accurate click with tap tempo, time signatures and subdivisions — free, in the browser, no app install. Social chatter is thin but telling: one Instagram Reel with 27,000 likes celebrates a free browser clone of the classic Doctor Beat metronome, and the comments are marching-band alumni asking for the harsh counting voice. The real problems live in developer write-ups: most browser metronomes are built on <span style="font-family:monospace">setInterval</span>, which lags, stutters and throttles — especially in background tabs — so the click wanders off the beat exactly when you are trying to lock into it. The second problem is missing features: basic tools lack tap tempo, odd time signatures and subdivisions, so you cannot practise 3/4, 6/8 or sixteenth-note patterns. The third is a limit of the whole category: a metronome cannot tell you whether you are actually in time — without a microphone it has no listening or feedback, so it can play the beat but never judge your playing. This page answers the first two directly: a Web Audio scheduler with lookahead (the direct answer to drift), plus tap tempo, 2/4, 3/4, 4/4 and 6/8, quarter, eighth and sixteenth subdivisions, and an accent on beat 1.</p>
       <p>The biggest problem is drift. Most browser metronomes are built on <span style="font-family:monospace">setInterval</span>, which lags, stutters and throttles — especially in background tabs — so the click wanders off the beat exactly when you are trying to lock into it. The second problem is missing features: basic tools lack tap tempo, odd time signatures and subdivisions, so you cannot practise 3/4, 6/8 or sixteenth-note patterns. The third is a limit of the whole category: a metronome cannot tell you whether you are actually in time — without a microphone it has no listening or feedback, so it can play the beat but never judge your playing. This page answers the first two directly: a Web Audio scheduler with lookahead (the direct answer to drift), plus tap tempo, 2/4, 3/4, 4/4 and 6/8, quarter, eighth and sixteenth subdivisions, and an accent on beat 1.</p>
       <p><strong>A metronome</strong> is a tool that plays a steady click at a chosen tempo (beats per minute) so musicians can practise in time. This free one runs in your browser with a drift-free Web Audio click, tap tempo and visual beat dots.</p>
     <!-- DIRECT ANSWER -->
-    <p><strong>Direct answer:</strong> this free online metronome plays a steady, accurate click at 20–300 BPM with tap tempo, time signatures (2/4, 3/4, 4/4, 6/8), subdivisions (quarter, eighth, sixteenth), an accent on beat 1 and visual beat dots — no app, no sign-up, and it works offline after the page loads. It schedules clicks with the Web Audio clock and lookahead, so it does not drift like setInterval metronomes. It cannot judge your timing — it only plays the click.</p>
+    <p><strong>Direct answer:</strong> a free online metronome plays a steady click at a set tempo so you can practise in time. Set the BPM with the slider or tap tempo, pick a time signature, press Start, and play along with the click and beat dots. No app, no sign-up, and it works offline after the page loads.</p>
     <!-- HOW TO -->
     <h2>How to use the metronome in three steps</h2>
     <div class="steps">
@@ -266,39 +338,118 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <table class="formats">
         <thead><tr><th>Tempo (BPM)</th><th>Marking</th><th>Feels like</th></tr></thead>
         <tbody>
-          <tr><td class="fname">40–60</td><td>Largo / Lento</td><td>Very slow — learning new passages.</td></tr>
-          <tr><td class="fname">66–76</td><td>Adagio / Andante</td><td>Slow walking pace — careful practice.</td></tr>
-          <tr><td class="fname">90–108</td><td>Moderato / Allegro</td><td>Medium — most songs live here.</td></tr>
-          <tr><td class="fname">132–168</td><td>Vivace / Presto</td><td>Fast — only after slow practice is clean.</td></tr>
+          <tr><td class="fname">20&ndash;39</td><td>Grave</td><td>Very slow and solemn &mdash; below most practice tempos.</td></tr>
+          <tr><td class="fname">40&ndash;59</td><td>Largo</td><td>Broad and very slow &mdash; learning new passages.</td></tr>
+          <tr><td class="fname">60&ndash;65</td><td>Lento</td><td>Slowly &mdash; careful, even practice.</td></tr>
+          <tr><td class="fname">66&ndash;75</td><td>Adagio</td><td>Slow and stately &mdash; slow practice.</td></tr>
+          <tr><td class="fname">76&ndash;89</td><td>Andante</td><td>At a walking pace &mdash; comfortable practice.</td></tr>
+          <tr><td class="fname">90&ndash;107</td><td>Moderato</td><td>At a moderate pace &mdash; most songs live here.</td></tr>
+          <tr><td class="fname">108&ndash;131</td><td>Allegro</td><td>Fast and bright &mdash; only when slow practice is clean.</td></tr>
+          <tr><td class="fname">132&ndash;167</td><td>Vivace</td><td>Lively and fast &mdash; advanced passages.</td></tr>
+          <tr><td class="fname">168&ndash;199</td><td>Presto</td><td>Very fast &mdash; performance tempo.</td></tr>
+          <tr><td class="fname">200&ndash;300</td><td>Prestissimo</td><td>As fast as possible &mdash; extreme tempos.</td></tr>
         </tbody>
       </table>
+    
+    <h2 style="margin-top:28px">How this page compares to the top 5 free online metronomes</h2>
+    <p>Live SERP top 5 (US, 25 Oct 2026 research run). This SERP is unusually strong &mdash; five polished, genuinely free tools &mdash; so the win here is depth and teaching, not &ldquo;free&rdquo;.</p>
+    <table class="formats">
+      <thead><tr><th>Tool</th><th>What it offers free</th><th>What is missing / the catch</th></tr></thead>
+      <tbody>
+        <tr><td class="fname">MusoKit</td><td>Free, no signup, works offline once loaded; tap tempo; 2/4, 3/4, 4/4, 6/8 plus odd meters in settings; subdivisions (eighths, triplets, 16ths); keyboard shortcuts; accented beat 1</td><td>&ldquo;Coming in MusoKit Pro: setlists&rdquo; &mdash; a paid tier is teased on the page.</td></tr>
+        <tr><td class="fname">Gibson App</td><td>Free, 10&ndash;300 BPM, 2&ndash;12 beats per bar, per-dot accent toggle, settings saved in browser, mobile responsive</td><td>The page is a funnel into the Gibson App; accuracy claims cut off in the fetched snippet (not verified).</td></tr>
+        <tr><td class="fname">Beatmate</td><td>Free, &ldquo;sample-accurate click&rdquo;, 1&ndash;999 BPM with decimals, tap tempo, any beats 1&ndash;16, subdivisions up to 32nd notes, per-block accent grid, separate sounds per layer, count-in, swing</td><td>No practice timer or tempo trainer visible in the fetched snippet.</td></tr>
+        <tr><td class="fname">Metronomely</td><td>Free, &ldquo;no sign-up, no download and no limits&rdquo;; Web Audio API scheduling claimed accurate to about 1 ms with no drift; tap tempo; 20&ndash;300 BPM; tempo trainer (auto-raises speed); practice timer; fullscreen mode</td><td>No per-beat accent or mute grid visible in the fetched snippet; no odd-meter or polyrhythm mention.</td></tr>
+        <tr><td class="fname">GuitarLu</td><td>Free, 20&ndash;300 BPM, time signatures incl. 9/8 and 12/8 with automatic compound accents, subdivisions incl. swing, 4 click sounds with volume, speed trainer, gap bars, count-in, visual flash, practice timer, settings remembered, screen stays awake</td><td>Guitar-branded name may read as guitar-only to pianists, drummers and singers.</td></tr>
+        <tr><td class="fname">This page</td><td>Free, Web Audio lookahead click (no drift), tap tempo, 2/4, 3/4, 4/4, 6/8, quarter, eighth and sixteenth subdivisions, accent on beat 1, visual beat dots, offline after load</td><td>No swing, tempo trainer or song library; cannot judge your timing; no odd meters or polyrhythms.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:28px">What tempo should I practise at?</h2>
+    <p>Start at a tempo where you can play the passage cleanly and relaxed, then increase 2&ndash;5 BPM at a time. It is always better to play slowly and perfectly than fast with mistakes &mdash; and drop back down the moment technique falls apart. That is the method in the guitar and flamenco practice reels in the research: one guitarist works a legato run at 100 BPM, then 120 BPM, switching to 3/4 with triplet subdivisions; a flamenco learner slows to 90 BPM to repeat footwork, practising for speed, clarity and consistency, and only pushes the speed up when the technique holds.</p>
+    <h2 style="margin-top:28px">Tempo markings &mdash; the full chart</h2>
+    <p>The markings below are the ones this page shows next to the BPM number. They are the standard Italian tempo words musicians use to describe how fast a piece should feel.</p>
+    <table class="formats">
+      <thead><tr><th>Tempo (BPM)</th><th>Marking</th><th>Feels like</th></tr></thead>
+      <tbody>
+        <tr><td class="fname">20&ndash;39</td><td>Grave</td><td>Very slow and solemn &mdash; below most practice tempos.</td></tr>
+        <tr><td class="fname">40&ndash;59</td><td>Largo</td><td>Broad and very slow &mdash; learning new passages.</td></tr>
+        <tr><td class="fname">60&ndash;65</td><td>Lento</td><td>Slowly &mdash; careful, even practice.</td></tr>
+        <tr><td class="fname">66&ndash;75</td><td>Adagio</td><td>Slow and stately &mdash; slow practice.</td></tr>
+        <tr><td class="fname">76&ndash;89</td><td>Andante</td><td>At a walking pace &mdash; comfortable practice.</td></tr>
+        <tr><td class="fname">90&ndash;107</td><td>Moderato</td><td>At a moderate pace &mdash; most songs live here.</td></tr>
+        <tr><td class="fname">108&ndash;131</td><td>Allegro</td><td>Fast and bright &mdash; only when slow practice is clean.</td></tr>
+        <tr><td class="fname">132&ndash;167</td><td>Vivace</td><td>Lively and fast &mdash; advanced passages.</td></tr>
+        <tr><td class="fname">168&ndash;199</td><td>Presto</td><td>Very fast &mdash; performance tempo.</td></tr>
+        <tr><td class="fname">200&ndash;300</td><td>Prestissimo</td><td>As fast as possible &mdash; extreme tempos.</td></tr>
+      </tbody>
+    </table>
+    <h2 style="margin-top:28px">Practice uses &mdash; guitar, piano, drums, voice, marching band</h2>
+    <p><strong>Guitar:</strong> work a legato run at 100 BPM, then 120 BPM, switching to 3/4 with triplet subdivisions &mdash; the exact drill in the guitar practice reel. Keep every note even; increase BPM gradually. <strong>Piano:</strong> use eighth-note subdivisions at a slow tempo to teach even spacing before speeding up; the accent on beat 1 keeps the bar in place while both hands learn the passage. <strong>Drums and marching band:</strong> the harsh Doctor Beat-style click is the sound a generation of band kids practised to &mdash; set a steady 120 BPM and use the accent on beat 1 to feel the downbeat. <strong>Voice and flamenco:</strong> slow the tempo until the footwork or the phrase is clean, then push it up only when the technique holds. <strong>Odd meters:</strong> 5/4 or 7/8 with an accented downbeat, or a polyrhythm like 4-against-3 with different sounds per layer, is what the advanced free tools offer &mdash; this page covers 2/4, 3/4, 4/4 and 6/8, so for odd meters and polyrhythms use a tool that lists them.</p>
+
     <!-- FAQ -->
     <h2 style="margin-top:28px">FAQ</h2>
-    
       <details class="faq">
-        <summary>Is this metronome really free?</summary>
-        <p>Yes. It is free with no sign-up, no app install and no watermark. It runs entirely in your browser and works offline after the page loads.</p>
+        <summary>What is BPM?</summary>
+        <p>Beats per minute — the number of steady pulses in one minute. 60 BPM is one beat per second; 120 BPM is a common pop and march tempo.</p>
       </details>
       <details class="faq">
-        <summary>Why is this metronome more accurate than other browser metronomes?</summary>
-        <p>Most browser metronomes use setInterval, which lags, stutters and throttles in background tabs, so the click drifts. This one uses Web Audio lookahead scheduling: it checks the audio clock every 25 ms and schedules clicks 0.1 seconds ahead, so the beat stays steady even when the tab is busy.</p>
+        <summary>How do I use an online metronome?</summary>
+        <p>Set the tempo with the slider, the plus and minus buttons, typing the number, or tap tempo; pick a time signature and press Start.</p>
       </details>
       <details class="faq">
-        <summary>Can the metronome tell me if I am playing in time?</summary>
-        <p>No — and no metronome without a microphone can. It only plays the click; it cannot listen to your playing or tell you whether you rushed or dragged. Use it as a steady reference, and record yourself to check your timing.</p>
+        <summary>How do I find the BPM of a song?</summary>
+        <p>Use tap tempo — tap the button (or press T) along with the beat and the metronome calculates the BPM from the average of your taps.</p>
       </details>
       <details class="faq">
-        <summary>Does it have tap tempo and odd time signatures?</summary>
-        <p>Yes. Tap the Tap button (or press T) on each beat to set the tempo by feel, and choose 2/4, 3/4, 4/4 or 6/8, with quarter, eighth or sixteenth-note subdivisions and an accent on beat 1.</p>
+        <summary>What tempo should I practise at?</summary>
+        <p>Start at a tempo where you can play the passage cleanly and relaxed, then increase 2–5 BPM at a time. It is always better to play slowly and perfectly than fast with mistakes.</p>
       </details>
       <details class="faq">
-        <summary>Why does the click sound late on Bluetooth headphones?</summary>
-        <p>Bluetooth and wireless audio add latency, so the click you hear arrives slightly after it was scheduled. For the most accurate timing, use wired headphones or speakers.</p>
+        <summary>How accurate is an online metronome?</summary>
+        <p>It depends on how it is built — ones using the Web Audio API schedule clicks ahead of time and stay accurate to about a millisecond without drifting; ones built on setTimeout or setInterval drift, especially at high tempos and in background tabs.</p>
       </details>
       <details class="faq">
-        <summary>Does it work offline?</summary>
-        <p>Yes. Once the page has loaded, the metronome works without an internet connection — there is no server involved in the click.</p>
+        <summary>Can I use a metronome on my phone?</summary>
+        <p>Yes — this page works in any modern mobile browser; add the page to your home screen for one-tap access at rehearsals and gigs.</p>
       </details>
+      <details class="faq">
+        <summary>What time signatures does an online metronome support?</summary>
+        <p>Common ones are 2/4, 3/4, 4/4, 5/4, 6/8, 7/8, 9/8 and 12/8; this page offers 2/4, 3/4, 4/4 and 6/8.</p>
+      </details>
+      <details class="faq">
+        <summary>What are subdivisions?</summary>
+        <p>Extra clicks between the beats — eighths give two clicks per beat, triplets three, sixteenths four — the fastest way to tighten up fast passages.</p>
+      </details>
+      <details class="faq">
+        <summary>What are accent beats?</summary>
+        <p>A louder, distinct click on chosen beats (usually beat 1) so you can hear where the bar starts; this page accents beat 1 when the checkbox is on.</p>
+      </details>
+      <details class="faq">
+        <summary>Does an online metronome work offline?</summary>
+        <p>Some do — this page keeps working offline once it has loaded; most tools need the page loaded first.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does the click stop or slow down when I switch tabs?</summary>
+        <p>Browsers throttle JavaScript timers in background tabs; metronomes built on setTimeout lose time, while Web Audio API ones keep scheduling ahead. This page uses Web Audio lookahead scheduling, so the click keeps time.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I practise with a metronome effectively?</summary>
+        <p>Start slow, keep every note even, increase BPM gradually — 2–5 BPM at a time — and drop back down the moment technique falls apart.</p>
+      </details>
+      <details class="faq">
+        <summary>Can a metronome help with odd time signatures or polyrhythms?</summary>
+        <p>Yes — pick 5/4 or 7/8 with an accented downbeat, or set a polyrhythm like 4-against-3 with different sounds per layer; only some free tools offer this, and this page does not — it covers 2/4, 3/4, 4/4 and 6/8.</p>
+      </details>
+      <details class="faq">
+        <summary>Is an online metronome really free with no signup?</summary>
+        <p>Yes — every top-ranked tool in this run is free in the browser with no account and no download, and this page is too.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between a metronome and tap tempo?</summary>
+        <p>A metronome plays a steady click at a set BPM; tap tempo is the feature that finds a BPM by measuring your taps — it sets the metronome, it is not a separate tool.</p>
+      </details>
+
     <!-- RELATED QUESTIONS -->
     <h2 style="margin-top:28px">Related questions</h2>
     <ul class="rel-q">

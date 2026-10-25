@@ -18,12 +18,21 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What is my IP address?", "acceptedAnswer": { "@type": "Answer", "text": "Your public IP address is shown at the top of this page. It is the address your internet provider gives your connection, and it is what websites see when you visit them. It can change when you restart your router or switch networks." } },
-    { "@type": "Question", "name": "Why does my IP show the wrong location?", "acceptedAnswer": { "@type": "Answer", "text": "IP location comes from a database that maps address ranges to places. If your provider recently moved addresses around, the database can be out of date, so you may appear in a nearby city or even another region. Only your internet provider can ask the database owners to correct it — no lookup tool can fix it." } },
-    { "@type": "Question", "name": "Why does Google still show my old location with a VPN on?", "acceptedAnswer": { "@type": "Answer", "text": "A VPN changes your IP address, but Google may still use a saved location, GPS, Wi-Fi networks nearby, or a stale location database. Sign out of location history, clear location permissions, and check that the VPN is actually connected and not leaking." } },
-    { "@type": "Question", "name": "What does a 169.254.x.x IP address mean?", "acceptedAnswer": { "@type": "Answer", "text": "An address starting 169.254 means your device could not reach the DHCP server that hands out IP addresses, so it gave itself a temporary link-local address. That usually means no working internet: restart your router and device, check the cable or Wi-Fi, and contact your provider if it keeps happening." } },
-    { "@type": "Question", "name": "Can someone find my home address from my IP?", "acceptedAnswer": { "@type": "Answer", "text": "No. A public IP address only reveals an approximate area — usually a city or region — plus your provider's name. It does not reveal your street address or your name. Only your internet provider holds the record linking an IP to a customer, and it does not share that publicly." } },
-    { "@type": "Question", "name": "Is my IP address stored by this tool?", "acceptedAnswer": { "@type": "Answer", "text": "No. This page asks a free IP service for your public address and location, shows it to you, and stores nothing. Your IP is never saved, shared, or sent to PixDetector servers." } }
+    { "@type": "Question", "name": "What is my IP address?", "acceptedAnswer": { "@type": "Answer", "text": "Your public IP address is shown at the top of this page. It is the address your internet provider assigns to your connection, and it is the address every website sees when you visit. It can change when you restart your router or switch networks." } },
+    { "@type": "Question", "name": "Public vs private — what's the difference?", "acceptedAnswer": { "@type": "Answer", "text": "A public IP identifies your whole connection to the internet; a private IP (like 192.168.x.x or 10.x.x.x) identifies one device inside your home network. Websites see only your public IP. Your private IP is set by your router and never leaves your home network." } },
+    { "@type": "Question", "name": "Why does my network settings IP differ from this page?", "acceptedAnswer": { "@type": "Answer", "text": "Your device settings show your private IP, given to your device by your router. This page shows your public IP, given to your connection by your internet provider. They are different addresses for different jobs — both are correct at the same time." } },
+    { "@type": "Question", "name": "Why is my location wrong?", "acceptedAnswer": { "@type": "Answer", "text": "IP location comes from a database that maps address ranges to places — usually your provider's routing hub, not your house. If the database is out of date, you can appear in a nearby city or another region. Only your internet provider can ask the database owners to correct it; no lookup tool can fix it." } },
+    { "@type": "Question", "name": "Why does my IP keep changing?", "acceptedAnswer": { "@type": "Answer", "text": "Most home connections get a dynamic IP that changes when your router restarts or your provider reassigns it. IPv6 addresses often change daily by design (privacy extensions). If you need a fixed address, ask your provider — it is usually a paid option." } },
+    { "@type": "Question", "name": "Why do I have two IP addresses (IPv4 + IPv6)?", "acceptedAnswer": { "@type": "Answer", "text": "IPv4 (like 203.0.113.45) is the older format; IPv6 (like 2001:db8::1) is the newer, longer format. Many connections support both at once, so you have one of each. This page shows both when your connection supports them." } },
+    { "@type": "Question", "name": "Can someone find my exact address from my IP?", "acceptedAnswer": { "@type": "Answer", "text": "No. A public IP reveals only an approximate area — usually a city or region — plus your provider's name. It does not reveal your street address or your name. Only your internet provider holds the record linking an IP to a customer, and it does not share that publicly." } },
+    { "@type": "Question", "name": "Can someone hack me if they know my IP?", "acceptedAnswer": { "@type": "Answer", "text": "Knowing an IP alone gives an attacker very little: it reveals an approximate area and your provider, not your files or passwords. The real risks are open ports and unpatched devices on your network, not the address itself. Keep your router firmware updated and use strong passwords." } },
+    { "@type": "Question", "name": "How do I check if my VPN is working?", "acceptedAnswer": { "@type": "Answer", "text": "Note your IP on this page, then connect your VPN and check again. If the address and location change to the VPN server's, the VPN is working. If the address stays the same, the VPN is not routing your traffic." } },
+    { "@type": "Question", "name": "Why does the site still show my real IP with VPN on?", "acceptedAnswer": { "@type": "Answer", "text": "A VPN can leak your real address through WebRTC, IPv6 or DNS, or your browser may still show a saved location. Run the WebRTC leak check on this page, and check your VPN settings for IPv6 and DNS leak protection." } },
+    { "@type": "Question", "name": "What is CGNAT and why can't I host a server?", "acceptedAnswer": { "@type": "Answer", "text": "CGNAT (carrier-grade NAT) means your provider shares one public IP between many customers, so your router's WAN address is not a real public address. Incoming connections cannot reach you, which breaks port-forwarding and home servers. The fix is to ask your provider for a public or static IP, usually for a fee." } },
+    { "@type": "Question", "name": "How do I find my IP on Windows/Mac/iPhone/Android?", "acceptedAnswer": { "@type": "Answer", "text": "For your public IP, open this page on any device — it shows it instantly. For your private (local) IP: on Windows run ipconfig in Command Prompt; on Mac open System Settings, then Network (or run ifconfig); on iPhone or Android open Wi-Fi settings and tap your connected network." } },
+    { "@type": "Question", "name": "How do I hide/change my IP?", "acceptedAnswer": { "@type": "Answer", "text": "A VPN or proxy makes websites see a different public IP. Restarting your router often gives you a new dynamic IP. Tor also hides your IP. None of these makes you anonymous on its own — a VPN changes what your provider sees, and shifts some trust to the VPN provider." } },
+    { "@type": "Question", "name": "Is it safe to give my IP to support?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for troubleshooting. Support teams ask for it to check your connection and location. An IP alone does not reveal your name, exact address or private files." } },
+    { "@type": "Question", "name": "How do I get just the IP as plain text (curl)?", "acceptedAnswer": { "@type": "Answer", "text": "From a terminal, run curl https://api.ipify.org to print just your public IPv4 address, or curl https://api64.ipify.org for IPv6 when your connection supports it. These are the same free services this page uses." } }
   ]
 }
 </script>
@@ -33,9 +42,10 @@
   "@type": "HowTo",
   "name": "How to find your IP address",
   "step": [
-    { "@type": "HowToStep", "name": "Open this page", "text": "Open this page and wait a second — your public IP address appears automatically." },
-    { "@type": "HowToStep", "name": "Read your IP and location", "text": "Read your IP address, city, region, country, ISP and timezone from the result card." },
-    { "@type": "HowToStep", "name": "Copy it if you need it", "text": "Use the Copy IP button to copy the address for support, a game server, or a VPN check." }
+    { "@type": "HowToStep", "name": "Open this page", "text": "Open this page and wait a second — your public IPv4 and IPv6 addresses appear automatically." },
+    { "@type": "HowToStep", "name": "Read your IP and location", "text": "Read your IP addresses, city, region, country, ISP and timezone from the result card." },
+    { "@type": "HowToStep", "name": "Copy it if you need it", "text": "Use the Copy IP button for one address, or Copy full details to copy everything for support, a game server, or a VPN check." },
+    { "@type": "HowToStep", "name": "Check for leaks", "text": "Run the WebRTC leak check to see whether a local address is visible to your browser." }
   ]
 }
 </script>
@@ -51,11 +61,19 @@
 .note strong{color:#78350f}
 .trust{font-size:14px;color:var(--text2);margin-top:10px}
 .ip-big{font-family:monospace;font-size:clamp(24px,5vw,36px);font-weight:700;word-break:break-all;margin:6px 0 4px}
+.ip-box{border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:12px;background:var(--bg2)}
+.ip-box .k{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.ip-box .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.ip-box .ip-big{margin:4px 0 0}
+.ip-box .btn{padding:8px 14px;font-size:13px}
+.ip-unavail{font-size:14px;color:var(--text2);margin-top:6px;line-height:1.6}
 .ip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:16px}
 .ip-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
 .ip-cell .k{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
 .ip-cell .v{font-size:15px;font-weight:600;margin-top:4px;word-break:break-word}
 .err{color:#f87171;font-size:14px;margin-top:10px}
+.leak-result{font-size:14px;line-height:1.7;color:var(--text2);margin-top:12px}
+.leak-result strong{color:var(--text)}
 details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
 details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
 details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
@@ -66,6 +84,17 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.codebox{background:#0f172a;border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-family:monospace;font-size:13px;line-height:1.8;color:#e2e8f0;overflow-x:auto;white-space:pre;margin:12px 0 4px}
+.device-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:12px 0 4px}
+.device-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.device-card h3{font-size:15px;margin-bottom:6px}
+.device-card p{font-size:14px;color:var(--text2);line-height:1.7;margin:0}
+.device-card code{font-family:monospace;font-size:13px}
 </style>
 </head>
 <body>
@@ -89,14 +118,28 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     </div>
     <div class="tool-page-header">
       <h1>What Is My IP Address?</h1>
-      <p>Your public IP address, location, ISP and timezone — shown instantly, free, with no signup and no watermark. Your IP is never stored or shared, and your files stay in your browser: this page sends nothing to PixDetector.</p>
+      <p>Your public IP address, location, ISP and timezone — shown instantly, free, with no signup and no watermark. Your IP is never stored or shared.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> this lookup <strong>cannot correct a wrong IP location</strong> — that lives in your ISP's records and the geolocation provider's database, and only your ISP can ask for it to be updated. It also <strong>cannot show your local 192.168.x.x address</strong> from a web page — only your public IP. Your IP comes from a free lookup API (ipify + ipwho.is, both over HTTPS); if that service is down, the page says so instead of showing fake data.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> this lookup <strong>cannot correct a wrong IP location</strong> — that lives in your ISP's records and the geolocation provider's database, and only your ISP can ask for it to be updated. It also <strong>cannot show your local 192.168.x.x address</strong> from a web page — only your public IP. The WebRTC leak check is a hint, not proof of VPN safety. IPv6 is shown only when your connection supports it. Your IP comes from a free lookup API (ipify + ipwho.is, both over HTTPS); if that service is down, the page says so instead of showing fake data.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Your IP address">
         <h2>Your public IP address</h2>
         <p class="trust" id="ipStatus">Looking up your IP address…</p>
-        <div class="ip-big" id="ipValue">—</div>
+        <div class="ip-box">
+          <div class="k">IPv4 address</div>
+          <div class="row">
+            <div class="ip-big" id="ipValue">—</div>
+            <button type="button" class="btn" id="copyIp" disabled>Copy IPv4</button>
+          </div>
+        </div>
+        <div class="ip-box">
+          <div class="k">IPv6 address</div>
+          <div class="row">
+            <div class="ip-big" id="ipValue6">—</div>
+            <button type="button" class="btn" id="copyIp6" disabled>Copy IPv6</button>
+          </div>
+          <p class="ip-unavail" id="ipStatus6" hidden>IPv6 is not available on this connection — your network only presents an IPv4 address. That is normal for most home connections.</p>
+        </div>
         <div class="ip-grid" id="ipGrid" hidden>
           <div class="ip-cell"><div class="k">Location</div><div class="v" id="ipLocation">—</div></div>
           <div class="ip-cell"><div class="k">ISP</div><div class="v" id="ipIsp">—</div></div>
@@ -106,20 +149,29 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         </div>
         <p class="err" id="ipError" role="alert" hidden></p>
         <div class="actions">
-          <button type="button" class="btn" id="copyIp" disabled>Copy IP address</button>
+          <button type="button" class="btn" id="copyAll" disabled>Copy full details</button>
           <button type="button" class="btn alt" id="refreshIp">Check again</button>
         </div>
-        <p class="trust">Free, no signup, no watermark. Your IP is shown only to you — nothing is stored.</p>
+        <p class="trust">This page shows your IP in your browser. We do not store it.</p>
+      </div>
+      <div class="bc-panel" aria-label="WebRTC leak check">
+        <h2>WebRTC leak check</h2>
+        <p class="trust" style="margin-top:0">A VPN can be "connected" and still let your browser reveal a local address through WebRTC. This check probes your browser for visible local addresses, entirely on your device — nothing is sent anywhere.</p>
+        <div class="actions" style="margin-top:0">
+          <button type="button" class="btn" id="webrtcBtn">Run leak check</button>
+        </div>
+        <p class="leak-result" id="webrtcResult">Press the button to run the check. It takes a few seconds.</p>
+        <p class="trust">A leak check is a hint, not proof — it depends on your browser, VPN and network. A clean result does not guarantee your VPN has no leaks, and a local address showing up does not always mean your real public IP is exposed.</p>
       </div>
     </div>
     <div class="share-box">
       <h2>Share this tool</h2>
-      <p class="share-line" id="shareLine">My public IP address and where it appears to be — checked free in seconds, no signup.</p>
+      <p class="share-line" id="shareLine">Every website you visit already sees your public IP — this page just makes the invisible visible.</p>
       <div class="share-btns">
         <button type="button" id="copyLink">Copy link</button>
-        <a href="https://twitter.com/intent/tweet?text=What%20is%20my%20IP%20address%3F%20Check%20yours%20free%2C%20no%20signup&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://twitter.com/intent/tweet?text=Every%20website%20you%20visit%20already%20sees%20your%20public%20IP%20%E2%80%94%20this%20page%20just%20makes%20the%20invisible%20visible.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on X</a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on Facebook</a>
-        <a href="https://wa.me/?text=What%20is%20my%20IP%20address%3F%20Check%20yours%20free%2C%20no%20signup%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on WhatsApp</a>
+        <a href="https://wa.me/?text=Every%20website%20you%20visit%20already%20sees%20your%20public%20IP%20%E2%80%94%20this%20page%20just%20makes%20the%20invisible%20visible.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on WhatsApp</a>
       </div>
     </div>
     <div class="tool-about">
@@ -128,47 +180,123 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Most people only look up their IP when something is already wrong. A streaming service says "this video is not available in your region" even though you are at home. YouTube TV throws a geo-error. Your VPN is on, yet Google still shows your old city. Or your computer suddenly has no internet at all and the network settings show a strange address starting with 169.254. In each case the question is the same: is the problem my device, my internet provider, or my VPN? One instant answer — your public IP and where it appears to be — tells you which one to blame, and what to do next.</p>
       <!-- DIRECT ANSWER -->
       <h2>What is my IP address? The direct answer</h2>
-      <p>Your public IP address is the address your internet provider assigns to your connection, and it is the address every website sees when you visit. It usually reveals only an approximate city or region and the name of your provider — not your street address or your name. This page shows it instantly, together with the city, region, country, ISP and timezone that the public location database reports for it. If the location looks wrong, the address itself is still real; only the database entry behind it is out of date.</p>
+      <p>Your public IP address is the address your internet provider assigns to your connection, and it is the address every website sees when you visit. It usually reveals only an approximate city or region and your provider's name — never your street address or your name. This page shows it instantly, free, with no signup.</p>
       <p>An IP address is a number that identifies your connection on the internet, in the same way a phone number identifies a phone line. Most home connections get a new one from time to time, so the address you see today may change after a router restart. Your devices also have a second, private address (usually starting 192.168.x.x) that only works inside your home network — websites cannot see it, and no web page can show it to you.</p>
       <!-- HOW TO -->
       <h2>How to find your IP address</h2>
-      <p><strong>Step 1:</strong> open this page — your public IP appears automatically, no typing needed. <strong>Step 2:</strong> read the result card for your IP, city, region, country, ISP and timezone. <strong>Step 3:</strong> use the Copy IP button if you need to paste the address into a support chat, a game server, or a VPN check. If the lookup fails, the page shows a clear error instead of a made-up address — press "Check again" or try later, because the free lookup service may be briefly down.</p>
-      <h2>What an IP address can — and cannot — reveal</h2>
-      <p>An IP address can reveal your approximate area and your provider, which is why streaming services and websites use it to guess your region. It cannot reveal your exact home address, your name, or what you are doing online. A VPN hides your real IP by showing the VPN server's address instead, but it does not change the location databases, saved locations in your Google account, or GPS on your phone — which is why a VPN can be on and Google can still show your old city. And if your device shows a 169.254.x.x address, that is not a real internet address at all: it means your device could not reach the DHCP server that hands out addresses, so restart your router and device first, then check the cable or Wi-Fi, and call your provider if it keeps happening.</p>
-      <h2>When the location is wrong, what actually fixes it?</h2>
+      <p><strong>Step 1:</strong> open this page — your public IPv4 and IPv6 addresses appear automatically, no typing needed. <strong>Step 2:</strong> read the result card for your IP, city, region, country, ISP and timezone. <strong>Step 3:</strong> use the Copy IPv4 / Copy IPv6 button for one address, or Copy full details to copy everything at once for a support chat, a game server, or a VPN check. <strong>Step 4:</strong> run the WebRTC leak check if you use a VPN and want to see whether a local address is visible to your browser. If the lookup fails, the page shows a clear error instead of a made-up address — press "Check again" or try later, because the free lookup service may be briefly down.</p>
+      <!-- REVEALS TABLE -->
+      <h2>What your IP reveals — and what it cannot reveal</h2>
+      <p>An IP address can reveal your approximate area and your provider, which is why streaming services and websites use it to guess your region. It cannot reveal your exact home address, your name, or what you are doing online.</p>
+      <table class="tbl">
+        <tr><th>Your IP reveals</th><th>Your IP cannot reveal</th></tr>
+        <tr><td>Approximate city or region (a city-level estimate)</td><td>Your exact street address</td></tr>
+        <tr><td>Country</td><td>Your name</td></tr>
+        <tr><td>Your internet provider and network</td><td>Your browsing history</td></tr>
+        <tr><td>Your timezone (from the location)</td><td>Your private files or passwords</td></tr>
+        <tr><td>Whether a VPN or proxy is likely in use</td><td>Your precise location — never GPS-level</td></tr>
+      </table>
+      <!-- PUBLIC VS PRIVATE TABLE -->
+      <h2>Public vs private IP — what's the difference?</h2>
+      <p>The confusion between these two is the most common IP problem of all: your device settings show one address, this page shows another, and both are correct. The table below settles it.</p>
+      <table class="tbl">
+        <tr><th></th><th>Public IP</th><th>Private IP</th></tr>
+        <tr><td>Example</td><td>203.0.113.45</td><td>192.168.1.5 or 10.0.0.2</td></tr>
+        <tr><td>Who assigns it</td><td>Your internet provider</td><td>Your router</td></tr>
+        <tr><td>Who can see it</td><td>Every website you visit</td><td>Only devices on your home network</td></tr>
+        <tr><td>Where to check it</td><td>This page</td><td>Your device network settings</td></tr>
+        <tr><td>When it changes</td><td>When your provider reassigns it</td><td>When your router restarts or the lease renews</td></tr>
+      </table>
+      <!-- LOCATION WRONG -->
+      <h2>Why is my location wrong?</h2>
+      <p>IP geolocation maps your address to your internet provider's routing hub — not to your house, and never by GPS. The country is usually reliable, but the city is only an estimate, and it can be off by a whole region. Mobile data, a VPN, or CGNAT (see below) can shift it further, because the address may be registered to a hub far from where you actually are. If the database entry behind your address is out of date, you can appear in a nearby city or even another region.</p>
       <p>Nothing on this page can move your IP to the right city, because the location lives in a database owned by a geolocation provider, fed by records from your ISP. If the location is wrong, report it to your internet provider and ask them to update their records with the database owners — that is the only route that works, and it can take days or weeks. In the meantime, streaming geo-errors are usually fixed by the service itself once its own database updates, not by restarting your router. Restarting the router may give you a different IP, which sometimes lands in a correctly mapped range — but it is luck, not a fix.</p>
+      <!-- CGNAT -->
+      <h2>A short note on CGNAT</h2>
+      <p>Some providers use CGNAT (carrier-grade NAT): they share one public IP between many customers, so the WAN address your router shows is not a real public address. That is why the address in your router settings and the address on this page can differ — and why port-forwarding and home servers break under CGNAT: incoming connections simply cannot reach you. The fix is to ask your provider for a public or static IP, which is usually a paid option.</p>
+      <!-- DEVICE HOW-TOS -->
+      <h2>How to find your local (private) IP on any device</h2>
+      <p>This page shows your <strong>public</strong> IP. Your <strong>local</strong> IP — the one your router gives your device — is found on the device itself:</p>
+      <div class="device-grid">
+        <div class="device-card"><h3>Windows</h3><p>Open Command Prompt and run <code>ipconfig</code>. Look for "IPv4 Address" under your Wi-Fi or Ethernet adapter.</p></div>
+        <div class="device-card"><h3>Mac</h3><p>Open System Settings → Network, select your network, then Details. Or run <code>ifconfig</code> in Terminal.</p></div>
+        <div class="device-card"><h3>iPhone</h3><p>Open Settings → Wi-Fi, tap the (i) next to your connected network — the IP is shown under "IP Address".</p></div>
+        <div class="device-card"><h3>Android</h3><p>Open Settings → Wi-Fi, tap your connected network (or the gear icon) — the IP is listed in the network details. Menu names vary by maker.</p></div>
+        <div class="device-card"><h3>Linux</h3><p>Run <code>ip addr</code> in a terminal, or <code>hostname -I</code> for a one-line answer.</p></div>
+        <div class="device-card"><h3>Any device — public IP</h3><p>Open this page in any browser. It shows your public IP instantly, on phone or computer.</p></div>
+      </div>
+      <!-- CURL BOX -->
+      <h2>Get your IP from the terminal (curl)</h2>
+      <p>Developers and power users often skip the browser entirely. These one-liners print just the address — no page, no ads:</p>
+      <div class="codebox">curl https://api.ipify.org        # your public IPv4 address
+curl https://api64.ipify.org      # your public IPv6 address (if supported)
+curl https://ipinfo.io/ip         # another plain-text option</div>
+      <p>Our page is a web tool — the box above shows the standard commands people use. They call the same free public services this page uses, so the result matches what you see at the top of this page.</p>
+      <!-- VPN -->
+      <h2>When the location is wrong, what actually fixes it?</h2>
+      <p>A VPN hides your real IP by showing the VPN server's address instead, but it does not change the location databases, saved locations in your Google account, or GPS on your phone — which is why a VPN can be on and Google can still show your old city. And if your device shows a 169.254.x.x address, that is not a real internet address at all: it means your device could not reach the DHCP server that hands out addresses, so restart your router and device first, then check the cable or Wi-Fi, and call your provider if it keeps happening.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
         <summary>What is my IP address?</summary>
-        <p>Your public IP address is shown at the top of this page. It is the address your internet provider gives your connection, and it is what websites see when you visit them. It can change when you restart your router or switch networks.</p>
+        <p>Your public IP address is shown at the top of this page. It is the address your internet provider assigns to your connection, and it is the address every website sees when you visit. It can change when you restart your router or switch networks.</p>
       </details>
       <details class="faq">
-        <summary>Why does my IP show the wrong location?</summary>
-        <p>IP location comes from a database that maps address ranges to places. If your provider recently moved addresses around, the database can be out of date, so you may appear in a nearby city or even another region. Only your internet provider can ask the database owners to correct it — no lookup tool can fix it.</p>
+        <summary>Public vs private — what's the difference?</summary>
+        <p>A public IP identifies your whole connection to the internet; a private IP (like 192.168.x.x or 10.x.x.x) identifies one device inside your home network. Websites see only your public IP. Your private IP is set by your router and never leaves your home network.</p>
       </details>
       <details class="faq">
-        <summary>Why does Google still show my old location with a VPN on?</summary>
-        <p>A VPN changes your IP address, but Google may still use a saved location, GPS, Wi-Fi networks nearby, or a stale location database. Sign out of location history, clear location permissions, and check that the VPN is actually connected and not leaking.</p>
+        <summary>Why does my network settings IP differ from this page?</summary>
+        <p>Your device settings show your private IP, given to your device by your router. This page shows your public IP, given to your connection by your internet provider. They are different addresses for different jobs — both are correct at the same time.</p>
       </details>
       <details class="faq">
-        <summary>What does a 169.254.x.x IP address mean?</summary>
-        <p>An address starting 169.254 means your device could not reach the DHCP server that hands out IP addresses, so it gave itself a temporary link-local address. That usually means no working internet: restart your router and device, check the cable or Wi-Fi, and contact your provider if it keeps happening.</p>
+        <summary>Why is my location wrong?</summary>
+        <p>IP location comes from a database that maps address ranges to places — usually your provider's routing hub, not your house. If the database is out of date, you can appear in a nearby city or another region. Only your internet provider can ask the database owners to correct it; no lookup tool can fix it.</p>
       </details>
       <details class="faq">
-        <summary>Can someone find my home address from my IP?</summary>
-        <p>No. A public IP address only reveals an approximate area — usually a city or region — plus your provider's name. It does not reveal your street address or your name. Only your internet provider holds the record linking an IP to a customer, and it does not share that publicly.</p>
+        <summary>Why does my IP keep changing?</summary>
+        <p>Most home connections get a dynamic IP that changes when your router restarts or your provider reassigns it. IPv6 addresses often change daily by design (privacy extensions). If you need a fixed address, ask your provider — it is usually a paid option.</p>
       </details>
       <details class="faq">
-        <summary>Is my IP address stored by this tool?</summary>
-        <p>No. This page asks a free IP service for your public address and location, shows it to you, and stores nothing. Your IP is never saved, shared, or sent to PixDetector servers.</p>
+        <summary>Why do I have two IP addresses (IPv4 + IPv6)?</summary>
+        <p>IPv4 (like 203.0.113.45) is the older format; IPv6 (like 2001:db8::1) is the newer, longer format. Many connections support both at once, so you have one of each. This page shows both when your connection supports them.</p>
       </details>
-      <!-- RELATED QUESTIONS -->
-      <h2>Related questions</h2>
-      <p><strong>How do I find my IP address on my phone?</strong> Open this page in your phone's browser — it shows your public IP the same way as on a computer.</p>
-      <p><strong>What is the difference between IPv4 and IPv6?</strong> IPv4 addresses look like 203.0.113.45; IPv6 addresses are longer, like 2001:db8::1. Most home connections still use IPv4, and this tool shows the IPv4 address your connection presents.</p>
-      <p><strong>Does restarting my router change my IP?</strong> Often, yes — many providers hand out a new address when the router reconnects, but some give you the same one every time.</p>
-      <p><strong>Is my IP address private?</strong> Your public IP is visible to every site you visit, but it only identifies your connection, not you personally.</p>
+      <details class="faq">
+        <summary>Can someone find my exact address from my IP?</summary>
+        <p>No. A public IP reveals only an approximate area — usually a city or region — plus your provider's name. It does not reveal your street address or your name. Only your internet provider holds the record linking an IP to a customer, and it does not share that publicly.</p>
+      </details>
+      <details class="faq">
+        <summary>Can someone hack me if they know my IP?</summary>
+        <p>Knowing an IP alone gives an attacker very little: it reveals an approximate area and your provider, not your files or passwords. The real risks are open ports and unpatched devices on your network, not the address itself. Keep your router firmware updated and use strong passwords.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I check if my VPN is working?</summary>
+        <p>Note your IP on this page, then connect your VPN and check again. If the address and location change to the VPN server's, the VPN is working. If the address stays the same, the VPN is not routing your traffic.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does the site still show my real IP with VPN on?</summary>
+        <p>A VPN can leak your real address through WebRTC, IPv6 or DNS, or your browser may still show a saved location. Run the WebRTC leak check on this page, and check your VPN settings for IPv6 and DNS leak protection.</p>
+      </details>
+      <details class="faq">
+        <summary>What is CGNAT and why can't I host a server?</summary>
+        <p>CGNAT (carrier-grade NAT) means your provider shares one public IP between many customers, so your router's WAN address is not a real public address. Incoming connections cannot reach you, which breaks port-forwarding and home servers. The fix is to ask your provider for a public or static IP, usually for a fee.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I find my IP on Windows/Mac/iPhone/Android?</summary>
+        <p>For your public IP, open this page on any device — it shows it instantly. For your private (local) IP: on Windows run ipconfig in Command Prompt; on Mac open System Settings, then Network (or run ifconfig); on iPhone or Android open Wi-Fi settings and tap your connected network.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I hide/change my IP?</summary>
+        <p>A VPN or proxy makes websites see a different public IP. Restarting your router often gives you a new dynamic IP. Tor also hides your IP. None of these makes you anonymous on its own — a VPN changes what your provider sees, and shifts some trust to the VPN provider.</p>
+      </details>
+      <details class="faq">
+        <summary>Is it safe to give my IP to support?</summary>
+        <p>Yes, for troubleshooting. Support teams ask for it to check your connection and location. An IP alone does not reveal your name, exact address or private files.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I get just the IP as plain text (curl)?</summary>
+        <p>From a terminal, run curl https://api.ipify.org to print just your public IPv4 address, or curl https://api64.ipify.org for IPv6 when your connection supports it. These are the same free services this page uses.</p>
+      </details>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -211,26 +339,62 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
+  var state = { ipv4: "", ipv6: "", location: "", isp: "", region: "", country: "", timezone: "" };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function copyText(text, okMsg) {
+    if (!text) { toast("Nothing to copy yet."); return; }
+    if (navigator.clipboard) { navigator.clipboard.writeText(text).then(function () { toast(okMsg); }, function () { toast("Copy was blocked — select the text and copy it manually."); }); }
+    else toast("Copy is not supported in this browser.");
+  }
+  function lookupIpv6() {
+    fetch("https://api64.ipify.org?format=json").then(function (r) { if (!r.ok) throw new Error("unavailable"); return r.json(); }).then(function (d) {
+      var v6 = d && d.ip ? d.ip : "";
+      if (v6 && v6.indexOf(":") !== -1) {
+        state.ipv6 = v6;
+        $("ipValue6").textContent = v6;
+        $("ipStatus6").hidden = true;
+        $("copyIp6").disabled = false;
+      } else {
+        $("ipValue6").textContent = "Not available";
+        $("ipStatus6").hidden = false;
+      }
+    }).catch(function () {
+      $("ipValue6").textContent = "Not available";
+      $("ipStatus6").hidden = false;
+    });
+  }
   function lookup() {
     $("ipStatus").textContent = "Looking up your IP address…";
     $("ipValue").textContent = "—";
+    $("ipValue6").textContent = "—";
+    $("ipStatus6").hidden = true;
     $("ipGrid").hidden = true;
     $("ipError").hidden = true;
     $("copyIp").disabled = true;
+    $("copyIp6").disabled = true;
+    $("copyAll").disabled = true;
+    state = { ipv4: "", ipv6: "", location: "", isp: "", region: "", country: "", timezone: "" };
+    lookupIpv6();
     fetch("https://api.ipify.org?format=json").then(function (r) { if (!r.ok) throw new Error("ipify unavailable"); return r.json(); }).then(function (d) {
       var ip = d && d.ip ? d.ip : "";
       if (!ip) throw new Error("No IP returned");
+      state.ipv4 = ip;
       $("ipValue").textContent = ip;
       $("ipStatus").textContent = "Your public IP address is shown below.";
       $("copyIp").disabled = false;
+      $("copyAll").disabled = false;
       return fetch("https://ipwho.is/" + encodeURIComponent(ip)).then(function (r2) { return r2.json(); }).then(function (info) {
         if (info && info.success) {
-          $("ipLocation").textContent = [info.city, info.region].filter(Boolean).join(", ") || "—";
-          $("ipIsp").textContent = (info.connection && info.connection.isp) || "—";
-          $("ipRegion").textContent = info.region || "—";
-          $("ipCountry").textContent = info.country || "—";
-          $("ipTimezone").textContent = (info.timezone && info.timezone.id) || "—";
+          state.location = [info.city, info.region].filter(Boolean).join(", ") || "";
+          state.isp = (info.connection && info.connection.isp) || "";
+          state.region = info.region || "";
+          state.country = info.country || "";
+          state.timezone = (info.timezone && info.timezone.id) || "";
+          $("ipLocation").textContent = state.location || "—";
+          $("ipIsp").textContent = state.isp || "—";
+          $("ipRegion").textContent = state.region || "—";
+          $("ipCountry").textContent = state.country || "—";
+          $("ipTimezone").textContent = state.timezone || "—";
           $("ipGrid").hidden = false;
         } else {
           $("ipError").hidden = false;
@@ -246,13 +410,66 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       $("ipError").textContent = "The free IP service could not be reached. Check your internet connection and press \u201CCheck again\u201D. No fake address is shown.";
     });
   }
-  $("copyIp").addEventListener("click", function () {
-    var v = $("ipValue").textContent;
-    if (!v || v === "—") return;
-    if (navigator.clipboard) { navigator.clipboard.writeText(v).then(function () { toast("IP address copied."); }, function () { toast("Copy was blocked — select the address and copy it manually."); }); }
-    else toast("Copy is not supported in this browser.");
+  function webrtcCheck() {
+    var el = $("webrtcResult");
+    var btn = $("webrtcBtn");
+    btn.disabled = true;
+    el.textContent = "Checking… this takes a few seconds.";
+    var RTC = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+    if (!RTC) {
+      el.textContent = "Your browser does not support the WebRTC probe, so no leak check could run.";
+      btn.disabled = false;
+      return;
+    }
+    var found = [];
+    var done = false;
+    function finish() {
+      if (done) return;
+      done = true;
+      btn.disabled = false;
+      var locals = found.filter(function (a) {
+        return a.indexOf("192.168.") === 0 || a.indexOf("10.") === 0 || a.indexOf("172.16.") === 0 || a.indexOf("172.17.") === 0 || a.indexOf("172.18.") === 0 || a.indexOf("172.19.") === 0 || a.indexOf("172.2") === 0 || a.indexOf("172.30.") === 0 || a.indexOf("172.31.") === 0 || a.indexOf("169.254.") === 0 || a.indexOf("fe80") === 0 || a.indexOf("fd") === 0;
+      });
+      if (locals.length) {
+        el.innerHTML = "<strong>A local address was visible to WebRTC:</strong> " + locals.join(", ") + ". This is a hint that your browser can expose local addresses — it is not proof your VPN is leaking, and it depends on your browser, VPN and network.";
+      } else if (found.length) {
+        el.innerHTML = "<strong>No local/private address was visible to WebRTC.</strong> The probe saw only public addresses. This is a good sign, but it is a hint, not proof — it depends on your browser, VPN and network.";
+      } else {
+        el.textContent = "No addresses were exposed by the probe (your browser may hide them, e.g. with mDNS hostnames). This is a good sign, but it is a hint, not proof — it depends on your browser, VPN and network.";
+      }
+    }
+    try {
+      var pc = new RTCPeerConnection({ iceServers: [{ urls: "stun:stun.l.google.com:19302" }] });
+      pc.createDataChannel("");
+      pc.onicecandidate = function (e) {
+        if (e && e.candidate && e.candidate.candidate) {
+          var c = e.candidate.candidate;
+          var m4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/.exec(c);
+          if (m4 && found.indexOf(m4[0]) === -1) found.push(m4[0]);
+          var m6 = /\b(?:[0-9a-f]{0,4}:){2,7}[0-9a-f]{0,4}\b/i.exec(c);
+          if (m6 && found.indexOf(m6[0]) === -1) found.push(m6[0]);
+        }
+      };
+      pc.createOffer().then(function (o) { return pc.setLocalDescription(o); }).catch(function () { finish(); });
+      setTimeout(function () { try { pc.close(); } catch (_) {} finish(); }, 4000);
+    } catch (err) {
+      el.textContent = "The WebRTC probe could not run in this browser.";
+      btn.disabled = false;
+    }
+  }
+  $("copyIp").addEventListener("click", function () { copyText(state.ipv4, "IPv4 address copied."); });
+  $("copyIp6").addEventListener("click", function () { copyText(state.ipv6, "IPv6 address copied."); });
+  $("copyAll").addEventListener("click", function () {
+    var lines = ["Public IPv4: " + (state.ipv4 || "not available"), "Public IPv6: " + (state.ipv6 || "not available")];
+    if (state.location) lines.push("Location: " + state.location);
+    if (state.country) lines.push("Country: " + state.country);
+    if (state.isp) lines.push("ISP: " + state.isp);
+    if (state.timezone) lines.push("Timezone: " + state.timezone);
+    lines.push("Checked at: https://pixdetector.vercel.app/tools/what-is-my-ip-address");
+    copyText(lines.join("\n"), "Full details copied.");
   });
   $("refreshIp").addEventListener("click", lookup);
+  $("webrtcBtn").addEventListener("click", webrtcCheck);
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
   });

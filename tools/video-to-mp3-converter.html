@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Video to MP3 Converter — No Signup | PixDetector</title>
+<meta name="description" content="Extract audio from video as MP3 free in your browser. No signup, no upload. First use loads a ~30MB engine.">
+<meta name="keywords" content="video to mp3 converter free, convert video to mp3, extract audio from video, mp4 to mp3 free, video to audio converter">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/video-to-mp3-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/video-to-mp3-converter">
+<meta property="og:title" content="Free Video to MP3 Converter — No Signup | PixDetector">
+<meta property="og:description" content="Extract audio from video as MP3 free in your browser. No signup, no upload. First use loads a ~30MB engine.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this video to MP3 converter really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Convert as many of your own videos as you like \u2014 no watermark, no sign-up, no upload and no ads. The first conversion downloads a ~30 MB engine into your browser, cached after that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I paste a YouTube link and get an MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 and this is the most important limit on the page. A purely client-side tool cannot fetch a YouTube, TikTok or Instagram link; that needs a server, which PixDetector does not have. This tool only converts video files you upload from your own device. Paste-a-link sites are also where the pop-ups, fake download buttons and malware live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to use video to MP3 converter sites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many are not \u2014 the danger is the page, not the conversion: pop-ups, redirects and fake download buttons that try to install software. This page has no ads, no pop-ups and no fake buttons, and nothing is uploaded. As a rule, never install anything a converter page tells you to install."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What bitrate should I choose \u2014 96, 128 or 192 kbps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "128 kbps is the standard for most music and speech. 96 kbps makes the smallest file and is fine for voice. 192 kbps sounds better on good headphones. A higher bitrate never adds quality the original audio did not have \u2014 beware of sites advertising 320 kbps from a 128 kbps source."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the first conversion take so long?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser. It is cached after that, so later conversions start fast. Conversion is also slower on big files and on phones, so keep clips short there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my video uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your video never leaves your device \u2014 it is read, converted and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert a video to MP3 free",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your video",
+      "text": "Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. Your own videos only."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick a bitrate",
+      "text": "Choose 96 kbps for the smallest file, 128 kbps as the standard, or 192 kbps for better sound on good headphones."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Convert and download",
+      "text": "Press Convert to MP3. The first conversion loads a ~30 MB engine (cached after); then download your MP3."
+    }
+  ]
+}
+</script>
+
+<style>
+.vd-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.vd-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-icon{font-size:34px;display:block;margin-bottom:10px}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+#fileInput{display:none}
+.vid-preview{width:100%;border-radius:10px;background:#000;display:none;margin-top:16px;max-height:340px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.info-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.info-cell .k{font-size:12px;color:var(--text2);letter-spacing:.5px;text-transform:uppercase}
+.info-cell .v{font-size:16px;font-weight:700;margin-top:4px;word-break:break-word}
+select.vd-select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none;cursor:pointer}
+select.vd-select:focus{border-color:var(--accent)}
+input.vd-input{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none}
+input.vd-input:focus{border-color:var(--accent)}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result .savings{font-size:15px;line-height:1.8;color:var(--text2)}
+.result .savings strong{color:var(--accent)}
+.error{display:none;color:#f87171;font-size:14px;line-height:1.7;margin-top:14px}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.limit-note{background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#7c2d12;margin-bottom:18px}
+.limit-note strong{color:#9a3412}
+.answer-box{background:var(--bg2);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;line-height:1.8;color:var(--text);margin-bottom:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.mode-tab{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.mode-tab[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.file-list{margin-top:14px}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row.active{border-color:var(--accent)}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.slider-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.share-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-top:28px}
+.share-box h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-row{display:flex;flex-wrap:wrap;gap:8px}
+.share-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.share-btn:hover{border-color:var(--accent)}
+.rq-list{list-style:none;padding:0}
+.rq-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:14px;line-height:1.7;color:var(--text2)}
+.rq-list li strong{color:var(--text)}
+canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max-height:340px;cursor:crosshair}
+.timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
+.rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Free Video to MP3 Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>🎵 Free Video to MP3 Converter</h1>
+      <p>Extract the audio from any video as an MP3 — free, in your browser. No signup, no upload, no ads. Your own videos only; the honest limits are stated below before you start.</p>
+    </div>
+
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> this tool converts <strong>video files you upload from your own device</strong>. It <strong>cannot fetch a YouTube, TikTok or Instagram link</strong> — a purely client-side page cannot download from those sites; that needs a server, which PixDetector does not have. Paste-a-link MP3 sites are also where the pop-ups, fake download buttons and malware live. First use downloads a ~30 MB conversion engine (cached after); conversion is slow on big files. Only convert your own videos — extracting copyrighted music without permission is not legal.</div>
+    <div class="vd-panel" aria-label="Video to MP3 converter">
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose a video file">
+        <span class="dz-icon">🎧</span>
+        <span class="dz-title">Drop a video here, or click to choose one</span>
+        <p class="dz-sub">MP4, MOV, WebM and most other formats your browser can play.<br>Your video never leaves this device.</p>
+      </div>
+      <input id="fileInput" type="file" accept="video/*" />
+      <video id="vidPreview" class="vid-preview" controls playsinline></video>
+      <div class="info-grid" id="infoGrid" style="display:none">
+        <div class="info-cell"><div class="k">File name</div><div class="v" id="infoName">—</div></div>
+        <div class="info-cell"><div class="k">Original size</div><div class="v" id="infoSize">—</div></div>
+        <div class="info-cell"><div class="k">Duration</div><div class="v" id="infoDuration">—</div></div>
+        <div class="info-cell"><div class="k">Has audio?</div><div class="v" id="infoAudio">—</div></div>
+      </div>
+      <div id="settingsBlock" style="display:none">
+        <hr class="divider" />
+        <h2>MP3 quality</h2>
+        <span class="flabel">Bitrate (the real quality of the MP3)</span>
+        <div class="chips" id="bitrateChips" role="group" aria-label="MP3 bitrate">
+          <button type="button" class="chip" data-bitrate="96" aria-pressed="false">96 kbps · smallest</button>
+          <button type="button" class="chip" data-bitrate="128" aria-pressed="true">128 kbps · standard</button>
+          <button type="button" class="chip" data-bitrate="192" aria-pressed="false">192 kbps · better</button>
+        </div>
+        <p class="hint">128 kbps is the honest standard for speech and most music. 192 kbps sounds better on good headphones. Note: a low-quality source never becomes high quality by picking a higher bitrate — the MP3 can only keep what the original audio had.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="convertBtn">Convert to MP3</button>
+          <button type="button" class="btn alt" id="resetBtn">Choose a different video</button>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <p class="progress-text" id="progressText">Starting…</p>
+        </div>
+        <div class="result" id="resultBox">
+          <h3>✅ Your MP3 is ready</h3>
+          <p class="savings" id="resultText"></p>
+          <div class="actions">
+            <a class="btn" id="downloadLink" download="audio.mp3" href="#">Download MP3</a>
+          </div>
+        </div>
+        <p class="error" id="errorBox" role="alert"></p>
+        <p class="fineprint"><strong>Honest notes:</strong> the first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser — it is cached after that, so later conversions start fast. Conversion is slower on big files and on phones, so keep clips short there. Only convert videos you own or have permission to use: extracting audio from copyrighted music without permission is not legal.</p>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>Why video-to-MP3 pages are the ones people distrust most</h2>
+      <p>Video-to-MP3 has the loudest chatter of any converter — mostly “how to download YouTube as MP3” tutorials, including a Reel with 15K likes walking through Y2Mate, and Reddit threads asking “is X safe?” The danger is usually the page, not the conversion: pop-ups, redirects and fake download buttons that try to install something you never asked for. Then there is fake quality — sites that advertise 320 kbps and deliver 128 kbps upscaled — and converters that randomly stop working, get blocked by country, or fail on long videos. What people want is simple: paste a link, get a clean MP3 at real quality, no ads, no install, no malware. This page gives you the clean half of that honestly — a real MP3 at the bitrate you choose, no ads, no fake buttons, nothing uploaded — and it says plainly, above, what it cannot do: it cannot fetch a YouTube link at all.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert a video to MP3 for free?</h2>
+      <div class="answer-box"><strong>Direct answer:</strong> to convert a video to MP3 free, upload your own video file here, pick a bitrate (96, 128 or 192 kbps), and press Convert. The audio is extracted in your browser and downloaded as a real MP3 — no signup, no upload, no ads. This tool cannot convert a YouTube, TikTok or Instagram link; it only works on video files from your own device.</div>
+      <!-- HOW TO -->
+      <h2 style="margin-top:28px">How to convert a video to MP3 in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Upload your video</h3><p>Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. Your own videos only.</p></div><div class="step"><span class="num">STEP 2</span><h3>Pick a bitrate</h3><p>Choose 96 kbps for the smallest file, 128 kbps as the standard, or 192 kbps for better sound on good headphones.</p></div><div class="step"><span class="num">STEP 3</span><h3>Convert and download</h3><p>Press Convert to MP3. The first conversion loads a ~30 MB engine (cached after); then download your MP3.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Real MP3 quality, YouTube links, and staying safe</h2>
+      <p><strong>A video to MP3 converter</strong> extracts the audio track from a video file and saves it as an MP3. The number that matters is the bitrate: <strong>96 kbps</strong> is the smallest file and fine for speech; <strong>128 kbps</strong> is the honest standard for most music and voice; <strong>192 kbps</strong> sounds better on good headphones. What a bitrate cannot do is add quality the source never had — a video recorded on a phone microphone will not sound like a studio track at 320 kbps, and any site promising otherwise is upscaling a 128 kbps source and calling it 320. Pick the bitrate that matches the source, not the biggest number on the page.</p>
+<p>The question everyone actually asks is the YouTube one, so here it is plainly: <strong>this tool cannot convert a YouTube, TikTok or Instagram link.</strong> A purely client-side page has no server to fetch the video from, and those platforms do not let a browser download their streams directly. Any page that promises paste-a-link conversion is running a server — and that is exactly where the pop-ups, redirects, fake download buttons and malware live. If you need audio from a video you watched online, the safe route is the platform's own download or offline feature where it exists, or a desktop tool you installed yourself. Never install anything a converter page tells you to install.</p>
+<p>A last note on legality, because it matters more here than on any other tool on this site: only convert videos you own or have permission to use. Extracting the audio from someone else's copyrighted music or video without permission is not legal, and no converter — this one included — changes that. Your own recordings, your own lectures, your own voice notes: those are what this tool is for. The conversion itself is private by design: the video never leaves your device, the ~30 MB engine loads once and is cached, and the MP3 is made and downloaded in your browser.</p>
+
+      <!-- FAQ -->
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+<summary>Is this video to MP3 converter really free?</summary>
+<p>Yes. Convert as many of your own videos as you like — no watermark, no sign-up, no upload and no ads. The first conversion downloads a ~30 MB engine into your browser, cached after that.</p>
+</details>
+<details class="faq">
+<summary>Can I paste a YouTube link and get an MP3?</summary>
+<p>No — and this is the most important limit on the page. A purely client-side tool cannot fetch a YouTube, TikTok or Instagram link; that needs a server, which PixDetector does not have. This tool only converts video files you upload from your own device. Paste-a-link sites are also where the pop-ups, fake download buttons and malware live.</p>
+</details>
+<details class="faq">
+<summary>Is it safe to use video to MP3 converter sites?</summary>
+<p>Many are not — the danger is the page, not the conversion: pop-ups, redirects and fake download buttons that try to install software. This page has no ads, no pop-ups and no fake buttons, and nothing is uploaded. As a rule, never install anything a converter page tells you to install.</p>
+</details>
+<details class="faq">
+<summary>What bitrate should I choose — 96, 128 or 192 kbps?</summary>
+<p>128 kbps is the standard for most music and speech. 96 kbps makes the smallest file and is fine for voice. 192 kbps sounds better on good headphones. A higher bitrate never adds quality the original audio did not have — beware of sites advertising 320 kbps from a 128 kbps source.</p>
+</details>
+<details class="faq">
+<summary>Why does the first conversion take so long?</summary>
+<p>The first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser. It is cached after that, so later conversions start fast. Conversion is also slower on big files and on phones, so keep clips short there.</p>
+</details>
+<details class="faq">
+<summary>Is my video uploaded anywhere?</summary>
+<p>No. Your video never leaves your device — it is read, converted and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page.</p>
+</details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2 style="margin-top:28px">Related questions</h2>
+      <ul class="rq-list">
+        <li><strong>How do I extract audio from a video on my phone?</strong><br>Upload the video here in your phone browser, pick a bitrate, and convert — keep the clip short, because phones are slower at it.</li><li><strong>Can I convert a TikTok video to MP3 here?</strong><br>Only if you have the video file saved on your device. This tool cannot fetch a TikTok link.</li><li><strong>What is the best MP3 bitrate for music?</strong><br>128 kbps is the standard; 192 kbps sounds better on good headphones. Higher numbers do not add quality the source lacked.</li><li><strong>Why do MP3 converters stop working?</strong><br>Server-based converters get blocked by platforms or by country, and many are shut down. A browser-based converter like this one has no server to block — but it can only convert files you upload.</li>
+      </ul>
+    </div>
+
+    <div class="share-box">
+      <h3>Share this free tool</h3>
+      <p class="share-line">I turned a video into an MP3 free in my browser — no signup, no upload, real bitrate, no fake download buttons.</p>
+      <div class="share-row">
+        <button type="button" class="share-btn" id="copyLinkBtn">Copy link</button>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=I%20turned%20a%20video%20into%20an%20MP3%20free%20in%20my%20browser%20%E2%80%94%20no%20signup%2C%20no%20upload%2C%20real%20bitrate%2C%20no%20fake%20download%20buttons.&url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-to-mp3-converter" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-to-mp3-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="share-btn" href="https://wa.me/?text=I%20turned%20a%20video%20into%20an%20MP3%20free%20in%20my%20browser%20%E2%80%94%20no%20signup%2C%20no%20upload%2C%20real%20bitrate%2C%20no%20fake%20download%20buttons. https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-to-mp3-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/youtube-to-mp3-converter" class="related-card"><h4>🎧 YouTube to MP3</h4><p>Extract audio free</p></a><a href="/tools/video-compressor" class="related-card"><h4>🎬 Video Compressor</h4><p>Shrink videos free</p></a><a href="/tools/video-editor" class="related-card"><h4>🎬 Video Editor</h4><p>Trim, merge, resize & speed</p></a><a href="/tools/image-compressor" class="related-card"><h4>🖼️ Image Compressor</h4><p>Shrink images free</p></a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+        function fmtBytes(n) { if (!isFinite(n) || n <= 0) return "\u2014"; if (n < 1024) return n + " B"; if (n < 1048576) return (n / 1024).toFixed(1) + " KB"; if (n < 1073741824) return (n / 1048576).toFixed(2) + " MB"; return (n / 1073741824).toFixed(2) + " GB"; }
+        function fmtTime(s) { if (!isFinite(s) || s <= 0) return "\u2014"; s = Math.round(s); var m = Math.floor(s / 60), r = s % 60; return m + ":" + (r < 10 ? "0" : "") + r; }
+        function showError(msg) { var e = $("errorBox"); e.style.display = "block"; e.textContent = msg; }
+        function clearError() { var e = $("errorBox"); e.style.display = "none"; e.textContent = ""; }
+        var state = { file: null, url: null, duration: 0, bitrate: 128, busy: false, outUrl: null, engineReady: false, ffmpeg: null, fetchFile: null };
+        var dropzone = $("dropzone"), fileInput = $("fileInput"), preview = $("vidPreview"),
+            infoGrid = $("infoGrid"), settingsBlock = $("settingsBlock"),
+            convertBtn = $("convertBtn"), progressWrap = $("progressWrap"), progressFill = $("progressFill"),
+            progressText = $("progressText"), resultBox = $("resultBox"), resultText = $("resultText"),
+            downloadLink = $("downloadLink");
+        function loadScript(src) {
+          return new Promise(function (resolve, reject) {
+            var s = document.createElement("script");
+            s.src = src; s.onload = function () { resolve(); }; s.onerror = function () { reject(new Error("Could not load " + src)); };
+            document.head.appendChild(s);
+          });
+        }
+        function setProgress(p, text) {
+          progressWrap.style.display = "block";
+          progressFill.style.width = Math.round(p * 100) + "%";
+          progressText.textContent = text;
+        }
+        async function ensureEngine() {
+          if (state.engineReady) return true;
+          setProgress(0.05, "Loading the conversion engine (about 30 MB, first use only \u2014 cached after)\u2026");
+          try {
+            await loadScript("https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.0/dist/ffmpeg.min.js");
+          } catch (e) {
+            showError("The conversion engine could not be downloaded. Check your internet connection and try again — nothing was converted.");
+            progressWrap.style.display = "none";
+            return false;
+          }
+          if (!window.FFmpeg || !window.FFmpeg.createFFmpeg) {
+            showError("The conversion engine loaded but did not start correctly. Reload the page and try again.");
+            progressWrap.style.display = "none";
+            return false;
+          }
+          try {
+            var ff = window.FFmpeg.createFFmpeg({ log: false, corePath: "https://cdn.jsdelivr.net/npm/@ffmpeg/core-st@0.11.0/dist/ffmpeg-core.js" });
+            state.fetchFile = window.FFmpeg.fetchFile;
+            setProgress(0.2, "Starting the engine\u2026");
+            await ff.load();
+            state.ffmpeg = ff;
+            state.engineReady = true;
+            return true;
+          } catch (e) {
+            showError("The conversion engine failed to start (" + (e && e.message ? e.message : e) + "). Your browser may block it — try Chrome or Edge, and check your connection.");
+            progressWrap.style.display = "none";
+            return false;
+          }
+        }
+        function loadFile(file) {
+          clearError();
+          resultBox.style.display = "none";
+          progressWrap.style.display = "none";
+          if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; }
+          if (!file) return;
+          if (!file.type || file.type.indexOf("video/") !== 0) { showError("That doesn't look like a video file. Please choose an MP4, MOV, WebM or other video file."); return; }
+          if (state.url) URL.revokeObjectURL(state.url);
+          state.file = file;
+          state.url = URL.createObjectURL(file);
+          preview.src = state.url;
+          preview.style.display = "block";
+          preview.load();
+          preview.onloadedmetadata = function () {
+            state.duration = preview.duration;
+            var hasAudio = false;
+            try {
+              if (preview.mozHasAudio) hasAudio = true;
+              else if (preview.webkitAudioDecodedByteCount > 0) hasAudio = true;
+              else if (preview.audioTracks && preview.audioTracks.length) hasAudio = true;
+            } catch (e) {}
+            $("infoName").textContent = file.name;
+            $("infoSize").textContent = fmtBytes(file.size);
+            $("infoDuration").textContent = fmtTime(state.duration);
+            $("infoAudio").textContent = hasAudio ? "Yes" : "Could not detect \u2014 if the MP3 comes out silent, the video has no audio track";
+            infoGrid.style.display = "grid";
+            settingsBlock.style.display = "block";
+            if (!isFinite(state.duration) || state.duration <= 0) {
+              showError("This video's length could not be read. Try converting it to MP4 first (e.g. with HandBrake) and upload it again.");
+              settingsBlock.style.display = "none";
+            }
+          };
+          preview.onerror = function () { showError("Your browser couldn't play this video file. Try an MP4 version of the same clip."); infoGrid.style.display = "none"; settingsBlock.style.display = "none"; };
+        }
+        async function convert() {
+          if (state.busy || !state.file) return;
+          clearError();
+          resultBox.style.display = "none";
+          state.busy = true;
+          convertBtn.disabled = true;
+          var ok = await ensureEngine();
+          if (!ok) { state.busy = false; convertBtn.disabled = false; return; }
+          setProgress(0.35, "Reading your video\u2026");
+          try {
+            var ff = state.ffmpeg;
+            var inName = "input" + (state.file.name.match(/\.[^.]+$/) || [".mp4"])[0];
+            var data = await state.fetchFile(state.file);
+            ff.FS("writeFile", inName, data);
+            setProgress(0.5, "Extracting audio at " + state.bitrate + " kbps\u2026 this takes a while on long videos.");
+            if (ff.setProgress) { ff.setProgress(function (p) { if (p && isFinite(p.ratio)) setProgress(0.5 + p.ratio * 0.45, "Extracting audio\u2026 " + Math.round(p.ratio * 100) + "%"); }); }
+            await ff.run("-i", inName, "-vn", "-b:a", state.bitrate + "k", "output.mp3");
+            var out = ff.FS("readFile", "output.mp3");
+            if (!out || !out.length) throw new Error("The converter produced an empty MP3 — the video may have no audio track.");
+            var blob = new Blob([out.buffer], { type: "audio/mpeg" });
+            if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+            state.outUrl = URL.createObjectURL(blob);
+            var base = state.file.name.replace(/\.[^.]+$/, "") || "audio";
+            downloadLink.href = state.outUrl;
+            downloadLink.download = base + ".mp3";
+            resultText.innerHTML = "Source: <strong>" + fmtBytes(state.file.size) + "</strong> \u00b7 MP3: <strong>" + fmtBytes(blob.size) + " at " + state.bitrate + " kbps</strong> \u00b7 Duration: " + fmtTime(state.duration) + ".<br>Real quality: the MP3 keeps the quality of the original audio — a higher bitrate never adds quality the source did not have.";
+            resultBox.style.display = "block";
+            resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            toast("MP3 ready — " + fmtBytes(blob.size));
+            try { ff.FS("unlink", inName); ff.FS("unlink", "output.mp3"); } catch (e) {}
+          } catch (e) {
+            showError("Conversion failed: " + (e && e.message ? e.message : e) + " If the video has no audio track, the MP3 will be empty. Try a different video or a shorter clip.");
+          } finally {
+            progressWrap.style.display = "none";
+            state.busy = false;
+            convertBtn.disabled = false;
+          }
+        }
+        dropzone.addEventListener("click", function () { fileInput.click(); });
+        dropzone.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fileInput.click(); } });
+        fileInput.addEventListener("change", function () { if (fileInput.files && fileInput.files[0]) loadFile(fileInput.files[0]); });
+        ["dragenter", "dragover"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.add("over"); }); });
+        ["dragleave", "drop"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.remove("over"); }); });
+        dropzone.addEventListener("drop", function (ev) { var f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0]; if (f) loadFile(f); });
+        $("bitrateChips").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".chip"); if (!b || state.busy) return;
+          state.bitrate = parseInt(b.getAttribute("data-bitrate"), 10);
+          var chips = this.querySelectorAll(".chip");
+          chips.forEach(function (ch) { ch.setAttribute("aria-pressed", ch === b ? "true" : "false"); });
+        });
+        convertBtn.addEventListener("click", convert);
+        $("resetBtn").addEventListener("click", function () {
+          if (state.busy) return;
+          fileInput.value = "";
+          if (state.url) URL.revokeObjectURL(state.url);
+          if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+          state.file = null; state.url = null; state.outUrl = null;
+          preview.removeAttribute("src"); preview.style.display = "none"; preview.load();
+          infoGrid.style.display = "none"; settingsBlock.style.display = "none";
+          resultBox.style.display = "none"; progressWrap.style.display = "none";
+          clearError();
+        });
+
+        var _clb = document.getElementById("copyLinkBtn");
+        if (_clb) _clb.addEventListener("click", function () {
+          var u = location.href;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(u).then(function () { toast("Link copied — paste it anywhere."); },
+              function () { toast("Copy was blocked — long-press the address bar to copy the link."); });
+          } else { toast("Copy isn't supported in this browser."); }
+        });
+
+      })();
+
+</script>
+  </body>
+</html>

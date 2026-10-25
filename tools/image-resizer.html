@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Image Resizer — Resize Images Online | PixDetector</title>
+<meta name="description" content="Resize any image free: exact pixels, presets or percent. JPG, PNG, WebP. No signup, no upload, no watermark.">
+<meta name="keywords" content="image resizer, resize image online, free image resizer, resize photo, resize image to 1080x1080, resize image pixels">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/image-resizer">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/image-resizer">
+<meta property="og:title" content="Free Image Resizer — Resize Images Online | PixDetector">
+<meta property="og:description" content="Resize any image free: exact pixels, presets or percent. JPG, PNG, WebP. No signup, no upload, no watermark.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this image resizer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Resize as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
+    { "@type": "Question", "name": "Can I resize an image without losing quality?", "acceptedAnswer": { "@type": "Answer", "text": "Only when scaling down. Making an image smaller keeps it sharp. Enlarging a small image cannot create detail that was never there, so it will always soften — no tool can resize up without some quality loss." } },
+    { "@type": "Question", "name": "Why did my resized image look stretched?", "acceptedAnswer": { "@type": "Answer", "text": "It was stretched because the aspect ratio was not locked: the width and height were changed by different amounts. Keep the lock on, change one side, and let the other follow — or crop the image to the target ratio first." } },
+    { "@type": "Question", "name": "What size should an Instagram post be?", "acceptedAnswer": { "@type": "Answer", "text": "A square Instagram post is 1080 by 1080 pixels. A YouTube thumbnail is 1280 by 720. A Facebook link preview (Open Graph) image is 1200 by 630. This tool has all three as one-click presets." } },
+    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is resized in your browser with the canvas element. Nothing is uploaded, stored, or shared." } },
+    { "@type": "Question", "name": "Which format should I download — PNG, JPG or WebP?", "acceptedAnswer": { "@type": "Answer", "text": "Use JPG for photos (smallest files, with a quality slider), PNG for graphics, logos and anything needing transparency, and WebP for the smallest files on modern websites." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to resize an image",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your image", "text": "Choose an image file. It is read in your browser and never uploaded." },
+    { "@type": "HowToStep", "name": "Pick a size", "text": "Type exact pixels, choose a preset, or set a percentage — keep the aspect-ratio lock on to avoid stretching." },
+    { "@type": "HowToStep", "name": "Download it", "text": "Pick PNG, JPG or WebP, set the quality if needed, and download the resized image." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=number],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+.preview-img{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Image Resizer
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Image Resizer</h1>
+      <p>Resize any image free — exact pixels, a named preset, or a percentage. JPG, PNG or WebP. No signup, no upload, no watermark.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>upscaling cannot create detail that isn't there</strong> — enlarging a small image will always soften it. "Without losing quality" is only true when <strong>scaling down</strong>. Keep the aspect-ratio lock on, or your image will stretch.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Resize settings">
+        <h2>Your image</h2>
+        <label class="flabel" for="imgFile">Choose an image</label>
+        <input type="file" id="imgFile" accept="image/*">
+        <p class="trust" id="origInfo">No image chosen yet.</p>
+        <span class="flabel" style="margin-top:16px">Presets</span>
+        <div class="chips" id="presetChips">
+          <button type="button" class="chip" data-w="1080" data-h="1080">Instagram 1080×1080</button>
+          <button type="button" class="chip" data-w="1200" data-h="630">OG / Facebook 1200×630</button>
+          <button type="button" class="chip" data-w="1920" data-h="1080">HD 1920×1080</button>
+          <button type="button" class="chip" data-w="600" data-h="600">Passport 600×600</button>
+          <button type="button" class="chip" data-w="1280" data-h="720">YouTube thumb 1280×720</button>
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div><label class="flabel" for="wInput">Width (px)</label><input type="number" id="wInput" min="1" max="8000" value="1080"></div>
+          <div><label class="flabel" for="hInput">Height (px)</label><input type="number" id="hInput" min="1" max="8000" value="1080"></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="toggle" id="lockBtn" aria-pressed="true">🔒 Lock aspect ratio</button>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="pctInput">Or resize by percent: <span id="pctOut">50%</span></label>
+          <input type="range" id="pctInput" min="5" max="200" value="50">
+          <div class="actions"><button type="button" class="btn alt" id="applyPct">Apply percent</button></div>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="fmtSelect">Download format</label>
+          <select id="fmtSelect">
+            <option value="image/png">PNG</option>
+            <option value="image/jpeg">JPG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="qInput">Quality (JPG / WebP): <span id="qOut">90%</span></label>
+          <input type="range" id="qInput" min="10" max="100" value="90">
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="dlBtn" disabled>Download resized image</button>
+        </div>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Preview">
+        <h2>Preview</h2>
+        <img class="preview-img" id="previewImg" alt="Resized image preview" hidden>
+        <p class="meta-line" id="metaLine">Upload an image to see the original and new size here.</p>
+        <p class="trust" style="text-align:center">The preview shows your image at its new dimensions. Download to save the full-size file.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Resize any image free — exact pixels, presets or percent. No signup, no upload, no watermark.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <a href="https://twitter.com/intent/tweet?text=Resize%20any%20image%20free%20%E2%80%94%20exact%20pixels%2C%20presets%20or%20percent%2C%20no%20signup&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fimage-resizer" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fimage-resizer" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Resize%20any%20image%20free%20%E2%80%94%20exact%20pixels%2C%20presets%20or%20percent%2C%20no%20signup%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fimage-resizer" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: "resize without losing quality"</h2>
+      <p>"Resize without losing quality" is the phrase people type most — and it is also the phrase that causes the most disappointment. Resized images go blurry or pixelated, usually when a small image is enlarged. The second frustration is simpler: people do not know the numbers. Instagram wants 1080×1080, a YouTube thumbnail wants 1280×720, a passport photo wants 600×600 — and guessing wrong means an upload rejected or a cropped, stretched picture. The third is aspect-ratio distortion: change the width without the height and faces go wide. People want the exact pixel size for a named platform, in one click, with no quality loss and no upload.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I resize an image for free?</h2>
+      <p>Upload your image here, pick a preset (Instagram 1080×1080, OG/Facebook 1200×630, HD 1920×1080, passport 600×600, YouTube thumbnail 1280×720), or type exact pixels or a percentage — then download it as PNG, JPG or WebP. It is free, with no signup and no upload, because the resize runs in your browser. Scaling down keeps your image sharp; scaling up will always soften it, because no tool can invent detail that was never in the file.</p>
+      <p>An image resizer is a tool that changes an image's pixel dimensions — its width and height — by resampling it onto a new grid of pixels. When you scale down, it averages nearby pixels together, which keeps the picture sharp. When you scale up, it has to invent pixels between the real ones, which is why enlargements look soft or blurry. The aspect ratio is the width-to-height proportion: change one side without the other and the picture stretches.</p>
+      <!-- HOW TO -->
+      <h2>How to resize an image in 3 steps</h2>
+      <p><strong>Step 1:</strong> upload your image — it is read in your browser and never uploaded. <strong>Step 2:</strong> choose a preset, type exact pixels, or set a percentage, keeping the aspect-ratio lock on unless you know the target ratio matches. <strong>Step 3:</strong> pick PNG, JPG or WebP, set the quality for JPG/WebP, and download. The preview shows the original versus the new dimensions and file size before you save.</p>
+      <h2>What size do the platforms actually want?</h2>
+      <p>Instagram square post: 1080×1080. Instagram portrait: 1080×1350. YouTube thumbnail: 1280×720. Facebook / Open Graph link image: 1200×630. X post image: 1600×900. Passport-style photo: 600×600. HD video frame: 1920×1080. If the platform crops your image anyway, it is because your ratio does not match — resizing to the exact numbers here avoids that crop, and the aspect-ratio lock keeps faces and logos from stretching while you do it.</p>
+      <h2>Which format, and what quality?</h2>
+      <p>Use JPG for photos: it is the smallest file, and the quality slider lets you trade a little sharpness for a much smaller file — 85–90% looks identical to most eyes. Use PNG for graphics, logos, screenshots and anything needing transparency, but expect bigger files. Use WebP for websites: it is smaller than both for the same quality on modern browsers. If your resized image will be uploaded to a platform that recompresses it anyway, download at 90% quality — going higher only makes a bigger file the platform will shrink again.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this image resizer really free?</summary>
+        <p>Yes. Resize as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I resize an image without losing quality?</summary>
+        <p>Only when scaling down. Making an image smaller keeps it sharp. Enlarging a small image cannot create detail that was never there, so it will always soften — no tool can resize up without some quality loss.</p>
+      </details>
+      <details class="faq">
+        <summary>Why did my resized image look stretched?</summary>
+        <p>It was stretched because the aspect ratio was not locked: the width and height were changed by different amounts. Keep the lock on, change one side, and let the other follow — or crop the image to the target ratio first.</p>
+      </details>
+      <details class="faq">
+        <summary>What size should an Instagram post be?</summary>
+        <p>A square Instagram post is 1080 by 1080 pixels. A YouTube thumbnail is 1280 by 720. A Facebook link preview (Open Graph) image is 1200 by 630. This tool has all three as one-click presets.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my image uploaded to a server?</summary>
+        <p>No. Your image is resized in your browser with the canvas element. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <details class="faq">
+        <summary>Which format should I download — PNG, JPG or WebP?</summary>
+        <p>Use JPG for photos (smallest files, with a quality slider), PNG for graphics, logos and anything needing transparency, and WebP for the smallest files on modern websites.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I resize an image on my phone?</strong> Open this page in your phone's browser — upload, pick a preset, and download. It works on a phone screen.</p>
+      <p><strong>Can I resize many images at once?</strong> Not here — this tool resizes one image at a time so the preview and size stay exact.</p>
+      <p><strong>Why is my JPG bigger than the original?</strong> A high quality setting or a PNG-style image saved as JPG can grow the file. Lower the quality slider to 85% and try WebP.</p>
+      <p><strong>What is the difference between resizing and cropping?</strong> Resizing changes the whole image's dimensions; cropping cuts part of it away. Resize when you need a smaller version of the whole picture.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a><a href="/tools/meme-generator" class="related-card"><h4>😂 Meme Generator</h4><p>Make memes free</p></a><a href="/tools/ai-image-enhancer" class="related-card"><h4>✨ AI Image Enhancer</h4><p>Enhance images free</p></a><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var img = null, origW = 0, origH = 0, origSize = 0, origName = "image", locked = true;
+  function fmtKB(n) { return n < 1024 ? n + " B" : (n / 1024 < 1024 ? (n / 1024).toFixed(1) + " KB" : (n / 1048576).toFixed(2) + " MB"); }
+  function target() { return { w: Math.max(1, parseInt($("wInput").value, 10) || 1), h: Math.max(1, parseInt($("hInput").value, 10) || 1) }; }
+  function updateMeta() {
+    if (!img) return;
+    var t = target();
+    var warn = (t.w > origW || t.h > origH) ? " — upscaling: this will soften the image." : "";
+    $("metaLine").textContent = "Original: " + origW + "×" + origH + " (" + fmtKB(origSize) + ") → New: " + t.w + "×" + t.h + warn;
+    $("previewImg").src = img.src;
+    $("previewImg").hidden = false;
+  }
+  $("imgFile").addEventListener("change", function () {
+    var f = this.files[0];
+    if (!f) return;
+    if (!/^image\//.test(f.type)) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose an image file."; return; }
+    $("errorBox").hidden = true;
+    origSize = f.size; origName = f.name.replace(/\.[^.]+$/, "") || "image";
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        img = im; origW = im.naturalWidth; origH = im.naturalHeight;
+        $("origInfo").textContent = "Original: " + f.name + " — " + origW + "×" + origH + " (" + fmtKB(origSize) + ")";
+        if (origW <= 1080 && origH <= 1080) { $("wInput").value = origW; $("hInput").value = origH; }
+        else { var s = Math.min(1080 / origW, 1080 / origH); $("wInput").value = Math.round(origW * s); $("hInput").value = Math.round(origH * s); }
+        $("dlBtn").disabled = false;
+        updateMeta();
+      };
+      im.onerror = function () { var e = $("errorBox"); e.hidden = false; e.textContent = "Could not read that image. Try a JPG, PNG or WebP file."; };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  $("wInput").addEventListener("input", function () {
+    if (locked && img && origW && origH) { $("hInput").value = Math.max(1, Math.round((parseInt(this.value, 10) || 1) * origH / origW)); }
+    updateMeta();
+  });
+  $("hInput").addEventListener("input", function () {
+    if (locked && img && origW && origH) { $("wInput").value = Math.max(1, Math.round((parseInt(this.value, 10) || 1) * origW / origH)); }
+    updateMeta();
+  });
+  $("lockBtn").addEventListener("click", function () {
+    locked = !locked;
+    this.setAttribute("aria-pressed", locked ? "true" : "false");
+    this.textContent = locked ? "🔒 Lock aspect ratio" : "🔓 Aspect ratio unlocked";
+  });
+  $("presetChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip");
+    if (!b) return;
+    document.querySelectorAll("#presetChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    $("wInput").value = b.getAttribute("data-w");
+    $("hInput").value = b.getAttribute("data-h");
+    updateMeta();
+  });
+  $("pctInput").addEventListener("input", function () { $("pctOut").textContent = this.value + "%"; });
+  $("applyPct").addEventListener("click", function () {
+    if (!img) { toast("Upload an image first."); return; }
+    var p = parseInt($("pctInput").value, 10) / 100;
+    $("wInput").value = Math.max(1, Math.round(origW * p));
+    $("hInput").value = Math.max(1, Math.round(origH * p));
+    updateMeta();
+    toast("Resized to " + $("pctInput").value + "% of the original.");
+  });
+  $("qInput").addEventListener("input", function () { $("qOut").textContent = this.value + "%"; });
+  $("dlBtn").addEventListener("click", function () {
+    if (!img) return;
+    var t = target();
+    var canvas = document.createElement("canvas");
+    canvas.width = t.w; canvas.height = t.h;
+    var ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(img, 0, 0, t.w, t.h);
+    var fmt = $("fmtSelect").value;
+    var q = parseInt($("qInput").value, 10) / 100;
+    var ext = fmt === "image/png" ? "png" : fmt === "image/jpeg" ? "jpg" : "webp";
+    canvas.toBlob(function (blob) {
+      if (!blob) { toast("Export failed in this browser."); return; }
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = origName + "-" + t.w + "x" + t.h + "." + ext;
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+      toast("Resized image downloaded (" + fmtKB(blob.size) + ").");
+      $("metaLine").textContent += " — Downloaded: " + fmtKB(blob.size) + ".";
+    }, fmt, fmt === "image/png" ? undefined : q);
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+})();
+</script>
+</body>
+</html>

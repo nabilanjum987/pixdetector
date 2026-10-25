@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Screen Recorder Online — No Watermark | PixDetector</title>
+<meta name="description" content="Record your screen, window or tab free in your browser. No signup, no watermark, no time limit. Download as WebM.">
+<meta name="keywords" content="free screen recorder online, record screen free, screen recorder no watermark, browser screen recorder, record screen no install">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/screen-recorder">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/screen-recorder">
+<meta property="og:title" content="Free Screen Recorder Online — No Watermark | PixDetector">
+<meta property="og:description" content="Record your screen, window or tab free in your browser. No signup, no watermark, no time limit. Download as WebM.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this screen recorder really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Record as much as you like \u2014 no watermark, no sign-up, no time limit and no install. Everything is made in your browser, and nothing is uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything or sign up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no extension, no download and no account. Press Record, pick a screen, window or tab in your browser's picker, and record. It works best in Chrome, Edge or Firefox."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the recording a WebM file, not MP4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers can only record into formats they natively support, and WebM is the one every modern browser can write. WebM plays in browsers and most players, but it will not open in iMovie, Photos or some versions of Premiere \u2014 convert it to MP4 with HandBrake or FFmpeg if you need MP4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is there no system audio in my recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "System-audio capture often fails, or only works when you share a tab rather than a whole screen. Share a tab and tick the browser's own \u201cShare audio\u201d box in its picker. If it still fails, that is a browser limit, not a bug in the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I record my webcam at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool records the screen plus microphone only. For a picture-in-picture webcam, use OBS or your operating system's camera app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a time limit on recordings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No time limit is imposed by this tool \u2014 but long recordings are bounded by your browser's memory, so very long captures can slow the browser down. For hour-long recordings, a desktop recorder such as OBS is the safer choice."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to record your screen free online",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Press Record and pick what to share",
+      "text": "Press Start recording. Your browser asks whether to share a whole screen, a window or a tab \u2014 pick the one you want to capture."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Record, pause, stop",
+      "text": "Record as long as you need \u2014 there is no time limit. Pause and resume whenever you like, then press Stop when you are done."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Preview and download",
+      "text": "Watch the recording back on the page, then download it as a WebM file. Convert it to MP4 with HandBrake or FFmpeg if your editor needs MP4."
+    }
+  ]
+}
+</script>
+
+<style>
+.vd-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.vd-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-icon{font-size:34px;display:block;margin-bottom:10px}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+#fileInput{display:none}
+.vid-preview{width:100%;border-radius:10px;background:#000;display:none;margin-top:16px;max-height:340px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.info-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.info-cell .k{font-size:12px;color:var(--text2);letter-spacing:.5px;text-transform:uppercase}
+.info-cell .v{font-size:16px;font-weight:700;margin-top:4px;word-break:break-word}
+select.vd-select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none;cursor:pointer}
+select.vd-select:focus{border-color:var(--accent)}
+input.vd-input{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none}
+input.vd-input:focus{border-color:var(--accent)}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result .savings{font-size:15px;line-height:1.8;color:var(--text2)}
+.result .savings strong{color:var(--accent)}
+.error{display:none;color:#f87171;font-size:14px;line-height:1.7;margin-top:14px}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.limit-note{background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#7c2d12;margin-bottom:18px}
+.limit-note strong{color:#9a3412}
+.answer-box{background:var(--bg2);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;line-height:1.8;color:var(--text);margin-bottom:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.mode-tab{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.mode-tab[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.file-list{margin-top:14px}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row.active{border-color:var(--accent)}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.slider-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.share-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-top:28px}
+.share-box h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-row{display:flex;flex-wrap:wrap;gap:8px}
+.share-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.share-btn:hover{border-color:var(--accent)}
+.rq-list{list-style:none;padding:0}
+.rq-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:14px;line-height:1.7;color:var(--text2)}
+.rq-list li strong{color:var(--text)}
+canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max-height:340px;cursor:crosshair}
+.timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
+.rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Free Screen Recorder
+    </div>
+    <div class="tool-page-header">
+      <h1>🖥️ Free Screen Recorder Online</h1>
+      <p>Record your screen, window or tab — free, in your browser. No signup, no watermark, no install, no time limit. Download the recording as a WebM file.</p>
+    </div>
+
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> recording needs your browser's <strong>screen-capture permission</strong> (it will ask when you press Record). The output is a <strong>WebM</strong> file, not MP4 — WebM will not open in iMovie, Photos or some versions of Premiere, so you may need a second transcode (HandBrake or FFmpeg) for those. Works best in <strong>Chrome, Edge or Firefox</strong>; Safari support is limited. This is for quick captures and demos — it cannot do what OBS does: no scenes, no live streaming, no multi-source production. Long recordings are bounded by your browser's memory.</div>
+    <div class="vd-panel" aria-label="Screen recorder">
+      <div class="timer" id="timerBox" style="display:none"><span class="rec-dot"></span><span id="timerText">00:00</span></div>
+      <p class="hint" style="text-align:center" id="recHint">Choose what to capture, then press Record. Your browser will ask which screen, window or tab to share.</p>
+      <div class="check-row" style="display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--text2);margin:16px 0;justify-content:center">
+        <label><input type="checkbox" id="micCheck" checked style="accent-color:var(--accent)" /> Include microphone</label>
+        <label><input type="checkbox" id="sysAudioCheck" style="accent-color:var(--accent)" /> Include system audio (tab share — often fails, see note)</label>
+      </div>
+      <div class="actions" style="justify-content:center">
+        <button type="button" class="btn" id="startBtn">⏺ Start recording</button>
+        <button type="button" class="btn alt" id="pauseBtn" disabled>Pause</button>
+        <button type="button" class="btn alt" id="stopBtn" disabled>Stop &amp; preview</button>
+      </div>
+      <video id="recPreview" class="vid-preview" controls playsinline></video>
+      <div class="result" id="resultBox">
+        <h3>✅ Your recording is ready</h3>
+        <p class="savings" id="resultText"></p>
+        <div class="actions">
+          <a class="btn" id="downloadLink" download="screen-recording.webm" href="#">Download WebM</a>
+          <button type="button" class="btn alt" id="recordAgainBtn">Record again</button>
+        </div>
+      </div>
+      <p class="error" id="errorBox" role="alert"></p>
+      <p class="fineprint"><strong>Honest notes:</strong> system-audio capture often fails or only works when you share a <strong>tab</strong> (not a whole screen) — if the recording has no system sound, share a tab and tick the browser's own “Share audio” box in its picker. In Firefox and Safari the file may come out as WebM even if you expected MP4. Nothing is uploaded: the recording is made and stored in your browser only. To record a webcam at the same time, use OBS or your operating system's camera app — this browser tool records the screen plus microphone only.</p>
+    </div>
+
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>Why screen recording usually means an install or a watermark</h2>
+      <p>The demand for a no-install recorder is loud: one Hacker News launch put it plainly — “screen recorders either cost $18/month, add watermarks or need installs” — and a Reel with 21K likes promoted an open-source Screen Studio alternative on the same promise. The free tiers people actually find watermark the export, cap recordings at 5 minutes, or need an extension or an install before they will start. Then there is the format trap: browser recorders output WebM, which will not open in iMovie, Photos or some versions of Premiere, so the recording needs a second transcode to MP4. Add weak Safari support and system audio that often fails unless you share a tab, and the picture is clear: people want to hit record, capture screen plus mic, and download a clean file — no install, no account, no watermark, no time limit. That is what this tool does, with the honest limits stated above.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I record my screen for free without installing anything?</h2>
+      <div class="answer-box"><strong>Direct answer:</strong> to record your screen free with no install, press Start recording on this page, pick a screen, window or tab in your browser's picker, and press Stop when you are done. The recording is made in your browser and downloads as a WebM file — no signup, no watermark, no time limit, and nothing is uploaded. It works best in Chrome, Edge or Firefox.</div>
+      <!-- HOW TO -->
+      <h2 style="margin-top:28px">How to record your screen in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Press Record and pick what to share</h3><p>Press Start recording. Your browser asks whether to share a whole screen, a window or a tab — pick the one you want to capture.</p></div><div class="step"><span class="num">STEP 2</span><h3>Record, pause, stop</h3><p>Record as long as you need — there is no time limit. Pause and resume whenever you like, then press Stop when you are done.</p></div><div class="step"><span class="num">STEP 3</span><h3>Preview and download</h3><p>Watch the recording back on the page, then download it as a WebM file. Convert it to MP4 with HandBrake or FFmpeg if your editor needs MP4.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Screen, window or tab — and the audio question</h2>
+      <p><strong>A screen recorder</strong> captures what is on your display as a video file. The choice you make in the browser's picker matters. <strong>A whole screen</strong> captures everything, including notifications and anything else that pops up — fine for a full demo, risky for a tutorial where a private message could appear. <strong>A window</strong> captures one app only, which is the safest choice for most demos: the viewer sees the app and nothing else. <strong>A tab</strong> captures one browser tab, and it is the only choice that reliably captures system audio — the sound from a video playing in that tab, for example. If you need the sound of what is playing, share a tab and tick the browser's own “Share audio” box in its picker.</p>
+<p>Microphone audio is separate from system audio, and the two fail in different ways. The microphone is straightforward: tick “Include microphone”, allow access, and your voice is recorded alongside the screen. System audio is the flaky one — it often fails outright, or only works on a tab share, depending on the browser and the operating system. If your recording comes back without system sound, that is the usual cause, not a bug in the page: share a tab, tick “Share audio”, and try again. And if you need webcam and screen together, this tool cannot do it — it records screen plus microphone only. For a picture-in-picture webcam, use OBS or your operating system's camera app.</p>
+<p>Two honest limits before you record. First, the output is WebM, not MP4 — WebM will not open in iMovie, Photos or some versions of Premiere, so plan a second transcode with HandBrake or FFmpeg if your editor needs MP4. Second, this is for quick captures and demos, not production: there are no scenes, no live streaming and no multi-source mixing, and long recordings are bounded by your browser's memory. For a full production with scenes and a webcam, OBS is the honest choice — and it is free. For a quick “show me how this works” capture, this page is faster: press record, show it, stop, download.</p>
+
+      <!-- FAQ -->
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+<summary>Is this screen recorder really free?</summary>
+<p>Yes. Record as much as you like — no watermark, no sign-up, no time limit and no install. Everything is made in your browser, and nothing is uploaded.</p>
+</details>
+<details class="faq">
+<summary>Do I need to install anything or sign up?</summary>
+<p>No. There is no extension, no download and no account. Press Record, pick a screen, window or tab in your browser's picker, and record. It works best in Chrome, Edge or Firefox.</p>
+</details>
+<details class="faq">
+<summary>Why is the recording a WebM file, not MP4?</summary>
+<p>Browsers can only record into formats they natively support, and WebM is the one every modern browser can write. WebM plays in browsers and most players, but it will not open in iMovie, Photos or some versions of Premiere — convert it to MP4 with HandBrake or FFmpeg if you need MP4.</p>
+</details>
+<details class="faq">
+<summary>Why is there no system audio in my recording?</summary>
+<p>System-audio capture often fails, or only works when you share a tab rather than a whole screen. Share a tab and tick the browser's own “Share audio” box in its picker. If it still fails, that is a browser limit, not a bug in the page.</p>
+</details>
+<details class="faq">
+<summary>Can I record my webcam at the same time?</summary>
+<p>No. This tool records the screen plus microphone only. For a picture-in-picture webcam, use OBS or your operating system's camera app.</p>
+</details>
+<details class="faq">
+<summary>Is there a time limit on recordings?</summary>
+<p>No time limit is imposed by this tool — but long recordings are bounded by your browser's memory, so very long captures can slow the browser down. For hour-long recordings, a desktop recorder such as OBS is the safer choice.</p>
+</details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2 style="margin-top:28px">Related questions</h2>
+      <ul class="rq-list">
+        <li><strong>How do I record my screen without a watermark?</strong><br>Use this page: press Record, pick a screen, window or tab, and download — free, no watermark, no signup.</li><li><strong>Can I record my screen on a phone?</strong><br>Phones cannot capture the screen this way in a browser. Use your phone's built-in screen recorder instead.</li><li><strong>Does this screen recorder work in Safari?</strong><br>Safari support is limited. Use Chrome, Edge or Firefox on a computer for the best result.</li><li><strong>How do I record a specific window instead of the whole screen?</strong><br>In the browser's picker, choose the Window tab and pick the app you want — the viewer sees that app only.</li>
+      </ul>
+    </div>
+
+    <div class="share-box">
+      <h3>Share this free tool</h3>
+      <p class="share-line">I recorded my screen free in the browser — no install, no account, no watermark, no time limit.</p>
+      <div class="share-row">
+        <button type="button" class="share-btn" id="copyLinkBtn">Copy link</button>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=I%20recorded%20my%20screen%20free%20in%20the%20browser%20%E2%80%94%20no%20install%2C%20no%20account%2C%20no%20watermark%2C%20no%20time%20limit.&url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fscreen-recorder" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fscreen-recorder" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="share-btn" href="https://wa.me/?text=I%20recorded%20my%20screen%20free%20in%20the%20browser%20%E2%80%94%20no%20install%2C%20no%20account%2C%20no%20watermark%2C%20no%20time%20limit. https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fscreen-recorder" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/video-editor" class="related-card"><h4>🎬 Video Editor</h4><p>Trim, merge, resize & speed</p></a><a href="/tools/video-background-remover" class="related-card"><h4>🎬 Video Background Remover</h4><p>Remove the background free</p></a><a href="/tools/video-compressor" class="related-card"><h4>🎬 Video Compressor</h4><p>Shrink videos free</p></a><a href="/tools/video-to-mp3-converter" class="related-card"><h4>🎧 Video to MP3</h4><p>Extract audio free</p></a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+        function fmtBytes(n) { if (!isFinite(n) || n <= 0) return "\u2014"; if (n < 1024) return n + " B"; if (n < 1048576) return (n / 1024).toFixed(1) + " KB"; if (n < 1073741824) return (n / 1048576).toFixed(2) + " MB"; return (n / 1073741824).toFixed(2) + " GB"; }
+        function showError(msg) { var e = $("errorBox"); e.style.display = "block"; e.textContent = msg; }
+        function clearError() { var e = $("errorBox"); e.style.display = "none"; e.textContent = ""; }
+        var state = { rec: null, chunks: [], stream: null, micStream: null, timer: 0, timerId: 0, paused: false, outUrl: null, recording: false };
+        var startBtn = $("startBtn"), pauseBtn = $("pauseBtn"), stopBtn = $("stopBtn"),
+            timerBox = $("timerBox"), timerText = $("timerText"), recHint = $("recHint"),
+            preview = $("recPreview"), resultBox = $("resultBox"), resultText = $("resultText"),
+            downloadLink = $("downloadLink");
+        function fmtClock(s) {
+          var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), r = s % 60;
+          function p(n) { return (n < 10 ? "0" : "") + n; }
+          return h > 0 ? p(h) + ":" + p(m) + ":" + p(r) : p(m) + ":" + p(r);
+        }
+        function pickMime() {
+          var cands = ["video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          for (var i = 0; i < cands.length; i++) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {} }
+          return "";
+        }
+        function stopTracks() {
+          [state.stream, state.micStream].forEach(function (st) {
+            if (st) st.getTracks().forEach(function (t) { try { t.stop(); } catch (e) {} });
+          });
+          state.stream = null; state.micStream = null;
+        }
+        function finishRecording() {
+          if (!state.recording) return;
+          state.recording = false;
+          clearInterval(state.timerId);
+          try { if (state.rec.state !== "inactive") state.rec.stop(); } catch (e) {}
+        }
+        async function startRecording() {
+          clearError();
+          resultBox.style.display = "none";
+          preview.style.display = "none";
+          if (!navigator.mediaDevices || !navigator.mediaDevices.getDisplayMedia) {
+            showError("Screen capture is not supported in this browser. Use Chrome, Edge or Firefox on a computer — Safari support is limited and phones cannot capture the screen this way.");
+            return;
+          }
+          if (typeof MediaRecorder === "undefined") {
+            showError("This browser can't record video (MediaRecorder is not supported). Try Chrome, Edge or Firefox.");
+            return;
+          }
+          var wantMic = $("micCheck").checked;
+          var wantSys = $("sysAudioCheck").checked;
+          var screenStream;
+          try {
+            screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: wantSys });
+          } catch (e) {
+            if (e && e.name === "NotAllowedError") showError("Screen-capture permission was denied. Press Record again and choose a screen, window or tab in the browser's picker — without that choice nothing can be recorded.");
+            else if (e && e.name === "NotFoundError") showError("No screen or window was available to share. Try again and pick a screen, window or tab.");
+            else showError("Screen capture could not start (" + (e && e.message ? e.message : e) + "). Try Chrome or Edge on a computer.");
+            return;
+          }
+          var micStream = null;
+          if (wantMic) {
+            try { micStream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+            catch (e) { showError("Microphone access was denied, so the recording will have no microphone audio. Allow microphone access and record again if you need your voice."); }
+          }
+          var tracks = screenStream.getVideoTracks().slice();
+          var sysAudio = screenStream.getAudioTracks();
+          if (sysAudio.length) tracks.push(sysAudio[0]);
+          else if (wantSys) toast("System audio was not captured — share a tab and tick “Share audio” in the browser picker next time.");
+          if (micStream) micStream.getAudioTracks().forEach(function (t) { tracks.push(t); });
+          var combined = new MediaStream(tracks);
+          var mime = pickMime();
+          var rec;
+          try {
+            rec = mime ? new MediaRecorder(combined, { mimeType: mime, videoBitsPerSecond: 5000000, audioBitsPerSecond: 128000 })
+                       : new MediaRecorder(combined, { videoBitsPerSecond: 5000000, audioBitsPerSecond: 128000 });
+          } catch (e) {
+            showError("Your browser refused to start the recorder (" + (e && e.message ? e.message : e) + "). Try Chrome or Firefox.");
+            screenStream.getTracks().forEach(function (t) { t.stop(); });
+            if (micStream) micStream.getTracks().forEach(function (t) { t.stop(); });
+            return;
+          }
+          state.stream = screenStream;
+          state.micStream = micStream;
+          state.rec = rec;
+          state.chunks = [];
+          state.timer = 0;
+          state.paused = false;
+          rec.ondataavailable = function (ev) { if (ev.data && ev.data.size) state.chunks.push(ev.data); };
+          rec.onerror = function () {
+            state.recording = false;
+            clearInterval(state.timerId);
+            stopTracks();
+            startBtn.disabled = false; pauseBtn.disabled = true; stopBtn.disabled = true;
+            timerBox.style.display = "none";
+            showError("The browser's recorder reported an error. Try a shorter recording or a different browser.");
+          };
+          rec.onstop = function () {
+            clearInterval(state.timerId);
+            stopTracks();
+            startBtn.disabled = false; pauseBtn.disabled = true; stopBtn.disabled = true;
+            pauseBtn.textContent = "Pause";
+            timerBox.style.display = "none";
+            recHint.textContent = "Recording saved below. Press Record again for a new capture.";
+            var blob = new Blob(state.chunks, { type: "video/webm" });
+            if (!blob.size) { showError("The recording came out empty. Try recording again — and keep the shared screen visible while you record."); return; }
+            if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+            state.outUrl = URL.createObjectURL(blob);
+            preview.src = state.outUrl;
+            preview.style.display = "block";
+            downloadLink.href = state.outUrl;
+            downloadLink.download = "screen-recording-" + new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-") + ".webm";
+            resultText.innerHTML = "Length: <strong>" + fmtClock(state.timer) + "</strong> \u00b7 Size: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 Format: WebM (" + (mime || "browser default") + ").<br>WebM will not open in iMovie or Photos — convert it with HandBrake or FFmpeg if you need MP4.";
+            resultBox.style.display = "block";
+            resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            toast("Recording saved — " + fmtBytes(blob.size));
+          };
+          screenStream.getVideoTracks().forEach(function (t) {
+            t.addEventListener("ended", function () {
+              if (state.recording) { recHint.textContent = "You stopped sharing from the browser — finishing the recording."; finishRecording(); }
+            });
+          });
+          rec.start(500);
+          state.recording = true;
+          startBtn.disabled = true; pauseBtn.disabled = false; stopBtn.disabled = false;
+          timerBox.style.display = "block";
+          timerText.textContent = "00:00";
+          recHint.textContent = "Recording\u2026 switch to the screen, window or tab you are capturing. Press Stop when you are done.";
+          state.timerId = setInterval(function () { if (!state.paused) { state.timer++; timerText.textContent = fmtClock(state.timer); } }, 1000);
+          toast("Recording started");
+        }
+        startBtn.addEventListener("click", startRecording);
+        pauseBtn.addEventListener("click", function () {
+          if (!state.recording || !state.rec) return;
+          try {
+            if (state.rec.state === "recording") { state.rec.pause(); state.paused = true; pauseBtn.textContent = "Resume"; recHint.textContent = "Paused — press Resume to continue."; }
+            else if (state.rec.state === "paused") { state.rec.resume(); state.paused = false; pauseBtn.textContent = "Pause"; recHint.textContent = "Recording\u2026 press Stop when you are done."; }
+          } catch (e) { showError("Pause is not supported in this browser — use Stop instead."); }
+        });
+        stopBtn.addEventListener("click", function () { finishRecording(); });
+        $("recordAgainBtn").addEventListener("click", function () {
+          resultBox.style.display = "none";
+          preview.removeAttribute("src"); preview.style.display = "none"; preview.load();
+          if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; }
+          recHint.textContent = "Choose what to capture, then press Record.";
+          clearError();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        var _clb = document.getElementById("copyLinkBtn");
+        if (_clb) _clb.addEventListener("click", function () {
+          var u = location.href;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(u).then(function () { toast("Link copied — paste it anywhere."); },
+              function () { toast("Copy was blocked — long-press the address bar to copy the link."); });
+          } else { toast("Copy isn't supported in this browser."); }
+        });
+
+      })();
+
+</script>
+  </body>
+</html>

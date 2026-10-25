@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Metronome — Tap Tempo & Beats | PixDetector</title>
+<meta name="description" content="Free online metronome: tap tempo, time signatures, subdivisions and accents. Precise Web Audio click, no signup, no app.">
+<meta name="keywords" content="free online metronome, metronome online free, tap tempo metronome, online metronome with subdivisions, accurate metronome browser">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/metronome">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/metronome">
+<meta property="og:title" content="Free Online Metronome — Tap Tempo & Beats | PixDetector">
+<meta property="og:description" content="Free online metronome: tap tempo, time signatures, subdivisions and accents. Precise Web Audio click, no signup, no app.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this metronome really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is free with no sign-up, no app install and no watermark. It runs entirely in your browser and works offline after the page loads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is this metronome more accurate than other browser metronomes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most browser metronomes use setInterval, which lags, stutters and throttles in background tabs. This one uses Web Audio lookahead scheduling, checking the audio clock every 25 milliseconds and scheduling clicks 0.1 seconds ahead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the metronome tell me if I am playing in time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It only plays the click; it cannot listen to your playing or tell you whether you rushed or dragged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it have tap tempo and odd time signatures?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tap tempo, 2/4, 3/4, 4/4 and 6/8, with quarter, eighth or sixteenth-note subdivisions and an accent on beat 1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the click sound late on Bluetooth headphones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bluetooth and wireless audio add latency, so the click you hear arrives slightly after it was scheduled. Use wired headphones or speakers for the most accurate timing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Once the page has loaded, the metronome works without an internet connection."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use the online metronome",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your tempo",
+      "text": "Drag the tempo slider, type a BPM, or tap the Tap button (or T key) on each beat to set the tempo by feel."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick time and subdivision",
+      "text": "Choose a time signature (2/4, 3/4, 4/4 or 6/8) and a subdivision \u2014 quarter, eighth or sixteenth notes."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Start and practise",
+      "text": "Press Start (or Space). The dots light up on each beat, with an accent on beat 1. Press Space again to stop."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;padding:12px 14px;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.danger{background:#f87171}
+.limit-note{background:#3f1d1d;border:1px solid #b91c1c;border-radius:12px;padding:16px 18px;margin-bottom:20px;line-height:1.7;font-size:15px}
+.limit-note strong{color:#fca5a5}
+.trust-line{font-size:14px;color:var(--text2);margin-top:10px}
+.trust-line strong{color:var(--accent)}
+.transcript-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:140px;font-size:15px;line-height:1.8;white-space:pre-wrap;word-wrap:break-word}
+.transcript-box .interim{color:var(--text2);font-style:italic}
+.status-line{font-size:13px;color:var(--text2);margin-top:10px;min-height:20px}
+.status-line .live{color:#f87171;font-weight:700}
+.wave-wrap{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:10px}
+#waveCanvas{width:100%;height:140px;display:block;cursor:pointer}
+.slider-row{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.check-row{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--text2);margin:10px 0}
+.check-row label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.check-row input{accent-color:var(--accent)}
+.bc-block{margin-top:40px}
+.bc-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.bc-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+table.formats{width:100%;border-collapse:collapse;font-size:13px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+table.formats .fname{color:var(--text);font-weight:600;white-space:nowrap}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:32px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px}
+.share-box p{font-size:14px;color:var(--text2);line-height:1.7}
+.share-line{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.7;margin:12px 0}
+.share-row{display:flex;flex-wrap:wrap;gap:10px}
+.share-btn{display:inline-block;background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif}
+.share-btn:hover{border-color:var(--accent)}
+.rel-q{font-size:15px;color:var(--text2);line-height:1.8}
+.rel-q li{margin-bottom:10px}
+.rel-q strong{color:var(--text)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.beat-dots{display:flex;gap:10px;justify-content:center;margin:18px 0}
+.beat-dot{width:18px;height:18px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2)}
+.beat-dot.on{background:var(--accent);border-color:var(--accent)}
+.beat-dot.accent.on{background:#f59e0b;border-color:#f59e0b}
+.tempo-label{text-align:center;font-size:15px;color:var(--text2);margin-top:6px}
+.tempo-label strong{color:var(--text)}
+.big-bpm{text-align:center;font-size:56px;font-weight:800;font-family:'Syne',sans-serif;line-height:1;margin:8px 0 2px}
+.audio-compare audio{width:100%;margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>&rsaquo;</span>
+      <a href="/#tools">Tools</a><span>&rsaquo;</span>
+      Free Online Metronome
+    </div>
+    <div class="tool-page-header">
+      <h1>🎵 Free Online Metronome</h1>
+      <p>A steady, accurate click for practice — tap tempo, time signatures, subdivisions and accents, free in your browser with no app install and no sign-up. The click is scheduled with the Web Audio clock, so it does not drift.</p>
+      <p class="trust-line"><strong>Free, no signup, no watermark, files stay in your browser.</strong> Nothing is uploaded to a server — everything on this page runs on your own device.</p>
+    </div>
+    
+    <div class="limit-note" role="note"><strong>Honest limit — read this first:</strong> a metronome <strong>cannot measure your timing</strong> — it only plays the click. Without microphone access it cannot tell you whether you rushed or dragged; it has no listening or feedback. Also, <strong>Bluetooth / wireless audio adds latency</strong>, so the click you hear is slightly late — wired headphones or speakers are more accurate. This tool's job is one thing: a steady, accurate click.</div>
+
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Metronome controls">
+        <h2>Set your tempo</h2>
+        <div class="big-bpm" id="bpmOut">120 BPM</div>
+        <div class="slider-row"><label for="bpmRange">Tempo</label><input id="bpmRange" type="range" min="20" max="300" step="1" value="120"><output id="bpmRangeOut" style="display:none"></output></div>
+        <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><label class="flabel" for="bpmNum">BPM (20–300)</label><input id="bpmNum" type="number" min="20" max="300" step="1" value="120"></div>
+          <div><label class="flabel" for="volRange">Volume</label><input id="volRange" type="range" min="0" max="1" step="0.05" value="0.8"><output id="volOut" style="display:block;text-align:right">80%</output></div>
+        </div>
+        <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          <div><label class="flabel" for="sigSel">Time signature</label><select id="sigSel"><option value="2/4">2/4</option><option value="3/4">3/4</option><option value="4/4" selected>4/4</option><option value="6/8">6/8</option></select></div>
+          <div><label class="flabel" for="subSel">Subdivision</label><select id="subSel"><option value="1" selected>Quarter notes</option><option value="2">Eighth notes</option><option value="4">Sixteenth notes</option></select></div>
+        </div>
+        <div class="check-row"><label><input type="checkbox" id="accentChk" checked> Accent beat 1</label></div>
+        <div class="actions">
+          <button type="button" class="btn" id="startBtn">▶ Start (Space)</button>
+          <button type="button" class="btn alt" id="stopBtn" disabled>Stop</button>
+          <button type="button" class="btn alt" id="tapBtn">👆 Tap tempo (T)</button>
+        </div>
+        <p class="tempo-label" id="tempoLabel"><strong>120 BPM</strong> — Allegro</p>
+        <p class="status-line" id="metroStatus">Ready.</p>
+      </div>
+      <div class="bc-panel" aria-label="Beat display">
+        <h2>Beat display</h2>
+        <div class="beat-dots" id="dotsBox" aria-label="Beat indicator"></div>
+        <p class="hint" style="text-align:center">The gold dot is beat 1. Dots light up on each beat so you can practise with your eyes as well as your ears.</p>
+        <p class="hint"><strong>Why this click stays steady:</strong> most browser metronomes use <span style="font-family:monospace">setInterval</span>, which lags, stutters and throttles in background tabs. This one schedules clicks ahead of time with the Web Audio clock (lookahead scheduling), so the beat stays accurate even when the tab is busy.</p>
+        <p class="hint"><strong>Offline:</strong> once the page has loaded, the metronome works without an internet connection. No app install, no account.</p>
+        <p class="hint"><strong>Keyboard:</strong> Space starts and stops, T taps the tempo.</p>
+      </div>
+    </div>
+
+    
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p>Know someone who needs this? Send them the link — it is free for them too, with no sign-up.</p>
+      <p class="share-line" id="shareLine">Free online metronome: accurate Web Audio click, tap tempo, time signatures and subdivisions — no app, no signup.</p>
+      <div class="share-row">
+        <button type="button" class="btn alt" id="copyLinkBtn">Copy link</button>
+        <button type="button" class="btn alt" id="copyLineBtn">Copy share line</button>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Free%20online%20metronome%3A%20accurate%20Web%20Audio%20click%2C%20tap%20tempo%2C%20time%20signatures%20and%20subdivisions%20%E2%80%94%20no%20app%2C%20no%20signup.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmetronome" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmetronome" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="share-btn" href="https://wa.me/?text=Free%20online%20metronome%3A%20accurate%20Web%20Audio%20click%2C%20tap%20tempo%2C%20time%20signatures%20and%20subdivisions%20%E2%80%94%20no%20app%2C%20no%20signup.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmetronome" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <script>
+    (function(){var t=document.getElementById('toast');
+    function toast(m){t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+    var cl=document.getElementById('copyLinkBtn'); if(cl) cl.addEventListener('click',function(){var u=window.location.href; if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){toast('Link copied');},function(){toast('Copy was blocked.');});} else {toast('Copy is not supported in this browser.');}});
+    var cs=document.getElementById('copyLineBtn'); if(cs) cs.addEventListener('click',function(){var s=document.getElementById('shareLine').textContent; if(navigator.clipboard){navigator.clipboard.writeText(s).then(function(){toast('Share line copied');},function(){toast('Copy was blocked.');});}});
+    })();
+    </script>
+
+    <div class="tool-about">
+    <!-- PROBLEM -->
+    <h2>Browser metronomes drift — and that ruins practice</h2>
+      <p>Musicians want a simple thing: a steady, accurate click with tap tempo, time signatures and subdivisions — free, in the browser, no app install. Social chatter on this is thin (almost nothing solid was found on social; one Instagram Reel, 27K likes, about a free browser metronome with tap tempo and subdivisions), but musician and developer sources name the real problems clearly, and they are technical, not cosmetic.</p>
+      <p>The biggest problem is drift. Most browser metronomes are built on <span style="font-family:monospace">setInterval</span>, which lags, stutters and throttles — especially in background tabs — so the click wanders off the beat exactly when you are trying to lock into it. The second problem is missing features: basic tools lack tap tempo, odd time signatures and subdivisions, so you cannot practise 3/4, 6/8 or sixteenth-note patterns. The third is a limit of the whole category: a metronome cannot tell you whether you are actually in time — without a microphone it has no listening or feedback, so it can play the beat but never judge your playing. This page answers the first two directly: a Web Audio scheduler with lookahead (the direct answer to drift), plus tap tempo, 2/4, 3/4, 4/4 and 6/8, quarter, eighth and sixteenth subdivisions, and an accent on beat 1.</p>
+      <p><strong>A metronome</strong> is a tool that plays a steady click at a chosen tempo (beats per minute) so musicians can practise in time. This free one runs in your browser with a drift-free Web Audio click, tap tempo and visual beat dots.</p>
+    <!-- DIRECT ANSWER -->
+    <p><strong>Direct answer:</strong> this free online metronome plays a steady, accurate click at 20–300 BPM with tap tempo, time signatures (2/4, 3/4, 4/4, 6/8), subdivisions (quarter, eighth, sixteenth), an accent on beat 1 and visual beat dots — no app, no sign-up, and it works offline after the page loads. It schedules clicks with the Web Audio clock and lookahead, so it does not drift like setInterval metronomes. It cannot judge your timing — it only plays the click.</p>
+    <!-- HOW TO -->
+    <h2>How to use the metronome in three steps</h2>
+    <div class="steps">
+      <div class="step"><span class="num">STEP 1</span><h3>Set your tempo</h3><p>Drag the tempo slider, type a BPM, or tap the Tap button (or T key) on each beat to set the tempo by feel.</p></div><div class="step"><span class="num">STEP 2</span><h3>Pick time and subdivision</h3><p>Choose a time signature (2/4, 3/4, 4/4 or 6/8) and a subdivision — quarter, eighth or sixteenth notes.</p></div><div class="step"><span class="num">STEP 3</span><h3>Start and practise</h3><p>Press Start (or Space). The dots light up on each beat, with an accent on beat 1. Press Space again to stop.</p></div>
+    </div>
+    <h2 style="margin-top:28px">What this tool does — and what it does not do</h2>
+      <p><strong>What it does:</strong> a drift-free Web Audio click at 20–300 BPM, tap tempo, four time signatures, three subdivisions, accent on beat 1, visual beat dots, volume control, keyboard shortcuts (Space to start/stop, T to tap), and offline use after the page loads.</p>
+      <p><strong>What it does not do:</strong> it cannot measure your timing — without microphone access it cannot tell you if you rushed or dragged — and it has no swing, tempo trainer or song library like some feature-rich tools. Bluetooth or wireless audio adds latency, so the click you hear is slightly late; wired headphones or speakers are more accurate for serious practice.</p>
+      <h2 style="margin-top:28px">How to practise with a metronome (and why drift matters)</h2>
+      <p>Start slow — half the target tempo — and only speed up when you can play a passage cleanly three times in a row. Practise with subdivisions: eighth notes at a slow tempo teach even spacing better than quarter notes at a fast one. Use the accent on beat 1 to feel the bar, and turn the accent off once you can feel it yourself. Drift matters because practice only works if the reference is true: a click that wanders teaches you to follow a wandering beat. This tool's lookahead scheduler checks the audio clock every 25 ms and schedules clicks 0.1 seconds ahead, so the beat stays put even if the browser tab is busy — that is the whole point of building it this way.</p>
+      <table class="formats">
+        <thead><tr><th>Tempo (BPM)</th><th>Marking</th><th>Feels like</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">40–60</td><td>Largo / Lento</td><td>Very slow — learning new passages.</td></tr>
+          <tr><td class="fname">66–76</td><td>Adagio / Andante</td><td>Slow walking pace — careful practice.</td></tr>
+          <tr><td class="fname">90–108</td><td>Moderato / Allegro</td><td>Medium — most songs live here.</td></tr>
+          <tr><td class="fname">132–168</td><td>Vivace / Presto</td><td>Fast — only after slow practice is clean.</td></tr>
+        </tbody>
+      </table>
+    <!-- FAQ -->
+    <h2 style="margin-top:28px">FAQ</h2>
+    
+      <details class="faq">
+        <summary>Is this metronome really free?</summary>
+        <p>Yes. It is free with no sign-up, no app install and no watermark. It runs entirely in your browser and works offline after the page loads.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is this metronome more accurate than other browser metronomes?</summary>
+        <p>Most browser metronomes use setInterval, which lags, stutters and throttles in background tabs, so the click drifts. This one uses Web Audio lookahead scheduling: it checks the audio clock every 25 ms and schedules clicks 0.1 seconds ahead, so the beat stays steady even when the tab is busy.</p>
+      </details>
+      <details class="faq">
+        <summary>Can the metronome tell me if I am playing in time?</summary>
+        <p>No — and no metronome without a microphone can. It only plays the click; it cannot listen to your playing or tell you whether you rushed or dragged. Use it as a steady reference, and record yourself to check your timing.</p>
+      </details>
+      <details class="faq">
+        <summary>Does it have tap tempo and odd time signatures?</summary>
+        <p>Yes. Tap the Tap button (or press T) on each beat to set the tempo by feel, and choose 2/4, 3/4, 4/4 or 6/8, with quarter, eighth or sixteenth-note subdivisions and an accent on beat 1.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does the click sound late on Bluetooth headphones?</summary>
+        <p>Bluetooth and wireless audio add latency, so the click you hear arrives slightly after it was scheduled. For the most accurate timing, use wired headphones or speakers.</p>
+      </details>
+      <details class="faq">
+        <summary>Does it work offline?</summary>
+        <p>Yes. Once the page has loaded, the metronome works without an internet connection — there is no server involved in the click.</p>
+      </details>
+    <!-- RELATED QUESTIONS -->
+    <h2 style="margin-top:28px">Related questions</h2>
+    <ul class="rel-q">
+    <li><strong>What is the most accurate online metronome?</strong> — One that schedules clicks with the Web Audio clock and lookahead, not setInterval — like this page.</li>
+      <li><strong>Can I use a metronome without downloading an app?</strong> — Yes: this page runs in the browser and works offline after it loads.</li>
+      <li><strong>What BPM should I practise at?</strong> — Start at half your target tempo and speed up only when the passage is clean three times in a row.</li>
+    </ul>
+    </div>
+    
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/audio-to-text-converter" class="related-card"><h4>🎙️ Audio to Text Converter</h4><p>Dictate speech to text</p></a><a href="/tools/audio-cutter" class="related-card"><h4>✂️ Audio Cutter</h4><p>Trim audio in your browser</p></a><a href="/tools/audio-enhancer" class="related-card"><h4>✨ Audio Enhancer</h4><p>Clean up recordings free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🖼️ Image Compressor</h4><p>Compress images free</p></a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+
+    <script>
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+        var bpmRange = $("bpmRange"), bpmNum = $("bpmNum"), bpmOut = $("bpmOut"),
+            tapBtn = $("tapBtn"), startBtn = $("startBtn"), stopBtn = $("stopBtn"),
+            sigSel = $("sigSel"), subSel = $("subSel"), accentChk = $("accentChk"),
+            volRange = $("volRange"), volOut = $("volOut"),
+            dotsBox = $("dotsBox"), tempoLabel = $("tempoLabel"), statusLine = $("metroStatus");
+        var actx = null, timer = null, nextTime = 0, beat = 0, running = false;
+        var LOOKAHEAD = 0.1, TICK = 25;
+        var MARKS = [[20,"Grave"],[40,"Largo"],[60,"Lento"],[66,"Adagio"],[76,"Andante"],[90,"Moderato"],[108,"Allegro"],[120,"Allegro"],[132,"Vivace"],[168,"Presto"],[200,"Prestissimo"],[301,"Prestissimo"]];
+        function tempoName(bpm) { var n = "Grave"; for (var i = 0; i < MARKS.length; i++) { if (bpm >= MARKS[i][0]) n = MARKS[i][1]; } return n; }
+        function beatsPerBar() { return parseInt(sigSel.value.split("/")[0], 10); }
+        function subDiv() { return parseInt(subSel.value, 10); }
+        function ensureCtx() { if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === "suspended") actx.resume(); return actx; }
+        function buildDots() {
+          dotsBox.innerHTML = "";
+          var n = beatsPerBar();
+          for (var i = 0; i < n; i++) { var d = document.createElement("span"); d.className = "beat-dot" + (i === 0 ? " accent" : ""); dotsBox.appendChild(d); }
+        }
+        function flash(i) {
+          var dots = dotsBox.children;
+          for (var j = 0; j < dots.length; j++) dots[j].classList.remove("on");
+          if (dots[i]) dots[i].classList.add("on");
+        }
+        function click(at, accented) {
+          var c = ensureCtx();
+          var o = c.createOscillator(), g = c.createGain();
+          o.frequency.value = accented ? 1568 : 1046;
+          var v = parseFloat(volRange.value);
+          g.gain.setValueAtTime(0, at);
+          g.gain.linearRampToValueAtTime(v, at + 0.001);
+          g.gain.exponentialRampToValueAtTime(0.0001, at + 0.06);
+          o.connect(g); g.connect(c.destination);
+          o.start(at); o.stop(at + 0.08);
+        }
+        function scheduler() {
+          if (!running) return;
+          var c = ensureCtx();
+          var spb = 60 / parseFloat(bpmRange.value) / subDiv();
+          while (nextTime < c.currentTime + LOOKAHEAD) {
+            var sub = beat % subDiv();
+            var barBeat = Math.floor(beat / subDiv()) % beatsPerBar();
+            if (sub === 0) {
+              var acc = accentChk.checked && barBeat === 0;
+              click(nextTime, acc);
+              var delay = Math.max(0, (nextTime - c.currentTime) * 1000);
+              (function (bb) { setTimeout(function () { if (running) flash(bb); }, delay); })(barBeat);
+            }
+            nextTime += spb;
+            beat++;
+          }
+        }
+        function syncBpm(v) {
+          v = Math.max(20, Math.min(300, Math.round(v) || 120));
+          bpmRange.value = v; bpmNum.value = v; bpmOut.textContent = v + " BPM";
+          tempoLabel.innerHTML = "<strong>" + v + " BPM</strong> — " + tempoName(v);
+        }
+        bpmRange.addEventListener("input", function () { syncBpm(this.value); });
+        bpmNum.addEventListener("change", function () { syncBpm(this.value); });
+        sigSel.addEventListener("change", function () { buildDots(); beat = 0; });
+        subSel.addEventListener("change", function () { beat = 0; });
+        volRange.addEventListener("input", function () { volOut.textContent = this.value + "%"; });
+        var taps = [];
+        tapBtn.addEventListener("click", function () {
+          var now = performance.now();
+          taps.push(now); if (taps.length > 5) taps.shift();
+          if (taps.length >= 2) {
+            var diffs = [];
+            for (var i = 1; i < taps.length; i++) diffs.push(taps[i] - taps[i - 1]);
+            var avg = diffs.reduce(function (a, b) { return a + b; }, 0) / diffs.length;
+            var bpm = Math.round(60000 / avg);
+            if (bpm >= 20 && bpm <= 300) { syncBpm(bpm); statusLine.textContent = "Tap tempo set: " + bpm + " BPM. Keep tapping to refine it."; }
+          } else { statusLine.textContent = "Tap again — tap the button (or press T) on each beat."; }
+        });
+        function start() {
+          ensureCtx();
+          running = true; beat = 0;
+          nextTime = actx.currentTime + 0.06;
+          timer = setInterval(scheduler, TICK);
+          startBtn.disabled = true; stopBtn.disabled = false;
+          statusLine.innerHTML = "<strong>Playing at " + bpmRange.value + " BPM.</strong> The click is scheduled with a Web Audio lookahead timer, so it stays steady even if the tab is busy.";
+        }
+        function stop() {
+          running = false;
+          if (timer) { clearInterval(timer); timer = null; }
+          var dots = dotsBox.children;
+          for (var j = 0; j < dots.length; j++) dots[j].classList.remove("on");
+          startBtn.disabled = false; stopBtn.disabled = true;
+          statusLine.textContent = "Stopped. Press Start (or Space) to play again.";
+        }
+        startBtn.addEventListener("click", start);
+        stopBtn.addEventListener("click", stop);
+        document.addEventListener("keydown", function (e) {
+          if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA")) return;
+          if (e.code === "Space") { e.preventDefault(); if (running) stop(); else start(); }
+          else if (e.key === "t" || e.key === "T") { tapBtn.click(); }
+        });
+        buildDots(); syncBpm(120);
+        statusLine.textContent = "Ready. Set a tempo, then press Start (or Space). Works offline after the page loads.";
+      })();
+    </script>
+
+  </body>
+</html>

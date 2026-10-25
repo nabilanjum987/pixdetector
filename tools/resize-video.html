@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resize Video Online Free — 9:16, 1:1, 16:9 | PixDetector</title>
+<meta name="description" content="Resize videos for TikTok, Reels and YouTube free. Presets or custom size, no signup, no watermark, nothing uploaded.">
+<meta name="keywords" content="resize video online free, change video size, video resizer 9:16, resize video for tiktok, crop video online free">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/resize-video">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/resize-video">
+<meta property="og:title" content="Resize Video Online Free — 9:16, 1:1, 16:9 | PixDetector">
+<meta property="og:description" content="Resize videos for TikTok, Reels and YouTube free. Presets or custom size, no signup, no watermark, nothing uploaded.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is resizing videos online really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Resize as many videos as you like \u2014 no watermark, no sign-up, no daily cap and no upload. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size should a TikTok or Reels video be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "9:16 vertical, 1080\u00d71920 pixels. That is the preset in this tool \u2014 pick it, choose a fit mode, and export. 1:1 (1080\u00d71080) is the square option for feed posts, and 16:9 (1920\u00d71080) is for YouTube."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I crop, pad or use blurred fill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crop to fill when the subject is centred and the edges can go. Pad with black bars when nothing can be cut, like text at the edges. Blurred fill keeps the whole picture with no black bars \u2014 the most popular look for landscape clips posted vertically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the resized video a WebM file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari. If you need an MP4, convert the WebM afterwards with HandBrake or FFmpeg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does resizing keep the original audio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The export is video-only, with no audio track. If your resized clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I resize a video without uploading it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool resizes entirely in your browser \u2014 your video never leaves your device, which is also why there is no server file-size limit, only what your browser can handle."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to resize a video online free",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your video",
+      "text": "Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick a size and a fit",
+      "text": "Choose 9:16, 1:1, 16:9, 4:5 or a custom width and height, then pick crop to fill, pad with black bars, or blurred fill."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Export and download",
+      "text": "Press Export video and wait while it re-encodes in real time. Then download the resized WebM file."
+    }
+  ]
+}
+</script>
+
+<style>
+.vd-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.vd-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-icon{font-size:34px;display:block;margin-bottom:10px}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+#fileInput{display:none}
+.vid-preview{width:100%;border-radius:10px;background:#000;display:none;margin-top:16px;max-height:340px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.info-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.info-cell .k{font-size:12px;color:var(--text2);letter-spacing:.5px;text-transform:uppercase}
+.info-cell .v{font-size:16px;font-weight:700;margin-top:4px;word-break:break-word}
+select.vd-select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none;cursor:pointer}
+select.vd-select:focus{border-color:var(--accent)}
+input.vd-input{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none}
+input.vd-input:focus{border-color:var(--accent)}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result .savings{font-size:15px;line-height:1.8;color:var(--text2)}
+.result .savings strong{color:var(--accent)}
+.error{display:none;color:#f87171;font-size:14px;line-height:1.7;margin-top:14px}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.limit-note{background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#7c2d12;margin-bottom:18px}
+.limit-note strong{color:#9a3412}
+.answer-box{background:var(--bg2);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;line-height:1.8;color:var(--text);margin-bottom:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.mode-tab{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.mode-tab[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.file-list{margin-top:14px}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row.active{border-color:var(--accent)}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.slider-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.share-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-top:28px}
+.share-box h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-row{display:flex;flex-wrap:wrap;gap:8px}
+.share-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.share-btn:hover{border-color:var(--accent)}
+.rq-list{list-style:none;padding:0}
+.rq-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:14px;line-height:1.7;color:var(--text2)}
+.rq-list li strong{color:var(--text)}
+canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max-height:340px;cursor:crosshair}
+.timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
+.rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Resize Video Free
+    </div>
+    <div class="tool-page-header">
+      <h1>🖼️ Resize Video Online Free</h1>
+      <p>Resize videos for TikTok, Reels and YouTube — free, in your browser. Presets or a custom size, no signup, no watermark, nothing uploaded.</p>
+    </div>
+
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and <strong>video-only, with no audio track</strong>. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
+    <div class="vd-panel" aria-label="Video editor">
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose video files">
+        <span class="dz-icon">🎬</span>
+        <span class="dz-title">Drop video files here, or click to choose</span>
+        <p class="dz-sub">MP4, MOV, WebM and most other formats your browser can play. Add one clip, or several to merge.<br>Your videos never leave this device.</p>
+      </div>
+      <input id="fileInput" type="file" accept="video/*" multiple />
+      <div class="file-list" id="fileList"></div>
+      <video id="vidPreview" class="vid-preview" controls playsinline></video>
+      <div class="info-grid" id="infoGrid" style="display:none">
+        <div class="info-cell"><div class="k">Active clip</div><div class="v" id="infoName">—</div></div>
+        <div class="info-cell"><div class="k">Size</div><div class="v" id="infoSize">—</div></div>
+        <div class="info-cell"><div class="k">Duration</div><div class="v" id="infoDuration">—</div></div>
+        <div class="info-cell"><div class="k">Resolution</div><div class="v" id="infoRes">—</div></div>
+      </div>
+      <div id="editorBlock" style="display:none">
+        <div class="mode-tabs" id="modeTabs" role="group" aria-label="Edit mode">
+          <button type="button" class="mode-tab" data-mode="trim" aria-pressed="false">✂️ Trim</button>
+          <button type="button" class="mode-tab" data-mode="merge" aria-pressed="false">🔗 Merge</button>
+          <button type="button" class="mode-tab" data-mode="resize" aria-pressed="true">🖼️ Resize</button>
+          <button type="button" class="mode-tab" data-mode="speed" aria-pressed="false">⏩ Speed</button>
+        </div>
+        <div id="panel-trim" class="mode-panel" style="display:none">
+          <h2>Trim the active clip</h2>
+          <div class="slider-row"><label for="trimStart">Start</label><input id="trimStart" type="range" min="0" max="1" step="0.1" value="0" /><output id="trimStartOut">0:00</output></div>
+          <div class="slider-row"><label for="trimEnd">End</label><input id="trimEnd" type="range" min="0" max="1" step="0.1" value="1" /><output id="trimEndOut">0:00</output></div>
+          <p class="hint" id="trimHint">Only the part between Start and End is exported.</p>
+          <div class="actions"><button type="button" class="btn alt" id="playTrimBtn">Play trimmed section</button></div>
+        </div>
+        <div id="panel-merge" class="mode-panel" style="display:none">
+          <h2>Merge clips in order</h2>
+          <p class="hint">All clips in the list above are joined into one video, top to bottom. Use the ↑ / ↓ buttons on each clip to reorder them, and ✕ to remove one. Every clip is used in full; the output size matches the first clip. Clips with different aspect ratios are cropped to fill the frame.</p>
+        </div>
+        <div id="panel-resize" class="mode-panel" style="display:block">
+          <h2>Resize the active clip</h2>
+          <span class="flabel">Size preset</span>
+          <div class="chips" id="resizeChips" role="group" aria-label="Resize preset">
+            <button type="button" class="chip" data-preset="orig" aria-pressed="true">Original size</button>
+            <button type="button" class="chip" data-preset="9:16" aria-pressed="false">9:16 · 1080×1920 (TikTok / Reels)</button>
+            <button type="button" class="chip" data-preset="1:1" aria-pressed="false">1:1 · 1080×1080 (Square)</button>
+            <button type="button" class="chip" data-preset="16:9" aria-pressed="false">16:9 · 1920×1080 (YouTube)</button>
+            <button type="button" class="chip" data-preset="4:5" aria-pressed="false">4:5 · 1080×1350 (Feed)</button>
+            <button type="button" class="chip" data-preset="custom" aria-pressed="false">Custom size</button>
+          </div>
+          <div id="customSize" style="display:none;margin-top:14px">
+            <div class="info-grid" style="margin-top:0">
+              <div><label class="flabel" for="customW">Width (px)</label><input class="vd-input" id="customW" type="number" min="160" max="1920" step="2" value="1080" /></div>
+              <div><label class="flabel" for="customH">Height (px)</label><input class="vd-input" id="customH" type="number" min="160" max="1920" step="2" value="1080" /></div>
+            </div>
+          </div>
+          <div style="margin-top:16px">
+            <span class="flabel">When the shape does not match</span>
+            <div class="chips" id="fitChips" role="group" aria-label="Fit mode">
+              <button type="button" class="chip" data-fit="crop" aria-pressed="true">Crop to fill</button>
+              <button type="button" class="chip" data-fit="pad" aria-pressed="false">Pad with black bars</button>
+              <button type="button" class="chip" data-fit="blur" aria-pressed="false">Blurred fill</button>
+            </div>
+          </div>
+          <p class="hint">Presets are the sizes TikTok, Instagram Reels, YouTube and feeds expect. “Crop to fill” cuts the edges; “Pad” keeps the whole picture with black bars; “Blurred fill” blurs a copy of the video behind it.</p>
+        </div>
+        <div id="panel-speed" class="mode-panel" style="display:none">
+          <h2>Change the speed</h2>
+          <div class="chips" id="speedChips" role="group" aria-label="Speed preset">
+            <button type="button" class="chip" data-speed="0.25" aria-pressed="false">0.25×</button>
+            <button type="button" class="chip" data-speed="0.5" aria-pressed="false">0.5×</button>
+            <button type="button" class="chip" data-speed="0.75" aria-pressed="false">0.75×</button>
+            <button type="button" class="chip" data-speed="1" aria-pressed="true">1× normal</button>
+            <button type="button" class="chip" data-speed="1.25" aria-pressed="false">1.25×</button>
+            <button type="button" class="chip" data-speed="1.5" aria-pressed="false">1.5×</button>
+            <button type="button" class="chip" data-speed="2" aria-pressed="false">2×</button>
+            <button type="button" class="chip" data-speed="4" aria-pressed="false">4×</button>
+          </div>
+          <div class="slider-row" style="margin-top:16px"><label for="speedRange">Speed</label><input id="speedRange" type="range" min="0.25" max="4" step="0.25" value="1" /><output id="speedOut">1×</output></div>
+          <p class="hint">The preview plays at the chosen speed, and the exported file is re-encoded at that speed. 2× halves the length; 0.5× doubles it.</p>
+        </div>
+        <hr class="divider" />
+        <div class="actions">
+          <button type="button" class="btn" id="exportBtn">Export video (WebM)</button>
+          <button type="button" class="btn alt" id="resetBtn">Choose different videos</button>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <p class="progress-text" id="progressText">Starting…</p>
+        </div>
+        <div class="result" id="resultBox">
+          <h3>✅ Your edited video is ready</h3>
+          <p class="savings" id="resultText"></p>
+          <div class="actions">
+            <a class="btn" id="downloadLink" download="video-edited.webm" href="#">Download WebM</a>
+            <button type="button" class="btn alt" id="exportAgainBtn">Export again with different settings</button>
+          </div>
+        </div>
+        <p class="error" id="errorBox" role="alert"></p>
+        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file (the only format browsers can re-encode natively) and it is <strong>video-only, with no audio track</strong> — if you need the original sound, use a desktop editor such as Shotcut or DaVinci Resolve. Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Best on clips under a few minutes; very long or large files are slow in any browser editor.</p>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>Why resizing a video for social media is still annoying</h2>
+      <p>Creators are hunting for a CapCut replacement after features they relied on moved behind Pro and free exports got limited. The pattern repeats across the free editors people try: the first export looks free, then a watermark appears after the first export or trial credit is used up; the basics — merging clips, changing speed, exporting in 1080p — sit behind a Pro plan; and browser editors that do work fine on short clips choke on big files, losing to desktop tools past about 100 MB. What people actually want is simple: trim, merge, resize and change speed in the browser, free, with no watermark, no signup and no upload. That is exactly what this tool does — and the honest trade-offs are stated above, before you start, so the tool never surprises you after the work is done. Resizing has its own traps: one popular tool caps free resizes at 60 seconds, another allows only 20 operations a day, another needs an account before it will even start, and several upload your footage to a server first. What creators actually want is a preset for each platform — 9:16 for TikTok and Reels, 1:1 for a square feed post, 16:9 for YouTube — with a custom size when the preset does not fit, and no daily cap. That is what this tool does, in the browser, with no upload and no account.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I resize a video for TikTok or Reels?</h2>
+      <div class="answer-box"><strong>Direct answer:</strong> to resize a video for TikTok or Reels, upload it here, open the Resize mode, and pick the 9:16 preset (1080×1920). Choose crop to fill, pad with black bars, or blurred fill, then export. The resized video downloads as a WebM file — free, no signup, no watermark, and your video never uploads.</div>
+      <!-- HOW TO -->
+      <h2 style="margin-top:28px">How to resize a video in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Upload your video</h3><p>Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device.</p></div><div class="step"><span class="num">STEP 2</span><h3>Pick a size and a fit</h3><p>Choose 9:16, 1:1, 16:9, 4:5 or a custom width and height, then pick crop to fill, pad with black bars, or blurred fill.</p></div><div class="step"><span class="num">STEP 3</span><h3>Export and download</h3><p>Press Export video and wait while it re-encodes in real time. Then download the resized WebM file.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Which size for which platform — and crop, pad or blur?</h2>
+      <p><strong>Resizing a video</strong> means changing its width, height or aspect ratio so it fits where it will be watched. The sizes that matter are the ones the platforms expect: <strong>9:16 (1080×1920)</strong> is the full-screen vertical shape for TikTok, Instagram Reels and YouTube Shorts; <strong>1:1 (1080×1080)</strong> is the square post that still works across feeds; <strong>16:9 (1920×1080)</strong> is the landscape shape for YouTube and embeds; <strong>4:5 (1080×1350)</strong> is the tall feed shape that takes up more screen on Instagram without going full vertical. Picking the preset is the whole job — the tool does the re-encoding.</p>
+<p>The fit setting decides what happens to the picture that does not match the new shape. <strong>Crop to fill</strong> cuts the edges so the frame is full — best when the subject is centred and the edges are expendable, which is most talking-head and product footage. <strong>Pad with black bars</strong> keeps the whole picture and adds bars top and bottom (or at the sides) — best when nothing can be cut, like a screen recording with text at the edges. <strong>Blurred fill</strong> puts a blurred, enlarged copy of the video behind the full picture, so there are no black bars and nothing is cut — the look most creators use for landscape clips posted vertically. If your subject sits at the edge of the frame, crop will cut it; check the preview before you export.</p>
+<p>Two honest limits before you start. First, the export is WebM, not MP4, and video-only with no audio track — if the resized clip needs its original sound, use a desktop editor. Second, resizing cannot add detail that is not there: stretching a small clip to 1080×1920 will look soft, because the pixels have to be invented. For the sharpest result, start from the highest-resolution source you have, and do not upscale beyond it unless you accept the softness.</p>
+
+      <!-- FAQ -->
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+<summary>Is resizing videos online really free?</summary>
+<p>Yes. Resize as many videos as you like — no watermark, no sign-up, no daily cap and no upload. Everything runs in your browser.</p>
+</details>
+<details class="faq">
+<summary>What size should a TikTok or Reels video be?</summary>
+<p>9:16 vertical, 1080×1920 pixels. That is the preset in this tool — pick it, choose a fit mode, and export. 1:1 (1080×1080) is the square option for feed posts, and 16:9 (1920×1080) is for YouTube.</p>
+</details>
+<details class="faq">
+<summary>Should I crop, pad or use blurred fill?</summary>
+<p>Crop to fill when the subject is centred and the edges can go. Pad with black bars when nothing can be cut, like text at the edges. Blurred fill keeps the whole picture with no black bars — the most popular look for landscape clips posted vertically.</p>
+</details>
+<details class="faq">
+<summary>Why is the resized video a WebM file?</summary>
+<p>Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari. If you need an MP4, convert the WebM afterwards with HandBrake or FFmpeg.</p>
+</details>
+<details class="faq">
+<summary>Does resizing keep the original audio?</summary>
+<p>No. The export is video-only, with no audio track. If your resized clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
+</details>
+<details class="faq">
+<summary>Can I resize a video without uploading it?</summary>
+<p>Yes. This tool resizes entirely in your browser — your video never leaves your device, which is also why there is no server file-size limit, only what your browser can handle.</p>
+</details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2 style="margin-top:28px">Related questions</h2>
+      <ul class="rq-list">
+        <li><strong>How do I change a video from landscape to portrait?</strong><br>Upload it, pick the 9:16 preset, and choose crop to fill or blurred fill — free, no signup.</li><li><strong>What is the best video size for Instagram Reels?</strong><br>9:16 vertical at 1080×1920. Square 1:1 also works for feed posts.</li><li><strong>Can I resize a video to a custom size?</strong><br>Yes — pick “Custom size” and type any width and height between 160 and 1920 pixels.</li><li><strong>Will resizing a video make it blurry?</strong><br>Upscaling a small video to a bigger size softens it. Start from the highest-resolution source you have for the sharpest result.</li>
+      </ul>
+    </div>
+
+    <div class="share-box">
+      <h3>Share this free tool</h3>
+      <p class="share-line">I resized a video for TikTok free in my browser — 9:16, 1:1 or 16:9, no signup, no watermark.</p>
+      <div class="share-row">
+        <button type="button" class="share-btn" id="copyLinkBtn">Copy link</button>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=I%20resized%20a%20video%20for%20TikTok%20free%20in%20my%20browser%20%E2%80%94%209%3A16%2C%201%3A1%20or%2016%3A9%2C%20no%20signup%2C%20no%20watermark.&url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fresize-video" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fresize-video" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="share-btn" href="https://wa.me/?text=I%20resized%20a%20video%20for%20TikTok%20free%20in%20my%20browser%20%E2%80%94%209%3A16%2C%201%3A1%20or%2016%3A9%2C%20no%20signup%2C%20no%20watermark. https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fresize-video" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/video-editor" class="related-card"><h4>🎬 Video Editor</h4><p>Trim, merge, resize & speed</p></a><a href="/tools/merge-videos" class="related-card"><h4>🔗 Merge Videos</h4><p>Join clips into one video</p></a><a href="/tools/change-video-speed" class="related-card"><h4>⏩ Change Video Speed</h4><p>0.25× to 4× free</p></a><a href="/tools/video-compressor" class="related-card"><h4>🎬 Video Compressor</h4><p>Shrink videos free</p></a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+        function fmtBytes(n) { if (!isFinite(n) || n <= 0) return "\u2014"; if (n < 1024) return n + " B"; if (n < 1048576) return (n / 1024).toFixed(1) + " KB"; if (n < 1073741824) return (n / 1048576).toFixed(2) + " MB"; return (n / 1073741824).toFixed(2) + " GB"; }
+        function fmtTime(s) { if (!isFinite(s) || s <= 0) return "\u2014"; s = Math.round(s); var m = Math.floor(s / 60), r = s % 60; return m + ":" + (r < 10 ? "0" : "") + r; }
+        function showError(msg) { var e = $("errorBox"); e.style.display = "block"; e.textContent = msg; }
+        function clearError() { var e = $("errorBox"); e.style.display = "none"; e.textContent = ""; }
+
+        var state = { clips: [], active: 0, mode: "resize", trimStart: 0, trimEnd: 0, speed: 1, preset: "orig", fit: "crop", busy: false, outUrl: null };
+        var dropzone = $("dropzone"), fileInput = $("fileInput"), preview = $("vidPreview"),
+            infoGrid = $("infoGrid"), editorBlock = $("editorBlock"), fileList = $("fileList"),
+            exportBtn = $("exportBtn"), progressWrap = $("progressWrap"), progressFill = $("progressFill"),
+            progressText = $("progressText"), resultBox = $("resultBox"), resultText = $("resultText"),
+            downloadLink = $("downloadLink");
+
+        function pickMime() {
+          var cands = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          for (var i = 0; i < cands.length; i++) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {} }
+          return "";
+        }
+        function activeClip() { return state.clips[state.active] || null; }
+
+        function renderList() {
+          fileList.innerHTML = "";
+          state.clips.forEach(function (c, i) {
+            var row = document.createElement("div");
+            row.className = "file-row" + (i === state.active ? " active" : "");
+            var name = document.createElement("span"); name.className = "fname"; name.textContent = (i + 1) + ". " + c.name;
+            var meta = document.createElement("span"); meta.className = "fmeta"; meta.textContent = fmtBytes(c.size) + " \u00b7 " + fmtTime(c.duration);
+            var up = document.createElement("button"); up.type = "button"; up.textContent = "\u2191"; up.title = "Move up";
+            up.addEventListener("click", function (ev) { ev.stopPropagation(); moveClip(i, -1); });
+            var dn = document.createElement("button"); dn.type = "button"; dn.textContent = "\u2193"; dn.title = "Move down";
+            dn.addEventListener("click", function (ev) { ev.stopPropagation(); moveClip(i, 1); });
+            var rm = document.createElement("button"); rm.type = "button"; rm.textContent = "\u2715"; rm.title = "Remove";
+            rm.addEventListener("click", function (ev) { ev.stopPropagation(); removeClip(i); });
+            row.appendChild(name); row.appendChild(meta); row.appendChild(up); row.appendChild(dn); row.appendChild(rm);
+            row.addEventListener("click", function () { selectClip(i); });
+            fileList.appendChild(row);
+          });
+        }
+        function moveClip(i, d) {
+          var j = i + d;
+          if (j < 0 || j >= state.clips.length) return;
+          var t = state.clips[i]; state.clips[i] = state.clips[j]; state.clips[j] = t;
+          if (state.active === i) state.active = j; else if (state.active === j) state.active = i;
+          renderList();
+        }
+        function removeClip(i) {
+          var c = state.clips[i];
+          URL.revokeObjectURL(c.url);
+          state.clips.splice(i, 1);
+          if (!state.clips.length) { resetAll(); return; }
+          if (state.active >= state.clips.length) state.active = state.clips.length - 1;
+          else if (state.active > i) state.active -= 1;
+          selectClip(state.active);
+        }
+        function selectClip(i) {
+          state.active = i;
+          var c = activeClip();
+          preview.src = c.url;
+          preview.load();
+          preview.onloadedmetadata = function () {
+            state.trimStart = 0;
+            state.trimEnd = isFinite(c.duration) ? c.duration : 0;
+            syncTrimUI();
+            $("infoName").textContent = c.name;
+            $("infoSize").textContent = fmtBytes(c.size);
+            $("infoDuration").textContent = fmtTime(c.duration);
+            $("infoRes").textContent = c.width + " \u00d7 " + c.height;
+            infoGrid.style.display = "grid";
+            applySpeedPreview();
+          };
+          renderList();
+        }
+        function syncTrimUI() {
+          var c = activeClip(); if (!c) return;
+          var d = c.duration || 0;
+          var ts = $("trimStart"), te = $("trimEnd");
+          ts.max = d; te.max = d;
+          ts.value = Math.min(state.trimStart, d);
+          te.value = Math.min(state.trimEnd, d);
+          $("trimStartOut").textContent = fmtTime(state.trimStart);
+          $("trimEndOut").textContent = fmtTime(state.trimEnd);
+          $("trimHint").textContent = "Only the part between Start and End is exported (" + fmtTime(Math.max(0, state.trimEnd - state.trimStart)) + " of " + fmtTime(d) + ").";
+        }
+        function loadFiles(files) {
+          clearError();
+          resultBox.style.display = "none";
+          progressWrap.style.display = "none";
+          var added = 0;
+          Array.prototype.forEach.call(files, function (file) {
+            if (!file.type || file.type.indexOf("video/") !== 0) { showError("\"" + file.name + "\" doesn't look like a video file. Please choose MP4, MOV, WebM or another video file."); return; }
+            var url = URL.createObjectURL(file);
+            var probe = document.createElement("video");
+            probe.preload = "metadata";
+            probe.onloadedmetadata = function () {
+              if (!isFinite(probe.duration) || probe.duration <= 0 || !probe.videoWidth) {
+                showError("\"" + file.name + "\" could not be read (no playable video track). Try an MP4 version of the same clip.");
+                URL.revokeObjectURL(url);
+                return;
+              }
+              state.clips.push({ file: file, url: url, name: file.name, size: file.size, duration: probe.duration, width: probe.videoWidth, height: probe.videoHeight });
+              added++;
+              renderList();
+              editorBlock.style.display = "block";
+              if (state.clips.length === 1) selectClip(0);
+              else if (state.active >= state.clips.length) selectClip(state.clips.length - 1);
+            };
+            probe.onerror = function () { showError("Your browser couldn't play \"" + file.name + "\". Try an MP4 version of the same clip."); URL.revokeObjectURL(url); };
+            probe.src = url;
+          });
+        }
+        function setMode(m) {
+          state.mode = m;
+          var tabs = document.querySelectorAll("#modeTabs .mode-tab");
+          tabs.forEach(function (t) { t.setAttribute("aria-pressed", t.getAttribute("data-mode") === m ? "true" : "false"); });
+          ["trim", "merge", "resize", "speed"].forEach(function (k) { $("panel-" + k).style.display = (k === m ? "block" : "none"); });
+          if (m === "speed") applySpeedPreview();
+          else { preview.playbackRate = 1; }
+        }
+        function applySpeedPreview() {
+          if (state.mode === "speed") preview.playbackRate = state.speed;
+        }
+        function outDimsFor(clip) {
+          var w = clip.width, h = clip.height;
+          if (state.mode === "resize") {
+            if (state.preset === "9:16") { w = 1080; h = 1920; }
+            else if (state.preset === "1:1") { w = 1080; h = 1080; }
+            else if (state.preset === "16:9") { w = 1920; h = 1080; }
+            else if (state.preset === "4:5") { w = 1080; h = 1350; }
+            else if (state.preset === "custom") {
+              w = parseInt($("customW").value, 10) || clip.width;
+              h = parseInt($("customH").value, 10) || clip.height;
+              w = Math.max(160, Math.min(1920, w)); h = Math.max(160, Math.min(1920, h));
+            }
+          }
+          var f = 1;
+          if (w > 1920 || h > 1920) f = Math.min(1920 / w, 1920 / h);
+          w = Math.max(2, Math.round(w * f)); h = Math.max(2, Math.round(h * f));
+          if (w % 2) w -= 1;
+          if (h % 2) h -= 1;
+          return { w: w, h: h };
+        }
+        function drawCover(ctx, src, W, H) {
+          var vw = src.videoWidth, vh = src.videoHeight;
+          if (!vw || !vh) return;
+          var s = Math.max(W / vw, H / vh);
+          var dw = vw * s, dh = vh * s;
+          ctx.drawImage(src, (W - dw) / 2, (H - dh) / 2, dw, dh);
+        }
+        function drawFrame(ctx, src, W, H) {
+          var fit = (state.mode === "resize") ? state.fit : "crop";
+          if (fit === "pad") {
+            ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+            var vw = src.videoWidth, vh = src.videoHeight;
+            var s = Math.min(W / vw, H / vh);
+            var dw = vw * s, dh = vh * s;
+            ctx.drawImage(src, (W - dw) / 2, (H - dh) / 2, dw, dh);
+          } else if (fit === "blur") {
+            ctx.save();
+            try { ctx.filter = "blur(24px) brightness(0.7)"; } catch (e) {}
+            drawCover(ctx, src, W, H);
+            ctx.restore();
+            try { ctx.filter = "none"; } catch (e) {}
+            var vw2 = src.videoWidth, vh2 = src.videoHeight;
+            var s2 = Math.min(W / vw2, H / vh2);
+            var dw2 = vw2 * s2, dh2 = vh2 * s2;
+            ctx.drawImage(src, (W - dw2) / 2, (H - dh2) / 2, dw2, dh2);
+          } else {
+            drawCover(ctx, src, W, H);
+          }
+        }
+        function playSegment(seg, ctx, W, H, onProg) {
+          return new Promise(function (resolve, reject) {
+            var src = document.createElement("video");
+            src.muted = true; src.playsInline = true; src.preload = "auto"; src.src = seg.clip.url;
+            var raf = 0, done = false;
+            function finish() {
+              if (done) return; done = true;
+              cancelAnimationFrame(raf);
+              try { src.pause(); } catch (e) {}
+              src.removeAttribute("src"); src.load();
+              resolve();
+            }
+            function loop() {
+              if (done) return;
+              if (src.readyState >= 2) {
+                drawFrame(ctx, src, W, H);
+                onProg(src.currentTime);
+                if (src.currentTime >= seg.end - 0.03 || src.ended) { finish(); return; }
+              }
+              raf = requestAnimationFrame(loop);
+            }
+            src.onloadedmetadata = function () {
+              var start = Math.min(seg.start, Math.max(0, src.duration - 0.05));
+              src.currentTime = start;
+              var onSeek = function () {
+                src.removeEventListener("seeked", onSeek);
+                src.playbackRate = seg.rate;
+                var p = src.play();
+                if (p && p.catch) p.catch(function () { reject(new Error("Playback was blocked by the browser. Click Export again.")); });
+                loop();
+              };
+              src.addEventListener("seeked", onSeek);
+            };
+            src.onerror = function () { if (!done) { done = true; cancelAnimationFrame(raf); reject(new Error("The video could not be played back for export. Try an MP4 version of the same clip.")); } };
+            src.load();
+          });
+        }
+        async function doExport() {
+          if (state.busy || !state.clips.length) return;
+          clearError();
+          resultBox.style.display = "none";
+          if (typeof MediaRecorder === "undefined") { showError("This browser can't record video (MediaRecorder is not supported). Try Chrome, Edge or Firefox."); return; }
+          var canvas = document.createElement("canvas");
+          if (typeof canvas.captureStream !== "function") { showError("This browser can't capture video from a canvas. Try Chrome or Firefox."); return; }
+          var first = state.mode === "merge" ? state.clips[0] : activeClip();
+          var dims = outDimsFor(first);
+          canvas.width = dims.w; canvas.height = dims.h;
+          var ctx = canvas.getContext("2d");
+          var segments = [];
+          if (state.mode === "trim") {
+            var c = activeClip();
+            var s = Math.max(0, Math.min(state.trimStart, c.duration - 0.1));
+            var e = Math.max(s + 0.1, Math.min(state.trimEnd, c.duration));
+            segments = [{ clip: c, start: s, end: e, rate: 1 }];
+          } else if (state.mode === "merge") {
+            segments = state.clips.map(function (cl) { return { clip: cl, start: 0, end: cl.duration, rate: 1 }; });
+          } else if (state.mode === "speed") {
+            var c2 = activeClip();
+            segments = [{ clip: c2, start: 0, end: c2.duration, rate: state.speed }];
+          } else {
+            var c3 = activeClip();
+            segments = [{ clip: c3, start: 0, end: c3.duration, rate: 1 }];
+          }
+          var totalDur = 0;
+          segments.forEach(function (sg) { totalDur += (sg.end - sg.start) / sg.rate; });
+          if (totalDur <= 0) { showError("Nothing to export — check the trim range or the clip length."); return; }
+          var mime = pickMime();
+          var stream;
+          try { stream = canvas.captureStream(30); } catch (e) { showError("Could not start the video capture stream in this browser. Try Chrome or Firefox."); return; }
+          var rec;
+          try {
+            rec = mime ? new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 5000000 })
+                       : new MediaRecorder(stream, { videoBitsPerSecond: 5000000 });
+          } catch (e) { showError("Your browser refused to start the video recorder (" + (e && e.message ? e.message : e) + "). Try Chrome or Firefox."); return; }
+          var chunks = [];
+          rec.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+          rec.onerror = function () {
+            state.busy = false; exportBtn.disabled = false; progressWrap.style.display = "none";
+            showError("The browser's encoder reported an error part-way through. Try a shorter clip or a different browser.");
+          };
+          var doneDur = 0;
+          rec.onstop = function () {
+            state.busy = false; exportBtn.disabled = false; progressWrap.style.display = "none";
+            var blob = new Blob(chunks, { type: "video/webm" });
+            if (!blob.size) { showError("The encoder produced an empty file. Try a different video or browser."); return; }
+            if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+            state.outUrl = URL.createObjectURL(blob);
+            var base = (first.name || "video").replace(/\.[^.]+$/, "") || "video";
+            var modeName = { trim: "trimmed", merge: "merged", resize: "resized", speed: "speed-changed" }[state.mode];
+            downloadLink.href = state.outUrl;
+            downloadLink.download = base + "-" + modeName + ".webm";
+            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + dims.w + " \u00d7 " + dims.h + " \u00b7 " + fmtTime(totalDur) + " \u00b7 WebM (" + (mime || "browser default") + "), video-only (no audio track).";
+            resultBox.style.display = "block";
+            resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            toast("Export finished — " + fmtBytes(blob.size));
+          };
+          state.busy = true;
+          exportBtn.disabled = true;
+          progressWrap.style.display = "block";
+          progressFill.style.width = "0%";
+          progressText.textContent = "Starting\u2026 export runs in real time (about " + fmtTime(totalDur) + "). Keep this tab open.";
+          try {
+            rec.start(500);
+            for (var i = 0; i < segments.length; i++) {
+              var sg = segments[i];
+              var segStart = doneDur;
+              await playSegment(sg, ctx, dims.w, dims.h, function (ct) {
+                var played = Math.max(0, (ct - sg.start)) / sg.rate;
+                var p = totalDur > 0 ? Math.min(100, (segStart + played) / totalDur * 100) : 0;
+                progressFill.style.width = p.toFixed(1) + "%";
+                progressText.textContent = "Exporting\u2026 " + Math.round(p) + "% — keep this tab open.";
+              });
+              doneDur += (sg.end - sg.start) / sg.rate;
+            }
+            progressFill.style.width = "100%";
+            progressText.textContent = "Finishing up\u2026";
+            try { rec.stop(); } catch (e) {}
+          } catch (e) {
+            state.busy = false; exportBtn.disabled = false; progressWrap.style.display = "none";
+            try { if (rec.state !== "inactive") rec.stop(); } catch (e2) {}
+            showError(e && e.message ? e.message : String(e));
+          }
+        }
+        function resetAll() {
+          state.clips.forEach(function (c) { URL.revokeObjectURL(c.url); });
+          state.clips = []; state.active = 0;
+          if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; }
+          fileInput.value = "";
+          preview.removeAttribute("src"); preview.style.display = "none"; preview.load();
+          infoGrid.style.display = "none"; editorBlock.style.display = "none";
+          resultBox.style.display = "none"; progressWrap.style.display = "none";
+          fileList.innerHTML = "";
+          clearError();
+        }
+        dropzone.addEventListener("click", function () { fileInput.click(); });
+        dropzone.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fileInput.click(); } });
+        fileInput.addEventListener("change", function () { if (fileInput.files && fileInput.files.length) loadFiles(fileInput.files); });
+        ["dragenter", "dragover"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.add("over"); }); });
+        ["dragleave", "drop"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.remove("over"); }); });
+        dropzone.addEventListener("drop", function (ev) { var f = ev.dataTransfer && ev.dataTransfer.files; if (f && f.length) loadFiles(f); });
+        preview.addEventListener("loadedmetadata", function () { preview.style.display = "block"; });
+        $("modeTabs").addEventListener("click", function (ev) { var b = ev.target.closest(".mode-tab"); if (!b || state.busy) return; setMode(b.getAttribute("data-mode")); });
+        $("trimStart").addEventListener("input", function () { state.trimStart = parseFloat(this.value); if (state.trimStart > state.trimEnd - 0.1) { state.trimEnd = Math.min(state.trimStart + 0.1, parseFloat(this.max)); } syncTrimUI(); });
+        $("trimEnd").addEventListener("input", function () { state.trimEnd = parseFloat(this.value); if (state.trimEnd < state.trimStart + 0.1) { state.trimStart = Math.max(0, state.trimEnd - 0.1); } syncTrimUI(); });
+        $("playTrimBtn").addEventListener("click", function () {
+          var c = activeClip(); if (!c) return;
+          preview.currentTime = state.trimStart;
+          preview.play();
+          var h = function () { if (preview.currentTime >= state.trimEnd) { preview.pause(); preview.removeEventListener("timeupdate", h); } };
+          preview.addEventListener("timeupdate", h);
+        });
+        $("resizeChips").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".chip"); if (!b) return;
+          state.preset = b.getAttribute("data-preset");
+          var chips = this.querySelectorAll(".chip");
+          chips.forEach(function (ch) { ch.setAttribute("aria-pressed", ch === b ? "true" : "false"); });
+          $("customSize").style.display = state.preset === "custom" ? "block" : "none";
+        });
+        $("fitChips").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".chip"); if (!b) return;
+          state.fit = b.getAttribute("data-fit");
+          var chips = this.querySelectorAll(".chip");
+          chips.forEach(function (ch) { ch.setAttribute("aria-pressed", ch === b ? "true" : "false"); });
+        });
+        function setSpeed(v) {
+          state.speed = v;
+          $("speedRange").value = v;
+          $("speedOut").textContent = v + "\u00d7";
+          var chips = document.querySelectorAll("#speedChips .chip");
+          chips.forEach(function (ch) { ch.setAttribute("aria-pressed", parseFloat(ch.getAttribute("data-speed")) === v ? "true" : "false"); });
+          applySpeedPreview();
+        }
+        $("speedChips").addEventListener("click", function (ev) { var b = ev.target.closest(".chip"); if (!b) return; setSpeed(parseFloat(b.getAttribute("data-speed"))); });
+        $("speedRange").addEventListener("input", function () { setSpeed(parseFloat(this.value)); });
+        exportBtn.addEventListener("click", doExport);
+        $("exportAgainBtn").addEventListener("click", function () { resultBox.style.display = "none"; if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; } exportBtn.disabled = false; window.scrollTo({ top: editorBlock.offsetTop - 20, behavior: "smooth" }); });
+        $("resetBtn").addEventListener("click", function () { if (!state.busy) resetAll(); });
+
+        var _clb = document.getElementById("copyLinkBtn");
+        if (_clb) _clb.addEventListener("click", function () {
+          var u = location.href;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(u).then(function () { toast("Link copied — paste it anywhere."); },
+              function () { toast("Copy was blocked — long-press the address bar to copy the link."); });
+          } else { toast("Copy isn't supported in this browser."); }
+        });
+
+      })();
+
+</script>
+  </body>
+</html>

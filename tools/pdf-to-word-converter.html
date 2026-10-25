@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free PDF to Word Converter — No Signup | PixDetector</title>
+<meta name="description" content="Convert PDF to Word (.docx) free in your browser. No signup, no upload — your file never leaves your device. Text only.">
+<meta name="keywords" content="pdf to word converter, free pdf to word, convert pdf to docx, pdf to word free, pdf to docx converter">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/pdf-to-word-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/pdf-to-word-converter">
+<meta property="og:title" content="Free PDF to Word Converter — No Signup | PixDetector">
+<meta property="og:description" content="Convert PDF to Word (.docx) free in your browser. No signup, no upload — your file never leaves your device. Text only.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this PDF to Word converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can convert PDFs to Word documents with no signup, no payment, no watermark and no page limit on this page. The conversion runs in your browser, so your file never leaves your device." } },
+    { "@type": "Question", "name": "Will my PDF layout survive the conversion?", "acceptedAnswer": { "@type": "Answer", "text": "Plain text, headings and paragraphs carry over well. Complex layouts — multi-column pages, tables with merged cells, unusual fonts — never convert perfectly in any converter. Open the Word file afterwards and tidy up the layout." } },
+    { "@type": "Question", "name": "Can I convert a scanned PDF to Word?", "acceptedAnswer": { "@type": "Answer", "text": "Not with this tool. A scanned PDF is a picture of text, not real text, so plain text extraction returns nothing useful. Scanned PDFs need OCR (optical character recognition) first, which this browser-only converter does not do." } },
+    { "@type": "Question", "name": "Is my PDF uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The PDF is read and converted entirely in your browser using pdf.js and the docx library. Nothing is uploaded, stored, or shared." } },
+    { "@type": "Question", "name": "Why is my converted Word file mostly text?", "acceptedAnswer": { "@type": "Answer", "text": "This converter extracts the text from your PDF and rebuilds it as a Word document, one paragraph per line, with a page break between PDF pages. It keeps the words, not the original design — images, exact fonts and column layouts are not carried over." } },
+    { "@type": "Question", "name": "What is the difference between the .docx and .txt downloads?", "acceptedAnswer": { "@type": "Answer", "text": "The .docx file opens in Word or Google Docs as an editable document with paragraphs and page breaks. The .txt file is the same plain text with no formatting, useful for pasting into other apps." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert PDF to Word",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Choose a PDF file. It is read in your browser and never uploaded." },
+    { "@type": "HowToStep", "name": "Convert it", "text": "Press Convert to Word. The text is extracted page by page and rebuilt as a Word document." },
+    { "@type": "HowToStep", "name": "Download the Word file", "text": "Download the .docx file, open it in Word or Google Docs, and tidy up the layout if needed." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      PDF to Word Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>Free PDF to Word Converter</h1>
+      <p>Convert a PDF to an editable Word (.docx) file free, with no signup, no upload and no watermark. Your file never leaves your device — the whole conversion runs in your browser.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> this converter extracts <strong>text only</strong>. <strong>Scanned or image PDFs need OCR</strong> — plain text extraction returns empty or garbage for them. <strong>Complex layouts never convert perfectly</strong> (multi-column pages, tables with merged cells, unusual fonts) — check and tidy up the Word file afterwards. What you get is real, editable text in a genuine .docx file, not a picture of your PDF.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="PDF to Word converter">
+        <h2>Convert your PDF</h2>
+        <label class="flabel" for="pdfFile">Choose a PDF file</label>
+        <input type="file" id="pdfFile" accept="application/pdf,.pdf">
+        <div class="drop" id="dropZone">Or drag and drop your PDF here.<br>It is read in your browser — nothing is uploaded.</div>
+        <p class="status" id="status">No file chosen yet.</p>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+        <div class="actions">
+          <button type="button" class="btn" id="convertBtn" disabled>Convert to Word</button>
+          <button type="button" class="btn alt" id="dlDocx" disabled>Download .docx</button>
+          <button type="button" class="btn alt" id="dlTxt" disabled>Download .txt</button>
+        </div>
+        <p class="trust">Free, no signup, no watermark. Text only — images and exact layout are not carried over.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Convert PDF to Word free in your browser — no signup, no upload, your file never leaves your device.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <a href="https://twitter.com/intent/tweet?text=Convert%20PDF%20to%20Word%20free%20in%20your%20browser%20%E2%80%94%20no%20signup%2C%20no%20upload&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpdf-to-word-converter" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpdf-to-word-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Convert%20PDF%20to%20Word%20free%20in%20your%20browser%20%E2%80%94%20no%20signup%2C%20no%20upload%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpdf-to-word-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: "free" converters that charge you after the upload</h2>
+      <p>The most common complaint about PDF to Word converters is not quality — it is the paywall that appears after the work is done. You upload your file, wait for the conversion, and only then discover the download needs an account, a trial, or a payment. One widely shared video demoing a "free" conversion drew exactly that reaction in the comments: the tool it showed required payment, and viewers called it misleading. The second complaint is formatting: tables shift, columns collapse, fonts change, and scanned PDFs come back empty or garbled. People want a converter that is genuinely free, needs no account, keeps their document private, and tells them honestly what will and will not survive.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert a PDF to Word for free?</h2>
+      <p>Upload your PDF here, press Convert to Word, and download a real .docx file — free, with no signup and no upload, because the conversion runs entirely in your browser. The tool reads the text from each page of your PDF and rebuilds it as an editable Word document, one paragraph per line, with a page break between pages. It works best on normal text PDFs such as reports, letters, CVs and essays; scanned PDFs and complex multi-column layouts will need extra work afterwards.</p>
+      <p>A PDF to Word converter is a tool that turns the fixed text of a PDF back into an editable document. A PDF stores text as positioned fragments on a page, not as flowing paragraphs, so every converter has to guess where lines and paragraphs belong. That is why no converter — free or paid — reproduces a complicated layout exactly, and why the honest promise is editable text, not a pixel-perfect copy.</p>
+      <!-- HOW TO -->
+      <h2>How to convert PDF to Word in 3 steps</h2>
+      <p><strong>Step 1:</strong> choose a PDF file (or drag it onto the drop zone). It is read in your browser and never uploaded. <strong>Step 2:</strong> press Convert to Word and wait a few seconds while the text is extracted page by page. <strong>Step 3:</strong> download the .docx file — or the plain .txt version — open it in Word or Google Docs, and tidy up headings, spacing and tables.</p>
+      <h2>What carries over — and what does not</h2>
+      <p>Plain text carries over well: paragraphs, headings, lists and the order of the words. What does not carry over is the original design — exact fonts, colours, column layouts, embedded images and precise table borders are lost, because this tool extracts text only. Simple tables often survive as lines of text, but merged cells and multi-column pages will need rebuilding by hand. If your document is mostly text, the result is ready to edit in minutes. If it is a designed brochure or a form, treat the conversion as a fast first draft, not a finished file.</p>
+      <h2>Why your file stays private here</h2>
+      <p>Most online converters upload your PDF to a server, convert it there, and keep a copy for some period — which is a real risk for CVs, contracts and personal documents. This page does the opposite: the PDF is read with pdf.js in your own browser, the Word file is built with the docx library in your own browser, and nothing ever leaves your device. There is no account to create, no file-size paywall, and no watermark stamped on your document.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this PDF to Word converter really free?</summary>
+        <p>Yes. You can convert PDFs to Word documents with no signup, no payment, no watermark and no page limit on this page. The conversion runs in your browser, so your file never leaves your device.</p>
+      </details>
+      <details class="faq">
+        <summary>Will my PDF layout survive the conversion?</summary>
+        <p>Plain text, headings and paragraphs carry over well. Complex layouts — multi-column pages, tables with merged cells, unusual fonts — never convert perfectly in any converter. Open the Word file afterwards and tidy up the layout.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a scanned PDF to Word?</summary>
+        <p>Not with this tool. A scanned PDF is a picture of text, not real text, so plain text extraction returns nothing useful. Scanned PDFs need OCR (optical character recognition) first, which this browser-only converter does not do.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my PDF uploaded to a server?</summary>
+        <p>No. The PDF is read and converted entirely in your browser using pdf.js and the docx library. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is my converted Word file mostly text?</summary>
+        <p>This converter extracts the text from your PDF and rebuilds it as a Word document, one paragraph per line, with a page break between PDF pages. It keeps the words, not the original design — images, exact fonts and column layouts are not carried over.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between the .docx and .txt downloads?</summary>
+        <p>The .docx file opens in Word or Google Docs as an editable document with paragraphs and page breaks. The .txt file is the same plain text with no formatting, useful for pasting into other apps.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I convert PDF to Word without Adobe?</strong> Yes — this page does it free in your browser, no Adobe account or software needed.</p>
+      <p><strong>Why does my PDF convert with strange line breaks?</strong> PDFs store text as positioned fragments, so long lines are sometimes split. Join the lines in Word after converting.</p>
+      <p><strong>Can I edit the converted file in Google Docs?</strong> Yes — upload the .docx to Google Drive and open it with Google Docs.</p>
+      <p><strong>What if my PDF is password-protected?</strong> Password-protected PDFs cannot be read by this tool. Remove the password in your PDF reader first, if you own the file.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/pdf-to-excel-converter" class="related-card"><h4>📊 PDF to Excel Converter</h4><p>PDF tables to spreadsheets</p></a><a href="/tools/file-converter" class="related-card"><h4>🔄 File Converter</h4><p>Convert files free</p></a><a href="/tools/image-to-text-converter" class="related-card"><h4>🔤 Image to Text</h4><p>Extract text from images</p></a><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/pdf.min.js"></script>
+<script src="../js/docx.umd.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  if (typeof pdfjsLib !== "undefined") { pdfjsLib.GlobalWorkerOptions.workerSrc = "../js/pdf.worker.min.js"; }
+  var file = null, pages = [], baseName = "document";
+  function showError(msg) { var e = $("errorBox"); e.hidden = false; e.textContent = msg; }
+  function clearError() { $("errorBox").hidden = true; }
+  function setFile(f) {
+    clearError();
+    if (!f) return;
+    if (!/\.pdf$/i.test(f.name) && f.type !== "application/pdf") { showError("Please choose a PDF file."); return; }
+    file = f; pages = [];
+    baseName = f.name.replace(/\.pdf$/i, "") || "document";
+    $("status").textContent = "Chosen: " + f.name + " (" + Math.round(f.size / 1024) + " KB). Press Convert to Word.";
+    $("convertBtn").disabled = false;
+    $("dlDocx").disabled = true; $("dlTxt").disabled = true;
+  }
+  $("pdfFile").addEventListener("change", function () { setFile(this.files[0]); });
+  var dz = $("dropZone");
+  dz.addEventListener("dragover", function (e) { e.preventDefault(); dz.classList.add("over"); });
+  dz.addEventListener("dragleave", function () { dz.classList.remove("over"); });
+  dz.addEventListener("drop", function (e) { e.preventDefault(); dz.classList.remove("over"); if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]); });
+  function saveBlob(blob, name) { var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400); }
+  $("convertBtn").addEventListener("click", function () {
+    if (!file) return;
+    clearError();
+    if (typeof pdfjsLib === "undefined") { showError("The PDF reader could not be loaded. Reload the page and try again."); return; }
+    $("status").textContent = "Reading your PDF…";
+    $("convertBtn").disabled = true;
+    var reader = new FileReader();
+    reader.onload = function () {
+      pdfjsLib.getDocument({ data: new Uint8Array(reader.result) }).promise.then(function (pdf) {
+        var total = pdf.numPages, jobs = [], allText = [];
+        for (var p = 1; p <= total; p++) {
+          jobs.push(pdf.getPage(p).then(function (page) {
+            return page.getTextContent().then(function (tc) {
+              var lines = {}, order = [];
+              tc.items.forEach(function (it) {
+                var y = Math.round(it.transform[5]);
+                if (!lines[y]) { lines[y] = []; order.push(y); }
+                lines[y].push(it.str);
+              });
+              order.sort(function (a, b) { return b - a; });
+              return order.map(function (y) { return lines[y].join(""); }).filter(function (s) { return s.trim(); });
+            });
+          }));
+        }
+        return Promise.all(jobs).then(function (res) { return { total: total, pages: res }; });
+      }).then(function (out) {
+        pages = out.pages;
+        var chars = 0; pages.forEach(function (pg) { pg.forEach(function (l) { chars += l.length; }); });
+        if (chars === 0) {
+          $("status").textContent = "This PDF has no extractable text — it is probably a scanned or image PDF, which needs OCR. No Word file was created.";
+          showError("No text found in this PDF. Scanned/image PDFs need OCR, which this tool does not do.");
+          $("convertBtn").disabled = false;
+          return;
+        }
+        $("status").textContent = "Done — " + out.total + " page(s), " + chars.toLocaleString() + " characters extracted. Download your Word file below.";
+        $("dlDocx").disabled = false; $("dlTxt").disabled = false;
+        $("convertBtn").disabled = false;
+        toast("Conversion complete.");
+      }).catch(function (e) {
+        $("status").textContent = "Conversion failed.";
+        showError("Could not read this PDF (" + (e && e.message ? e.message : "unknown error") + "). It may be damaged or password-protected.");
+        $("convertBtn").disabled = false;
+      });
+    };
+    reader.readAsArrayBuffer(file);
+  });
+  $("dlDocx").addEventListener("click", function () {
+    if (!pages.length || typeof docx === "undefined") { showError("The Word builder could not be loaded. Reload the page and try again."); return; }
+    var children = [];
+    pages.forEach(function (pg, i) {
+      pg.forEach(function (line) { children.push(new docx.Paragraph({ children: [new docx.TextRun(line)] })); });
+      if (i < pages.length - 1) children.push(new docx.Paragraph({ children: [], pageBreakBefore: true }));
+    });
+    var doc = new docx.Document({ sections: [{ children: children }] });
+    docx.Packer.toBlob(doc).then(function (blob) { saveBlob(blob, baseName + ".docx"); toast("Word file downloaded."); }).catch(function () { showError("Could not build the Word file. Try the .txt download instead."); });
+  });
+  $("dlTxt").addEventListener("click", function () {
+    if (!pages.length) return;
+    var text = pages.map(function (pg) { return pg.join("\n"); }).join("\n\n");
+    saveBlob(new Blob([text], { type: "text/plain;charset=utf-8" }), baseName + ".txt");
+    toast("Text file downloaded.");
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+})();
+</script>
+</body>
+</html>

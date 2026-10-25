@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Meme Generator — No Watermark | PixDetector</title>
+<meta name="description" content="Make memes free: upload your image, add top and bottom text, download a PNG. No watermark, no signup, no templates needed.">
+<meta name="keywords" content="meme generator, free meme maker, make a meme, meme creator online, meme generator no watermark, top bottom text meme">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/meme-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/meme-generator">
+<meta property="og:title" content="Free Meme Generator — No Watermark | PixDetector">
+<meta property="og:description" content="Make memes free: upload your image, add top and bottom text, download a PNG. No watermark, no signup, no templates needed.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this meme generator really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload your image, add top and bottom text, and download a clean PNG — free, with no signup, no watermark and no account needed." } },
+    { "@type": "Question", "name": "Why do other meme makers add a watermark?", "acceptedAnswer": { "@type": "Answer", "text": "Big meme sites stamp a watermark on free exports and charge a monthly fee to remove it — for example, one popular site charges about $11.95 a month for clean downloads. This tool runs in your browser and never stamps anything on your meme." } },
+    { "@type": "Question", "name": "Can I use a trending meme template here?", "acceptedAnswer": { "@type": "Answer", "text": "Bring your own image: save any template or screenshot you have the right to use, upload it here, and add your text. This browser-only tool has no built-in template catalogue, so it cannot offer the million-template library of the big sites." } },
+    { "@type": "Question", "name": "What size should a meme be for TikTok or Reels?", "acceptedAnswer": { "@type": "Answer", "text": "Use the 9:16 vertical option in this tool — it fits the full phone screen on TikTok and Instagram Reels. Square memes work best for feeds and group chats." } },
+    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is drawn on a canvas in your browser and downloaded from there. Nothing is uploaded, stored, or shared." } },
+    { "@type": "Question", "name": "Can I make a GIF meme here?", "acceptedAnswer": { "@type": "Answer", "text": "Not yet — this tool makes still PNG memes. Animated GIF captions need a different tool; a still image with good top and bottom text works everywhere a GIF would." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to make a meme",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your image", "text": "Choose any image or meme template you have the right to use. It stays in your browser." },
+    { "@type": "HowToStep", "name": "Add your top and bottom text", "text": "Type your joke, set the size and colour, and pick square or 9:16 vertical." },
+    { "@type": "HowToStep", "name": "Download the PNG", "text": "Download your meme as a clean PNG with no watermark and share it anywhere." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=text],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+#memeCanvas{max-width:100%;border-radius:10px;display:block;margin:0 auto;background:#000}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Meme Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Meme Generator</h1>
+      <p>Make a meme in seconds: upload your image, add top and bottom text, download a clean PNG. No watermark, no signup, no account.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> this browser-only tool has <strong>no 1M-template catalogue</strong> like the big meme sites — <strong>you bring your own image</strong> (any template or screenshot you have the right to use). It also <strong>cannot auto-generate funny captions</strong> — your own joke is better than any generator's. What it does do: a clean, watermark-free PNG in seconds, with no account.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Meme settings">
+        <h2>Your meme</h2>
+        <label class="flabel" for="imgFile">Upload an image (your own template or photo)</label>
+        <input type="file" id="imgFile" accept="image/*">
+        <div style="margin-top:16px">
+          <label class="flabel" for="topText">Top text</label>
+          <input type="text" id="topText" value="WHEN THE WIFI GOES DOWN" autocomplete="off">
+        </div>
+        <div style="margin-top:12px">
+          <label class="flabel" for="bottomText">Bottom text</label>
+          <input type="text" id="bottomText" value="AND EVERYONE LOOKS AT YOU" autocomplete="off">
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div>
+            <label class="flabel" for="fontSize">Text size: <span id="sizeOut">48px</span></label>
+            <input type="range" id="fontSize" min="20" max="120" value="48">
+          </div>
+          <div>
+            <label class="flabel" for="textColor">Text colour</label>
+            <input type="color" id="textColor" value="#ffffff" style="width:100%;height:40px;padding:2px;background:var(--bg2);border:1px solid var(--border2);border-radius:8px">
+          </div>
+        </div>
+        <span class="flabel" style="margin-top:16px">Shape</span>
+        <div class="chips" id="shapeChips">
+          <button type="button" class="chip" data-shape="square" aria-pressed="true">Square (feed / chat)</button>
+          <button type="button" class="chip" data-shape="vertical" aria-pressed="false">Vertical 9:16 (TikTok / Reels)</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="dlBtn" disabled>Download meme PNG</button>
+        </div>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+        <p class="trust">Free, no signup, no watermark. Only use images you have the right to share.</p>
+      </div>
+      <div class="bc-panel" aria-label="Meme preview">
+        <h2>Preview</h2>
+        <canvas id="memeCanvas" width="600" height="600"></canvas>
+        <p class="meta-line" id="metaLine">Upload an image to see your meme. The classic Impact-style text is drawn with a black outline so it reads on any photo.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Make memes free — upload your image, add top and bottom text, download a clean PNG. No watermark, no signup.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <a href="https://twitter.com/intent/tweet?text=Make%20memes%20free%20%E2%80%94%20no%20watermark%2C%20no%20signup%2C%20just%20your%20joke%20on%20a%20PNG&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmeme-generator" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmeme-generator" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Make%20memes%20free%20%E2%80%94%20no%20watermark%2C%20no%20signup%2C%20just%20your%20joke%20on%20a%20PNG%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmeme-generator" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: the watermark appears after the joke is written</h2>
+      <p>The most common meme-maker complaint is the same as with PDF converters: the free part ends at the download button. One big site stamps its watermark on every free export and charges about $11.95 a month to remove it. Others push you to create an account before you can download anything clean. Smaller free tools avoid the paywall but limit you to two fonts, or no GIF captions at all. People want something simpler: pick a trending template, type the joke, download a clean meme in seconds — no account, no watermark, no surprise at the end.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I make a meme for free with no watermark?</h2>
+      <p>Upload your image here, type your top and bottom text, choose square or vertical 9:16, and download a clean PNG — free, with no signup and no watermark, because the meme is drawn in your browser. Bring any template or photo you have the right to use; the classic bold white text with a black outline is drawn over it so it reads on any picture. Your own joke beats any auto-generated caption, and there is no account standing between you and the download.</p>
+      <p>A meme generator is a tool that puts caption text on an image — usually one line at the top that sets the scene and one at the bottom that delivers the punchline. The classic style is heavy, condensed, all-caps text in white with a thick black outline, which stays readable over bright and dark photos alike. Good memes are short: if the joke needs more than two lines, it is probably two memes.</p>
+      <!-- HOW TO -->
+      <h2>How to make a meme in 3 steps</h2>
+      <p><strong>Step 1:</strong> upload your image — a saved template, a screenshot, or your own photo (only use images you have the right to share). <strong>Step 2:</strong> type the top line (the setup) and the bottom line (the punchline), set the size and colour, and pick square for feeds and chats or 9:16 vertical for TikTok and Reels. <strong>Step 3:</strong> download the PNG and share it — no watermark, no account, no waiting.</p>
+      <h2>What makes a meme actually funny?</h2>
+      <p>Short beats long: the best memes are one setup line and one punchline, both readable in two seconds. Specific beats generic: "when the Wi-Fi goes down during the final" lands harder than "when the Wi-Fi goes down". The picture should do half the work — pick an image whose face or situation already tells the story, then let the text finish it. And check it on your phone before posting: text that fits on a desktop preview can cover the whole face on a small screen, so keep the size moderate and the lines short.</p>
+      <h2>Square or vertical — which one?</h2>
+      <p>Square fits feeds, group chats and most repost accounts, and it survives being cropped by almost any platform. Vertical 9:16 fills the whole phone screen on TikTok and Instagram Reels, which is where most memes are seen now — but it looks wrong in a square feed. This tool draws the same meme in either shape: the image is fitted to the shape you pick, so a wide photo in vertical mode will have space above and below it, and the text sits where it can be read.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this meme generator really free?</summary>
+        <p>Yes. Upload your image, add top and bottom text, and download a clean PNG — free, with no signup, no watermark and no account needed.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do other meme makers add a watermark?</summary>
+        <p>Big meme sites stamp a watermark on free exports and charge a monthly fee to remove it — for example, one popular site charges about $11.95 a month for clean downloads. This tool runs in your browser and never stamps anything on your meme.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use a trending meme template here?</summary>
+        <p>Bring your own image: save any template or screenshot you have the right to use, upload it here, and add your text. This browser-only tool has no built-in template catalogue, so it cannot offer the million-template library of the big sites.</p>
+      </details>
+      <details class="faq">
+        <summary>What size should a meme be for TikTok or Reels?</summary>
+        <p>Use the 9:16 vertical option in this tool — it fits the full phone screen on TikTok and Instagram Reels. Square memes work best for feeds and group chats.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my image uploaded to a server?</summary>
+        <p>No. Your image is drawn on a canvas in your browser and downloaded from there. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a GIF meme here?</summary>
+        <p>Not yet — this tool makes still PNG memes. Animated GIF captions need a different tool; a still image with good top and bottom text works everywhere a GIF would.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Where do I find meme templates?</strong> Save a template image you have the right to use, then upload it here — this tool has no built-in catalogue.</p>
+      <p><strong>Can I add text in the middle of the image?</strong> This tool does top and bottom text only — the classic meme format. Middle text usually covers the face.</p>
+      <p><strong>Why is my meme text hard to read?</strong> Thin or coloured text disappears on busy photos. Keep white text with the black outline and a moderate size.</p>
+      <p><strong>Can I use this meme commercially?</strong> Only if you own the image and the joke — templates from films and shows are usually copyrighted, so keep those to personal sharing.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/font-generator" class="related-card"><h4>🔤 Font Generator</h4><p>Stylish copy-paste fonts</p></a><a href="/tools/image-resizer" class="related-card"><h4>↔️ Image Resizer</h4><p>Resize images free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a><a href="/tools/what-font-is-this" class="related-card"><h4>🔍 What Font Is This?</h4><p>Identify any font</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var img = null, shape = "square";
+  var canvas = $("memeCanvas"), ctx = canvas.getContext("2d");
+  function drawPlaceholder() {
+    canvas.width = shape === "vertical" ? 540 : 600;
+    canvas.height = shape === "vertical" ? 960 : 600;
+    ctx.fillStyle = "#111827"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#9ca3af"; ctx.font = "20px 'DM Sans', sans-serif"; ctx.textAlign = "center";
+    ctx.fillText("Upload an image to make your meme", canvas.width / 2, canvas.height / 2);
+  }
+  function wrapText(text, maxW) {
+    var words = String(text).toUpperCase().split(/\s+/).filter(Boolean);
+    var lines = [], cur = "";
+    words.forEach(function (w) {
+      var test = cur ? cur + " " + w : w;
+      if (ctx.measureText(test).width > maxW && cur) { lines.push(cur); cur = w; }
+      else cur = test;
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  function draw() {
+    canvas.width = shape === "vertical" ? 540 : 600;
+    canvas.height = shape === "vertical" ? 960 : 600;
+    var W = canvas.width, H = canvas.height;
+    ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+    if (img) {
+      var s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+      var dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+      ctx.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+    } else { drawPlaceholder(); return; }
+    var size = parseInt($("fontSize").value, 10) || 48;
+    var color = $("textColor").value;
+    ctx.font = "900 " + size + "px Impact, 'Arial Black', sans-serif";
+    ctx.textAlign = "center";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#000"; ctx.lineWidth = Math.max(4, size / 8);
+    ctx.fillStyle = color;
+    var maxW = W - 40;
+    var topLines = wrapText($("topText").value, maxW);
+    var botLines = wrapText($("bottomText").value, maxW);
+    var lh = size * 1.15;
+    topLines.forEach(function (line, i) {
+      var y = 24 + size + i * lh;
+      ctx.strokeText(line, W / 2, y);
+      ctx.fillText(line, W / 2, y);
+    });
+    botLines.forEach(function (line, i) {
+      var y = H - 24 - (botLines.length - 1 - i) * lh;
+      ctx.strokeText(line, W / 2, y);
+      ctx.fillText(line, W / 2, y);
+    });
+    $("metaLine").textContent = "Meme: " + W + "×" + H + (shape === "vertical" ? " vertical 9:16" : " square") + " — download for the full-size PNG.";
+  }
+  $("imgFile").addEventListener("change", function () {
+    var f = this.files[0];
+    if (!f) return;
+    if (!/^image\//.test(f.type)) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose an image file."; return; }
+    $("errorBox").hidden = true;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () { img = im; $("dlBtn").disabled = false; draw(); toast("Image loaded — type your joke."); };
+      im.onerror = function () { var e = $("errorBox"); e.hidden = false; e.textContent = "Could not read that image. Try a JPG, PNG or WebP file."; };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  ["topText", "bottomText", "textColor"].forEach(function (id) { $(id).addEventListener("input", draw); });
+  $("fontSize").addEventListener("input", function () { $("sizeOut").textContent = this.value + "px"; draw(); });
+  $("shapeChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip");
+    if (!b) return;
+    shape = b.getAttribute("data-shape");
+    document.querySelectorAll("#shapeChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    draw();
+  });
+  $("dlBtn").addEventListener("click", function () {
+    if (!img) return;
+    canvas.toBlob(function (blob) {
+      if (!blob) { toast("Export failed in this browser."); return; }
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "meme-" + (shape === "vertical" ? "9x16" : "square") + ".png";
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+      toast("Meme downloaded — no watermark.");
+    }, "image/png");
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  drawPlaceholder();
+})();
+</script>
+</body>
+</html>

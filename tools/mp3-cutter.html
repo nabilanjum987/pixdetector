@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free MP3 Cutter Online — Trim MP3 & Audio | PixDetector</title>
+<meta name="description" content="Cut MP3 files free in your browser: waveform trim, fades, WAV export. No signup, no upload, no watermark.">
+<meta name="keywords" content="mp3 cutter free, cut mp3 online, trim mp3, mp3 trimmer online, cut audio online free">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/mp3-cutter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/mp3-cutter">
+<meta property="og:title" content="Free MP3 Cutter Online — Trim MP3 & Audio | PixDetector">
+<meta property="og:description" content="Cut MP3 files free in your browser: waveform trim, fades, WAV export. No signup, no upload, no watermark.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this MP3 cutter really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cutting is free with no sign-up, no watermark and no upload. Your file is processed in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does it export WAV instead of MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WAV is lossless, so the exported clip keeps full audio quality without compression loss. Convert the WAV to MP3 in any player or editor if you need that format."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will cutting reduce my audio quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cutting with re-encoding always risks some quality change. The export is lossless WAV, which avoids compression loss, but only lossless stream-copy preserves a file exactly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut precisely to the millisecond?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can type exact times to 0.01 seconds. True millisecond-perfect editing and multi-feature work are desktop jobs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a file-size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no upload and no server limit. Very large files may take a few seconds to load and decode in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my MP3 get uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The file is decoded in your browser and never leaves your device."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to cut an MP3 online",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your MP3",
+      "text": "Choose an MP3 file. It loads in your browser \u2014 nothing is uploaded to a server."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose your clip",
+      "text": "Drag the start and end sliders on the waveform, or type exact seconds. Preview the selection to check it."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download the clip",
+      "text": "Add a fade in or out if you like, then download your clip as a WAV file."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;padding:12px 14px;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.danger{background:#f87171}
+.limit-note{background:#3f1d1d;border:1px solid #b91c1c;border-radius:12px;padding:16px 18px;margin-bottom:20px;line-height:1.7;font-size:15px}
+.limit-note strong{color:#fca5a5}
+.trust-line{font-size:14px;color:var(--text2);margin-top:10px}
+.trust-line strong{color:var(--accent)}
+.transcript-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;min-height:140px;font-size:15px;line-height:1.8;white-space:pre-wrap;word-wrap:break-word}
+.transcript-box .interim{color:var(--text2);font-style:italic}
+.status-line{font-size:13px;color:var(--text2);margin-top:10px;min-height:20px}
+.status-line .live{color:#f87171;font-weight:700}
+.wave-wrap{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:10px}
+#waveCanvas{width:100%;height:140px;display:block;cursor:pointer}
+.slider-row{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.check-row{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--text2);margin:10px 0}
+.check-row label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.check-row input{accent-color:var(--accent)}
+.bc-block{margin-top:40px}
+.bc-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.bc-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+table.formats{width:100%;border-collapse:collapse;font-size:13px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+table.formats .fname{color:var(--text);font-weight:600;white-space:nowrap}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:32px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px}
+.share-box p{font-size:14px;color:var(--text2);line-height:1.7}
+.share-line{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.7;margin:12px 0}
+.share-row{display:flex;flex-wrap:wrap;gap:10px}
+.share-btn{display:inline-block;background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif}
+.share-btn:hover{border-color:var(--accent)}
+.rel-q{font-size:15px;color:var(--text2);line-height:1.8}
+.rel-q li{margin-bottom:10px}
+.rel-q strong{color:var(--text)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.beat-dots{display:flex;gap:10px;justify-content:center;margin:18px 0}
+.beat-dot{width:18px;height:18px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2)}
+.beat-dot.on{background:var(--accent);border-color:var(--accent)}
+.beat-dot.accent.on{background:#f59e0b;border-color:#f59e0b}
+.tempo-label{text-align:center;font-size:15px;color:var(--text2);margin-top:6px}
+.tempo-label strong{color:var(--text)}
+.big-bpm{text-align:center;font-size:56px;font-weight:800;font-family:'Syne',sans-serif;line-height:1;margin:8px 0 2px}
+.audio-compare audio{width:100%;margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>&rsaquo;</span>
+      <a href="/#tools">Tools</a><span>&rsaquo;</span>
+      Free MP3 Cutter
+    </div>
+    <div class="tool-page-header">
+      <h1>✂️ Free MP3 Cutter Online</h1>
+      <p>Cut an MP3 to exactly the seconds you need — a ringtone, a clip, an intro — with a waveform you can see, fades, and instant download. Free, in your browser, no sign-up, no upload, no watermark.</p>
+      <p class="trust-line"><strong>Free, no signup, no watermark, files stay in your browser.</strong> Nothing is uploaded to a server — everything on this page runs on your own device.</p>
+    </div>
+    
+    <div class="limit-note" role="note"><strong>Honest limit — read this first:</strong> this cutter exports <strong>WAV only</strong> (lossless) — not MP3. If you need MP3, convert the WAV in any player or editor afterwards. Cutting with re-encoding always risks some quality change; only lossless stream-copy preserves a file exactly, and that limits format and fade options. This tool is for cutting only — no noise removal or EQ beyond fades — and millisecond-perfect cuts and multi-feature editing are desktop jobs. Works best in Chrome, Edge or Firefox.</div>
+
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Audio cutter">
+        <h2>Cut your audio</h2>
+        <div class="field">
+          <label class="flabel" for="audioFile">Choose an audio file (MP3, WAV, M4A, OGG…)</label>
+          <input id="audioFile" type="file" accept="audio/*">
+        </div>
+        <p class="status-line" id="fileInfo">No file loaded yet. Your file never leaves your browser.</p>
+        <div class="wave-wrap" style="margin-top:14px"><canvas id="waveCanvas" aria-label="Audio waveform — click to move the nearest cut point"></canvas></div>
+        <div style="margin-top:16px">
+          <div class="slider-row"><label for="startRange">Start</label><input id="startRange" type="range" min="0" max="10" step="0.01" value="0"><output id="startOut">0:00.00</output></div>
+          <div class="slider-row"><label for="endRange">End</label><input id="endRange" type="range" min="0" max="10" step="0.01" value="10"><output id="endOut">0:10.00</output></div>
+        </div>
+        <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><label class="flabel" for="startTime">Start (seconds)</label><input id="startTime" type="number" min="0" step="0.01" value="0"></div>
+          <div><label class="flabel" for="endTime">End (seconds)</label><input id="endTime" type="number" min="0" step="0.01" value="10"></div>
+        </div>
+        <div class="check-row">
+          <label><input type="checkbox" id="fadeIn"> Fade in</label>
+          <label><input type="checkbox" id="fadeOut"> Fade out</label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="playBtn" disabled>▶ Play selection</button>
+          <button type="button" class="btn alt" id="playFullBtn" disabled>Play full file</button>
+          <button type="button" class="btn" id="dlBtn" disabled>Download WAV clip</button>
+          <button type="button" class="btn alt" id="resetBtn">Reset</button>
+        </div>
+        <p class="hint">Tip: click the waveform to move the nearest cut point, then fine-tune with the exact second boxes. Preview the selection before downloading.</p>
+      </div>
+      <div class="bc-panel" aria-label="Cutter notes">
+        <h2>What you get</h2>
+        <p class="hint" style="font-size:15px">A precise clip of exactly the seconds you choose — a ringtone, a voice-note excerpt, a podcast intro, a soundbite for a video — downloaded as a <strong>WAV file</strong>. Waveform view, exact time inputs, preview playback and fade in/out are all built in.</p>
+        <p class="hint"><strong>Formats:</strong> open MP3, WAV, M4A, OGG and other common audio files. Export is always WAV (lossless) — see the honest limit above.</p>
+        <p class="hint"><strong>Privacy:</strong> your file is decoded in your browser and never uploaded. Close the tab and it is gone.</p>
+        <p class="hint"><strong>Best in:</strong> Chrome, Edge or Firefox. Very large files may take a few seconds to load and decode.</p>
+      </div>
+    </div>
+
+    
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p>Know someone who needs this? Send them the link — it is free for them too, with no sign-up.</p>
+      <p class="share-line" id="shareLine">Free MP3 cutter: trim MP3s on a waveform with fades, download instantly — no signup, no upload, no watermark.</p>
+      <div class="share-row">
+        <button type="button" class="btn alt" id="copyLinkBtn">Copy link</button>
+        <button type="button" class="btn alt" id="copyLineBtn">Copy share line</button>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Free%20MP3%20cutter%3A%20trim%20MP3s%20on%20a%20waveform%20with%20fades%2C%20download%20instantly%20%E2%80%94%20no%20signup%2C%20no%20upload%2C%20no%20watermark.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmp3-cutter" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmp3-cutter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="share-btn" href="https://wa.me/?text=Free%20MP3%20cutter%3A%20trim%20MP3s%20on%20a%20waveform%20with%20fades%2C%20download%20instantly%20%E2%80%94%20no%20signup%2C%20no%20upload%2C%20no%20watermark.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fmp3-cutter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <script>
+    (function(){var t=document.getElementById('toast');
+    function toast(m){t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+    var cl=document.getElementById('copyLinkBtn'); if(cl) cl.addEventListener('click',function(){var u=window.location.href; if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){toast('Link copied');},function(){toast('Copy was blocked.');});} else {toast('Copy is not supported in this browser.');}});
+    var cs=document.getElementById('copyLineBtn'); if(cs) cs.addEventListener('click',function(){var s=document.getElementById('shareLine').textContent; if(navigator.clipboard){navigator.clipboard.writeText(s).then(function(){toast('Share line copied');},function(){toast('Copy was blocked.');});}});
+    })();
+    </script>
+
+    <div class="tool-about">
+    <!-- PROBLEM -->
+    <h2>Cutting an MP3 should take seconds — so why is it a chore?</h2>
+      <p>Most people who search for an MP3 cutter want one simple thing: keep these exact seconds, throw the rest away. A ringtone from a favourite song, the good part of a voice note, an intro for a podcast, a clip for a video. It is a quiet, utilitarian job — demand is not loud on social media, and most of what exists is tool pages' own troubleshooting docs and old forum threads rather than excited posts — but it is a job people need done cleanly, right now.</p>
+      <p>And cleanly is where basic cutters fail. Three complaints come up again and again. First, re-encoding loses quality or changes volume — one well-known editor's own docs note that imports can “increase the gain slightly so that it clips”, so the exported clip sounds louder, harsher or thinner than the original. Second, file-size limits and slow processing on large files: upload, wait, cut, wait again. Third, no fine control — no waveform to see what you are cutting, no precise times, no fade, no noise removal. Some of the top tools also push paid extras or charge for WAV export. This page answers with a waveform you can click, exact second inputs, preview before you download, and fades — all in your browser, with no upload and no account.</p>
+      <p><strong>An MP3 cutter</strong> is a tool that trims an MP3 file to a chosen start and end point. This free one cuts MP3s (and other audio) in your browser on a visible waveform and exports the clip as a lossless WAV file.</p>
+    <!-- DIRECT ANSWER -->
+    <p><strong>Direct answer:</strong> to cut an MP3 free, upload it on this page, drag the start and end points on the waveform (or type exact seconds), preview the selection, add a fade in or out if you want, and download the clip as a WAV file. There is no sign-up, no upload, no watermark and no file-size cap from us. Export is WAV only — convert to MP3 afterwards if you need that format.</p>
+    <!-- HOW TO -->
+    <h2>How to cut an MP3 in three steps</h2>
+    <div class="steps">
+      <div class="step"><span class="num">STEP 1</span><h3>Upload your MP3</h3><p>Choose an MP3 file. It loads in your browser — nothing is uploaded to a server.</p></div><div class="step"><span class="num">STEP 2</span><h3>Choose your clip</h3><p>Drag the start and end sliders on the waveform, or type exact seconds. Preview the selection to check it.</p></div><div class="step"><span class="num">STEP 3</span><h3>Download the clip</h3><p>Add a fade in or out if you like, then download your clip as a WAV file.</p></div>
+    </div>
+    <h2 style="margin-top:28px">What this tool does — and what it does not do</h2>
+      <p><strong>What it does:</strong> open MP3, WAV, M4A, OGG and other common audio, show a real waveform, cut to exact seconds, preview the selection or the full file, add fade in/out, and export a lossless WAV clip. The whole job happens on your device, so there is no upload wait and no privacy worry.</p>
+      <p><strong>What it does not do:</strong> it cannot export MP3 directly, it cannot remove noise or change EQ, and it cannot promise millisecond-perfect cuts or zero quality change — cutting with re-encode always risks some change, and only lossless stream-copy preserves a file exactly, which limits format and fade options. For noise removal, EQ or multi-track editing, use a desktop editor.</p>
+      <h2 style="margin-top:28px">How to get a clean cut</h2>
+      <p>Cut on a natural pause or a beat, not in the middle of a word or a note — that is what makes a clip sound clean rather than chopped. Add a short fade out (the tool fades over 0.05 seconds at the edges) when a clip would otherwise end abruptly, and a fade in when it starts mid-sound. For ringtones, aim for 20–30 seconds and preview on your phone before setting it. For voice clips, keep a half-second of breathing room at the start so the first word is not clipped. If the exported WAV sounds different from the original, remember the export is lossless WAV — the difference, if any, comes from the decode and re-encode, not from compression.</p>
+      <table class="formats">
+        <thead><tr><th>Job</th><th>Best approach</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">Ringtone (20–30 s)</td><td>Waveform + exact seconds</td><td>Fade out at the end so it loops cleanly.</td></tr>
+          <tr><td class="fname">Voice-note excerpt</td><td>Cut on pauses</td><td>Leave 0.5 s before the first word.</td></tr>
+          <tr><td class="fname">Podcast intro / outro</td><td>Preview, then fade</td><td>Fades hide abrupt starts and ends.</td></tr>
+          <tr><td class="fname">Need MP3 output</td><td>Download WAV, convert</td><td>Any player or editor converts WAV to MP3.</td></tr>
+        </tbody>
+      </table>
+    <!-- FAQ -->
+    <h2 style="margin-top:28px">FAQ</h2>
+    
+      <details class="faq">
+        <summary>Is this MP3 cutter really free?</summary>
+        <p>Yes. Cutting is free with no sign-up, no watermark and no upload. Your file is processed in your browser, and the WAV clip downloads directly to your device.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does it export WAV instead of MP3?</summary>
+        <p>WAV is lossless, so the exported clip keeps full audio quality without compression loss. MP3 export needs an encoder this browser tool does not include — convert the WAV to MP3 in any player or editor if you need that format.</p>
+      </details>
+      <details class="faq">
+        <summary>Will cutting reduce my audio quality?</summary>
+        <p>Cutting with re-encoding always risks some quality change, and this tool re-encodes when it exports. The export itself is lossless WAV, which avoids compression loss, but it cannot promise zero change — only lossless stream-copy preserves a file exactly, and that limits format and fade options.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I cut precisely to the millisecond?</summary>
+        <p>You can type exact times to 0.01 seconds and click the waveform to place cut points, which is precise enough for ringtones, clips and intros. True millisecond-perfect editing and multi-feature work (noise removal, EQ) are desktop jobs.</p>
+      </details>
+      <details class="faq">
+        <summary>Is there a file-size limit?</summary>
+        <p>There is no upload and no server limit, so nothing is capped by us. Very large files may take a few seconds to load and decode in your browser, and very long files are harder to cut precisely on a small screen.</p>
+      </details>
+      <details class="faq">
+        <summary>Does my MP3 get uploaded anywhere?</summary>
+        <p>No. The file is decoded in your browser and never leaves your device. Close the tab and it is gone — nothing is stored on our servers.</p>
+      </details>
+    <!-- RELATED QUESTIONS -->
+    <h2 style="margin-top:28px">Related questions</h2>
+    <ul class="rel-q">
+    <li><strong>How do I cut an MP3 online for free?</strong> — Upload it here, pick start and end on the waveform, preview, and download the clip as WAV — no signup.</li>
+      <li><strong>Can I make a ringtone from an MP3?</strong> — Yes: cut a 20–30 second section, add a fade out, and download it.</li>
+      <li><strong>Why is my cut MP3 a WAV file?</strong> — This tool exports lossless WAV only; convert it to MP3 in any player or editor.</li>
+    </ul>
+    </div>
+    
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/audio-cutter" class="related-card"><h4>🎵 Audio Cutter</h4><p>Trim any audio file</p></a><a href="/tools/audio-to-text-converter" class="related-card"><h4>🎙️ Audio to Text Converter</h4><p>Dictate speech to text</p></a><a href="/tools/audio-enhancer" class="related-card"><h4>✨ Audio Enhancer</h4><p>Clean up recordings free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🖼️ Image Compressor</h4><p>Compress images free</p></a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+
+    <script>
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+        var fileInput = $("audioFile"), canvas = $("waveCanvas"), ctx = canvas.getContext("2d"),
+            startRange = $("startRange"), endRange = $("endRange"), startTime = $("startTime"), endTime = $("endTime"),
+            startOut = $("startOut"), endOut = $("endOut"), fileInfo = $("fileInfo"),
+            playBtn = $("playBtn"), playFullBtn = $("playFullBtn"), dlBtn = $("dlBtn"), resetBtn = $("resetBtn"),
+            fadeIn = $("fadeIn"), fadeOut = $("fadeOut");
+        var actx = null, buffer = null, fileName = "audio", src = null;
+        function fmt(s) { s = Math.max(0, s); var m = Math.floor(s / 60), sec = (s % 60); return m + ":" + (sec < 10 ? "0" : "") + sec.toFixed(2); }
+        function ensureCtx() { if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === "suspended") actx.resume(); return actx; }
+        function drawWave() {
+          var w = canvas.width = canvas.offsetWidth * 2, h = canvas.height = 280;
+          ctx.clearRect(0, 0, w, h);
+          if (!buffer) { ctx.fillStyle = "#888"; ctx.font = "28px sans-serif"; ctx.textAlign = "center"; ctx.fillText("Upload an audio file to see its waveform", w / 2, h / 2); return; }
+          var data = buffer.getChannelData(0), step = Math.floor(data.length / w), mid = h / 2;
+          var s0 = parseFloat(startRange.value), s1 = parseFloat(endRange.value);
+          ctx.fillStyle = "rgba(0,229,255,0.12)"; ctx.fillRect((s0 / buffer.duration) * w, 0, ((s1 - s0) / buffer.duration) * w, h);
+          ctx.fillStyle = "#00e5ff";
+          for (var x = 0; x < w; x++) {
+            var min = 1, max = -1;
+            for (var i = 0; i < step; i += 4) { var v = data[Math.min(data.length - 1, x * step + i)]; if (v < min) min = v; if (v > max) max = v; }
+            var y1 = mid + min * (mid - 8), y2 = mid + max * (mid - 8);
+            ctx.fillRect(x, y1, 1, Math.max(1, y2 - y1));
+          }
+          ctx.fillStyle = "#f59e0b";
+          ctx.fillRect((s0 / buffer.duration) * w - 2, 0, 4, h);
+          ctx.fillRect((s1 / buffer.duration) * w - 2, 0, 4, h);
+        }
+        function syncUI() {
+          if (!buffer) return;
+          var s0 = parseFloat(startRange.value), s1 = parseFloat(endRange.value);
+          if (s0 > s1) { if (document.activeElement === startRange) { s1 = s0; endRange.value = s1; } else { s0 = s1; startRange.value = s0; } }
+          startTime.value = s0.toFixed(2); endTime.value = s1.toFixed(2);
+          startOut.textContent = fmt(s0); endOut.textContent = fmt(s1);
+          drawWave();
+        }
+        fileInput.addEventListener("change", function () {
+          var f = fileInput.files[0]; if (!f) return;
+          fileName = f.name.replace(/\.[^.]+$/, "") || "audio";
+          fileInfo.textContent = "Loading “" + f.name + "”…";
+          ensureCtx();
+          f.arrayBuffer().then(function (ab) { return actx.decodeAudioData(ab); }).then(function (buf) {
+            buffer = buf;
+            startRange.max = buf.duration.toFixed(2); endRange.max = buf.duration.toFixed(2);
+            startRange.step = "0.01"; endRange.step = "0.01";
+            startRange.value = "0"; endRange.value = buf.duration.toFixed(2);
+            fileInfo.textContent = f.name + " — " + fmt(buf.duration) + " · " + buf.numberOfChannels + " channel(s) · " + buf.sampleRate + " Hz";
+            playBtn.disabled = playFullBtn.disabled = dlBtn.disabled = false;
+            syncUI(); toast("File loaded — drag the sliders to choose your clip");
+          }).catch(function () { fileInfo.textContent = "Could not read that file. Try an MP3, WAV, M4A or OGG file in Chrome, Edge or Firefox."; });
+        });
+        startRange.addEventListener("input", syncUI); endRange.addEventListener("input", syncUI);
+        startTime.addEventListener("change", function () { startRange.value = Math.max(0, Math.min(parseFloat(startTime.value) || 0, buffer.duration)); syncUI(); });
+        endTime.addEventListener("change", function () { endRange.value = Math.max(0, Math.min(parseFloat(endTime.value) || 0, buffer.duration)); syncUI(); });
+        canvas.addEventListener("click", function (e) {
+          if (!buffer) return;
+          var r = canvas.getBoundingClientRect(), t = ((e.clientX - r.left) / r.width) * buffer.duration;
+          if (Math.abs(t - parseFloat(startRange.value)) < Math.abs(t - parseFloat(endRange.value))) startRange.value = t.toFixed(2); else endRange.value = t.toFixed(2);
+          syncUI();
+        });
+        function playSelection(full) {
+          if (!buffer) return;
+          stopSrc(); ensureCtx();
+          var s0 = full ? 0 : parseFloat(startRange.value), s1 = full ? buffer.duration : parseFloat(endRange.value);
+          if (s1 <= s0) { toast("End time must be after start time."); return; }
+          src = actx.createBufferSource(); src.buffer = buffer;
+          var g = actx.createGain(); g.gain.value = 1;
+          src.connect(g); g.connect(actx.destination);
+          src.start(0, s0, s1 - s0);
+          toast(full ? "Playing full file…" : "Playing selection…");
+        }
+        function stopSrc() { if (src) { try { src.stop(); } catch (e) {} src = null; } }
+        playBtn.addEventListener("click", function () { playSelection(false); });
+        playFullBtn.addEventListener("click", function () { playSelection(true); });
+        function encodeWAV(buf, s0, s1, doFadeIn, doFadeOut) {
+          var rate = buf.sampleRate, ch = buf.numberOfChannels;
+          var start = Math.floor(s0 * rate), end = Math.min(buf.length, Math.floor(s1 * rate));
+          var len = Math.max(0, end - start);
+          var bytes = 44 + len * ch * 2;
+          var ab = new ArrayBuffer(bytes), v = new DataView(ab);
+          function wstr(o, s) { for (var i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); }
+          wstr(0, "RIFF"); v.setUint32(4, bytes - 8, true); wstr(8, "WAVE"); wstr(12, "fmt ");
+          v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, ch, true);
+          v.setUint32(24, rate, true); v.setUint32(28, rate * ch * 2, true); v.setUint16(32, ch * 2, true);
+          v.setUint16(34, 16, true); wstr(36, "data"); v.setUint32(40, len * ch * 2, true);
+          var fade = Math.min(len, Math.floor(rate * 0.05));
+          for (var c = 0; c < ch; c++) {
+            var d = buf.getChannelData(c);
+            for (var i = 0; i < len; i++) {
+              var val = d[start + i];
+              if (doFadeIn && i < fade) val *= i / fade;
+              if (doFadeOut && i > len - fade) val *= (len - i) / fade;
+              v.setInt16(44 + (i * ch + c) * 2, Math.max(-1, Math.min(1, val)) * 32767, true);
+            }
+          }
+          return new Blob([ab], { type: "audio/wav" });
+        }
+        dlBtn.addEventListener("click", function () {
+          if (!buffer) return;
+          var s0 = parseFloat(startRange.value), s1 = parseFloat(endRange.value);
+          if (s1 <= s0) { toast("End time must be after start time."); return; }
+          var blob = encodeWAV(buffer, s0, s1, fadeIn.checked, fadeOut.checked);
+          var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+          a.download = fileName + "-cut-" + s0.toFixed(1).replace(".", "p") + "-" + s1.toFixed(1).replace(".", "p") + ".wav";
+          document.body.appendChild(a); a.click();
+          setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+          toast("WAV clip downloaded (" + fmt(s1 - s0) + ")");
+        });
+        resetBtn.addEventListener("click", function () { if (buffer) { startRange.value = "0"; endRange.value = buffer.duration.toFixed(2); syncUI(); } });
+        window.addEventListener("resize", drawWave);
+        drawWave();
+      })();
+    </script>
+
+  </body>
+</html>

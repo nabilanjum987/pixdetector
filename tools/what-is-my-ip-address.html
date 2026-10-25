@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is My IP Address? Free IP Lookup | PixDetector</title>
+<meta name="description" content="See your public IP address, location, ISP and timezone instantly. Free, no signup — your IP is never stored or shared.">
+<meta name="keywords" content="what is my ip address, my ip, ip lookup, find my ip, public ip address, ip location, what is my ip">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/what-is-my-ip-address">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/what-is-my-ip-address">
+<meta property="og:title" content="What Is My IP Address? Free IP Lookup | PixDetector">
+<meta property="og:description" content="See your public IP address, location, ISP and timezone instantly. Free, no signup — your IP is never stored or shared.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is my IP address?", "acceptedAnswer": { "@type": "Answer", "text": "Your public IP address is shown at the top of this page. It is the address your internet provider gives your connection, and it is what websites see when you visit them. It can change when you restart your router or switch networks." } },
+    { "@type": "Question", "name": "Why does my IP show the wrong location?", "acceptedAnswer": { "@type": "Answer", "text": "IP location comes from a database that maps address ranges to places. If your provider recently moved addresses around, the database can be out of date, so you may appear in a nearby city or even another region. Only your internet provider can ask the database owners to correct it — no lookup tool can fix it." } },
+    { "@type": "Question", "name": "Why does Google still show my old location with a VPN on?", "acceptedAnswer": { "@type": "Answer", "text": "A VPN changes your IP address, but Google may still use a saved location, GPS, Wi-Fi networks nearby, or a stale location database. Sign out of location history, clear location permissions, and check that the VPN is actually connected and not leaking." } },
+    { "@type": "Question", "name": "What does a 169.254.x.x IP address mean?", "acceptedAnswer": { "@type": "Answer", "text": "An address starting 169.254 means your device could not reach the DHCP server that hands out IP addresses, so it gave itself a temporary link-local address. That usually means no working internet: restart your router and device, check the cable or Wi-Fi, and contact your provider if it keeps happening." } },
+    { "@type": "Question", "name": "Can someone find my home address from my IP?", "acceptedAnswer": { "@type": "Answer", "text": "No. A public IP address only reveals an approximate area — usually a city or region — plus your provider's name. It does not reveal your street address or your name. Only your internet provider holds the record linking an IP to a customer, and it does not share that publicly." } },
+    { "@type": "Question", "name": "Is my IP address stored by this tool?", "acceptedAnswer": { "@type": "Answer", "text": "No. This page asks a free IP service for your public address and location, shows it to you, and stores nothing. Your IP is never saved, shared, or sent to PixDetector servers." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to find your IP address",
+  "step": [
+    { "@type": "HowToStep", "name": "Open this page", "text": "Open this page and wait a second — your public IP address appears automatically." },
+    { "@type": "HowToStep", "name": "Read your IP and location", "text": "Read your IP address, city, region, country, ISP and timezone from the result card." },
+    { "@type": "HowToStep", "name": "Copy it if you need it", "text": "Use the Copy IP button to copy the address for support, a game server, or a VPN check." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.ip-big{font-family:monospace;font-size:clamp(24px,5vw,36px);font-weight:700;word-break:break-all;margin:6px 0 4px}
+.ip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:16px}
+.ip-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.ip-cell .k{font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.ip-cell .v{font-size:15px;font-weight:600;margin-top:4px;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      What Is My IP Address
+    </div>
+    <div class="tool-page-header">
+      <h1>What Is My IP Address?</h1>
+      <p>Your public IP address, location, ISP and timezone — shown instantly, free, with no signup and no watermark. Your IP is never stored or shared, and your files stay in your browser: this page sends nothing to PixDetector.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> this lookup <strong>cannot correct a wrong IP location</strong> — that lives in your ISP's records and the geolocation provider's database, and only your ISP can ask for it to be updated. It also <strong>cannot show your local 192.168.x.x address</strong> from a web page — only your public IP. Your IP comes from a free lookup API (ipify + ipwho.is, both over HTTPS); if that service is down, the page says so instead of showing fake data.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Your IP address">
+        <h2>Your public IP address</h2>
+        <p class="trust" id="ipStatus">Looking up your IP address…</p>
+        <div class="ip-big" id="ipValue">—</div>
+        <div class="ip-grid" id="ipGrid" hidden>
+          <div class="ip-cell"><div class="k">Location</div><div class="v" id="ipLocation">—</div></div>
+          <div class="ip-cell"><div class="k">ISP</div><div class="v" id="ipIsp">—</div></div>
+          <div class="ip-cell"><div class="k">Region</div><div class="v" id="ipRegion">—</div></div>
+          <div class="ip-cell"><div class="k">Country</div><div class="v" id="ipCountry">—</div></div>
+          <div class="ip-cell"><div class="k">Timezone</div><div class="v" id="ipTimezone">—</div></div>
+        </div>
+        <p class="err" id="ipError" role="alert" hidden></p>
+        <div class="actions">
+          <button type="button" class="btn" id="copyIp" disabled>Copy IP address</button>
+          <button type="button" class="btn alt" id="refreshIp">Check again</button>
+        </div>
+        <p class="trust">Free, no signup, no watermark. Your IP is shown only to you — nothing is stored.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line" id="shareLine">My public IP address and where it appears to be — checked free in seconds, no signup.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <a href="https://twitter.com/intent/tweet?text=What%20is%20my%20IP%20address%3F%20Check%20yours%20free%2C%20no%20signup&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=What%20is%20my%20IP%20address%3F%20Check%20yours%20free%2C%20no%20signup%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fwhat-is-my-ip-address" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>Why people check their IP address</h2>
+      <p>Most people only look up their IP when something is already wrong. A streaming service says "this video is not available in your region" even though you are at home. YouTube TV throws a geo-error. Your VPN is on, yet Google still shows your old city. Or your computer suddenly has no internet at all and the network settings show a strange address starting with 169.254. In each case the question is the same: is the problem my device, my internet provider, or my VPN? One instant answer — your public IP and where it appears to be — tells you which one to blame, and what to do next.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>What is my IP address? The direct answer</h2>
+      <p>Your public IP address is the address your internet provider assigns to your connection, and it is the address every website sees when you visit. It usually reveals only an approximate city or region and the name of your provider — not your street address or your name. This page shows it instantly, together with the city, region, country, ISP and timezone that the public location database reports for it. If the location looks wrong, the address itself is still real; only the database entry behind it is out of date.</p>
+      <p>An IP address is a number that identifies your connection on the internet, in the same way a phone number identifies a phone line. Most home connections get a new one from time to time, so the address you see today may change after a router restart. Your devices also have a second, private address (usually starting 192.168.x.x) that only works inside your home network — websites cannot see it, and no web page can show it to you.</p>
+      <!-- HOW TO -->
+      <h2>How to find your IP address</h2>
+      <p><strong>Step 1:</strong> open this page — your public IP appears automatically, no typing needed. <strong>Step 2:</strong> read the result card for your IP, city, region, country, ISP and timezone. <strong>Step 3:</strong> use the Copy IP button if you need to paste the address into a support chat, a game server, or a VPN check. If the lookup fails, the page shows a clear error instead of a made-up address — press "Check again" or try later, because the free lookup service may be briefly down.</p>
+      <h2>What an IP address can — and cannot — reveal</h2>
+      <p>An IP address can reveal your approximate area and your provider, which is why streaming services and websites use it to guess your region. It cannot reveal your exact home address, your name, or what you are doing online. A VPN hides your real IP by showing the VPN server's address instead, but it does not change the location databases, saved locations in your Google account, or GPS on your phone — which is why a VPN can be on and Google can still show your old city. And if your device shows a 169.254.x.x address, that is not a real internet address at all: it means your device could not reach the DHCP server that hands out addresses, so restart your router and device first, then check the cable or Wi-Fi, and call your provider if it keeps happening.</p>
+      <h2>When the location is wrong, what actually fixes it?</h2>
+      <p>Nothing on this page can move your IP to the right city, because the location lives in a database owned by a geolocation provider, fed by records from your ISP. If the location is wrong, report it to your internet provider and ask them to update their records with the database owners — that is the only route that works, and it can take days or weeks. In the meantime, streaming geo-errors are usually fixed by the service itself once its own database updates, not by restarting your router. Restarting the router may give you a different IP, which sometimes lands in a correctly mapped range — but it is luck, not a fix.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>What is my IP address?</summary>
+        <p>Your public IP address is shown at the top of this page. It is the address your internet provider gives your connection, and it is what websites see when you visit them. It can change when you restart your router or switch networks.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does my IP show the wrong location?</summary>
+        <p>IP location comes from a database that maps address ranges to places. If your provider recently moved addresses around, the database can be out of date, so you may appear in a nearby city or even another region. Only your internet provider can ask the database owners to correct it — no lookup tool can fix it.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does Google still show my old location with a VPN on?</summary>
+        <p>A VPN changes your IP address, but Google may still use a saved location, GPS, Wi-Fi networks nearby, or a stale location database. Sign out of location history, clear location permissions, and check that the VPN is actually connected and not leaking.</p>
+      </details>
+      <details class="faq">
+        <summary>What does a 169.254.x.x IP address mean?</summary>
+        <p>An address starting 169.254 means your device could not reach the DHCP server that hands out IP addresses, so it gave itself a temporary link-local address. That usually means no working internet: restart your router and device, check the cable or Wi-Fi, and contact your provider if it keeps happening.</p>
+      </details>
+      <details class="faq">
+        <summary>Can someone find my home address from my IP?</summary>
+        <p>No. A public IP address only reveals an approximate area — usually a city or region — plus your provider's name. It does not reveal your street address or your name. Only your internet provider holds the record linking an IP to a customer, and it does not share that publicly.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my IP address stored by this tool?</summary>
+        <p>No. This page asks a free IP service for your public address and location, shows it to you, and stores nothing. Your IP is never saved, shared, or sent to PixDetector servers.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I find my IP address on my phone?</strong> Open this page in your phone's browser — it shows your public IP the same way as on a computer.</p>
+      <p><strong>What is the difference between IPv4 and IPv6?</strong> IPv4 addresses look like 203.0.113.45; IPv6 addresses are longer, like 2001:db8::1. Most home connections still use IPv4, and this tool shows the IPv4 address your connection presents.</p>
+      <p><strong>Does restarting my router change my IP?</strong> Often, yes — many providers hand out a new address when the router reconnects, but some give you the same one every time.</p>
+      <p><strong>Is my IP address private?</strong> Your public IP is visible to every site you visit, but it only identifies your connection, not you personally.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a><a href="/tools/file-converter" class="related-card"><h4>🔄 File Converter</h4><p>Convert files free</p></a><a href="/tools/online-signature-generator" class="related-card"><h4>✍️ Signature Generator</h4><p>Make a signature free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function lookup() {
+    $("ipStatus").textContent = "Looking up your IP address…";
+    $("ipValue").textContent = "—";
+    $("ipGrid").hidden = true;
+    $("ipError").hidden = true;
+    $("copyIp").disabled = true;
+    fetch("https://api.ipify.org?format=json").then(function (r) { if (!r.ok) throw new Error("ipify unavailable"); return r.json(); }).then(function (d) {
+      var ip = d && d.ip ? d.ip : "";
+      if (!ip) throw new Error("No IP returned");
+      $("ipValue").textContent = ip;
+      $("ipStatus").textContent = "Your public IP address is shown below.";
+      $("copyIp").disabled = false;
+      return fetch("https://ipwho.is/" + encodeURIComponent(ip)).then(function (r2) { return r2.json(); }).then(function (info) {
+        if (info && info.success) {
+          $("ipLocation").textContent = [info.city, info.region].filter(Boolean).join(", ") || "—";
+          $("ipIsp").textContent = (info.connection && info.connection.isp) || "—";
+          $("ipRegion").textContent = info.region || "—";
+          $("ipCountry").textContent = info.country || "—";
+          $("ipTimezone").textContent = (info.timezone && info.timezone.id) || "—";
+          $("ipGrid").hidden = false;
+        } else {
+          $("ipError").hidden = false;
+          $("ipError").textContent = "Location details are unavailable right now (the location service did not return data). Your IP address above is still correct.";
+        }
+      }).catch(function () {
+        $("ipError").hidden = false;
+        $("ipError").textContent = "Location details are unavailable right now (the location service could not be reached). Your IP address above is still correct.";
+      });
+    }).catch(function () {
+      $("ipStatus").textContent = "The lookup could not be completed.";
+      $("ipError").hidden = false;
+      $("ipError").textContent = "The free IP service could not be reached. Check your internet connection and press \u201CCheck again\u201D. No fake address is shown.";
+    });
+  }
+  $("copyIp").addEventListener("click", function () {
+    var v = $("ipValue").textContent;
+    if (!v || v === "—") return;
+    if (navigator.clipboard) { navigator.clipboard.writeText(v).then(function () { toast("IP address copied."); }, function () { toast("Copy was blocked — select the address and copy it manually."); }); }
+    else toast("Copy is not supported in this browser.");
+  });
+  $("refreshIp").addEventListener("click", lookup);
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  lookup();
+})();
+</script>
+</body>
+</html>

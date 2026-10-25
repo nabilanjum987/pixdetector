@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Video Background Changer — No Signup | PixDetector</title>
+<meta name="description" content="Change your video background free: solid colour, blur or your own image. No signup, no watermark. Green screen works best.">
+<meta name="keywords" content="video background changer free, change video background, replace video background, green screen background changer, video background editor">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/video-background-changer">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/video-background-changer">
+<meta property="og:title" content="Free Video Background Changer — No Signup | PixDetector">
+<meta property="og:description" content="Change your video background free: solid colour, blur or your own image. No signup, no watermark. Green screen works best.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this video background changer really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Change solid-colour backgrounds as much as you like \u2014 no signup, no credits, no watermark and no upload. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it change the background of a normal messy room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 and we say so upfront. This tool works on solid-colour backgrounds (green screen) only. AI changing of a messy room needs a model and a server, which is why every AI tool charges credits. For a messy room, free desktop or app options exist \u2014 CapCut and VEED both have free tiers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my own image as the new background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Choose \u201cYour own image\u201d, upload a JPG or PNG, and it is placed behind the subject, cropped to fill the frame. Use a high-resolution image for the sharpest result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I pick a solid colour, blur or an image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solid colour is cleanest for talking-head and tutorial videos. Blur hides a messy room while keeping a sense of place. Your own image is best for branded backdrops and product scenes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the exported video a WebM file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari. If you need an MP4, convert the WebM afterwards with HandBrake or FFmpeg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the background changer keep the original audio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The export is video-only, with no audio track. If your clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to change a video background free",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload a green-screen video",
+      "text": "Drop an MP4, MOV, WebM or other playable video onto the page. A solid-colour background \u2014 usually green \u2014 works best."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick the background colour",
+      "text": "Click on the background in the video to pick its exact colour, or use the colour picker. Adjust removal strength and edge softening until the outline looks clean."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose the new background and export",
+      "text": "Pick a solid colour, a blurred original, or upload your own image, then press Export and download the WebM file."
+    }
+  ]
+}
+</script>
+
+<style>
+.vd-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.vd-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-icon{font-size:34px;display:block;margin-bottom:10px}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+#fileInput{display:none}
+.vid-preview{width:100%;border-radius:10px;background:#000;display:none;margin-top:16px;max-height:340px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.info-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.info-cell .k{font-size:12px;color:var(--text2);letter-spacing:.5px;text-transform:uppercase}
+.info-cell .v{font-size:16px;font-weight:700;margin-top:4px;word-break:break-word}
+select.vd-select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none;cursor:pointer}
+select.vd-select:focus{border-color:var(--accent)}
+input.vd-input{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none}
+input.vd-input:focus{border-color:var(--accent)}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result .savings{font-size:15px;line-height:1.8;color:var(--text2)}
+.result .savings strong{color:var(--accent)}
+.error{display:none;color:#f87171;font-size:14px;line-height:1.7;margin-top:14px}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.limit-note{background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#7c2d12;margin-bottom:18px}
+.limit-note strong{color:#9a3412}
+.answer-box{background:var(--bg2);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;line-height:1.8;color:var(--text);margin-bottom:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.mode-tab{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.mode-tab[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.file-list{margin-top:14px}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row.active{border-color:var(--accent)}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.slider-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.share-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-top:28px}
+.share-box h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-row{display:flex;flex-wrap:wrap;gap:8px}
+.share-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.share-btn:hover{border-color:var(--accent)}
+.rq-list{list-style:none;padding:0}
+.rq-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:14px;line-height:1.7;color:var(--text2)}
+.rq-list li strong{color:var(--text)}
+canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max-height:340px;cursor:crosshair}
+.timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
+.rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Free Video Background Changer
+    </div>
+    <div class="tool-page-header">
+      <h1>🎬 Free Video Background Changer</h1>
+      <p>Change your video background — free, in your browser. Swap a green screen for a solid colour, a blur, or your own image. No signup, no watermark, nothing uploaded.</p>
+    </div>
+
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> this removes <strong>solid-colour backgrounds (green screen) only</strong> — it is <strong>not</strong> AI removal of a messy room. For AI removal of a normal room, free desktop/app options exist (CapCut and VEED both have free tiers). It works best on <strong>people</strong> (not pets, objects or products), struggles with hair and fast motion, and is best on short clips. Transparent output is <strong>WebM only</strong> — MP4 flattens transparency, and Safari / Final Cut do not handle transparent WebM.</div>
+    <div class="vd-panel" aria-label="Video background tool">
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose a video file">
+        <span class="dz-icon">🎥</span>
+        <span class="dz-title">Drop a video here, or click to choose one</span>
+        <p class="dz-sub">MP4, MOV, WebM and most other formats your browser can play.<br>Your video never leaves this device.</p>
+      </div>
+      <input id="fileInput" type="file" accept="video/*" />
+      <canvas id="bgCanvas" class="vd-canvas" style="display:none;margin-top:16px" title="Click the video to pick the background colour"></canvas>
+      <div class="info-grid" id="infoGrid" style="display:none">
+        <div class="info-cell"><div class="k">File name</div><div class="v" id="infoName">—</div></div>
+        <div class="info-cell"><div class="k">Duration</div><div class="v" id="infoDuration">—</div></div>
+        <div class="info-cell"><div class="k">Resolution</div><div class="v" id="infoRes">—</div></div>
+        <div class="info-cell"><div class="k">Key colour</div><div class="v" id="infoKey">#00ff00</div></div>
+      </div>
+      <div id="settingsBlock" style="display:none">
+        <hr class="divider" />
+        <h2>Background settings</h2>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+          <label class="flabel" style="margin:0">Background colour to remove<br><input type="color" id="keyColor" value="#00ff00" style="width:56px;height:36px;padding:2px;border:1px solid var(--border2);border-radius:8px;background:none;cursor:pointer" /></label>
+          <p class="hint" style="margin:0;max-width:340px">Or <strong>click on the background in the video above</strong> to pick its exact colour. Green screen works best; any solid colour works.</p>
+        </div>
+        <div class="slider-row" style="margin-top:16px"><label for="thresholdRange">Removal strength</label><input id="thresholdRange" type="range" min="10" max="150" step="1" value="60" /><output id="thresholdOut">60</output></div>
+        <div class="slider-row"><label for="smoothRange">Edge softening</label><input id="smoothRange" type="range" min="0" max="80" step="1" value="30" /><output id="smoothOut">30</output></div>
+        <p class="hint">Too low and the background stays; too high and it eats into hair and edges. Raise “Edge softening” if the outline looks ragged.</p>
+        <span class="flabel" style="margin-top:16px">Replace the background with</span>
+        <div class="chips" id="bgChips" role="group" aria-label="Replacement background">
+          <button type="button" class="chip" data-bg="transparent" aria-pressed="false">Transparent (WebM)</button>
+          <button type="button" class="chip" data-bg="solid" aria-pressed="false">Solid colour</button>
+          <button type="button" class="chip" data-bg="blur" aria-pressed="true">Blurred original</button>
+          <button type="button" class="chip" data-bg="image" aria-pressed="false">Your own image</button>
+        </div>
+        <div id="solidRow" style="display:none;margin-top:14px">
+          <label class="flabel" for="solidColor">Solid colour</label>
+          <input type="color" id="solidColor" value="#2563eb" style="width:56px;height:36px;padding:2px;border:1px solid var(--border2);border-radius:8px;background:none;cursor:pointer" />
+        </div>
+        <div id="imageRow" style="display:none;margin-top:14px">
+          <label class="flabel" for="bgImageInput">Background image (JPG or PNG)</label>
+          <input class="vd-input" id="bgImageInput" type="file" accept="image/*" />
+          <p class="hint" id="bgImageName"></p>
+        </div>
+        <div class="actions" style="margin-top:18px">
+          <button type="button" class="btn alt" id="previewBtn">Play preview</button>
+          <button type="button" class="btn" id="exportBtn">Export video (WebM)</button>
+          <button type="button" class="btn alt" id="resetBtn">Choose a different video</button>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <p class="progress-text" id="progressText">Starting…</p>
+        </div>
+        <div class="result" id="resultBox">
+          <h3>✅ Your video is ready</h3>
+          <p class="savings" id="resultText"></p>
+          <div class="actions">
+            <a class="btn" id="downloadLink" download="video-bg.webm" href="#">Download WebM</a>
+            <button type="button" class="btn alt" id="exportAgainBtn">Export again with different settings</button>
+          </div>
+        </div>
+        <p class="error" id="errorBox" role="alert"></p>
+        <p class="fineprint"><strong>Honest notes:</strong> the export is a <strong>WebM</strong> file and <strong>video-only, with no audio track</strong>. Transparent background is WebM-only — MP4 cannot hold transparency, and Safari / Final Cut do not handle transparent WebM. Processing runs at up to 854 px wide to stay fast in the browser, and export runs in real time. If your subject has fine hair or moves fast, expect ragged edges — that is a limit of browser colour-keying, not a bug in your clip.</p>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>Why changing a video background usually ends in credits</h2>
+      <p>Creators want the messy-room fix without a green screen: upload a clip, background gone or replaced, free export, no watermark. The famous reference name everyone compares against is Unscreen — and Unscreen closed in December 2025, which left a gap every AI background tool now tries to fill with credits. The pattern is the same everywhere: a free tier that is really a teaser — a 5 to 10 second preview, a watermark, or a handful of credits — and a full export that needs a paid plan, sometimes billed per second. Then there are the technical failures: ragged edges on hair, fast hand gestures breaking the cutout, busy backgrounds confusing the model, slow processing, and short-clip limits where browser tools cap out around 20 seconds and take minutes. This page takes the honest route instead: it removes solid-colour backgrounds — green screen — free, with no credits and no watermark, and it says plainly, above, what it cannot do. Changing the background is the same job with a different ending: instead of transparency, you want a new scene behind the subject — a solid colour for a clean talking-head video, a blur to hide a messy room, or your own image for a branded backdrop. The paid tools charge for exactly that swap, and the free tiers tease it with a 5-second preview or a watermark. Here the swap is free and unlimited, on the same honest terms: it works on solid-colour backgrounds, and a messy room still needs an AI tool.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I change a video background for free?</h2>
+      <div class="answer-box"><strong>Direct answer:</strong> to change a video background free, upload a green-screen clip here, click on the background to pick its exact colour, then choose the replacement — a solid colour, a blurred version of the original, or your own image — and export. The video downloads as a WebM file, free, with no signup, no watermark and no credits. This tool works on solid-colour backgrounds only.</div>
+      <!-- HOW TO -->
+      <h2 style="margin-top:28px">How to change a video background in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Upload a green-screen video</h3><p>Drop an MP4, MOV, WebM or other playable video onto the page. A solid-colour background — usually green — works best.</p></div><div class="step"><span class="num">STEP 2</span><h3>Pick the background colour</h3><p>Click on the background in the video to pick its exact colour, or use the colour picker. Adjust removal strength and edge softening until the outline looks clean.</p></div><div class="step"><span class="num">STEP 3</span><h3>Choose the new background and export</h3><p>Pick a solid colour, a blurred original, or upload your own image, then press Export and download the WebM file.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Solid colour, blur or your own image — which replacement?</h2>
+      <p><strong>A video background changer</strong> removes the background of a video and puts something else behind the subject. The three replacements on this page suit three different jobs. A <strong>solid colour</strong> is the cleanest choice for talking-head videos, tutorials and anything that needs to look professional — pick a colour that matches your brand and the subject stands out with nothing to distract. A <strong>blurred original</strong> is the quick fix for a messy room behind a green screen: it keeps the sense of a real place while making the mess unreadable, and it is the most forgiving option when the key is not perfect. <strong>Your own image</strong> is the branded option — a studio backdrop, an office, a product scene — uploaded as a JPG or PNG and placed behind the subject.</p>
+<p>The same green-screen rules apply as for removal, because the removal step is identical: light the background evenly, keep the subject away from it, wear nothing close to the background colour, and click the background itself to sample its exact shade. The difference is what a bad key looks like: with a transparent export, a bad key shows as a halo; with a replacement background, it shows as a fringe of the old colour around the subject. If you see that fringe, lower the removal strength a little and raise the edge softening — and if the subject has fine hair or moves fast, expect some raggedness whatever you do. That is a limit of browser colour-keying, not a mistake in your clip.</p>
+<p>Two honest limits before you export. First, this tool works on solid-colour backgrounds only — it cannot change the background of a normal messy room, because that needs AI. For a messy room, free desktop or app options exist, such as CapCut or VEED. Second, the export is a WebM file, video-only with no audio track, processed at up to 854 px wide to stay fast in the browser. Keep clips short, and use a desktop tool if the clip needs its original sound or full resolution.</p>
+
+      <!-- FAQ -->
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+<summary>Is this video background changer really free?</summary>
+<p>Yes. Change solid-colour backgrounds as much as you like — no signup, no credits, no watermark and no upload. Everything runs in your browser.</p>
+</details>
+<details class="faq">
+<summary>Can it change the background of a normal messy room?</summary>
+<p>No — and we say so upfront. This tool works on solid-colour backgrounds (green screen) only. AI changing of a messy room needs a model and a server, which is why every AI tool charges credits. For a messy room, free desktop or app options exist — CapCut and VEED both have free tiers.</p>
+</details>
+<details class="faq">
+<summary>Can I use my own image as the new background?</summary>
+<p>Yes. Choose “Your own image”, upload a JPG or PNG, and it is placed behind the subject, cropped to fill the frame. Use a high-resolution image for the sharpest result.</p>
+</details>
+<details class="faq">
+<summary>Should I pick a solid colour, blur or an image?</summary>
+<p>Solid colour is cleanest for talking-head and tutorial videos. Blur hides a messy room while keeping a sense of place. Your own image is best for branded backdrops and product scenes.</p>
+</details>
+<details class="faq">
+<summary>Why is the exported video a WebM file?</summary>
+<p>Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari. If you need an MP4, convert the WebM afterwards with HandBrake or FFmpeg.</p>
+</details>
+<details class="faq">
+<summary>Does the background changer keep the original audio?</summary>
+<p>No. The export is video-only, with no audio track. If your clip needs its original sound, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
+</details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2 style="margin-top:28px">Related questions</h2>
+      <ul class="rq-list">
+        <li><strong>How do I put a different background behind a video?</strong><br>Upload a green-screen clip here, pick the background colour, choose a solid colour, blur or your own image, and export.</li><li><strong>Can I blur my video background for free?</strong><br>Yes — pick “Blurred original” as the replacement. It hides a messy room while keeping a sense of place.</li><li><strong>What is the best background for a talking-head video?</strong><br>A solid colour that matches your brand — clean, professional, and nothing to distract from the speaker.</li><li><strong>Does changing a video background need a green screen?</strong><br>On this tool, yes — it removes solid-colour backgrounds only. AI tools can change a messy room, but they charge credits.</li>
+      </ul>
+    </div>
+
+    <div class="share-box">
+      <h3>Share this free tool</h3>
+      <p class="share-line">I changed a video background free in my browser — green screen to blur, colour or my own image, no signup, no watermark.</p>
+      <div class="share-row">
+        <button type="button" class="share-btn" id="copyLinkBtn">Copy link</button>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=I%20changed%20a%20video%20background%20free%20in%20my%20browser%20%E2%80%94%20green%20screen%20to%20blur%2C%20colour%20or%20my%20own%20image%2C%20no%20signup%2C%20no%20watermark.&url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-background-changer" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-background-changer" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="share-btn" href="https://wa.me/?text=I%20changed%20a%20video%20background%20free%20in%20my%20browser%20%E2%80%94%20green%20screen%20to%20blur%2C%20colour%20or%20my%20own%20image%2C%20no%20signup%2C%20no%20watermark. https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-background-changer" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/video-background-remover" class="related-card"><h4>🎬 Video Background Remover</h4><p>Remove the background free</p></a><a href="/tools/video-editor" class="related-card"><h4>🎬 Video Editor</h4><p>Trim, merge, resize & speed</p></a><a href="/tools/screen-recorder" class="related-card"><h4>🖥️ Screen Recorder</h4><p>Record your screen free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🖼️ Image Compressor</h4><p>Shrink images free</p></a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+        function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+        function fmtBytes(n) { if (!isFinite(n) || n <= 0) return "\u2014"; if (n < 1024) return n + " B"; if (n < 1048576) return (n / 1024).toFixed(1) + " KB"; if (n < 1073741824) return (n / 1048576).toFixed(2) + " MB"; return (n / 1073741824).toFixed(2) + " GB"; }
+        function fmtTime(s) { if (!isFinite(s) || s <= 0) return "\u2014"; s = Math.round(s); var m = Math.floor(s / 60), r = s % 60; return m + ":" + (r < 10 ? "0" : "") + r; }
+        function showError(msg) { var e = $("errorBox"); e.style.display = "block"; e.textContent = msg; }
+        function clearError() { var e = $("errorBox"); e.style.display = "none"; e.textContent = ""; }
+        function hexToRgb(h) { h = h.replace("#", ""); return [parseInt(h.substr(0, 2), 16), parseInt(h.substr(2, 2), 16), parseInt(h.substr(4, 2), 16)]; }
+        function rgbToHex(r, g, b) { function p(n) { var s = n.toString(16); return s.length === 1 ? "0" + s : s; } return "#" + p(r) + p(g) + p(b); }
+
+        var state = { file: null, url: null, duration: 0, width: 0, height: 0, key: [0, 255, 0], threshold: 60, smooth: 30, bg: "blur", solid: "#2563eb", bgImg: null, busy: false, outUrl: null, playing: false };
+        var dropzone = $("dropzone"), fileInput = $("fileInput"), canvas = $("bgCanvas"),
+            ctx = canvas.getContext("2d"), infoGrid = $("infoGrid"), settingsBlock = $("settingsBlock"),
+            exportBtn = $("exportBtn"), progressWrap = $("progressWrap"), progressFill = $("progressFill"),
+            progressText = $("progressText"), resultBox = $("resultBox"), resultText = $("resultText"),
+            downloadLink = $("downloadLink");
+        var src = document.createElement("video");
+        src.muted = true; src.playsInline = true; src.preload = "auto";
+        var proc = document.createElement("canvas");
+        var pctx = proc.getContext("2d", { willReadFrequently: true });
+        var raf = 0;
+
+        function outSize() {
+          var w = state.width, h = state.height;
+          if (w > 854) { var f = 854 / w; w = 854; h = Math.round(h * f); }
+          if (w % 2) w -= 1;
+          if (h % 2) h -= 1;
+          return { w: Math.max(2, w), h: Math.max(2, h) };
+        }
+        function drawBackground(W, H) {
+          if (state.bg === "solid") { ctx.fillStyle = state.solid; ctx.fillRect(0, 0, W, H); }
+          else if (state.bg === "blur") {
+            ctx.save();
+            try { ctx.filter = "blur(18px) brightness(0.8)"; } catch (e) {}
+            var vw = src.videoWidth, vh = src.videoHeight;
+            var s = Math.max(W / vw, H / vh);
+            ctx.drawImage(src, (W - vw * s) / 2, (H - vh * s) / 2, vw * s, vh * s);
+            ctx.restore();
+            try { ctx.filter = "none"; } catch (e) {}
+          } else if (state.bg === "image" && state.bgImg) {
+            var iw = state.bgImg.naturalWidth || state.bgImg.width, ih = state.bgImg.naturalHeight || state.bgImg.height;
+            var s2 = Math.max(W / iw, H / ih);
+            ctx.drawImage(state.bgImg, (W - iw * s2) / 2, (H - ih * s2) / 2, iw * s2, ih * s2);
+          } else {
+            ctx.clearRect(0, 0, W, H);
+          }
+        }
+        function processFrame() {
+          var d = outSize();
+          if (canvas.width !== d.w || canvas.height !== d.h) { canvas.width = d.w; canvas.height = d.h; proc.width = d.w; proc.height = d.h; }
+          if (!src.videoWidth) return;
+          pctx.drawImage(src, 0, 0, d.w, d.h);
+          var img = pctx.getImageData(0, 0, d.w, d.h);
+          var data = img.data;
+          var kr = state.key[0], kg = state.key[1], kb = state.key[2];
+          var th = state.threshold, sm = Math.max(1, state.smooth);
+          for (var i = 0; i < data.length; i += 4) {
+            var dr = data[i] - kr, dg = data[i + 1] - kg, db = data[i + 2] - kb;
+            var dist = Math.sqrt(dr * dr + dg * dg + db * db);
+            if (dist < th) data[i + 3] = 0;
+            else if (dist < th + sm) data[i + 3] = Math.round(255 * (dist - th) / sm);
+          }
+          pctx.putImageData(img, 0, 0);
+          drawBackground(d.w, d.h);
+          ctx.drawImage(proc, 0, 0);
+        }
+        function loop() {
+          if (!state.playing) return;
+          if (src.readyState >= 2) processFrame();
+          var p = state.duration > 0 ? Math.min(100, src.currentTime / state.duration * 100) : 0;
+          if (state.busy) {
+            progressFill.style.width = p.toFixed(1) + "%";
+            progressText.textContent = "Exporting\u2026 " + Math.round(p) + "% (" + fmtTime(src.currentTime) + " / " + fmtTime(state.duration) + ") \u2014 keep this tab open.";
+          }
+          raf = requestAnimationFrame(loop);
+        }
+        function startPlayback(onEnd) {
+          src.currentTime = 0;
+          state.playing = true;
+          var p = src.play();
+          if (p && p.catch) p.catch(function () { state.playing = false; showError("Playback was blocked by the browser. Click the button again."); });
+          src.onended = function () { state.playing = false; cancelAnimationFrame(raf); if (onEnd) onEnd(); };
+          loop();
+        }
+        function stopPlayback() { state.playing = false; cancelAnimationFrame(raf); try { src.pause(); } catch (e) {} }
+        function pickMime() {
+          var cands = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          for (var i = 0; i < cands.length; i++) { try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {} }
+          return "";
+        }
+        function loadFile(file) {
+          clearError();
+          resultBox.style.display = "none";
+          progressWrap.style.display = "none";
+          stopPlayback();
+          if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; }
+          if (!file) return;
+          if (!file.type || file.type.indexOf("video/") !== 0) { showError("That doesn't look like a video file. Please choose an MP4, MOV, WebM or other video file."); return; }
+          if (state.url) URL.revokeObjectURL(state.url);
+          state.file = file;
+          state.url = URL.createObjectURL(file);
+          src.src = state.url;
+          src.onloadedmetadata = function () {
+            state.duration = src.duration;
+            state.width = src.videoWidth;
+            state.height = src.videoHeight;
+            if (!isFinite(state.duration) || state.duration <= 0 || !state.width) {
+              showError("This video could not be read. Try converting it to MP4 first (e.g. with HandBrake) and upload it again.");
+              infoGrid.style.display = "none"; settingsBlock.style.display = "none";
+              return;
+            }
+            var d = outSize();
+            canvas.width = d.w; canvas.height = d.h;
+            canvas.style.display = "block";
+            src.currentTime = 0;
+            src.addEventListener("seeked", function once() {
+              src.removeEventListener("seeked", once);
+              processFrame();
+            });
+            $("infoName").textContent = file.name;
+            $("infoDuration").textContent = fmtTime(state.duration);
+            $("infoRes").textContent = state.width + " \u00d7 " + state.height + " (processed at " + d.w + " \u00d7 " + d.h + ")";
+            infoGrid.style.display = "grid";
+            settingsBlock.style.display = "block";
+          };
+          src.onerror = function () { showError("Your browser couldn't play this video file. Try an MP4 version of the same clip."); infoGrid.style.display = "none"; settingsBlock.style.display = "none"; };
+          src.load();
+        }
+        function doExport() {
+          if (state.busy || !state.file) return;
+          clearError();
+          resultBox.style.display = "none";
+          if (typeof MediaRecorder === "undefined") { showError("This browser can't record video (MediaRecorder is not supported). Try Chrome, Edge or Firefox."); return; }
+          if (typeof canvas.captureStream !== "function") { showError("This browser can't capture video from a canvas. Try Chrome or Firefox."); return; }
+          var mime = pickMime();
+          var stream;
+          try { stream = canvas.captureStream(30); } catch (e) { showError("Could not start the video capture stream in this browser. Try Chrome or Firefox."); return; }
+          var rec;
+          try {
+            rec = mime ? new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 5000000 })
+                       : new MediaRecorder(stream, { videoBitsPerSecond: 5000000 });
+          } catch (e) { showError("Your browser refused to start the video recorder (" + (e && e.message ? e.message : e) + "). Try Chrome or Firefox."); return; }
+          var chunks = [];
+          rec.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+          rec.onerror = function () {
+            state.busy = false; exportBtn.disabled = false; progressWrap.style.display = "none"; stopPlayback();
+            showError("The browser's encoder reported an error part-way through. Try a shorter clip or a different browser.");
+          };
+          rec.onstop = function () {
+            state.busy = false; exportBtn.disabled = false; progressWrap.style.display = "none";
+            var blob = new Blob(chunks, { type: "video/webm" });
+            if (!blob.size) { showError("The encoder produced an empty file. Try a different video or browser."); return; }
+            if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+            state.outUrl = URL.createObjectURL(blob);
+            var base = (state.file.name || "video").replace(/\.[^.]+$/, "") || "video";
+            var bgName = { transparent: "transparent-bg", solid: "new-bg", blur: "blurred-bg", image: "image-bg" }[state.bg];
+            downloadLink.href = state.outUrl;
+            downloadLink.download = base + "-" + bgName + ".webm";
+            var d = outSize();
+            resultText.innerHTML = "Exported: <strong>" + fmtBytes(blob.size) + "</strong> \u00b7 " + d.w + " \u00d7 " + d.h + " \u00b7 " + fmtTime(state.duration) + " \u00b7 WebM (" + (mime || "browser default") + "), video-only (no audio track)" + (state.bg === "transparent" ? ". Transparent background is WebM-only \u2014 it will look black in players that ignore transparency." : ".");
+            resultBox.style.display = "block";
+            resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            toast("Export finished — " + fmtBytes(blob.size));
+          };
+          state.busy = true;
+          exportBtn.disabled = true;
+          progressWrap.style.display = "block";
+          progressFill.style.width = "0%";
+          progressText.textContent = "Starting\u2026 export runs in real time (about " + fmtTime(state.duration) + ").";
+          try { rec.start(500); } catch (e) {
+            state.busy = false; exportBtn.disabled = false; progressWrap.style.display = "none";
+            showError("The recorder couldn't start (" + (e && e.message ? e.message : e) + "). Try Chrome or Firefox.");
+            return;
+          }
+          startPlayback(function () { try { rec.stop(); } catch (e) {} });
+        }
+        dropzone.addEventListener("click", function () { fileInput.click(); });
+        dropzone.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fileInput.click(); } });
+        fileInput.addEventListener("change", function () { if (fileInput.files && fileInput.files[0]) loadFile(fileInput.files[0]); });
+        ["dragenter", "dragover"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.add("over"); }); });
+        ["dragleave", "drop"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.remove("over"); }); });
+        dropzone.addEventListener("drop", function (ev) { var f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0]; if (f) loadFile(f); });
+        canvas.addEventListener("click", function (ev) {
+          if (!src.videoWidth || state.busy) return;
+          var r = canvas.getBoundingClientRect();
+          var x = Math.floor((ev.clientX - r.left) / r.width * proc.width);
+          var y = Math.floor((ev.clientY - r.top) / r.height * proc.height);
+          var tmp = document.createElement("canvas");
+          tmp.width = proc.width; tmp.height = proc.height;
+          var tctx = tmp.getContext("2d");
+          tctx.drawImage(src, 0, 0, proc.width, proc.height);
+          var px = tctx.getImageData(Math.max(0, Math.min(proc.width - 1, x)), Math.max(0, Math.min(proc.height - 1, y)), 1, 1).data;
+          state.key = [px[0], px[1], px[2]];
+          var hex = rgbToHex(px[0], px[1], px[2]);
+          $("keyColor").value = hex;
+          $("infoKey").textContent = hex;
+          if (src.readyState >= 2) processFrame();
+          toast("Background colour picked: " + hex);
+        });
+        $("keyColor").addEventListener("input", function () {
+          state.key = hexToRgb(this.value);
+          $("infoKey").textContent = this.value;
+          if (src.readyState >= 2 && !state.playing) processFrame();
+        });
+        $("thresholdRange").addEventListener("input", function () { state.threshold = parseInt(this.value, 10); $("thresholdOut").textContent = this.value; if (src.readyState >= 2 && !state.playing) processFrame(); });
+        $("smoothRange").addEventListener("input", function () { state.smooth = parseInt(this.value, 10); $("smoothOut").textContent = this.value; if (src.readyState >= 2 && !state.playing) processFrame(); });
+        $("bgChips").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".chip"); if (!b) return;
+          state.bg = b.getAttribute("data-bg");
+          var chips = this.querySelectorAll(".chip");
+          chips.forEach(function (ch) { ch.setAttribute("aria-pressed", ch === b ? "true" : "false"); });
+          $("solidRow").style.display = state.bg === "solid" ? "block" : "none";
+          $("imageRow").style.display = state.bg === "image" ? "block" : "none";
+          if (src.readyState >= 2 && !state.playing) processFrame();
+        });
+        $("solidColor").addEventListener("input", function () { state.solid = this.value; if (src.readyState >= 2 && !state.playing) processFrame(); });
+        $("bgImageInput").addEventListener("change", function () {
+          var f = this.files && this.files[0];
+          if (!f) return;
+          var img = new Image();
+          img.onload = function () { state.bgImg = img; $("bgImageName").textContent = "Loaded: " + f.name; if (src.readyState >= 2 && !state.playing) processFrame(); };
+          img.onerror = function () { showError("That image could not be read. Try a JPG or PNG."); };
+          img.src = URL.createObjectURL(f);
+        });
+        $("previewBtn").addEventListener("click", function () {
+          if (!state.file || state.busy) return;
+          if (state.playing) { stopPlayback(); this.textContent = "Play preview"; return; }
+          this.textContent = "Stop preview";
+          var btn = this;
+          startPlayback(function () { btn.textContent = "Play preview"; });
+        });
+        exportBtn.addEventListener("click", doExport);
+        $("exportAgainBtn").addEventListener("click", function () { resultBox.style.display = "none"; if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; } exportBtn.disabled = false; window.scrollTo({ top: settingsBlock.offsetTop - 20, behavior: "smooth" }); });
+        $("resetBtn").addEventListener("click", function () {
+          if (state.busy) return;
+          stopPlayback();
+          fileInput.value = "";
+          if (state.url) URL.revokeObjectURL(state.url);
+          if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+          state.file = null; state.url = null; state.outUrl = null;
+          canvas.style.display = "none";
+          infoGrid.style.display = "none"; settingsBlock.style.display = "none";
+          resultBox.style.display = "none"; progressWrap.style.display = "none";
+          clearError();
+        });
+
+        var _clb = document.getElementById("copyLinkBtn");
+        if (_clb) _clb.addEventListener("click", function () {
+          var u = location.href;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(u).then(function () { toast("Link copied — paste it anywhere."); },
+              function () { toast("Copy was blocked — long-press the address bar to copy the link."); });
+          } else { toast("Copy isn't supported in this browser."); }
+        });
+
+      })();
+
+</script>
+  </body>
+</html>

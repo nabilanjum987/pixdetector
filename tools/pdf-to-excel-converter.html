@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free PDF to Excel Converter — No Signup | PixDetector</title>
+<meta name="description" content="Convert PDF tables to Excel (.xlsx) free in your browser. No signup, no upload — your file never leaves your device.">
+<meta name="keywords" content="pdf to excel converter, free pdf to excel, convert pdf to xlsx, pdf table to excel, pdf to spreadsheet">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/pdf-to-excel-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/pdf-to-excel-converter">
+<meta property="og:title" content="Free PDF to Excel Converter — No Signup | PixDetector">
+<meta property="og:description" content="Convert PDF tables to Excel (.xlsx) free in your browser. No signup, no upload — your file never leaves your device.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this PDF to Excel converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Convert PDF tables to a real .xlsx spreadsheet free, with no signup, no upload and no watermark. The conversion runs entirely in your browser." } },
+    { "@type": "Question", "name": "Why do PDF tables come out as a mess in Excel?", "acceptedAnswer": { "@type": "Answer", "text": "A PDF does not store a table — it stores text fragments with coordinates. Any converter has to guess where columns start and end, so borderless tables, merged cells and wrapped text can split or merge wrongly. Always check row counts and totals after converting." } },
+    { "@type": "Question", "name": "Why do my numbers arrive as text in Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Numbers copied as text are ignored by SUM and sort wrongly — '100' comes before '20' because text sorts alphabetically. This converter turns values that look like numbers into real numbers, but currency symbols, commas and spaces can still leave some as text: use Excel's Text to Columns or VALUE() to fix the rest." } },
+    { "@type": "Question", "name": "Can I convert a scanned PDF table to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Not with this tool. A scanned PDF is a picture of a table, not text, so there is nothing to extract. Scanned tables need OCR first, which this browser-only converter does not do." } },
+    { "@type": "Question", "name": "Is my PDF uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The PDF is read in your browser with pdf.js and the spreadsheet is built there with SheetJS. Nothing is uploaded, stored, or shared." } },
+    { "@type": "Question", "name": "What is the difference between the .xlsx and .csv downloads?", "acceptedAnswer": { "@type": "Answer", "text": "The .xlsx file is a real spreadsheet with one sheet per PDF page, which opens in Excel or Google Sheets. The .csv file is plain comma-separated text for one page, useful for importing into other software." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert a PDF table to Excel",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Choose a PDF with tables. It is read in your browser and never uploaded." },
+    { "@type": "HowToStep", "name": "Convert it", "text": "Press Convert to Excel. Text on each page is grouped into rows and columns by position." },
+    { "@type": "HowToStep", "name": "Download and verify", "text": "Download the .xlsx file, open it in Excel, and check row counts and totals before you trust the numbers." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+.drop{border:2px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;color:var(--text2);font-size:14px;line-height:1.7;margin-top:12px}
+.drop.over{border-color:var(--accent)}
+.status{font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.preview{overflow-x:auto;margin-top:14px}
+.preview table{border-collapse:collapse;font-size:13px}
+.preview th,.preview td{border:1px solid var(--border);padding:6px 10px;text-align:left;white-space:nowrap}
+.preview th{background:var(--bg2)}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      PDF to Excel Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>Free PDF to Excel Converter</h1>
+      <p>Turn PDF tables into a real Excel (.xlsx) spreadsheet free — no signup, no upload, no watermark. Your file never leaves your device.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> a PDF stores <strong>text fragments with coordinates, not a table</strong> — any converter <strong>guesses column boundaries</strong>. Borderless tables, merged cells and scanned tables will need manual checking: <strong>verify totals and row counts after converting</strong>. Scanned/image PDFs need OCR and will not convert here. Numbers are converted to real numbers where possible, but check any column SUM ignores.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="PDF to Excel converter">
+        <h2>Convert your PDF table</h2>
+        <label class="flabel" for="pdfFile">Choose a PDF file</label>
+        <input type="file" id="pdfFile" accept="application/pdf,.pdf">
+        <div class="drop" id="dropZone">Or drag and drop your PDF here.<br>It is read in your browser — nothing is uploaded.</div>
+        <p class="status" id="status">No file chosen yet.</p>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+        <div class="preview" id="previewBox" hidden></div>
+        <div class="actions">
+          <button type="button" class="btn" id="convertBtn" disabled>Convert to Excel</button>
+          <button type="button" class="btn alt" id="dlXlsx" disabled>Download .xlsx</button>
+          <button type="button" class="btn alt" id="dlCsv" disabled>Download .csv (first page)</button>
+        </div>
+        <p class="trust">Free, no signup, no watermark. One sheet per PDF page. Check row counts and totals after converting.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Convert PDF tables to Excel free in your browser — no signup, no upload, your file never leaves your device.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <a href="https://twitter.com/intent/tweet?text=Convert%20PDF%20tables%20to%20Excel%20free%20in%20your%20browser%20%E2%80%94%20no%20signup%2C%20no%20upload&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpdf-to-excel-converter" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpdf-to-excel-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Convert%20PDF%20tables%20to%20Excel%20free%20in%20your%20browser%20%E2%80%94%20no%20signup%2C%20no%20upload%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpdf-to-excel-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: tables that come out as a mess</h2>
+      <p>Everyone who has tried to turn a PDF table into a spreadsheet knows the result: data landing in the wrong cells, columns merged into one, numbers split across two cells, and totals that no longer add up. The worst version is silent — the numbers arrive as text, so SUM ignores them and sorting puts "100" before "20", and you only notice when a report is already wrong. Add the usual free-tier caps and server uploads, and the simple job of reusing a table turns into an afternoon of manual rebuilding. People want one thing: a PDF table turned into a clean spreadsheet with real numbers, without rebuilding it by hand.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert a PDF table to Excel for free?</h2>
+      <p>Upload your PDF here, press Convert to Excel, and download a real .xlsx file — free, with no signup and no upload, because the conversion runs entirely in your browser. The tool reads the text on each page, groups it into rows and columns by position, turns values that look like numbers into real numbers, and builds one sheet per PDF page. Then open the file in Excel or Google Sheets and check the row counts and totals before you trust the numbers.</p>
+      <p>A PDF to Excel converter is a tool that rebuilds a spreadsheet from a PDF's text. The catch is that a PDF never stored a table in the first place: it stores text fragments with x and y coordinates, and the converter has to guess which fragments belong in the same row and which gap marks a new column. That guessing is why no converter is perfect — and why the verification step after converting matters as much as the conversion itself.</p>
+      <!-- HOW TO -->
+      <h2>How to convert PDF to Excel in 3 steps</h2>
+      <p><strong>Step 1:</strong> choose a PDF with tables (or drag it onto the drop zone). It is read in your browser and never uploaded. <strong>Step 2:</strong> press Convert to Excel — the first page is previewed on screen so you can see how the columns landed. <strong>Step 3:</strong> download the .xlsx file (or the first page as CSV), open it, and verify: count the rows against the PDF, check the totals, and fix any column that merged or split wrongly.</p>
+      <h2>Getting clean numbers, not text</h2>
+      <p>The most common silent failure is numbers stored as text. This converter converts values that look like numbers — including negatives and decimals — into real Excel numbers, so SUM and sorting work. But currency symbols, thousands commas, spaces and trailing letters can still leave a value as text. If a column will not sum, select it in Excel and use Text to Columns, or wrap it with VALUE() in a helper column. Also watch for wrapped text: a long cell that wrapped onto two lines in the PDF may arrive as two rows — merge them back by hand and re-check the total.</p>
+      <h2>Which PDFs convert well — and which do not</h2>
+      <p>Clean, bordered tables from invoices, bank statements and reports convert best: clear rows, clear gaps between columns, one line per cell. Borderless tables, tables with merged header cells, and tables where text wraps inside a cell convert worst — the column guesswork has nothing solid to work from. Scanned PDFs do not convert at all here, because they contain a picture of a table rather than text; those need OCR first. If your table is one of the hard cases, convert anyway for a head start, then fix the handful of bad rows by hand — it is still far faster than retyping the whole table.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this PDF to Excel converter really free?</summary>
+        <p>Yes. Convert PDF tables to a real .xlsx spreadsheet free, with no signup, no upload and no watermark. The conversion runs entirely in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do PDF tables come out as a mess in Excel?</summary>
+        <p>A PDF does not store a table — it stores text fragments with coordinates. Any converter has to guess where columns start and end, so borderless tables, merged cells and wrapped text can split or merge wrongly. Always check row counts and totals after converting.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do my numbers arrive as text in Excel?</summary>
+        <p>Numbers copied as text are ignored by SUM and sort wrongly — "100" comes before "20" because text sorts alphabetically. This converter turns values that look like numbers into real numbers, but currency symbols, commas and spaces can still leave some as text: use Excel's Text to Columns or VALUE() to fix the rest.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a scanned PDF table to Excel?</summary>
+        <p>Not with this tool. A scanned PDF is a picture of a table, not text, so there is nothing to extract. Scanned tables need OCR first, which this browser-only converter does not do.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my PDF uploaded to a server?</summary>
+        <p>No. The PDF is read in your browser with pdf.js and the spreadsheet is built there with SheetJS. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between the .xlsx and .csv downloads?</summary>
+        <p>The .xlsx file is a real spreadsheet with one sheet per PDF page, which opens in Excel or Google Sheets. The .csv file is plain comma-separated text for one page, useful for importing into other software.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I convert PDF to Excel without Adobe?</strong> Yes — this page does it free in your browser, no Adobe account needed.</p>
+      <p><strong>Why is my total wrong after converting?</strong> Check for numbers stored as text and for rows split by wrapped text — both make totals silently wrong.</p>
+      <p><strong>Can I convert only one page of a PDF?</strong> The .xlsx has one sheet per page, so just use the sheet you need; the CSV download covers the first page only.</p>
+      <p><strong>Will my formatting survive?</strong> No — this tool rebuilds the data as a clean table. Colours, fonts and borders from the PDF are not carried over.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/pdf-to-word-converter" class="related-card"><h4>📄 PDF to Word Converter</h4><p>PDF to editable Word</p></a><a href="/tools/file-converter" class="related-card"><h4>🔄 File Converter</h4><p>Convert files free</p></a><a href="/tools/image-to-text-converter" class="related-card"><h4>🔤 Image to Text</h4><p>Extract text from images</p></a><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/pdf.min.js"></script>
+<script src="../js/xlsx.full.min.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  if (typeof pdfjsLib !== "undefined") { pdfjsLib.GlobalWorkerOptions.workerSrc = "../js/pdf.worker.min.js"; }
+  var file = null, sheets = [], baseName = "table";
+  function showError(msg) { var e = $("errorBox"); e.hidden = false; e.textContent = msg; }
+  function clearError() { $("errorBox").hidden = true; }
+  function setFile(f) {
+    clearError();
+    if (!f) return;
+    if (!/\.pdf$/i.test(f.name) && f.type !== "application/pdf") { showError("Please choose a PDF file."); return; }
+    file = f; sheets = [];
+    baseName = f.name.replace(/\.pdf$/i, "") || "table";
+    $("status").textContent = "Chosen: " + f.name + " (" + Math.round(f.size / 1024) + " KB). Press Convert to Excel.";
+    $("convertBtn").disabled = false;
+    $("dlXlsx").disabled = true; $("dlCsv").disabled = true;
+    $("previewBox").hidden = true;
+  }
+  $("pdfFile").addEventListener("change", function () { setFile(this.files[0]); });
+  var dz = $("dropZone");
+  dz.addEventListener("dragover", function (e) { e.preventDefault(); dz.classList.add("over"); });
+  dz.addEventListener("dragleave", function () { dz.classList.remove("over"); });
+  dz.addEventListener("drop", function (e) { e.preventDefault(); dz.classList.remove("over"); if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]); });
+  function toCell(v) {
+    var s = String(v).trim();
+    if (/^-?[\d,]*\.\d+$/.test(s) || /^-?\d+$/.test(s)) {
+      var n = Number(s.replace(/,/g, ""));
+      if (isFinite(n)) return n;
+    }
+    return s;
+  }
+  function rowsFromItems(items) {
+    // Group by y (same row), sort by x, split columns on wide x-gaps.
+    var rows = {}, ys = [];
+    items.forEach(function (it) {
+      var y = Math.round(it.transform[5]);
+      var found = null;
+      for (var i = 0; i < ys.length; i++) { if (Math.abs(ys[i] - y) <= 3) { found = ys[i]; break; } }
+      if (found === null) { ys.push(y); rows[y] = []; found = y; }
+      rows[found].push({ x: it.transform[4], w: it.width || 0, str: it.str });
+    });
+    ys.sort(function (a, b) { return b - a; });
+    return ys.map(function (y) {
+      var cells = rows[y].sort(function (a, b) { return a.x - b.x; });
+      var out = [], cur = "";
+      cells.forEach(function (c, i) {
+        if (i === 0) { cur = c.str; return; }
+        var prev = cells[i - 1];
+        var gap = c.x - (prev.x + prev.w);
+        if (gap > 12) { out.push(cur); cur = c.str; }
+        else cur += (cur && !cur.endsWith(" ") ? " " : "") + c.str;
+      });
+      out.push(cur);
+      return out.map(toCell);
+    }).filter(function (r) { return r.some(function (c) { return String(c).trim() !== ""; }); });
+  }
+  $("convertBtn").addEventListener("click", function () {
+    if (!file) return;
+    clearError();
+    if (typeof pdfjsLib === "undefined") { showError("The PDF reader could not be loaded. Reload the page and try again."); return; }
+    if (typeof XLSX === "undefined") { showError("The spreadsheet builder could not be loaded. Reload the page and try again."); return; }
+    $("status").textContent = "Reading your PDF…";
+    $("convertBtn").disabled = true;
+    var reader = new FileReader();
+    reader.onload = function () {
+      pdfjsLib.getDocument({ data: new Uint8Array(reader.result) }).promise.then(function (pdf) {
+        var jobs = [];
+        for (var p = 1; p <= pdf.numPages; p++) {
+          jobs.push(pdf.getPage(p).then(function (page) { return page.getTextContent().then(function (tc) { return rowsFromItems(tc.items); }); }));
+        }
+        return Promise.all(jobs);
+      }).then(function (all) {
+        sheets = all;
+        var totalRows = 0, totalCells = 0;
+        all.forEach(function (pg) { totalRows += pg.length; pg.forEach(function (r) { totalCells += r.length; }); });
+        if (totalCells === 0) {
+          $("status").textContent = "This PDF has no extractable text — it is probably a scanned or image PDF, which needs OCR. No spreadsheet was created.";
+          showError("No text found in this PDF. Scanned/image PDFs need OCR, which this tool does not do.");
+          $("convertBtn").disabled = false;
+          return;
+        }
+        $("status").textContent = "Done — " + all.length + " page(s), " + totalRows + " rows extracted. Preview of page 1 below — check the columns, then download.";
+        var pb = $("previewBox");
+        var html = "<table><tbody>";
+        all[0].slice(0, 20).forEach(function (r) { html += "<tr>" + r.map(function (c) { return "<td></td>"; }).join("").replace(/<td><\/td>/g, function () { return ""; }) + "</tr>"; });
+        // Build preview safely with text nodes instead of raw HTML.
+        pb.innerHTML = "";
+        var tbl = document.createElement("table"), tb = document.createElement("tbody");
+        all[0].slice(0, 20).forEach(function (r) {
+          var tr = document.createElement("tr");
+          r.forEach(function (c) { var td = document.createElement("td"); td.textContent = String(c); tr.appendChild(td); });
+          tb.appendChild(tr);
+        });
+        tbl.appendChild(tb); pb.appendChild(tbl);
+        pb.hidden = false;
+        $("dlXlsx").disabled = false; $("dlCsv").disabled = false;
+        $("convertBtn").disabled = false;
+        toast("Conversion complete — verify totals before trusting the numbers.");
+      }).catch(function (e) {
+        $("status").textContent = "Conversion failed.";
+        showError("Could not read this PDF (" + (e && e.message ? e.message : "unknown error") + "). It may be damaged or password-protected.");
+        $("convertBtn").disabled = false;
+      });
+    };
+    reader.readAsArrayBuffer(file);
+  });
+  $("dlXlsx").addEventListener("click", function () {
+    if (!sheets.length || typeof XLSX === "undefined") return;
+    var wb = XLSX.utils.book_new();
+    sheets.forEach(function (pg, i) {
+      var ws = XLSX.utils.aoa_to_sheet(pg.length ? pg : [[""]]);
+      XLSX.utils.book_append_sheet(wb, ws, "Page " + (i + 1));
+    });
+    XLSX.writeFile(wb, baseName + ".xlsx");
+    toast("Spreadsheet downloaded — verify row counts and totals.");
+  });
+  $("dlCsv").addEventListener("click", function () {
+    if (!sheets.length || typeof XLSX === "undefined") return;
+    var ws = XLSX.utils.aoa_to_sheet(sheets[0].length ? sheets[0] : [[""]]);
+    var csv = XLSX.utils.sheet_to_csv(ws);
+    var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = baseName + "-page1.csv";
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+    toast("CSV downloaded.");
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+})();
+</script>
+</body>
+</html>

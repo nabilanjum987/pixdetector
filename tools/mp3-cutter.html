@@ -23,7 +23,31 @@
       "name": "Is this MP3 cutter really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Cutting is free with no sign-up, no watermark and no upload. Your file is processed in your browser."
+        "text": "Yes. Cutting is free with no sign-up, no watermark and no upload. Your file is processed in your browser, and the WAV clip downloads directly to your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a ringtone from a song?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick a 20–40 second section (the chorus works best), add a short fade in/out, export as MP3; on iPhone convert to .m4r and sync via Finder (30-second max). This page exports WAV — convert it afterwards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long can an iPhone ringtone be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apple says up to 30 seconds; Android has no length cap but most people keep tones under 30 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut a section out of the middle of a song?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but only on a cutter, not a trimmer — split at both ends of the unwanted section, delete it, and the rest stitches together (SnipSound does this; XConvert has a separate Audio Cutter for it). This page keeps one section per cut."
       }
     },
     {
@@ -31,7 +55,7 @@
       "name": "Why does it export WAV instead of MP3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "WAV is lossless, so the exported clip keeps full audio quality without compression loss. Convert the WAV to MP3 in any player or editor if you need that format."
+        "text": "WAV is lossless, so the exported clip keeps full audio quality without compression loss. MP3 export needs an encoder this browser tool does not include — convert the WAV to MP3 in any player or editor if you need that format."
       }
     },
     {
@@ -39,15 +63,23 @@
       "name": "Will cutting reduce my audio quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cutting with re-encoding always risks some quality change. The export is lossless WAV, which avoids compression loss, but only lossless stream-copy preserves a file exactly."
+        "text": "Cutting with re-encoding always risks some quality change, and this tool re-encodes when it exports. The export itself is lossless WAV, which avoids compression loss, but it cannot promise zero change — only lossless stream-copy preserves a file exactly, and that limits format and fade options. Trimming an MP3 re-encodes it (128–192 kbps on most free tools), which loses a little — SnipSound avoids re-encoding the parts you keep."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I cut precisely to the millisecond?",
+      "name": "Can I cut audio from a video?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can type exact times to 0.01 seconds. True millisecond-perfect editing and multi-feature work are desktop jobs."
+        "text": "Yes — mp3cut.net extracts and cuts audio from video files; or extract the audio first and then cut it here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What formats can I cut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP3, WAV, FLAC, AAC, M4A, OGG, OPUS and more — XConvert accepts 19 input formats; SnipSound accepts MP3/WAV/OGG/FLAC/AAC/M4A. This page opens MP3, WAV, M4A, OGG and other common audio files."
       }
     },
     {
@@ -55,7 +87,47 @@
       "name": "Is there a file-size limit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There is no upload and no server limit. Very large files may take a few seconds to load and decode in your browser."
+        "text": "There is no upload and no server limit, so nothing is capped by us. Very large files may take a few seconds to load and decode in your browser, and very long files are harder to cut precisely on a small screen. For comparison, BeMusic caps at 50 MB and Castos at 500 MB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No for MP3 export on SnipSound, Castos, BeMusic and Rev; BeMusic requires sign-in for WAV export. No signup here either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I fade in and out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes on MP3stack (fade in/out + normalise + silence trim) and SnipSound (crossfade between segments); simple trimmers often don't offer it. This page has fade in/out checkboxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut multiple parts from one audio file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On SnipSound yes — split as many times as you want; on BeMusic no — one segment per cut, repeat the process for each part. This page gives one segment per cut."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut precisely to the millisecond?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can type exact times to 0.01 seconds and click the waveform to place cut points, which is precise enough for ringtones, clips and intros. True millisecond-perfect editing and multi-feature work (noise removal, EQ) are desktop jobs. BeMusic shows start/end to a hundredth of a second with a 0.5-second minimum clip."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an audio cutter and an audio trimmer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A trimmer keeps one section and discards the rest; a cutter removes a section from the middle and joins what remains — same engine, opposite operation (XConvert's own words)."
       }
     },
     {
@@ -63,7 +135,7 @@
       "name": "Does my MP3 get uploaded anywhere?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The file is decoded in your browser and never leaves your device."
+        "text": "No. The file is decoded in your browser and never leaves your device. Close the tab and it is gone — nothing is stored on our servers. On SnipSound and Castos it is the same; on XConvert your file is uploaded over an encrypted connection, processed on servers, and deleted after a few hours."
       }
     }
   ]
@@ -278,33 +350,86 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <tr><td class="fname">Need MP3 output</td><td>Download WAV, convert</td><td>Any player or editor converts WAV to MP3.</td></tr>
         </tbody>
       </table>
+    <h2 style="margin-top:28px">Cutter vs trimmer — which one do you need?</h2>
+      <p>A trimmer keeps one section and discards the rest; a cutter removes a section from the middle and joins what remains — same engine, opposite operation (XConvert's own words). This page trims: it keeps the section between your start and end points. To cut a section out of the middle of a song, split at both ends of the unwanted section, delete it, and the rest stitches together — SnipSound does this, and XConvert has a separate Audio Cutter for it.</p>
+    <h2 style="margin-top:28px">Making a ringtone</h2>
+      <p>Pick a 20–30 second section (the chorus works best), add a short fade in/out, and export. On iPhone, ringtones max out at 30 seconds, need converting to .m4r, and sync via Finder; Android has no length cap. This page exports WAV — convert the WAV to .m4r or MP3 in any player or editor, then set it as your ringtone.</p>
+    <h2 style="margin-top:28px">How this cutter compares</h2>
+      <p>Every tool below exports MP3 — this page exports WAV only, and says so upfront:</p>
+      <table class="formats">
+        <thead><tr><th>Tool</th><th>Free / signup</th><th>What it does</th><th>Limits</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">This page</td><td>Free, no signup, no watermark, no upload</td><td>Waveform trim, exact seconds, fade in/out, preview</td><td>Exports WAV only; one segment per cut</td></tr>
+          <tr><td class="fname">MP3stack</td><td>Free</td><td>Trim audio from public video links (YouTube/TikTok/Instagram/Facebook/Vimeo/SoundCloud); start/end times, fade in/out, normalise, silence trim; MP3 64–320 kbps or WAV out</td><td>Link-based, not file-upload; private/paywalled/age-restricted/DRM items not supported</td></tr>
+          <tr><td class="fname">Castos</td><td>Free, no upload</td><td>Audio trimmer, entirely in-browser; MP3/WAV/M4A/AAC/OGG/FLAC up to 500 MB; waveform precision</td><td>Export fixed at 128 kbps MP3; trim-only (one continuous section, no middle-cut)</td></tr>
+          <tr><td class="fname">SnipSound</td><td>Free, in-browser</td><td>Full waveform editor; cut/trim/delete sections, split at any point, crossfade, combine multiple files, keyboard shortcuts, undo, zoom; export MP3/WAV/OGG/FLAC/AAC</td><td>No stated file-size cap; no link-based input; no re-encode of kept parts</td></tr>
+          <tr><td class="fname">BeMusic AI</td><td>MP3 export free, no signup, no watermark</td><td>0.01s precision, 0.5s minimum clip; ringtone guide (20–40s chorus); MP3 re-encode 192 kbps</td><td>Upload MP3/WAV up to 50 MB; WAV export needs an account; one segment per cut</td></tr>
+          <tr><td class="fname">XConvert</td><td>Free, no signup, no watermark</td><td>Audio cutter + trimmer; 19 input formats, batch; output format/codec/bitrate/channels/sample-rate controls; iPhone ringtone note (30s, .m4r via Finder)</td><td>Server-processed (upload, deleted after hours); two separate pages (cutter vs trimmer) confuse the intent</td></tr>
+        </tbody>
+      </table>
     <!-- FAQ -->
     <h2 style="margin-top:28px">FAQ</h2>
     
       <details class="faq">
-        <summary>Is this MP3 cutter really free?</summary>
-        <p>Yes. Cutting is free with no sign-up, no watermark and no upload. Your file is processed in your browser, and the WAV clip downloads directly to your device.</p>
-      </details>
-      <details class="faq">
-        <summary>Why does it export WAV instead of MP3?</summary>
-        <p>WAV is lossless, so the exported clip keeps full audio quality without compression loss. MP3 export needs an encoder this browser tool does not include — convert the WAV to MP3 in any player or editor if you need that format.</p>
-      </details>
-      <details class="faq">
-        <summary>Will cutting reduce my audio quality?</summary>
-        <p>Cutting with re-encoding always risks some quality change, and this tool re-encodes when it exports. The export itself is lossless WAV, which avoids compression loss, but it cannot promise zero change — only lossless stream-copy preserves a file exactly, and that limits format and fade options.</p>
-      </details>
-      <details class="faq">
-        <summary>Can I cut precisely to the millisecond?</summary>
-        <p>You can type exact times to 0.01 seconds and click the waveform to place cut points, which is precise enough for ringtones, clips and intros. True millisecond-perfect editing and multi-feature work (noise removal, EQ) are desktop jobs.</p>
-      </details>
-      <details class="faq">
-        <summary>Is there a file-size limit?</summary>
-        <p>There is no upload and no server limit, so nothing is capped by us. Very large files may take a few seconds to load and decode in your browser, and very long files are harder to cut precisely on a small screen.</p>
-      </details>
-      <details class="faq">
-        <summary>Does my MP3 get uploaded anywhere?</summary>
-        <p>No. The file is decoded in your browser and never leaves your device. Close the tab and it is gone — nothing is stored on our servers.</p>
-      </details>
+<summary>Is this MP3 cutter really free?</summary>
+<p>Yes. Cutting is free with no sign-up, no watermark and no upload. Your file is processed in your browser, and the WAV clip downloads directly to your device.</p>
+</details>
+<details class="faq">
+<summary>How do I make a ringtone from a song?</summary>
+<p>Pick a 20–40 second section (the chorus works best), add a short fade in/out, export as MP3; on iPhone convert to .m4r and sync via Finder (30-second max). This page exports WAV — convert it afterwards.</p>
+</details>
+<details class="faq">
+<summary>How long can an iPhone ringtone be?</summary>
+<p>Apple says up to 30 seconds; Android has no length cap but most people keep tones under 30 seconds.</p>
+</details>
+<details class="faq">
+<summary>Can I cut a section out of the middle of a song?</summary>
+<p>Yes, but only on a cutter, not a trimmer — split at both ends of the unwanted section, delete it, and the rest stitches together (SnipSound does this; XConvert has a separate Audio Cutter for it). This page keeps one section per cut.</p>
+</details>
+<details class="faq">
+<summary>Why does it export WAV instead of MP3?</summary>
+<p>WAV is lossless, so the exported clip keeps full audio quality without compression loss. MP3 export needs an encoder this browser tool does not include — convert the WAV to MP3 in any player or editor if you need that format.</p>
+</details>
+<details class="faq">
+<summary>Will cutting reduce my audio quality?</summary>
+<p>Cutting with re-encoding always risks some quality change, and this tool re-encodes when it exports. The export itself is lossless WAV, which avoids compression loss, but it cannot promise zero change — only lossless stream-copy preserves a file exactly, and that limits format and fade options. Trimming an MP3 re-encodes it (128–192 kbps on most free tools), which loses a little — SnipSound avoids re-encoding the parts you keep.</p>
+</details>
+<details class="faq">
+<summary>Can I cut audio from a video?</summary>
+<p>Yes — mp3cut.net extracts and cuts audio from video files; or extract the audio first and then cut it here.</p>
+</details>
+<details class="faq">
+<summary>What formats can I cut?</summary>
+<p>MP3, WAV, FLAC, AAC, M4A, OGG, OPUS and more — XConvert accepts 19 input formats; SnipSound accepts MP3/WAV/OGG/FLAC/AAC/M4A. This page opens MP3, WAV, M4A, OGG and other common audio files.</p>
+</details>
+<details class="faq">
+<summary>Is there a file-size limit?</summary>
+<p>There is no upload and no server limit, so nothing is capped by us. Very large files may take a few seconds to load and decode in your browser, and very long files are harder to cut precisely on a small screen. For comparison, BeMusic caps at 50 MB and Castos at 500 MB.</p>
+</details>
+<details class="faq">
+<summary>Do I need to sign up?</summary>
+<p>No for MP3 export on SnipSound, Castos, BeMusic and Rev; BeMusic requires sign-in for WAV export. No signup here either.</p>
+</details>
+<details class="faq">
+<summary>Can I fade in and out?</summary>
+<p>Yes on MP3stack (fade in/out + normalise + silence trim) and SnipSound (crossfade between segments); simple trimmers often don't offer it. This page has fade in/out checkboxes.</p>
+</details>
+<details class="faq">
+<summary>Can I cut multiple parts from one audio file?</summary>
+<p>On SnipSound yes — split as many times as you want; on BeMusic no — one segment per cut, repeat the process for each part. This page gives one segment per cut.</p>
+</details>
+<details class="faq">
+<summary>Can I cut precisely to the millisecond?</summary>
+<p>You can type exact times to 0.01 seconds and click the waveform to place cut points, which is precise enough for ringtones, clips and intros. True millisecond-perfect editing and multi-feature work (noise removal, EQ) are desktop jobs. BeMusic shows start/end to a hundredth of a second with a 0.5-second minimum clip.</p>
+</details>
+<details class="faq">
+<summary>What is the difference between an audio cutter and an audio trimmer?</summary>
+<p>A trimmer keeps one section and discards the rest; a cutter removes a section from the middle and joins what remains — same engine, opposite operation (XConvert's own words).</p>
+</details>
+<details class="faq">
+<summary>Does my MP3 get uploaded anywhere?</summary>
+<p>No. The file is decoded in your browser and never leaves your device. Close the tab and it is gone — nothing is stored on our servers. On SnipSound and Castos it is the same; on XConvert your file is uploaded over an encrypted connection, processed on servers, and deleted after a few hours.</p>
+</details>
     <!-- RELATED QUESTIONS -->
     <h2 style="margin-top:28px">Related questions</h2>
     <ul class="rel-q">

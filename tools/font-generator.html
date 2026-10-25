@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this font generator free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Type your text, copy any style, and download a PNG — free, with no signup, no credits and no watermark." } },
-    { "@type": "Question", "name": "Why does my styled text paste as plain letters sometimes?", "acceptedAnswer": { "@type": "Answer", "text": "Some apps and username fields only accept plain letters and strip or reject special Unicode characters. Try a simpler style, or use the real-font PNG download for images instead." } },
-    { "@type": "Question", "name": "Why do some styles show as empty boxes?", "acceptedAnswer": { "@type": "Answer", "text": "Styled letters are special Unicode characters, and older phones, older Windows versions and some apps do not have glyphs for them, so they show as empty boxes. Bold and italic styles work on the most devices." } },
-    { "@type": "Question", "name": "Can I download these fonts for Photoshop or Canva?", "acceptedAnswer": { "@type": "Answer", "text": "No. These are Unicode characters, not font files, so they cannot be installed in Photoshop, Canva or Word. For design work, use the real-font preview and download your text as a PNG image instead." } },
-    { "@type": "Question", "name": "Can screen readers read styled text?", "acceptedAnswer": { "@type": "Answer", "text": "Badly. Screen readers read styled letters by their Unicode names or skip them, so a stylish bio can be unreadable to blind users. Keep your name and key information in plain text, and use styled text only as decoration." } },
-    { "@type": "Question", "name": "Where can I use copy-paste fonts?", "acceptedAnswer": { "@type": "Answer", "text": "They work in most places that accept pasted text: Instagram and TikTok bios and captions, Facebook posts, WhatsApp and Discord messages, and YouTube titles. They do not work in fields that only allow plain letters, such as most usernames." } }
+    {
+      "@type": "Question",
+      "name": "Is a font generator really changing my font?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — it swaps each letter for a look-alike Unicode character (e.g. 𝐡 is U+1D421); no font file is installed and nothing is styled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my fancy text show as boxes (□□□)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The viewer's device has no glyph for that character — \"tofu\". Switch to a widely supported style like bold or small caps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use fancy fonts in my Instagram username (@handle)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — handles allow only plain letters, numbers, periods, underscores. Style your display name and bio instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my styled text paste into Instagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Known Instagram app quirk — paste into your Notes app first, copy again, then paste into Instagram."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will fancy text hurt my reach or SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it can — search can't read styled Unicode as the plain word, so don't style keywords or hashtags you want found."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is styled text bad for accessibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes if overused — screen readers spell out character names or skip the text; keep essential info plain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on TikTok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in bios, captions, comments and display names, but TikTok is the strictest of the big three about what it keeps; very long phrases may need trimming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on Discord?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in display names (up to 32 chars) and messages; newer Discord usernames allow only lowercase letters, numbers, underscores, periods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these fonts for commercial projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The styled characters themselves are public Unicode; FontGen.art states no licence/watermark/attribution requirement on its output. That is a vendor statement, not legal advice — check the licence for anything you sell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many characters can I put in my Instagram bio with fancy fonts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 75 styled letters in a 150-character bio, because each astral-plane character counts double in UTF-16."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some letters look different weight mid-word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some alphabets have gaps (script missing 11 letters; no small-capital X) and generators substitute from a nearby block."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use fancy fonts with accented letters (é, ñ, ü)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mostly no — the styled Unicode blocks cover unaccented A–Z, a–z, 0–9 only; accented letters fall back to plain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything or sign up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — every top-ranked generator runs in the browser with no account, no app, no download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will fancy text in an email subject line work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avoid it — spam filters treat decorative characters as a spam signal and the message may land in junk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which styles are safest for a permanent username?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bold, double-struck and small caps — they clear most name filters; glitch/Zalgo clears almost none."
+      }
+    }
   ]
 }
 </script>
@@ -70,6 +184,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
 .share-btns{display:flex;flex-wrap:wrap;gap:10px}
 .share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
 </style>
@@ -162,31 +281,88 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Bold and italic are the safest choices: they exist on the most devices and read most clearly. Script and cursive look best for names and short bios, but they are harder to read in long captions. Bubble and square styles stand out in headings and usernames that allow them — but most username fields reject them outright, so test before you commit. Small caps and monospace are good for a clean, technical look. If a style shows as boxes on your friend's phone, switch to bold: it is the one style almost every device renders.</p>
       <h2>Keep it readable — and accessible</h2>
       <p>Styled text looks fun, but screen readers — used by blind and low-vision people — read styled letters by their Unicode names or skip them entirely, so a fully styled bio can be unreadable. The kindest rule is simple: keep your name and the important words in plain text, and use styled text as decoration around them. The same goes for search: styled words do not match plain-text searches, so a bio written entirely in bubble letters will not be found when someone searches your name.</p>
-      <!-- FAQ -->
+      <h2>Why your fancy bio breaks on someone else's phone</h2>
+      <p>The most common surprise with styled text is the tofu box: □□□ where your name should be. Styled letters are special Unicode characters, and the problem is on the viewer's device, not yours — if their phone or app has no glyph for a character, it shows as an empty box. The same bio can look perfect on your phone and broken on your friend's. The simpler styles — bold, cursive, small caps — display correctly on nearly every device, while heavily decorated ones can show as squares on older phones. If a friend sees boxes, switch to bold: it is the style almost every device renders.</p>
+      <p>The second surprise is search. Styled Unicode does not match plain-text search, so a bio written in fancy letters is invisible when someone searches your real name, and styled hashtags do not work as hashtags. Screen readers have the same problem in reverse: they spell out character names ("mathematical bold small a") instead of the letter, so a fully styled bio can be unreadable. Keep your name and the words you want found in plain text, and use styled text as decoration around them.</p>
+      <h2>Will it work on your platform?</h2>
+      <p>Whether styled text works depends on where you paste it — and the rules are different for handles, display names and bios. The table below is the short version:</p>
+      <table class="tbl">
+        <tr><th>Platform</th><th>What works</th><th>What fails / watch out</th></tr>
+        <tr><td>Instagram</td><td>Styled text in your bio and display name</td><td>Handles allow only plain letters, numbers, periods and underscores. Pasting into the app sometimes refuses — paste into your Notes app first, copy again, then paste into Instagram. A 150-character bio holds only about 75 styled letters.</td></tr>
+        <tr><td>TikTok</td><td>Bios, captions, comments and display names</td><td>TikTok is the strictest of the big three about what it keeps; very long phrases may need trimming. Handles allow plain letters only.</td></tr>
+        <tr><td>Discord</td><td>Display names (up to 32 characters) and messages</td><td>Newer Discord usernames allow only lowercase letters, numbers, underscores and periods.</td></tr>
+        <tr><td>X</td><td>Display name and posts</td><td>Handles allow only plain letters, numbers, dots and underscores.</td></tr>
+        <tr><td>WhatsApp</td><td>Messages</td><td>Chats accept pasted text; keep essential information in plain text for screen readers.</td></tr>
+        <tr><td>Steam</td><td>Profile and display names</td><td>Steam accepts almost anything.</td></tr>
+        <tr><td>Roblox</td><td>Almost nothing styled</td><td>Roblox accepts almost nothing — most styled names are rejected by its filters.</td></tr>
+        <tr><td>Email subject lines</td><td>Nothing styled — avoid it</td><td>Spam filters treat decorative characters as a spam signal and the message may land in junk.</td></tr>
+      </table>
+      <h2>Safe styles — the ones that survive almost everywhere</h2>
+      <p>If you want a style that works on every phone and clears most username filters, pick from the safe set: <strong>bold, double-struck and small caps</strong> clear most name filters, and bold is the most widely rendered style of all. Script and cursive look good for names and short bios but are harder to read in long captions. At the other end, <strong>glitch / Zalgo styles clear almost no filters</strong> and break most often. Two more gaps to know: the plain script alphabet is missing 11 letters, and there is no small-capital X — generators silently substitute look-alikes from a nearby block, which is why some letters look a different weight mid-word. And the styled Unicode blocks cover unaccented A–Z, a–z and 0–9 only, so accented letters like é, ñ and ü fall back to plain.</p>
+      <h2>Found a font in a picture? Identify it first</h2>
+      <p>If the style you want comes from a screenshot, a poster or a logo, a generator cannot copy it — you need to identify the font first. Our guide <a href="/tools/what-font-is-this">What Font Is This?</a> walks through the three real ways: upload a cropped screenshot to a font identifier, inspect the website's CSS, or ask the designer. Once you know the name, come back here and pick the closest copy-paste style.</p>
+
+            <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this font generator free?</summary>
-        <p>Yes. Type your text, copy any style, and download a PNG — free, with no signup, no credits and no watermark.</p>
+        <summary>Is a font generator really changing my font?</summary>
+        <p>No — it swaps each letter for a look-alike Unicode character (e.g. 𝐡 is U+1D421); no font file is installed and nothing is styled.</p>
       </details>
       <details class="faq">
-        <summary>Why does my styled text paste as plain letters sometimes?</summary>
-        <p>Some apps and username fields only accept plain letters and strip or reject special Unicode characters. Try a simpler style, or use the real-font PNG download for images instead.</p>
+        <summary>Why does my fancy text show as boxes (□□□)?</summary>
+        <p>The viewer&#x27;s device has no glyph for that character — &quot;tofu&quot;. Switch to a widely supported style like bold or small caps.</p>
       </details>
       <details class="faq">
-        <summary>Why do some styles show as empty boxes?</summary>
-        <p>Styled letters are special Unicode characters, and older phones, older Windows versions and some apps do not have glyphs for them, so they show as empty boxes. Bold and italic styles work on the most devices.</p>
+        <summary>Can I use fancy fonts in my Instagram username (@handle)?</summary>
+        <p>No — handles allow only plain letters, numbers, periods, underscores. Style your display name and bio instead.</p>
       </details>
       <details class="faq">
-        <summary>Can I download these fonts for Photoshop or Canva?</summary>
-        <p>No. These are Unicode characters, not font files, so they cannot be installed in Photoshop, Canva or Word. For design work, use the real-font preview and download your text as a PNG image instead.</p>
+        <summary>Why won&#x27;t my styled text paste into Instagram?</summary>
+        <p>Known Instagram app quirk — paste into your Notes app first, copy again, then paste into Instagram.</p>
       </details>
       <details class="faq">
-        <summary>Can screen readers read styled text?</summary>
-        <p>Badly. Screen readers read styled letters by their Unicode names or skip them, so a stylish bio can be unreadable to blind users. Keep your name and key information in plain text, and use styled text only as decoration.</p>
+        <summary>Will fancy text hurt my reach or SEO?</summary>
+        <p>Yes, it can — search can&#x27;t read styled Unicode as the plain word, so don&#x27;t style keywords or hashtags you want found.</p>
       </details>
       <details class="faq">
-        <summary>Where can I use copy-paste fonts?</summary>
-        <p>They work in most places that accept pasted text: Instagram and TikTok bios and captions, Facebook posts, WhatsApp and Discord messages, and YouTube titles. They do not work in fields that only allow plain letters, such as most usernames.</p>
+        <summary>Is styled text bad for accessibility?</summary>
+        <p>Yes if overused — screen readers spell out character names or skip the text; keep essential info plain.</p>
+      </details>
+      <details class="faq">
+        <summary>Does it work on TikTok?</summary>
+        <p>Yes in bios, captions, comments and display names, but TikTok is the strictest of the big three about what it keeps; very long phrases may need trimming.</p>
+      </details>
+      <details class="faq">
+        <summary>Does it work on Discord?</summary>
+        <p>Yes in display names (up to 32 chars) and messages; newer Discord usernames allow only lowercase letters, numbers, underscores, periods.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use these fonts for commercial projects?</summary>
+        <p>The styled characters themselves are public Unicode; FontGen.art states no licence/watermark/attribution requirement on its output. That is a vendor statement, not legal advice — check the licence for anything you sell.</p>
+      </details>
+      <details class="faq">
+        <summary>How many characters can I put in my Instagram bio with fancy fonts?</summary>
+        <p>About 75 styled letters in a 150-character bio, because each astral-plane character counts double in UTF-16.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do some letters look different weight mid-word?</summary>
+        <p>Some alphabets have gaps (script missing 11 letters; no small-capital X) and generators substitute from a nearby block.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use fancy fonts with accented letters (é, ñ, ü)?</summary>
+        <p>Mostly no — the styled Unicode blocks cover unaccented A–Z, a–z, 0–9 only; accented letters fall back to plain.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to install anything or sign up?</summary>
+        <p>No — every top-ranked generator runs in the browser with no account, no app, no download.</p>
+      </details>
+      <details class="faq">
+        <summary>Will fancy text in an email subject line work?</summary>
+        <p>Avoid it — spam filters treat decorative characters as a spam signal and the message may land in junk.</p>
+      </details>
+      <details class="faq">
+        <summary>Which styles are safest for a permanent username?</summary>
+        <p>Bold, double-struck and small caps — they clear most name filters; glitch/Zalgo clears almost none.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -194,6 +370,8 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p><strong>Can I use stylish fonts in my username?</strong> Usually not — most platforms only allow plain letters, numbers and a few symbols in usernames.</p>
       <p><strong>Are copy-paste fonts safe to use?</strong> Yes — they are plain Unicode text, with no code and nothing to install.</p>
       <p><strong>How do I find the font used in a picture?</strong> See our guide: <a href="/tools/what-font-is-this">What Font Is This?</a> — it explains the three real ways to identify a font.</p>
+      <p><strong>Is this font generator free?</strong> Yes. Type your text, copy any style, and download a PNG — free, with no signup, no credits and no watermark.</p>
+      <p><strong>Can I download these fonts for Photoshop or Canva?</strong> No. These are Unicode characters, not font files, so they cannot be installed in Photoshop, Canva or Word. For design work, use the real-font preview and download your text as a PNG image instead.</p>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

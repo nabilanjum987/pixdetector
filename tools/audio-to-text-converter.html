@@ -23,7 +23,7 @@
       "name": "Is this audio to text converter really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Live dictation is free with no minute limit, no sign-up, no watermark and no upload. Your speech is processed by your browser's speech recognition."
+        "text": "Yes. Live dictation is free with no minute limit, no sign-up, no watermark and no upload. Your speech is processed by your browser's speech recognition — nothing is sent to our servers."
       }
     },
     {
@@ -31,7 +31,71 @@
       "name": "Can I upload an MP3 file and convert it to text here?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. This tool transcribes live speech from your microphone only; it cannot open or transcribe uploaded audio files. As a workaround, play your recording out loud near the microphone in a quiet room and let it dictate live, in short clips."
+        "text": "No — and we say so upfront. This tool transcribes live speech from your microphone only; it cannot open or transcribe uploaded audio files. As a workaround, play your recording out loud near the microphone in a quiet room and let it dictate live, in short clips. For long files, use a file transcriber built for that job."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free audio to text converter with no time limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Truly unlimited free tools are rare \u2014 most give 60\u2013300 free minutes then charge; browser dictation (Web Speech API) is unlimited but only works live from a microphone, not from files. This page is that unlimited dictation: no minute cap, no signup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I transcribe a voice note from WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Export the voice note as an audio file (WhatsApp \u2192 share \u2192 save), then upload it to an audio-to-text tool; some tools accept M4A/OPUS directly, others need MP3 first. This page cannot open the file \u2014 play it near the microphone in a quiet room, or use a file transcriber."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I transcribe a YouTube video to text for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 use a YouTube-to-transcript tool (Clipto.ai) or download the audio and run it through a transcription tool; YouTube's own auto-captions can also be copied. The chain on this site is: video \u2192 MP3 (video-to-MP3 page) \u2192 transcript."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is audio transcription accurate for Indian accents / Hindi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Accuracy varies a lot by tool; Whisper-based tools handle many accents and languages better than older engines \u2014 test with a 30-second sample before committing to a long file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long can the audio be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free tiers usually cap at minutes (e.g. 10\u201360 min/month); desktop Whisper has no cap but needs setup; browser dictation has no length cap but only works live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a transcript with timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 tools like Notta, Otter and Descript add timestamps and speaker labels; simple free converters usually output plain text only. This page outputs plain text only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format should I export the transcript as?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TXT for plain text, DOCX for documents, SRT for video subtitles \u2014 pick based on what you'll do with it next. This page downloads .txt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can transcription tools handle multiple speakers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only tools with speaker diarization (Notta, Otter, Descript, Fireflies); basic free converters output one continuous block of text. This page does not separate speakers."
       }
     },
     {
@@ -39,7 +103,7 @@
       "name": "Why is the transcript wrong on names, numbers and accents?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Speech recognition is never 100 percent accurate. Clean, clear speech can reach 95 to 99 percent, but accents, background noise, overlapping speakers and uncommon words lower accuracy. Always proofread names, numbers and dates before quoting."
+        "text": "Speech recognition is never 100% accurate. Usually the cause is background noise, overlapping speakers, low volume, or a strong accent \u2014 clean audio (one speaker, quiet room) transcribes far better than a noisy recording. Accuracy varies a lot by tool; Whisper-based tools handle many accents and languages better than older engines. Always proofread names, numbers and dates before quoting \u2014 that is the single most important step."
       }
     },
     {
@@ -47,7 +111,7 @@
       "name": "Which browsers work best for dictation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chrome and Edge work best, on a computer or Android phone. Speech recognition may be limited or unavailable in some other browsers."
+        "text": "Chrome and Edge work best, on a computer or Android phone. Speech recognition may be limited or unavailable in some other browsers — if the Start button reports that it is unsupported, switch to Chrome or Edge."
       }
     },
     {
@@ -55,7 +119,7 @@
       "name": "Does this tool store my voice or my transcript?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Everything runs in your browser and your transcript stays on this page until you copy or download it."
+        "text": "No. Everything runs in your browser: your voice goes to your browser's speech recognition, and your transcript stays on this page until you copy or download it. We never receive, store or see it."
       }
     },
     {
@@ -63,7 +127,7 @@
       "name": "Can I dictate in Hindi, Urdu or Spanish?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. English (US and UK), Spanish, French, German, Hindi, Urdu and Arabic are available. Dictating in the matching language improves accuracy."
+        "text": "Yes. Pick your language before you start — English (US and UK), Spanish, French, German, Hindi, Urdu and Arabic are available. Dictating in the matching language improves accuracy noticeably."
       }
     }
   ]
@@ -253,7 +317,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <!-- PROBLEM -->
     <h2>Why turning speech into text is still a hassle</h2>
       <p>Everyone wants the same thing: talk, and get accurate text back. Students want lectures as notes, creators want video captions and scripts, and busy people want to write emails and documents by talking instead of typing. Social feeds are full of demos promising exactly that — short clips showing a video or voice note turned into text in seconds, and web guides comparing free tiers obsessively because the catch is always the same.</p>
-      <p>The catch is the free tier. Most transcription tools give you the first 5–10 minutes free and then ask you to pay, cap how many files you can convert a day, or ask you to sign up before you see a single word. Accuracy is the second problem: clean audio can reach 95–99%, but accents, overlapping speakers, background noise and technical words drag it down fast — and some AI tools hallucinate fluent sentences during silence or noise, confident words nobody ever spoke. This page solves the instant, private half of the problem: live dictation with no minute cap, no account and no upload. It does not solve file transcription — that limit is stated above, honestly, because pretending otherwise would waste your time.</p>
+      <p>The catch is the free tier. Most transcription tools give you 60–300 free minutes and then ask you to pay — Notta's free tier is 120 minutes a month, Otter's is 300, Descript's is 60 — and commenters on every demo reel ask the same thing: "is it really free?" Accuracy is the second problem: "the output was bad for accents", users report on Reddit, and regional-language failures are named again and again in comments — "can it transcribe Hindi?" is a real question people ask. Then there is the input problem: many web tools are speech-only and do not say so until you try — users with a recorded MP3 or a WhatsApp voice note arrive expecting file transcription and find a microphone button instead. The most-shared workflow in the research is the chain itself: a video turned into an MP3 and then into a transcript, from an Instagram demo with 1.3M likes. This page solves the instant, private half of the problem: live dictation with no minute cap, no account and no upload. It does not solve file transcription — that limit is stated above, honestly, because pretending otherwise would waste your time.</p>
       <p><strong>An audio to text converter</strong> is a tool that turns spoken words into written text. This one converts live speech from your microphone into text in real time, in your browser, for free.</p>
     <!-- DIRECT ANSWER -->
     <p><strong>Direct answer:</strong> this free audio to text converter turns live speech from your microphone into written text instantly, in your browser, with no sign-up, no upload and no minute limit. Click “Start dictation”, allow microphone access, speak clearly, and copy or download your transcript as a .txt file. It does not transcribe uploaded MP3 or voice-note files — for those, play the recording near your mic in a quiet room, or use a file transcriber.</p>
@@ -265,7 +329,27 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <h2 style="margin-top:28px">What this tool does — and what it does not do</h2>
       <p><strong>What it does:</strong> live speech-to-text from your microphone, in eight languages, with live interim results so you can see words as you speak, plus copy and .txt download. There is no time limit and no account, so a long dictation session costs nothing.</p>
       <p><strong>What it does not do:</strong> it cannot open an MP3 or voice note and transcribe it, it cannot separate two speakers, and it cannot guarantee 100% accuracy. Names, numbers, dates and uncommon words are the most likely to be misheard, so proofread them before quoting or publishing. Noisy rooms, overlapping voices and mumbling all lower accuracy — a close microphone and clear, steady speech are the biggest quality levers you control.</p>
-      <h2 style="margin-top:28px">How to get the most accurate transcript</h2>
+      <h2 style="margin-top:28px">Dictation is not transcription — which one do you need?</h2>
+      <p>The confusion this page exists to clear up: <strong>dictation</strong> turns live speech from a microphone into text as you speak; <strong>transcription</strong> turns a recorded audio file into text after the fact. They are different tools, and most "free audio to text" pages are one or the other without saying which. This page is dictation. If you have a file, use the route below instead of fighting the microphone.</p>
+      <ul class="rel-q">
+        <li><strong>You are speaking now</strong> — dictate here. Live, free, no minute cap, no signup.</li>
+        <li><strong>You have an MP3 or voice note</strong> — play it near the microphone in a quiet room in short clips (the workaround on this page), or upload it to a file transcriber built for that job. A WhatsApp voice note goes: export it (WhatsApp → share → save), then upload it to the file tool.</li>
+        <li><strong>You have a YouTube video</strong> — use a YouTube-to-transcript tool (Clipto.ai), copy YouTube's own auto-captions, or run the chain: video → MP3 on our <a href="/tools/video-to-mp3-converter">video-to-MP3 page</a> → transcript in a file tool.</li>
+        <li><strong>You have a meeting or interview</strong> — you need timestamps and speaker labels, which only diarization tools (Notta, Otter, Descript, Fireflies) provide; this page outputs one continuous block of plain text.</li>
+      </ul>
+      <h2 style="margin-top:28px">How live dictation compares to file transcription</h2>
+      <p>Every top result for this keyword is a signup-gated SaaS with a minute cap — the simple browser tools do not appear in the top 5. That is the gap this page fills: instant, no account, no cap, but live-mic only.</p>
+      <table class="formats">
+        <thead><tr><th>Option</th><th>Input</th><th>Free limit</th><th>Timestamps / speakers</th><th>Signup</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">PixDetector live dictation (this page)</td><td>Live microphone only</td><td>No minute cap</td><td>Plain text only</td><td>None</td></tr>
+          <tr><td class="fname">Notta</td><td>File upload + live</td><td>120 min/month free</td><td>Timestamps + speaker labels</td><td>Signup required</td></tr>
+          <tr><td class="fname">Otter.ai</td><td>Meetings + file upload</td><td>300 min/month free</td><td>Speaker ID + summaries</td><td>Signup required</td></tr>
+          <tr><td class="fname">Descript</td><td>File upload</td><td>60 min/month free</td><td>Edit audio by editing text</td><td>Signup + desktop app</td></tr>
+          <tr><td class="fname">Transkriptor</td><td>File upload</td><td>Free trial 90 min</td><td>100+ languages</td><td>Signup (trial, not free)</td></tr>
+          <tr><td class="fname">Whisper / Whisper.cpp</td><td>File upload, runs locally</td><td>Free and open source, no cap</td><td>No timestamps/speakers out of the box</td><td>Needs technical setup</td></tr>
+        </tbody>
+      </table>
       <p>Use Chrome or Edge, sit close to the microphone, and keep the room quiet — close windows, mute notifications, and ask others not to talk over you. Speak at a normal pace in short sentences and pause briefly between them. Say punctuation out loud (“comma”, “full stop”, “question mark”) for a cleaner draft. If the tool keeps mishearing a name, spell it out letter by letter, then fix it in the text afterwards. For a recording you already have, play it through speakers near the microphone in a quiet room, in short clips, and watch the transcript — it works, but it is a workaround, not a file converter, and long recordings will take as long as they take to play.</p>
       <table class="formats">
         <thead><tr><th>Need</th><th>Best option on this page</th><th>Honest note</th></tr></thead>
@@ -288,8 +372,40 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <p>No — and we say so upfront. This tool transcribes live speech from your microphone only; it cannot open or transcribe uploaded audio files. As a workaround, play your recording out loud near the microphone in a quiet room and let it dictate live, in short clips. For long files, use a file transcriber built for that job.</p>
       </details>
       <details class="faq">
+        <summary>Is there a free audio to text converter with no time limit?</summary>
+        <p>Truly unlimited free tools are rare — most give 60–300 free minutes then charge; browser dictation (Web Speech API) is unlimited but only works live from a microphone, not from files. This page is that unlimited dictation: no minute cap, no signup.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I transcribe a voice note from WhatsApp?</summary>
+        <p>Export the voice note as an audio file (WhatsApp → share → save), then upload it to an audio-to-text tool; some tools accept M4A/OPUS directly, others need MP3 first. This page cannot open the file — play it near the microphone in a quiet room, or use a file transcriber.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I transcribe a YouTube video to text for free?</summary>
+        <p>Yes — use a YouTube-to-transcript tool (Clipto.ai) or download the audio and run it through a transcription tool; YouTube's own auto-captions can also be copied. The chain on this site is: video → MP3 (video-to-MP3 page) → transcript.</p>
+      </details>
+      <details class="faq">
+        <summary>Is audio transcription accurate for Indian accents / Hindi?</summary>
+        <p>Accuracy varies a lot by tool; Whisper-based tools handle many accents and languages better than older engines — test with a 30-second sample before committing to a long file.</p>
+      </details>
+      <details class="faq">
+        <summary>How long can the audio be?</summary>
+        <p>Free tiers usually cap at minutes (e.g. 10–60 min/month); desktop Whisper has no cap but needs setup; browser dictation has no length cap but only works live.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I get a transcript with timestamps?</summary>
+        <p>Yes — tools like Notta, Otter and Descript add timestamps and speaker labels; simple free converters usually output plain text only. This page outputs plain text only.</p>
+      </details>
+      <details class="faq">
+        <summary>What format should I export the transcript as?</summary>
+        <p>TXT for plain text, DOCX for documents, SRT for video subtitles — pick based on what you'll do with it next. This page downloads .txt.</p>
+      </details>
+      <details class="faq">
+        <summary>Can transcription tools handle multiple speakers?</summary>
+        <p>Only tools with speaker diarization (Notta, Otter, Descript, Fireflies); basic free converters output one continuous block of text. This page does not separate speakers.</p>
+      </details>
+      <details class="faq">
         <summary>Why is the transcript wrong on names, numbers and accents?</summary>
-        <p>Speech recognition is never 100% accurate. Clean, clear speech can reach 95–99%, but accents, background noise, overlapping speakers and uncommon words lower accuracy, and the tool can even invent fluent words during silence. Always proofread names, numbers and dates before quoting — that is the single most important step.</p>
+        <p>Speech recognition is never 100% accurate. Usually the cause is background noise, overlapping speakers, low volume, or a strong accent — clean audio (one speaker, quiet room) transcribes far better than a noisy recording. Accuracy varies a lot by tool; Whisper-based tools handle many accents and languages better than older engines. Always proofread names, numbers and dates before quoting — that is the single most important step.</p>
       </details>
       <details class="faq">
         <summary>Which browsers work best for dictation?</summary>
@@ -307,8 +423,10 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <h2 style="margin-top:28px">Related questions</h2>
     <ul class="rel-q">
     <li><strong>Can I convert audio to text for free?</strong> — Yes, live dictation on this page is free with no minute limit; file transcription usually needs a dedicated file tool.</li>
-      <li><strong>How accurate is free speech to text?</strong> — Clean audio can reach 95–99%, but accents, noise and overlapping speech lower it, so proofread names and numbers.</li>
+      <li><strong>How accurate is free speech to text?</strong> — Accuracy varies a lot by tool; Whisper-based tools handle many accents and languages better than older engines, but accents, noise and overlapping speech lower it, so proofread names and numbers.</li>
       <li><strong>Do I need to sign up to use this converter?</strong> — No. There is no account, no upload and no watermark on this page.</li>
+      <li><strong>Can I transcribe a phone call recording?</strong> — Yes if you have the recording as an audio file and the tool accepts uploads; check local recording-consent law first. This page cannot open the file — play it near the mic in short clips, or use a file transcriber.</li>
+      <li><strong>Is Whisper really free?</strong> — Whisper is free and open source — you can run it yourself — but hosted "Whisper" tools charge for convenience; the free hosted versions usually have minute caps.</li>
     </ul>
     </div>
     

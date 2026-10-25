@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this PDF to Word converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can convert PDFs to Word documents with no signup, no payment, no watermark and no page limit on this page. The conversion runs in your browser, so your file never leaves your device." } },
-    { "@type": "Question", "name": "Will my PDF layout survive the conversion?", "acceptedAnswer": { "@type": "Answer", "text": "Plain text, headings and paragraphs carry over well. Complex layouts — multi-column pages, tables with merged cells, unusual fonts — never convert perfectly in any converter. Open the Word file afterwards and tidy up the layout." } },
-    { "@type": "Question", "name": "Can I convert a scanned PDF to Word?", "acceptedAnswer": { "@type": "Answer", "text": "Not with this tool. A scanned PDF is a picture of text, not real text, so plain text extraction returns nothing useful. Scanned PDFs need OCR (optical character recognition) first, which this browser-only converter does not do." } },
-    { "@type": "Question", "name": "Is my PDF uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The PDF is read and converted entirely in your browser using pdf.js and the docx library. Nothing is uploaded, stored, or shared." } },
-    { "@type": "Question", "name": "Why is my converted Word file mostly text?", "acceptedAnswer": { "@type": "Answer", "text": "This converter extracts the text from your PDF and rebuilds it as a Word document, one paragraph per line, with a page break between PDF pages. It keeps the words, not the original design — images, exact fonts and column layouts are not carried over." } },
-    { "@type": "Question", "name": "What is the difference between the .docx and .txt downloads?", "acceptedAnswer": { "@type": "Answer", "text": "The .docx file opens in Word or Google Docs as an editable document with paragraphs and page breaks. The .txt file is the same plain text with no formatting, useful for pasting into other apps." } }
+    {
+      "@type": "Question",
+      "name": "How do I convert PDF to Word for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the PDF to a free converter, click convert, download the .docx — or open it directly in Word 2013+ / Google Docs at no cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I convert PDF to Word without losing formatting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No converter preserves formatting perfectly (Microsoft Q&A); use Adobe Acrobat, Word itself, or a layout-aware converter, then expect small manual fixes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Word file look different after conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PDFs store positioned glyphs, not flowing paragraphs, so the converter must reconstruct structure — spacing, fonts and tables often shift."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a scanned PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only with OCR first — a scan is a picture with no text layer, so a plain converter returns an empty file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free PDF to Word converter with no signup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — several browser-based tools (e.g. PDFkitt, MyPDF, pdf-2-word) convert with no account; verify each one's limits on the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert PDF to Word on a Mac?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the PDF in Word for Mac, or upload to Google Drive → Open with Google Docs → Download as Word (.docx); Preview alone cannot convert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert PDF to Word on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser converters work on iPhone/Android (PDFkitt, Foxit list mobile support); no app install needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to upload my PDF to a free converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the tool: in-browser converters never upload the file; server tools vary — check whether the site states auto-deletion (Foxit deletes after conversion; iLovePDF within 2 hours per roundups)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are my tables messed up after converting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PDF tables are often just drawn lines, not real tables; converters must guess column structure, and merged cells usually need manual tidying."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a password-protected PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — unlock/remove the password first; converters state they don't handle encrypted files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What file size can I convert for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Varies widely: Foxit 15 MB, pdf-2-word 100 MB in-browser, Sejda 50 MB on free tier — check before uploading a large file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Google Docs convert PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — upload to Drive, open with Docs, download as .docx; free with a Google account, though complex layouts come out rougher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Word open a PDF directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Word 2013 and later open PDFs and convert them automatically — no internet or third-party tool needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will hyperlinks and bookmarks survive conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often not — Microsoft Community notes hyperlinks/bookmarks \"might not make it over\"; check them after converting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert multiple PDFs to Word at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a batch-capable converter (iLovePDF free tier supports batch within caps) or convert files one by one in Word/Google Docs."
+      }
+    }
   ]
 }
 </script>
@@ -64,6 +178,16 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
 .share-btns{display:flex;flex-wrap:wrap;gap:10px}
 .share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.device-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:12px 0 4px}
+.device-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.device-card h3{font-size:15px;margin-bottom:6px}
+.device-card p{font-size:14px;color:var(--text2);line-height:1.7;margin:0}
+.device-card code{font-family:monospace;font-size:13px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
 </style>
@@ -131,40 +255,112 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p><strong>Step 1:</strong> choose a PDF file (or drag it onto the drop zone). It is read in your browser and never uploaded. <strong>Step 2:</strong> press Convert to Word and wait a few seconds while the text is extracted page by page. <strong>Step 3:</strong> download the .docx file — or the plain .txt version — open it in Word or Google Docs, and tidy up headings, spacing and tables.</p>
       <h2>What carries over — and what does not</h2>
       <p>Plain text carries over well: paragraphs, headings, lists and the order of the words. What does not carry over is the original design — exact fonts, colours, column layouts, embedded images and precise table borders are lost, because this tool extracts text only. Simple tables often survive as lines of text, but merged cells and multi-column pages will need rebuilding by hand. If your document is mostly text, the result is ready to edit in minutes. If it is a designed brochure or a form, treat the conversion as a fast first draft, not a finished file.</p>
+      <table class="tbl">
+        <tr><th>Element</th><th>This tool</th><th>Why</th></tr>
+        <tr><td>Plain text</td><td>Yes</td><td>Extracted page by page and rebuilt as paragraphs.</td></tr>
+        <tr><td>Headings</td><td>As plain text</td><td>The heading words carry over; heading styles do not.</td></tr>
+        <tr><td>Bold / italic / underline</td><td>No</td><td>Styling is not kept — text only.</td></tr>
+        <tr><td>Images</td><td>No</td><td>Images are not carried over by this tool.</td></tr>
+        <tr><td>Tables</td><td>Partly</td><td>Simple tables arrive as lines of text; merged cells need manual tidying.</td></tr>
+        <tr><td>Colours, backgrounds, borders</td><td>No</td><td>MyPDF is explicit that these do NOT carry over.</td></tr>
+        <tr><td>Hyperlinks and bookmarks</td><td>Often not</td><td>Microsoft Community notes they "might not make it over".</td></tr>
+        <tr><td>Scanned pages</td><td>No</td><td>A scan is a picture with no text layer — it needs OCR first.</td></tr>
+        <tr><td>Fonts</td><td>Replaced</td><td>Custom or embedded fonts are substituted.</td></tr>
+        <tr><td>Multi-column layouts</td><td>Often wrong</td><td>Lines can read across columns in the wrong order.</td></tr>
+      </table>
+      <h2>Is your PDF a scan? The 5-second check</h2>
+      <p>Before you convert, open your PDF and try to highlight a sentence with your mouse. If the words highlight, your PDF has a real text layer and will convert. If nothing highlights — no matter how hard you drag — your PDF is a picture of text: a scan. A plain converter returns an empty file for a scan, because there is no text to extract; scanned PDFs need OCR (optical character recognition) first, which this browser-only converter does not do. This tool tells you honestly, too: if it extracts zero characters, it says so and creates no file, instead of handing you a blank Word document.</p>
+      <h2>Four free ways to convert PDF to Word — no converter needed</h2>
+      <p>You do not always need a converter website. These are the four methods people actually ask for, and they are all free:</p>
+      <div class="device-grid">
+        <div class="device-card"><h3>Word (2013 and later)</h3><p>Open the PDF directly in Word — Word converts it automatically. No internet or third-party tool needed.</p></div>
+        <div class="device-card"><h3>Google Docs</h3><p>Upload the PDF to Google Drive, open it with Google Docs, then download it as Word (.docx). Free with a Google account, though complex layouts come out rougher.</p></div>
+        <div class="device-card"><h3>Mac</h3><p>Open the PDF in Word for Mac, or use the Google Docs route above. Preview alone cannot convert a PDF to Word.</p></div>
+        <div class="device-card"><h3>Phone (iPhone / Android)</h3><p>Browser converters work on phones with no app install — PDFkitt and Foxit list mobile support. Or open the PDF in the Word or Google Docs app.</p></div>
+      </div>
+      <h2>How this page compares on free limits</h2>
+      <p>Free converters differ most on their limits — daily caps, file-size caps, and whether the download needs an account. The table below uses only the limits each tool states itself:</p>
+      <table class="tbl">
+        <tr><th>Converter</th><th>Free limit</th><th>What to know</th></tr>
+        <tr><td>This page (PixDetector)</td><td>No signup, no page limit, no upload</td><td>Text-only .docx; scanned PDFs need OCR first.</td></tr>
+        <tr><td>Smallpdf</td><td>2 tasks per day</td><td>The daily cap can hit mid-work, per comparison roundups.</td></tr>
+        <tr><td>Foxit</td><td>15 MB max</td><td>Files are handled on Foxit cloud servers and deleted after conversion.</td></tr>
+        <tr><td>Evernote</td><td>100 MB max, one file at a time</td><td>Login is required to download the converted file.</td></tr>
+        <tr><td>pdf-2-word</td><td>100 MB in browser</td><td>100–200 MB goes to its server with consent and is deleted in 60 minutes; Pro tier to 2 GB.</td></tr>
+        <tr><td>iLovePDF</td><td>Free tier batch within caps</td><td>Files deleted within 2 hours, per roundups.</td></tr>
+        <tr><td>Adobe Acrobat</td><td>Layout-aware conversion</td><td>Use Adobe Acrobat, Word itself, or a layout-aware converter — then expect small manual fixes.</td></tr>
+      </table>
+
       <h2>Why your file stays private here</h2>
       <p>Most online converters upload your PDF to a server, convert it there, and keep a copy for some period — which is a real risk for CVs, contracts and personal documents. This page does the opposite: the PDF is read with pdf.js in your own browser, the Word file is built with the docx library in your own browser, and nothing ever leaves your device. There is no account to create, no file-size paywall, and no watermark stamped on your document.</p>
-      <!-- FAQ -->
+            <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this PDF to Word converter really free?</summary>
-        <p>Yes. You can convert PDFs to Word documents with no signup, no payment, no watermark and no page limit on this page. The conversion runs in your browser, so your file never leaves your device.</p>
+        <summary>How do I convert PDF to Word for free?</summary>
+        <p>Upload the PDF to a free converter, click convert, download the .docx — or open it directly in Word 2013+ / Google Docs at no cost.</p>
       </details>
       <details class="faq">
-        <summary>Will my PDF layout survive the conversion?</summary>
-        <p>Plain text, headings and paragraphs carry over well. Complex layouts — multi-column pages, tables with merged cells, unusual fonts — never convert perfectly in any converter. Open the Word file afterwards and tidy up the layout.</p>
+        <summary>How can I convert PDF to Word without losing formatting?</summary>
+        <p>No converter preserves formatting perfectly (Microsoft Q&amp;A); use Adobe Acrobat, Word itself, or a layout-aware converter, then expect small manual fixes.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does my Word file look different after conversion?</summary>
+        <p>PDFs store positioned glyphs, not flowing paragraphs, so the converter must reconstruct structure — spacing, fonts and tables often shift.</p>
       </details>
       <details class="faq">
         <summary>Can I convert a scanned PDF to Word?</summary>
-        <p>Not with this tool. A scanned PDF is a picture of text, not real text, so plain text extraction returns nothing useful. Scanned PDFs need OCR (optical character recognition) first, which this browser-only converter does not do.</p>
+        <p>Only with OCR first — a scan is a picture with no text layer, so a plain converter returns an empty file.</p>
       </details>
       <details class="faq">
-        <summary>Is my PDF uploaded to a server?</summary>
-        <p>No. The PDF is read and converted entirely in your browser using pdf.js and the docx library. Nothing is uploaded, stored, or shared.</p>
+        <summary>Is there a free PDF to Word converter with no signup?</summary>
+        <p>Yes — several browser-based tools (e.g. PDFkitt, MyPDF, pdf-2-word) convert with no account; verify each one&#x27;s limits on the page.</p>
       </details>
       <details class="faq">
-        <summary>Why is my converted Word file mostly text?</summary>
-        <p>This converter extracts the text from your PDF and rebuilds it as a Word document, one paragraph per line, with a page break between PDF pages. It keeps the words, not the original design — images, exact fonts and column layouts are not carried over.</p>
+        <summary>How do I convert PDF to Word on a Mac?</summary>
+        <p>Open the PDF in Word for Mac, or upload to Google Drive → Open with Google Docs → Download as Word (.docx); Preview alone cannot convert.</p>
       </details>
       <details class="faq">
-        <summary>What is the difference between the .docx and .txt downloads?</summary>
-        <p>The .docx file opens in Word or Google Docs as an editable document with paragraphs and page breaks. The .txt file is the same plain text with no formatting, useful for pasting into other apps.</p>
+        <summary>Can I convert PDF to Word on my phone?</summary>
+        <p>Yes — browser converters work on iPhone/Android (PDFkitt, Foxit list mobile support); no app install needed.</p>
+      </details>
+      <details class="faq">
+        <summary>Is it safe to upload my PDF to a free converter?</summary>
+        <p>It depends on the tool: in-browser converters never upload the file; server tools vary — check whether the site states auto-deletion (Foxit deletes after conversion; iLovePDF within 2 hours per roundups).</p>
+      </details>
+      <details class="faq">
+        <summary>Why are my tables messed up after converting?</summary>
+        <p>PDF tables are often just drawn lines, not real tables; converters must guess column structure, and merged cells usually need manual tidying.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a password-protected PDF?</summary>
+        <p>No — unlock/remove the password first; converters state they don&#x27;t handle encrypted files.</p>
+      </details>
+      <details class="faq">
+        <summary>What file size can I convert for free?</summary>
+        <p>Varies widely: Foxit 15 MB, pdf-2-word 100 MB in-browser, Sejda 50 MB on free tier — check before uploading a large file.</p>
+      </details>
+      <details class="faq">
+        <summary>Does Google Docs convert PDF to Word?</summary>
+        <p>Yes — upload to Drive, open with Docs, download as .docx; free with a Google account, though complex layouts come out rougher.</p>
+      </details>
+      <details class="faq">
+        <summary>Can Word open a PDF directly?</summary>
+        <p>Yes, Word 2013 and later open PDFs and convert them automatically — no internet or third-party tool needed.</p>
+      </details>
+      <details class="faq">
+        <summary>Will hyperlinks and bookmarks survive conversion?</summary>
+        <p>Often not — Microsoft Community notes hyperlinks/bookmarks &quot;might not make it over&quot;; check them after converting.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert multiple PDFs to Word at once?</summary>
+        <p>Use a batch-capable converter (iLovePDF free tier supports batch within caps) or convert files one by one in Word/Google Docs.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I convert PDF to Word without Adobe?</strong> Yes — this page does it free in your browser, no Adobe account or software needed.</p>
       <p><strong>Why does my PDF convert with strange line breaks?</strong> PDFs store text as positioned fragments, so long lines are sometimes split. Join the lines in Word after converting.</p>
-      <p><strong>Can I edit the converted file in Google Docs?</strong> Yes — upload the .docx to Google Drive and open it with Google Docs.</p>
-      <p><strong>What if my PDF is password-protected?</strong> Password-protected PDFs cannot be read by this tool. Remove the password in your PDF reader first, if you own the file.</p>
+      <p><strong>What is the difference between the .docx and .txt downloads?</strong> The .docx file opens in Word or Google Docs as an editable document with paragraphs and page breaks. The .txt file is the same plain text with no formatting, useful for pasting into other apps.</p>
+      <p><strong>Why is my converted Word file mostly text?</strong> This converter extracts the text from your PDF and rebuilds it as a Word document, one paragraph per line, with a page break between PDF pages. It keeps the words, not the original design — images, exact fonts and column layouts are not carried over.</p>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

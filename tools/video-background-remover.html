@@ -23,7 +23,7 @@
       "name": "Is this video background remover really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Remove solid-colour backgrounds as much as you like \u2014 no signup, no credits, no watermark and no upload. Everything runs in your browser."
+        "text": "Yes. Remove solid-colour backgrounds as much as you like — no signup, no credits, no watermark and no upload. Everything runs in your browser."
       }
     },
     {
@@ -31,15 +31,23 @@
       "name": "Can it remove the background from a normal messy room?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No \u2014 and we say so upfront. This tool removes solid-colour backgrounds (green screen) only. AI removal of a messy room needs a model and a server, which is why every AI tool charges credits. For a messy room, free desktop or app options exist \u2014 CapCut and VEED both have free tiers."
+        "text": "No — and we say so upfront. This tool removes solid-colour backgrounds (green screen) only. AI removal of a messy room needs a model and a server, which is why every AI tool charges credits. For a messy room, free desktop or app options exist — CapCut and VEED both have free tiers."
       }
     },
     {
       "@type": "Question",
-      "name": "What happened to Unscreen?",
+      "name": "Can I remove a video background on my phone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Unscreen, the best-known free video background remover, closed in December 2025. That is why so many creators are looking for a replacement \u2014 and why most of the tools they find now charge credits after a short free preview."
+        "text": "Yes — CapCut and Instagram's Edits app do it in-app, and browser tools like VideoBGNinja and webutility.io work in a mobile browser. This page also works in a mobile browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I replace the background with a different video or image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — that's the changer mode: remove, then put a colour, blur, image or video behind the subject. This page offers solid colour, blur and your own image as the replacement — see the Video Background Changer for the same tool in changer mode."
       }
     },
     {
@@ -48,6 +56,70 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. Transparent background is WebM-only: MP4 flattens transparency, and Safari and Final Cut do not handle transparent WebM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the audio be kept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this page — the export is video-only with no audio track. VideoBGNinja and webutility.io keep original audio; unscreen's free offline processing does not, its premium cloud tier does. Check before you process a long clip."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long can the video be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No fixed length cap is stated here — the tool works best on short clips, and export runs in real time, so a long clip takes as long to export as it is to watch. For comparison, erase.bg caps at 30 seconds and VideoBGNinja at 90 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — not here, and not on VideoBGNinja, bgremover.ai, webutility.io or erase.bg; bgremove.video requires Google sign-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my video uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this page — processing happens in your browser. On in-browser tools like bgremover.ai and webutility.io it is the same; on server tools like erase.bg and bgremove.video your clip is uploaded, so check the deletion policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it remove the background from a video with more than one person?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI tools segment people generally, but most pages are built and tested around one person in frame — webutility.io states it works best on videos with a person in frame. Multi-person accuracy is not verified for these tools. This page is chroma-key, so the number of people does not matter — the solid background colour does."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it for Zoom/Teams calls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly — these tools process recorded video files, not a live camera feed; for live calls use the meeting app's own background blur, or OBS with the background-removal plugin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I remove the background from a video I already recorded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — that is exactly what these tools do; upload the finished clip and export the cut-out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an alpha channel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The transparency layer in the video file — it tells the editor which pixels are see-through, so you can put anything behind the subject."
       }
     },
     {
@@ -63,7 +135,7 @@
       "name": "Why do the edges look ragged around hair?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hair and fast motion are the hardest parts for any background removal \u2014 fine strands are part background, part subject. Raise the edge-softening slider, use a well-lit green screen, and keep movements slow for the cleanest outline."
+        "text": "Hair and fast motion are the hardest parts for any background removal — fine strands are part background, part subject. Raise the edge-softening slider, use a well-lit green screen, and keep movements slow for the cleanest outline."
       }
     }
   ]
@@ -200,6 +272,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     </div>
 
     <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> this removes <strong>solid-colour backgrounds (green screen) only</strong> — it is <strong>not</strong> AI removal of a messy room. For AI removal of a normal room, free desktop/app options exist (CapCut and VEED both have free tiers). It works best on <strong>people</strong> (not pets, objects or products), struggles with hair and fast motion, and is best on short clips. Transparent output is <strong>WebM only</strong> — MP4 flattens transparency, and Safari / Final Cut do not handle transparent WebM.</div>
+    <div class="answer-box" style="margin-bottom:18px"><strong>Want a new background instead of transparency?</strong> This page removes the background. To put a new one behind your subject — a solid colour, a blur, or your own image — use the <a href="/tools/video-background-changer">Video Background Changer</a>, the same free in-browser tool in changer mode. No signup, no watermark.</div>
     <div class="vd-panel" aria-label="Video background tool">
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose a video file">
         <span class="dz-icon">🎥</span>
@@ -265,7 +338,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>Why removing a video background usually ends in credits</h2>
-      <p>Creators want the messy-room fix without a green screen: upload a clip, background gone or replaced, free export, no watermark. The famous reference name everyone compares against is Unscreen — and Unscreen closed in December 2025, which left a gap every AI background tool now tries to fill with credits. The pattern is the same everywhere: a free tier that is really a teaser — a 5 to 10 second preview, a watermark, or a handful of credits — and a full export that needs a paid plan, sometimes billed per second. Then there are the technical failures: ragged edges on hair, fast hand gestures breaking the cutout, busy backgrounds confusing the model, slow processing, and short-clip limits where browser tools cap out around 20 seconds and take minutes. This page takes the honest route instead: it removes solid-colour backgrounds — green screen — free, with no credits and no watermark, and it says plainly, above, what it cannot do.</p>
+      <p>Creators want the messy-room fix without a green screen: upload a clip, background gone or replaced, free export, no watermark. The famous reference name everyone compares against is Unscreen — and the free tools that followed it now try to fill that gap with credits. The pattern is the same everywhere: a free tier that is really a teaser — a 5 to 10 second preview, a watermark, or a handful of credits — and a full export that needs a paid plan, sometimes billed per second. Then there are the technical failures: ragged edges on hair, fast hand gestures breaking the cutout, busy backgrounds confusing the model, slow processing, and short-clip limits where browser tools cap out around 20 seconds and take minutes. This page takes the honest route instead: it removes solid-colour backgrounds — green screen — free, with no credits and no watermark, and it says plainly, above, what it cannot do.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I remove a video background for free?</h2>
       <div class="answer-box"><strong>Direct answer:</strong> to remove a video background free, upload a green-screen clip here, click on the background to pick its exact colour, adjust the removal strength, and export. The solid-colour background is removed in your browser and the video downloads as a WebM file — no signup, no credits, no watermark. This tool removes solid-colour backgrounds only; it cannot remove a messy room.</div>
@@ -279,6 +352,16 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <p>Green screen works when the setup is right, and the setup is the whole trick. Light the background evenly, with no shadows or wrinkles, and keep the subject a step away from it so no green spills onto their hair or shoulders. Wear nothing close to the background colour. Then, on this page, click the background itself to pick its exact shade — the picker samples the real pixels, which beats guessing a green from a swatch. Raise the removal strength until the background is gone, then raise edge softening if the outline looks ragged. Hair and fast hand gestures are the hardest parts for any colour-key tool; short, slow, well-lit clips give the cleanest cut.</p>
 <p>Two honest limits before you export. First, transparent output is WebM only — MP4 cannot hold transparency, and Safari and Final Cut do not handle transparent WebM, so check where the video will be used before you pick transparent. If the destination cannot use transparency, pick a solid colour, a blur, or your own image as the replacement instead. Second, the export is video-only with no audio track, and processing runs at up to 854 px wide to stay fast in the browser — so keep clips short, and use a desktop tool if the clip needs its original sound or full resolution.</p>
 
+      <h2 style="margin-top:28px">How this remover compares</h2>
+      <p>The AI tools below remove a background from a normal, messy room — which this chroma-key tool does not do. They are the honest alternative when you have no green screen:</p>
+      <table class="facts" style="width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px"><thead><tr><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Tool</th><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">How it removes</th><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Signup / watermark</th><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Limits</th></tr></thead><tbody>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">This page</td><td style="border:1px solid var(--border);padding:10px 12px">Chroma-key (green screen) only — not AI</td><td style="border:1px solid var(--border);padding:10px 12px">No signup, no watermark, no upload</td><td style="border:1px solid var(--border);padding:10px 12px">Best on short clips, people, solid background; export is video-only WebM (no audio)</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">bgremove.video</td><td style="border:1px solid var(--border);padding:10px 12px">AI per-pixel matte, no green screen; Change Background mode (colour/blur/image/video)</td><td style="border:1px solid var(--border);padding:10px 12px">Google sign-in required; no watermark</td><td style="border:1px solid var(--border);padding:10px 12px">Free tier is 3 videos per 24 hours; a typical 30-second clip takes under two minutes to process</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">VideoBGNinja</td><td style="border:1px solid var(--border);padding:10px 12px">AI, runs on its own GPU; returns transparent WebM, green-screen MP4 and alpha matte</td><td style="border:1px solid var(--border);padding:10px 12px">No account, no watermark</td><td style="border:1px solid var(--border);padding:10px 12px">Clips up to 2 GB / 90 seconds; 10 free per day; original audio kept</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">UniFab</td><td style="border:1px solid var(--border);padding:10px 12px">AI video matting, "hair-level precision"; replace with preset colour or green screen</td><td style="border:1px solid var(--border);padding:10px 12px">Free, watermark-free</td><td style="border:1px solid var(--border);padding:10px 12px">No stated limits (length/size/daily) on the ranking page</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">bgremover.ai</td><td style="border:1px solid var(--border);padding:10px 12px">AI, in-browser open-source model, no upload</td><td style="border:1px solid var(--border);padding:10px 12px">No signup, no watermark</td><td style="border:1px solid var(--border);padding:10px 12px">WebM-only export; first run is slow (model download, then cached)</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">erase.bg</td><td style="border:1px solid var(--border);padding:10px 12px">AI; MP4/MOV/WebM in, HD out</td><td style="border:1px solid var(--border);padding:10px 12px">No login, no watermark</td><td style="border:1px solid var(--border);padding:10px 12px">Max 30 seconds, max 1920×1080; server processing</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
       <details class="faq">
@@ -290,12 +373,48 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <p>No — and we say so upfront. This tool removes solid-colour backgrounds (green screen) only. AI removal of a messy room needs a model and a server, which is why every AI tool charges credits. For a messy room, free desktop or app options exist — CapCut and VEED both have free tiers.</p>
 </details>
 <details class="faq">
-<summary>What happened to Unscreen?</summary>
-<p>Unscreen, the best-known free video background remover, closed in December 2025. That is why so many creators are looking for a replacement — and why most of the tools they find now charge credits after a short free preview.</p>
+<summary>Can I remove a video background on my phone?</summary>
+<p>Yes — CapCut and Instagram's Edits app do it in-app, and browser tools like VideoBGNinja and webutility.io work in a mobile browser. This page also works in a mobile browser.</p>
+</details>
+<details class="faq">
+<summary>Can I replace the background with a different video or image?</summary>
+<p>Yes — that's the changer mode: remove, then put a colour, blur, image or video behind the subject. This page offers solid colour, blur and your own image as the replacement — see the Video Background Changer for the same tool in changer mode.</p>
 </details>
 <details class="faq">
 <summary>Why is the exported video a WebM file?</summary>
 <p>Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. Transparent background is WebM-only: MP4 flattens transparency, and Safari and Final Cut do not handle transparent WebM.</p>
+</details>
+<details class="faq">
+<summary>Will the audio be kept?</summary>
+<p>Not on this page — the export is video-only with no audio track. VideoBGNinja and webutility.io keep original audio; unscreen's free offline processing does not, its premium cloud tier does. Check before you process a long clip.</p>
+</details>
+<details class="faq">
+<summary>How long can the video be?</summary>
+<p>No fixed length cap is stated here — the tool works best on short clips, and export runs in real time, so a long clip takes as long to export as it is to watch. For comparison, erase.bg caps at 30 seconds and VideoBGNinja at 90 seconds.</p>
+</details>
+<details class="faq">
+<summary>Do I need to sign up?</summary>
+<p>No — not here, and not on VideoBGNinja, bgremover.ai, webutility.io or erase.bg; bgremove.video requires Google sign-in.</p>
+</details>
+<details class="faq">
+<summary>Is my video uploaded to a server?</summary>
+<p>Not on this page — processing happens in your browser. On in-browser tools like bgremover.ai and webutility.io it is the same; on server tools like erase.bg and bgremove.video your clip is uploaded, so check the deletion policy.</p>
+</details>
+<details class="faq">
+<summary>Can it remove the background from a video with more than one person?</summary>
+<p>AI tools segment people generally, but most pages are built and tested around one person in frame — webutility.io states it works best on videos with a person in frame. Multi-person accuracy is not verified for these tools. This page is chroma-key, so the number of people does not matter — the solid background colour does.</p>
+</details>
+<details class="faq">
+<summary>Can I use it for Zoom/Teams calls?</summary>
+<p>Not directly — these tools process recorded video files, not a live camera feed; for live calls use the meeting app's own background blur, or OBS with the background-removal plugin.</p>
+</details>
+<details class="faq">
+<summary>Can I remove the background from a video I already recorded?</summary>
+<p>Yes — that is exactly what these tools do; upload the finished clip and export the cut-out.</p>
+</details>
+<details class="faq">
+<summary>What is an alpha channel?</summary>
+<p>The transparency layer in the video file — it tells the editor which pixels are see-through, so you can put anything behind the subject.</p>
 </details>
 <details class="faq">
 <summary>Does it work on pets, objects or products?</summary>

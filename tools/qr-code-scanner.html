@@ -28,18 +28,58 @@
     },
     {
       "@type": "Question",
-      "name": "Can I scan a QR code from a screenshot?",
+      "name": "How do I scan a QR code without an app?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Upload the screenshot, or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). This is the easiest way to read a code that is on your own screen."
+        "text": "Open a web QR scanner in your browser, allow camera access, and point it at the code — or upload a photo or screenshot of the code."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my photo or camera video uploaded anywhere?",
+      "name": "How do I scan a QR code on my laptop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Decoding runs entirely in your browser \u2014 the camera frames and uploaded images never leave your device."
+        "text": "Use a web scanner with your webcam, or upload an image of the QR code — no app install needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I scan a QR code that's in a screenshot on my own phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the screenshot — or a photo from your gallery — or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). This is the easiest way to read a code that is on your own screen, because your camera cannot photograph your own screen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my camera scan the QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually camera permission is blocked in the browser — check the address-bar camera icon and allow access, then reload; also check lighting and distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to scan a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scanning itself is safe — the risk is the link it opens. Always preview the URL before tapping it, and don't enter passwords on a page a QR code opened. If the preview URL looks wrong, don't tap it — the code may have been tampered with or misprinted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a QR code contain a virus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A QR code can't contain a virus by itself, but it can link to a malicious site — preview the URL first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can a QR code contain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A URL, plain text, Wi-Fi credentials, contact details (vCard), email, or payment info — a good scanner shows you the type before you act."
       }
     },
     {
@@ -52,6 +92,22 @@
     },
     {
       "@type": "Question",
+      "name": "Can I scan a QR code on an iPhone without an app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the iPhone Camera app scans QR codes natively; a web scanner is only needed for screenshots or on a desktop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my photo or camera video uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Decoding runs entirely in your browser — the camera frames and uploaded images never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does it work on iPhone and Android?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -60,10 +116,26 @@
     },
     {
       "@type": "Question",
-      "name": "Is it safe to open a link from a QR code?",
+      "name": "Does the scanner save my scanned codes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not automatically. A QR code can hold any link, including a fake login page. This tool shows you the address as plain text first \u2014 read it, and only tap Open link if you trust it."
+        "text": "This page keeps nothing — results live only on this page until you clear them or close the tab. Some tools keep a local scan history on your device; check the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I scan multiple QR codes at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in most free web scanners — they decode one code at a time; batch scan is a gap no top tool in this run offered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free QR scanner with no ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this page has no ads and no signup, and scanquick.ai, qrscanneronline.com and 10015.io all advertise no ads and no signup."
       }
     }
   ]
@@ -196,11 +268,11 @@ video{max-height:340px;object-fit:cover}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: a QR code your phone will not read</h2>
-      <p>QR codes are everywhere — menus, tickets, parcels, payment counters, posters — and the moment you actually need one, your phone camera often refuses to read it. The code is too dark, too small, blurred, glaring under a light, or printed on a screen your phone is struggling with. Worse is the code that lives on the same device: a screenshot in your gallery, or a QR code shown on your laptop screen while your phone is in your other hand. On social media, people keep asking for a free scanner that simply works without installing yet another app, and the most common complaint about scanner apps is that they fail in bad light or on dark, low-contrast codes — then ask for a comment or a download link before they do anything. This page is the plain version of that ask: no app, no account, just the camera or the image, and the answer in seconds.</p>
+      <p>QR codes are everywhere — menus, tickets, parcels, payment counters, posters — and the moment you actually need one, your phone camera often refuses to read it. The code is too dark, too small, blurred, glaring under a light, or printed on a screen your phone is struggling with. Worse is the code that lives on the same device: a screenshot in your gallery, or a QR code shown on your laptop screen while your phone is in your other hand. People keep asking for a free scanner that simply works without installing yet another app, and the most common complaint about scanner apps is that they fail in bad light or on dark, low-contrast codes. This page is the plain version of that ask: no app, no account, just the camera or the image, and the answer in seconds.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I scan a QR code online for free?</h2>
       <p>Point your camera at a QR code, or upload a photo or screenshot of one, and this free scanner reads it in seconds — no app, no signup, nothing uploaded. It shows the text or web address the code holds, and only opens a link when you tap it, so you can check where it goes first.</p>
-      <p>A QR code scanner is a tool that reads the black-and-white square pattern of a QR code and turns it back into the data stored inside it — usually a web address, a piece of text, Wi-Fi login details, or a contact card. A QR code can hold up to about 3,000 characters, and it keeps working even if part of it is damaged, because it carries built-in error correction.</p>
+      <p>A QR code scanner is a tool that reads the black-and-white square pattern of a QR code and turns it back into the data stored inside it — usually a web address, a piece of text, Wi-Fi login details, or a contact card. A QR code can hold a web address, plain text, Wi-Fi login details, contact details (vCard), an email or payment information — and this tool shows you the type before you act on it.</p>
       <!-- HOW TO -->
       <h2>How to scan a QR code in 3 steps</h2>
       <p><strong>Step 1:</strong> tap Start camera and allow camera access — or upload a photo or screenshot instead. <strong>Step 2:</strong> hold the code steady inside the camera frame, in good light, with the whole square visible including its white margin. <strong>Step 3:</strong> read the result, copy it, or tap Open link only after checking the address.</p>
@@ -212,11 +284,84 @@ video{max-height:340px;object-fit:cover}
       <tr><td>Contact (vCard)</td><td>Name, phone, email</td><td>Shown as text for you to save</td></tr>
       <tr><td>Email or SMS</td><td>Address or number plus message</td><td>Shown as text — nothing is sent automatically</td></tr>
       </tbody></table>
+      <h2>How this scanner compares</h2>
+      <p>The live top results for this search are all clean, usable scanners — the gap is content depth, not tool quality. This is how they differ:</p>
+      <table class="facts"><thead><tr><th>Scanner</th><th>Camera + upload</th><th>Ads / signup</th><th>URL preview before opening</th><th>Scan history</th></tr></thead><tbody>
+      <tr><td>This page</td><td>Yes — camera, upload, drag-and-drop and paste</td><td>No ads, no signup</td><td>Yes — the address is shown as plain text first</td><td>No — results live only on this page until you clear them</td></tr>
+      <tr><td>QRScannerOnline</td><td>Yes — camera + image upload</td><td>Ads present on the page; no signup</td><td>Yes</td><td>Yes, on-device</td></tr>
+      <tr><td>ScanQuick</td><td>Yes — camera + upload</td><td>No ads, no signup</td><td>Yes</td><td>Not mentioned</td></tr>
+      <tr><td>QRStuff</td><td>Yes — camera + upload</td><td>Free scanner; the scanner is a side feature of a generator site</td><td>Yes — "see the URL before you open it"</td><td>Yes</td></tr>
+      <tr><td>10015.io</td><td>Yes — camera + upload</td><td>No signup</td><td>Yes</td><td>Not mentioned</td></tr>
+      <tr><td>QR Code Generator</td><td>Yes — camera + upload</td><td>Free scanner; signup nudges for the generator features around it</td><td>Yes</td><td>Not mentioned</td></tr>
+      </tbody></table>
+      <h2>How to scan a QR code on your own screen</h2>
+      <p>Your camera cannot photograph your own screen — and this is the use case the upload mode exists for. Take a screenshot of the code (on a phone, that is the code in your gallery or on a web page), then upload the screenshot here, or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). The screenshot is usually the sharpest version of the code you have, so it decodes more reliably than pointing a second camera at a screen.</p>
+      <h2>Camera not working? The 3-step fix</h2>
+      <p>Camera permission being blocked is the most common functional failure for web scanners — the tool looks broken when the browser simply never allowed the camera. <strong>Step 1:</strong> click the camera icon in the address bar and allow camera access for this site. <strong>Step 2:</strong> reload the page and tap Start camera again. <strong>Step 3:</strong> if it still will not start, use image upload instead — it works on every device even when the camera is blocked. Also check lighting and distance: move closer, improve the light, and clean the lens.</p>
       <h2>Why a QR code will not scan</h2>
       <p>Blur is the number one cause: a shaky photo or a code printed too small loses the fine squares the reader needs. Glare is second — tilt the screen or move the light so the code is evenly lit. A code cropped tight to its edge also fails, because scanners need the white margin (the "quiet zone") around the square. If the code is damaged, try a sharper photo; if it is very dark or low-contrast, brighten the image first. And if the code is on your own screen, take a screenshot and upload it here instead of pointing a second camera at it — that is usually the sharpest version you have.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this QR code scanner really free?</summary><p>Yes. Scan as many codes as you like, free, with no signup, no app to install and no scan limit.</p></details><details class="faq"><summary>Can I scan a QR code from a screenshot?</summary><p>Yes. Upload the screenshot, or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). This is the easiest way to read a code that is on your own screen.</p></details><details class="faq"><summary>Is my photo or camera video uploaded anywhere?</summary><p>No. Decoding runs entirely in your browser — the camera frames and uploaded images never leave your device.</p></details><details class="faq"><summary>Why won't my QR code scan?</summary><p>Usually blur, glare, a code that is too small, or a missing white margin around the square. Try a sharper photo, even lighting, and make sure the whole code including its margin is visible.</p></details><details class="faq"><summary>Does it work on iPhone and Android?</summary><p>Yes, in the phone browser. Camera scanning needs camera permission; image upload works on every phone even if the camera is blocked.</p></details><details class="faq"><summary>Is it safe to open a link from a QR code?</summary><p>Not automatically. A QR code can hold any link, including a fake login page. This tool shows you the address as plain text first — read it, and only tap Open link if you trust it.</p></details>
+      <details class="faq">
+<summary>Is this QR code scanner really free?</summary>
+<p>Yes. Scan as many codes as you like, free, with no signup, no app to install and no scan limit.</p>
+</details>
+<details class="faq">
+<summary>How do I scan a QR code without an app?</summary>
+<p>Open a web QR scanner in your browser, allow camera access, and point it at the code — or upload a photo or screenshot of the code.</p>
+</details>
+<details class="faq">
+<summary>How do I scan a QR code on my laptop?</summary>
+<p>Use a web scanner with your webcam, or upload an image of the QR code — no app install needed.</p>
+</details>
+<details class="faq">
+<summary>How do I scan a QR code that's in a screenshot on my own phone?</summary>
+<p>Upload the screenshot — or a photo from your gallery — or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). This is the easiest way to read a code that is on your own screen, because your camera cannot photograph your own screen.</p>
+</details>
+<details class="faq">
+<summary>Why won't my camera scan the QR code?</summary>
+<p>Usually camera permission is blocked in the browser — check the address-bar camera icon and allow access, then reload; also check lighting and distance.</p>
+</details>
+<details class="faq">
+<summary>Is it safe to scan a QR code?</summary>
+<p>Scanning itself is safe — the risk is the link it opens. Always preview the URL before tapping it, and don't enter passwords on a page a QR code opened. If the preview URL looks wrong, don't tap it — the code may have been tampered with or misprinted.</p>
+</details>
+<details class="faq">
+<summary>Can a QR code contain a virus?</summary>
+<p>A QR code can't contain a virus by itself, but it can link to a malicious site — preview the URL first.</p>
+</details>
+<details class="faq">
+<summary>What can a QR code contain?</summary>
+<p>A URL, plain text, Wi-Fi credentials, contact details (vCard), email, or payment info — a good scanner shows you the type before you act.</p>
+</details>
+<details class="faq">
+<summary>Why won't my QR code scan?</summary>
+<p>Usually blur, glare, a code that is too small, or a missing white margin around the square. Try a sharper photo, even lighting, and make sure the whole code including its margin is visible.</p>
+</details>
+<details class="faq">
+<summary>Can I scan a QR code on an iPhone without an app?</summary>
+<p>Yes — the iPhone Camera app scans QR codes natively; a web scanner is only needed for screenshots or on a desktop.</p>
+</details>
+<details class="faq">
+<summary>Is my photo or camera video uploaded anywhere?</summary>
+<p>No. Decoding runs entirely in your browser — the camera frames and uploaded images never leave your device.</p>
+</details>
+<details class="faq">
+<summary>Does it work on iPhone and Android?</summary>
+<p>Yes, in the phone browser. Camera scanning needs camera permission; image upload works on every phone even if the camera is blocked.</p>
+</details>
+<details class="faq">
+<summary>Does the scanner save my scanned codes?</summary>
+<p>This page keeps nothing — results live only on this page until you clear them or close the tab. Some tools keep a local scan history on your device; check the page.</p>
+</details>
+<details class="faq">
+<summary>Can I scan multiple QR codes at once?</summary>
+<p>Not in most free web scanners — they decode one code at a time; batch scan is a gap no top tool in this run offered.</p>
+</details>
+<details class="faq">
+<summary>Is there a free QR scanner with no ads?</summary>
+<p>Yes — this page has no ads and no signup, and scanquick.ai, qrscanneronline.com and 10015.io all advertise no ads and no signup.</p>
+</details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I scan a QR code without a camera?</strong> Yes — upload a photo or screenshot of the code and it is decoded from the image.</p>

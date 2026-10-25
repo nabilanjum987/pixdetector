@@ -23,7 +23,15 @@
       "name": "Is merging videos online really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Join as many clips as your browser's memory can hold \u2014 no watermark, no sign-up, no daily cap and no upload. Everything runs in your browser."
+        "text": "Yes. Join as many clips as your browser's memory can hold — no watermark, no sign-up, no daily cap and no upload. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge videos on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — HeyGen and mytools work in a mobile browser on iPhone/Android; CapCut and InShot do it in-app but may watermark. This page also works in a phone browser — keep clips short, because merging runs in real time."
       }
     },
     {
@@ -31,7 +39,15 @@
       "name": "How many clips can I merge at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There is no fixed clip-count cap here, unlike tools that stop at five clips. The real limit is your device: each clip is held in memory, so very many large clips will slow the browser down. Short phone clips merge fine in batches of ten or more."
+        "text": "There is no fixed clip-count cap here, unlike tools that stop at five clips. The real limit is your device: each clip is held in memory, so very many large clips will slow the browser down. Short phone clips merge fine in batches of ten or more. For comparison, imageonline.io allows up to 30 clips and mytools allows 10."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will merging reduce the quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A direct stream-copy join loses nothing; a re-encode (needed when clips differ) loses a little — mytools says its H.264 re-encode is \"usually visually indistinguishable\". This page re-encodes, so expect a small loss."
       }
     },
     {
@@ -44,10 +60,42 @@
     },
     {
       "@type": "Question",
+      "name": "What if my clips are different sizes or shapes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The output size matches the first clip, and clips with a different aspect ratio are cropped to fill the frame. For the cleanest result, put the clip whose shape you want first, or resize the clips to match before merging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge vertical and horizontal videos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — tools accept mixed orientations; the result uses the first clip's frame, and the other clip is fitted or filled into it. This page crops to fill."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What formats can I merge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP4, MOV, WebM, AVI, MKV and most others your browser can play; output is usually MP4 (H.264 + AAC). This page exports WebM instead."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does the merged video keep the original audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, when your browser allows it \u2014 the merged video carries each clip\u2019s original audio, joined in the same order as the pictures. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your merged video needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead."
+        "text": "Yes, when your browser allows it — the merged video carries each clip's original audio, joined in the same order as the pictures. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your merged video needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my merged video have no sound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually one clip had no audio track or a different sample rate, and the join dropped it — tools that normalise audio first (Clipy, miniwebtool Robust Mode) avoid this; check each clip's audio before merging. This page keeps audio when the browser allows it."
       }
     },
     {
@@ -55,15 +103,39 @@
       "name": "Can I merge videos without uploading them to a server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. This tool merges entirely in your browser \u2014 your clips never leave your device, which is also why there is no file-size limit imposed by a server, only what your browser can handle."
+        "text": "Yes. This tool merges entirely in your browser — your clips never leave your device, which is also why there is no file-size limit imposed by a server, only what your browser can handle."
       }
     },
     {
       "@type": "Question",
-      "name": "What if my clips are different sizes or shapes?",
+      "name": "Can I add transitions between clips?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The output size matches the first clip, and clips with a different aspect ratio are cropped to fill the frame. For the cleanest result, put the clip whose shape you want first, or resize the clips to match before merging."
+        "text": "Not on simple mergers — they join with a hard cut; for transitions use a timeline editor like Canva or CapCut."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge videos without a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — imageonline.io, mytools.com, miniwebtool and HeyGen all export watermark-free; CapCut/InShot free exports may watermark unless you remove it. This page never watermarks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I merge videos my camera split into parts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the parts in order and merge — this is the classic use case; use Robust Mode if the parts differ in any way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does merging take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A stream-copy join of matching clips is nearly instant; re-encoding mismatched clips takes longer and depends on total length and size. This page exports in real time — about as long as the clips put together."
       }
     }
   ]
@@ -200,6 +272,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     </div>
 
     <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> exports are <strong>WebM</strong> files (not MP4) and they <strong>keep the audio when your browser allows it</strong> — if a browser blocks that, the export is video-only instead. Re-encoding runs in real time, so it is best on clips under a few minutes. This is a basic editor — no multi-track timeline, no effects or keyframes, no 4K. Works best in Chrome, Edge or Firefox.</div>
+    <div class="answer-box" style="margin-bottom:18px"><strong>Part of the video editor toolkit:</strong> this page merges clips. The same toolkit also trims, resizes and changes speed — <a href="/tools/video-editor">Video Editor</a> (trim), <a href="/tools/resize-video">Resize Video</a> (reframe for TikTok &amp; Reels) and <a href="/tools/change-video-speed">Change Video Speed</a> (0.25× to 4×). All free, in your browser, no signup, no watermark.</div>
     <div class="vd-panel" aria-label="Video editor">
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose video files">
         <span class="dz-icon">🎬</span>
@@ -300,7 +373,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>Why merging clips online usually costs you something</h2>
-      <p>Creators are hunting for a CapCut replacement after features they relied on moved behind Pro and free exports got limited. The pattern repeats across the free editors people try: the first export looks free, then a watermark appears after the first export or trial credit is used up; the basics — merging clips, changing speed, exporting in 1080p — sit behind a Pro plan; and browser editors that do work fine on short clips choke on big files, losing to desktop tools past about 100 MB. What people actually want is simple: trim, merge, resize and change speed in the browser, free, with no watermark, no signup and no upload. That is exactly what this tool does — and the honest trade-offs are stated above, before you start, so the tool never surprises you after the work is done. Merging is one of the basics that gets paywalled most often: free plans cap you at a handful of clips, limit file size to around 100 MB, or upload your footage to a server before they will join it. Here there is no clip-count cap beyond what your browser's memory can hold, no upload, and no watermark — the honest limit is that the export is a WebM file whose audio depends on the browser, and very long merges are slow.</p>
+      <p>Creators are hunting for a CapCut replacement after features they relied on moved behind Pro and free exports got limited. The pattern repeats across the free editors people try: the first export looks free, then a watermark appears after the first export or trial credit is used up; the basics — merging clips, changing speed, exporting in 1080p — sit behind a Pro plan; and browser editors that do work fine on short clips choke on big files, losing to desktop tools past about 100 MB. What people actually want is simple: trim, merge, resize and change speed in the browser, free, with no watermark, no signup and no upload. That is exactly what this tool does — and the honest trade-offs are stated above, before you start, so the tool never surprises you after the work is done. Merging is one of the basics that gets paywalled most often: free plans cap the number of clips or the total file size, or upload your footage to a server before they will join it. Here there is no clip-count cap beyond what your browser's memory can hold, no upload, and no watermark — the honest limit is that the export is a WebM file whose audio depends on the browser, and very long merges are slow.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I merge videos online for free?</h2>
       <div class="answer-box"><strong>Direct answer:</strong> to merge videos online free, drop two or more video clips onto this page, drag them into order with the arrow buttons, and press Export. The clips are joined into one WebM video in your browser — no signup, no watermark, no upload, and no cap on how many clips you join beyond your browser's memory.</div>
@@ -314,6 +387,18 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <p>Merging in the browser beats installing an editor when the job is small and the clips are short: a holiday video from five phone clips, a product demo stitched from three takes, a screen recording joined to a talking-head intro. Where it stops being the right tool is scale. Joining an hour of 4K footage, or twenty clips at 100 MB each, will be slow and heavy in any browser — that is a desktop job, and pretending otherwise would waste your afternoon. The same applies to sound: this export keeps the audio only when your browser allows it, so if the merged video needs its original audio guaranteed, use a desktop editor instead.</p>
 <p>A practical tip: trim each clip before you merge, or at least know which parts you want. The merge mode uses every clip in full, so a clip with ten seconds of dead air at the end carries that dead air into the finished video. If one take has a bad ending, switch to Trim, cut it, and come back to Merge. And keep the tab in the foreground while exporting — merging runs in real time, roughly as long as all the clips put together, and a background tab can pause the encoder.</p>
 
+      <h2 style="margin-top:28px">Your camera split one recording into several files?</h2>
+      <p>Cameras split long recordings into several files, and users want them stitched back seamlessly — this is the classic merge job. Upload the parts in order and merge them. If the parts differ in any way, a re-encode (miniwebtool's Robust Mode) avoids glitches and audio drift; this page re-encodes every clip to one size, one frame rate and one audio track, so the join never loses sound.</p>
+      <h2 style="margin-top:28px">How this merger compares</h2>
+      <p>Every competitor below exports MP4 — this page exports WebM instead, and says so upfront:</p>
+      <table class="facts" style="width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px"><thead><tr><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Tool</th><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Free / watermark</th><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Limits</th><th style="border:1px solid var(--border);padding:10px 12px;text-align:left">Output</th></tr></thead><tbody>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">This page</td><td style="border:1px solid var(--border);padding:10px 12px">Free, no watermark, no signup, no upload</td><td style="border:1px solid var(--border);padding:10px 12px">No fixed clip cap — browser memory is the limit; best on clips under a few minutes</td><td style="border:1px solid var(--border);padding:10px 12px">WebM (not MP4)</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">HeyGen</td><td style="border:1px solid var(--border);padding:10px 12px">Free, watermark-free; premium AI features from $49/mo sit next to the free tool</td><td style="border:1px solid var(--border);padding:10px 12px">Mixed orientations accepted; phone browser; add/replace audio</td><td style="border:1px solid var(--border);padding:10px 12px">MP4</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">imageonline.io</td><td style="border:1px solid var(--border);padding:10px 12px">Free, no upload, no watermark, no account</td><td style="border:1px solid var(--border);padding:10px 12px">Up to 30 clips; first clip sets the frame; Fit (black bars) vs Fill (crop)</td><td style="border:1px solid var(--border);padding:10px 12px">MP4 or WebM</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">Clipy</td><td style="border:1px solid var(--border);padding:10px 12px">Free preview, no watermark; first download free, additional downloads may require Pro</td><td style="border:1px solid var(--border);padding:10px 12px">Up to 800 MB combined; normalises clips (one frame size, fps, audio format) before joining</td><td style="border:1px solid var(--border);padding:10px 12px">MP4 (H.264 + AAC)</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">mytools.com</td><td style="border:1px solid var(--border);padding:10px 12px">Free, no daily limit, no watermark, no signup</td><td style="border:1px solid var(--border);padding:10px 12px">Up to 10 clips, 500 MB total, 200 MB per clip; letterbox, not stretch</td><td style="border:1px solid var(--border);padding:10px 12px">MP4 (H.264 + AAC)</td></tr>
+      <tr><td style="border:1px solid var(--border);padding:10px 12px">miniwebtool.com</td><td style="border:1px solid var(--border);padding:10px 12px">Free, no upload, no watermark</td><td style="border:1px solid var(--border);padding:10px 12px">Fast Mode (stream copy, instant, fails on mismatched clips) vs Robust Mode (re-encode, slower, avoids glitches); two modes confuse first-time users</td><td style="border:1px solid var(--border);padding:10px 12px">MP4</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
       <details class="faq">
@@ -321,24 +406,60 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <p>Yes. Join as many clips as your browser's memory can hold — no watermark, no sign-up, no daily cap and no upload. Everything runs in your browser.</p>
 </details>
 <details class="faq">
+<summary>Can I merge videos on my phone?</summary>
+<p>Yes — HeyGen and mytools work in a mobile browser on iPhone/Android; CapCut and InShot do it in-app but may watermark. This page also works in a phone browser — keep clips short, because merging runs in real time.</p>
+</details>
+<details class="faq">
 <summary>How many clips can I merge at once?</summary>
-<p>There is no fixed clip-count cap here, unlike tools that stop at five clips. The real limit is your device: each clip is held in memory, so very many large clips will slow the browser down. Short phone clips merge fine in batches of ten or more.</p>
+<p>There is no fixed clip-count cap here, unlike tools that stop at five clips. The real limit is your device: each clip is held in memory, so very many large clips will slow the browser down. Short phone clips merge fine in batches of ten or more. For comparison, imageonline.io allows up to 30 clips and mytools allows 10.</p>
+</details>
+<details class="faq">
+<summary>Will merging reduce the quality?</summary>
+<p>A direct stream-copy join loses nothing; a re-encode (needed when clips differ) loses a little — mytools says its H.264 re-encode is "usually visually indistinguishable". This page re-encodes, so expect a small loss.</p>
 </details>
 <details class="faq">
 <summary>Why is the merged video a WebM file?</summary>
 <p>Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari. If you need an MP4, convert the WebM afterwards with HandBrake or FFmpeg.</p>
 </details>
 <details class="faq">
+<summary>What if my clips are different sizes or shapes?</summary>
+<p>The output size matches the first clip, and clips with a different aspect ratio are cropped to fill the frame. For the cleanest result, put the clip whose shape you want first, or resize the clips to match before merging.</p>
+</details>
+<details class="faq">
+<summary>Can I merge vertical and horizontal videos?</summary>
+<p>Yes — tools accept mixed orientations; the result uses the first clip's frame, and the other clip is fitted or filled into it. This page crops to fill.</p>
+</details>
+<details class="faq">
+<summary>What formats can I merge?</summary>
+<p>MP4, MOV, WebM, AVI, MKV and most others your browser can play; output is usually MP4 (H.264 + AAC). This page exports WebM instead.</p>
+</details>
+<details class="faq">
 <summary>Does the merged video keep the original audio?</summary>
-<p>Yes, when your browser allows it — the merged video carries each clip’s original audio, joined in the same order as the pictures. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your merged video needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
+<p>Yes, when your browser allows it — the merged video carries each clip's original audio, joined in the same order as the pictures. If a browser blocks that, the export still finishes but is video-only, and the page tells you so. If your merged video needs its original sound guaranteed, use a desktop editor such as Shotcut or DaVinci Resolve instead.</p>
+</details>
+<details class="faq">
+<summary>Why does my merged video have no sound?</summary>
+<p>Usually one clip had no audio track or a different sample rate, and the join dropped it — tools that normalise audio first (Clipy, miniwebtool Robust Mode) avoid this; check each clip's audio before merging. This page keeps audio when the browser allows it.</p>
 </details>
 <details class="faq">
 <summary>Can I merge videos without uploading them to a server?</summary>
 <p>Yes. This tool merges entirely in your browser — your clips never leave your device, which is also why there is no file-size limit imposed by a server, only what your browser can handle.</p>
 </details>
 <details class="faq">
-<summary>What if my clips are different sizes or shapes?</summary>
-<p>The output size matches the first clip, and clips with a different aspect ratio are cropped to fill the frame. For the cleanest result, put the clip whose shape you want first, or resize the clips to match before merging.</p>
+<summary>Can I add transitions between clips?</summary>
+<p>Not on simple mergers — they join with a hard cut; for transitions use a timeline editor like Canva or CapCut.</p>
+</details>
+<details class="faq">
+<summary>Can I merge videos without a watermark?</summary>
+<p>Yes — imageonline.io, mytools.com, miniwebtool and HeyGen all export watermark-free; CapCut/InShot free exports may watermark unless you remove it. This page never watermarks.</p>
+</details>
+<details class="faq">
+<summary>How do I merge videos my camera split into parts?</summary>
+<p>Upload the parts in order and merge — this is the classic use case; use Robust Mode if the parts differ in any way.</p>
+</details>
+<details class="faq">
+<summary>How long does merging take?</summary>
+<p>A stream-copy join of matching clips is nearly instant; re-encoding mismatched clips takes longer and depends on total length and size. This page exports in real time — about as long as the clips put together.</p>
 </details>
 
       <!-- RELATED QUESTIONS -->

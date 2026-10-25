@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this PDF to Excel converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Convert PDF tables to a real .xlsx spreadsheet free, with no signup, no upload and no watermark. The conversion runs entirely in your browser." } },
-    { "@type": "Question", "name": "Why do PDF tables come out as a mess in Excel?", "acceptedAnswer": { "@type": "Answer", "text": "A PDF does not store a table — it stores text fragments with coordinates. Any converter has to guess where columns start and end, so borderless tables, merged cells and wrapped text can split or merge wrongly. Always check row counts and totals after converting." } },
-    { "@type": "Question", "name": "Why do my numbers arrive as text in Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Numbers copied as text are ignored by SUM and sort wrongly — '100' comes before '20' because text sorts alphabetically. This converter turns values that look like numbers into real numbers, but currency symbols, commas and spaces can still leave some as text: use Excel's Text to Columns or VALUE() to fix the rest." } },
-    { "@type": "Question", "name": "Can I convert a scanned PDF table to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Not with this tool. A scanned PDF is a picture of a table, not text, so there is nothing to extract. Scanned tables need OCR first, which this browser-only converter does not do." } },
-    { "@type": "Question", "name": "Is my PDF uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. The PDF is read in your browser with pdf.js and the spreadsheet is built there with SheetJS. Nothing is uploaded, stored, or shared." } },
-    { "@type": "Question", "name": "What is the difference between the .xlsx and .csv downloads?", "acceptedAnswer": { "@type": "Answer", "text": "The .xlsx file is a real spreadsheet with one sheet per PDF page, which opens in Excel or Google Sheets. The .csv file is plain comma-separated text for one page, useful for importing into other software." } }
+    {
+      "@type": "Question",
+      "name": "How do I convert PDF to Excel for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Excel's built-in Data → Get Data → From PDF, or a free online converter (Smallpdf, iLovePDF, Foxit) — upload, convert, download the .xlsx."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert PDF to Excel without software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Excel's Get Data From Web trick (open PDF in Chrome, copy URL, paste into Get Data → From Web) needs no extra tool, and browser converters need no install."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is all my data in one column after converting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The converter failed to detect table structure and dumped text line-by-line; use a tool with table detection or Excel's Get Data, which maps columns properly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does SUM return 0 on my converted amounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The amounts were written as text, not numbers; reformat the column as Number, or use a converter that writes real numeric cells."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a scanned PDF to Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only with OCR — a scan is an image with no text; free OCR is rare (iHatePDF Advanced mode, PDF Candy free OCR) and usually a paid feature elsewhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a bank statement PDF to Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a statement-aware converter or Excel Get Data From PDF, then check the running balance against the statement's closing balance — repeated headers and split transactions are the usual breakage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to upload my bank statement to a free converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Risky by design — statements carry account numbers and balances; prefer in-browser converters that never upload, or Excel's built-in import which stays local."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert PDF to Excel on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser converters work on mobile (Foxit, KJSynthora); Excel mobile cannot run Get Data From PDF, so use the web tool route on phones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between XLS and XLSX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XLSX is the current Excel format with more features and larger capacity; XLS is the pre-2007 format for old machines (Smallpdf FAQ)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert multiple PDFs to Excel at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Batch is usually Pro/paid (Smallpdf Pro, iLovePDF Premium); free batch exists in some small tools (KJSynthora multi-file, OCR2Edit multi-file)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is PDF to Excel conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High for clean digital PDFs with clear tables; poor for scans, small dense fonts, and multi-page statements — always spot-check totals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert PDF to CSV instead of Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Sejda and KJSynthora export CSV; CSV is often better for importing into bookkeeping software."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do my dates show the wrong year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some banks print short dates without a year and converters guess from the first year found in the document — Dec→Jan statements are the classic failure (dev.to)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign up for a free PDF to Excel converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always — Foxit, KJSynthora and OCR2Edit convert without an account; iHatePDF needs a free account only for batch (up to 3 PDFs at once)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a PDF table to Excel in Excel itself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data tab → Get Data → From File → From PDF → pick the table in the Navigator → Load; for a PDF open in Chrome, use Get Data → From Web with the file URL instead."
+      }
+    }
   ]
 }
 </script>
@@ -68,6 +182,14 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
 .share-btns{display:flex;flex-wrap:wrap;gap:10px}
 .share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.method{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.method h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:6px}
+.method p{font-size:14px;color:var(--text2);line-height:1.8}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
 </style>
@@ -138,31 +260,97 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>The most common silent failure is numbers stored as text. This converter converts values that look like numbers — including negatives and decimals — into real Excel numbers, so SUM and sorting work. But currency symbols, thousands commas, spaces and trailing letters can still leave a value as text. If a column will not sum, select it in Excel and use Text to Columns, or wrap it with VALUE() in a helper column. Also watch for wrapped text: a long cell that wrapped onto two lines in the PDF may arrive as two rows — merge them back by hand and re-check the total.</p>
       <h2>Which PDFs convert well — and which do not</h2>
       <p>Clean, bordered tables from invoices, bank statements and reports convert best: clear rows, clear gaps between columns, one line per cell. Borderless tables, tables with merged header cells, and tables where text wraps inside a cell convert worst — the column guesswork has nothing solid to work from. Scanned PDFs do not convert at all here, because they contain a picture of a table rather than text; those need OCR first. If your table is one of the hard cases, convert anyway for a head start, then fix the handful of bad rows by hand — it is still far faster than retyping the whole table.</p>
-      <!-- FAQ -->
+      <h2>Bank statements: the highest-stakes conversion</h2>
+      <p>A bank statement is the use case where a bad conversion costs real money — and the one no top-ranked converter page addresses properly. Statements break in specific ways: tables split mid-transaction across pages, headers repeat as data rows, running balances get imported as fake transactions, and debit/credit sign logic is flattened into one amount column so balances stop reconciling. After converting a statement, always check the running balance against the statement's closing balance, and watch for dates without a year — some banks print short dates, and converters guess the year from the first year found in the document, so December-to-January statements are the classic failure. And because statements carry account numbers and balances, prefer an in-browser converter that never uploads, or Excel's built-in import, which stays local.</p>
+      <h2>Convert it in Excel itself — no website needed</h2>
+      <p>Many people do not want a website at all — they want Excel's built-in method, and it is the most-shared tutorial format in this niche. There are two ways:</p>
+      <div class="method">
+        <h3>Method 1 — Get Data From PDF</h3>
+        <p>In Excel, go to Data → Get Data → From File → From PDF, pick your file, then pick the table in the Navigator and press Load. Excel maps the columns properly and the import stays on your computer.</p>
+      </div>
+      <div class="method">
+        <h3>Method 2 — The Chrome-URL trick</h3>
+        <p>Open the PDF in Chrome, copy the URL from the address bar, then in Excel go to Data → Get Data → From Web and paste the URL — the table loads. This is the method behind the most-shared tutorials in this niche.</p>
+      </div>
+      <p>One limit to know: Excel mobile cannot run Get Data From PDF, so on a phone use the web tool route on this page instead.</p>
+      <h2>Check before you download</h2>
+      <p>Never trust a converted spreadsheet without looking at it first. This page previews the first page as a grid before you download, so you can see how the columns landed. Check three things: the row count against the PDF, the totals (does SUM work, or are the numbers text?), and any column that merged or split wrongly. Clean digital PDFs with clear tables convert well; scans, small dense fonts and multi-page statements convert poorly — always spot-check totals.</p>
+      <h2>How this page compares on free limits</h2>
+      <p>Free converters differ most on their limits — daily caps, file-size caps, OCR paywalls and whether the file is uploaded. The table below uses only the limits each tool states itself:</p>
+      <table class="tbl">
+        <tr><th>Converter</th><th>Free limit</th><th>What to know</th></tr>
+        <tr><td>This page (PixDetector)</td><td>No signup, no upload, preview before download</td><td>Text/CSV export — tables are unreliable; scanned PDFs need OCR first.</td></tr>
+        <tr><td>Foxit</td><td>15 MB max</td><td>Files handled on Foxit cloud servers; claims tables/columns preserved.</td></tr>
+        <tr><td>Smallpdf</td><td>2 tasks per day</td><td>OCR is Pro only.</td></tr>
+        <tr><td>iLovePDF</td><td>Free caps</td><td>OCR is Premium only.</td></tr>
+        <tr><td>Sejda</td><td>3 tasks per day, 50 MB, 200 pages</td><td>Exports CSV as well as XLSX.</td></tr>
+        <tr><td>Adobe Acrobat Online</td><td>Free tier limited</td><td>Paid for heavy use.</td></tr>
+        <tr><td>Soda PDF</td><td>About 2 files per day free</td><td>Free tier is small.</td></tr>
+        <tr><td>KJSynthora</td><td>Up to 100 MB per file, multi-file</td><td>Free, in-browser, with a data preview grid before download and XLSX/CSV/JSON export.</td></tr>
+        <tr><td>OCR2Edit</td><td>Free, no account</td><td>Built for photos and scans via OCR, not digital PDFs; honest that steep angles, shadows and faint print cost accuracy.</td></tr>
+      </table>
+
+            <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this PDF to Excel converter really free?</summary>
-        <p>Yes. Convert PDF tables to a real .xlsx spreadsheet free, with no signup, no upload and no watermark. The conversion runs entirely in your browser.</p>
+        <summary>How do I convert PDF to Excel for free?</summary>
+        <p>Use Excel&#x27;s built-in Data → Get Data → From PDF, or a free online converter (Smallpdf, iLovePDF, Foxit) — upload, convert, download the .xlsx.</p>
       </details>
       <details class="faq">
-        <summary>Why do PDF tables come out as a mess in Excel?</summary>
-        <p>A PDF does not store a table — it stores text fragments with coordinates. Any converter has to guess where columns start and end, so borderless tables, merged cells and wrapped text can split or merge wrongly. Always check row counts and totals after converting.</p>
+        <summary>Can I convert PDF to Excel without software?</summary>
+        <p>Yes — Excel&#x27;s Get Data From Web trick (open PDF in Chrome, copy URL, paste into Get Data → From Web) needs no extra tool, and browser converters need no install.</p>
       </details>
       <details class="faq">
-        <summary>Why do my numbers arrive as text in Excel?</summary>
-        <p>Numbers copied as text are ignored by SUM and sort wrongly — "100" comes before "20" because text sorts alphabetically. This converter turns values that look like numbers into real numbers, but currency symbols, commas and spaces can still leave some as text: use Excel's Text to Columns or VALUE() to fix the rest.</p>
+        <summary>Why is all my data in one column after converting?</summary>
+        <p>The converter failed to detect table structure and dumped text line-by-line; use a tool with table detection or Excel&#x27;s Get Data, which maps columns properly.</p>
       </details>
       <details class="faq">
-        <summary>Can I convert a scanned PDF table to Excel?</summary>
-        <p>Not with this tool. A scanned PDF is a picture of a table, not text, so there is nothing to extract. Scanned tables need OCR first, which this browser-only converter does not do.</p>
+        <summary>Why does SUM return 0 on my converted amounts?</summary>
+        <p>The amounts were written as text, not numbers; reformat the column as Number, or use a converter that writes real numeric cells.</p>
       </details>
       <details class="faq">
-        <summary>Is my PDF uploaded to a server?</summary>
-        <p>No. The PDF is read in your browser with pdf.js and the spreadsheet is built there with SheetJS. Nothing is uploaded, stored, or shared.</p>
+        <summary>Can I convert a scanned PDF to Excel?</summary>
+        <p>Only with OCR — a scan is an image with no text; free OCR is rare (iHatePDF Advanced mode, PDF Candy free OCR) and usually a paid feature elsewhere.</p>
       </details>
       <details class="faq">
-        <summary>What is the difference between the .xlsx and .csv downloads?</summary>
-        <p>The .xlsx file is a real spreadsheet with one sheet per PDF page, which opens in Excel or Google Sheets. The .csv file is plain comma-separated text for one page, useful for importing into other software.</p>
+        <summary>How do I convert a bank statement PDF to Excel?</summary>
+        <p>Use a statement-aware converter or Excel Get Data From PDF, then check the running balance against the statement&#x27;s closing balance — repeated headers and split transactions are the usual breakage.</p>
+      </details>
+      <details class="faq">
+        <summary>Is it safe to upload my bank statement to a free converter?</summary>
+        <p>Risky by design — statements carry account numbers and balances; prefer in-browser converters that never upload, or Excel&#x27;s built-in import which stays local.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert PDF to Excel on my phone?</summary>
+        <p>Yes — browser converters work on mobile (Foxit, KJSynthora); Excel mobile cannot run Get Data From PDF, so use the web tool route on phones.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between XLS and XLSX?</summary>
+        <p>XLSX is the current Excel format with more features and larger capacity; XLS is the pre-2007 format for old machines (Smallpdf FAQ).</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert multiple PDFs to Excel at once?</summary>
+        <p>Batch is usually Pro/paid (Smallpdf Pro, iLovePDF Premium); free batch exists in some small tools (KJSynthora multi-file, OCR2Edit multi-file).</p>
+      </details>
+      <details class="faq">
+        <summary>How accurate is PDF to Excel conversion?</summary>
+        <p>High for clean digital PDFs with clear tables; poor for scans, small dense fonts, and multi-page statements — always spot-check totals.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert PDF to CSV instead of Excel?</summary>
+        <p>Yes — Sejda and KJSynthora export CSV; CSV is often better for importing into bookkeeping software.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do my dates show the wrong year?</summary>
+        <p>Some banks print short dates without a year and converters guess from the first year found in the document — Dec→Jan statements are the classic failure (dev.to).</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to sign up for a free PDF to Excel converter?</summary>
+        <p>Not always — Foxit, KJSynthora and OCR2Edit convert without an account; iHatePDF needs a free account only for batch (up to 3 PDFs at once).</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert a PDF table to Excel in Excel itself?</summary>
+        <p>Data tab → Get Data → From File → From PDF → pick the table in the Navigator → Load; for a PDF open in Chrome, use Get Data → From Web with the file URL instead.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

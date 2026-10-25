@@ -20,6 +20,14 @@
   "mainEntity": [
     { "@type": "Question", "name": "Is this meme generator really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload your image, add top and bottom text, and download a clean PNG — free, with no signup, no watermark and no account needed." } },
     { "@type": "Question", "name": "Why do other meme makers add a watermark?", "acceptedAnswer": { "@type": "Answer", "text": "Big meme sites stamp a watermark on free exports and charge a monthly fee to remove it — for example, one popular site charges about $11.95 a month for clean downloads. This tool runs in your browser and never stamps anything on your meme." } },
+    { "@type": "Question", "name": "What is the best free meme generator?", "acceptedAnswer": { "@type": "Answer", "text": "Depends on the job: Imgflip for quick classic image macros, Kapwing for video/GIF memes, Canva or Adobe Express for polished social designs." } },
+    { "@type": "Question", "name": "Is MemeGenerator.net still working?", "acceptedAnswer": { "@type": "Answer", "text": "It returned a Cloudflare 522 server error when checked in October 2026 — try again later or use another generator." } },
+    { "@type": "Question", "name": "Can I legally use a famous meme template in a brand post?", "acceptedAnswer": { "@type": "Answer", "text": "Popularity is not a licence — the image is usually somebody's photo; brands have received takedowns. For brand use, build on your own or stock photos inside Canva/Adobe Express." } },
+    { "@type": "Question", "name": "What is the right image size for a meme?", "acceptedAnswer": { "@type": "Answer", "text": "Square 1080×1080 is the safest single answer; X wants 1200×675; vertical 1080×1350 gets more Instagram screen space; TikTok/Reels/Shorts use 1080×1920." } },
+    { "@type": "Question", "name": "Are AI meme generators actually any good?", "acceptedAnswer": { "@type": "Answer", "text": "Good at picking a template, bad at being funny — roughly one in ten AI captions lands; use AI to break the blank page, then write the caption yourself." } },
+    { "@type": "Question", "name": "Can I use these meme generators on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Most have mobile apps or responsive web versions; Adobe Express works well on mobile, and small tools like QuickMeme and MemeCreator.org run in the phone browser with touch dragging. This page runs in the phone browser too." } },
+    { "@type": "Question", "name": "Why is meme text always white with a black outline?", "acceptedAnswer": { "@type": "Answer", "text": "It's the only combination readable over any picture, and it's the format's convention — Impact became the standard because it shipped with Windows from the mid-90s." } },
+    { "@type": "Question", "name": "What font do memes use?", "acceptedAnswer": { "@type": "Answer", "text": "Impact, the classic meme font, with white fill and black outline; phones without Impact fall back to a heavy sans. This page draws Impact with a black outline." } },
     { "@type": "Question", "name": "Can I use a trending meme template here?", "acceptedAnswer": { "@type": "Answer", "text": "Bring your own image: save any template or screenshot you have the right to use, upload it here, and add your text. This browser-only tool has no built-in template catalogue, so it cannot offer the million-template library of the big sites." } },
     { "@type": "Question", "name": "What size should a meme be for TikTok or Reels?", "acceptedAnswer": { "@type": "Answer", "text": "Use the 9:16 vertical option in this tool — it fits the full phone screen on TikTok and Instagram Reels. Square memes work best for feeds and group chats." } },
     { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is drawn on a canvas in your browser and downloaded from there. Nothing is uploaded, stored, or shared." } },
@@ -72,6 +80,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -151,7 +164,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: the watermark appears after the joke is written</h2>
-      <p>The most common meme-maker complaint is the same as with PDF converters: the free part ends at the download button. One big site stamps its watermark on every free export and charges about $11.95 a month to remove it. Others push you to create an account before you can download anything clean. Smaller free tools avoid the paywall but limit you to two fonts, or no GIF captions at all. People want something simpler: pick a trending template, type the joke, download a clean meme in seconds — no account, no watermark, no surprise at the end.</p>
+      <p>The most common meme-maker complaint is the same as with PDF converters: the free part ends at the download button. One big site stamps its watermark on every free export and charges about $11.95 a month to remove it. Others push you to create an account before you can download anything clean. Smaller free tools avoid the paywall but limit you to two fonts, or no GIF captions at all. Other complaints from the roundups: most generators force you to pick from the same 50 boring templates everyone else is using, several older generators no longer work at all, and the classic tools are square or landscape only — TikTok and Reels need 1080×1920, so users end up resizing afterwards. People want something simpler: pick a trending template, type the joke, download a clean meme in seconds — no account, no watermark, no surprise at the end.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I make a meme for free with no watermark?</h2>
       <p>Upload your image here, type your top and bottom text, choose square or vertical 9:16, and download a clean PNG — free, with no signup and no watermark, because the meme is drawn in your browser. Bring any template or photo you have the right to use; the classic bold white text with a black outline is drawn over it so it reads on any picture. Your own joke beats any auto-generated caption, and there is no account standing between you and the download.</p>
@@ -163,6 +176,28 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Short beats long: the best memes are one setup line and one punchline, both readable in two seconds. Specific beats generic: "when the Wi-Fi goes down during the final" lands harder than "when the Wi-Fi goes down". The picture should do half the work — pick an image whose face or situation already tells the story, then let the text finish it. And check it on your phone before posting: text that fits on a desktop preview can cover the whole face on a small screen, so keep the size moderate and the lines short.</p>
       <h2>Square or vertical — which one?</h2>
       <p>Square fits feeds, group chats and most repost accounts, and it survives being cropped by almost any platform. Vertical 9:16 fills the whole phone screen on TikTok and Instagram Reels, which is where most memes are seen now — but it looks wrong in a square feed. This tool draws the same meme in either shape: the image is fitted to the shape you pick, so a wide photo in vertical mode will have space above and below it, and the text sits where it can be read.</p>
+      <h2>How to write a caption that lands</h2>
+      <p>Brevity wins. The top line sets up the expectation and the bottom line subverts it — that setup-then-subvert structure is the whole joke. The caption should work <em>with</em> the image's expression, not against it: if the face already looks defeated, the text should not explain that it looks defeated. Keep both lines short enough to read in two seconds; if the joke needs more than two lines, it is probably two memes. And write the caption yourself: AI caption tools are good at picking a template and bad at being funny — roughly one in ten AI captions lands — so use them to break a blank page, then write the joke yourself.</p>
+      <h2>Four classic formats — what they mean, and a caption starter each</h2>
+      <p>Every template has a meaning, and using it wrong is the fastest way to a meme that falls flat. These are the formats people search for most:</p>
+      <table class="tbl">
+        <tr><th>Format</th><th>What it means</th><th>Caption starter</th></tr>
+        <tr><td>Drake</td><td>Top panel rejects one thing, bottom panel approves the other.</td><td>Top: "reading the terms and conditions" — Bottom: "clicking 'I agree' anyway"</td></tr>
+        <tr><td>Distracted Boyfriend</td><td>You (the boyfriend) chase something new while your current obligation (the girlfriend) looks on.</td><td>Top: "my budget" — Bottom: "a sale I did not need"</td></tr>
+        <tr><td>Two Buttons</td><td>Sweating over two choices, both bad.</td><td>Top: "save money" — Bottom: "buy the thing"</td></tr>
+        <tr><td>This Is Fine</td><td>A dog calmly drinking coffee while the room burns — pretending everything is fine when it is not.</td><td>Top: "me, three deadlines away" — Bottom: "this is fine"</td></tr>
+      </table>
+      <p>One caution from the research: the best-performing posts in group chats are inside jokes from users' own photos, not recycled movie stills — and famous reaction stills are copyrighted frames that have drawn takedown requests and invoices for brands. Personal sharing is low-risk; brand posts are not.</p>
+      <h2>How this generator compares</h2>
+      <p>The watermark, the account gate and the template library — the three things people actually decide on.</p>
+      <table class="tbl">
+        <tr><th>Tool</th><th>Watermark on free export</th><th>Signup needed</th><th>Templates</th><th>Video / GIF</th></tr>
+        <tr><td>PixDetector (this page)</td><td>No watermark</td><td>No</td><td>No catalogue — bring your own image</td><td>Still PNG only</td></tr>
+        <tr><td>Imgflip</td><td>Yes — Pro $11.95/mo billed yearly removes it</td><td>Sign-in for clean downloads</td><td>Largest classic library</td><td>GIF Maker for animated templates</td></tr>
+        <tr><td>Kapwing</td><td>Yes — Pro $16/mo billed yearly removes it</td><td>Sign-in for clean downloads</td><td>Video/GIF templates</td><td>Video/GIF — MP4 and GIF export</td></tr>
+        <tr><td>Canva</td><td>No — watermark-free on free tier</td><td>Yes — account needed</td><td>Many templates behind Pro $14.99/mo</td><td>Polished social designs, not a meme specialist</td></tr>
+        <tr><td>Adobe Express</td><td>No — watermark-free free tier</td><td>Yes — account needed</td><td>Fewer meme-specific templates, more design templates</td><td>AI generation via Firefly</td></tr>
+      </table>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
@@ -172,6 +207,38 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <details class="faq">
         <summary>Why do other meme makers add a watermark?</summary>
         <p>Big meme sites stamp a watermark on free exports and charge a monthly fee to remove it — for example, one popular site charges about $11.95 a month for clean downloads. This tool runs in your browser and never stamps anything on your meme.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the best free meme generator?</summary>
+        <p>Depends on the job: Imgflip for quick classic image macros, Kapwing for video/GIF memes, Canva or Adobe Express for polished social designs.</p>
+      </details>
+      <details class="faq">
+        <summary>Is MemeGenerator.net still working?</summary>
+        <p>It returned a Cloudflare 522 server error when checked in October 2026 — try again later or use another generator.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I legally use a famous meme template in a brand post?</summary>
+        <p>Popularity is not a licence — the image is usually somebody's photo; brands have received takedowns. For brand use, build on your own or stock photos inside Canva/Adobe Express.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the right image size for a meme?</summary>
+        <p>Square 1080×1080 is the safest single answer; X wants 1200×675; vertical 1080×1350 gets more Instagram screen space; TikTok/Reels/Shorts use 1080×1920.</p>
+      </details>
+      <details class="faq">
+        <summary>Are AI meme generators actually any good?</summary>
+        <p>Good at picking a template, bad at being funny — roughly one in ten AI captions lands; use AI to break the blank page, then write the caption yourself.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use these meme generators on my phone?</summary>
+        <p>Most have mobile apps or responsive web versions; Adobe Express works well on mobile, and small tools like QuickMeme and MemeCreator.org run in the phone browser with touch dragging. This page runs in the phone browser too.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is meme text always white with a black outline?</summary>
+        <p>It's the only combination readable over any picture, and it's the format's convention — Impact became the standard because it shipped with Windows from the mid-90s.</p>
+      </details>
+      <details class="faq">
+        <summary>What font do memes use?</summary>
+        <p>Impact, the classic meme font, with white fill and black outline; phones without Impact fall back to a heavy sans. This page draws Impact with a black outline.</p>
       </details>
       <details class="faq">
         <summary>Can I use a trending meme template here?</summary>
@@ -195,6 +262,8 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p><strong>Can I add text in the middle of the image?</strong> This tool does top and bottom text only — the classic meme format. Middle text usually covers the face.</p>
       <p><strong>Why is my meme text hard to read?</strong> Thin or coloured text disappears on busy photos. Keep white text with the black outline and a moderate size.</p>
       <p><strong>Can I use this meme commercially?</strong> Only if you own the image and the joke — templates from films and shows are usually copyrighted, so keep those to personal sharing.</p>
+      <p><strong>Can I make a GIF or video meme online?</strong> Yes — Kapwing supports video/GIF templates and exports MP4 and GIF; Imgflip has a GIF Maker for animated templates. Most small free tools are image-only, including this one.</p>
+      <p><strong>Which meme generator has the most templates?</strong> Imgflip has the largest library of classic templates; Adobe Express has fewer meme-specific ones but more overall design templates.</p>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>

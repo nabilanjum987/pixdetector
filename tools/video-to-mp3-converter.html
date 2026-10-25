@@ -31,7 +31,7 @@
       "name": "Can I paste a YouTube link and get an MP3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No \u2014 and this is the most important limit on the page. A purely client-side tool cannot fetch a YouTube, TikTok or Instagram link; that needs a server, which PixDetector does not have. This tool only converts video files you upload from your own device. Paste-a-link sites are also where the pop-ups, fake download buttons and malware live."
+        "text": "No \u2014 not a YouTube, TikTok or Instagram link. A purely client-side tool cannot fetch from video platforms; that needs a server, which PixDetector does not have. What this page can try is a direct link to a video file (a link ending in .mp4, .webm or .mov) \u2014 paste it in the link box and the page will attempt to fetch it. Most file hosts refuse browser downloads, so if the fetch fails the page says why; uploading the file is the reliable route."
       }
     },
     {
@@ -48,6 +48,70 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "128 kbps is the standard for most music and speech. 96 kbps makes the smallest file and is fine for voice. 192 kbps sounds better on good headphones. A higher bitrate never adds quality the original audio did not have \u2014 beware of sites advertising 320 kbps from a 128 kbps source."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is converting YouTube to MP3 legal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Converting video you own or that's Creative Commons-licensed is generally fine; converting copyrighted music without permission may violate YouTube's Terms and copyright law."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a video to MP3 on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the video file in your phone browser, pick a bitrate and convert \u2014 no app needed. Keep the clip short, because phones convert slowly. This page cannot convert a YouTube link on a phone either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best MP3 quality \u2014 128, 192 or 320 kbps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "320 kbps keeps the most detail and is best for music; 128 kbps is smaller and fine for speech; 192 kbps is a good middle ground. This page offers 96, 128 and 192 kbps \u2014 192 is the top quality here, and a higher number never adds quality the source did not have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my conversion fail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most common causes: video too long (caps around 1\u20131.5 hours on free tools), age-restricted or private video, or a slow connection; try a lower bitrate or a shorter clip. On this page, the usual cause is a video with no audio track, or a file too big for the browser engine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a whole YouTube playlist to MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most free online converters do one video at a time \u2014 Flvto states this explicitly; playlist support is a paid or desktop-app feature. This page converts one uploaded file at a time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does converting to MP3 lose quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 MP3 is lossy, and you can't get more quality than the source audio had; converting to WAV or FLAC afterwards doesn't restore lost quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between MP3 and WAV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP3 is small and plays everywhere; WAV is uncompressed and much larger, best for editing. This page outputs MP3 only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does renaming .mp4 to .mp3 sometimes not work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renaming only changes the label, not the file \u2014 many players reject it; a real conversion re-encodes the audio. That is why the viral rename trick fails for so many people."
       }
     },
     {
@@ -78,7 +142,7 @@
     {
       "@type": "HowToStep",
       "name": "Upload your video",
-      "text": "Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. Your own videos only."
+      "text": "Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. You can also paste a direct link to a video file (.mp4, .webm, .mov) in the link box. Your own videos only; YouTube, TikTok and Instagram links do not work."
     },
     {
       "@type": "HowToStep",
@@ -168,6 +232,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .rq-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:14px;line-height:1.7;color:var(--text2)}
 .rq-list li strong{color:var(--text)}
 canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max-height:340px;cursor:crosshair}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 .timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
 .rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.2}}
@@ -199,7 +268,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <p>Extract the audio from any video as an MP3 — free, in your browser. No signup, no upload, no ads. Your own videos only; the honest limits are stated below before you start.</p>
     </div>
 
-    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> this tool converts <strong>video files you upload from your own device</strong>. It <strong>cannot fetch a YouTube, TikTok or Instagram link</strong> — a purely client-side page cannot download from those sites; that needs a server, which PixDetector does not have. Paste-a-link MP3 sites are also where the pop-ups, fake download buttons and malware live. First use downloads a ~30 MB conversion engine (cached after); conversion is slow on big files. Only convert your own videos — extracting copyrighted music without permission is not legal.</div>
+    <div class="limit-note" role="note"><strong>Honest limits — read this first:</strong> this tool converts <strong>video files you upload from your own device</strong>, and it can <strong>try</strong> a direct link to a video file (a link ending in .mp4, .webm or .mov) — most file hosts refuse browser downloads, so that path often fails and the page says why. It <strong>cannot fetch a YouTube, TikTok or Instagram link</strong> — a purely client-side page cannot download from those sites; that needs a server, which PixDetector does not have. Paste-a-link MP3 sites are also where the pop-ups, fake download buttons and malware live. First use downloads a ~30 MB conversion engine (cached after); conversion is slow on big files. Only convert your own videos — extracting copyrighted music without permission is not legal.</div>
     <div class="vd-panel" aria-label="Video to MP3 converter">
       <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose a video file">
         <span class="dz-icon">🎧</span>
@@ -207,6 +276,15 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
         <p class="dz-sub">MP4, MOV, WebM and most other formats your browser can play.<br>Your video never leaves this device.</p>
       </div>
       <input id="fileInput" type="file" accept="video/*" />
+      <div style="margin-top:16px">
+        <span class="flabel">Or paste a direct link to a video file</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input class="vd-input" id="urlInput" type="url" placeholder="https://example.com/clip.mp4" style="flex:1;min-width:220px" />
+          <button type="button" class="btn alt" id="fetchUrlBtn">Fetch video</button>
+        </div>
+        <p class="hint">Paste a <strong>direct link to a video file</strong> — a link ending in .mp4, .webm or .mov that opens the video itself. YouTube, TikTok and Instagram links will not work: a browser page cannot download from those sites, and this page has no server to do it. Most file hosts also refuse browser downloads, so this path often fails — if it does, the page will say why, and uploading the file is the reliable route.</p>
+        <p class="error" id="urlErrorBox" role="alert"></p>
+      </div>
       <video id="vidPreview" class="vid-preview" controls playsinline></video>
       <div class="info-grid" id="infoGrid" style="display:none">
         <div class="info-cell"><div class="k">File name</div><div class="v" id="infoName">—</div></div>
@@ -247,10 +325,10 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>Why video-to-MP3 pages are the ones people distrust most</h2>
-      <p>Video-to-MP3 has the loudest chatter of any converter — mostly “how to download YouTube as MP3” tutorials, including a Reel with 15K likes walking through Y2Mate, and Reddit threads asking “is X safe?” The danger is usually the page, not the conversion: pop-ups, redirects and fake download buttons that try to install something you never asked for. Then there is fake quality — sites that advertise 320 kbps and deliver 128 kbps upscaled — and converters that randomly stop working, get blocked by country, or fail on long videos. What people want is simple: paste a link, get a clean MP3 at real quality, no ads, no install, no malware. This page gives you the clean half of that honestly — a real MP3 at the bitrate you choose, no ads, no fake buttons, nothing uploaded — and it says plainly, above, what it cannot do: it cannot fetch a YouTube link at all.</p>
+      <p>The most-liked video-to-MP3 reels are not about web tools at all — they are phone tricks. One Facebook reel (7.4K likes) shows renaming a .mp4 file to .mp3 in the file manager; commenters call it "super" and "amazing", but several say the method did not work for them — because renaming only changes the label, not the file. Another reel (220K likes) walks through copying a YouTube link into a converter, trimming a 48-second slice and setting it as a ringtone — the use-case that drives most of the demand. Underneath it all is fear: the Reddit posts that launched ad-free converters open with the same words — "I cannot download YouTube videos as MP3 &amp; MP4 without getting viruses… Most converters show popup ads that cause viruses to enter their devices." Then there is fake quality — sites that imply 320 kbps and deliver 128 — and length caps discovered only after waiting, when a long download errors out. What people want is simple: a clean MP3 at real quality, no ads, no install, no malware. This page gives you the clean half of that honestly — a real MP3 at the bitrate you choose, no ads, no fake buttons, nothing uploaded — and it says plainly, above, what it cannot do: it cannot fetch a YouTube link at all.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I convert a video to MP3 for free?</h2>
-      <div class="answer-box"><strong>Direct answer:</strong> to convert a video to MP3 free, upload your own video file here, pick a bitrate (96, 128 or 192 kbps), and press Convert. The audio is extracted in your browser and downloaded as a real MP3 — no signup, no upload, no ads. This tool cannot convert a YouTube, TikTok or Instagram link; it only works on video files from your own device.</div>
+      <div class="answer-box"><strong>Direct answer:</strong> to convert a video to MP3 free, upload your own video file here — or paste a direct link to a video file (.mp4, .webm, .mov) — pick a bitrate (96, 128 or 192 kbps), and press Convert. The audio is extracted in your browser and downloaded as a real MP3 — no signup, no upload, no ads. This tool cannot convert a YouTube, TikTok or Instagram link; it only works on video files from your own device, or direct file links it can fetch.</div>
       <!-- HOW TO -->
       <h2 style="margin-top:28px">How to convert a video to MP3 in three steps</h2>
       <div class="steps">
@@ -259,6 +337,19 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <h2 style="margin-top:28px">Real MP3 quality, YouTube links, and staying safe</h2>
       <p><strong>A video to MP3 converter</strong> extracts the audio track from a video file and saves it as an MP3. The number that matters is the bitrate: <strong>96 kbps</strong> is the smallest file and fine for speech; <strong>128 kbps</strong> is the honest standard for most music and voice; <strong>192 kbps</strong> sounds better on good headphones. What a bitrate cannot do is add quality the source never had — a video recorded on a phone microphone will not sound like a studio track at 320 kbps, and any site promising otherwise is upscaling a 128 kbps source and calling it 320. Pick the bitrate that matches the source, not the biggest number on the page.</p>
 <p>The question everyone actually asks is the YouTube one, so here it is plainly: <strong>this tool cannot convert a YouTube, TikTok or Instagram link.</strong> A purely client-side page has no server to fetch the video from, and those platforms do not let a browser download their streams directly. Any page that promises paste-a-link conversion is running a server — and that is exactly where the pop-ups, redirects, fake download buttons and malware live. If you need audio from a video you watched online, the safe route is the platform's own download or offline feature where it exists, or a desktop tool you installed yourself. Never install anything a converter page tells you to install.</p>
+<p>The one link this page <em>can</em> try is a direct link to a video file — a link ending in .mp4, .webm or .mov. Paste it in the link box above and the page attempts to fetch it, then converts the downloaded file the same way as an upload. Most file hosts refuse browser downloads, so if the fetch fails the page says why instead of pretending — uploading the file is the reliable route.</p>
+<h2 style="margin-top:28px">Renaming .mp4 to .mp3 is not converting</h2>
+<p>The viral phone trick — rename the file from .mp4 to .mp3 in your file manager — only changes the label on the file, not what is inside it. The video data is still video data, so many players reject the renamed file outright, and the ones that play it are just guessing the format from the content, not the name. That is why the commenters on the viral reels report that the method "didn't work for them". A real conversion re-encodes the audio track into an actual MP3 file — which is what the tool on this page does. If a renamed file will not play, upload the original video here and convert it properly.</p>
+<h2 style="margin-top:28px">How this converter compares</h2>
+<p>The top converters from the research, side by side — input mode, quality and whether your file leaves your device.</p>
+<table class="tbl">
+<tr><th>Tool</th><th>Input</th><th>Bitrate / output</th><th>Your file uploaded?</th><th>Signup / ads</th></tr>
+<tr><td>PixDetector (this page)</td><td>Upload + direct video-file link</td><td>96 / 128 / 192 kbps MP3</td><td>No — in-browser only</td><td>No signup, no ads</td></tr>
+<tr><td>Castos</td><td>Upload only — no YouTube URL paste</td><td>MP3 128–320 kbps or WAV; up to 2 GB</td><td>No — in-browser</td><td>No account, no watermark</td></tr>
+<tr><td>Flvto</td><td>YouTube URL paste only — no file upload</td><td>Up to 320 kbps MP3</td><td>Server-based</td><td>No account, no install</td></tr>
+<tr><td>GoTranscript</td><td>Upload only — no YouTube URL paste</td><td>MP3, WAV, AAC, FLAC, OGG, M4A; up to 500 MB</td><td>Yes — server upload, files deleted within 24h</td><td>No registration</td></tr>
+<tr><td>PitchChanger</td><td>Upload only — no URL paste</td><td>MP3, WAV, FLAC, AAC, OGG, AIFF, ALAC</td><td>No — in-browser</td><td>No account</td></tr>
+</table>
 <p>A last note on legality, because it matters more here than on any other tool on this site: only convert videos you own or have permission to use. Extracting the audio from someone else's copyrighted music or video without permission is not legal, and no converter — this one included — changes that. Your own recordings, your own lectures, your own voice notes: those are what this tool is for. The conversion itself is private by design: the video never leaves your device, the ~30 MB engine loads once and is cached, and the MP3 is made and downloaded in your browser.</p>
 
       <!-- FAQ -->
@@ -269,7 +360,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 </details>
 <details class="faq">
 <summary>Can I paste a YouTube link and get an MP3?</summary>
-<p>No — and this is the most important limit on the page. A purely client-side tool cannot fetch a YouTube, TikTok or Instagram link; that needs a server, which PixDetector does not have. This tool only converts video files you upload from your own device. Paste-a-link sites are also where the pop-ups, fake download buttons and malware live.</p>
+<p>No — not a YouTube, TikTok or Instagram link. A purely client-side tool cannot fetch from video platforms; that needs a server, which PixDetector does not have. What this page can try is a direct link to a video file (a link ending in .mp4, .webm or .mov) — paste it in the link box and the page will attempt to fetch it. Most file hosts refuse browser downloads, so if the fetch fails the page says why; uploading the file is the reliable route.</p>
 </details>
 <details class="faq">
 <summary>Is it safe to use video to MP3 converter sites?</summary>
@@ -278,6 +369,38 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <details class="faq">
 <summary>What bitrate should I choose — 96, 128 or 192 kbps?</summary>
 <p>128 kbps is the standard for most music and speech. 96 kbps makes the smallest file and is fine for voice. 192 kbps sounds better on good headphones. A higher bitrate never adds quality the original audio did not have — beware of sites advertising 320 kbps from a 128 kbps source.</p>
+</details>
+<details class="faq">
+<summary>Is converting YouTube to MP3 legal?</summary>
+<p>Converting video you own or that's Creative Commons-licensed is generally fine; converting copyrighted music without permission may violate YouTube's Terms and copyright law.</p>
+</details>
+<details class="faq">
+<summary>How do I convert a video to MP3 on my phone?</summary>
+<p>Upload the video file in your phone browser, pick a bitrate and convert — no app needed. Keep the clip short, because phones convert slowly. This page cannot convert a YouTube link on a phone either.</p>
+</details>
+<details class="faq">
+<summary>What's the best MP3 quality — 128, 192 or 320 kbps?</summary>
+<p>320 kbps keeps the most detail and is best for music; 128 kbps is smaller and fine for speech; 192 kbps is a good middle ground. This page offers 96, 128 and 192 kbps — 192 is the top quality here, and a higher number never adds quality the source did not have.</p>
+</details>
+<details class="faq">
+<summary>Why did my conversion fail?</summary>
+<p>Most common causes: video too long (caps around 1–1.5 hours on free tools), age-restricted or private video, or a slow connection; try a lower bitrate or a shorter clip. On this page, the usual cause is a video with no audio track, or a file too big for the browser engine.</p>
+</details>
+<details class="faq">
+<summary>Can I convert a whole YouTube playlist to MP3?</summary>
+<p>Most free online converters do one video at a time — Flvto states this explicitly; playlist support is a paid or desktop-app feature. This page converts one uploaded file at a time.</p>
+</details>
+<details class="faq">
+<summary>Does converting to MP3 lose quality?</summary>
+<p>Yes — MP3 is lossy, and you can't get more quality than the source audio had; converting to WAV or FLAC afterwards doesn't restore lost quality.</p>
+</details>
+<details class="faq">
+<summary>What's the difference between MP3 and WAV?</summary>
+<p>MP3 is small and plays everywhere; WAV is uncompressed and much larger, best for editing. This page outputs MP3 only.</p>
+</details>
+<details class="faq">
+<summary>Why does renaming .mp4 to .mp3 sometimes not work?</summary>
+<p>Renaming only changes the label, not the file — many players reject it; a real conversion re-encodes the audio. That is why the viral rename trick fails for so many people.</p>
 </details>
 <details class="faq">
 <summary>Why does the first conversion take so long?</summary>
@@ -291,7 +414,7 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <!-- RELATED QUESTIONS -->
       <h2 style="margin-top:28px">Related questions</h2>
       <ul class="rq-list">
-        <li><strong>How do I extract audio from a video on my phone?</strong><br>Upload the video here in your phone browser, pick a bitrate, and convert — keep the clip short, because phones are slower at it.</li><li><strong>Can I convert a TikTok video to MP3 here?</strong><br>Only if you have the video file saved on your device. This tool cannot fetch a TikTok link.</li><li><strong>What is the best MP3 bitrate for music?</strong><br>128 kbps is the standard; 192 kbps sounds better on good headphones. Higher numbers do not add quality the source lacked.</li><li><strong>Why do MP3 converters stop working?</strong><br>Server-based converters get blocked by platforms or by country, and many are shut down. A browser-based converter like this one has no server to block — but it can only convert files you upload.</li>
+        <li><strong>How do I extract audio from a video on my phone?</strong><br>Upload the video here in your phone browser, pick a bitrate, and convert — keep the clip short, because phones are slower at it.</li><li><strong>Can I convert a TikTok video to MP3 here?</strong><br>Only if you have the video file saved on your device. This tool cannot fetch a TikTok link.</li><li><strong>What is the best MP3 bitrate for music?</strong><br>128 kbps is the standard; 192 kbps sounds better on good headphones. Higher numbers do not add quality the source lacked.</li><li><strong>Why do MP3 converters stop working?</strong><br>Server-based converters get blocked by platforms or by country, and many are shut down. A browser-based converter like this one has no server to block — but it can only convert files you upload.</li><li><strong>Can I extract just part of a video's audio?</strong><br>Tools with a trim option (Biteable, EazeTools) let you set start and end times before extracting — that is how people make ringtones. This page has no trim: it converts the whole audio track.</li><li><strong>Is there a file size limit?</strong><br>It varies by tool: Castos allows up to 2 GB, GoTranscript and Biteable up to 500 MB, HiNoter up to 500 MB and 30 minutes. This page converts in your browser, so keep files modest — big files are slow.</li><li><strong>Can I convert MOV, MKV or AVI to MP3?</strong><br>Yes — most extractors accept MP4, MOV, MKV, AVI and WebM; GoTranscript lists the widest format support. This page accepts any video format your browser can play.</li><li><strong>Do I need to install software?</strong><br>No — browser converters work with nothing to install; desktop apps like Shutter Encoder are the offline alternative.</li><li><strong>Can I use the MP3 for my podcast?</strong><br>Yes — 128–192 kbps MP3 is the podcast standard; extract the audio, edit if needed, upload to your host.</li>
       </ul>
     </div>
 
@@ -437,6 +560,54 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
           };
           preview.onerror = function () { showError("Your browser couldn't play this video file. Try an MP4 version of the same clip."); infoGrid.style.display = "none"; settingsBlock.style.display = "none"; };
         }
+        /* Direct video-file URL path: the page attempts to fetch the file
+           itself (fetch, CORS mode) and hands the downloaded bytes to the
+           same loadFile() the upload path uses. Video-platform links
+           (YouTube/TikTok/Instagram) are refused up front with a plain
+           explanation, and any fetch failure is reported honestly —
+           most hosts block cross-site browser downloads, which is normal
+           and not a bug in this page. There is no fake download button. */
+        var urlInput = $("urlInput"), fetchUrlBtn = $("fetchUrlBtn"), urlErrorBox = $("urlErrorBox");
+        function showUrlError(msg) { urlErrorBox.style.display = "block"; urlErrorBox.textContent = msg; }
+        function clearUrlError() { urlErrorBox.style.display = "none"; urlErrorBox.textContent = ""; }
+        async function fetchUrlVideo() {
+          if (state.busy) return;
+          clearError(); clearUrlError();
+          resultBox.style.display = "none";
+          var raw = urlInput.value.trim();
+          if (!raw) { showUrlError("Paste a link first."); return; }
+          var u;
+          try { u = new URL(raw); } catch (e) { showUrlError("That does not look like a valid link. Paste the full link, starting with https://"); return; }
+          if (u.protocol !== "http:" && u.protocol !== "https:") { showUrlError("Only http and https links can be fetched."); return; }
+          var host = u.hostname.toLowerCase();
+          if (/(^|\.)youtube\.com$/.test(host) || host === "youtu.be" || /(^|\.)tiktok\.com$/.test(host) || /(^|\.)instagram\.com$/.test(host) || /(^|\.)facebook\.com$/.test(host) || /(^|\.)vimeo\.com$/.test(host)) {
+            showUrlError("That is a " + host + " page link, not a direct video file. This page cannot download from video platforms — a browser cannot fetch their streams, and PixDetector has no server to do it. Download the video file yourself first, then upload it here.");
+            return;
+          }
+          if (!/\.(mp4|webm|mov|mkv|avi|m4v)(\?.*)?$/i.test(u.pathname)) {
+            showUrlError("That link does not end in a video file name (.mp4, .webm, .mov, .mkv, .avi). This path only accepts direct links to a video file — a page link or a player link will fail.");
+            return;
+          }
+          fetchUrlBtn.disabled = true;
+          setProgress(0.05, "Fetching the video from the link\u2026");
+          try {
+            var resp = await fetch(raw, { mode: "cors" });
+            if (!resp.ok) throw new Error("the server answered with HTTP " + resp.status + ".");
+            var blob = await resp.blob();
+            if (!blob.size) throw new Error("the server returned an empty file.");
+            var name = decodeURIComponent(u.pathname.split("/").pop() || "video.mp4");
+            var file = new File([blob], name, { type: (blob.type && blob.type.indexOf("video/") === 0) ? blob.type : "video/mp4" });
+            progressWrap.style.display = "none";
+            loadFile(file);
+            toast("Video fetched \u2014 pick a bitrate and convert.");
+          } catch (e) {
+            progressWrap.style.display = "none";
+            showUrlError("Could not fetch that video (" + (e && e.message ? e.message : e) + ") Most file hosts refuse browser downloads \u2014 the server blocks cross-site requests (CORS) or requires a login. That is normal, not a bug in this page. Download the video file yourself and upload it here instead.");
+          } finally {
+            fetchUrlBtn.disabled = false;
+          }
+        }
+        fetchUrlBtn.addEventListener("click", fetchUrlVideo);
         async function convert() {
           if (state.busy || !state.file) return;
           clearError();

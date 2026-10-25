@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this image resizer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Resize as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
-    { "@type": "Question", "name": "Can I resize an image without losing quality?", "acceptedAnswer": { "@type": "Answer", "text": "Only when scaling down. Making an image smaller keeps it sharp. Enlarging a small image cannot create detail that was never there, so it will always soften — no tool can resize up without some quality loss." } },
-    { "@type": "Question", "name": "Why did my resized image look stretched?", "acceptedAnswer": { "@type": "Answer", "text": "It was stretched because the aspect ratio was not locked: the width and height were changed by different amounts. Keep the lock on, change one side, and let the other follow — or crop the image to the target ratio first." } },
-    { "@type": "Question", "name": "What size should an Instagram post be?", "acceptedAnswer": { "@type": "Answer", "text": "A square Instagram post is 1080 by 1080 pixels. A YouTube thumbnail is 1280 by 720. A Facebook link preview (Open Graph) image is 1200 by 630. This tool has all three as one-click presets." } },
-    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is resized in your browser with the canvas element. Nothing is uploaded, stored, or shared." } },
-    { "@type": "Question", "name": "Which format should I download — PNG, JPG or WebP?", "acceptedAnswer": { "@type": "Answer", "text": "Use JPG for photos (smallest files, with a quality slider), PNG for graphics, logos and anything needing transparency, and WebP for the smallest files on modern websites." } }
+    {
+      "@type": "Question",
+      "name": "How do I resize an image without losing quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Downscale from the original, never upscale; lock aspect ratio; resize once from the master, not from a resized copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my image look blurry after resizing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually you enlarged a small image, stretched one side, saved at very low quality, or resized a copy of a copy — go back to the largest original and resize once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between resizing and compressing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resizing changes pixel dimensions; compressing keeps dimensions and lowers file size by saving at lower quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I resize an image to a specific KB size, e.g. 20KB or 100KB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use a target-KB mode; the tool lowers quality first and dimensions only if needed. Very small targets are saved as JPG/WebP, not PNG. This page has no target-KB mode yet — use the quality slider and smaller dimensions, then check the downloaded file's size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I resize an image to exact pixels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload, type width and height in pixels, keep aspect-ratio lock on so the other side fills in automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does lock aspect ratio do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It auto-calculates the other dimension so proportions stay correct and the photo never looks stretched or squished."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I resize multiple images at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — bulk resizers apply one size to a batch and return a ZIP; limits vary (e.g. 30–100 per batch, or up to 1,000 claimed by IdeaAize). This page resizes one image at a time, so the preview and size stay exact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my photos uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on the tool — in-browser tools (PixOtter, ResizePad, WuTools, IdeaAize) process locally and upload nothing; Imgflip sends the image to its servers only if you choose \"optimize filesize\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size is an Instagram post / story / YouTube thumbnail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Instagram post 1080×1080, Story/Reels 1080×1920, YouTube thumbnail 1280×720 — these are the presets every tool lists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I enlarge an image without it going soft?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — enlarging invents pixels, so it always looks softer; keep the original and resize from it, or use an AI upscaler for a better (still invented) result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which format should I download — JPG, PNG or WebP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JPG/WebP for photos (smaller), PNG for graphics/text/transparency; WebP is the modern middle ground."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I resize a photo for a passport / visa / govt form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the exact pixels from the official notification (e.g. 600×600), keep the ratio, and aim for the KB range the portal allows (e.g. 30–40KB if the cap is 50KB) — do not over-compress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does resizing change DPI / can I set 300 DPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resizing pixels does not by itself set print DPI; some tools (Modifiler) have a separate DPI changer for \"35×45 mm at 300 DPI\" passport specs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I resize on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — all the top tools are browser-based and work on mobile; iPhone HEIC photos may need converting first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my image still too big a file after resizing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dimensions are only half the file size — format and quality matter too; try WebP/JPG at quality 85–92 or a target-KB mode."
+      }
+    }
   ]
 }
 </script>
@@ -72,6 +186,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
 .share-btns{display:flex;flex-wrap:wrap;gap:10px}
 .share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
 </style>
@@ -175,31 +294,98 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Instagram square post: 1080×1080. Instagram portrait: 1080×1350. YouTube thumbnail: 1280×720. Facebook / Open Graph link image: 1200×630. X post image: 1600×900. Passport-style photo: 600×600. HD video frame: 1920×1080. If the platform crops your image anyway, it is because your ratio does not match — resizing to the exact numbers here avoids that crop, and the aspect-ratio lock keeps faces and logos from stretching while you do it.</p>
       <h2>Which format, and what quality?</h2>
       <p>Use JPG for photos: it is the smallest file, and the quality slider lets you trade a little sharpness for a much smaller file — 85–90% looks identical to most eyes. Use PNG for graphics, logos, screenshots and anything needing transparency, but expect bigger files. Use WebP for websites: it is smaller than both for the same quality on modern browsers. If your resized image will be uploaded to a platform that recompresses it anyway, download at 90% quality — going higher only makes a bigger file the platform will shrink again.</p>
-      <!-- FAQ -->
+      <h2>What creators actually complain about</h2>
+      <p>The loudest complaint is not about one tool — it is about doing the same job over and over. One design for a feed post, a story, a banner and a thumbnail means resizing the same image again and again, and creators call manually resizing one piece of content for every platform "embarrassing" and "one of the most annoying things about being a full-time creator". The second complaint is images getting cut off when posting — the wrong size, cropped by the platform, marked "OOPS!" after the fact. Then there are the quiet failures: a passport or exam photo with a stretched face because the wrong dimensions were entered, and a govt job or visa portal rejecting a photo that is the right pixels but the wrong file size — portals demand both at once, for example 200×230 px and under 50KB, and most tools do only one half. And underneath it all is distrust: free resizers that watermark, force a signup, or upload your photos — one commenter on a popular resizing reel warned simply, "i got a virus when i used them".</p>
+      <h2>One photo, every platform size</h2>
+      <p>These are the preset sizes the top tools list. Pick the one your platform wants, keep the aspect-ratio lock on, and the picture will not stretch or crop:</p>
+      <table class="tbl">
+        <tr><th>Use</th><th>Size (px)</th></tr>
+        <tr><td>Instagram post (square)</td><td>1080 × 1080</td></tr>
+        <tr><td>Instagram Story / Reels</td><td>1080 × 1920</td></tr>
+        <tr><td>YouTube thumbnail</td><td>1280 × 720</td></tr>
+        <tr><td>Facebook cover</td><td>851 × 315 (or 1640 × 856)</td></tr>
+        <tr><td>LinkedIn banner</td><td>Preset listed by tools; size not stated in our sources</td></tr>
+        <tr><td>X header</td><td>1500 × 500</td></tr>
+        <tr><td>Passport photo</td><td>600 × 600</td></tr>
+      </table>
+      <h2>Resize to an exact KB size — and to a passport photo</h2>
+      <p>Govt job, exam and visa portals usually demand pixels <em>and</em> file size together — for example 200×230 px and under 50KB. To hit a KB target, use a target-KB mode if the tool has one: it lowers quality first and dimensions only if needed, and very small targets are saved as JPG/WebP, not PNG. This page does not have a target-KB mode yet — instead, set the exact pixels, drop the quality slider to 85–92%, pick JPG or WebP, and check the downloaded file's size before you upload it to the portal.</p>
+      <p>For a passport or visa photo, use the exact pixels from the official notification (for example 600×600), keep the ratio locked so your face does not stretch or squash, and aim for the KB range the portal allows (for example 30–40KB if the cap is 50KB) — do not over-compress, because a photo squeezed too far looks bad and can still be rejected.</p>
+      <h2>Resize on your phone — and the HEIC catch</h2>
+      <p>All the top resizers are browser-based and work on a phone: open this page in your phone's browser, upload, pick a preset and download. One catch: iPhone HEIC photos are not decoded by most browsers, so an HEIC photo may need converting to JPG first. Animated GIFs are another honest limit: most resizers — including this one — resize them as a single still frame, not as an animation.</p>
+      <h2>How this page compares</h2>
+      <p>The top-ranked resizers each miss something. The table below is from this run's live SERP check:</p>
+      <table class="tbl">
+        <tr><th>Resizer</th><th>What it does</th><th>What it misses</th></tr>
+        <tr><td>This page (PixDetector)</td><td>Exact pixels, presets, percent, quality slider, JPG/PNG/WebP, in-browser, no signup</td><td>Single image only; no target-KB mode yet; no batch; animated GIFs become a still frame.</td></tr>
+        <tr><td>PixOtter</td><td>Free, no sign-up, private; pixel or percentage resize, aspect-ratio lock, social presets</td><td>Single image only; no target-KB mode; no crop tool.</td></tr>
+        <tr><td>IdeaAize</td><td>Bulk-first: up to 1,000 images per batch, ZIP out, in-browser, no signup or watermark</td><td>Bulk-only framing; HEIC not decoded; animated GIF becomes a still.</td></tr>
+        <tr><td>Imgflip</td><td>Free; resize by percent, crop, rotate, flip, compress, convert; JPG/PNG/WebP out</td><td>No social presets, no target-KB, no bulk; JPEG always lossy at 92% in-browser; "optimize filesize" uploads to Imgflip servers.</td></tr>
+        <tr><td>ConvertICO</td><td>Pixels, percent, cm, KB target, long-side mode, exam/visa presets, up to 30 images at 50MB each, paste with Ctrl+V, HEIC support</td><td>Cluttered power-user UI; no live before/after quality comparison named.</td></tr>
+        <tr><td>PicShifter</td><td>Free bulk resizer, social presets, PNG/JPEG/WebP/AVIF out, no signup, ZIP download</td><td>5MB total cap across all images; no target-KB mode named; no crop.</td></tr>
+      </table>
+
+            <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this image resizer really free?</summary>
-        <p>Yes. Resize as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>How do I resize an image without losing quality?</summary>
+        <p>Downscale from the original, never upscale; lock aspect ratio; resize once from the master, not from a resized copy.</p>
       </details>
       <details class="faq">
-        <summary>Can I resize an image without losing quality?</summary>
-        <p>Only when scaling down. Making an image smaller keeps it sharp. Enlarging a small image cannot create detail that was never there, so it will always soften — no tool can resize up without some quality loss.</p>
+        <summary>Why does my image look blurry after resizing?</summary>
+        <p>Usually you enlarged a small image, stretched one side, saved at very low quality, or resized a copy of a copy — go back to the largest original and resize once.</p>
       </details>
       <details class="faq">
-        <summary>Why did my resized image look stretched?</summary>
-        <p>It was stretched because the aspect ratio was not locked: the width and height were changed by different amounts. Keep the lock on, change one side, and let the other follow — or crop the image to the target ratio first.</p>
+        <summary>What is the difference between resizing and compressing?</summary>
+        <p>Resizing changes pixel dimensions; compressing keeps dimensions and lowers file size by saving at lower quality.</p>
       </details>
       <details class="faq">
-        <summary>What size should an Instagram post be?</summary>
-        <p>A square Instagram post is 1080 by 1080 pixels. A YouTube thumbnail is 1280 by 720. A Facebook link preview (Open Graph) image is 1200 by 630. This tool has all three as one-click presets.</p>
+        <summary>Can I resize an image to a specific KB size, e.g. 20KB or 100KB?</summary>
+        <p>Yes — use a target-KB mode; the tool lowers quality first and dimensions only if needed. Very small targets are saved as JPG/WebP, not PNG. This page has no target-KB mode yet — use the quality slider and smaller dimensions, then check the downloaded file&#x27;s size.</p>
       </details>
       <details class="faq">
-        <summary>Is my image uploaded to a server?</summary>
-        <p>No. Your image is resized in your browser with the canvas element. Nothing is uploaded, stored, or shared.</p>
+        <summary>How do I resize an image to exact pixels?</summary>
+        <p>Upload, type width and height in pixels, keep aspect-ratio lock on so the other side fills in automatically.</p>
       </details>
       <details class="faq">
-        <summary>Which format should I download — PNG, JPG or WebP?</summary>
-        <p>Use JPG for photos (smallest files, with a quality slider), PNG for graphics, logos and anything needing transparency, and WebP for the smallest files on modern websites.</p>
+        <summary>What does lock aspect ratio do?</summary>
+        <p>It auto-calculates the other dimension so proportions stay correct and the photo never looks stretched or squished.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I resize multiple images at once?</summary>
+        <p>Yes — bulk resizers apply one size to a batch and return a ZIP; limits vary (e.g. 30–100 per batch, or up to 1,000 claimed by IdeaAize). This page resizes one image at a time, so the preview and size stay exact.</p>
+      </details>
+      <details class="faq">
+        <summary>Are my photos uploaded to a server?</summary>
+        <p>Depends on the tool — in-browser tools (PixOtter, ResizePad, WuTools, IdeaAize) process locally and upload nothing; Imgflip sends the image to its servers only if you choose &quot;optimize filesize&quot;.</p>
+      </details>
+      <details class="faq">
+        <summary>What size is an Instagram post / story / YouTube thumbnail?</summary>
+        <p>Instagram post 1080×1080, Story/Reels 1080×1920, YouTube thumbnail 1280×720 — these are the presets every tool lists.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I enlarge an image without it going soft?</summary>
+        <p>No — enlarging invents pixels, so it always looks softer; keep the original and resize from it, or use an AI upscaler for a better (still invented) result.</p>
+      </details>
+      <details class="faq">
+        <summary>Which format should I download — JPG, PNG or WebP?</summary>
+        <p>JPG/WebP for photos (smaller), PNG for graphics/text/transparency; WebP is the modern middle ground.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I resize a photo for a passport / visa / govt form?</summary>
+        <p>Use the exact pixels from the official notification (e.g. 600×600), keep the ratio, and aim for the KB range the portal allows (e.g. 30–40KB if the cap is 50KB) — do not over-compress.</p>
+      </details>
+      <details class="faq">
+        <summary>Does resizing change DPI / can I set 300 DPI?</summary>
+        <p>Resizing pixels does not by itself set print DPI; some tools (Modifiler) have a separate DPI changer for &quot;35×45 mm at 300 DPI&quot; passport specs.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I resize on my phone?</summary>
+        <p>Yes — all the top tools are browser-based and work on mobile; iPhone HEIC photos may need converting first.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is my image still too big a file after resizing?</summary>
+        <p>Dimensions are only half the file size — format and quality matter too; try WebP/JPG at quality 85–92 or a target-KB mode.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

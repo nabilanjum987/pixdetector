@@ -28,10 +28,82 @@
     },
     {
       "@type": "Question",
+      "name": "Is there a free online video editor with no watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 this page exports with no watermark, and ClipFast, ZSky and EditClips are named in the same research as watermark-free options. The big brands are the risky ones: CapCut watermarks template outros and some Pro exports, and Descript watermarks free exports. Check the export terms before you commit to a project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to create an account to edit videos online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with the browser-local tools \u2014 ClipFast allows 3 exports a day with no account, EditClips and PixelTools need none at all; Adobe Express and Piktochart need a free account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my video uploaded to a server when I edit online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on the tool. ClipFast, ZSky, EditClips and FilmCraft process in the browser so files never leave the device; server-based tools (HeyGen, AnyRec) upload your clips. This page processes everything in your browser \u2014 nothing is uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit videos online for free on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Adobe Premiere mobile is free on Android and iOS with no watermark (per the September\u2013October 2026 reels), CapCut and VN are free mobile apps, and browser tools like ClipFast and EditClips work on mobile browsers. This page works in a phone browser too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best free online video editor for beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reddit's recurring picks are CapCut for social templates and DaVinci Resolve for serious free editing; for no-install browser work, Adobe Express and ClipFast are the most-cited simple options. This page is the simplest option of all \u2014 trim, merge, resize and speed, nothing else to learn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge two videos online for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 EditClips, faceswap4fun, HeyGen and others join clips free with no watermark. This page merges clips too, in the Merge tab, entirely in your browser; the output is WebM, not MP4."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Why does my free export have a watermark on other editors?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Many \u201cfree\u201d editors watermark exports after the first export or once a trial credit runs out, or they paywall basics like merging, speed change and 1080p export behind Pro. This tool has no watermark at all, because there is no paid tier behind it \u2014 but it is a basic editor, not a full desktop replacement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I resize a video for TikTok or Instagram Reels online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 Adobe Express resizes in one click, ClipFast converts clips to vertical Shorts, and most merger tools offer 9:16, 1:1 and 4:5 canvases. This page has the same one-click presets in its Resize tab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CapCut really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Core editing and 4K desktop export are free, but Pro effects and templates and some exports trigger a subscription prompt, and its licensing terms for commercial work are a documented concern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What video formats can I upload to an online editor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP4, MOV and WebM are accepted almost everywhere; MKV and AVI are accepted by ClipFast, PixelTools and WuTools but not by every tool. This page accepts MP4, MOV, WebM and most other formats your browser can play."
       }
     },
     {
@@ -56,14 +128,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4\u00d7 speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Very long or large files are slow in any browser editor \u2014 that is why this tool is best on clips under a few minutes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my video uploaded anywhere?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Your video never leaves your device \u2014 it is read, edited and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page."
       }
     }
   ]
@@ -167,7 +231,20 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .rq-list{list-style:none;padding:0}
 .rq-list li{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;font-size:14px;line-height:1.7;color:var(--text2)}
 .rq-list li strong{color:var(--text)}
-canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max-height:340px;cursor:crosshair}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.suite-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:24px}
+.suite-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:6px}
+.suite-box p{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:14px}
+.suite-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:720px){.suite-grid{grid-template-columns:1fr}}
+.suite-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:var(--text)}
+.suite-card h3{font-size:15px;margin-bottom:4px}
+.suite-card p{font-size:13px;color:var(--text2);line-height:1.6;margin:0}
+.suite-card:hover{border-color:var(--accent)}
 .timer{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center;margin:10px 0}
 .rec-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:#ef4444;margin-right:8px;animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.2}}
@@ -297,10 +374,20 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       </div>
     </div>
 
+    <div class="suite-box">
+      <h2>One toolkit, four pages — pick the job, not the app</h2>
+      <p>This editor is one tool with four modes. Each mode also has its own page, so you can go straight to the job you need — same tool, same honest limits (WebM output, in-browser, no watermark, no signup).</p>
+      <div class="suite-grid">
+        <a class="suite-card" href="/tools/merge-videos"><h3>🔗 Merge Videos</h3><p>Join two or more clips into one video, in the order you choose.</p></a>
+        <a class="suite-card" href="/tools/resize-video"><h3>🖼️ Resize Video</h3><p>Reframe a clip for TikTok, Reels and Shorts — 9:16, 1:1, 16:9 or 4:5.</p></a>
+        <a class="suite-card" href="/tools/change-video-speed"><h3>⏩ Change Video Speed</h3><p>Slow a clip down or speed it up, from 0.25× to 4×.</p></a>
+      </div>
+    </div>
+
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>Why free video editing usually ends in a paywall</h2>
-      <p>Creators are hunting for a CapCut replacement after features they relied on moved behind Pro and free exports got limited. The pattern repeats across the free editors people try: the first export looks free, then a watermark appears after the first export or trial credit is used up; the basics — merging clips, changing speed, exporting in 1080p — sit behind a Pro plan; and browser editors that do work fine on short clips choke on big files, losing to desktop tools past about 100 MB. What people actually want is simple: trim, merge, resize and change speed in the browser, free, with no watermark, no signup and no upload. That is exactly what this tool does — and the honest trade-offs are stated above, before you start, so the tool never surprises you after the work is done.</p>
+      <p>The most repeated comment under every "free video editor" reel is the same question: "is it really free?" One Facebook comment on an OpenCut reel put it bluntly: "Everyone of these FREE web sites turn out NOT to be FREE." The pattern behind the scepticism is documented. CapCut's free plan watermarks template outros and triggers a subscription prompt when Pro content is used at export. Descript's free plan watermarks exports, caps them at 720p and gives 60 media minutes a month. VEED's free plan caps exports at 720p. Other editors ask you to create an account before you can download anything, or upload your footage to a server you know nothing about. And when a clip is big, browser tools slow down or crash — OpenShot is reported to crash occasionally on larger projects. What people actually ask for is simple: trim, merge, resize and change speed in the browser, free, with no watermark, no signup and no upload. That is what this tool does — and the honest trade-offs are stated above, before you start, so the tool never surprises you after the work is done.</p>
       <!-- DIRECT ANSWER -->
       <h2>What does a free online video editor do?</h2>
       <div class="answer-box"><strong>Direct answer:</strong> a free online video editor lets you trim, merge, resize and change the speed of a clip in your browser without installing anything or creating an account. Upload your video, pick the edit you need, and download the result as a WebM file. Your video never leaves your device, so there is no upload, no watermark and no signup.</div>
@@ -312,7 +399,18 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
       <h2 style="margin-top:28px">Trim, merge, resize and speed — when to use each</h2>
       <p><strong>A free video editor</strong> is a tool that edits video in the browser without installing software. This one covers the four edits most people actually need. <strong>Trim</strong> cuts the dead air off the start and end of a clip — the rambling intro, the seconds spent reaching for the stop button — and keeps only the part worth sharing. <strong>Merge</strong> joins several clips into one video, in the order you choose, so a phone full of short takes becomes a single story. <strong>Resize</strong> reframes a clip for where it will be watched: 9:16 for TikTok and Reels, 1:1 for a square feed post, 16:9 for YouTube, 4:5 for a feed that crops tall video. <strong>Speed</strong> makes a slow process watchable at 2× or turns a quick moment into slow motion at 0.5×.</p>
 <p>The reason to edit in the browser is that there is nothing to install and nothing to upload. A desktop editor is stronger — multi-track timelines, effects, keyframes, colour grading, audio mixing — but it takes an install, a learning curve, and usually a paid plan before the watermark disappears. A browser editor is the right tool for the small job: a clip that needs a trim before it goes to a client, three takes joined into one, a landscape video reframed for Reels. If the job grows into a full production with music, titles and colour work, that is the honest moment to open a desktop editor instead.</p>
-<p>A few practical notes make the difference between a clean export and a frustrating one. Work with clips under a few minutes: export runs in real time, and a long file ties up the tab for as long as the video itself. Keep the tab in the foreground while exporting — a background tab can pause and stall the encoder. Remember the two hard limits before you start: the output is WebM, not MP4, and it keeps the audio only when your browser allows it, so plan the sound separately if the clip needs it guaranteed. And if your source file is over about 100 MB, expect slowness — that is where every browser editor, not just this one, starts losing to desktop software.</p>
+<p>A few practical notes make the difference between a clean export and a frustrating one. Work with clips under a few minutes: export runs in real time, and a long file ties up the tab for as long as the video itself. Keep the tab in the foreground while exporting — a background tab can pause and stall the encoder. Remember the two hard limits before you start: the output is WebM, not MP4, and it keeps the audio only when your browser allows it, so plan the sound separately if the clip needs it guaranteed. And if your source file is large, expect slowness — that is where every browser editor, not just this one, starts losing to desktop software.</p>
+
+      <h2 style="margin-top:28px">How this editor compares</h2>
+      <p>The comparison people are already doing in comment threads, with the facts from the research: watermark terms, account gates and whether your footage is uploaded.</p>
+      <table class="tbl">
+        <tr><th>Tool</th><th>Watermark on free export</th><th>Account needed</th><th>Your video uploaded?</th><th>Export format</th></tr>
+        <tr><td>PixDetector (this page)</td><td>No watermark, ever</td><td>No</td><td>No — in-browser only</td><td>WebM (not MP4)</td></tr>
+        <tr><td>CapCut</td><td>Template outros and Pro content can trigger a watermark</td><td>Account needed for some exports</td><td>Server-based</td><td>MP4; 4K desktop export free</td></tr>
+        <tr><td>Adobe Express</td><td>No watermark promise stated on the page</td><td>Yes — Adobe account required</td><td>Server-based</td><td>Not stated on the page</td></tr>
+        <tr><td>ZSky</td><td>Not stated on the page</td><td>No install or subscription</td><td>No — media stays on your device</td><td>MP4 (H.264/AV1) or WebM, up to 4K</td></tr>
+        <tr><td>ClipFast</td><td>No watermark, ever</td><td>No — 3 exports a day without an account</td><td>No — 100% in-browser</td><td>Not stated on the page</td></tr>
+      </table>
 
       <!-- FAQ -->
       <h2 style="margin-top:28px">FAQ</h2>
@@ -321,8 +419,44 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <p>Yes. Trim, merge, resize and change speed as much as you like — no watermark, no sign-up, no daily cap and no upload. Everything runs in your browser, on your own device.</p>
 </details>
 <details class="faq">
+<summary>Is there a free online video editor with no watermark?</summary>
+<p>Yes — this page exports with no watermark, and ClipFast, ZSky and EditClips are named in the same research as watermark-free options. The big brands are the risky ones: CapCut watermarks template outros and some Pro exports, and Descript watermarks free exports. Check the export terms before you commit to a project.</p>
+</details>
+<details class="faq">
+<summary>Do I need to create an account to edit videos online?</summary>
+<p>Not with the browser-local tools — ClipFast allows 3 exports a day with no account, EditClips and PixelTools need none at all; Adobe Express and Piktochart need a free account.</p>
+</details>
+<details class="faq">
+<summary>Is my video uploaded to a server when I edit online?</summary>
+<p>Depends on the tool. ClipFast, ZSky, EditClips and FilmCraft process in the browser so files never leave the device; server-based tools (HeyGen, AnyRec) upload your clips. This page processes everything in your browser — nothing is uploaded.</p>
+</details>
+<details class="faq">
+<summary>Can I edit videos online for free on my phone?</summary>
+<p>Yes — Adobe Premiere mobile is free on Android and iOS with no watermark (per the September–October 2026 reels), CapCut and VN are free mobile apps, and browser tools like ClipFast and EditClips work on mobile browsers. This page works in a phone browser too.</p>
+</details>
+<details class="faq">
+<summary>What is the best free online video editor for beginners?</summary>
+<p>Reddit's recurring picks are CapCut for social templates and DaVinci Resolve for serious free editing; for no-install browser work, Adobe Express and ClipFast are the most-cited simple options. This page is the simplest option of all — trim, merge, resize and speed, nothing else to learn.</p>
+</details>
+<details class="faq">
+<summary>Can I merge two videos online for free?</summary>
+<p>Yes — EditClips, faceswap4fun, HeyGen and others join clips free with no watermark. This page merges clips too, in the Merge tab, entirely in your browser; the output is WebM, not MP4.</p>
+</details>
+<details class="faq">
 <summary>Why does my free export have a watermark on other editors?</summary>
 <p>Many “free” editors watermark exports after the first export or once a trial credit runs out, or they paywall basics like merging, speed change and 1080p export behind Pro. This tool has no watermark at all, because there is no paid tier behind it — but it is a basic editor, not a full desktop replacement.</p>
+</details>
+<details class="faq">
+<summary>Can I resize a video for TikTok or Instagram Reels online?</summary>
+<p>Yes — Adobe Express resizes in one click, ClipFast converts clips to vertical Shorts, and most merger tools offer 9:16, 1:1 and 4:5 canvases. This page has the same one-click presets in its Resize tab.</p>
+</details>
+<details class="faq">
+<summary>Is CapCut really free?</summary>
+<p>Core editing and 4K desktop export are free, but Pro effects and templates and some exports trigger a subscription prompt, and its licensing terms for commercial work are a documented concern.</p>
+</details>
+<details class="faq">
+<summary>What video formats can I upload to an online editor?</summary>
+<p>MP4, MOV and WebM are accepted almost everywhere; MKV and AVI are accepted by ClipFast, PixelTools and WuTools but not by every tool. This page accepts MP4, MOV, WebM and most other formats your browser can play.</p>
 </details>
 <details class="faq">
 <summary>Why is the exported video a WebM file?</summary>
@@ -336,15 +470,12 @@ canvas.vd-canvas{width:100%;border-radius:10px;background:#000;display:block;max
 <summary>How long does editing and export take?</summary>
 <p>Export runs in real time, so a 2-minute clip takes about 2 minutes (a 4× speed-up takes about a quarter of that). Keep this tab open and in the foreground while it works. Very long or large files are slow in any browser editor — that is why this tool is best on clips under a few minutes.</p>
 </details>
-<details class="faq">
-<summary>Is my video uploaded anywhere?</summary>
-<p>No. Your video never leaves your device — it is read, edited and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page.</p>
-</details>
 
       <!-- RELATED QUESTIONS -->
       <h2 style="margin-top:28px">Related questions</h2>
       <ul class="rq-list">
         <li><strong>Can I edit videos online free without a watermark?</strong><br>Yes — this editor is free with no watermark, no signup and no daily cap. The export is WebM, with audio when your browser allows it.</li><li><strong>What is the best free alternative to CapCut?</strong><br>For basic trim, merge, resize and speed in the browser, this tool is a free, no-signup option. For full productions with effects and audio, a desktop editor such as Shotcut or DaVinci Resolve is the honest choice.</li><li><strong>Can I merge videos online without uploading them?</strong><br>Yes. This tool merges clips entirely in your browser — your videos never leave your device.</li><li><strong>Why do free video editors cap exports at 3 a day?</strong><br>Caps and watermarks are how paid plans are sold. This tool has no cap because there is no paid tier behind it — but it only does basic edits.</li>
+        <li><strong>Can I trim a video online without downloading software?</strong><br>Yes — ClipFast and Video Trimmer do it in the browser; ClipFast accepts MP4, MOV, WebM and MKV with no account. This page trims in its Trim tab.</li><li><strong>Can I add music to a video online for free?</strong><br>Yes — Adobe Express includes royalty-free Adobe Stock soundtracks; ClipFast and most browser tools accept your own audio upload.</li><li><strong>Can I add captions/subtitles to a video online for free?</strong><br>Yes — Wondercraft, InVideo, OpenCut and KineMaster offer auto-captions; CaptionMaker.app does it with no signup in 50+ languages. This page does not add captions — it is a trim/merge/resize/speed tool only.</li><li><strong>Can I edit 4K video online for free?</strong><br>ZSky exports up to 4K in-browser and FilmCraft exports MP4/ProRes; most free tiers (Lightworks, Descript, VEED) cap free exports at 720p. This page is a basic editor and does not promise 4K.</li><li><strong>Is it safe to use a free online video editor?</strong><br>Browser-local tools (no upload) are the safest option; with server tools, check the deletion policy — faceswap4fun deletes uploads after merging, HeyGen says files are auto-deleted after download.</li>
       </ul>
     </div>
 

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Thumbnail Maker Free — 1280×720 | PixDetector</title>
+<meta name="description" content="Make a YouTube thumbnail free — 1280×720, bold text, your photo, PNG download. No signup, no watermark, no design skills needed. Simple designs only.">
+<meta name="keywords" content="youtube thumbnail maker free, free youtube thumbnail maker, make youtube thumbnail, youtube thumbnail 1280x720, thumbnail maker online">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/youtube-thumbnail-maker">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/youtube-thumbnail-maker">
+<meta property="og:title" content="YouTube Thumbnail Maker Free — 1280×720 | PixDetector">
+<meta property="og:description" content="Make a YouTube thumbnail free — 1280×720, bold text, your photo, PNG download. No signup, no watermark. Simple designs only.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this YouTube thumbnail maker really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Make as many thumbnails as you like, free, with no signup and no watermark. Everything runs in your browser." } },
+    { "@type": "Question", "name": "What size should a YouTube thumbnail be?", "acceptedAnswer": { "@type": "Answer", "text": "1280 by 720 pixels, 16:9, under 2 MB, in JPG, PNG or GIF. This tool exports exactly 1280 by 720 PNG, which YouTube accepts. Custom thumbnails need a verified channel in YouTube Studio." } },
+    { "@type": "Question", "name": "How many words should I put on a thumbnail?", "acceptedAnswer": { "@type": "Answer", "text": "Three to five words, not ten. The video title already sits under the thumbnail, so the thumbnail only needs the hook — in letters big enough to read on a phone. Use the small-size preview on this page to check yours." } },
+    { "@type": "Question", "name": "Will my thumbnail be readable on a phone?", "acceptedAnswer": { "@type": "Answer", "text": "That is the real test: most viewers see your thumbnail tiny, in a feed. Use the phone-size preview toggle here — if the words still read at that size, the thumbnail works. Thick outlines and strong contrast (light text on dark, or the reverse) are what save text on busy photos." } },
+    { "@type": "Question", "name": "Can I use my own photo as the background?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload a photo and it fills the 1280 by 720 canvas. A close, expressive face reads best at small sizes; keep the bottom-right corner clear, because YouTube covers it with the video length." } },
+    { "@type": "Question", "name": "Is my photo uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your photo is drawn onto a canvas in your browser and never uploaded, stored, or shared." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to make a YouTube thumbnail for free",
+  "step": [
+    { "@type": "HowToStep", "name": "Pick a design", "text": "Choose Bold, Photo or Split — three simple layouts that work at phone size." },
+    { "@type": "HowToStep", "name": "Add your photo and words", "text": "Upload a background photo if you have one, then type 3-5 punchy words and a short sub-line." },
+    { "@type": "HowToStep", "name": "Check it small", "text": "Turn on the phone-size preview. If the words still read, the thumbnail works." },
+    { "@type": "HowToStep", "name": "Download the PNG", "text": "Download the 1280 by 720 PNG and upload it in YouTube Studio." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=text],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=color]{width:44px;height:32px;padding:0;border:1px solid var(--border2);border-radius:6px;background:none;cursor:pointer}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+canvas.thumb{width:100%;border-radius:10px;display:block;background:#111}
+canvas.thumb.small{width:220px;margin:0 auto}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.formats{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      YouTube Thumbnail Maker
+    </div>
+    <div class="tool-page-header">
+      <h1>Free YouTube Thumbnail Maker</h1>
+      <p>Make a YouTube thumbnail at the exact 1280×720 size — bold text, your photo, PNG download. Free, no signup, no watermark. Simple designs only: three clean layouts, not a full design studio.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> this is a <strong>simple thumbnail maker, not Canva</strong> — three fixed layouts, no layers, no background removal, no AI images. What it does do: correct size, big readable text, and a clean export. Keep the <strong>bottom-right corner clear</strong> — YouTube covers it with the video length.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Thumbnail settings">
+        <h2>Your thumbnail</h2>
+        <span class="flabel">Design</span>
+        <div class="chips" id="designChips">
+          <button type="button" class="chip" data-design="bold" aria-pressed="true">Bold gradient</button>
+          <button type="button" class="chip" data-design="photo" aria-pressed="false">Photo + text</button>
+          <button type="button" class="chip" data-design="split" aria-pressed="false">Split colour</button>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="bgFile">Background photo (optional)</label>
+          <input type="file" id="bgFile" accept="image/*">
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="mainText">Main words (3–5 is best)</label>
+          <input type="text" id="mainText" value="I TRIED IT" maxlength="30" autocomplete="off">
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="subText">Sub-line (optional)</label>
+          <input type="text" id="subText" value="and it actually worked" maxlength="50" autocomplete="off">
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div><label class="flabel" for="color1">Colour 1</label><input type="color" id="color1" value="#1d4ed8"></div>
+          <div><label class="flabel" for="color2">Colour 2</label><input type="color" id="color2" value="#f59e0b"></div>
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div>
+            <label class="flabel" for="textColor">Text colour</label>
+            <select id="textColor"><option value="#ffffff" selected>White</option><option value="#fde047">Yellow</option><option value="#111827">Black</option></select>
+          </div>
+          <div>
+            <label class="flabel" for="posSelect">Text position</label>
+            <select id="posSelect"><option value="center" selected>Centre</option><option value="top">Top</option><option value="bottom">Bottom</option></select>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="sizeRange">Text size: <span id="sizeOut">120</span> px</label>
+          <input type="range" id="sizeRange" min="60" max="180" value="120">
+        </div>
+        <div class="actions">
+          <button type="button" class="toggle" id="outlineBtn" aria-pressed="true">Thick text outline: on</button>
+          <button type="button" class="toggle" id="smallBtn" aria-pressed="false">Phone-size preview</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="dlBtn">Download PNG (1280×720)</button>
+        </div>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Preview">
+        <h2>Preview</h2>
+        <canvas class="thumb" id="thumbCanvas" width="1280" height="720"></canvas>
+        <p class="meta-line" id="metaLine">1280 × 720 px · PNG · under YouTube's 2 MB limit in most cases. The red corner mark shows where YouTube puts the video length — keep text out of it.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Make a YouTube thumbnail free — 1280×720, bold text, your photo, PNG download. No signup, no watermark.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare" data-share="Make a YouTube thumbnail free — 1280×720, bold text, your photo, PNG download. No signup, no watermark.">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Make%20a%20YouTube%20thumbnail%20free%20%E2%80%94%201280%C3%97720%2C%20bold%20text%2C%20your%20photo%2C%20PNG%20download%2C%20no%20watermark&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fyoutube-thumbnail-maker" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fyoutube-thumbnail-maker" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Make%20a%20YouTube%20thumbnail%20free%20%E2%80%94%201280%C3%97720%2C%20bold%20text%2C%20your%20photo%2C%20PNG%20download%2C%20no%20watermark%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fyoutube-thumbnail-maker" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: Canva free hits a wall, and the rest want money</h2>
+      <p>The complaint creators repeat most is the free-tier wall. Canva is the go-to free thumbnail maker, but premium assets watermark your export on the free plan, and the good templates sit behind Pro. AI thumbnail tools hand out a few free credits and then ask for a card. Other "free" makers stamp a watermark, cap exports per day, or make you sign up before you can download. And the design problem underneath it all: most thumbnails fail because the words are too small, too many, or too low-contrast to read on a phone — where most viewers actually see them. People want a tool that opens, lets them type three loud words over a photo, and downloads a clean 1280×720 file.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I make a YouTube thumbnail for free?</h2>
+      <p>Pick one of the three simple designs here, upload a background photo if you have one, type 3–5 punchy words (the hook, not a summary — the video title already sits under the thumbnail), and download the 1280×720 PNG. It is free, with no signup and no watermark, because the thumbnail is drawn on a canvas in your browser. Before you download, turn on the phone-size preview: if the words still read at that size, the thumbnail works. YouTube accepts JPG, PNG or GIF under 2 MB, and custom thumbnails need a verified channel.</p>
+      <p>A YouTube thumbnail is the 1280×720 still image that represents your video in search results, on the home feed and in "Up next". YouTube recommends 1280×720 pixels (16:9, at least 640 wide), under 2 MB. It is the single biggest lever on click-through rate after the title itself — a custom thumbnail beats YouTube's auto-generated frame almost every time, because the auto frame is usually a random mid-sentence face.</p>
+      <!-- HOW TO -->
+      <h2>How to make a YouTube thumbnail in 4 steps</h2>
+      <p><strong>Step 1:</strong> pick a design — Bold gradient for text-led videos, Photo + text when you have a strong face or shot, Split colour for a clean two-tone look. <strong>Step 2:</strong> upload a background photo and type your words — 3–5 words, big enough for a phone. <strong>Step 3:</strong> check the phone-size preview and the red corner mark (YouTube's timestamp covers the bottom-right). <strong>Step 4:</strong> download the PNG and upload it in YouTube Studio under Thumbnail.</p>
+      <h2>What makes people click?</h2>
+      <table class="formats">
+        <thead><tr><th>Rule</th><th>Why it works</th></tr></thead>
+        <tbody>
+          <tr><td>Three words, not ten</td><td>The title is already under the thumbnail. Add the hook, not a summary.</td></tr>
+          <tr><td>One clear face</td><td>A close, expressive face reads at any size. Keep it big and well lit.</td></tr>
+          <tr><td>Strong contrast</td><td>Light text on dark, or the reverse. Thick outlines save text on busy photos.</td></tr>
+          <tr><td>Test it small</td><td>If the phone preview still tells the story, the thumbnail works.</td></tr>
+          <tr><td>Keep the corner clear</td><td>The video length covers the bottom-right; a red bar crosses the bottom for watched videos.</td></tr>
+        </tbody>
+      </table>
+      <h2>YouTube thumbnail size and rules</h2>
+      <p>Size: 1280×720 pixels, 16:9, at least 640 pixels wide. File: JPG, PNG or GIF, up to 2 MB — a PNG from this maker is usually well under that, but a very detailed photo background can push it close; if so, the file still downloads fine and YouTube accepts it up to the limit. Overlays: the video length covers the bottom-right corner, and a red progress bar crosses the bottom for videos the viewer has already watched. Custom thumbnails need a verified channel in YouTube Studio, and you can change a thumbnail any time after upload.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this YouTube thumbnail maker really free?</summary>
+        <p>Yes. Make as many thumbnails as you like, free, with no signup and no watermark. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>What size should a YouTube thumbnail be?</summary>
+        <p>1280 by 720 pixels, 16:9, under 2 MB, in JPG, PNG or GIF. This tool exports exactly 1280 by 720 PNG, which YouTube accepts. Custom thumbnails need a verified channel in YouTube Studio.</p>
+      </details>
+      <details class="faq">
+        <summary>How many words should I put on a thumbnail?</summary>
+        <p>Three to five words, not ten. The video title already sits under the thumbnail, so the thumbnail only needs the hook — in letters big enough to read on a phone. Use the small-size preview on this page to check yours.</p>
+      </details>
+      <details class="faq">
+        <summary>Will my thumbnail be readable on a phone?</summary>
+        <p>That is the real test: most viewers see your thumbnail tiny, in a feed. Use the phone-size preview toggle here — if the words still read at that size, the thumbnail works. Thick outlines and strong contrast (light text on dark, or the reverse) are what save text on busy photos.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use my own photo as the background?</summary>
+        <p>Yes. Upload a photo and it fills the 1280 by 720 canvas. A close, expressive face reads best at small sizes; keep the bottom-right corner clear, because YouTube covers it with the video length.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my photo uploaded to a server?</summary>
+        <p>No. Your photo is drawn onto a canvas in your browser and never uploaded, stored, or shared.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I change a thumbnail on YouTube?</strong> In YouTube Studio, open Content, click the pencil on a video, and under Thumbnail choose Upload thumbnail. It works on videos that have been live for years.</p>
+      <p><strong>What fonts work best for thumbnails?</strong> Bold, heavy fonts that stay readable tiny — the thick style used here. Avoid thin or script fonts; they turn illegible at feed size.</p>
+      <p><strong>Can I make thumbnails on my phone?</strong> Yes — this page works in a mobile browser. Upload a photo, type the words, download the PNG, then upload it in the YouTube Studio app.</p>
+      <p><strong>Do I need Photoshop to make a good thumbnail?</strong> No. A clean 1280×720 image with three big words and strong contrast beats a complicated Photoshop design that nobody can read at phone size.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/image-resizer" class="related-card"><h4>🖼️ Image Resizer</h4><p>Resize images free</p></a><a href="/tools/crop-image" class="related-card"><h4>✂️ Crop Image</h4><p>Crop images free</p></a><a href="/tools/meme-generator" class="related-card"><h4>😂 Meme Generator</h4><p>Make memes free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var canvas = $("thumbCanvas"), ctx = canvas.getContext("2d");
+  var W = 1280, H = 720;
+  var state = { design: "bold", bg: null, outline: true };
+  function wrapText(text, maxW) {
+    var words = String(text || "").split(/\s+/).filter(Boolean);
+    var lines = [], line = "";
+    words.forEach(function (w) {
+      var test = line ? line + " " + w : w;
+      if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test;
+    });
+    if (line) lines.push(line);
+    return lines;
+  }
+  function draw() {
+    var c1 = $("color1").value, c2 = $("color2").value;
+    var main = $("mainText").value, sub = $("subText").value;
+    var tcol = $("textColor").value, size = parseInt($("sizeRange").value, 10) || 120;
+    var pos = $("posSelect").value;
+    ctx.clearRect(0, 0, W, H);
+    if (state.design === "bold") {
+      var g = ctx.createLinearGradient(0, 0, W, H);
+      g.addColorStop(0, c1); g.addColorStop(1, c2);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = "rgba(0,0,0,0.18)";
+      ctx.beginPath(); ctx.arc(1080, 120, 260, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(140, 640, 200, 0, Math.PI * 2); ctx.fill();
+    } else if (state.design === "split") {
+      ctx.fillStyle = c1; ctx.fillRect(0, 0, W / 2, H);
+      ctx.fillStyle = c2; ctx.fillRect(W / 2, 0, W / 2, H);
+      ctx.fillStyle = "rgba(255,255,255,0.08)"; ctx.fillRect(W / 2 - 8, 0, 16, H);
+    } else {
+      ctx.fillStyle = c1; ctx.fillRect(0, 0, W, H);
+      if (state.bg) {
+        var iw = state.bg.naturalWidth, ih = state.bg.naturalHeight;
+        var s = Math.max(W / iw, H / ih), dw = iw * s, dh = ih * s;
+        ctx.drawImage(state.bg, (W - dw) / 2, (H - dh) / 2, dw, dh);
+      }
+      var dg = ctx.createLinearGradient(0, H * 0.35, 0, H);
+      dg.addColorStop(0, "rgba(0,0,0,0)"); dg.addColorStop(1, "rgba(0,0,0,0.72)");
+      ctx.fillStyle = dg; ctx.fillRect(0, 0, W, H);
+    }
+    if (state.design === "bold" && state.bg) {
+      var iw2 = state.bg.naturalWidth, ih2 = state.bg.naturalHeight;
+      var s2 = Math.max(W / iw2, H / ih2), dw2 = iw2 * s2, dh2 = ih2 * s2;
+      ctx.globalAlpha = 0.25;
+      ctx.drawImage(state.bg, (W - dw2) / 2, (H - dh2) / 2, dw2, dh2);
+      ctx.globalAlpha = 1;
+      var g2 = ctx.createLinearGradient(0, 0, W, H);
+      g2.addColorStop(0, c1); g2.addColorStop(1, c2);
+      ctx.globalAlpha = 0.55; ctx.fillStyle = g2; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
+    }
+    /* text */
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.font = "800 " + size + "px Syne, 'DM Sans', sans-serif";
+    var lines = wrapText(main.toUpperCase(), W - 120);
+    var lineH = size * 1.05;
+    var blockH = lines.length * lineH + (sub ? 64 : 0);
+    var cy = pos === "top" ? 150 + blockH / 2 - 40 : pos === "bottom" ? H - 130 - blockH / 2 + 40 : H / 2;
+    var y = cy - blockH / 2 + lineH / 2;
+    lines.forEach(function (ln) {
+      if (state.outline) { ctx.lineWidth = Math.max(8, size / 10); ctx.strokeStyle = "rgba(0,0,0,0.85)"; ctx.lineJoin = "round"; ctx.strokeText(ln, W / 2, y); }
+      ctx.fillStyle = tcol; ctx.fillText(ln, W / 2, y);
+      y += lineH;
+    });
+    if (sub) {
+      ctx.font = "500 44px 'DM Sans', sans-serif";
+      var sy = y + 18;
+      if (state.outline) { ctx.lineWidth = 8; ctx.strokeStyle = "rgba(0,0,0,0.7)"; ctx.lineJoin = "round"; ctx.strokeText(sub, W / 2, sy); }
+      ctx.fillStyle = tcol; ctx.fillText(sub, W / 2, sy);
+    }
+    /* timestamp corner mark — where YouTube puts the video length */
+    ctx.fillStyle = "rgba(220,38,38,0.9)";
+    ctx.fillRect(W - 150, H - 56, 150, 56);
+    ctx.fillStyle = "#fff"; ctx.font = "700 30px 'DM Sans', sans-serif"; ctx.textAlign = "center";
+    ctx.fillText("12:34", W - 75, H - 27);
+  }
+  function redraw() { draw(); }
+  ["mainText", "subText", "color1", "color2", "textColor", "posSelect"].forEach(function (id) {
+    $(id).addEventListener("input", redraw);
+    $(id).addEventListener("change", redraw);
+  });
+  $("sizeRange").addEventListener("input", function () { $("sizeOut").textContent = this.value; redraw(); });
+  $("designChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    state.design = b.getAttribute("data-design");
+    document.querySelectorAll("#designChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    redraw();
+  });
+  $("outlineBtn").addEventListener("click", function () {
+    state.outline = !state.outline;
+    this.setAttribute("aria-pressed", state.outline ? "true" : "false");
+    this.textContent = state.outline ? "Thick text outline: on" : "Thick text outline: off";
+    redraw();
+  });
+  $("smallBtn").addEventListener("click", function () {
+    var on = canvas.classList.toggle("small");
+    this.setAttribute("aria-pressed", on ? "true" : "false");
+    $("metaLine").textContent = on
+      ? "Phone-size preview — this is roughly how your thumbnail looks in a feed. If the words still read, it works."
+      : "1280 × 720 px · PNG · under YouTube's 2 MB limit in most cases. The red corner mark shows where YouTube puts the video length — keep text out of it.";
+  });
+  $("bgFile").addEventListener("change", function () {
+    var f = this.files[0];
+    if (!f) return;
+    if (!/^image\//.test(f.type)) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose an image file."; return; }
+    $("errorBox").hidden = true;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () { state.bg = im; redraw(); toast("Photo added as background."); };
+      im.onerror = function () { var e = $("errorBox"); e.hidden = false; e.textContent = "Could not read that image. Try a JPG or PNG file."; };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  $("dlBtn").addEventListener("click", function () {
+    canvas.toBlob(function (blob) {
+      if (!blob) { toast("Export failed in this browser."); return; }
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "youtube-thumbnail-1280x720.png";
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+      toast("Thumbnail downloaded (1280×720 PNG).");
+    }, "image/png");
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
+  });
+  $("copyShare").addEventListener("click", function () {
+    var line = $("copyShare").getAttribute("data-share") || "";
+    if (navigator.clipboard) navigator.clipboard.writeText(line + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
+  redraw();
+})();
+</script>
+</body>
+</html>

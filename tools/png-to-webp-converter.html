@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PNG to WebP Converter Free — No Signup | PixDetector</title>
+<meta name="description" content="Convert PNG to WebP free in your browser — smaller files, transparency kept. Quality slider, no signup, no upload.">
+<meta name="keywords" content="png to webp converter free, convert png to webp, png to webp online, webp converter, png to webp free">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/png-to-webp-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/png-to-webp-converter">
+<meta property="og:title" content="PNG to WebP Converter Free — No Signup | PixDetector">
+<meta property="og:description" content="Convert PNG to WebP free in your browser — smaller files, transparency kept. Quality slider, no signup, no upload.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this PNG to WebP converter really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Convert as many PNGs as you like, free, with no signup, no watermark and no upload — everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WebP keep PNG transparency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. WebP supports an alpha channel like PNG, so transparent areas stay transparent. That is the main reason to choose WebP over JPG for logos and graphics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much smaller will my WebP be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically 25–80% smaller than the PNG for photos and graphics — Google measured lossy WebP at 25–34% smaller than comparable JPEG at equal quality. Small flat-colour PNGs and tiny icons are the exception: they can come out bigger as WebP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will WebP make my website faster?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can help a lot when your images are large, especially combined with resizing to the display size. It is not a guarantee — if the image is already small, or something else is slowing the page, the gain is small. Convert one large image and compare first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert WebP back to PNG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but the quality lost in a lossy WebP conversion never comes back. Always keep your original PNG as the master copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my PNG uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The conversion uses the canvas element and runs entirely in your browser. No files are transmitted."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert PNG to WebP free",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your PNGs",
+      "text": "Choose up to 10 PNG files. They are read in your browser and never uploaded."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Set the quality",
+      "text": "Drag the quality slider — 90% is visually identical for most images; 75–85% is the sweet spot for the web."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Convert and download",
+      "text": "Press Convert and download each converted file with its new extension."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=color]{width:44px;height:32px;padding:0;border:1px solid var(--border2);border-radius:6px;background:none;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:28px 20px;text-align:center;cursor:pointer;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result p{font-size:15px;line-height:1.8;color:var(--text2)}
+.result p strong{color:var(--accent)}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.file-row button:disabled{opacity:.4;cursor:not-allowed}
+.fav-prev{display:flex;gap:18px;align-items:flex-end;justify-content:center;flex-wrap:wrap;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:12px}
+.fav-prev figure{text-align:center;margin:0}
+.fav-prev figcaption{font-size:12px;color:var(--text2);margin-top:6px}
+.fav-prev img{border:1px solid var(--border2);border-radius:4px;background:#fff}
+.tab-mock{background:var(--bg2);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:8px 12px;margin-top:12px;display:flex;align-items:center;gap:8px;font-size:13px}
+.tab-mock img{width:16px;height:16px}
+audio{width:100%;margin-top:12px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      PNG to WebP Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>PNG to WebP Converter Free</h1>
+      <p>Make PNGs 25–80% smaller as WebP — with transparency kept — free, in your browser. No signup, no upload, no watermark.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> WebP from this tool is <strong>lossy</strong>: the quality slider trades a little detail for a smaller file, and a lossy WebP can be <strong>bigger</strong> than a small PNG (flat graphics, tiny icons) — check the size shown before downloading. Very old software may not open WebP; keep the original PNG as a fallback.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="PNG to WebP Converter">
+        <h2>Your PNGs</h2>
+        <label class="flabel" for="imgFiles">Choose PNG files (up to 10)</label>
+        <input type="file" id="imgFiles" accept="image/png,.png" multiple>
+        <p class="trust" id="fileInfo">No files chosen yet.</p>
+        <div style="margin-top:16px">
+          <label class="flabel" for="qInput">Quality: <span id="qOut">90%</span></label>
+          <input type="range" id="qInput" min="10" max="100" value="90">
+          <p class="trust" id="qHint"></p>
+        </div>
+        
+        <div class="actions">
+          <button type="button" class="btn" id="convBtn" disabled>Convert to WebP</button>
+        </div>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Converted files">
+        <h2>Converted files</h2>
+        <div id="fileList"><p class="meta-line">Upload PNGs to convert them here. Each file keeps its name, with the new extension.</p></div>
+        <p class="trust" style="text-align:center">Conversion runs in your browser with the canvas element. Nothing is uploaded.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">I shrank a PNG to WebP free in my browser — transparency kept, no signup, no upload.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=I%20shrank%20a%20PNG%20to%20WebP%20free%20in%20my%20browser%20%E2%80%94%20transparency%20kept%2C%20no%20signup%2C%20no%20upload.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpng-to-webp-converter" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpng-to-webp-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=I%20shrank%20a%20PNG%20to%20WebP%20free%20in%20my%20browser%20%E2%80%94%20transparency%20kept%2C%20no%20signup%2C%20no%20upload.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpng-to-webp-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: your PNGs are slowing your website down</h2>
+      <p>The PNG-to-WebP story starts in PageSpeed Insights: "Serve images in next-gen formats" next to a hero image that is a 2 MB PNG. PNG is the right format for a logo that needs transparency, but it is a heavy format for a photo or a large graphic on a web page, and every extra kilobyte is slower loading on a phone. The second frustration is the surprise in the other direction — people convert a PNG to WebP expecting a smaller file and get a bigger one, because a small flat-colour PNG or a tiny icon can compress better as PNG than as lossy WebP. The third is quality anxiety: which quality setting keeps the image looking the same, and will the transparency survive? People want a free converter that keeps the transparent background, shows the size before and after, and says plainly when WebP is not the right call.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert PNG to WebP for free?</h2>
+      <p>Upload up to 10 PNGs here, set the quality slider (90% is visually identical for most images, 80% is the sweet spot for web pages), and press Convert to WebP. Each file downloads as a WebP, free, with no signup and no upload. Transparency is kept — unlike JPG, WebP has an alpha channel — and the list shows the old size next to the new size so you can see the saving.</p>
+      <p>A PNG to WebP converter is a tool that re-encodes a PNG image in Google's WebP format. WebP is a modern web image format: Google measured lossy WebP at 25–34% smaller than comparable JPEG images at equal quality, and it supports transparency like PNG, so a logo keeps its see-through background while the file shrinks. Every current browser can display WebP, and about 97% of users' browsers support it — but older software and some apps still cannot open it, so keep the original PNG.</p>
+      <!-- HOW TO -->
+      <h2>How to convert PNG to WebP in 3 steps</h2>
+      <p><strong>Step 1:</strong> upload up to 10 PNG files — they are read in your browser and never uploaded. <strong>Step 2:</strong> set the quality slider (90% default; 80% for web pages). <strong>Step 3:</strong> press Convert to WebP and download each file. Compare the sizes shown: if a WebP comes out bigger than its PNG, keep the PNG for that image.</p>
+      <h2>WebP vs PNG vs JPG: which one, when?</h2>
+      <table class="facts">
+        <tr><th>Format</th><th>Compression</th><th>Transparency</th><th>Best for</th></tr>
+        <tr><td>PNG</td><td>Lossless</td><td>Yes</td><td>Logos, icons, screenshots with text, masters</td></tr>
+        <tr><td>WebP (this tool)</td><td>Lossy (quality slider)</td><td>Yes</td><td>Web images — smaller files, transparency kept</td></tr>
+        <tr><td>JPG</td><td>Lossy</td><td>No</td><td>Photos where transparency does not matter</td></tr>
+      </table>
+      <p>Use WebP for images served on a website: photos, product shots, blog graphics and logos that need transparency. Keep PNG for the master copy, for screenshots with small text, and for anything that must open in every program. Use JPG instead of WebP when the image has no transparency and must open in older software — or use our <a href="/tools/png-to-jpg-converter">PNG to JPG converter</a>. And never convert a lossy file back and forth: always convert from the original PNG, not from a JPG you made earlier.</p>
+      <h2>Will WebP always make my site faster?</h2>
+      <p>Not always, and that is worth saying plainly. WebP helps most when your images are large photographs or graphics — swapping those can cut a page's image weight by half. It helps least on images that are already small, or on flat graphics that PNG already compresses well. The biggest wins come from combining WebP with resizing the image to its display size: a 4000-pixel PNG resized to 800 pixels and converted to WebP is a different file entirely. Convert one large image, compare the sizes, and check it still looks right before converting the rest.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this PNG to WebP converter really free?</summary>
+        <p>Yes. Convert as many PNGs as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+      </details>
+<details class="faq">
+        <summary>Does WebP keep PNG transparency?</summary>
+        <p>Yes. WebP supports an alpha channel like PNG, so transparent areas stay transparent. That is the main reason to choose WebP over JPG for logos and graphics.</p>
+      </details>
+<details class="faq">
+        <summary>How much smaller will my WebP be?</summary>
+        <p>Typically 25–80% smaller than the PNG for photos and graphics — Google measured lossy WebP at 25–34% smaller than comparable JPEG at equal quality. Small flat-colour PNGs and tiny icons are the exception: they can come out bigger as WebP.</p>
+      </details>
+<details class="faq">
+        <summary>Will WebP make my website faster?</summary>
+        <p>It can help a lot when your images are large, especially combined with resizing to the display size. It is not a guarantee — if the image is already small, or something else is slowing the page, the gain is small. Convert one large image and compare first.</p>
+      </details>
+<details class="faq">
+        <summary>Can I convert WebP back to PNG?</summary>
+        <p>Yes, but the quality lost in a lossy WebP conversion never comes back. Always keep your original PNG as the master copy.</p>
+      </details>
+<details class="faq">
+        <summary>Is my PNG uploaded to a server?</summary>
+        <p>No. The conversion uses the canvas element and runs entirely in your browser. No files are transmitted.</p>
+      </details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Does WebP keep transparency?</strong> Yes. Unlike JPG, WebP has an alpha channel, so transparent areas stay transparent.</p>
+      <p><strong>Why is my WebP bigger than the PNG?</strong> Lossy WebP can be bigger than a small or flat-colour PNG. Check the size shown — if it grew, keep the PNG for that image.</p>
+      <p><strong>Can all browsers open WebP?</strong> About 97% of users' browsers can. Very old browsers and some desktop apps cannot — keep a JPG or PNG fallback for those.</p>
+      <p><strong>Is WebP lossy or lossless?</strong> Both exist, but this tool makes lossy WebP with a quality slider. It is the version that shrinks files; keep your original PNG as the lossless master.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/png-to-jpg-converter" class="related-card"><h4>🖼️ PNG to JPG</h4><p>Smaller JPGs free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a><a href="/tools/image-resizer" class="related-card"><h4>📐 Image Resizer</h4><p>Resize images free</p></a><a href="/tools/ai-image-enhancer" class="related-card"><h4>✨ AI Image Enhancer</h4><p>Enhance images free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function fmtKB(n) { return n < 1024 ? n + " B" : (n / 1024 < 1024 ? (n / 1024).toFixed(1) + " KB" : (n / 1048576).toFixed(2) + " MB"); }
+  var MIME = "image/webp", EXT = "webp", FMT = "WebP";
+  var files = [];
+  function updateHint() {
+    var q = parseInt($("qInput").value, 10);
+    $("qOut").textContent = q + "%";
+    $("qHint").textContent = q >= 90 ? "90–100%: visually identical to the original for most images; biggest files." : q >= 75 ? "75–89%: the sweet spot for web images — much smaller, barely any visible loss." : "Below 75%: smallest files, but soft edges and blocky gradients start to show.";
+  }
+  updateHint();
+  $("qInput").addEventListener("input", updateHint);
+  $("imgFiles").addEventListener("change", function () {
+    files = Array.prototype.slice.call(this.files || []).filter(function (f) { return /^image\/png$/i.test(f.type) || /\.png$/i.test(f.name); });
+    if (files.length > 10) { files = files.slice(0, 10); toast("Only the first 10 files were kept."); }
+    if (!files.length) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose PNG files."; $("convBtn").disabled = true; return; }
+    $("errorBox").hidden = true;
+    var total = files.reduce(function (a, f) { return a + f.size; }, 0);
+    $("fileInfo").textContent = files.length + (files.length === 1 ? " PNG" : " PNGs") + " — " + fmtKB(total) + " total.";
+    $("convBtn").disabled = false;
+    $("fileList").innerHTML = "";
+    files.forEach(function (f) {
+      var row = document.createElement("div"); row.className = "file-row";
+      var nm = document.createElement("span"); nm.className = "fname"; nm.textContent = f.name;
+      var mt = document.createElement("span"); mt.className = "fmeta"; mt.textContent = fmtKB(f.size);
+      row.appendChild(nm); row.appendChild(mt);
+      $("fileList").appendChild(row);
+    });
+  });
+  function convertOne(file, q, bg, done) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        var canvas = document.createElement("canvas");
+        canvas.width = im.naturalWidth; canvas.height = im.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        if (bg) { ctx.fillStyle = bg; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+        ctx.drawImage(im, 0, 0);
+        canvas.toBlob(function (blob) {
+          if (!blob) { done(null, "Export failed in this browser."); return; }
+          done(blob, null);
+        }, MIME, q);
+      };
+      im.onerror = function () { done(null, "Could not read " + file.name + "."); };
+      im.src = reader.result;
+    };
+    reader.onerror = function () { done(null, "Could not read " + file.name + "."); };
+    reader.readAsDataURL(file);
+  }
+  $("convBtn").addEventListener("click", function () {
+    if (!files.length) return;
+    var q = parseInt($("qInput").value, 10) / 100;
+    var bg = null;
+    var bgEl = $("bgColor");
+    if (bgEl) bg = bgEl.value;
+    var list = $("fileList"); list.innerHTML = "";
+    var doneCount = 0;
+    files.forEach(function (f) {
+      var row = document.createElement("div"); row.className = "file-row";
+      var nm = document.createElement("span"); nm.className = "fname"; nm.textContent = f.name;
+      var mt = document.createElement("span"); mt.className = "fmeta"; mt.textContent = "converting…";
+      var btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Download"; btn.disabled = true;
+      row.appendChild(nm); row.appendChild(mt); row.appendChild(btn);
+      list.appendChild(row);
+      convertOne(f, q, bg, function (blob, err) {
+        doneCount++;
+        if (err) { mt.textContent = err; return; }
+        var base = f.name.replace(/\.[^.]+$/, "") || "image";
+        var url = URL.createObjectURL(blob);
+        btn.disabled = false;
+        btn.addEventListener("click", function () {
+          var a = document.createElement("a");
+          a.href = url; a.download = base + "." + EXT;
+          document.body.appendChild(a); a.click(); a.remove();
+        });
+        mt.textContent = fmtKB(f.size) + " → " + fmtKB(blob.size) + " " + FMT + " (" + Math.round(blob.size / f.size * 100) + "% of original)";
+        if (doneCount === files.length) toast(files.length + (files.length === 1 ? " file" : " files") + " converted — download each one.");
+      });
+    });
+  });
+})();
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var cl = $("copyLink");
+  if (cl) cl.addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
+  });
+  var cs = $("copyShare");
+  if (cs) cs.addEventListener("click", function () {
+    var line = "I shrank a PNG to WebP free in my browser \u2014 transparency kept, no signup, no upload." + " " + location.href;
+    if (navigator.clipboard) navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+})();
+</script>
+</body>
+</html>

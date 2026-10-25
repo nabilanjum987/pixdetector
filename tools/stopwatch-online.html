@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Stopwatch — Lap Timer, No Signup | PixDetector</title>
+<meta name="description" content="Free online stopwatch with laps, splits, fastest/slowest highlights and copyable lap times. Accurate to hundredths. No signup, no ads.">
+<meta name="keywords" content="stopwatch online free, free online stopwatch, online stopwatch with laps, lap timer, split timer, stopwatch with hundredths">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/stopwatch-online">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/stopwatch-online">
+<meta property="og:title" content="Free Online Stopwatch — Lap Timer, No Signup | PixDetector">
+<meta property="og:description" content="Free online stopwatch with laps, splits, fastest/slowest highlights and copyable lap times. Accurate to hundredths. No signup, no ads.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this online stopwatch really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Time as much as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
+    { "@type": "Question", "name": "How accurate is the stopwatch?", "acceptedAnswer": { "@type": "Answer", "text": "It displays hundredths of a second and measures elapsed time from your device clock, so it stays accurate even if you switch tabs. The biggest source of error is your own finger on Start and Stop, not the clock." } },
+    { "@type": "Question", "name": "Does the stopwatch keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Elapsed time is calculated from timestamps, not by counting ticks, so switching tabs or minimising the window does not lose time. The display redraws with the correct time as soon as you come back." } },
+    { "@type": "Question", "name": "What is the difference between a lap and a split?", "acceptedAnswer": { "@type": "Answer", "text": "The split is the time for one lap on its own — from the last lap press to this one. The total is the time since you first pressed Start. This stopwatch shows both for every lap, and highlights your fastest and slowest laps." } },
+    { "@type": "Question", "name": "Can I copy my lap times?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Press Copy laps to put the whole lap list on your clipboard as plain text — lap number, split and total — ready to paste into a spreadsheet or a note." } },
+    { "@type": "Question", "name": "What is the difference between a stopwatch and a timer?", "acceptedAnswer": { "@type": "Answer", "text": "A stopwatch counts up from zero to measure how long something takes. A timer counts down from a set time to zero and rings when it ends. For countdowns, use the free online timer on this site." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use the online stopwatch",
+  "step": [
+    { "@type": "HowToStep", "name": "Press Start", "text": "Click Start or press the Space bar. The stopwatch counts up from zero in hundredths of a second." },
+    { "@type": "HowToStep", "name": "Press Lap for splits", "text": "Press Lap or the L key at each split. Every lap shows its split time and the running total, with the fastest and slowest laps highlighted." },
+    { "@type": "HowToStep", "name": "Pause or reset", "text": "Press Space to pause and resume exactly where you left off, or R to reset everything to zero." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 15px;font-size:13px;text-decoration:none}
+.mode-tabs a.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.timer-display{font-family:'Syne',sans-serif;font-size:clamp(46px,11vw,88px);font-weight:800;text-align:center;letter-spacing:2px;line-height:1.1;margin:8px 0}
+.status-line{font-size:14px;color:var(--text2);text-align:center;margin-top:12px;min-height:20px}
+.kbd-hint{font-size:13px;color:var(--text2);text-align:center;margin-top:8px}
+.kbd-hint kbd{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:2px 7px;font-family:'DM Sans',sans-serif;font-size:12px}
+table.laps{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px}
+table.laps th,table.laps td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.laps th{color:var(--text);background:var(--bg2)}
+table.laps td{color:var(--text2);font-variant-numeric:tabular-nums}
+table.laps tr.fastest td{color:#15803d;font-weight:700}
+table.laps tr.slowest td{color:#b91c1c;font-weight:700}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Online Stopwatch
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Online Stopwatch</h1>
+      <p>Time anything to the hundredth of a second — with laps, splits, fastest/slowest highlights and copyable lap times. No signup, no ads.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> this is a browser stopwatch, not certified race or lab equipment. It is accurate to hundredths for workouts, cooking, study and presentations — but <strong>do not use it where an official or safety-critical result matters</strong>. Reloading the page resets it to zero.</div>
+    <div class="mode-tabs" aria-label="Time tools">
+      <a href="/tools/countdown-timer">Countdown</a>
+      <a href="/tools/timer-online">Timer</a>
+      <a href="/tools/online-alarm-clock">Alarm Clock</a>
+      <a href="/tools/stopwatch-online" class="on">Stopwatch</a>
+      <a href="/tools/pomodoro-timer">Pomodoro</a>
+    </div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Online stopwatch">
+        <div class="timer-display" id="swDisplay">00:00.00</div>
+        <div class="actions" style="justify-content:center">
+          <button type="button" class="btn" id="swStart">Start</button>
+          <button type="button" class="btn alt" id="swLap" disabled>Lap</button>
+          <button type="button" class="btn alt" id="swReset">Reset</button>
+          <button type="button" class="btn alt" id="swFull">Fullscreen</button>
+        </div>
+        <p class="kbd-hint"><kbd>Space</kbd> start / pause &nbsp; <kbd>L</kbd> lap &nbsp; <kbd>R</kbd> reset</p>
+        <p class="status-line" id="swStatus">Press Start or the Space bar. The stopwatch stays accurate even if you switch tabs.</p>
+        <div id="lapWrap" hidden>
+          <table class="laps">
+            <thead><tr><th>Lap</th><th>Split</th><th>Total</th></tr></thead>
+            <tbody id="lapBody"></tbody>
+          </table>
+          <p class="trust" id="lapSummary"></p>
+          <div class="actions">
+            <button type="button" class="btn alt" id="copyLaps">Copy laps</button>
+            <button type="button" class="btn alt" id="clearLaps">Clear laps</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Free online stopwatch — laps, splits and hundredths, no signup. Accurate in background tabs.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Free%20online%20stopwatch%20%E2%80%94%20laps%2C%20splits%20and%20hundredths%2C%20no%20signup.%20Accurate%20in%20background%20tabs.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fstopwatch-online" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fstopwatch-online" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Free%20online%20stopwatch%20%E2%80%94%20laps%2C%20splits%20and%20hundredths%2C%20no%20signup.%20Accurate%20in%20background%20tabs.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fstopwatch-online" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: stopwatches that freeze when you switch tabs</h2>
+      <p>The most reported problem with online stopwatches is the same one that haunts online timers: start timing, switch to the thing you are actually timing, and the clock has frozen or lost time. The cause is identical — a stopwatch that counts its own ticks is at the mercy of how often the browser lets a hidden tab run, and browsers deliberately slow hidden tabs down to save battery. The second frustration is lap lists that tell you nothing: a wall of times with no split, no total, and no way to see which lap was fastest. And the third is the simplest — a stopwatch with no way to copy the laps out, so you end up retyping them by hand.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I use a free online stopwatch?</h2>
+      <p>Press Start — or hit the Space bar — and the stopwatch counts up from zero in hundredths of a second. Press Lap (or L) at each split to record it without stopping the clock; every lap shows its split time and the running total, with your fastest lap highlighted green and your slowest red. Press Space to pause and resume exactly where you left off, and R to reset. It is free, with no signup and no ads, and the Copy laps button puts the whole list on your clipboard as plain text.</p>
+      <p>A stopwatch is a tool that measures elapsed time: it counts up from zero and records how long something takes, lap by lap. A lap is one section of what you are timing — a running lap, a swim length, a section of a talk — and the split is how long that section alone took, while the total is the time since you first pressed Start. A good online stopwatch shows both numbers for every lap, because the split is what tells you where you sped up or slowed down.</p>
+      <!-- HOW TO -->
+      <h2>How to time laps in 3 steps</h2>
+      <p><strong>Step 1:</strong> press Start (or Space). The display counts up in hundredths. <strong>Step 2:</strong> press Lap (or L) at each split — the clock keeps running while the lap is recorded. <strong>Step 3:</strong> press Space to pause, then Copy laps to save the list, or R to reset and start over.</p>
+      <h2>What people time with an online stopwatch</h2>
+      <p>Runners and athletes time laps and intervals, and the fastest/slowest highlight is exactly what interval training needs. Cooks and bakers time steps in a recipe. Students time study sessions and presentations — a talk that runs 12 minutes when it should run 10 shows up clearly in the lap list. Teachers time classroom activities, and speakers use laps to mark the sections of a talk. The lap list turns one total into a record of each part, so you can see where a session took more or less time than you expected.</p>
+      <h2>Why this stopwatch does not lose time in background tabs</h2>
+      <p>Elapsed time is calculated from timestamps — the moment you pressed Start, and the current moment — not by counting ticks. The display stops redrawing while the tab is hidden, because the browser will not let it, but the timestamps keep their meaning: when you come back, the display shows the correct time again. The same deadline-and-timestamp method is what keeps the countdown timer and the Pomodoro timer accurate on this site.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this online stopwatch really free?</summary>
+        <p>Yes. Time as much as you like, free, with no signup, no ads and no download. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>How accurate is the stopwatch?</summary>
+        <p>It displays hundredths of a second and measures elapsed time from your device clock, so it stays accurate even if you switch tabs. The biggest source of error is your own finger on Start and Stop, not the clock.</p>
+      </details>
+      <details class="faq">
+        <summary>Does the stopwatch keep running if I switch tabs?</summary>
+        <p>Yes. Elapsed time is calculated from timestamps, not by counting ticks, so switching tabs or minimising the window does not lose time. The display redraws with the correct time as soon as you come back.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between a lap and a split?</summary>
+        <p>The split is the time for one lap on its own — from the last lap press to this one. The total is the time since you first pressed Start. This stopwatch shows both for every lap, and highlights your fastest and slowest laps.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I copy my lap times?</summary>
+        <p>Yes. Press Copy laps to put the whole lap list on your clipboard as plain text — lap number, split and total — ready to paste into a spreadsheet or a note.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between a stopwatch and a timer?</summary>
+        <p>A stopwatch counts up from zero to measure how long something takes. A timer counts down from a set time to zero and rings when it ends. For countdowns, use the free online timer on this site.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I time more than one thing at once?</strong> Not on one page. Open this stopwatch in a second browser tab and each tab keeps its own time.</p>
+      <p><strong>Does the stopwatch work on my phone?</strong> Yes. Open this page in your phone's browser — the big display and buttons work on a phone screen, and the keyboard shortcuts are replaced by the on-screen buttons.</p>
+      <p><strong>What happens if I reload the page?</strong> The stopwatch resets to zero. Keep the tab open for as long as you are timing something, and copy your laps before you close it.</p>
+      <p><strong>Can I use this stopwatch for a race?</strong> For casual timing, yes. For an official result, no — use certified timing equipment. This is a browser tool, and reaction time on Start and Stop is part of the measurement.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/countdown-timer" class="related-card"><h4>⏳ Countdown Timer</h4><p>Count down to any date</p></a><a href="/tools/timer-online" class="related-card"><h4>⏱️ Online Timer</h4><p>Count down or up, free</p></a><a href="/tools/online-alarm-clock" class="related-card"><h4>⏰ Online Alarm Clock</h4><p>Wake up on time, free</p></a><a href="/tools/pomodoro-timer" class="related-card"><h4>🍅 Pomodoro Timer</h4><p>Focus sessions, free</p></a><a href="/tools/metronome" class="related-card"><h4>🎵 Metronome</h4><p>Keep the beat, free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/timer-suite.js"></script>
+<script>
+(function () {
+  var T = window.TimerSuite;
+  var $ = T.$;
+  var sw = new T.Stopwatch({
+    displayEl: $('swDisplay'),
+    onTick: function (e) { T.setTitle(T.fmtHMS(e) + ' elapsed'); }
+  });
+  function renderLaps() {
+    var laps = sw.laps;
+    $('lapWrap').hidden = laps.length === 0;
+    var body = $('lapBody');
+    body.innerHTML = '';
+    if (!laps.length) { $('lapSummary').textContent = ''; return; }
+    var fastest = laps[0], slowest = laps[0];
+    laps.forEach(function (l) {
+      if (l.split < fastest.split) fastest = l;
+      if (l.split > slowest.split) slowest = l;
+    });
+    var total = laps.reduce(function (a, l) { return a + l.split; }, 0);
+    var avg = total / laps.length;
+    laps.forEach(function (l) {
+      var tr = document.createElement('tr');
+      if (laps.length > 1 && l === fastest) tr.className = 'fastest';
+      else if (laps.length > 1 && l === slowest) tr.className = 'slowest';
+      var c1 = document.createElement('td'); c1.textContent = 'Lap ' + l.n;
+      var c2 = document.createElement('td'); c2.textContent = T.fmtStopwatch(l.split);
+      var c3 = document.createElement('td'); c3.textContent = T.fmtStopwatch(l.total);
+      tr.appendChild(c1); tr.appendChild(c2); tr.appendChild(c3);
+      body.appendChild(tr);
+    });
+    $('lapSummary').textContent = laps.length + ' lap' + (laps.length === 1 ? '' : 's') + ' · average split ' + T.fmtStopwatch(avg) +
+      (laps.length > 1 ? ' · fastest ' + T.fmtStopwatch(fastest.split) + ' · slowest ' + T.fmtStopwatch(slowest.split) : '');
+  }
+  function toggleStart() {
+    if (sw.running) {
+      sw.pause();
+      $('swStart').textContent = 'Resume';
+      $('swLap').disabled = true;
+      $('swStatus').textContent = 'Paused at ' + T.fmtStopwatch(sw.elapsed()) + '. Press Resume to carry on.';
+    } else {
+      sw.start();
+      $('swStart').textContent = 'Pause';
+      $('swLap').disabled = false;
+      $('swStatus').textContent = 'Running — press Lap for a split, Space to pause.';
+    }
+  }
+  $('swStart').addEventListener('click', toggleStart);
+  $('swLap').addEventListener('click', function () {
+    if (!sw.running) return;
+    sw.lap();
+    renderLaps();
+  });
+  $('swReset').addEventListener('click', function () {
+    sw.reset();
+    renderLaps();
+    $('swStart').textContent = 'Start';
+    $('swLap').disabled = true;
+    $('swStatus').textContent = 'Reset. Press Start or the Space bar.';
+  });
+  $('swFull').addEventListener('click', function () { T.toggleFullscreen($('swDisplay')); });
+  $('copyLaps').addEventListener('click', function () {
+    if (!sw.laps.length) { T.toast('No laps recorded yet.'); return; }
+    var lines = sw.laps.map(function (l) {
+      return 'Lap ' + l.n + '\t' + T.fmtStopwatch(l.split) + '\t' + T.fmtStopwatch(l.total);
+    });
+    var text = 'Lap\tSplit\tTotal\n' + lines.join('\n');
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function () { T.toast('Lap times copied.'); }, function () { T.toast('Copy was blocked.'); });
+    }
+  });
+  $('clearLaps').addEventListener('click', function () {
+    sw.laps = [];
+    renderLaps();
+    T.toast('Laps cleared.');
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.target && (ev.target.tagName === 'INPUT' || ev.target.tagName === 'TEXTAREA')) return;
+    if (ev.code === 'Space') { ev.preventDefault(); toggleStart(); }
+    else if (ev.key === 'l' || ev.key === 'L') { if (sw.running) { sw.lap(); renderLaps(); } }
+    else if (ev.key === 'r' || ev.key === 'R') { $('swReset').click(); }
+  });
+  $('copyLink').addEventListener('click', function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { T.toast('Link copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+  $('copyShare').addEventListener('click', function () {
+    var line = 'Free online stopwatch — laps, splits and hundredths, no signup. Accurate in background tabs. ' + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { T.toast('Share line copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+})();
+</script>
+</body>
+</html>

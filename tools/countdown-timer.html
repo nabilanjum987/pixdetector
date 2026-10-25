@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Countdown Timer — Count Down to Any Date | PixDetector</title>
+<meta name="description" content="Free countdown timer: count down to any date or set any duration, with presets, fullscreen display and an alarm. No signup, no ads, instant.">
+<meta name="keywords" content="countdown timer free, free countdown timer, countdown timer online, countdown to date, days until calculator, online countdown">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/countdown-timer">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/countdown-timer">
+<meta property="og:title" content="Free Countdown Timer — Count Down to Any Date | PixDetector">
+<meta property="og:description" content="Free countdown timer: count down to any date or set any duration, with presets, fullscreen display and an alarm. No signup, no ads, instant.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this countdown timer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Set as many countdowns as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
+    { "@type": "Question", "name": "How do I count down to a specific date?", "acceptedAnswer": { "@type": "Answer", "text": "Switch to the Date tab, pick your date and time — a birthday, exam, holiday or launch — and press Start. The page shows the days, hours, minutes and seconds left, live, in your own time zone." } },
+    { "@type": "Question", "name": "Will the countdown keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The countdown is measured against your device clock, not by counting ticks, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the countdown." } },
+    { "@type": "Question", "name": "What happens when the countdown reaches zero?", "acceptedAnswer": { "@type": "Answer", "text": "The display shows 00:00, a beep alarm plays, and the tab title changes to say the countdown is done. Press Stop alarm to silence it, or Reset to run it again." } },
+    { "@type": "Question", "name": "Can I share my countdown with someone?", "acceptedAnswer": { "@type": "Answer", "text": "You can share this page link, but the countdown itself is not saved or synced — the other person would need to set the same date on their own device. For a countdown that must be identical for everyone, name the date and time zone in your message." } },
+    { "@type": "Question", "name": "Why do some countdown timers show the wrong time?", "acceptedAnswer": { "@type": "Answer", "text": "Most wrong countdowns are time-zone mistakes: the timer was set in one time zone and read in another, or a shared image countdown restarted from the beginning on every view. This tool counts down in your own time zone, so the number you see is the time left for you." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to start a countdown timer",
+  "step": [
+    { "@type": "HowToStep", "name": "Choose a duration or a date", "text": "For a duration, type hours, minutes and seconds or tap a preset. For a date, switch to the Date tab and pick the date and time." },
+    { "@type": "HowToStep", "name": "Press Start", "text": "The timer counts down live. Switch tabs freely — it stays accurate because it is measured against your device clock." },
+    { "@type": "HowToStep", "name": "Hear the alarm at zero", "text": "When the countdown reaches zero, a beep plays. Press Stop alarm to silence it." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=number],input[type=datetime-local]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:560px){.grid3{grid-template-columns:1fr 1fr 1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 15px;font-size:13px;text-decoration:none}
+.mode-tabs a.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.timer-display{font-family:'Syne',sans-serif;font-size:clamp(46px,11vw,88px);font-weight:800;text-align:center;letter-spacing:2px;line-height:1.1;margin:8px 0}
+.timer-display small{font-size:.35em;color:var(--text2);font-weight:600;letter-spacing:1px}
+.days-row{display:flex;justify-content:center;align-items:baseline;gap:10px;margin:4px 0}
+.days-num{font-family:'Syne',sans-serif;font-size:clamp(40px,9vw,72px);font-weight:800}
+.days-label{font-size:15px;color:var(--text2);font-weight:600}
+.progress{height:10px;background:var(--bg2);border:1px solid var(--border2);border-radius:999px;overflow:hidden;margin-top:16px}
+.progress>div{height:100%;background:var(--accent);width:0%;transition:width .2s linear}
+.status-line{font-size:14px;color:var(--text2);text-align:center;margin-top:12px;min-height:20px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Countdown Timer
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Countdown Timer</h1>
+      <p>Count down to any date or set any duration — with presets, a fullscreen display and an alarm when it hits zero. No signup, no ads, no download.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> the countdown lives in this tab only. <strong>Closing the tab stops it</strong>, and if your laptop sleeps, the alarm cannot sound until it wakes. For a wake-up or anything you must not miss, set a phone alarm too.</div>
+    <div class="mode-tabs" aria-label="Time tools">
+      <a href="/tools/countdown-timer" class="on">Countdown</a>
+      <a href="/tools/timer-online">Timer</a>
+      <a href="/tools/online-alarm-clock">Alarm Clock</a>
+      <a href="/tools/stopwatch-online">Stopwatch</a>
+      <a href="/tools/pomodoro-timer">Pomodoro</a>
+    </div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Countdown timer">
+        <div class="chips" role="group" aria-label="Countdown mode" style="margin-bottom:16px">
+          <button type="button" class="chip" id="modeDuration" aria-pressed="true">Duration</button>
+          <button type="button" class="chip" id="modeDate" aria-pressed="false">Count down to a date</button>
+        </div>
+        <div id="durationPanel">
+          <div class="timer-display" id="cdDisplay">25:00</div>
+          <div class="grid3">
+            <div><label class="flabel" for="hInput">Hours</label><input type="number" id="hInput" min="0" max="99" value="0"></div>
+            <div><label class="flabel" for="mInput">Minutes</label><input type="number" id="mInput" min="0" max="59" value="25"></div>
+            <div><label class="flabel" for="sInput">Seconds</label><input type="number" id="sInput" min="0" max="59" value="0"></div>
+          </div>
+          <span class="flabel" style="margin-top:16px">Presets</span>
+          <div class="chips" id="presetChips">
+            <button type="button" class="chip" data-min="1">1 min</button>
+            <button type="button" class="chip" data-min="5">5 min</button>
+            <button type="button" class="chip" data-min="10">10 min</button>
+            <button type="button" class="chip" data-min="15">15 min</button>
+            <button type="button" class="chip" data-min="25">25 min</button>
+            <button type="button" class="chip" data-min="30">30 min</button>
+            <button type="button" class="chip" data-min="45">45 min</button>
+            <button type="button" class="chip" data-min="60">1 hour</button>
+          </div>
+          <div class="progress" aria-hidden="true"><div id="cdBar"></div></div>
+          <div class="actions">
+            <button type="button" class="btn" id="cdStart">Start</button>
+            <button type="button" class="btn alt" id="cdPause" disabled>Pause</button>
+            <button type="button" class="btn alt" id="cdReset">Reset</button>
+            <button type="button" class="btn alt" id="cdFull">Fullscreen</button>
+            <button type="button" class="btn alt" id="cdStopAlarm" hidden>Stop alarm</button>
+          </div>
+          <p class="status-line" id="cdStatus">Set a time and press Start. The remaining time also shows in the tab title.</p>
+        </div>
+        <div id="datePanel" hidden>
+          <div class="days-row"><span class="days-num" id="dateDays">0</span><span class="days-label">days</span></div>
+          <div class="timer-display" id="dateTime" style="font-size:clamp(36px,8vw,64px)">00:00:00</div>
+          <label class="flabel" for="dateInput">Count down to</label>
+          <input type="datetime-local" id="dateInput">
+          <span class="flabel" style="margin-top:16px">Quick dates</span>
+          <div class="chips" id="datePresets">
+            <button type="button" class="chip" data-date="newyear">New Year</button>
+            <button type="button" class="chip" data-date="christmas">Christmas</button>
+            <button type="button" class="chip" data-date="30days">30 days from now</button>
+            <button type="button" class="chip" data-date="7days">7 days from now</button>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn" id="dateStart">Start countdown</button>
+            <button type="button" class="btn alt" id="dateStop">Stop</button>
+          </div>
+          <p class="status-line" id="dateStatus">Pick a date and time. The countdown uses your own time zone.</p>
+        </div>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Free countdown timer — count down to any date or time. No signup, no ads.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Free%20countdown%20timer%20%E2%80%94%20count%20down%20to%20any%20date%20or%20time.%20No%20signup%2C%20no%20ads.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fcountdown-timer" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fcountdown-timer" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Free%20countdown%20timer%20%E2%80%94%20count%20down%20to%20any%20date%20or%20time.%20No%20signup%2C%20no%20ads.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fcountdown-timer" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: countdowns that need an account, or show the wrong time</h2>
+      <p>People looking for a countdown timer usually want one of two simple things: "how long until my birthday / exam / holiday / launch" or "give me 25 minutes and ring when it ends". What they keep running into is friction. Many countdown sites ask you to create an account, show ads around the timer, or only work as an embed code for a website. Worse, shared countdowns often show the wrong time — a timer set in one time zone reads differently in another, and image-based countdowns in emails restart from the beginning every time the message is opened. And the classic complaint about browser timers: start one, switch to another tab, and it rings minutes late because the browser throttled it.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I start a free countdown timer?</h2>
+      <p>Pick a duration — type hours, minutes and seconds or tap a preset like 5, 25 or 60 minutes — and press Start, or switch to the Date tab and pick the date and time you are counting down to. The countdown runs instantly in your browser, free, with no signup and no ads. It is measured against your device clock, so it stays accurate even when you switch tabs, and the remaining time shows in the tab title so you can watch it without coming back to the page.</p>
+      <p>A countdown timer is a tool that shows the time remaining until a chosen moment — a duration from now, or a calendar date and time — counting down second by second to zero and then signalling that the time is up. A duration countdown answers "how much time is left in this session", while a date countdown answers "how many days until the event". Both need the same thing to be trusted: an accurate clock, a visible display, and an alarm you can actually hear.</p>
+      <!-- HOW TO -->
+      <h2>How to use this countdown timer in 3 steps</h2>
+      <p><strong>Step 1:</strong> choose a duration or a date — type a time, tap a preset, or pick a calendar date and time. <strong>Step 2:</strong> press Start. The big display counts down live; press Fullscreen for a classroom, gym or presentation display. <strong>Step 3:</strong> when it reaches zero, a beep plays and the tab title changes. Press Stop alarm to silence it, or Reset to run the same countdown again.</p>
+      <h2>What people count down to most</h2>
+      <table class="facts">
+        <thead><tr><th>Countdown</th><th>Typical use</th><th>Best mode here</th></tr></thead>
+        <tbody>
+          <tr><td>New Year / Christmas</td><td>Days until a holiday</td><td>Date tab — quick-date preset</td></tr>
+          <tr><td>Birthday / anniversary</td><td>Days until a personal date</td><td>Date tab — pick the date</td></tr>
+          <tr><td>Exam / deadline</td><td>Days and hours until it starts</td><td>Date tab — pick date and time</td></tr>
+          <tr><td>25-minute focus block</td><td>Study or work sprint</td><td>Duration — 25 min preset</td></tr>
+          <tr><td>Cooking / workout interval</td><td>Minutes until the next step</td><td>Duration — 1, 5 or 10 min preset</td></tr>
+        </tbody>
+      </table>
+      <h2>Why this countdown stays accurate in background tabs</h2>
+      <p>Many online timers count ticks — they subtract one second per timer call. Browsers slow those calls down in hidden tabs to save battery, so a tick-counting timer runs slow the moment you look away. This one works from a deadline instead: pressing Start records the exact moment the countdown should end against your device clock, and every reading is simply the difference between that moment and now. A hidden tab, a throttled page, or a laptop that slept and woke does not change the answer — the alarm fires when it should, and the tab title carries the time remaining.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this countdown timer really free?</summary>
+        <p>Yes. Set as many countdowns as you like, free, with no signup, no ads and no download. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I count down to a specific date?</summary>
+        <p>Switch to the Date tab, pick your date and time — a birthday, exam, holiday or launch — and press Start. The page shows the days, hours, minutes and seconds left, live, in your own time zone.</p>
+      </details>
+      <details class="faq">
+        <summary>Will the countdown keep running if I switch tabs?</summary>
+        <p>Yes. The countdown is measured against your device clock, not by counting ticks, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the countdown.</p>
+      </details>
+      <details class="faq">
+        <summary>What happens when the countdown reaches zero?</summary>
+        <p>The display shows 00:00, a beep alarm plays, and the tab title changes to say the countdown is done. Press Stop alarm to silence it, or Reset to run it again.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I share my countdown with someone?</summary>
+        <p>You can share this page link, but the countdown itself is not saved or synced — the other person would need to set the same date on their own device. For a countdown that must be identical for everyone, name the date and time zone in your message.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do some countdown timers show the wrong time?</summary>
+        <p>Most wrong countdowns are time-zone mistakes: the timer was set in one time zone and read in another, or a shared image countdown restarted from the beginning on every view. This tool counts down in your own time zone, so the number you see is the time left for you.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How many days until New Year?</strong> Use the Date tab and tap the New Year preset — it shows the exact days, hours, minutes and seconds left, live.</p>
+      <p><strong>Can I use this countdown timer on my phone?</strong> Yes. Open this page in your phone's browser, set the time, and keep the tab open. It works on a phone screen and in fullscreen.</p>
+      <p><strong>Does the countdown work offline?</strong> After the page has loaded, yes — the countdown runs entirely in your browser and needs no connection. Reloading the page resets it, though.</p>
+      <p><strong>What is the difference between a countdown timer and a stopwatch?</strong> A countdown counts down from a set time to zero; a stopwatch counts up from zero to measure how long something takes. Try the <a href="/tools/stopwatch-online">free online stopwatch</a> for count-up timing.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/timer-online" class="related-card"><h4>⏱️ Online Timer</h4><p>Count down or up, free</p></a><a href="/tools/online-alarm-clock" class="related-card"><h4>⏰ Online Alarm Clock</h4><p>Wake up on time, free</p></a><a href="/tools/stopwatch-online" class="related-card"><h4>⏱️ Online Stopwatch</h4><p>Laps and splits, free</p></a><a href="/tools/pomodoro-timer" class="related-card"><h4>🍅 Pomodoro Timer</h4><p>Focus sessions, free</p></a><a href="/tools/metronome" class="related-card"><h4>🎵 Metronome</h4><p>Keep the beat, free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/timer-suite.js"></script>
+<script>
+(function () {
+  var T = window.TimerSuite;
+  var $ = T.$;
+  var cd = new T.Countdown({
+    displayEl: $('cdDisplay'),
+    onTick: function (rem, total) {
+      $('cdBar').style.width = total > 0 ? (100 * (1 - rem / total)).toFixed(1) + '%' : '0%';
+      T.setTitle(T.fmtHMS(rem) + ' left');
+    },
+    onDone: function () {
+      T.alarmSound(3);
+      $('cdStatus').textContent = "Time's up!";
+      $('cdStopAlarm').hidden = false;
+      $('cdStart').disabled = false;
+      $('cdPause').disabled = true;
+      T.setTitle("Time's up!");
+    }
+  });
+  var pausedMs = 0;
+  function readDurationMs() {
+    var h = Math.max(0, parseInt($('hInput').value, 10) || 0);
+    var m = Math.max(0, parseInt($('mInput').value, 10) || 0);
+    var s = Math.max(0, parseInt($('sInput').value, 10) || 0);
+    return (h * 3600 + m * 60 + s) * 1000;
+  }
+  function setInputs(ms) {
+    var s = Math.floor(ms / 1000);
+    $('hInput').value = Math.floor(s / 3600);
+    $('mInput').value = Math.floor((s % 3600) / 60);
+    $('sInput').value = s % 60;
+  }
+  $('cdStart').addEventListener('click', function () {
+    var ms = pausedMs > 0 ? pausedMs : readDurationMs();
+    if (ms <= 0) { T.toast('Set a time greater than zero first.'); return; }
+    pausedMs = 0;
+    $('cdStopAlarm').hidden = true;
+    cd.start(ms);
+    $('cdStart').disabled = true;
+    $('cdPause').disabled = false;
+    $('cdStatus').textContent = 'Counting down — switch tabs freely, it stays accurate.';
+  });
+  $('cdPause').addEventListener('click', function () {
+    pausedMs = cd.pause();
+    $('cdStart').disabled = false;
+    $('cdPause').disabled = true;
+    $('cdStatus').textContent = 'Paused at ' + T.fmtHMS(pausedMs) + '. Press Start to resume.';
+  });
+  $('cdReset').addEventListener('click', function () {
+    pausedMs = 0;
+    cd.stop();
+    cd.totalMs = readDurationMs();
+    cd._render(cd.totalMs);
+    $('cdBar').style.width = '0%';
+    $('cdStart').disabled = false;
+    $('cdPause').disabled = true;
+    $('cdStopAlarm').hidden = true;
+    $('cdStatus').textContent = 'Reset. Set a time and press Start.';
+  });
+  $('cdStopAlarm').addEventListener('click', function () {
+    $('cdStopAlarm').hidden = true;
+    $('cdStatus').textContent = 'Alarm stopped.';
+    T.setTitle(null);
+  });
+  $('cdFull').addEventListener('click', function () { T.toggleFullscreen($('cdDisplay')); });
+  $('presetChips').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.chip');
+    if (!b) return;
+    var ms = parseInt(b.getAttribute('data-min'), 10) * 60000;
+    pausedMs = 0;
+    cd.stop();
+    setInputs(ms);
+    cd.totalMs = ms;
+    cd._render(ms);
+    $('cdBar').style.width = '0%';
+    $('cdStart').disabled = false;
+    $('cdPause').disabled = true;
+    $('cdStatus').textContent = 'Preset: ' + b.textContent + '. Press Start.';
+  });
+  /* ---- date countdown ---- */
+  var dc = new T.DateCountdown({
+    daysEl: $('dateDays'),
+    timeEl: $('dateTime'),
+    onDone: function () {
+      T.alarmSound(3);
+      $('dateStatus').textContent = 'That moment has arrived!';
+    }
+  });
+  function toLocalInput(d) {
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + 'T' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+  $('modeDuration').addEventListener('click', function () {
+    $('durationPanel').hidden = false;
+    $('datePanel').hidden = true;
+    $('modeDuration').setAttribute('aria-pressed', 'true');
+    $('modeDate').setAttribute('aria-pressed', 'false');
+  });
+  $('modeDate').addEventListener('click', function () {
+    $('durationPanel').hidden = true;
+    $('datePanel').hidden = false;
+    $('modeDate').setAttribute('aria-pressed', 'true');
+    $('modeDuration').setAttribute('aria-pressed', 'false');
+  });
+  $('datePresets').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.chip');
+    if (!b) return;
+    var now = new Date(), target;
+    var kind = b.getAttribute('data-date');
+    if (kind === 'newyear') { target = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0); }
+    else if (kind === 'christmas') {
+      target = new Date(now.getFullYear(), 11, 25, 0, 0, 0);
+      if (target <= now) { target = new Date(now.getFullYear() + 1, 11, 25, 0, 0, 0); }
+    }
+    else if (kind === '30days') { target = new Date(now.getTime() + 30 * 86400000); }
+    else { target = new Date(now.getTime() + 7 * 86400000); }
+    $('dateInput').value = toLocalInput(target);
+  });
+  $('dateStart').addEventListener('click', function () {
+    var v = $('dateInput').value;
+    if (!v) { T.toast('Pick a date and time first.'); return; }
+    var target = new Date(v);
+    if (isNaN(target.getTime())) { T.toast('That date could not be read.'); return; }
+    if (target.getTime() <= Date.now()) { T.toast('Pick a date in the future.'); return; }
+    dc.start(target);
+    $('dateStatus').textContent = 'Counting down to ' + target.toLocaleString() + ' (your time zone).';
+  });
+  $('dateStop').addEventListener('click', function () {
+    dc.stop();
+    $('dateStatus').textContent = 'Countdown stopped.';
+  });
+  /* ---- share ---- */
+  $('copyLink').addEventListener('click', function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { T.toast('Link copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+  $('copyShare').addEventListener('click', function () {
+    var line = 'Free countdown timer — count down to any date or time. No signup, no ads. ' + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { T.toast('Share line copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+})();
+</script>
+</body>
+</html>

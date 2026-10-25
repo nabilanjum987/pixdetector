@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Pomodoro Timer — 25/5 Focus Sessions | PixDetector</title>
+<meta name="description" content="Free Pomodoro timer: 25-minute focus, 5-minute breaks, long break after 4 sessions. Adjustable, with session counter. No signup, no ads.">
+<meta name="keywords" content="pomodoro timer free, free pomodoro timer, pomodoro timer online, focus timer, 25 minute timer, pomodoro technique timer">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/pomodoro-timer">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/pomodoro-timer">
+<meta property="og:title" content="Free Pomodoro Timer — 25/5 Focus Sessions | PixDetector">
+<meta property="og:description" content="Free Pomodoro timer: 25-minute focus, 5-minute breaks, long break after 4 sessions. Adjustable, with session counter. No signup, no ads.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this Pomodoro timer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Run as many focus sessions as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
+    { "@type": "Question", "name": "What is the Pomodoro Technique?", "acceptedAnswer": { "@type": "Answer", "text": "The Pomodoro Technique is a time-management method created by Francesco Cirillo in the late 1980s: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15 to 30 minute break after four sessions. The small commitment makes starting easy, and the breaks keep your attention fresh." } },
+    { "@type": "Question", "name": "Why 25 minutes? Can I change it?", "acceptedAnswer": { "@type": "Answer", "text": "25 minutes is the classic default, not a law — Cirillo chose it because it felt manageable. This timer lets you change every interval: try 50/10 for deep work like writing or coding, or 15/3 if 25 feels too long. Match the interval to the work." } },
+    { "@type": "Question", "name": "What should I do during the break?", "acceptedAnswer": { "@type": "Answer", "text": "Step away from the screen: stand up, stretch, drink water, look out a window, take a short walk. Do not check email or social media — that is a context switch, not rest, and it is the most common reason breaks turn into 20 lost minutes." } },
+    { "@type": "Question", "name": "What if the timer rings while I am in flow?", "acceptedAnswer": { "@type": "Answer", "text": "If you are genuinely in flow, it is fine to keep working and take your break at the next natural stopping point — the method should serve your focus, not interrupt it. If it happens often, lengthen your focus interval to 50 minutes. But do not skip breaks entirely; that is how the technique degrades back into the grind it was designed to prevent." } },
+    { "@type": "Question", "name": "Does the Pomodoro timer keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The timer is measured against your device clock, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the session." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use the Pomodoro timer",
+  "step": [
+    { "@type": "HowToStep", "name": "Pick one task", "text": "Choose exactly what you will work on, and remove distractions: silence your phone and close extra tabs." },
+    { "@type": "HowToStep", "name": "Press Start", "text": "Work on that one task for 25 minutes until the timer rings. The session dots track your progress." },
+    { "@type": "HowToStep", "name": "Take the break", "text": "Take a 5-minute break away from the screen. After four focus sessions, take a 15-minute long break." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=number]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:560px){.grid3{grid-template-columns:1fr 1fr 1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 15px;font-size:13px;text-decoration:none}
+.mode-tabs a.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.timer-display{font-family:'Syne',sans-serif;font-size:clamp(46px,11vw,88px);font-weight:800;text-align:center;letter-spacing:2px;line-height:1.1;margin:8px 0}
+.phase-label{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;text-align:center;color:var(--accent)}
+.dots{display:flex;justify-content:center;gap:10px;margin:12px 0 4px}
+.dots span{width:14px;height:14px;border-radius:50%;border:2px solid var(--border2);background:var(--bg2)}
+.dots span.done{background:var(--accent);border-color:var(--accent)}
+.status-line{font-size:14px;color:var(--text2);text-align:center;margin-top:12px;min-height:20px}
+.kbd-hint{font-size:13px;color:var(--text2);text-align:center;margin-top:8px}
+.kbd-hint kbd{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:2px 7px;font-family:'DM Sans',sans-serif;font-size:12px}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Pomodoro Timer
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Pomodoro Timer</h1>
+      <p>Work in 25-minute focus sessions with 5-minute breaks and a long break after four — with a session counter and adjustable intervals. No signup, no ads.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> a timer cannot create focus by itself — it only protects the time you give it. Pick <strong>one task</strong> before you press Start, and take the breaks away from the screen. Skipping breaks is how the technique stops working.</div>
+    <div class="mode-tabs" aria-label="Time tools">
+      <a href="/tools/countdown-timer">Countdown</a>
+      <a href="/tools/timer-online">Timer</a>
+      <a href="/tools/online-alarm-clock">Alarm Clock</a>
+      <a href="/tools/stopwatch-online">Stopwatch</a>
+      <a href="/tools/pomodoro-timer" class="on">Pomodoro</a>
+    </div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Pomodoro timer">
+        <p class="phase-label" id="phaseLabel">Focus</p>
+        <div class="timer-display" id="pomDisplay">25:00</div>
+        <div class="dots" id="dots" aria-label="Sessions completed"><span></span><span></span><span></span><span></span></div>
+        <p class="status-line" id="pomStatus">Pick one task, then press Start. Session 1 of 4.</p>
+        <div class="actions" style="justify-content:center">
+          <button type="button" class="btn" id="pomStart">Start</button>
+          <button type="button" class="btn alt" id="pomSkip">Skip</button>
+          <button type="button" class="btn alt" id="pomReset">Reset</button>
+          <button type="button" class="btn alt" id="pomFull">Fullscreen</button>
+        </div>
+        <p class="kbd-hint"><kbd>Space</kbd> start / pause &nbsp; <kbd>S</kbd> skip &nbsp; <kbd>R</kbd> reset</p>
+        <span class="flabel" style="margin-top:18px">Rhythm presets</span>
+        <div class="chips" id="rhythmChips">
+          <button type="button" class="chip" data-focus="25" data-short="5" data-long="15" aria-pressed="true">Classic 25 / 5</button>
+          <button type="button" class="chip" data-focus="50" data-short="10" data-long="30" aria-pressed="false">Deep work 50 / 10</button>
+          <button type="button" class="chip" data-focus="15" data-short="3" data-long="10" aria-pressed="false">Short 15 / 3</button>
+          <button type="button" class="chip" data-focus="90" data-short="20" data-long="30" aria-pressed="false">Flow 90 / 20</button>
+        </div>
+        <div class="grid3" style="margin-top:16px">
+          <div><label class="flabel" for="focusInput">Focus (min)</label><input type="number" id="focusInput" min="1" max="180" value="25"></div>
+          <div><label class="flabel" for="shortInput">Short break (min)</label><input type="number" id="shortInput" min="1" max="60" value="5"></div>
+          <div><label class="flabel" for="longInput">Long break (min)</label><input type="number" id="longInput" min="1" max="60" value="15"></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="toggle" id="autoToggle" aria-pressed="false">Auto-start next session: off</button>
+          <button type="button" class="toggle" id="soundToggle" aria-pressed="true">Sound: on</button>
+        </div>
+        <p class="trust" id="pomCounter">0 focus sessions done · 0 minutes focused today.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Free Pomodoro timer — 25-minute focus, 5-minute breaks, long break after 4. No signup, no ads.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Free%20Pomodoro%20timer%20%E2%80%94%2025-minute%20focus%2C%205-minute%20breaks%2C%20long%20break%20after%204.%20No%20signup%2C%20no%20ads.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpomodoro-timer" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpomodoro-timer" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Free%20Pomodoro%20timer%20%E2%80%94%2025-minute%20focus%2C%205-minute%20breaks%2C%20long%20break%20after%204.%20No%20signup%2C%20no%20ads.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fpomodoro-timer" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: "Pomodoro doesn't work for me"</h2>
+      <p>Search for "Pomodoro not working" and the same three complaints come up again and again. First, the rigid 25 minutes: people doing deep creative work — writing, coding, design — hit flow around minute 18 and get interrupted by the bell at minute 25. The timer that was supposed to help focus ends up breaking it. Second, the break becomes the distraction: a five-minute break spent scrolling social media turns into fifteen minutes and leaves the mind more cluttered than before. Third, the pomodoro with no clear task: start the timer without deciding what you will do, and 25 minutes of busywork follows. People want a timer that adapts — longer intervals for deep work, a session counter that shows progress, and a break that actually restores attention.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>What is the Pomodoro Technique?</h2>
+      <p>The Pomodoro Technique is a time-management method created by Francesco Cirillo in the late 1980s: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15 to 30 minute break after four sessions. It works because the commitment is small — anyone can focus for 25 minutes — and the timer turns starting into a game you can win repeatedly. This timer runs the whole cycle for you: press Start, focus on one task until the chime, take the break, and watch the session dots fill in. After four sessions, you earn the long break.</p>
+      <p>A pomodoro is one 25-minute focus session, named after the tomato-shaped kitchen timer ("pomodoro" is Italian for tomato) Cirillo used as a student. The technique is not the timer itself — it is the rhythm: short, protected sprints of single-task work, separated by real rest. The exact 25/5 split is a practical default, not a scientifically optimal number, so treat it as a starting point and adjust it to the work.</p>
+      <!-- HOW TO -->
+      <h2>How to run a Pomodoro session in 3 steps</h2>
+      <p><strong>Step 1:</strong> pick one task and write down what "done" means for this session — "finish outline section 1 only", not "work on the report". Remove distractions: silence your phone and close extra tabs. <strong>Step 2:</strong> press Start and work on that one task until the timer rings. If a distracting thought pops up, write it on a notepad instead of acting on it. <strong>Step 3:</strong> when the chime sounds, take a 5-minute break away from the screen. After four sessions, take the 15-minute long break.</p>
+      <h2>Which interval fits your work?</h2>
+      <table class="facts">
+        <thead><tr><th>Rhythm</th><th>Best for</th><th>Watch out for</th></tr></thead>
+        <tbody>
+          <tr><td>25 / 5 (classic)</td><td>Admin tasks, email, studying, starting a dreaded task</td><td>Too short for deep creative work</td></tr>
+          <tr><td>50 / 10</td><td>Writing, coding, analysis — work with real setup cost</td><td>Needs a genuinely restorative break</td></tr>
+          <tr><td>15 / 3</td><td>Building focus stamina, attention difficulties</td><td>Too short once focus improves</td></tr>
+          <tr><td>90 / 20</td><td>Deep work that reaches flow</td><td>Do not promote yourself here until 50-minute blocks feel easy</td></tr>
+        </tbody>
+      </table>
+      <h2>The break is not optional — and it is not your phone</h2>
+      <p>Breaks are where the technique actually works: attention declines the longer you work, and short breaks restore energy and reduce fatigue. But a break only restores attention if it removes attention demands. Checking email or scrolling social media during a five-minute break is not rest — it is directed attention in a different direction, and it is the most common way the method fails. Stand up, stretch, refill your water, look out a window, take a short walk. And if the timer rings while you are genuinely in flow, keep going and take the break at the next natural stopping point — the method should serve your focus, not interrupt it. If that happens often, switch to the 50/10 rhythm.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this Pomodoro timer really free?</summary>
+        <p>Yes. Run as many focus sessions as you like, free, with no signup, no ads and no download. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the Pomodoro Technique?</summary>
+        <p>The Pomodoro Technique is a time-management method created by Francesco Cirillo in the late 1980s: work in focused 25-minute sessions, take a 5-minute break after each, and a longer 15 to 30 minute break after four sessions. The small commitment makes starting easy, and the breaks keep your attention fresh.</p>
+      </details>
+      <details class="faq">
+        <summary>Why 25 minutes? Can I change it?</summary>
+        <p>25 minutes is the classic default, not a law — Cirillo chose it because it felt manageable. This timer lets you change every interval: try 50/10 for deep work like writing or coding, or 15/3 if 25 feels too long. Match the interval to the work.</p>
+      </details>
+      <details class="faq">
+        <summary>What should I do during the break?</summary>
+        <p>Step away from the screen: stand up, stretch, drink water, look out a window, take a short walk. Do not check email or social media — that is a context switch, not rest, and it is the most common reason breaks turn into 20 lost minutes.</p>
+      </details>
+      <details class="faq">
+        <summary>What if the timer rings while I am in flow?</summary>
+        <p>If you are genuinely in flow, it is fine to keep working and take your break at the next natural stopping point — the method should serve your focus, not interrupt it. If it happens often, lengthen your focus interval to 50 minutes. But do not skip breaks entirely; that is how the technique degrades back into the grind it was designed to prevent.</p>
+      </details>
+      <details class="faq">
+        <summary>Does the Pomodoro timer keep running if I switch tabs?</summary>
+        <p>Yes. The timer is measured against your device clock, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the session.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How many Pomodoros should I do in a day?</strong> There is no fixed number. Four sessions (about two hours of focused work) is a solid day for most people; eight is a very full one. Count sessions, not hours — the counter on this page tracks them for you.</p>
+      <p><strong>Can I use Pomodoro for studying?</strong> Yes — it is one of the most common uses. Use 25/5 for review and memorisation, and 50/10 for essays and problem sets that need setup time.</p>
+      <p><strong>Does Pomodoro work for ADHD?</strong> Many people with ADHD find the short, fixed window helps with task initiation — starting is the hard part, and 25 minutes feels manageable. Try the 15/3 rhythm first and build up.</p>
+      <p><strong>What is the difference between a Pomodoro timer and a regular timer?</strong> A Pomodoro timer runs the full focus-break cycle automatically and counts your sessions. A regular timer just counts down once. For a single countdown, use the <a href="/tools/timer-online">free online timer</a>.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/countdown-timer" class="related-card"><h4>⏳ Countdown Timer</h4><p>Count down to any date</p></a><a href="/tools/timer-online" class="related-card"><h4>⏱️ Online Timer</h4><p>Count down or up, free</p></a><a href="/tools/online-alarm-clock" class="related-card"><h4>⏰ Online Alarm Clock</h4><p>Wake up on time, free</p></a><a href="/tools/stopwatch-online" class="related-card"><h4>⏱️ Online Stopwatch</h4><p>Laps and splits, free</p></a><a href="/tools/metronome" class="related-card"><h4>🎵 Metronome</h4><p>Keep the beat, free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/timer-suite.js"></script>
+<script>
+(function () {
+  var T = window.TimerSuite;
+  var $ = T.$;
+  var soundOn = true;
+  var pausedMs = 0;
+  var pom = new T.Pomodoro({
+    displayEl: $('pomDisplay'),
+    phaseEl: $('phaseLabel'),
+    onPhase: function (phase, completed) {
+      renderDots(completed);
+      var n = pom.roundsBeforeLong;
+      if (phase === 'focus') {
+        $('pomStatus').textContent = 'Focus — session ' + ((completed % n) + 1) + ' of ' + n + '. Pick one task and work on it alone.';
+      } else if (phase === 'short') {
+        $('pomStatus').textContent = 'Short break — step away from the screen. ' + completed + ' session' + (completed === 1 ? '' : 's') + ' done.';
+      } else {
+        $('pomStatus').textContent = 'Long break — you earned it. Stretch, walk, drink water. ' + completed + ' sessions done.';
+      }
+      $('pomCounter').textContent = pom.completed + ' focus session' + (pom.completed === 1 ? '' : 's') + ' done · ' + pom.focusedMinutes + ' minutes focused today.';
+      $('pomStart').textContent = 'Start';
+    }
+  });
+  function renderDots(completed) {
+    var dots = document.querySelectorAll('#dots span');
+    var n = pom.roundsBeforeLong;
+    dots.forEach(function (d, i) {
+      d.classList.toggle('done', i < (completed % n));
+    });
+  }
+  function applySettings() {
+    pom.focusMin = Math.max(1, parseInt($('focusInput').value, 10) || 25);
+    pom.shortMin = Math.max(1, parseInt($('shortInput').value, 10) || 5);
+    pom.longMin = Math.max(1, parseInt($('longInput').value, 10) || 15);
+  }
+  function refreshDisplay() {
+    pom.cd.stop();
+    pom.cd.totalMs = pom.phaseMinutes() * 60000;
+    pom.cd._render(pom.cd.totalMs);
+  }
+  $('pomStart').addEventListener('click', function () {
+    if (pom.running) {
+      pausedMs = pom.pause();
+      $('pomStart').textContent = 'Resume';
+      $('pomStatus').textContent = 'Paused at ' + T.fmtHMS(pausedMs) + '. Press Resume to carry on.';
+      return;
+    }
+    applySettings();
+    if (pausedMs > 0) {
+      pom.resume(pausedMs);
+      pausedMs = 0;
+    } else {
+      pom.start();
+    }
+    $('pomStart').textContent = 'Pause';
+  });
+  $('pomSkip').addEventListener('click', function () {
+    pausedMs = 0;
+    pom.skip();
+    $('pomStart').textContent = 'Start';
+  });
+  $('pomReset').addEventListener('click', function () {
+    pausedMs = 0;
+    applySettings();
+    pom.reset();
+    renderDots(0);
+    $('pomStart').textContent = 'Start';
+    $('pomStatus').textContent = 'Reset. Pick one task, then press Start. Session 1 of 4.';
+    $('pomCounter').textContent = '0 focus sessions done · 0 minutes focused today.';
+  });
+  $('pomFull').addEventListener('click', function () { T.toggleFullscreen($('pomDisplay')); });
+  $('rhythmChips').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.chip');
+    if (!b) return;
+    document.querySelectorAll('#rhythmChips .chip').forEach(function (c) { c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); });
+    $('focusInput').value = b.getAttribute('data-focus');
+    $('shortInput').value = b.getAttribute('data-short');
+    $('longInput').value = b.getAttribute('data-long');
+    pausedMs = 0;
+    applySettings();
+    pom.reset();
+    renderDots(0);
+    $('pomStart').textContent = 'Start';
+    $('pomStatus').textContent = 'Rhythm set: ' + b.textContent + '. Pick one task, then press Start.';
+  });
+  ['focusInput', 'shortInput', 'longInput'].forEach(function (id) {
+    $(id).addEventListener('change', function () {
+      if (pom.running) return;
+      pausedMs = 0;
+      applySettings();
+      refreshDisplay();
+    });
+  });
+  $('autoToggle').addEventListener('click', function () {
+    pom.autoStart = !pom.autoStart;
+    this.setAttribute('aria-pressed', pom.autoStart ? 'true' : 'false');
+    this.textContent = 'Auto-start next session: ' + (pom.autoStart ? 'on' : 'off');
+  });
+  $('soundToggle').addEventListener('click', function () {
+    soundOn = !soundOn;
+    T.setSoundOn(soundOn);
+    this.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+    this.textContent = 'Sound: ' + (soundOn ? 'on' : 'off');
+    if (!soundOn) { T.toast('Sound off — the timer will still switch phases silently.'); }
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.target && (ev.target.tagName === 'INPUT' || ev.target.tagName === 'TEXTAREA')) return;
+    if (ev.code === 'Space') { ev.preventDefault(); $('pomStart').click(); }
+    else if (ev.key === 's' || ev.key === 'S') { $('pomSkip').click(); }
+    else if (ev.key === 'r' || ev.key === 'R') { $('pomReset').click(); }
+  });
+  $('copyLink').addEventListener('click', function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { T.toast('Link copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+  $('copyShare').addEventListener('click', function () {
+    var line = 'Free Pomodoro timer — 25-minute focus, 5-minute breaks, long break after 4. No signup, no ads. ' + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { T.toast('Share line copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+  renderDots(0);
+})();
+</script>
+</body>
+</html>

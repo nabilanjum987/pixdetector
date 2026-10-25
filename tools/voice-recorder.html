@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice Recorder Online Free — Record & Download</title>
+<meta name="description" content="Record your voice free in your browser — pause, resume, play back and download. No signup, no install. Note: files save as WebM, not MP3.">
+<meta name="keywords" content="voice recorder online free, record voice online, online voice recorder, free voice recorder, record audio online">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/voice-recorder">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/voice-recorder">
+<meta property="og:title" content="Voice Recorder Online Free — Record & Download">
+<meta property="og:description" content="Record your voice free in your browser — pause, resume, play back and download. No signup, no install. Note: files save as WebM, not MP3.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this voice recorder really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Record as often as you like, free, with no signup, no install and no time limit imposed by us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the download WebM and not MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers record in WebM (Opus) natively; turning it into MP3 needs an extra conversion step. This page gives you the honest native file instead of pretending it records MP3. Convert it with any audio converter if you need MP3."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my microphone not working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your browser blocked microphone access. Click the microphone or padlock icon in the address bar, allow the microphone, and reload the page. On a phone, enable the microphone for this site in the browser settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my recording uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is captured and stored only in this tab on your device. If you close the tab without downloading, the recording is gone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a time limit on recordings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No limit set by this tool. Very long recordings use more memory, so keep the tab open and download when you finish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pause and resume a recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Pause stops capturing without ending the take, and Resume continues the same recording. The timer only counts time spent actively recording."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to record your voice online",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Allow the microphone",
+      "text": "Tap Start recording and allow microphone access when your browser asks."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Record, pause, resume",
+      "text": "Speak while the timer runs. Pause to think without ending the take, then resume from the same recording."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Stop and play back",
+      "text": "Tap Stop, then play the recording back to check it before you keep it."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download the file",
+      "text": "Download the WebM file (MP4/M4A on Safari) before closing the tab \u2014 the recording is not saved anywhere else."
+    }
+  ]
+}
+</script>
+<style>
+
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=text],input[type=number],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+textarea{resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.ok{color:#34d399;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.7;word-break:break-word;min-height:56px;margin-top:12px}
+table.facts{width:100%;border-collapse:collapse;font-size:14px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Voice Recorder
+    </div>
+    <div class="tool-page-header">
+      <h1>Voice Recorder Online Free</h1>
+      <p>Press record and speak — pause and resume whenever you like, play it back, then download the file. Free, no signup, no install, and your audio never leaves your browser.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Needs microphone permission</strong> — your browser will ask for it. <strong>The download is a WebM file, not an MP3</strong> — most browsers and players accept WebM, but check your editor or app first. Closing the tab before downloading loses the recording.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Recorder">
+        <h2>Recorder</h2>
+        <p style="font-family:'Syne',sans-serif;font-size:34px;font-weight:800;text-align:center" id="recTimer">00:00</p>
+        <canvas id="levelCanvas" width="520" height="60" style="width:100%;border-radius:10px;background:var(--bg2)"></canvas>
+        <p class="trust" id="recStatus" style="text-align:center">Ready. Tap Start recording and allow the microphone when your browser asks.</p>
+        <div class="actions" style="justify-content:center">
+          <button type="button" class="btn" id="startRec">● Start recording</button>
+          <button type="button" class="btn alt" id="pauseRec" disabled>Pause</button>
+          <button type="button" class="btn alt" id="stopRec" disabled>Stop</button>
+        </div>
+        <p class="err" id="recError" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Playback and download">
+        <h2>Playback &amp; download</h2>
+        <audio id="recAudio" controls style="width:100%" hidden></audio>
+        <p class="trust" id="recMeta">No recording yet.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="dlRec" disabled>Download recording (.webm)</button>
+          <button type="button" class="btn alt" id="newRec" disabled>Record again</button>
+        </div>
+        <p class="trust">Format: WebM with Opus audio in most browsers; Safari records MP4/M4A instead. Either way, the file is made on your device — nothing is uploaded.</p>
+      </div>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Record your voice free in your browser — pause, play back, download. No signup.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Record%20your%20voice%20free%20in%20your%20browser%20%E2%80%94%20pause%2C%20play%20back%2C%20download.%20No%20signup&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvoice-recorder" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvoice-recorder" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Record%20your%20voice%20free%20in%20your%20browser%20%E2%80%94%20pause%2C%20play%20back%2C%20download.%20No%20signup.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvoice-recorder" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: you need a voice note, not an account</h2>
+      <p>Most of the time a voice recording is a small job: a quick voice note, a draft of a presentation, practising how a talk actually sounds, a language exercise, a narration test before the real take. But the free recorders people find online keep turning a small job into a big one — sign up first, a time limit on the free tier, a watermark, or an export that only unlocks after an account. On social media the same wish keeps coming up: people asking for a free alternative to paid voice tools, a free download with no signup, and then complaining when the tool they were sent stops working or the site behind it has gone dead. What they want is the simplest version: press record, speak, listen back, keep the file. That is what this page does — and it says the one honest catch up front, that the file is WebM, not MP3.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I record my voice online for free?</h2>
+      <p>Press record, allow the microphone, and speak — pause and resume whenever you like, play it back, then download the file. It is free, with no signup and no install, and your audio never leaves your browser. The download is a WebM file, not an MP3, so check your player or editor accepts WebM first.</p>
+      <p>A voice recorder is a tool that captures sound from your microphone and saves it as an audio file. This one uses your browser's built-in MediaRecorder, so the recording happens on your own device. WebM is the open audio format most browsers record in; it plays in Chrome, Firefox, Edge and most modern players, and converts easily to MP3 with any audio converter.</p>
+      <!-- HOW TO -->
+      <h2>How to record your voice in 4 steps</h2>
+      <p><strong>Step 1:</strong> tap Start recording and allow microphone access when your browser asks. <strong>Step 2:</strong> speak — the timer and the sound bar show you it is picking you up. <strong>Step 3:</strong> pause to think without ending the take, then resume; tap Stop when you are done. <strong>Step 4:</strong> play it back, then download the WebM file before you close the tab.</p>
+      <h2>What can you use it for?</h2>
+      <p>Quick voice notes and ideas before they slip away. Rehearsing a presentation and hearing how you actually sound — most people are surprised the first time. Practising a new language out loud and playing it back. Draft narration for a video before committing to a full take. A message for someone when typing is awkward. What it is not for: anything you cannot afford to lose — because the recording lives only in this tab, download it before you close the page.</p>
+      <h2>WebM or MP3 — which will you get?</h2>
+      <table class="facts"><thead><tr><th>Browser</th><th>Download you get</th><th>Where it plays</th></tr></thead><tbody>
+      <tr><td>Chrome / Edge / Firefox</td><td>WebM (Opus audio)</td><td>Chrome, Firefox, Edge, VLC, most modern players</td></tr>
+      <tr><td>Safari</td><td>MP4 / M4A</td><td>Apple devices, QuickTime, most players</td></tr>
+      <tr><td>Need MP3?</td><td>Convert the download</td><td>Use any audio converter — this page does not export MP3 directly, and saying otherwise would be a lie</td></tr>
+      </tbody></table>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this voice recorder really free?</summary><p>Yes. Record as often as you like, free, with no signup, no install and no time limit imposed by us.</p></details><details class="faq"><summary>Why is the download WebM and not MP3?</summary><p>Browsers record in WebM (Opus) natively; turning it into MP3 needs an extra conversion step. This page gives you the honest native file instead of pretending it records MP3. Convert it with any audio converter if you need MP3.</p></details><details class="faq"><summary>Why is my microphone not working?</summary><p>Your browser blocked microphone access. Click the microphone or padlock icon in the address bar, allow the microphone, and reload the page. On a phone, enable the microphone for this site in the browser settings.</p></details><details class="faq"><summary>Is my recording uploaded anywhere?</summary><p>No. It is captured and stored only in this tab on your device. If you close the tab without downloading, the recording is gone.</p></details><details class="faq"><summary>Is there a time limit on recordings?</summary><p>No limit set by this tool. Very long recordings use more memory, so keep the tab open and download when you finish.</p></details><details class="faq"><summary>Can I pause and resume a recording?</summary><p>Yes. Pause stops capturing without ending the take, and Resume continues the same recording. The timer only counts time spent actively recording.</p></details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I record on my phone?</strong> Yes — open this page in your phone browser, allow the microphone, and record the same way.</p>
+      <p><strong>Where is my recording saved?</strong> Nowhere but this tab. Download it before closing the page, or it is lost.</p>
+      <p><strong>Can I transcribe the recording to text?</strong> Not here — this tool records audio only. Use an audio-to-text tool on the downloaded file.</p>
+      <p><strong>Why is my recording quiet?</strong> Move closer to the microphone, raise your input volume in your system sound settings, and record away from fans and keyboards.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/mp3-cutter" class="related-card"><h4>✂️ MP3 Cutter</h4><p>Cut MP3 audio free</p></a><a href="/tools/audio-to-text-converter" class="related-card"><h4>📝 Audio to Text</h4><p>Transcribe audio free</p></a><a href="/tools/audio-cutter" class="related-card"><h4>🎵 Audio Cutter</h4><p>Cut audio free</p></a><a href="/tools/metronome" class="related-card"><h4>🥁 Metronome</h4><p>Free online metronome</p></a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+
+<script>
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var mediaRecorder = null, stream = null, chunks = [], audioCtx = null, analyser = null, raf = null;
+  var startedAt = 0, elapsed = 0, tickTimer = null, paused = false, blobUrl = null, mimeUsed = "";
+  function fmt(s) { s = Math.floor(s); var m = Math.floor(s / 60), r = s % 60; return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r; }
+  function drawLevel() {
+    var c = $("levelCanvas"), ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    if (!analyser) { raf = requestAnimationFrame(drawLevel); return; }
+    var data = new Uint8Array(analyser.fftSize);
+    analyser.getByteTimeDomainData(data);
+    ctx.strokeStyle = "#00e5ff"; ctx.lineWidth = 2; ctx.beginPath();
+    var slice = c.width / data.length;
+    for (var i = 0; i < data.length; i++) {
+      var y = (data[i] / 128.0) * (c.height / 2);
+      if (i === 0) ctx.moveTo(0, y); else ctx.lineTo(i * slice, y);
+    }
+    ctx.stroke();
+    if (mediaRecorder && mediaRecorder.state === "recording") raf = requestAnimationFrame(drawLevel);
+  }
+  function startTick() {
+    clearInterval(tickTimer);
+    tickTimer = setInterval(function () { $("recTimer").textContent = fmt(elapsed + (Date.now() - startedAt) / 1000); }, 250);
+  }
+  $("startRec").addEventListener("click", function () {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      var e = $("recError"); e.hidden = false; e.textContent = "This browser cannot access a microphone. Try Chrome, Firefox, Edge or Safari on a device with a microphone.";
+      return;
+    }
+    $("recError").hidden = true;
+    $("recStatus").textContent = "Asking for microphone permission…";
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function (s) {
+      stream = s; chunks = []; elapsed = 0; paused = false;
+      var opts = {};
+      if (window.MediaRecorder) {
+        if (MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) opts.mimeType = "audio/webm;codecs=opus";
+        else if (MediaRecorder.isTypeSupported("audio/webm")) opts.mimeType = "audio/webm";
+        else if (MediaRecorder.isTypeSupported("audio/mp4")) opts.mimeType = "audio/mp4";
+      }
+      mediaRecorder = new MediaRecorder(s, opts);
+      mimeUsed = mediaRecorder.mimeType || "";
+      mediaRecorder.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+      mediaRecorder.onstop = function () {
+        clearInterval(tickTimer);
+        var blob = new Blob(chunks, { type: mimeUsed || "audio/webm" });
+        var ext = /mp4/i.test(mimeUsed) ? "m4a" : "webm";
+        if (blobUrl) URL.revokeObjectURL(blobUrl);
+        blobUrl = URL.createObjectURL(blob);
+        var a = $("recAudio"); a.src = blobUrl; a.hidden = false;
+        $("recMeta").textContent = "Recording ready — " + fmt(elapsed) + ", about " + (blob.size / 1024).toFixed(0) + " KB (" + ext.toUpperCase() + "). Download it before closing this tab.";
+        $("dlRec").disabled = false; $("newRec").disabled = false;
+        $("dlRec").dataset.ext = ext;
+        $("recStatus").textContent = "Stopped. Play it back, then download.";
+        if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; }
+        if (audioCtx) { audioCtx.close().catch(function () {}); audioCtx = null; analyser = null; }
+      };
+      mediaRecorder.start(250);
+      startedAt = Date.now(); startTick();
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      var src = audioCtx.createMediaStreamSource(s);
+      analyser = audioCtx.createAnalyser(); analyser.fftSize = 2048;
+      src.connect(analyser);
+      drawLevel();
+      $("startRec").disabled = true; $("pauseRec").disabled = false; $("stopRec").disabled = false;
+      $("pauseRec").textContent = "Pause";
+      $("recStatus").textContent = "Recording… speak now. The sound bar shows your microphone is picking you up.";
+    }).catch(function (err) {
+      var e = $("recError"); e.hidden = false;
+      e.textContent = (err && err.name === "NotAllowedError") ? "Microphone permission was denied. Allow the microphone in the address bar (padlock icon) and reload the page." : "Could not start the microphone (" + (err && err.name ? err.name : "unknown error") + "). Check another app is not using it.";
+      $("recStatus").textContent = "Ready.";
+    });
+  });
+  $("pauseRec").addEventListener("click", function () {
+    if (!mediaRecorder) return;
+    if (mediaRecorder.state === "recording") {
+      mediaRecorder.pause(); paused = true;
+      elapsed += (Date.now() - startedAt) / 1000;
+      clearInterval(tickTimer);
+      this.textContent = "Resume";
+      $("recStatus").textContent = "Paused — the timer is stopped. Tap Resume to continue the same recording.";
+    } else if (mediaRecorder.state === "paused") {
+      mediaRecorder.resume(); paused = false;
+      startedAt = Date.now(); startTick();
+      this.textContent = "Pause";
+      $("recStatus").textContent = "Recording…";
+    }
+  });
+  $("stopRec").addEventListener("click", function () {
+    if (!mediaRecorder) return;
+    if (mediaRecorder.state !== "inactive") {
+      if (!paused) elapsed += (Date.now() - startedAt) / 1000;
+      mediaRecorder.stop();
+    }
+    $("startRec").disabled = false; $("pauseRec").disabled = true; $("stopRec").disabled = true;
+    $("recTimer").textContent = fmt(elapsed);
+  });
+  $("dlRec").addEventListener("click", function () {
+    if (!blobUrl) return;
+    var a = document.createElement("a");
+    a.href = blobUrl; a.download = "voice-recording-" + new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-") + "." + (this.dataset.ext || "webm");
+    document.body.appendChild(a); a.click(); a.remove();
+    toast("Recording downloaded.");
+  });
+  $("newRec").addEventListener("click", function () {
+    if (blobUrl) URL.revokeObjectURL(blobUrl);
+    blobUrl = null; chunks = []; elapsed = 0;
+    $("recAudio").hidden = true; $("recAudio").removeAttribute("src");
+    $("recTimer").textContent = "00:00";
+    $("recMeta").textContent = "No recording yet.";
+    $("dlRec").disabled = true; $("newRec").disabled = true;
+    $("startRec").disabled = false;
+    $("recStatus").textContent = "Ready. Tap Start recording and allow the microphone when your browser asks.";
+  });
+
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  var cs = $("copyShare");
+  if (cs) { cs.addEventListener("click", function () {
+    var line = document.querySelector(".share-line").textContent.trim() + " " + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); }
+  }); }
+
+})();
+
+</script>
+</body>
+</html>

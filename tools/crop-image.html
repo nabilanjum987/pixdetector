@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop Image Online Free — Exact Ratios | PixDetector</title>
+<meta name="description" content="Crop any image free in your browser — drag the selection, lock 1:1, 16:9, 9:16 or 4:3, download PNG, JPG or WebP. No signup, no upload.">
+<meta name="keywords" content="crop image online free, crop image, image cropper free, crop photo online, crop image to 1:1, crop image 16:9">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/crop-image">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/crop-image">
+<meta property="og:title" content="Crop Image Online Free — Exact Ratios | PixDetector">
+<meta property="og:description" content="Crop any image free in your browser — drag the selection, lock 1:1, 16:9, 9:16 or 4:3, download PNG, JPG or WebP. No signup, no upload.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this image cropper really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Crop as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
+    { "@type": "Question", "name": "Does cropping reduce image quality?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cropping only cuts away pixels outside the frame — the pixels you keep are untouched, so the kept area stays exactly as sharp as the source. Saving as JPG or WebP re-encodes once at the quality you pick; PNG is lossless." } },
+    { "@type": "Question", "name": "What size should I crop for Instagram?", "acceptedAnswer": { "@type": "Answer", "text": "A square post is 1080 by 1080 (1:1), a portrait post is 1080 by 1350 (4:5), and Stories and Reels are 1080 by 1920 (9:16). Instagram shows profile pictures as a circle, so crop a square with the face centred and space around the head." } },
+    { "@type": "Question", "name": "Why does Instagram crop my photo badly?", "acceptedAnswer": { "@type": "Answer", "text": "Because your photo's ratio does not match the platform's. Instagram crops uploads to its own ratios, usually from the centre — which cuts off heads, text and edges. Crop to the right ratio here first, and the platform has nothing left to cut." } },
+    { "@type": "Question", "name": "What is the difference between cropping and resizing?", "acceptedAnswer": { "@type": "Answer", "text": "Cropping cuts part of the picture away to change its shape or focus. Resizing changes the whole picture's pixel dimensions. Crop first to get the shape right, then resize if you need exact pixels." } },
+    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is cropped in your browser with the canvas element. Nothing is uploaded, stored, or shared." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to crop an image for free",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your image", "text": "Choose an image file. It is read in your browser and never uploaded." },
+    { "@type": "HowToStep", "name": "Pick a ratio or drag freely", "text": "Lock the selection to 1:1, 16:9, 9:16 or 4:3, or leave it on Free and drag any rectangle." },
+    { "@type": "HowToStep", "name": "Position the selection", "text": "Drag inside the box to move it and drag the corner handle to resize it, keeping the subject in frame." },
+    { "@type": "HowToStep", "name": "Download the crop", "text": "Pick PNG, JPG or WebP and download the cropped image at full source resolution." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=range],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+canvas.crop{max-width:100%;border-radius:10px;display:block;margin:0 auto;touch-action:none;cursor:crosshair;background:#111}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.formats{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Crop Image
+    </div>
+    <div class="tool-page-header">
+      <h1>Crop Image Online Free</h1>
+      <p>Crop any image to the exact shape you need — drag the selection, lock it to 1:1, 16:9, 9:16 or 4:3, and download as PNG, JPG or WebP. Free, no signup, no upload, no watermark.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> cropping <strong>cannot add back what you cut away</strong> — download a copy and keep your original. Cropping never improves sharpness; it only changes the shape and focus. The download is rendered from your <strong>full-resolution original</strong>, not the small preview.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Crop settings">
+        <h2>Your image</h2>
+        <label class="flabel" for="imgFile">Choose an image</label>
+        <input type="file" id="imgFile" accept="image/*">
+        <p class="trust" id="origInfo">No image chosen yet.</p>
+        <span class="flabel" style="margin-top:16px">Aspect ratio</span>
+        <div class="chips" id="ratioChips">
+          <button type="button" class="chip" data-ratio="free" aria-pressed="true">Free</button>
+          <button type="button" class="chip" data-ratio="1" aria-pressed="false">1:1 square</button>
+          <button type="button" class="chip" data-ratio="1.7778" aria-pressed="false">16:9 wide</button>
+          <button type="button" class="chip" data-ratio="0.5625" aria-pressed="false">9:16 story</button>
+          <button type="button" class="chip" data-ratio="1.3333" aria-pressed="false">4:3 photo</button>
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div>
+            <label class="flabel" for="fmtSelect">Download format</label>
+            <select id="fmtSelect">
+              <option value="image/png">PNG (lossless)</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
+          <div>
+            <label class="flabel" for="qInput">Quality (JPG / WebP): <span id="qOut">92%</span></label>
+            <input type="range" id="qInput" min="10" max="100" value="92">
+          </div>
+        </div>
+        <p class="trust" id="selInfo">Upload an image, then drag on it to draw your crop selection.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="dlBtn" disabled>Crop &amp; download</button>
+          <button type="button" class="btn alt" id="resetBtn" disabled>Reset selection</button>
+        </div>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Crop area">
+        <h2>Crop area</h2>
+        <canvas class="crop" id="cropCanvas" width="640" height="400"></canvas>
+        <p class="meta-line">Drag on the image to draw a selection. Drag inside it to move it; drag the bottom-right corner handle to resize it. The faint grid is the rule of thirds — put the subject on a crossing point.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Crop any image free — drag the selection, lock 1:1, 16:9, 9:16 or 4:3, download PNG, JPG or WebP. No signup, no upload.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare" data-share="Crop any image free — drag the selection, lock 1:1, 16:9, 9:16 or 4:3, download PNG, JPG or WebP. No signup, no upload.">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Crop%20any%20image%20free%20%E2%80%94%20drag%20the%20selection%2C%20lock%201%3A1%2C%2016%3A9%2C%209%3A16%20or%204%3A3%2C%20no%20signup&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fcrop-image" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fcrop-image" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Crop%20any%20image%20free%20%E2%80%94%20drag%20the%20selection%2C%20lock%201%3A1%2C%2016%3A9%2C%209%3A16%20or%204%3A3%2C%20no%20signup%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fcrop-image" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: the platform crops your photo — badly</h2>
+      <p>The frustration people repeat most is losing control of the crop. You upload a photo to Instagram and it crops it to its own ratio, usually from the centre — cutting off a head, a product edge, or the text you carefully placed. A profile picture is worse: Instagram shows it as a circle, so the corners of any square upload disappear, and a face near the edge gets clipped. The same happens with link previews (Facebook wants 1200×630), YouTube thumbnails (1280×720) and Stories (9:16) — every platform has its own shape, and guessing wrong means the platform crops for you. People want to choose the crop themselves, at the exact ratio, before they upload anywhere.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I crop an image online for free?</h2>
+      <p>Upload your image here, pick an aspect ratio (1:1 for a square post or profile picture, 16:9 for a YouTube thumbnail, 9:16 for a Story or Reel, 4:3 for a classic photo) or leave it on Free, then drag the selection box over the part you want to keep. Drag inside the box to move it and drag the corner handle to resize it, then download the crop as PNG, JPG or WebP. It is free, with no signup and no upload, because the crop runs in your browser — and the download is rendered from your full-resolution original, not the small preview, so nothing you keep loses sharpness.</p>
+      <p>Cropping an image means cutting away part of it to change its shape or focus — turning a wide landscape photo into a square for Instagram, or cutting a stranger out of the edge of a group shot. It is different from resizing: resizing changes the whole picture's pixel dimensions, while cropping removes content. The aspect ratio is the width-to-height proportion of the frame: 1:1 is square, 16:9 is wide, 9:16 is tall.</p>
+      <!-- HOW TO -->
+      <h2>How to crop an image in 4 steps</h2>
+      <p><strong>Step 1:</strong> upload your image — it is read in your browser and never uploaded. <strong>Step 2:</strong> pick a ratio preset or leave it on Free and drag a rectangle on the image. <strong>Step 3:</strong> move the selection with a drag inside it, resize it from the corner handle, and use the rule-of-thirds grid to place your subject on a crossing point. <strong>Step 4:</strong> pick PNG, JPG or WebP and download. If the platform will crop your image anyway, crop to its ratio here first — then it has nothing left to cut.</p>
+      <h2>Which ratio does each platform want?</h2>
+      <table class="formats">
+        <thead><tr><th>Use case</th><th>Ratio</th><th>Target size</th></tr></thead>
+        <tbody>
+          <tr><td>Instagram square post</td><td>1:1</td><td>1080 × 1080</td></tr>
+          <tr><td>Instagram portrait post</td><td>4:5</td><td>1080 × 1350</td></tr>
+          <tr><td>Stories / Reels / TikTok</td><td>9:16</td><td>1080 × 1920</td></tr>
+          <tr><td>YouTube thumbnail</td><td>16:9</td><td>1280 × 720</td></tr>
+          <tr><td>Facebook / LinkedIn link image</td><td>1.91:1</td><td>1200 × 630</td></tr>
+          <tr><td>Profile picture (any platform)</td><td>1:1</td><td>Square, face centred — the platform masks it into a circle</td></tr>
+        </tbody>
+      </table>
+      <p>One correction worth making up front: there is no such thing as a "circle crop" size. Every platform that shows round avatars takes a square (1:1) upload and masks it into a circle itself. You never need to crop to a circle — you need a clean square with your subject centred, and the platform does the rest.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this image cropper really free?</summary>
+        <p>Yes. Crop as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Does cropping reduce image quality?</summary>
+        <p>No. Cropping only cuts away pixels outside the frame — the pixels you keep are untouched, so the kept area stays exactly as sharp as the source. Saving as JPG or WebP re-encodes once at the quality you pick; PNG is lossless.</p>
+      </details>
+      <details class="faq">
+        <summary>What size should I crop for Instagram?</summary>
+        <p>A square post is 1080 by 1080 (1:1), a portrait post is 1080 by 1350 (4:5), and Stories and Reels are 1080 by 1920 (9:16). Instagram shows profile pictures as a circle, so crop a square with the face centred and space around the head.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does Instagram crop my photo badly?</summary>
+        <p>Because your photo's ratio does not match the platform's. Instagram crops uploads to its own ratios, usually from the centre — which cuts off heads, text and edges. Crop to the right ratio here first, and the platform has nothing left to cut.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between cropping and resizing?</summary>
+        <p>Cropping cuts part of the picture away to change its shape or focus. Resizing changes the whole picture's pixel dimensions. Crop first to get the shape right, then resize if you need exact pixels.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my image uploaded to a server?</summary>
+        <p>No. Your image is cropped in your browser with the canvas element. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I crop an image on my phone?</strong> Yes — this page works in a mobile browser. Upload, drag the selection with your finger, and download.</p>
+      <p><strong>Can I crop to an exact pixel size?</strong> The selection shows its size in source pixels as you drag. Pick the closest ratio preset, then resize the box until the numbers match what you need.</p>
+      <p><strong>Why is my cropped image smaller than the original?</strong> Because cropping removes pixels — a crop can only ever be as big as the part you kept. If you need the crop at a larger size, resize it afterwards (see the Image Resizer), knowing upscaling always softens it a little.</p>
+      <p><strong>Does cropping remove the background?</strong> No — cropping only cuts the frame. To remove a background you need a background-removal tool, which cuts around the subject instead of the frame.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/image-resizer" class="related-card"><h4>🖼️ Image Resizer</h4><p>Resize images free</p></a><a href="/tools/youtube-thumbnail-maker" class="related-card"><h4>📺 YouTube Thumbnail Maker</h4><p>Make thumbnails free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a><a href="/tools/blur-image" class="related-card"><h4>🌫️ Blur Image</h4><p>Blur images free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function fmtKB(n) { return n < 1024 ? n + " B" : (n / 1024 < 1024 ? (n / 1024).toFixed(1) + " KB" : (n / 1048576).toFixed(2) + " MB"); }
+  var canvas = $("cropCanvas"), ctx = canvas.getContext("2d");
+  var img = null, imgName = "image", origSize = 0;
+  var dispW = 0, dispH = 0, scale = 1; /* display px per natural px */
+  var sel = null; /* {x,y,w,h} in display coords */
+  var ratio = null; /* null = free */
+  var drag = null; /* {mode, startX, startY, orig} */
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#111"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (!img) {
+      ctx.fillStyle = "#666"; ctx.font = "16px 'DM Sans', sans-serif"; ctx.textAlign = "center";
+      ctx.fillText("Upload an image to start cropping", canvas.width / 2, canvas.height / 2);
+      return;
+    }
+    ctx.drawImage(img, 0, 0, dispW, dispH);
+    if (!sel) return;
+    /* dim outside */
+    ctx.fillStyle = "rgba(0,0,0,0.55)";
+    ctx.fillRect(0, 0, dispW, sel.y);
+    ctx.fillRect(0, sel.y + sel.h, dispW, dispH - (sel.y + sel.h));
+    ctx.fillRect(0, sel.y, sel.x, sel.h);
+    ctx.fillRect(sel.x + sel.w, sel.y, dispW - (sel.x + sel.w), sel.h);
+    /* rule of thirds */
+    ctx.strokeStyle = "rgba(255,255,255,0.45)"; ctx.lineWidth = 1;
+    for (var i = 1; i <= 2; i++) {
+      ctx.beginPath(); ctx.moveTo(sel.x + sel.w * i / 3, sel.y); ctx.lineTo(sel.x + sel.w * i / 3, sel.y + sel.h); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(sel.x, sel.y + sel.h * i / 3); ctx.lineTo(sel.x + sel.w, sel.y + sel.h * i / 3); ctx.stroke();
+    }
+    /* border + handle */
+    ctx.strokeStyle = "#fbbf24"; ctx.lineWidth = 2;
+    ctx.strokeRect(sel.x, sel.y, sel.w, sel.h);
+    ctx.fillStyle = "#fbbf24";
+    ctx.fillRect(sel.x + sel.w - 10, sel.y + sel.h - 10, 20, 20);
+    updateSelInfo();
+  }
+  function updateSelInfo() {
+    if (!img || !sel) return;
+    var nw = Math.round(sel.w / scale), nh = Math.round(sel.h / scale);
+    $("selInfo").textContent = "Selection: " + nw + " × " + nh + " px (source pixels) · " + (sel.w / sel.h).toFixed(2) + ":1 ratio. Download renders from the full-resolution original.";
+  }
+  function fitSelection() {
+    if (!img) return;
+    var r = ratio;
+    var w, h;
+    if (!r) { w = dispW * 0.8; h = dispH * 0.8; }
+    else if (r >= dispW / dispH) { w = dispW * 0.9; h = w / r; }
+    else { h = dispH * 0.9; w = h * r; }
+    sel = { x: (dispW - w) / 2, y: (dispH - h) / 2, w: w, h: h };
+    draw();
+  }
+  function clampSel(s) {
+    s.w = Math.max(10, Math.min(s.w, dispW));
+    s.h = Math.max(10, Math.min(s.h, dispH));
+    if (ratio) { s.h = s.w / ratio; if (s.h > dispH) { s.h = dispH; s.w = s.h * ratio; } }
+    s.x = Math.max(0, Math.min(s.x, dispW - s.w));
+    s.y = Math.max(0, Math.min(s.y, dispH - s.h));
+    return s;
+  }
+  function pos(ev) {
+    var r = canvas.getBoundingClientRect();
+    return { x: (ev.clientX - r.left) * (canvas.width / r.width), y: (ev.clientY - r.top) * (canvas.height / r.height) };
+  }
+  canvas.addEventListener("pointerdown", function (ev) {
+    if (!img) return;
+    ev.preventDefault();
+    canvas.setPointerCapture(ev.pointerId);
+    var p = pos(ev);
+    if (sel && p.x >= sel.x + sel.w - 16 && p.x <= sel.x + sel.w + 10 && p.y >= sel.y + sel.h - 16 && p.y <= sel.y + sel.h + 10) {
+      drag = { mode: "resize", startX: p.x, startY: p.y, orig: { x: sel.x, y: sel.y, w: sel.w, h: sel.h } };
+    } else if (sel && p.x >= sel.x && p.x <= sel.x + sel.w && p.y >= sel.y && p.y <= sel.y + sel.h) {
+      drag = { mode: "move", startX: p.x, startY: p.y, orig: { x: sel.x, y: sel.y, w: sel.w, h: sel.h } };
+    } else {
+      sel = { x: p.x, y: p.y, w: 0, h: 0 };
+      drag = { mode: "new", startX: p.x, startY: p.y, orig: null };
+    }
+  });
+  canvas.addEventListener("pointermove", function (ev) {
+    if (!drag || !img) return;
+    var p = pos(ev);
+    if (drag.mode === "new") {
+      var x = Math.min(drag.startX, p.x), y = Math.min(drag.startY, p.y);
+      var w = Math.abs(p.x - drag.startX), h = Math.abs(p.y - drag.startY);
+      if (ratio) { h = w / ratio; if (y + h > dispH) { h = dispH - y; w = h * ratio; } }
+      sel = clampSel({ x: x, y: y, w: w, h: h });
+    } else if (drag.mode === "move") {
+      sel = clampSel({ x: drag.orig.x + (p.x - drag.startX), y: drag.orig.y + (p.y - drag.startY), w: drag.orig.w, h: drag.orig.h });
+    } else if (drag.mode === "resize") {
+      var nw = Math.max(10, drag.orig.w + (p.x - drag.startX));
+      var nh = ratio ? nw / ratio : Math.max(10, drag.orig.h + (p.y - drag.startY));
+      sel = clampSel({ x: drag.orig.x, y: drag.orig.y, w: nw, h: nh });
+    }
+    draw();
+  });
+  canvas.addEventListener("pointerup", function () { drag = null; if (sel && sel.w > 5 && sel.h > 5) { $("dlBtn").disabled = false; } });
+  $("imgFile").addEventListener("change", function () {
+    var f = this.files[0];
+    if (!f) return;
+    if (!/^image\//.test(f.type)) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose an image file."; return; }
+    $("errorBox").hidden = true;
+    origSize = f.size; imgName = f.name.replace(/\.[^.]+$/, "") || "image";
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        img = im;
+        var maxW = 640, maxH = 560;
+        scale = Math.min(maxW / im.naturalWidth, maxH / im.naturalHeight, 1);
+        dispW = Math.round(im.naturalWidth * scale);
+        dispH = Math.round(im.naturalHeight * scale);
+        canvas.width = dispW; canvas.height = dispH;
+        $("origInfo").textContent = "Original: " + f.name + " — " + im.naturalWidth + "×" + im.naturalHeight + " (" + fmtKB(origSize) + ")";
+        fitSelection();
+        $("dlBtn").disabled = false;
+        $("resetBtn").disabled = false;
+      };
+      im.onerror = function () { var e = $("errorBox"); e.hidden = false; e.textContent = "Could not read that image. Try a JPG, PNG or WebP file."; };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  $("ratioChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    document.querySelectorAll("#ratioChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    var v = b.getAttribute("data-ratio");
+    ratio = v === "free" ? null : parseFloat(v);
+    fitSelection();
+  });
+  $("resetBtn").addEventListener("click", function () { fitSelection(); });
+  $("qInput").addEventListener("input", function () { $("qOut").textContent = this.value + "%"; });
+  $("dlBtn").addEventListener("click", function () {
+    if (!img || !sel) return;
+    var sx = Math.round(sel.x / scale), sy = Math.round(sel.y / scale);
+    var sw = Math.round(sel.w / scale), sh = Math.round(sel.h / scale);
+    var out = document.createElement("canvas");
+    out.width = sw; out.height = sh;
+    var octx = out.getContext("2d");
+    octx.imageSmoothingEnabled = true; octx.imageSmoothingQuality = "high";
+    octx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
+    var fmt = $("fmtSelect").value;
+    var q = parseInt($("qInput").value, 10) / 100;
+    var ext = fmt === "image/png" ? "png" : fmt === "image/jpeg" ? "jpg" : "webp";
+    out.toBlob(function (blob) {
+      if (!blob) { toast("Export failed in this browser."); return; }
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = imgName + "-cropped-" + sw + "x" + sh + "." + ext;
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+      toast("Cropped image downloaded (" + fmtKB(blob.size) + ").");
+    }, fmt, fmt === "image/png" ? undefined : q);
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
+  });
+  $("copyShare").addEventListener("click", function () {
+    var line = $("copyShare").getAttribute("data-share") || "";
+    if (navigator.clipboard) navigator.clipboard.writeText(line + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+  draw();
+})();
+</script>
+</body>
+</html>

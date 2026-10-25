@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantasy Name Generator Free — D&amp;D &amp; RPG Names</title>
+<meta name="description" content="Free fantasy name generator: elf, dwarf, orc, dragon, wizard and human names for D&amp;D, RPGs and novels — plus place names. No signup, instant.">
+<meta name="keywords" content="fantasy name generator free, free fantasy name generator, dnd name generator, elf name generator, rpg character names">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/fantasy-name-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/fantasy-name-generator">
+<meta property="og:title" content="Fantasy Name Generator Free — D&amp;D &amp; RPG Names">
+<meta property="og:description" content="Free fantasy name generator: elf, dwarf, orc, dragon, wizard and human names for D&amp;D, RPGs and novels — plus place names. No signup, instant.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this fantasy name generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Generate as many names as you like, free, with no signup and no usage limit. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these names in my D&D campaign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The names are free for personal use in tabletop games, novels and video games. If you publish commercially, search the name first — a generated name can coincidentally match a character from a book or game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do all my generated names sound the same?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because most generators use one sound palette for everything. This one builds each race from its own syllable tables — elf names use soft vowels, dwarf names use hard consonants — so switching races changes the sound. If names within one race feel samey, mix the first half of one with the second half of another."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a character name and a place name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Character names follow a race's sound patterns; place names are built from two meaningful parts, like Iron + ford or Storm + hold, the way real towns are named after rivers, hills and trades."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate names for NPCs on the spot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — that is the main use. Pick a race, generate a batch before the session or during a break, and keep a short list ready. When a player asks an unexpected NPC their name, you have one waiting instead of a blank stare."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the names follow real fantasy naming rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They follow each race's general sound traditions — Tolkien-style vowels for elves, Old Norse-style weight for dwarves — but they are original combinations, not names taken from any published setting."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to generate a fantasy name",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pick a race and type",
+      "text": "Choose elf, dwarf, orc, human, dragon or wizard, a gender if you want one, and whether you need a character or a place name."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generate a batch",
+      "text": "Click Generate names for 10 names built from that race's sound patterns. Re-generate for fresh batches, or mix halves of two names."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Say it aloud and check it",
+      "text": "Test the name at the table, check its nickname, and search it before publishing so it does not clash with a famous character."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=text],textarea,select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 13px;outline:none}
+input[type=text]:focus,textarea:focus,select:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+.result-list{margin-top:6px}
+.result-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.result-text{font-size:15px;font-weight:500;word-break:break-word}
+.result-empty{font-size:14px;color:var(--text2);line-height:1.7}
+.copy-one{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;flex-shrink:0}
+.result-meta{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Fantasy Name Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Fantasy Name Generator</h1>
+      <p>Generate elf, dwarf, orc, human, dragon and wizard names for D&D, tabletop RPGs, novels and games — plus fantasy place names. Free, no signup, instant.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> These names are built from <strong>syllable patterns per race, not from any published setting</strong> — they will sound familiar to fantasy readers, but they are not official D&D, Tolkien or game names. <strong>Check before publishing:</strong> a generated name can coincidentally match a character from a book or game, so search it before you print it in a novel or sell a game with it.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Fantasy name settings">
+        <h2>Your character or place</h2>
+        <div style="margin-top:0">
+          <label class="flabel" for="raceSelect">Race</label>
+          <select id="raceSelect">
+            <option value="elf">Elf</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="orc">Orc</option>
+            <option value="human">Human</option>
+            <option value="dragon">Dragon</option>
+            <option value="wizard">Wizard</option>
+          </select>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="genderSelect">Gender</label>
+          <select id="genderSelect">
+            <option value="any">Any</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="kindSelect">What do you need?</label>
+          <select id="kindSelect">
+            <option value="character">Character name</option>
+            <option value="place">Place name (town, kingdom)</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="genBtn">Generate names</button>
+          <button type="button" class="btn alt" id="moreBtn">Generate more</button>
+        </div>
+        <p class="trust">Tip: take the first half of one name and the second half of another — mixing two generated names is how classic fantasy names were built.</p>
+      </div>
+      <div class="bc-panel" aria-label="Fantasy name results">
+        <h2>Your names</h2>
+        <div class="result-list" id="results"></div>
+        <div class="actions">
+          <button type="button" class="btn alt" id="copyAllBtn">Copy all names</button>
+        </div>
+        <p class="result-meta" id="resultMeta">Click any name to copy it. Names are built from each race's sound patterns, so a dwarf never sounds like an elf.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Free fantasy name generator — elf, dwarf, orc and dragon names for D&amp;D and RPGs, no signup.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShareLine">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Free%20fantasy%20name%20generator%20%E2%80%94%20elf%2C%20dwarf%2C%20orc%20and%20dragon%20names%20for%20D%26D%20and%20RPGs%2C%20no%20signup.&amp;url=https%3A//pixdetector.vercel.app/tools/fantasy-name-generator" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/fantasy-name-generator" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Free%20fantasy%20name%20generator%20%E2%80%94%20elf%2C%20dwarf%2C%20orc%20and%20dragon%20names%20for%20D%26D%20and%20RPGs%2C%20no%20signup.%20https%3A//pixdetector.vercel.app/tools/fantasy-name-generator" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: every fantasy name sounds like the same elf</h2>
+      <p>Game masters know the panic: a player asks an NPC their name, the mind goes blank, and the only thing that comes out is "Bob" — or, worse, another apostrophe-and-double-vowel elf name that sounds exactly like the last five. The complaint players and writers make about name generators is sameness: a weak generator does one trick — it adds an apostrophe, maybe a double vowel, maybe "-wyn" — and every culture, town and monster ends up using the same sound palette. When every name sounds almost-Welsh, NPCs blur together, players stop hearing the difference between cultures, and the setting feels smaller. What people actually want is names that sound like they belong to a specific people, are pronounceable at the table, and are easy enough to remember next session.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I generate a fantasy name for free?</h2>
+      <p>Pick a race — elf, dwarf, orc, human, dragon or wizard — choose a gender if you want one, pick character or place name, and click Generate names. You get 10 names instantly, free, with no signup and no limits. Click any name to copy it. If none of them fit, generate again, or take the first half of one name and the second half of another — mixing two generated names is a classic way to build a name that sounds right for your world.</p>
+      <p>A fantasy name generator is a tool that builds character and place names from the sound patterns of a fantasy race or culture. Elf names use soft vowels and flowing endings, dwarf names use hard consonants and short, heavy sounds, orc names use harsh clusters — each race has its own naming tradition, usually with a traceable source: elf names descend from Tolkien's constructed languages, dwarf names from the Old Norse catalogue that gave us Thorin and Balin. A good generator follows those rules, so names from the same race sound like they belong together.</p>
+      <!-- HOW TO -->
+      <h2>How to name a fantasy character in 3 steps</h2>
+      <p><strong>Step 1:</strong> decide the culture first — a forest elf, a mountain dwarf and a city human should not sound alike, and the race choice sets the sound. <strong>Step 2:</strong> generate a batch, then mix and match: take the prefix of one name and the suffix of another to build your own. <strong>Step 3:</strong> say it aloud and check the nickname — if "Galathilion" becomes "Gal" at the table and you hate "Gal", pick a different name. Then search it, so you are not accidentally using a famous character's name.</p>
+      <h2>Why names from one race should sound alike</h2>
+      <p>A strong fantasy name does more than sound pretty — it tells the table where someone is from, which culture shaped them, and how they fit into the world. That only works if names from the same culture share a sound: soft vowels and flowing endings for elves, hard consonants for dwarves, harsh clusters for orcs. When every culture uses the same palette, players stop hearing the difference and NPCs blur together. The practical trick is consistency: pick one sound pattern per culture in your world and stick to it, so players can hear a name and guess where the person comes from before you say another word. This generator builds each race from its own syllable tables for exactly that reason.</p><table class="facts"><thead><tr><th>Race</th><th>Sound</th><th>Typical endings</th><th>Example feel</th></tr></thead><tbody><tr><td>Elf</td><td>Soft vowels, flowing</td><td>-iel, -wen, -ara</td><td>Melodic, ancient, graceful</td></tr><tr><td>Dwarf</td><td>Hard consonants, short</td><td>-in, -grim, -rik</td><td>Sturdy, heavy, honour-bound</td></tr><tr><td>Orc</td><td>Harsh clusters</td><td>-gash, -gul, -ruk</td><td>Brutal, guttural, warlike</td></tr><tr><td>Human</td><td>Familiar, grounded</td><td>-ric, -ford, -win</td><td>Plain, believable, varied</td></tr><tr><td>Dragon</td><td>Long, rolling</td><td>-ax, -thar, -ion</td><td>Ancient, powerful, alien</td></tr><tr><td>Wizard</td><td>Old, arcane</td><td>-bus, -dor, -wyn</td><td>Learned, mysterious, old</td></tr></tbody></table>
+      <h2>Naming places, not just people</h2>
+      <p>Place names work differently from character names: towns name places like they are labelling stalls — practical, specific and a little stubborn. A town is usually named after what is there: a ford in a river (Ironford), a hill (Ravencrest), a trade (Emberbrook), or a local story. The generator's place mode builds names that way, from a first element (Iron, Storm, Ember, Mist) and a second (ford, shire, hold, mere). When you name a whole region, keep the same second elements across nearby towns — three "-ford" towns on one river feels like a real map, while three unrelated pretty names feel like a random list. And remember the tavern rule: if a tavern name is too clever, it yanks players out of immersion. "The Drunken Dragon" works once; the tenth dragon-themed tavern does not.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this fantasy name generator really free?</summary>
+        <p>Yes. Generate as many names as you like, free, with no signup and no usage limit. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use these names in my D&amp;D campaign?</summary>
+        <p>Yes. The names are free for personal use in tabletop games, novels and video games. If you publish commercially, search the name first — a generated name can coincidentally match a character from a book or game.</p>
+      </details>
+      <details class="faq">
+        <summary>Why do all my generated names sound the same?</summary>
+        <p>Because most generators use one sound palette for everything. This one builds each race from its own syllable tables — elf names use soft vowels, dwarf names use hard consonants — so switching races changes the sound. If names within one race feel samey, mix the first half of one with the second half of another.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between a character name and a place name?</summary>
+        <p>Character names follow a race's sound patterns; place names are built from two meaningful parts, like Iron + ford or Storm + hold, the way real towns are named after rivers, hills and trades.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I generate names for NPCs on the spot?</summary>
+        <p>Yes — that is the main use. Pick a race, generate a batch before the session or during a break, and keep a short list ready. When a player asks an unexpected NPC their name, you have one waiting instead of a blank stare.</p>
+      </details>
+      <details class="faq">
+        <summary>Do the names follow real fantasy naming rules?</summary>
+        <p>They follow each race's general sound traditions — Tolkien-style vowels for elves, Old Norse-style weight for dwarves — but they are original combinations, not names taken from any published setting.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I make a fantasy name sound less generic?</strong> Give it a surname or title that means something — "Thrain Stonefist" tells a story, "Thrain" alone does not. And keep one sound pattern per culture so names feel consistent.</p>
+      <p><strong>What makes a fantasy name hard to remember?</strong> Too many syllables, apostrophes in the middle, and sounds players cannot pronounce. If your players cannot say it, they will call the character "that elf guy" instead.</p>
+      <p><strong>Can I use a generated name for my novel?</strong> Yes for a first draft, but search it before publishing — a name that matches a famous character will pull readers out of your story.</p>
+      <p><strong>How many names should I prepare for a session?</strong> About ten NPC names and three place names is enough for most sessions. Generate a batch, pick the best, and keep the rest as spares.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/username-generator" class="related-card"><h4>👤 Username Generator</h4><p>Unique handles, free</p></a><a href="/tools/team-name-generator" class="related-card"><h4>🏆 Team Name Generator</h4><p>Funny & cool team names</p></a><a href="/tools/slogan-generator" class="related-card"><h4>💬 Slogan Generator</h4><p>Catchy taglines, free</p></a><a href="/tools/meme-generator" class="related-card"><h4>😂 Meme Generator</h4><p>Make memes free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/name-generators.js"></script>
+<script>
+(function () {
+  var last = [];
+  function run() {
+    var race = document.getElementById("raceSelect").value;
+    var gender = document.getElementById("genderSelect").value;
+    var kind = document.getElementById("kindSelect").value;
+    last = NameGen.fantasyNames(race, gender, kind, 10);
+    NameGen.renderResults(document.getElementById("results"), last, "Pick a race and hit Generate.");
+    document.getElementById("resultMeta").textContent = last.length + " names generated for " + race + " " + kind + "s. Mix halves of two names to make a third — that is how many classic fantasy names were built.";
+  }
+  document.getElementById("genBtn").addEventListener("click", run);
+  document.getElementById("moreBtn").addEventListener("click", run);
+  document.getElementById("raceSelect").addEventListener("change", run);
+  document.getElementById("genderSelect").addEventListener("change", run);
+  document.getElementById("kindSelect").addEventListener("change", run);
+  NameGen.wireCopyAll("copyAllBtn", function () { return last; });
+  run();
+})();
+document.getElementById("copyLink").addEventListener("click", function () {
+  NameGen.copyText(location.href, "Link copied.");
+});
+document.getElementById("copyShareLine").addEventListener("click", function () {
+  NameGen.copyText("Free fantasy name generator \u2014 elf, dwarf, orc and dragon names for D&D and RPGs, no signup." + " " + location.href, "Share line copied.");
+});
+</script>
+</body>
+</html>

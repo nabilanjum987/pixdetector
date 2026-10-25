@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video to GIF Converter Free — Make GIFs Online | PixDetector</title>
+<meta name="description" content="Turn a video clip into a looping GIF free — no upload, no signup, no watermark. Trim, set FPS and size. Basic quality; long videos are slow.">
+<meta name="keywords" content="video to gif converter free, convert video to gif, mp4 to gif free, make gif from video, video to gif online">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/video-to-gif-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/video-to-gif-converter">
+<meta property="og:title" content="Video to GIF Converter Free — Make GIFs Online | PixDetector">
+<meta property="og:description" content="Turn a video clip into a looping GIF free — no upload, no signup, no watermark. Trim, set FPS and size. Basic quality; long videos are slow.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this video to GIF converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Make as many GIFs as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
+    { "@type": "Question", "name": "Why is my GIF so much bigger than the video?", "acceptedAnswer": { "@type": "Answer", "text": "GIF is a 1987 format with no modern compression: every frame is stored as a separate picture with at most 256 colours. A 5-second clip can easily become a 25 MB GIF. Keep clips to 2-5 seconds, 480 px wide and 10-12 fps — that usually lands between 1 and 3 MB." } },
+    { "@type": "Question", "name": "Why does the GIF look worse than the video?", "acceptedAnswer": { "@type": "Answer", "text": "GIF can only hold 256 colours per frame, so gradients and dark scenes band or get noisy, and fine detail is lost. That is a limit of the format, not of this tool. If you need better quality and a smaller file, use a short looping MP4 or WebP animation instead — most chat apps accept those now." } },
+    { "@type": "Question", "name": "Does a GIF have sound?", "acceptedAnswer": { "@type": "Answer", "text": "No. GIF is an image format and cannot carry audio. The sound in your video is dropped when it becomes a GIF." } },
+    { "@type": "Question", "name": "How long can my GIF clip be?", "acceptedAnswer": { "@type": "Answer", "text": "This tool allows up to 15 seconds, but the sweet spot is 2-5 seconds. Longer clips get very large and convert slowly, because every frame has to be drawn and encoded in your browser." } },
+    { "@type": "Question", "name": "Is my video uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your video is read and turned into a GIF in your browser with canvas and the gif.js library. Nothing is uploaded, stored, or shared." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert a video to a GIF for free",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your video", "text": "Choose a video file. It is read in your browser and never uploaded." },
+    { "@type": "HowToStep", "name": "Trim the moment", "text": "Set a start and end time — keep the clip to 2-5 seconds for a small, shareable GIF." },
+    { "@type": "HowToStep", "name": "Pick size and frame rate", "text": "480 px wide and 10-12 fps is the usual sweet spot. Lower values mean a smaller file." },
+    { "@type": "HowToStep", "name": "Make and download the GIF", "text": "Press Convert, wait for the frames to encode, then download the looping GIF." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=number],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+video.preview-vid{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto;background:#000}
+img.preview-img{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.prog{height:10px;background:var(--bg2);border:1px solid var(--border2);border-radius:999px;overflow:hidden;margin-top:14px}
+.prog i{display:block;height:100%;width:0%;background:var(--accent)}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.formats{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Video to GIF Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Video to GIF Converter</h1>
+      <p>Turn a short video clip into a looping GIF, free, in your browser — no upload, no signup, no watermark. Trim the exact moment, set the frame rate and size, and download.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> GIF is an old format — <strong>basic quality only (256 colours, no sound)</strong>, and GIFs get big fast. Keep clips to <strong>2–5 seconds</strong> (15 seconds max here); <strong>long videos are slow</strong> because every frame is encoded in your browser. A 5-second clip can easily become a 25 MB file if you keep it full-size.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="GIF settings">
+        <h2>Your video</h2>
+        <label class="flabel" for="videoFile">Choose a video</label>
+        <input type="file" id="videoFile" accept="video/*">
+        <p class="trust" id="fileInfo">No video chosen yet. MP4 or WebM works best.</p>
+        <div class="grid2" style="margin-top:16px">
+          <div><label class="flabel" for="startInput">Start (seconds)</label><input type="number" id="startInput" min="0" step="0.1" value="0"></div>
+          <div><label class="flabel" for="endInput">End (seconds)</label><input type="number" id="endInput" min="0.5" step="0.1" value="3"></div>
+        </div>
+        <div class="grid2" style="margin-top:16px">
+          <div>
+            <label class="flabel" for="widthSelect">GIF width</label>
+            <select id="widthSelect">
+              <option value="320">320 px (smallest)</option>
+              <option value="480" selected>480 px (recommended)</option>
+              <option value="640">640 px (larger)</option>
+            </select>
+          </div>
+          <div>
+            <label class="flabel" for="fpsSelect">Frame rate</label>
+            <select id="fpsSelect">
+              <option value="8">8 fps</option>
+              <option value="10" selected>10 fps</option>
+              <option value="12">12 fps</option>
+              <option value="15">15 fps (smoother)</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="qualitySelect">Quality</label>
+          <select id="qualitySelect">
+            <option value="10">Best colours (bigger file)</option>
+            <option value="20" selected>Balanced</option>
+            <option value="30">Smaller file (rougher colours)</option>
+          </select>
+        </div>
+        <p class="trust" id="clipInfo">Clip: 3.0 s · about 30 frames at 10 fps.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="convertBtn" disabled>Make GIF</button>
+          <button type="button" class="btn alt" id="dlBtn" disabled>Download GIF</button>
+        </div>
+        <div class="prog" aria-hidden="true"><i id="progFill"></i></div>
+        <p class="trust" id="statusLine">Upload a video to start.</p>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Preview">
+        <h2>Preview</h2>
+        <video class="preview-vid" id="srcVideo" controls playsinline preload="metadata"></video>
+        <img class="preview-img" id="gifPreview" alt="Your GIF preview" hidden>
+        <p class="meta-line" id="metaLine">Upload a video, trim the moment, and press Make GIF. The finished GIF appears here.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Turn any video clip into a looping GIF free — no upload, no signup, no watermark. Keep it short and it stays small.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare" data-share="Turn any video clip into a looping GIF free — no upload, no signup, no watermark.">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Turn%20any%20video%20clip%20into%20a%20looping%20GIF%20free%20%E2%80%94%20no%20upload%2C%20no%20signup%2C%20no%20watermark&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-to-gif-converter" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-to-gif-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Turn%20any%20video%20clip%20into%20a%20looping%20GIF%20free%20%E2%80%94%20no%20upload%2C%20no%20signup%2C%20no%20watermark%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-to-gif-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: the GIF comes out huge, blurry, or both</h2>
+      <p>The complaint people repeat most about video-to-GIF converters is the file size. You turn a 5-second clip into a GIF and get a 25 MB file that will not upload anywhere — to Discord, to an email, to a forum. The second complaint is quality: gradients go banded, dark scenes go noisy, faces go muddy. Both are the same cause: GIF is a 1987 format that stores every frame as a separate picture with at most 256 colours, while the video it came from compresses motion between frames and holds millions of colours. A 10-second 1080p clip can become a 300 MB GIF if you do not trim it down first. People want the reaction, the bug demo, the 3-second moment — small, loopable, and actually uploadable.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert a video to a GIF for free?</h2>
+      <p>Upload your video here, set a start and end time for the exact moment you want (2–5 seconds is the sweet spot), pick 480 px wide and 10–12 frames per second, then press Make GIF. The clip is turned into a looping GIF in your browser — free, with no signup, no upload and no watermark — and you can download it when it finishes. That recipe (3 seconds, 480 px, 12 fps, tight crop) usually lands between 1 and 3 MB, which uploads almost anywhere. Longer clips, full width and high frame rates all make the file explode, so keep them short.</p>
+      <p>A video to GIF converter takes the frames of a video clip and writes them as an animated GIF — a single image file that plays on a loop wherever images work: chat, email, docs, forums, GitHub. GIFs autoplay without a player, which is why they survive as the internet's reaction format, but they carry no sound and only 256 colours per frame, so they are always a trade of quality for universality.</p>
+      <!-- HOW TO -->
+      <h2>How to convert a video to a GIF in 4 steps</h2>
+      <p><strong>Step 1:</strong> upload your video — it is read in your browser and never uploaded. <strong>Step 2:</strong> trim the moment with the start and end boxes (15 seconds maximum; 2–5 is best). <strong>Step 3:</strong> pick a width and frame rate — 480 px and 10 fps is the usual balance. <strong>Step 4:</strong> press Make GIF, wait for the frames to encode, and download. Check the file size before you share it; if it is too big, shorten the clip or drop to 320 px and 8 fps.</p>
+      <h2>The recipe for a small GIF (and when to skip GIF entirely)</h2>
+      <table class="formats">
+        <thead><tr><th>Setting</th><th>Small GIF</th><th>Bigger GIF</th></tr></thead>
+        <tbody>
+          <tr><td>Clip length</td><td>2–5 seconds</td><td>10–15 seconds (file explodes)</td></tr>
+          <tr><td>Width</td><td>320–480 px</td><td>640 px and up</td></tr>
+          <tr><td>Frame rate</td><td>8–12 fps</td><td>15 fps (smoother, larger)</td></tr>
+          <tr><td>Best footage</td><td>Flat colours, UI demos, reactions</td><td>Live action, gradients, noise</td></tr>
+        </tbody>
+      </table>
+      <p>And one honest question to ask first: do you even need a GIF? Slack, Discord, X and most websites also accept short looping MP4 or WebP animations, which are often 5–10 times smaller at better quality. Use GIF when it has to work absolutely everywhere — email signatures, some documentation tools, old forums — and use a short video everywhere else.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this video to GIF converter really free?</summary>
+        <p>Yes. Make as many GIFs as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is my GIF so much bigger than the video?</summary>
+        <p>GIF is a 1987 format with no modern compression: every frame is stored as a separate picture with at most 256 colours. A 5-second clip can easily become a 25 MB GIF. Keep clips to 2-5 seconds, 480 px wide and 10-12 fps — that usually lands between 1 and 3 MB.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does the GIF look worse than the video?</summary>
+        <p>GIF can only hold 256 colours per frame, so gradients and dark scenes band or get noisy, and fine detail is lost. That is a limit of the format, not of this tool. If you need better quality and a smaller file, use a short looping MP4 or WebP animation instead — most chat apps accept those now.</p>
+      </details>
+      <details class="faq">
+        <summary>Does a GIF have sound?</summary>
+        <p>No. GIF is an image format and cannot carry audio. The sound in your video is dropped when it becomes a GIF.</p>
+      </details>
+      <details class="faq">
+        <summary>How long can my GIF clip be?</summary>
+        <p>This tool allows up to 15 seconds, but the sweet spot is 2-5 seconds. Longer clips get very large and convert slowly, because every frame has to be drawn and encoded in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my video uploaded to a server?</summary>
+        <p>No. Your video is read and turned into a GIF in your browser with canvas and the gif.js library. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I make a GIF from a YouTube video?</strong> Not directly here — download the clip first (only videos you have the right to use), then convert the short moment with this tool.</p>
+      <p><strong>What frame rate should a GIF be?</strong> 10–12 fps looks smooth for most clips. Your video is probably 30 or 60 fps, and keeping all those frames would double or triple the file size for no visible gain.</p>
+      <p><strong>Why is my GIF blurry?</strong> Usually it is the 256-colour limit, or the clip was upscaled. Start from a sharp source, keep the width at or below the source width, and use the Best colours setting.</p>
+      <p><strong>Can I convert a long video to a GIF?</strong> You can trim any 15-second window out of it here, but converting a whole long video is a bad idea — the file would be enormous. Cut the one moment that matters.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/video-converter" class="related-card"><h4>🎬 Video Converter</h4><p>Convert videos free</p></a><a href="/tools/video-to-mp3-converter" class="related-card"><h4>🎵 Video to MP3 Converter</h4><p>Extract audio free</p></a><a href="/tools/video-compressor" class="related-card"><h4>🗜️ Video Compressor</h4><p>Shrink videos free</p></a><a href="/tools/meme-generator" class="related-card"><h4>😂 Meme Generator</h4><p>Make memes free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/gif.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function fmtKB(n) { return n < 1024 ? n + " B" : (n / 1024 < 1024 ? (n / 1024).toFixed(1) + " KB" : (n / 1048576).toFixed(2) + " MB"); }
+  var video = $("srcVideo"), file = null, fileName = "video", duration = 0, busy = false, lastBlob = null, lastUrl = null;
+  function setStatus(m) { $("statusLine").textContent = m; }
+  function setProgress(p) { $("progFill").style.width = Math.max(0, Math.min(100, p)) + "%"; }
+  function clipRange() {
+    var s = Math.max(0, parseFloat($("startInput").value) || 0);
+    var e = parseFloat($("endInput").value) || 0;
+    if (duration > 0) { s = Math.min(s, duration); e = Math.min(e, duration); }
+    if (e <= s) e = s + 0.5;
+    return { start: s, end: e };
+  }
+  function updateClipInfo() {
+    var r = clipRange(), fps = parseInt($("fpsSelect").value, 10) || 10;
+    var frames = Math.max(1, Math.round((r.end - r.start) * fps));
+    $("clipInfo").textContent = "Clip: " + (r.end - r.start).toFixed(1) + " s · about " + frames + " frames at " + fps + " fps." +
+      ((r.end - r.start) > 5 ? " Over 5 seconds — expect a big file and a slow conversion." : "");
+  }
+  function seekTo(t) {
+    return new Promise(function (resolve, reject) {
+      var done = false;
+      function onSeeked() { if (done) return; done = true; video.removeEventListener("seeked", onSeeked); resolve(); }
+      function onErr() { if (done) return; done = true; video.removeEventListener("seeked", onSeeked); reject(new Error("seek failed")); }
+      video.addEventListener("seeked", onSeeked);
+      video.addEventListener("error", onErr, { once: true });
+      try { video.currentTime = Math.min(t, Math.max(0, duration - 0.05)); } catch (e) { onErr(); }
+      setTimeout(function () { if (!done) { done = true; video.removeEventListener("seeked", onSeeked); resolve(); } }, 3000);
+    });
+  }
+  $("videoFile").addEventListener("change", function () {
+    var f = this.files[0];
+    if (!f) return;
+    if (!/^video\//.test(f.type)) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose a video file."; return; }
+    $("errorBox").hidden = true;
+    file = f; fileName = f.name.replace(/\.[^.]+$/, "") || "video";
+    video.src = URL.createObjectURL(f);
+    video.load();
+    $("convertBtn").disabled = false;
+    setStatus("Video loaded. Trim the moment, then press Make GIF.");
+  });
+  video.addEventListener("loadedmetadata", function () {
+    duration = video.duration || 0;
+    $("fileInfo").textContent = (file ? file.name + " — " : "") + (video.videoWidth || "?") + "×" + (video.videoHeight || "?") + " · " + duration.toFixed(1) + " s · " + fmtKB(file ? file.size : 0);
+    $("endInput").value = Math.min(3, duration).toFixed(1);
+    updateClipInfo();
+  });
+  ["startInput", "endInput", "fpsSelect"].forEach(function (id) { $(id).addEventListener("input", updateClipInfo); $(id).addEventListener("change", updateClipInfo); });
+  $("convertBtn").addEventListener("click", function () {
+    if (!file || busy) return;
+    if (typeof GIF === "undefined") { setStatus("The GIF engine (gif.js) could not be loaded. Check your connection and reload the page."); return; }
+    var r = clipRange();
+    if (r.end - r.start > 15) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please trim the clip to 15 seconds or less — longer clips make enormous GIFs."; return; }
+    $("errorBox").hidden = true;
+    busy = true; $("convertBtn").disabled = true; $("dlBtn").disabled = true;
+    var fps = parseInt($("fpsSelect").value, 10) || 10;
+    var width = parseInt($("widthSelect").value, 10) || 480;
+    var quality = parseInt($("qualitySelect").value, 10) || 20;
+    var scale = width / (video.videoWidth || width);
+    var height = Math.max(2, Math.round((video.videoHeight || width) * scale / 2) * 2);
+    var canvas = document.createElement("canvas");
+    canvas.width = width; canvas.height = height;
+    var cctx = canvas.getContext("2d");
+    var gif = new GIF({ workers: 2, quality: quality, width: width, height: height, workerScript: "../js/gif.worker.js", repeat: 0 });
+    var frames = Math.max(1, Math.round((r.end - r.start) * fps));
+    var delay = Math.round(1000 / fps);
+    setStatus("Extracting " + frames + " frames… this can take a while on long clips.");
+    setProgress(0);
+    var i = 0;
+    function nextFrame() {
+      if (i >= frames) {
+        setStatus("Encoding GIF…");
+        gif.on("progress", function (p) { setProgress(Math.round(p * 100)); });
+        gif.on("finished", function (blob) {
+          busy = false; $("convertBtn").disabled = false; $("dlBtn").disabled = false;
+          lastBlob = blob;
+          if (lastUrl) URL.revokeObjectURL(lastUrl);
+          lastUrl = URL.createObjectURL(blob);
+          var img = $("gifPreview");
+          img.src = lastUrl; img.hidden = false;
+          video.style.display = "none";
+          $("metaLine").textContent = "Your GIF: " + width + "×" + height + " · " + frames + " frames · " + fmtKB(blob.size) + ". Check the size before sharing — if it is too big, shorten the clip or drop to 320 px.";
+          setStatus("Done — " + fmtKB(blob.size) + ". Press Download GIF to save it.");
+          setProgress(100);
+          toast("GIF ready (" + fmtKB(blob.size) + ").");
+        });
+        try { gif.render(); } catch (err) { busy = false; $("convertBtn").disabled = false; setStatus("GIF encoding failed in this browser. Try a shorter clip."); }
+        return;
+      }
+      var t = r.start + i / fps;
+      seekTo(t).then(function () {
+        cctx.drawImage(video, 0, 0, width, height);
+        gif.addFrame(cctx, { copy: true, delay: delay });
+        i++;
+        setProgress(Math.round((i / frames) * 60));
+        setStatus("Extracting frame " + i + " of " + frames + "…");
+        setTimeout(nextFrame, 0);
+      }).catch(function () {
+        busy = false; $("convertBtn").disabled = false;
+        setStatus("Could not read that part of the video. Try a different file or a shorter clip.");
+      });
+    }
+    nextFrame();
+  });
+  $("dlBtn").addEventListener("click", function () {
+    if (!lastBlob) return;
+    var a = document.createElement("a");
+    a.href = lastUrl; a.download = fileName + ".gif";
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { a.remove(); }, 400);
+    toast("GIF downloaded.");
+  });
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
+  });
+  $("copyShare").addEventListener("click", function () {
+    var line = $("copyShare").getAttribute("data-share") || "";
+    if (navigator.clipboard) navigator.clipboard.writeText(line + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+})();
+</script>
+</body>
+</html>

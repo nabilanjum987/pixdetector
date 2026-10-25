@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Video Converter — Convert Videos Online | PixDetector</title>
+<meta name="description" content="Convert videos free in your browser — no upload, no signup, no watermark. Output is WebM; browsers can't encode MP4. Works on any device.">
+<meta name="keywords" content="video converter free, free video converter, convert video online, video converter no watermark, convert video without upload">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/video-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/video-converter">
+<meta property="og:title" content="Free Video Converter — Convert Videos Online | PixDetector">
+<meta property="og:description" content="Convert videos free in your browser — no upload, no signup, no watermark. Output is WebM; browsers can't encode MP4.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this video converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Convert as many videos as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
+    { "@type": "Question", "name": "What format does the converted video come out as?", "acceptedAnswer": { "@type": "Answer", "text": "WebM (.webm). Browsers can record video but cannot encode MP4 (H.264), so no honest in-browser converter can hand you a real MP4 file. WebM plays in Chrome, Edge, Firefox and VLC. If you need a real MP4, use a free desktop tool like HandBrake or VLC." } },
+    { "@type": "Question", "name": "Why does conversion take as long as the video itself?", "acceptedAnswer": { "@type": "Answer", "text": "Because the conversion works by playing your video through once and recording it at the new size and quality. A 2-minute video takes about 2 minutes to convert. Keep the tab open while it runs." } },
+    { "@type": "Question", "name": "Is my video uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your video is read and re-encoded in your browser with the canvas and MediaRecorder APIs. Nothing is uploaded, stored, or shared." } },
+    { "@type": "Question", "name": "Does the converted video keep its sound?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when your browser allows it — the tool routes the video's audio into the recording. If a browser blocks that, the conversion still finishes but the output is video-only, and the page tells you so." } },
+    { "@type": "Question", "name": "Which video files can I upload?", "acceptedAnswer": { "@type": "Answer", "text": "Any video your browser can play: MP4, MOV, WebM, MKV and AVI in most cases. If a file will not load, it is usually an unsupported codec (for example some HEVC clips) — convert that file with HandBrake first, then use this tool." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert a video for free",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your video", "text": "Choose a video file. It is read in your browser and never uploaded." },
+    { "@type": "HowToStep", "name": "Pick a size and quality", "text": "Keep the original size or step down to 720p, 480p or 360p, and choose High, Medium or Low quality." },
+    { "@type": "HowToStep", "name": "Convert", "text": "Press Convert. The video plays through once in real time while it is re-encoded — keep the tab open." },
+    { "@type": "HowToStep", "name": "Download the WebM", "text": "When it finishes, the converted video downloads as a .webm file with no watermark." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+video.preview-vid{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto;background:#000}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.prog{height:10px;background:var(--bg2);border:1px solid var(--border2);border-radius:999px;overflow:hidden;margin-top:14px}
+.prog i{display:block;height:100%;width:0%;background:var(--accent)}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.formats{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Video Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Video Converter</h1>
+      <p>Convert a video to a smaller size or a different quality, free, in your browser — no upload, no signup, no watermark. Output is WebM (.webm): browsers cannot encode MP4, and this page says so instead of pretending otherwise.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> the output is <strong>WebM, not MP4</strong> — no browser tool can encode a real MP4 file. Conversion runs at <strong>real-time speed</strong> (a 2-minute video takes about 2 minutes), and it works best in <strong>Chrome, Edge or Firefox</strong>. WebM plays in Chrome, Edge, Firefox and VLC.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Convert settings">
+        <h2>Your video</h2>
+        <label class="flabel" for="videoFile">Choose a video</label>
+        <input type="file" id="videoFile" accept="video/*,.mkv,.avi">
+        <p class="trust" id="fileInfo">No video chosen yet. MP4, MOV, WebM, MKV, AVI — anything your browser can play.</p>
+        <div class="grid2" style="margin-top:16px">
+          <div>
+            <label class="flabel" for="sizeSelect">Output size</label>
+            <select id="sizeSelect">
+              <option value="original">Original size</option>
+              <option value="720">720p (HD)</option>
+              <option value="480">480p</option>
+              <option value="360">360p (small file)</option>
+            </select>
+          </div>
+          <div>
+            <label class="flabel" for="qualitySelect">Quality</label>
+            <select id="qualitySelect">
+              <option value="high">High (5 Mbps)</option>
+              <option value="medium" selected>Medium (2.5 Mbps)</option>
+              <option value="low">Low (1 Mbps)</option>
+            </select>
+          </div>
+        </div>
+        <p class="trust" id="outInfo">Output: WebM (.webm) at the size and quality you pick.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="convertBtn" disabled>Convert video</button>
+          <button type="button" class="btn alt" id="cancelBtn" disabled>Cancel</button>
+        </div>
+        <div class="prog" aria-hidden="true"><i id="progFill"></i></div>
+        <p class="trust" id="statusLine">Upload a video to start.</p>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Preview">
+        <h2>Preview</h2>
+        <video class="preview-vid" id="srcVideo" controls playsinline preload="metadata"></video>
+        <canvas id="cvCanvas" hidden></canvas>
+        <p class="meta-line">The preview shows your original video. Conversion re-encodes it at the size and quality above and downloads a .webm file.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Convert videos free in your browser — no upload, no signup, no watermark. Output is WebM, and the page is honest about it.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare" data-share="Convert videos free in your browser — no upload, no signup, no watermark.">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Convert%20videos%20free%20in%20your%20browser%20%E2%80%94%20no%20upload%2C%20no%20signup%2C%20no%20watermark&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-converter" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Convert%20videos%20free%20in%20your%20browser%20%E2%80%94%20no%20upload%2C%20no%20signup%2C%20no%20watermark%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fvideo-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: every "free" converter has a catch</h2>
+      <p>The complaint people repeat most about free video converters is the catch hidden behind the word "free". Zamzar caps free files at 50 MB. AConvert stops at 200 MB. Clideo converts for free but stamps a watermark unless you pay $6 a month. Others make you upload a private video to a server, wait in a queue, and then delete it "within 24 hours" — if you trust them. And the classic one: an iPhone MOV that will not play on a Windows PC, because Windows wants a codec pack that costs $0.99. People want a converter that just works — no size cap, no watermark, no upload, no account — and tells them the truth about what it can and cannot output.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert a video for free?</h2>
+      <p>Upload your video here, pick an output size (original, 720p, 480p or 360p) and a quality level, then press Convert. The video plays through once in your browser while it is re-encoded, and the result downloads as a WebM (.webm) file — free, with no signup, no upload and no watermark. A 2-minute video takes about 2 minutes, because the conversion runs at real-time speed. If you need a real MP4 file, use a free desktop tool like HandBrake or VLC: browsers physically cannot encode MP4, and any page that claims otherwise is misleading you.</p>
+      <p>A video converter is a tool that re-encodes a video — it reads the pictures and sound of one file and writes them again in a different container, size or quality. The container is the box (MP4, MOV, WebM, MKV); the codec is how the pictures inside are compressed (H.264, VP8, VP9). Changing the container alone is fast; re-encoding takes longer but is what actually shrinks a file or changes its resolution. This tool re-encodes into WebM, the one format browsers can write.</p>
+      <!-- HOW TO -->
+      <h2>How to convert a video in 4 steps</h2>
+      <p><strong>Step 1:</strong> upload your video — it is read in your browser and never uploaded. <strong>Step 2:</strong> pick an output size and quality; smaller sizes and lower quality mean smaller files. <strong>Step 3:</strong> press Convert and keep the tab open while the video plays through once. <strong>Step 4:</strong> download the .webm file when it finishes. If the file will not load at all, it is usually an unsupported codec — convert it with HandBrake first, then bring it here.</p>
+      <h2>Which output should you pick?</h2>
+      <table class="formats">
+        <thead><tr><th>Goal</th><th>Size</th><th>Quality</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Keep it looking the same</td><td>Original</td><td>High (5 Mbps)</td><td>Closest to the source; biggest file.</td></tr>
+          <tr><td>Share on the web</td><td>720p</td><td>Medium (2.5 Mbps)</td><td>Good balance of sharpness and file size.</td></tr>
+          <tr><td>Send in chat or email</td><td>480p</td><td>Medium or Low</td><td>Small enough for most attachment limits.</td></tr>
+          <tr><td>Smallest possible file</td><td>360p</td><td>Low (1 Mbps)</td><td>Soft picture, but tiny — good for previews.</td></tr>
+        </tbody>
+      </table>
+      <h2>Why WebM, and where does it play?</h2>
+      <p>WebM is the video format browsers can actually write. It plays natively in Chrome, Edge and Firefox, in VLC on any computer, and on Android. It does not play in older Apple software or some TV apps — that is the honest trade-off of a free in-browser converter. If your destination needs MP4, the free desktop route is HandBrake (open the file, pick the "Fast 720p30" preset, start) or VLC (Media → Convert/Save → MP4). Both are free, and both keep your file on your own computer.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this video converter really free?</summary>
+        <p>Yes. Convert as many videos as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>What format does the converted video come out as?</summary>
+        <p>WebM (.webm). Browsers can record video but cannot encode MP4 (H.264), so no honest in-browser converter can hand you a real MP4 file. WebM plays in Chrome, Edge, Firefox and VLC. If you need a real MP4, use a free desktop tool like HandBrake or VLC.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does conversion take as long as the video itself?</summary>
+        <p>Because the conversion works by playing your video through once and recording it at the new size and quality. A 2-minute video takes about 2 minutes to convert. Keep the tab open while it runs.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my video uploaded to a server?</summary>
+        <p>No. Your video is read and re-encoded in your browser with the canvas and MediaRecorder APIs. Nothing is uploaded, stored, or shared.</p>
+      </details>
+      <details class="faq">
+        <summary>Does the converted video keep its sound?</summary>
+        <p>Yes, when your browser allows it — the tool routes the video's audio into the recording. If a browser blocks that, the conversion still finishes but the output is video-only, and the page tells you so.</p>
+      </details>
+      <details class="faq">
+        <summary>Which video files can I upload?</summary>
+        <p>Any video your browser can play: MP4, MOV, WebM, MKV and AVI in most cases. If a file will not load, it is usually an unsupported codec (for example some HEVC clips) — convert that file with HandBrake first, then use this tool.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I convert a video without installing software?</strong> Yes — this page does it in the browser. The trade-off is WebM output and real-time speed; desktop software is faster and can write MP4.</p>
+      <p><strong>Why won't my iPhone video play on Windows?</strong> iPhones record MOV with the HEVC codec, which Windows often cannot decode without a paid codec pack. Converting to a widely supported format fixes it.</p>
+      <p><strong>Does converting a video reduce its quality?</strong> Re-encoding always loses a little quality. High quality at the original size loses the least; stepping down to 360p and Low quality loses the most.</p>
+      <p><strong>Is there a file size limit?</strong> No server limit, because nothing is uploaded — the practical limit is your device's memory. Very large files convert slowly, so trim them first if you can.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/video-to-mp4-converter" class="related-card"><h4>🎬 Video to MP4 Converter</h4><p>The honest MP4 answer</p></a><a href="/tools/video-to-mp3-converter" class="related-card"><h4>🎵 Video to MP3 Converter</h4><p>Extract audio free</p></a><a href="/tools/video-compressor" class="related-card"><h4>🗜️ Video Compressor</h4><p>Shrink videos free</p></a><a href="/tools/resize-video" class="related-card"><h4>📐 Resize Video</h4><p>Change video size free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/video-converter.js"></script>
+</body>
+</html>

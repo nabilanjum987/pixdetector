@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Ruler Free — Measure in cm & Inches on Screen</title>
+<meta name="description" content="Free on-screen ruler in cm, mm and inches. Calibrate with a standard card first for real size. No signup, no download, no app.">
+<meta name="keywords" content="online ruler free, screen ruler, measure cm online, ruler in inches online, actual size ruler">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/online-ruler">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/online-ruler">
+<meta property="og:title" content="Online Ruler Free — Measure in cm & Inches on Screen">
+<meta property="og:description" content="Free on-screen ruler in cm, mm and inches. Calibrate with a standard card first for real size. No signup, no download, no app.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this online ruler really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Free, no signup, no download, no app \u2014 it runs entirely in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is an online ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After calibration, accurate to about half a millimetre for small objects held flat on the screen. Before calibration, it can be off by 60% \u2014 which is why this page warns you until you calibrate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calibrate with a credit card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hold a standard credit or ID card against the blue box on this page and drag the slider until the box is exactly as wide as the card. A standard card is 85.60 mm wide, so the box is now showing true size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my phone as a ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 open this page in your phone browser and calibrate with a card. Phones have the sharpest screens, so calibration matters most on a phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I do not have a card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your screen's diagonal size in inches and its pixel width instead \u2014 the page calculates the density from those two numbers. It is slightly less accurate than the card method."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the ruler a different size on every screen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because every screen has a different pixel density. A browser draws in CSS pixels, and one CSS pixel is a different physical size on every display \u2014 calibration is what bridges that gap."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use an online ruler",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Calibrate the screen",
+      "text": "Hold a standard card against the blue box and drag the slider until the box matches the card exactly."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose a unit",
+      "text": "Pick centimetres, millimetres or inches, and horizontal or vertical orientation."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Measure the object",
+      "text": "Lay the object flat against the screen along the ruler, or click two points to measure the distance between them."
+    }
+  ]
+}
+</script>
+<style>
+
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=text],input[type=number],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+textarea{resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.ok{color:#34d399;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.7;word-break:break-word;min-height:56px;margin-top:12px}
+table.facts{width:100%;border-collapse:collapse;font-size:14px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Online Ruler
+    </div>
+    <div class="tool-page-header">
+      <h1>Online Ruler Free</h1>
+      <p>Measure small objects right on your screen — in centimetres, millimetres or inches. Free, no signup, no download, no app. Calibrate first, or the numbers mean nothing.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Calibrate before you trust any number.</strong> Until you calibrate, this ruler assumes 96 pixels per inch — the web default — which can be off by 60% on a phone or high-DPI screen. Use a standard credit or ID card (85.60 mm wide) to set it, and the page shows an 'uncalibrated' warning until you do.</div>
+    
+    <div class="bc-panel" aria-label="Ruler" style="margin-bottom:20px">
+      <h2>Your ruler <span id="calBadge" style="font-size:13px;color:#f87171;font-weight:600">— NOT CALIBRATED, numbers are approximate</span></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+        <button type="button" class="chip" data-unit="cm" aria-pressed="true">Centimetres (cm)</button>
+        <button type="button" class="chip" data-unit="mm" aria-pressed="false">Millimetres (mm)</button>
+        <button type="button" class="chip" data-unit="in" aria-pressed="false">Inches (in)</button>
+        <button type="button" class="chip" id="flipRuler" aria-pressed="false">Vertical ruler</button>
+      </div>
+      <div id="rulerBox" style="position:relative;overflow-x:auto;border:1px solid var(--border2);border-radius:10px;background:var(--bg2);padding:0">
+        <canvas id="rulerCanvas" height="90" style="display:block;cursor:crosshair"></canvas>
+        <div id="measureLine" style="position:absolute;top:0;bottom:0;width:2px;background:#f87171;display:none"></div>
+        <div id="measureLine2" style="position:absolute;top:0;bottom:0;width:2px;background:#00e5ff;display:none"></div>
+      </div>
+      <p class="trust" id="measureOut">Click once to set the start point, click again to set the end point — the distance between them is your measurement.</p>
+      <div class="actions"><button type="button" class="btn alt" id="clearMeasure">Clear measurement</button></div>
+      <h2 style="margin-top:22px">Calibrate your screen</h2>
+      <p class="trust">A standard credit or ID card is 85.60 mm wide. Hold your card against the box below and drag the slider until the box is exactly as wide as your card.</p>
+      <div id="cardBox" style="height:54px;background:var(--accent);border-radius:8px;margin:10px 0;position:relative"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#000;font-weight:700;font-size:13px">CARD — drag slider until this box matches your card</span></div>
+      <label class="flabel" for="ppiSlider">Screen density: <span id="ppiOut">96 PPI (uncalibrated guess)</span></label>
+      <input type="range" id="ppiSlider" min="50" max="500" value="96">
+      <div class="grid2" style="margin-top:12px">
+        <div><label class="flabel" for="diagInput">Or enter screen diagonal (inches)</label><input type="number" id="diagInput" min="3" max="60" step="0.1" placeholder="e.g. 15.6"></div>
+        <div><label class="flabel" for="resInput">Screen width (pixels)</label><input type="number" id="resInput" min="320" max="8000" step="1" placeholder="e.g. 1920"></div>
+      </div>
+      <div class="actions"><button type="button" class="btn" id="diagCalc">Calculate from diagonal</button></div>
+      <p class="ok" id="calOk" hidden></p>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Measure in cm and inches right on your screen — free online ruler.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Measure%20in%20cm%20and%20inches%20right%20on%20your%20screen%20%E2%80%94%20free%20online%20ruler&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-ruler" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-ruler" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Measure%20in%20cm%20and%20inches%20right%20on%20your%20screen%20%E2%80%94%20free%20online%20ruler.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-ruler" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: no tape measure, and the screen lies</h2>
+      <p>It happens constantly: you need to measure something small — a ring, a screw, a photo print, the width of a phone case, a gap on a shelf — and there is no ruler in the drawer. So you search for an online ruler, and most of them hand you a picture of a ruler that is simply wrong, because every screen packs a different number of pixels into an inch. A 27-inch 4K monitor holds about 163 pixels per inch; a phone can hold 460. A ruler that assumes the web default of 96 pixels per inch can be off by 60% on a modern phone, and nothing on the page tells you. On social media the same frustration shows up around heavily promoted "AR ruler" apps — one widely shared reel's comments report an installed app that did nothing but show ads. What people actually want is a plain screen ruler that admits the problem and fixes it: calibrate once against a real object, then measure.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I measure something with an online ruler?</h2>
+      <p>Calibrate once with a standard credit card, then hold the object against your screen and read its length in cm, mm or inches — free, no signup, no app. Without calibration the ruler guesses your screen's pixel density and can be far out, so this page shows an 'uncalibrated' warning until you set it.</p>
+      <p>An online ruler is a measuring tool drawn on your screen at real physical size. Screens do not know their own physical size, so a browser measures everything in CSS pixels — and a CSS pixel is not a fixed physical length. Calibration tells the ruler how many CSS pixels make one real inch on your screen, using a physical reference you already own: a standard card, which is 85.60 mm wide by international standard ISO 7810.</p>
+      <!-- HOW TO -->
+      <h2>How to use the online ruler in 3 steps</h2>
+      <p><strong>Step 1 — calibrate:</strong> hold a standard credit or ID card against the blue box and drag the slider until the box is exactly as wide as your card. The page now knows your screen's real pixel density. <strong>Step 2 — choose a unit:</strong> centimetres, millimetres or inches, and horizontal or vertical. <strong>Step 3 — measure:</strong> lay the object flat against the screen along the ruler, or click two points on the ruler to measure the distance between them.</p>
+      <h2>Why calibration matters</h2>
+      <table class="facts"><thead><tr><th>Screen</th><th>Real density</th><th>Error if you trust 96 PPI</th></tr></thead><tbody>
+      <tr><td>Old office monitor</td><td>~96 PPI</td><td>Nearly right — the default was made for this</td></tr>
+      <tr><td>27-inch 4K monitor</td><td>~163 PPI</td><td>About 40% short — a 10 cm object reads as 6 cm</td></tr>
+      <tr><td>Laptop, 15.6-inch Full HD</td><td>~141 PPI</td><td>About 32% short</td></tr>
+      <tr><td>Modern phone</td><td>300–460 PPI</td><td>Up to 60–70% short — a 10 cm object reads as 3–4 cm</td></tr>
+      </tbody></table>
+      <p>The pattern is simple: the sharper the screen, the worse the default guess. That is why this page refuses to look confident before you calibrate — an uncalibrated ruler is worse than no ruler, because it gives you a wrong number with a straight face.</p>
+      <h2>What you can — and cannot — measure</h2>
+      <p>You can measure flat, small objects held against the screen: paper, cards, photos, jewellery, screws, phone cases, printed diagrams. You cannot measure a room, a person, or anything that does not fit on your screen — for that you need a tape measure, not a web page. And a screen measurement is never as precise as a steel ruler: after calibration, expect accuracy within about half a millimetre for small objects, which is plenty for everyday checks but not for engineering.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this online ruler really free?</summary><p>Yes. Free, no signup, no download, no app — it runs entirely in your browser.</p></details><details class="faq"><summary>How accurate is an online ruler?</summary><p>After calibration, accurate to about half a millimetre for small objects held flat on the screen. Before calibration, it can be off by 60% — which is why this page warns you until you calibrate.</p></details><details class="faq"><summary>How do I calibrate with a credit card?</summary><p>Hold a standard credit or ID card against the blue box on this page and drag the slider until the box is exactly as wide as the card. A standard card is 85.60 mm wide, so the box is now showing true size.</p></details><details class="faq"><summary>Can I use my phone as a ruler?</summary><p>Yes — open this page in your phone browser and calibrate with a card. Phones have the sharpest screens, so calibration matters most on a phone.</p></details><details class="faq"><summary>What if I do not have a card?</summary><p>Enter your screen's diagonal size in inches and its pixel width instead — the page calculates the density from those two numbers. It is slightly less accurate than the card method.</p></details><details class="faq"><summary>Why is the ruler a different size on every screen?</summary><p>Because every screen has a different pixel density. A browser draws in CSS pixels, and one CSS pixel is a different physical size on every display — calibration is what bridges that gap.</p></details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I measure 1 inch online?</strong> Switch to inches and calibrate first — after calibration, the "1" mark is exactly one real inch.</p>
+      <p><strong>Can I measure in millimetres?</strong> Yes — switch to mm mode and every small tick is 1 mm, with longer marks at each centimetre.</p>
+      <p><strong>Does the calibration save?</strong> Yes — your setting is saved in this browser, so it is still calibrated next visit. It resets if you clear site data.</p>
+      <p><strong>Why does the ruler change when I zoom?</strong> Browser zoom changes the size of a CSS pixel, which breaks calibration. Keep zoom at 100% while measuring.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/image-resizer" class="related-card"><h4>🖼️ Image Resizer</h4><p>Resize images free</p></a><a href="/tools/online-compass" class="related-card"><h4>🧭 Online Compass</h4><p>Live direction free</p></a><a href="/tools/world-clock" class="related-card"><h4>🕐 World Clock</h4><p>Live times worldwide free</p></a><a href="/tools/what-is-my-ip-address" class="related-card"><h4>🌐 What Is My IP</h4><p>Check your IP free</p></a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+
+<script>
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var ppi = 96, calibrated = false, unit = "cm", vertical = false, startX = null, endX = null;
+  try {
+    var saved = JSON.parse(localStorage.getItem("pd-ruler") || "null");
+    if (saved && saved.ppi) { ppi = saved.ppi; calibrated = true; }
+  } catch (e) {}
+  var canvas = $("rulerCanvas"), ctx = canvas.getContext("2d");
+  function sizeCanvas() {
+    var box = $("rulerBox");
+    canvas.width = box.clientWidth || 800;
+    canvas.style.width = "100%";
+    draw();
+  }
+  function mmPerPx() { return 25.4 / ppi; }
+  function draw() {
+    var w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = "#111118"; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "#f0f0f8"; ctx.fillStyle = "#f0f0f8";
+    ctx.font = "12px 'DM Sans', sans-serif"; ctx.textAlign = "center";
+    var stepMm = unit === "mm" ? 1 : unit === "in" ? 25.4 : 10;
+    var majorMm = unit === "mm" ? 10 : unit === "in" ? 25.4 : 10;
+    var totalMm = w * mmPerPx();
+    for (var mm = 0; mm <= totalMm; mm += stepMm) {
+      var x = mm / mmPerPx();
+      var isMajor = Math.abs(mm / majorMm - Math.round(mm / majorMm)) < 0.001;
+      var isMid = !isMajor && unit !== "mm" && Math.abs(mm / (majorMm / 2) - Math.round(mm / (majorMm / 2))) < 0.001;
+      var len = isMajor ? 34 : isMid ? 22 : 12;
+      ctx.beginPath(); ctx.moveTo(x, h); ctx.lineTo(x, h - len); ctx.stroke();
+      if (isMajor) {
+        var label = unit === "in" ? (mm / 25.4) : unit === "mm" ? mm : (mm / 10);
+        ctx.fillText(String(label), x, 18);
+      }
+    }
+    ctx.fillStyle = "#8888a8"; ctx.textAlign = "left";
+    ctx.fillText(unit === "in" ? "inches" : unit === "mm" ? "millimetres" : "centimetres", 8, 18);
+    if (startX !== null) { var l1 = $("measureLine"); l1.style.display = "block"; l1.style.left = startX + "px"; }
+    if (endX !== null) { var l2 = $("measureLine2"); l2.style.display = "block"; l2.style.left = endX + "px"; }
+  }
+  function updateBadge() {
+    var b = $("calBadge");
+    if (calibrated) { b.textContent = "— CALIBRATED at " + ppi + " PPI"; b.style.color = "#34d399"; }
+    else { b.textContent = "— NOT CALIBRATED, numbers are approximate"; b.style.color = "#f87171"; }
+    $("ppiOut").textContent = ppi + " PPI" + (calibrated ? " (calibrated)" : " (uncalibrated guess)");
+    $("cardBox").style.width = Math.round(85.60 / mmPerPx()) + "px";
+    $("cardBox").style.maxWidth = "100%";
+  }
+  function saveCal() { try { localStorage.setItem("pd-ruler", JSON.stringify({ ppi: ppi })); } catch (e) {} }
+  function setPpi(v) {
+    ppi = Math.round(v);
+    calibrated = true;
+    $("ppiSlider").value = ppi;
+    updateBadge(); draw();
+    var ok = $("calOk"); ok.hidden = false;
+    ok.textContent = "Calibrated at " + ppi + " PPI. Your ruler now shows real size on this screen — saved in this browser.";
+  }
+  $("ppiSlider").addEventListener("input", function () { setPpi(parseFloat(this.value)); });
+  $("diagCalc").addEventListener("click", function () {
+    var diag = parseFloat($("diagInput").value), resW = parseFloat($("resInput").value);
+    if (!diag || !resW) { toast("Enter both the diagonal (inches) and the screen width (pixels)."); return; }
+    var h = window.innerHeight, w = window.innerWidth;
+    var resH = Math.round(resW * h / w);
+    var ppiCalc = Math.sqrt(resW * resW + resH * resH) / diag;
+    setPpi(ppiCalc);
+    toast("Density estimated at " + Math.round(ppiCalc) + " PPI from your screen size. The card method is more accurate.");
+  });
+  document.querySelectorAll("[data-unit]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      unit = b.getAttribute("data-unit");
+      document.querySelectorAll("[data-unit]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      startX = null; endX = null;
+      $("measureLine").style.display = "none"; $("measureLine2").style.display = "none";
+      $("measureOut").textContent = "Click once to set the start point, click again to set the end point — the distance between them is your measurement.";
+      draw();
+    });
+  });
+  $("flipRuler").addEventListener("click", function () {
+    vertical = !vertical;
+    this.setAttribute("aria-pressed", vertical ? "true" : "false");
+    this.textContent = vertical ? "Horizontal ruler" : "Vertical ruler";
+    canvas.style.transform = vertical ? "rotate(90deg)" : "";
+    canvas.style.transformOrigin = "center";
+    toast(vertical ? "Vertical mode: rotate your object, or use the horizontal ruler for most things." : "Horizontal ruler.");
+  });
+  function fmtDist(mm) {
+    if (unit === "in") return (mm / 25.4).toFixed(2) + " in (" + mm.toFixed(1) + " mm)";
+    if (unit === "mm") return mm.toFixed(1) + " mm (" + (mm / 10).toFixed(2) + " cm)";
+    return (mm / 10).toFixed(2) + " cm (" + mm.toFixed(1) + " mm)";
+  }
+  canvas.addEventListener("click", function (ev) {
+    var rect = canvas.getBoundingClientRect();
+    var x = ev.clientX - rect.left;
+    var px = x * (canvas.width / rect.width);
+    if (startX === null) {
+      startX = px;
+      $("measureOut").textContent = "Start point set. Click again to set the end point.";
+    } else if (endX === null) {
+      endX = px;
+      var distMm = Math.abs(endX - startX) * mmPerPx();
+      $("measureOut").textContent = "Distance: " + fmtDist(distMm) + (calibrated ? "" : " — approximate: calibrate first for a real measurement.");
+    } else {
+      startX = px; endX = null;
+      $("measureLine2").style.display = "none";
+      $("measureOut").textContent = "Start point set. Click again to set the end point.";
+    }
+    draw();
+  });
+  $("clearMeasure").addEventListener("click", function () {
+    startX = null; endX = null;
+    $("measureLine").style.display = "none"; $("measureLine2").style.display = "none";
+    $("measureOut").textContent = "Click once to set the start point, click again to set the end point — the distance between them is your measurement.";
+    draw();
+  });
+  if (calibrated) { $("ppiSlider").value = ppi; }
+  window.addEventListener("resize", sizeCanvas);
+  updateBadge();
+  sizeCanvas();
+
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  var cs = $("copyShare");
+  if (cs) { cs.addEventListener("click", function () {
+    var line = document.querySelector(".share-line").textContent.trim() + " " + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); }
+  }); }
+
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Scanner Online Free — No App, No Signup</title>
+<meta name="description" content="Scan any QR code free online — use your camera or upload an image. No app, no signup, nothing uploaded. Instant results.">
+<meta name="keywords" content="qr code scanner online free, scan qr code online, qr code reader, qr scanner free, scan qr code from image">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/qr-code-scanner">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/qr-code-scanner">
+<meta property="og:title" content="QR Code Scanner Online Free — No App, No Signup">
+<meta property="og:description" content="Scan any QR code free online — use your camera or upload an image. No app, no signup, nothing uploaded. Instant results.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this QR code scanner really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Scan as many codes as you like, free, with no signup, no app to install and no scan limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I scan a QR code from a screenshot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Upload the screenshot, or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). This is the easiest way to read a code that is on your own screen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my photo or camera video uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Decoding runs entirely in your browser \u2014 the camera frames and uploaded images never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my QR code scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually blur, glare, a code that is too small, or a missing white margin around the square. Try a sharper photo, even lighting, and make sure the whole code including its margin is visible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on iPhone and Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in the phone browser. Camera scanning needs camera permission; image upload works on every phone even if the camera is blocked."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to open a link from a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. A QR code can hold any link, including a fake login page. This tool shows you the address as plain text first \u2014 read it, and only tap Open link if you trust it."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to scan a QR code online",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Start the camera or upload an image",
+      "text": "Tap Start camera and allow camera access, or upload a photo or screenshot containing a QR code."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Point at the code",
+      "text": "Hold the code steady in the frame, in good light, with the whole square and its white margin visible."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Read and check the result",
+      "text": "The decoded text or link appears below. Copy it, or tap Open link only after checking the address."
+    }
+  ]
+}
+</script>
+<style>
+
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=text],input[type=number],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+textarea{resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.ok{color:#34d399;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.7;word-break:break-word;min-height:56px;margin-top:12px}
+table.facts{width:100%;border-collapse:collapse;font-size:14px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+
+video{max-height:340px;object-fit:cover}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      QR Code Scanner
+    </div>
+    <div class="tool-page-header">
+      <h1>QR Code Scanner Online Free</h1>
+      <p>Point your camera at a QR code, or upload a photo or screenshot of one, and read what is inside — a link, text, Wi-Fi details or contact info. Free, no app, no signup, nothing uploaded.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Camera scanning needs camera permission</strong> — your browser will ask for it, and you can say no and use image upload instead. Decoding runs entirely in your browser; no photo or video ever leaves your device. <strong>Never open a QR link blindly</strong> — this tool shows you the address first so you can check it.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Scan with camera">
+        <h2>Scan with your camera</h2>
+        <video id="qrVideo" playsinline muted style="width:100%;border-radius:10px;background:#000;display:none"></video>
+        <canvas id="qrCanvas" hidden></canvas>
+        <p class="trust" id="camStatus">Camera is off. Tap Start camera and allow permission when your browser asks.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="startCam">Start camera</button>
+          <button type="button" class="btn alt" id="stopCam" disabled>Stop camera</button>
+        </div>
+        <p class="err" id="camError" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="Scan from an image">
+        <h2>Or scan from an image</h2>
+        <label class="flabel" for="qrFile">Upload a photo or screenshot with a QR code</label>
+        <input type="file" id="qrFile" accept="image/*">
+        <p class="trust">You can also paste a screenshot: click this page, then press Ctrl+V (Windows) or Cmd+V (Mac).</p>
+        <img id="qrImgPreview" alt="Uploaded image preview" style="max-width:100%;max-height:260px;border-radius:10px;display:none;margin-top:12px">
+        <p class="err" id="imgError" role="alert" hidden></p>
+      </div>
+    </div>
+    <div class="bc-panel" aria-label="Scan result" style="margin-top:20px">
+      <h2>Result</h2>
+      <div class="result-box" id="qrResult">No QR code scanned yet. Start the camera or upload an image.</div>
+      <div class="actions">
+        <button type="button" class="btn" id="copyResult" disabled>Copy result</button>
+        <a class="btn alt" id="openLink" href="#" target="_blank" rel="noopener nofollow" style="display:none;text-decoration:none">Open link</a>
+        <button type="button" class="btn alt" id="clearResult">Clear</button>
+      </div>
+      <p class="trust">If the result is a web address, check it carefully before opening it — QR codes can hide any link, including a fake login page.</p>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Scan any QR code free online — camera or upload, no app, no signup.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Scan%20any%20QR%20code%20free%20online%20%E2%80%94%20camera%20or%20upload%2C%20no%20app%2C%20no%20signup&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fqr-code-scanner" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fqr-code-scanner" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Scan%20any%20QR%20code%20free%20online%20%E2%80%94%20camera%20or%20upload%2C%20no%20app%2C%20no%20signup.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fqr-code-scanner" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: a QR code your phone will not read</h2>
+      <p>QR codes are everywhere — menus, tickets, parcels, payment counters, posters — and the moment you actually need one, your phone camera often refuses to read it. The code is too dark, too small, blurred, glaring under a light, or printed on a screen your phone is struggling with. Worse is the code that lives on the same device: a screenshot in your gallery, or a QR code shown on your laptop screen while your phone is in your other hand. On social media, people keep asking for a free scanner that simply works without installing yet another app, and the most common complaint about scanner apps is that they fail in bad light or on dark, low-contrast codes — then ask for a comment or a download link before they do anything. This page is the plain version of that ask: no app, no account, just the camera or the image, and the answer in seconds.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I scan a QR code online for free?</h2>
+      <p>Point your camera at a QR code, or upload a photo or screenshot of one, and this free scanner reads it in seconds — no app, no signup, nothing uploaded. It shows the text or web address the code holds, and only opens a link when you tap it, so you can check where it goes first.</p>
+      <p>A QR code scanner is a tool that reads the black-and-white square pattern of a QR code and turns it back into the data stored inside it — usually a web address, a piece of text, Wi-Fi login details, or a contact card. A QR code can hold up to about 3,000 characters, and it keeps working even if part of it is damaged, because it carries built-in error correction.</p>
+      <!-- HOW TO -->
+      <h2>How to scan a QR code in 3 steps</h2>
+      <p><strong>Step 1:</strong> tap Start camera and allow camera access — or upload a photo or screenshot instead. <strong>Step 2:</strong> hold the code steady inside the camera frame, in good light, with the whole square visible including its white margin. <strong>Step 3:</strong> read the result, copy it, or tap Open link only after checking the address.</p>
+      <h2>What kinds of QR codes can it read?</h2>
+      <table class="facts"><thead><tr><th>Type</th><th>What you get</th><th>What happens next</th></tr></thead><tbody>
+      <tr><td>Website link</td><td>The full web address</td><td>An Open link button appears — tap it only if you trust the address</td></tr>
+      <tr><td>Plain text</td><td>The message itself</td><td>Copy it with one tap</td></tr>
+      <tr><td>Wi-Fi login</td><td>Network name, password and security type</td><td>Shown as text — copy the password into your Wi-Fi settings</td></tr>
+      <tr><td>Contact (vCard)</td><td>Name, phone, email</td><td>Shown as text for you to save</td></tr>
+      <tr><td>Email or SMS</td><td>Address or number plus message</td><td>Shown as text — nothing is sent automatically</td></tr>
+      </tbody></table>
+      <h2>Why a QR code will not scan</h2>
+      <p>Blur is the number one cause: a shaky photo or a code printed too small loses the fine squares the reader needs. Glare is second — tilt the screen or move the light so the code is evenly lit. A code cropped tight to its edge also fails, because scanners need the white margin (the "quiet zone") around the square. If the code is damaged, try a sharper photo; if it is very dark or low-contrast, brighten the image first. And if the code is on your own screen, take a screenshot and upload it here instead of pointing a second camera at it — that is usually the sharpest version you have.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this QR code scanner really free?</summary><p>Yes. Scan as many codes as you like, free, with no signup, no app to install and no scan limit.</p></details><details class="faq"><summary>Can I scan a QR code from a screenshot?</summary><p>Yes. Upload the screenshot, or paste it straight onto this page with Ctrl+V (Windows) or Cmd+V (Mac). This is the easiest way to read a code that is on your own screen.</p></details><details class="faq"><summary>Is my photo or camera video uploaded anywhere?</summary><p>No. Decoding runs entirely in your browser — the camera frames and uploaded images never leave your device.</p></details><details class="faq"><summary>Why won't my QR code scan?</summary><p>Usually blur, glare, a code that is too small, or a missing white margin around the square. Try a sharper photo, even lighting, and make sure the whole code including its margin is visible.</p></details><details class="faq"><summary>Does it work on iPhone and Android?</summary><p>Yes, in the phone browser. Camera scanning needs camera permission; image upload works on every phone even if the camera is blocked.</p></details><details class="faq"><summary>Is it safe to open a link from a QR code?</summary><p>Not automatically. A QR code can hold any link, including a fake login page. This tool shows you the address as plain text first — read it, and only tap Open link if you trust it.</p></details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I scan a QR code without a camera?</strong> Yes — upload a photo or screenshot of the code and it is decoded from the image.</p>
+      <p><strong>Can I scan a QR code on my laptop screen?</strong> Yes — screenshot it and upload the screenshot here, or point your phone camera at the screen.</p>
+      <p><strong>Does the scanner save my scans?</strong> No. Results live only on this page until you clear them or close the tab.</p>
+      <p><strong>What if the QR code is upside down?</strong> It still reads — QR codes are designed to be read from any angle.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-resizer" class="related-card"><h4>🖼️ Image Resizer</h4><p>Resize images free</p></a><a href="/tools/what-is-my-ip-address" class="related-card"><h4>🌐 What Is My IP</h4><p>Check your IP free</p></a><a href="/tools/file-converter" class="related-card"><h4>🔄 File Converter</h4><p>Convert files free</p></a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="../js/jsqr.min.js"></script>
+
+<script>
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var stream = null, raf = null, scanning = false, lastText = "";
+  var video = $("qrVideo"), canvas = $("qrCanvas"), ctx = canvas.getContext("2d");
+  function showResult(text) {
+    lastText = text;
+    $("qrResult").textContent = text;
+    $("copyResult").disabled = false;
+    var link = $("openLink");
+    if (/^https?:\/\//i.test(text.trim())) { link.href = text.trim(); link.style.display = "inline-block"; }
+    else { link.style.display = "none"; }
+    toast("QR code read.");
+  }
+  function decodeFromCanvas(w, h) {
+    var img = ctx.getImageData(0, 0, w, h);
+    if (window.BarcodeDetector) {
+      return null; // handled by async path below
+    }
+    if (typeof jsQR === "undefined") return null;
+    var code = jsQR(img.data, w, h);
+    return code ? code.data : null;
+  }
+  function tick() {
+    if (!scanning || video.readyState !== video.HAVE_ENOUGH_DATA) { raf = requestAnimationFrame(tick); return; }
+    canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    var done = false;
+    if (window.BarcodeDetector) {
+      var bd = new BarcodeDetector({ formats: ["qr_code"] });
+      bd.detect(canvas).then(function (codes) {
+        if (codes && codes.length) { showResult(codes[0].rawValue); stopCam(); }
+      }).catch(function () { });
+    } else {
+      var found = decodeFromCanvas(canvas.width, canvas.height);
+      if (found) { showResult(found); stopCam(); done = true; }
+    }
+    if (!done && scanning) raf = requestAnimationFrame(tick);
+  }
+  function stopCam() {
+    scanning = false;
+    if (raf) cancelAnimationFrame(raf);
+    if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; }
+    video.style.display = "none";
+    $("startCam").disabled = false; $("stopCam").disabled = true;
+    $("camStatus").textContent = "Camera is off.";
+  }
+  $("startCam").addEventListener("click", function () {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      var e = $("camError"); e.hidden = false; e.textContent = "This browser cannot access a camera. Use the image upload instead — it works on every device.";
+      return;
+    }
+    $("camError").hidden = true;
+    $("camStatus").textContent = "Asking for camera permission…";
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (s) {
+      stream = s; video.srcObject = s; video.style.display = "block";
+      video.play();
+      scanning = true;
+      $("startCam").disabled = true; $("stopCam").disabled = false;
+      $("camStatus").textContent = "Camera on — point it at a QR code, whole square in frame.";
+      raf = requestAnimationFrame(tick);
+    }).catch(function (err) {
+      $("camStatus").textContent = "Camera is off.";
+      var e = $("camError"); e.hidden = false;
+      e.textContent = (err && err.name === "NotAllowedError") ? "Camera permission was denied. Allow camera access in the address bar and try again — or upload an image instead." : "Could not start the camera (" + (err && err.name ? err.name : "unknown error") + "). Upload an image instead.";
+    });
+  });
+  $("stopCam").addEventListener("click", stopCam);
+  function decodeImage(img) {
+    var c = document.createElement("canvas");
+    var scale = Math.min(1, 1200 / Math.max(img.naturalWidth, img.naturalHeight));
+    c.width = Math.round(img.naturalWidth * scale); c.height = Math.round(img.naturalHeight * scale);
+    var c2 = c.getContext("2d"); c2.drawImage(img, 0, 0, c.width, c.height);
+    function fail() { var e = $("imgError"); e.hidden = false; e.textContent = "No QR code found in that image. Try a sharper photo with the whole code and its white margin visible."; }
+    if (window.BarcodeDetector) {
+      var bd = new BarcodeDetector({ formats: ["qr_code"] });
+      bd.detect(c).then(function (codes) {
+        if (codes && codes.length) { $("imgError").hidden = true; showResult(codes[0].rawValue); }
+        else if (typeof jsQR !== "undefined") {
+          var code = jsQR(c2.getImageData(0, 0, c.width, c.height).data, c.width, c.height);
+          if (code) { $("imgError").hidden = true; showResult(code.data); } else fail();
+        } else fail();
+      }).catch(function () { fail(); });
+    } else if (typeof jsQR !== "undefined") {
+      var code = jsQR(c2.getImageData(0, 0, c.width, c.height).data, c.width, c.height);
+      if (code) { $("imgError").hidden = true; showResult(code.data); } else fail();
+    } else {
+      var e = $("imgError"); e.hidden = false; e.textContent = "The QR decoder library did not load. Reload the page and try again.";
+    }
+  }
+  $("qrFile").addEventListener("change", function () {
+    var f = this.files[0]; if (!f) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () { var p = $("qrImgPreview"); p.src = reader.result; p.style.display = "block"; decodeImage(im); };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  document.addEventListener("paste", function (ev) {
+    var items = (ev.clipboardData || window.clipboardData || {}).items || [];
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type && items[i].type.indexOf("image") === 0) {
+        var f = items[i].getAsFile(); if (!f) continue;
+        var reader = new FileReader();
+        reader.onload = function () { var im = new Image(); im.onload = function () { var p = $("qrImgPreview"); p.src = reader.result; p.style.display = "block"; decodeImage(im); }; im.src = reader.result; };
+        reader.readAsDataURL(f);
+        ev.preventDefault();
+        return;
+      }
+    }
+  });
+  $("copyResult").addEventListener("click", function () {
+    if (!lastText) return;
+    if (navigator.clipboard) { navigator.clipboard.writeText(lastText).then(function () { toast("Result copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  $("clearResult").addEventListener("click", function () {
+    lastText = ""; $("qrResult").textContent = "No QR code scanned yet. Start the camera or upload an image.";
+    $("copyResult").disabled = true; $("openLink").style.display = "none";
+  });
+
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  var cs = $("copyShare");
+  if (cs) { cs.addEventListener("click", function () {
+    var line = document.querySelector(".share-line").textContent.trim() + " " + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); }
+  }); }
+
+})();
+
+</script>
+</body>
+</html>

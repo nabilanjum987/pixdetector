@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Timer — Countdown &amp; Stopwatch | PixDetector</title>
+<meta name="description" content="Free online timer that counts down or up, stays accurate in background tabs, and rings when done. No signup, no ads, works instantly.">
+<meta name="keywords" content="timer online free, free online timer, online timer, countdown timer, count up timer, timer with alarm">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/timer-online">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/timer-online">
+<meta property="og:title" content="Free Online Timer — Countdown &amp; Stopwatch | PixDetector">
+<meta property="og:description" content="Free online timer that counts down or up, stays accurate in background tabs, and rings when done. No signup, no ads, works instantly.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this online timer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use it as often as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
+    { "@type": "Question", "name": "Does the timer keep running if I switch tabs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. This timer is measured against your device clock, not by counting ticks, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the timer." } },
+    { "@type": "Question", "name": "Can the timer count up instead of down?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Switch to Count up mode and press Start — the timer counts up from zero, like a stopwatch, until you stop it. Use it to measure how long something takes." } },
+    { "@type": "Question", "name": "Will I hear the alarm when the timer finishes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, a beep plays when the countdown reaches zero, as long as your device volume is on and the tab is open. Browsers only allow sound after you have clicked on the page, so start the timer with a click or tap — which you do anyway." } },
+    { "@type": "Question", "name": "What is the difference between a timer and a stopwatch?", "acceptedAnswer": { "@type": "Answer", "text": "A timer counts down from a set time to zero and rings when it ends. A stopwatch counts up from zero to measure elapsed time. This page does both: countdown mode and count-up mode." } },
+    { "@type": "Question", "name": "Can I use this timer for a Pomodoro session?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — tap the 25 min preset for a focus session and the 5 min preset for a break. For the full cycle with automatic breaks and a session counter, use the free Pomodoro timer on this site." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use the online timer",
+  "step": [
+    { "@type": "HowToStep", "name": "Pick a time", "text": "Type hours, minutes and seconds, or tap a preset like 5, 25 or 60 minutes." },
+    { "@type": "HowToStep", "name": "Press Start", "text": "The timer counts down live. It stays accurate in background tabs because it is measured against your device clock." },
+    { "@type": "HowToStep", "name": "Hear the alarm at zero", "text": "A beep plays when the countdown ends. Press Stop alarm to silence it." }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:8px}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=number]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 15px;font-size:13px;text-decoration:none}
+.mode-tabs a.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.timer-display{font-family:'Syne',sans-serif;font-size:clamp(46px,11vw,88px);font-weight:800;text-align:center;letter-spacing:2px;line-height:1.1;margin:8px 0}
+.progress{height:10px;background:var(--bg2);border:1px solid var(--border2);border-radius:999px;overflow:hidden;margin-top:16px}
+.progress>div{height:100%;background:var(--accent);width:0%;transition:width .2s linear}
+.status-line{font-size:14px;color:var(--text2);text-align:center;margin-top:12px;min-height:20px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Online Timer
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Online Timer</h1>
+      <p>Count down from any time or count up from zero — with an alarm, presets and a fullscreen display. No signup, no ads, no download.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> the timer lives in this tab only. <strong>Closing the tab stops it</strong>, and if your laptop sleeps, the alarm cannot sound until it wakes. For anything you must not miss, set a phone alarm too.</div>
+    <div class="mode-tabs" aria-label="Time tools">
+      <a href="/tools/countdown-timer">Countdown</a>
+      <a href="/tools/timer-online" class="on">Timer</a>
+      <a href="/tools/online-alarm-clock">Alarm Clock</a>
+      <a href="/tools/stopwatch-online">Stopwatch</a>
+      <a href="/tools/pomodoro-timer">Pomodoro</a>
+    </div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Online timer">
+        <div class="chips" role="group" aria-label="Timer direction" style="margin-bottom:16px">
+          <button type="button" class="chip" id="modeDown" aria-pressed="true">Count down</button>
+          <button type="button" class="chip" id="modeUp" aria-pressed="false">Count up</button>
+        </div>
+        <div class="timer-display" id="timerDisplay">25:00</div>
+        <div id="downPanel">
+          <div class="grid3">
+            <div><label class="flabel" for="hInput">Hours</label><input type="number" id="hInput" min="0" max="99" value="0"></div>
+            <div><label class="flabel" for="mInput">Minutes</label><input type="number" id="mInput" min="0" max="59" value="25"></div>
+            <div><label class="flabel" for="sInput">Seconds</label><input type="number" id="sInput" min="0" max="59" value="0"></div>
+          </div>
+          <span class="flabel" style="margin-top:16px">Presets</span>
+          <div class="chips" id="presetChips">
+            <button type="button" class="chip" data-min="1">1 min</button>
+            <button type="button" class="chip" data-min="5">5 min</button>
+            <button type="button" class="chip" data-min="10">10 min</button>
+            <button type="button" class="chip" data-min="15">15 min</button>
+            <button type="button" class="chip" data-min="25">25 min</button>
+            <button type="button" class="chip" data-min="45">45 min</button>
+            <button type="button" class="chip" data-min="60">1 hour</button>
+            <button type="button" class="chip" data-min="90">1.5 hours</button>
+          </div>
+          <div class="progress" aria-hidden="true"><div id="timerBar"></div></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="tStart">Start</button>
+          <button type="button" class="btn alt" id="tPause" disabled>Pause</button>
+          <button type="button" class="btn alt" id="tReset">Reset</button>
+          <button type="button" class="btn alt" id="tFull">Fullscreen</button>
+          <button type="button" class="btn alt" id="tStopAlarm" hidden>Stop alarm</button>
+        </div>
+        <p class="status-line" id="tStatus">Set a time and press Start. The remaining time also shows in the tab title.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Free online timer — count down or up, accurate in background tabs. No signup, no ads.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Free%20online%20timer%20%E2%80%94%20count%20down%20or%20up%2C%20accurate%20in%20background%20tabs.%20No%20signup%2C%20no%20ads.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Ftimer-online" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Ftimer-online" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Free%20online%20timer%20%E2%80%94%20count%20down%20or%20up%2C%20accurate%20in%20background%20tabs.%20No%20signup%2C%20no%20ads.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Ftimer-online" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: online timers that run slow the moment you look away</h2>
+      <p>The most common complaint about online timers is not about features — it is about trust. You set a 25-minute timer, switch to the document you are actually working on, and come back to find the timer says 19 minutes left when 25 have passed. The cause is well documented: most browser timers count ticks, and browsers throttle background tabs to save battery, so a tick-counting timer runs slow the moment you stop watching it. The second complaint is simpler: timers buried under ads, pop-ups and sign-up walls, or timers that never make a sound because the page never asked for a click first.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I start a free online timer?</h2>
+      <p>Type hours, minutes and seconds, or tap a preset like 5, 25 or 60 minutes, then press Start. The timer counts down live and rings when it reaches zero — free, with no signup and no ads. It is measured against your device clock, so it stays accurate even when you switch tabs, and the remaining time shows in the tab title. To measure how long something takes instead, switch to Count up mode and press Start.</p>
+      <p>An online timer is a browser tool that tracks a length of time for you: it counts down from a set duration to zero, or counts up from zero to measure elapsed time, and signals when the countdown ends. The honest test of any online timer is what happens when you stop looking at it — a good one keeps true time in a background tab, because it compares the current clock against a fixed end time instead of counting its own ticks.</p>
+      <!-- HOW TO -->
+      <h2>How to use this online timer in 3 steps</h2>
+      <p><strong>Step 1:</strong> set a time — type hours, minutes and seconds, or tap a preset. <strong>Step 2:</strong> press Start. The big display counts down; press Fullscreen for a classroom, gym or presentation display. <strong>Step 3:</strong> when it reaches zero, a beep plays. Press Stop alarm to silence it, or Reset to run the same time again. In Count up mode, press Start to begin measuring and Pause to hold the time.</p>
+      <h2>What people use an online timer for</h2>
+      <table class="facts">
+        <thead><tr><th>Use</th><th>Typical time</th><th>Mode</th></tr></thead>
+        <tbody>
+          <tr><td>Study / focus session</td><td>25 minutes</td><td>Count down — 25 min preset</td></tr>
+          <tr><td>Cooking</td><td>5–20 minutes</td><td>Count down — 5 or 10 min preset</td></tr>
+          <tr><td>Workout interval</td><td>30 seconds – 2 minutes</td><td>Count down — type the seconds</td></tr>
+          <tr><td>Meeting / presentation</td><td>15–60 minutes</td><td>Count down — with end time shown</td></tr>
+          <tr><td>Timing a task</td><td>Open-ended</td><td>Count up — press Start, stop when done</td></tr>
+        </tbody>
+      </table>
+      <h2>Why this timer does not drift in background tabs</h2>
+      <p>Pressing Start records the exact moment the timer should end against your system clock. Every reading after that is the difference between that moment and now. A hidden tab, a throttled page, or a laptop that slept and woke cannot change the answer, because no ticks are ever counted. The same deadline method is what keeps the countdown accurate, and the tab title carries the remaining time so you can pick the timer out of a crowded tab strip without clicking back to it.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this online timer really free?</summary>
+        <p>Yes. Use it as often as you like, free, with no signup, no ads and no download. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Does the timer keep running if I switch tabs?</summary>
+        <p>Yes. This timer is measured against your device clock, not by counting ticks, so it stays accurate in a background tab and the remaining time shows in the tab title. Keep the tab open — closing it stops the timer.</p>
+      </details>
+      <details class="faq">
+        <summary>Can the timer count up instead of down?</summary>
+        <p>Yes. Switch to Count up mode and press Start — the timer counts up from zero, like a stopwatch, until you stop it. Use it to measure how long something takes.</p>
+      </details>
+      <details class="faq">
+        <summary>Will I hear the alarm when the timer finishes?</summary>
+        <p>Yes, a beep plays when the countdown reaches zero, as long as your device volume is on and the tab is open. Browsers only allow sound after you have clicked on the page, so start the timer with a click or tap — which you do anyway.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between a timer and a stopwatch?</summary>
+        <p>A timer counts down from a set time to zero and rings when it ends. A stopwatch counts up from zero to measure elapsed time. This page does both: countdown mode and count-up mode.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use this timer for a Pomodoro session?</summary>
+        <p>Yes — tap the 25 min preset for a focus session and the 5 min preset for a break. For the full cycle with automatic breaks and a session counter, use the free Pomodoro timer on this site.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I set a timer for 10 minutes?</strong> Tap the 10 min preset and press Start. That is all — no account, no download.</p>
+      <p><strong>Can I set more than one timer at once?</strong> Not on one page. Open this timer in a second browser tab and each tab keeps its own time.</p>
+      <p><strong>Does the timer work on my phone?</strong> Yes. Open this page in your phone's browser, set the time, and keep the tab open. It works on a phone screen and in fullscreen.</p>
+      <p><strong>Why did my old online timer ring late?</strong> It probably counted ticks, and your browser slowed those ticks down while the tab was hidden. This timer measures against your device clock, so it does not drift that way.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/countdown-timer" class="related-card"><h4>⏳ Countdown Timer</h4><p>Count down to any date</p></a><a href="/tools/online-alarm-clock" class="related-card"><h4>⏰ Online Alarm Clock</h4><p>Wake up on time, free</p></a><a href="/tools/stopwatch-online" class="related-card"><h4>⏱️ Online Stopwatch</h4><p>Laps and splits, free</p></a><a href="/tools/pomodoro-timer" class="related-card"><h4>🍅 Pomodoro Timer</h4><p>Focus sessions, free</p></a><a href="/tools/metronome" class="related-card"><h4>🎵 Metronome</h4><p>Keep the beat, free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/timer-suite.js"></script>
+<script>
+(function () {
+  var T = window.TimerSuite;
+  var $ = T.$;
+  var mode = 'down';
+  var cd = new T.Countdown({
+    displayEl: $('timerDisplay'),
+    onTick: function (rem, total) {
+      $('timerBar').style.width = total > 0 ? (100 * (1 - rem / total)).toFixed(1) + '%' : '0%';
+      T.setTitle(T.fmtHMS(rem) + ' left');
+      if (mode === 'down' && total > 0) {
+        var end = new Date(Date.now() + rem);
+        $('tStatus').textContent = 'Counting down — ends at ' + end.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) + '.';
+      }
+    },
+    onDone: function () {
+      T.alarmSound(3);
+      $('tStatus').textContent = "Time's up!";
+      $('tStopAlarm').hidden = false;
+      $('tStart').disabled = false;
+      $('tPause').disabled = true;
+      T.setTitle("Time's up!");
+    }
+  });
+  var sw = new T.Stopwatch({
+    displayEl: $('timerDisplay'),
+    onTick: function (e) { T.setTitle(T.fmtHMS(e) + ' elapsed'); }
+  });
+  var pausedMs = 0;
+  function readDurationMs() {
+    var h = Math.max(0, parseInt($('hInput').value, 10) || 0);
+    var m = Math.max(0, parseInt($('mInput').value, 10) || 0);
+    var s = Math.max(0, parseInt($('sInput').value, 10) || 0);
+    return (h * 3600 + m * 60 + s) * 1000;
+  }
+  function setInputs(ms) {
+    var s = Math.floor(ms / 1000);
+    $('hInput').value = Math.floor(s / 3600);
+    $('mInput').value = Math.floor((s % 3600) / 60);
+    $('sInput').value = s % 60;
+  }
+  function stopAll() { cd.stop(); sw.pause(); }
+  $('modeDown').addEventListener('click', function () {
+    mode = 'down';
+    stopAll();
+    pausedMs = 0;
+    $('downPanel').hidden = false;
+    $('timerBar').style.width = '0%';
+    cd.totalMs = readDurationMs();
+    cd._render(cd.totalMs);
+    $('modeDown').setAttribute('aria-pressed', 'true');
+    $('modeUp').setAttribute('aria-pressed', 'false');
+    $('tStart').disabled = false;
+    $('tPause').disabled = true;
+    $('tStopAlarm').hidden = true;
+    $('tStatus').textContent = 'Set a time and press Start.';
+  });
+  $('modeUp').addEventListener('click', function () {
+    mode = 'up';
+    stopAll();
+    pausedMs = 0;
+    $('downPanel').hidden = true;
+    $('timerBar').style.width = '0%';
+    sw.reset();
+    $('modeUp').setAttribute('aria-pressed', 'true');
+    $('modeDown').setAttribute('aria-pressed', 'false');
+    $('tStart').disabled = false;
+    $('tPause').disabled = true;
+    $('tStopAlarm').hidden = true;
+    $('tStatus').textContent = 'Count-up mode — press Start to begin measuring.';
+  });
+  $('tStart').addEventListener('click', function () {
+    if (mode === 'down') {
+      var ms = pausedMs > 0 ? pausedMs : readDurationMs();
+      if (ms <= 0) { T.toast('Set a time greater than zero first.'); return; }
+      pausedMs = 0;
+      $('tStopAlarm').hidden = true;
+      cd.start(ms);
+      $('tStart').disabled = true;
+      $('tPause').disabled = false;
+    } else {
+      sw.start();
+      $('tStart').disabled = true;
+      $('tPause').disabled = false;
+      $('tStatus').textContent = 'Counting up — press Pause to hold the time.';
+    }
+  });
+  $('tPause').addEventListener('click', function () {
+    if (mode === 'down') {
+      pausedMs = cd.pause();
+      $('tStatus').textContent = 'Paused at ' + T.fmtHMS(pausedMs) + '. Press Start to resume.';
+    } else {
+      sw.pause();
+      $('tStatus').textContent = 'Paused at ' + T.fmtStopwatch(sw.elapsed()) + '. Press Start to resume.';
+    }
+    $('tStart').disabled = false;
+    $('tPause').disabled = true;
+  });
+  $('tReset').addEventListener('click', function () {
+    pausedMs = 0;
+    stopAll();
+    if (mode === 'down') {
+      cd.totalMs = readDurationMs();
+      cd._render(cd.totalMs);
+      $('timerBar').style.width = '0%';
+      $('tStatus').textContent = 'Reset. Set a time and press Start.';
+    } else {
+      sw.reset();
+      $('tStatus').textContent = 'Reset. Press Start to count up from zero.';
+    }
+    $('tStart').disabled = false;
+    $('tPause').disabled = true;
+    $('tStopAlarm').hidden = true;
+  });
+  $('tStopAlarm').addEventListener('click', function () {
+    $('tStopAlarm').hidden = true;
+    $('tStatus').textContent = 'Alarm stopped.';
+    T.setTitle(null);
+  });
+  $('tFull').addEventListener('click', function () { T.toggleFullscreen($('timerDisplay')); });
+  $('presetChips').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.chip');
+    if (!b) return;
+    var ms = parseInt(b.getAttribute('data-min'), 10) * 60000;
+    pausedMs = 0;
+    cd.stop();
+    setInputs(ms);
+    cd.totalMs = ms;
+    cd._render(ms);
+    $('timerBar').style.width = '0%';
+    $('tStart').disabled = false;
+    $('tPause').disabled = true;
+    $('tStatus').textContent = 'Preset: ' + b.textContent + '. Press Start.';
+  });
+  $('copyLink').addEventListener('click', function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { T.toast('Link copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+  $('copyShare').addEventListener('click', function () {
+    var line = 'Free online timer — count down or up, accurate in background tabs. No signup, no ads. ' + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { T.toast('Share line copied.'); }, function () { T.toast('Copy was blocked.'); }); }
+  });
+})();
+</script>
+</body>
+</html>

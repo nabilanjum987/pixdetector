@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favicon Generator Free — ICO & PNG Sizes | PixDetector</title>
+<meta name="description" content="Make a favicon free in your browser — multi-size .ico plus 16/32/48/180 PNGs. No signup, no upload.">
+<meta name="keywords" content="favicon generator free, favicon maker, create favicon, favicon.ico generator, free favicon generator">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/favicon-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/favicon-generator">
+<meta property="og:title" content="Favicon Generator Free — ICO & PNG Sizes | PixDetector">
+<meta property="og:description" content="Make a favicon free in your browser — multi-size .ico plus 16/32/48/180 PNGs. No signup, no upload.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this favicon generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Generate as many favicon sets as you like, free, with no signup, no watermark and no upload — everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What sizes do I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A multi-size favicon.ico containing 16, 32 and 48-pixel versions, plus PNGs at 16, 32, 48 and 180 pixels (the last is the Apple touch icon for iOS home screens)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my favicon blurry at 16×16?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 16×16 there are only 256 pixels, and a detailed logo has more detail than that. Use a simple, bold mark — one letter or symbol — with strong contrast. The preview on this page shows the 16-pixel version at real size before you download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my favicon not showing up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the files are not in the site's root folder, the link tag is missing or mistyped, or the browser cached the old icon. Open the favicon.ico URL directly to check it loads, use the snippet from this page, then hard-refresh (Ctrl+Shift+R) or add ?v=2 to the link."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should the favicon background be transparent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transparent is fine for browser tabs, but it can halo on dark tabs, and iOS renders a transparent Apple touch icon on black. A solid background is the safer choice for the 180-pixel icon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my logo uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your image is resized and the .ico file is built in your browser. Nothing is uploaded, stored or shared."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to make a favicon free",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload a square logo",
+      "text": "Choose a square image, 512×512 or larger. A simple, bold mark works best at tiny sizes."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Check the real-size preview",
+      "text": "Look at the 16, 32, 48 and 180-pixel previews. Simplify the artwork if the 16-pixel version is unreadable."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download and install",
+      "text": "Download favicon.ico and the PNGs, upload them to your site's root folder, and paste the HTML snippet into your page's head."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=color]{width:44px;height:32px;padding:0;border:1px solid var(--border2);border-radius:6px;background:none;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:28px 20px;text-align:center;cursor:pointer;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result p{font-size:15px;line-height:1.8;color:var(--text2)}
+.result p strong{color:var(--accent)}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.file-row button:disabled{opacity:.4;cursor:not-allowed}
+.fav-prev{display:flex;gap:18px;align-items:flex-end;justify-content:center;flex-wrap:wrap;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:12px}
+.fav-prev figure{text-align:center;margin:0}
+.fav-prev figcaption{font-size:12px;color:var(--text2);margin-top:6px}
+.fav-prev img{border:1px solid var(--border2);border-radius:4px;background:#fff}
+.tab-mock{background:var(--bg2);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:8px 12px;margin-top:12px;display:flex;align-items:center;gap:8px;font-size:13px}
+.tab-mock img{width:16px;height:16px}
+audio{width:100%;margin-top:12px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Favicon Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Favicon Generator Free</h1>
+      <p>Turn a logo into a real multi-size favicon.ico plus 16, 32, 48 and 180px PNGs — free, in your browser. No signup, no upload.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> A detailed logo turns to mush at 16×16 — use a simple, bold mark (one letter or symbol) for tiny sizes. The .ico here uses PNG-compressed entries, which work in all modern browsers; very old Internet Explorer versions need an older BMP-style .ico. Browsers cache favicons aggressively — after updating, hard-refresh or add <strong>?v=2</strong> to the link.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Favicon generator">
+        <h2>Your logo</h2>
+        <label class="flabel" for="imgFile">Choose an image (square PNG works best, 512×512 or larger)</label>
+        <input type="file" id="imgFile" accept="image/*">
+        <p class="trust" id="fileInfo">No image chosen yet.</p>
+        <div style="margin-top:16px">
+          <label class="flabel" for="bgSel">Background</label>
+          <select id="bgSel">
+            <option value="transparent" selected>Transparent (keep the logo's transparency)</option>
+            <option value="#ffffff">White</option>
+            <option value="#000000">Black</option>
+            <option value="#0b1220">Dark navy</option>
+          </select>
+          <p class="trust">Transparent favicons can halo on dark browser tabs. A solid background avoids that — iOS also renders transparent Apple touch icons on black.</p>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="dlIco" disabled>Download favicon.ico</button>
+          <button type="button" class="btn alt" id="dlAll" disabled>Download all PNGs</button>
+          <button type="button" class="btn alt" id="copyHtml" disabled>Copy HTML snippet</button>
+        </div>
+        <p class="err" id="errorBox" role="alert" hidden></p>
+        <div id="snippetBox" style="display:none;margin-top:14px">
+          <label class="flabel" for="snippet">Paste this into your site's &lt;head&gt;</label>
+          <textarea id="snippet" rows="5" readonly style="width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:monospace;font-size:12px;padding:10px 12px">&lt;link rel="icon" href="/favicon.ico" sizes="any"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;</textarea>
+        </div>
+      </div>
+      <div class="bc-panel" aria-label="Favicon preview">
+        <h2>Preview — at real sizes</h2>
+        <div class="tab-mock"><img id="tabIcon" alt="" hidden><span>Your Site — browser tab (16×16)</span></div>
+        <div class="fav-prev" id="favPrev">
+          <figure><img id="pv16" width="16" height="16" alt="Favicon at 16 pixels"><figcaption>16×16<br>tab</figcaption></figure>
+          <figure><img id="pv32" width="32" height="32" alt="Favicon at 32 pixels"><figcaption>32×32<br>tab (retina)</figcaption></figure>
+          <figure><img id="pv48" width="48" height="48" alt="Favicon at 48 pixels"><figcaption>48×48<br>bookmark</figcaption></figure>
+          <figure><img id="pv180" width="90" height="90" alt="Favicon at 180 pixels"><figcaption>180×180<br>Apple touch</figcaption></figure>
+        </div>
+        <p class="meta-line" id="metaLine">Upload a logo to see it at the sizes browsers actually show. If it is unreadable at 16×16, simplify it — a single bold letter survives, a wordmark does not.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">I made a favicon free in my browser — real multi-size .ico plus PNGs, no signup, no upload.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=I%20made%20a%20favicon%20free%20in%20my%20browser%20%E2%80%94%20real%20multi-size%20.ico%20plus%20PNGs%2C%20no%20signup%2C%20no%20upload.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Ffavicon-generator" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Ffavicon-generator" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=I%20made%20a%20favicon%20free%20in%20my%20browser%20%E2%80%94%20real%20multi-size%20.ico%20plus%20PNGs%2C%20no%20signup%2C%20no%20upload.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Ffavicon-generator" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: the favicon is blurry, or it never shows up at all</h2>
+      <p>Favicon complaints come in two flavours, and both are maddening. The first is the blurry 16-pixel icon: a detailed logo that looks perfect at 512 pixels turns into grey mush in a browser tab, because at 16×16 there are only 256 pixels to draw with — and if the artwork's edges do not line up with the pixel grid, every stroke comes out half-grey. The second is the favicon that simply never appears: the file is in the wrong folder, the HTML link tag is missing or mistyped, or the browser is showing a cached old icon from days ago and no amount of refreshing seems to fix it. People want a free generator that shows the icon at its real sizes before they download it, gives them a proper multi-size .ico file (not a renamed PNG), and hands them the exact HTML to paste — so the icon actually shows up.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I make a favicon for free?</h2>
+      <p>Upload a square logo here — 512×512 or larger works best — pick transparent or a solid background, and download the favicon.ico plus the 16, 32, 48 and 180-pixel PNGs. Then upload the files to your website's root folder and paste the HTML snippet from this page into your site's head. It is free, with no signup and no upload, and the preview shows your icon at the real sizes first.</p>
+      <p>A favicon is the tiny icon a browser shows in the tab, in bookmarks, and on a phone's home screen — the smallest but most-seen piece of a site's branding. A favicon generator is a tool that turns one logo into the set of files browsers ask for: favicon.ico, a multi-size container holding 16, 32 and 48-pixel versions for tabs and bookmarks, plus PNG sizes for retina tabs (32), and the 180-pixel Apple touch icon for iOS home screens. Modern browsers prefer a PNG or SVG when one is linked, but the .ico is still the fallback older browsers and Google read.</p>
+      <!-- HOW TO -->
+      <h2>How to make a favicon in 3 steps</h2>
+      <p><strong>Step 1:</strong> upload a square logo, 512×512 or larger — a simple, bold mark works best at tiny sizes. <strong>Step 2:</strong> check the preview at 16, 32, 48 and 180 pixels; if the 16-pixel version is unreadable, simplify the artwork to one letter or symbol. <strong>Step 3:</strong> download favicon.ico and the PNGs, upload them to your site's root folder, and paste the HTML snippet into your page's head.</p>
+      <h2>What makes a good favicon?</h2>
+      <table class="facts">
+        <tr><th>Rule</th><th>Why it matters</th></tr>
+        <tr><td>Simple, bold mark</td><td>At 16×16 there are 256 pixels. A single letter or symbol survives; a wordmark or detailed logo turns to mush.</td></tr>
+        <tr><td>Square source, 512px or larger</td><td>Downscaling from a large square keeps edges clean; a small or wide source stretches or blurs.</td></tr>
+        <tr><td>Strong contrast</td><td>Tabs are light or dark. A mid-grey mark on a transparent background vanishes on one of them.</td></tr>
+        <tr><td>Solid background for Apple</td><td>iOS renders a transparent Apple touch icon on black. A solid background keeps it looking right.</td></tr>
+        <tr><td>All sizes, not just one</td><td>Tabs want 16/32, bookmarks 48, iOS home screens 180. One size alone looks blurry somewhere.</td></tr>
+      </table>
+      <h2>Why is my favicon not showing up?</h2>
+      <p>Almost always one of four things. First, the files are not where the HTML says they are — upload them to the site's root folder and open the favicon.ico URL directly in your browser to check it loads. Second, the link tag is missing or mistyped — use the snippet from this page, with the leading slash. Third, the browser cached the old icon (or the absence of one): hard-refresh with Ctrl+Shift+R, test in an incognito window, or add ?v=2 to the href to force a fresh fetch. Fourth, Google search results show favicons on their own schedule — a new favicon can take days to appear there even when it works in tabs. If the icon loads at its direct URL and shows in incognito, the setup is right and the rest is cache.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this favicon generator really free?</summary>
+        <p>Yes. Generate as many favicon sets as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+      </details>
+<details class="faq">
+        <summary>What sizes do I get?</summary>
+        <p>A multi-size favicon.ico containing 16, 32 and 48-pixel versions, plus PNGs at 16, 32, 48 and 180 pixels (the last is the Apple touch icon for iOS home screens).</p>
+      </details>
+<details class="faq">
+        <summary>Why is my favicon blurry at 16×16?</summary>
+        <p>At 16×16 there are only 256 pixels, and a detailed logo has more detail than that. Use a simple, bold mark — one letter or symbol — with strong contrast. The preview on this page shows the 16-pixel version at real size before you download.</p>
+      </details>
+<details class="faq">
+        <summary>Why is my favicon not showing up?</summary>
+        <p>Usually the files are not in the site's root folder, the link tag is missing or mistyped, or the browser cached the old icon. Open the favicon.ico URL directly to check it loads, use the snippet from this page, then hard-refresh (Ctrl+Shift+R) or add ?v=2 to the link.</p>
+      </details>
+<details class="faq">
+        <summary>Should the favicon background be transparent?</summary>
+        <p>Transparent is fine for browser tabs, but it can halo on dark tabs, and iOS renders a transparent Apple touch icon on black. A solid background is the safer choice for the 180-pixel icon.</p>
+      </details>
+<details class="faq">
+        <summary>Is my logo uploaded to a server?</summary>
+        <p>No. Your image is resized and the .ico file is built in your browser. Nothing is uploaded, stored or shared.</p>
+      </details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>What size should a favicon be?</strong> There is no single size: favicon.ico holds 16, 32 and 48 pixels, the Apple touch icon is 180×180, and PWA icons are 192 and 512. This tool gives you 16, 32, 48 and 180.</p>
+      <p><strong>Do I still need a favicon.ico file?</strong> Yes. It is the fallback older browsers and Google still read, even though modern browsers prefer PNG or SVG when linked.</p>
+      <p><strong>Why is my 16×16 favicon blurry?</strong> A detailed logo has more detail than 256 pixels can show. Simplify it to a single bold letter or symbol with edges that line up cleanly.</p>
+      <p><strong>Where do the favicon files go?</strong> In your website's root folder, with the HTML snippet from this page pasted into your site's head.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/image-resizer" class="related-card"><h4>🖼️ Image Resizer</h4><p>Resize images free</p></a><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-compressor" class="related-card"><h4>🗜️ Image Compressor</h4><p>Shrink images free</p></a><a href="/tools/png-to-jpg-converter" class="related-card"><h4>🖼️ PNG to JPG</h4><p>Smaller JPGs free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var SIZES = [16, 32, 48, 180];
+  var img = null, fname = "favicon", blobs = {};
+  function renderSize(size) {
+    var canvas = document.createElement("canvas");
+    canvas.width = size; canvas.height = size;
+    var ctx = canvas.getContext("2d");
+    var bg = $("bgSel").value;
+    if (bg !== "transparent") { ctx.fillStyle = bg; ctx.fillRect(0, 0, size, size); }
+    var s = Math.min(img.naturalWidth, img.naturalHeight);
+    var sx = (img.naturalWidth - s) / 2, sy = (img.naturalHeight - s) / 2;
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(img, sx, sy, s, s, 0, 0, size, size);
+    return canvas;
+  }
+  function updatePreviews() {
+    if (!img) return;
+    SIZES.forEach(function (sz) {
+      var c = renderSize(sz);
+      var el = $("pv" + sz);
+      if (el) el.src = c.toDataURL("image/png");
+      c.toBlob(function (b) { if (b) blobs[sz] = b; }, "image/png");
+    });
+    var tab = $("tabIcon");
+    tab.src = $("pv16").src; tab.hidden = false;
+    $("metaLine").textContent = "Source: " + img.naturalWidth + "×" + img.naturalHeight + ". Check the 16×16 version above — if it is unreadable, simplify the logo to one bold letter or symbol.";
+    $("dlIco").disabled = false; $("dlAll").disabled = false; $("copyHtml").disabled = false;
+    $("snippetBox").style.display = "block";
+  }
+  $("imgFile").addEventListener("change", function () {
+    var f = this.files[0]; if (!f) return;
+    if (!/^image\//.test(f.type)) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose an image file (PNG works best)."; return; }
+    $("errorBox").hidden = true;
+    fname = f.name.replace(/\.[^.]+$/, "") || "favicon";
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        img = im;
+        $("fileInfo").textContent = f.name + " — " + im.naturalWidth + "×" + im.naturalHeight + (im.naturalWidth !== im.naturalHeight ? " (cropped to square — the centre is used)" : "");
+        updatePreviews();
+      };
+      im.onerror = function () { var e2 = $("errorBox"); e2.hidden = false; e2.textContent = "Could not read that image. Try a PNG or JPG file."; };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  $("bgSel").addEventListener("change", updatePreviews);
+  function saveBlob(blob, name) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+  }
+  function buildIco() {
+    var parts = [16, 32, 48].map(function (sz) { return blobs[sz]; });
+    if (parts.some(function (b) { return !b; })) return Promise.resolve(null);
+    return Promise.all(parts.map(function (b) { return b.arrayBuffer(); })).then(function (bufs) {
+      var count = bufs.length;
+      var headerSize = 6 + count * 16;
+      var total = headerSize + bufs.reduce(function (a, b) { return a + b.byteLength; }, 0);
+      var out = new DataView(new ArrayBuffer(total));
+      out.setUint16(0, 0, true); out.setUint16(2, 1, true); out.setUint16(4, count, true);
+      var off = headerSize;
+      bufs.forEach(function (b, i) {
+        var sz = [16, 32, 48][i];
+        var o = 6 + i * 16;
+        out.setUint8(o, sz); out.setUint8(o + 1, sz); out.setUint8(o + 2, 0); out.setUint8(o + 3, 0);
+        out.setUint16(o + 4, 1, true); out.setUint16(o + 6, 32, true);
+        out.setUint32(o + 8, b.byteLength, true); out.setUint32(o + 12, off, true);
+        new Uint8Array(out.buffer).set(new Uint8Array(b), off);
+        off += b.byteLength;
+      });
+      return new Blob([out.buffer], { type: "image/x-icon" });
+    });
+  }
+  $("dlIco").addEventListener("click", function () {
+    buildIco().then(function (blob) {
+      if (!blob) { toast("The icon sizes are not ready yet — wait a second and try again."); return; }
+      saveBlob(blob, "favicon.ico");
+      toast("favicon.ico downloaded (16, 32 and 48px inside).");
+    });
+  });
+  $("dlAll").addEventListener("click", function () {
+    var names = { 16: "favicon-16x16.png", 32: "favicon-32x32.png", 48: "favicon-48x48.png", 180: "apple-touch-icon.png" };
+    SIZES.forEach(function (sz, i) {
+      setTimeout(function () { if (blobs[sz]) saveBlob(blobs[sz], names[sz]); }, i * 250);
+    });
+    toast("PNGs downloading (16, 32, 48 and 180px).");
+  });
+  $("copyHtml").addEventListener("click", function () {
+    var snip = $("snippet").value;
+    if (navigator.clipboard) navigator.clipboard.writeText(snip).then(function () { toast("HTML snippet copied — paste it into your <head>."); }, function () { toast("Copy was blocked."); });
+  });
+})();
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var cl = $("copyLink");
+  if (cl) cl.addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
+  });
+  var cs = $("copyShare");
+  if (cs) cs.addEventListener("click", function () {
+    var line = "I made a favicon free in my browser \u2014 real multi-size .ico plus PNGs, no signup, no upload." + " " + location.href;
+    if (navigator.clipboard) navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+})();
+</script>
+</body>
+</html>

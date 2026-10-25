@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Audio Converter — MP3, WAV, FLAC | PixDetector</title>
+<meta name="description" content="Convert audio free in your browser — MP3, WAV, FLAC, OGG, M4A. No signup, no upload. First use loads a ~30MB engine.">
+<meta name="keywords" content="audio converter free, convert audio online, mp3 converter, m4a to mp3, opus to mp3, wav to mp3">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/audio-converter">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/audio-converter">
+<meta property="og:title" content="Free Audio Converter — MP3, WAV, FLAC | PixDetector">
+<meta property="og:description" content="Convert audio free in your browser — MP3, WAV, FLAC, OGG, M4A. No signup, no upload. First use loads a ~30MB engine.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this audio converter really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Convert as many files as you like — no watermark, no sign-up, no upload and no ads. The first conversion downloads a ~30 MB engine into your browser, cached after that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my OPUS voice note play on my iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apple devices do not support OPUS files in Music, Voice Memos, Files, iMessage or CarPlay. Convert the OPUS file to M4A (for Apple) or MP3 (for everywhere) here and it will play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert M4A to MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the M4A, pick MP3 as the output and a bitrate (192 kbps is a good balance), then press Convert. The MP3 plays on virtually any device or app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I lose quality converting between formats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Converting lossy to lossy (for example MP3 to M4A, or OPUS to MP3) loses a little detail each time, because both formats discard data. Convert from the original file when you can, and match the source bitrate rather than picking the highest number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the first conversion take so long?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser. It is cached after that, so later conversions start fast. Conversion is also slower on big files and on phones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my audio uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your file never leaves your device — it is read, converted and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert audio free",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Upload your audio",
+      "text": "Drop an MP3, WAV, M4A, FLAC, OGG or OPUS file onto the page. It never leaves your device."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick the output format and bitrate",
+      "text": "MP3 for everywhere, M4A for Apple, WAV for editing, FLAC for archiving; 128–192 kbps for lossy formats."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Convert and download",
+      "text": "Press Convert audio. The first conversion loads a ~30 MB engine (cached after); then download your file."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=color]{width:44px;height:32px;padding:0;border:1px solid var(--border2);border-radius:6px;background:none;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:28px 20px;text-align:center;cursor:pointer;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result p{font-size:15px;line-height:1.8;color:var(--text2)}
+.result p strong{color:var(--accent)}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+.file-row{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
+.file-row .fname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.file-row .fmeta{color:var(--text2);font-size:12px;white-space:nowrap}
+.file-row button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.file-row button:disabled{opacity:.4;cursor:not-allowed}
+.fav-prev{display:flex;gap:18px;align-items:flex-end;justify-content:center;flex-wrap:wrap;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:12px}
+.fav-prev figure{text-align:center;margin:0}
+.fav-prev figcaption{font-size:12px;color:var(--text2);margin-top:6px}
+.fav-prev img{border:1px solid var(--border2);border-radius:4px;background:#fff}
+.tab-mock{background:var(--bg2);border:1px solid var(--border);border-radius:10px 10px 0 0;padding:8px 12px;margin-top:12px;display:flex;align-items:center;gap:8px;font-size:13px}
+.tab-mock img{width:16px;height:16px}
+audio{width:100%;margin-top:12px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Audio Converter
+    </div>
+    <div class="tool-page-header">
+      <h1>Audio Converter Free</h1>
+      <p>Convert audio between MP3, WAV, FLAC, OGG and M4A — free, in your browser. No signup, no upload, no ads.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> First use downloads a <strong>~30 MB conversion engine</strong> (ffmpeg.wasm, cached after) — it is slow on big files and on phones, so keep clips short there. Re-encoding lossy to lossy (MP3 to M4A) loses a little quality each time; convert from the original file when you can. File tags/metadata are <strong>not</strong> carried over.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Audio converter">
+        <h2>Your audio</h2>
+        <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose an audio file">
+          <span class="dz-title">🎵 Drop an audio file here, or click to choose one</span>
+          <p class="dz-sub">MP3, WAV, M4A, FLAC, OGG, OPUS and most other audio files.<br>Your audio never leaves this device.</p>
+        </div>
+        <input type="file" id="fileInput" accept="audio/*,.opus,.oga,.m4a,.flac,.ogg,.wav,.mp3" hidden>
+        <p class="trust" id="fileInfo">No file chosen yet.</p>
+        <audio id="player" controls hidden></audio>
+        <div id="settingsBlock" style="display:none">
+          <div style="margin-top:16px">
+            <label class="flabel" for="fmtSel">Convert to</label>
+            <select id="fmtSel">
+              <option value="mp3" selected>MP3 — plays everywhere</option>
+              <option value="wav">WAV — uncompressed, for editing</option>
+              <option value="flac">FLAC — lossless, for archiving</option>
+              <option value="ogg">OGG — open format, small files</option>
+              <option value="m4a">M4A (AAC) — Apple devices</option>
+            </select>
+          </div>
+          <div style="margin-top:16px" id="bitrateRow">
+            <label class="flabel" for="brSel">Bitrate (MP3 / OGG / M4A)</label>
+            <select id="brSel">
+              <option value="128">128 kbps — standard</option>
+              <option value="192" selected>192 kbps — better sound</option>
+              <option value="96">96 kbps — smallest file, voice</option>
+              <option value="320">320 kbps — music, biggest file</option>
+            </select>
+            <p class="trust">A higher bitrate never adds quality the source did not have. WAV and FLAC ignore bitrate — they are lossless.</p>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn" id="convBtn">Convert audio</button>
+            <button type="button" class="btn alt" id="resetBtn">Choose a different file</button>
+          </div>
+          <div class="progress-wrap" id="progressWrap">
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            <p class="progress-text" id="progressText">Starting…</p>
+          </div>
+          <div class="result" id="resultBox">
+            <h3>✅ Your converted audio is ready</h3>
+            <p id="resultText"></p>
+            <div class="actions"><a class="btn" id="dlLink" download="audio.mp3" href="#">Download</a></div>
+          </div>
+          <p class="err" id="errorBox" role="alert" hidden></p>
+        </div>
+      </div>
+      <div class="bc-panel" aria-label="About this conversion">
+        <h2>Which format do you actually need?</h2>
+        <table class="facts">
+          <tr><th>Format</th><th>Use it when…</th></tr>
+          <tr><td>MP3</td><td>You need it to play anywhere — car stereos, old players, slideshows, any app.</td></tr>
+          <tr><td>M4A (AAC)</td><td>Apple devices: iPhone, iTunes, CarPlay. OPUS voice notes from WhatsApp become playable here.</td></tr>
+          <tr><td>WAV</td><td>An editor or DAW needs uncompressed audio. Big files — about 10 MB per minute.</td></tr>
+          <tr><td>FLAC</td><td>You want a perfect archive copy with no loss, at about half the size of WAV.</td></tr>
+          <tr><td>OGG</td><td>Open-source apps and games; small files at good quality.</td></tr>
+        </table>
+        <p class="trust">Rule of thumb: convert once, from the original file. Every lossy-to-lossy conversion (MP3 to M4A, OPUS to MP3) throws away a little more detail.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">I converted an audio file free in my browser — MP3, WAV, FLAC, M4A, no signup, no upload.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShare">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=I%20converted%20an%20audio%20file%20free%20in%20my%20browser%20%E2%80%94%20MP3%2C%20WAV%2C%20FLAC%2C%20M4A%2C%20no%20signup%2C%20no%20upload.&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Faudio-converter" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Faudio-converter" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=I%20converted%20an%20audio%20file%20free%20in%20my%20browser%20%E2%80%94%20MP3%2C%20WAV%2C%20FLAC%2C%20M4A%2C%20no%20signup%2C%20no%20upload.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Faudio-converter" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: the file you have is not the file you need</h2>
+      <p>Audio incompatibility is a small problem that arrives at the worst moment. An iPhone voice memo is an M4A, and plenty of Windows apps, car stereos and older podcast hosts still only accept MP3. A WhatsApp voice note is an OPUS file, and Apple Music, Voice Memos, iMessage and CarPlay all refuse it outright — Apple has never shipped system-wide Opus support. A recording booth exports WAV, a field recorder saves FLAC, and the app you need to upload to wants MP3. People search for a free audio converter because they want one file changed, fast, without installing software, creating an account, or handing a private recording to a random server — and they want to know the converted file will actually play where they need it.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I convert audio for free?</h2>
+      <p>Upload your audio file here, pick the output — MP3 for universal playback, M4A for Apple devices, WAV for editing, FLAC for a lossless archive, or OGG for open-source apps — choose a bitrate, and press Convert. The file is converted in your browser and downloaded free, with no signup and no upload. The first conversion loads a ~30 MB engine, cached after that.</p>
+      <p>An audio converter is a tool that decodes a sound file from one format and re-encodes it in another. Audio formats fall into two families: lossless formats (WAV, FLAC) keep every sample, and lossy formats (MP3, M4A/AAC, OGG, OPUS) discard data the ear barely notices to shrink the file to about a tenth of its size. Converting between them changes the container and the encoding, never the performance itself — and converting lossy to lossy always loses a little more detail, so you should convert from the original file whenever you can.</p>
+      <!-- HOW TO -->
+      <h2>How to convert audio in 3 steps</h2>
+      <p><strong>Step 1:</strong> upload your audio file — MP3, WAV, M4A, FLAC, OGG or OPUS; it never leaves your device. <strong>Step 2:</strong> pick the output format and, for MP3, OGG or M4A, a bitrate (128 kbps standard, 192 kbps better sound, 96 kbps smallest for voice). <strong>Step 3:</strong> press Convert audio. The first conversion downloads the ~30 MB engine; after that it starts fast. Download the converted file.</p>
+      <h2>Why your iPhone audio is not MP3 — and what to do about it</h2>
+      <p>Apple picked its own formats: Voice Memos exports M4A (AAC in an MP4 container), and messaging apps save voice notes as OPUS. Neither is a bug — but both break when the next app in line only accepts MP3. The fix is a one-way conversion to MP3 at 128–192 kbps for speech, or to M4A if the destination is Apple-only. For a WhatsApp voice note, convert OPUS to M4A at 64–96 kbps mono: the note was recorded around 24 kbps, so picking 320 kbps only makes a bigger file with no better sound.</p>
+      <h2>Bitrates, honestly</h2>
+      <p>96 kbps is fine for voice and the smallest file. 128 kbps is the standard for speech and most music. 192 kbps sounds better on good headphones. 320 kbps is the biggest file and only worth it for music from a high-quality source — it cannot rescue a low-quality recording. WAV and FLAC have no bitrate setting because they are lossless: WAV stores every sample (about 10 MB per minute), FLAC stores the same audio losslessly at roughly half that size.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this audio converter really free?</summary>
+        <p>Yes. Convert as many files as you like — no watermark, no sign-up, no upload and no ads. The first conversion downloads a ~30 MB engine into your browser, cached after that.</p>
+      </details>
+<details class="faq">
+        <summary>Why won't my OPUS voice note play on my iPhone?</summary>
+        <p>Apple devices do not support OPUS files in Music, Voice Memos, Files, iMessage or CarPlay. Convert the OPUS file to M4A (for Apple) or MP3 (for everywhere) here and it will play.</p>
+      </details>
+<details class="faq">
+        <summary>How do I convert M4A to MP3?</summary>
+        <p>Upload the M4A, pick MP3 as the output and a bitrate (192 kbps is a good balance), then press Convert. The MP3 plays on virtually any device or app.</p>
+      </details>
+<details class="faq">
+        <summary>Will I lose quality converting between formats?</summary>
+        <p>Converting lossy to lossy (for example MP3 to M4A, or OPUS to MP3) loses a little detail each time, because both formats discard data. Convert from the original file when you can, and match the source bitrate rather than picking the highest number.</p>
+      </details>
+<details class="faq">
+        <summary>Why does the first conversion take so long?</summary>
+        <p>The first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser. It is cached after that, so later conversions start fast. Conversion is also slower on big files and on phones.</p>
+      </details>
+<details class="faq">
+        <summary>Is my audio uploaded anywhere?</summary>
+        <p>No. Your file never leaves your device — it is read, converted and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page.</p>
+      </details>
+
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>How do I convert M4A to MP3?</strong> Upload the M4A here, pick MP3 at 192 kbps, and convert — the MP3 then plays on any device.</p>
+      <p><strong>How do I convert a WhatsApp voice note to MP3?</strong> Save the voice note as an OPUS file, upload it here, pick MP3 at 128 kbps, and convert.</p>
+      <p><strong>Will converting MP3 to WAV improve quality?</strong> No — the WAV will sound exactly like the MP3, just much bigger. See our <a href="/tools/mp3-to-wav-converter">MP3 to WAV converter</a> for the full explanation.</p>
+      <p><strong>Why does the first conversion take so long?</strong> It downloads a ~30 MB conversion engine into your browser. It is cached after that, so later conversions start fast.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/mp3-to-wav-converter" class="related-card"><h4>🎵 MP3 to WAV</h4><p>Uncompressed WAV free</p></a><a href="/tools/video-to-mp3-converter" class="related-card"><h4>🎧 Video to MP3</h4><p>Extract audio free</p></a><a href="/tools/mp3-to-text-converter" class="related-card"><h4>📝 MP3 to Text</h4><p>Transcribe free</p></a><a href="/tools/audio-cutter" class="related-card"><h4>✂️ Audio Cutter</h4><p>Trim audio free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  function fmtBytes(n) { if (!isFinite(n) || n <= 0) return "—"; if (n < 1024) return n + " B"; if (n < 1048576) return (n / 1024).toFixed(1) + " KB"; return (n / 1048576).toFixed(2) + " MB"; }
+  function showError(msg) { var e = $("errorBox"); e.hidden = false; e.textContent = msg; }
+  function clearError() { var e = $("errorBox"); e.hidden = true; e.textContent = ""; }
+  var state = { file: null, url: null, busy: false, engineReady: false, ffmpeg: null, fetchFile: null, outUrl: null };
+  var dropzone = $("dropzone"), fileInput = $("fileInput");
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = src; s.onload = function () { resolve(); }; s.onerror = function () { reject(new Error("Could not load " + src)); };
+      document.head.appendChild(s);
+    });
+  }
+  function setProgress(p, text) {
+    $("progressWrap").style.display = "block";
+    $("progressFill").style.width = Math.round(p * 100) + "%";
+    $("progressText").textContent = text;
+  }
+  async function ensureEngine() {
+    if (state.engineReady) return true;
+    setProgress(0.05, "Loading the conversion engine (about 30 MB, first use only — cached after)…");
+    try { await loadScript("https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.0/dist/ffmpeg.min.js"); }
+    catch (e) { showError("The conversion engine could not be downloaded. Check your internet connection and try again — nothing was converted."); $("progressWrap").style.display = "none"; return false; }
+    if (!window.FFmpeg || !window.FFmpeg.createFFmpeg) { showError("The conversion engine loaded but did not start correctly. Reload the page and try again."); $("progressWrap").style.display = "none"; return false; }
+    try {
+      var ff = window.FFmpeg.createFFmpeg({ log: false, corePath: "https://cdn.jsdelivr.net/npm/@ffmpeg/core-st@0.11.0/dist/ffmpeg-core.js" });
+      state.fetchFile = window.FFmpeg.fetchFile;
+      setProgress(0.2, "Starting the engine…");
+      await ff.load();
+      state.ffmpeg = ff; state.engineReady = true; return true;
+    } catch (e) {
+      showError("The conversion engine failed to start (" + (e && e.message ? e.message : e) + "). Try Chrome or Edge, and check your connection.");
+      $("progressWrap").style.display = "none"; return false;
+    }
+  }
+  function loadFile(file) {
+    clearError(); $("resultBox").style.display = "none"; $("progressWrap").style.display = "none";
+    if (!file) return;
+    if (state.url) URL.revokeObjectURL(state.url);
+    state.file = file; state.url = URL.createObjectURL(file);
+    $("fileInfo").textContent = file.name + " — " + fmtBytes(file.size);
+    var p = $("player"); p.src = state.url; p.hidden = false;
+    $("settingsBlock").style.display = "block";
+  }
+  var MIME = { mp3: "audio/mpeg", wav: "audio/wav", flac: "audio/flac", ogg: "audio/ogg", m4a: "audio/mp4" };
+  async function convert() {
+    if (state.busy || !state.file) return;
+    clearError(); $("resultBox").style.display = "none";
+    state.busy = true; $("convBtn").disabled = true;
+    var ok = await ensureEngine();
+    if (!ok) { state.busy = false; $("convBtn").disabled = false; return; }
+    setProgress(0.35, "Reading your audio…");
+    try {
+      var ff = state.ffmpeg;
+      var fmt = $("fmtSel").value, br = $("brSel").value;
+      var ext = (state.file.name.match(/\.[^.]+$/) || [".bin"])[0].toLowerCase();
+      var inName = "input" + ext, outName = "output." + fmt;
+      var data = await state.fetchFile(state.file);
+      ff.FS("writeFile", inName, data);
+      setProgress(0.5, "Converting to " + fmt.toUpperCase() + "… this takes a while on long files.");
+      var args = ["-i", inName];
+      if (fmt === "mp3") args.push("-vn", "-b:a", br + "k", "-c:a", "libmp3lame");
+      else if (fmt === "wav") args.push("-vn", "-c:a", "pcm_s16le");
+      else if (fmt === "flac") args.push("-vn", "-c:a", "flac");
+      else if (fmt === "ogg") args.push("-vn", "-b:a", br + "k", "-c:a", "libvorbis");
+      else if (fmt === "m4a") args.push("-vn", "-b:a", br + "k", "-c:a", "aac");
+      args.push(outName);
+      if (ff.setProgress) { ff.setProgress(function (p) { if (p && isFinite(p.ratio)) setProgress(0.5 + p.ratio * 0.45, "Converting… " + Math.round(p.ratio * 100) + "%"); }); }
+      await ff.run.apply(ff, args);
+      var out = ff.FS("readFile", outName);
+      if (!out || !out.length) throw new Error("The converter produced an empty file — the input may be damaged or in a format this engine cannot decode.");
+      var blob = new Blob([out.buffer], { type: MIME[fmt] });
+      if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+      state.outUrl = URL.createObjectURL(blob);
+      var base = state.file.name.replace(/\.[^.]+$/, "") || "audio";
+      var dl = $("dlLink"); dl.href = state.outUrl; dl.download = base + "." + fmt;
+      $("resultText").innerHTML = "Source: <strong>" + fmtBytes(state.file.size) + "</strong> · Output: <strong>" + fmtBytes(blob.size) + " " + fmt.toUpperCase() + (fmt === "wav" || fmt === "flac" ? " (lossless)" : " at " + br + " kbps") + "</strong>. Tags and metadata are not carried over — the audio is what matters.";
+      $("resultBox").style.display = "block";
+      toast("Converted — " + fmtBytes(blob.size));
+      try { ff.FS("unlink", inName); ff.FS("unlink", outName); } catch (e) {}
+    } catch (e) {
+      showError("Conversion failed: " + (e && e.message ? e.message : e) + " Try a different file or a shorter clip.");
+    } finally {
+      $("progressWrap").style.display = "none";
+      state.busy = false; $("convBtn").disabled = false;
+    }
+  }
+  dropzone.addEventListener("click", function () { fileInput.click(); });
+  dropzone.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fileInput.click(); } });
+  fileInput.addEventListener("change", function () { if (fileInput.files && fileInput.files[0]) loadFile(fileInput.files[0]); });
+  ["dragenter", "dragover"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.add("over"); }); });
+  ["dragleave", "drop"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.remove("over"); }); });
+  dropzone.addEventListener("drop", function (ev) { var f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0]; if (f) loadFile(f); });
+  $("fmtSel").addEventListener("change", function () {
+    var f = this.value;
+    $("bitrateRow").style.display = (f === "wav" || f === "flac") ? "none" : "block";
+  });
+  $("convBtn").addEventListener("click", convert);
+  $("resetBtn").addEventListener("click", function () {
+    if (state.busy) return;
+    fileInput.value = "";
+    if (state.url) URL.revokeObjectURL(state.url);
+    if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+    state.file = null; state.url = null; state.outUrl = null;
+    var p = $("player"); p.removeAttribute("src"); p.hidden = true;
+    $("fileInfo").textContent = "No file chosen yet.";
+    $("settingsBlock").style.display = "none"; $("resultBox").style.display = "none"; $("progressWrap").style.display = "none";
+    clearError();
+  });
+})();
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var cl = $("copyLink");
+  if (cl) cl.addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
+  });
+  var cs = $("copyShare");
+  if (cs) cs.addEventListener("click", function () {
+    var line = "I converted an audio file free in my browser \u2014 MP3, WAV, FLAC, M4A, no signup, no upload." + " " + location.href;
+    if (navigator.clipboard) navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+})();
+</script>
+</body>
+</html>

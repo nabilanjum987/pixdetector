@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Compass Free — Live Direction on Your Phone</title>
+<meta name="description" content="Free online compass — point your phone and see your live heading. No app, no signup. Needs a phone sensor; desktops show an honest no-sensor message.">
+<meta name="keywords" content="online compass free, free online compass, digital compass, compass online, find north online">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/online-compass">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/online-compass">
+<meta property="og:title" content="Online Compass Free — Live Direction on Your Phone">
+<meta property="og:description" content="Free online compass — point your phone and see your live heading. No app, no signup. Needs a phone sensor; desktops show an honest no-sensor message.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this online compass really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Free, no signup, no app to install, and no limit on use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why doesn't the compass work on my laptop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Laptops and desktops do not have a magnetometer \u2014 the sensor this tool reads. No website can fix missing hardware. This page tells you that instead of showing a fake reading. Open it on your phone instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my iPhone ask for permission?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iOS requires an explicit prompt before a website can read motion and orientation sensors. Tap Start compass, then Allow when Safari asks. Without it, the compass cannot start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my compass inaccurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nearby metal, magnets, speakers, laptops and magnetic phone cases distort the magnetic field. Move away from them, remove a magnetic case, and wave the phone in a slow figure-8 to recalibrate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the online compass use GPS or my location?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It only reads the magnetometer \u2014 the chip that senses magnetic fields. It does not know or care where on the planet you are, and nothing is sent to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it show magnetic north or true north?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Magnetic north \u2014 that is what the phone sensor measures. True north is a few degrees away depending on your location; for everyday orientation the difference does not matter."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use an online compass",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Open it on your phone",
+      "text": "Use a phone or tablet with a magnetometer. Desktops and most laptops do not have one."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Start the compass",
+      "text": "Tap Start compass and allow motion and orientation access when your browser asks."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Hold it flat",
+      "text": "Hold the phone level, top edge pointing where you face, away from metal, magnets and laptops."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Read your heading",
+      "text": "The dial turns live. The big number is your heading in degrees; the letter is the direction, like NE."
+    }
+  ]
+}
+</script>
+<style>
+
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
+input[type=text],input[type=number],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=range]{width:100%;accent-color:var(--accent)}
+textarea{resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+.ok{color:#34d399;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.result-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.7;word-break:break-word;min-height:56px;margin-top:12px}
+table.facts{width:100%;border-collapse:collapse;font-size:14px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Online Compass
+    </div>
+    <div class="tool-page-header">
+      <h1>Online Compass Free</h1>
+      <p>Point your phone and see which way you are facing — live heading in degrees and as a direction like NE. Free, no app, no signup, and your heading never leaves your device.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Needs a phone or tablet with a magnetometer</strong> — most phones have one, most laptops and desktops do not. On a desktop this page will tell you honestly that there is no sensor, instead of faking a reading. The compass shows <strong>magnetic north</strong>, which sits a few degrees off true north depending on where you are.</div>
+    
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Compass dial" style="text-align:center">
+        <h2 style="text-align:left">Your heading</h2>
+        <div id="dialWrap" style="position:relative;width:240px;height:240px;margin:10px auto">
+          <div id="dial" style="width:240px;height:240px;border-radius:50%;border:2px solid var(--border2);background:var(--bg2);position:relative;transition:transform .2s linear">
+            <span style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-weight:800;color:#f87171">N</span>
+            <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-weight:700;color:var(--text2)">S</span>
+            <span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text2)">E</span>
+            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text2)">W</span>
+            <span style="position:absolute;top:26px;right:44px;font-size:13px;color:var(--text2)">NE</span>
+            <span style="position:absolute;bottom:26px;right:44px;font-size:13px;color:var(--text2)">SE</span>
+            <span style="position:absolute;bottom:26px;left:44px;font-size:13px;color:var(--text2)">SW</span>
+            <span style="position:absolute;top:26px;left:44px;font-size:13px;color:var(--text2)">NW</span>
+            <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:28px">🧭</span>
+          </div>
+          <span style="position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-size:20px;color:var(--accent)">▼</span>
+        </div>
+        <p style="font-family:'Syne',sans-serif;font-size:40px;font-weight:800" id="headingOut">—°</p>
+        <p style="font-size:18px;font-weight:700" id="cardinalOut">No reading yet</p>
+        <p class="trust" id="compassStatus">Tap Start compass on your phone. On iPhone you will get an extra prompt to allow motion access — tap Allow.</p>
+        <div class="actions" style="justify-content:center">
+          <button type="button" class="btn" id="startCompass">Start compass</button>
+          <button type="button" class="btn alt" id="stopCompass" disabled>Stop</button>
+        </div>
+        <p class="err" id="compassError" role="alert" hidden></p>
+      </div>
+      <div class="bc-panel" aria-label="How to read it">
+        <h2>How to read it</h2>
+        <p class="trust">Hold your phone flat, top edge pointing the way you are facing. The dial turns so north stays pointing at real north; the marker at the top shows your heading. 0° is north, 90° east, 180° south, 270° west.</p>
+        <table class="facts"><thead><tr><th>Heading</th><th>Direction</th></tr></thead><tbody>
+        <tr><td>0° (or 360°)</td><td>North</td></tr>
+        <tr><td>45°</td><td>North-East</td></tr>
+        <tr><td>90°</td><td>East</td></tr>
+        <tr><td>135°</td><td>South-East</td></tr>
+        <tr><td>180°</td><td>South</td></tr>
+        <tr><td>225°</td><td>South-West</td></tr>
+        <tr><td>270°</td><td>West</td></tr>
+        <tr><td>315°</td><td>North-West</td></tr>
+        </tbody></table>
+        <p class="trust" style="margin-top:14px"><strong>Reading looks wrong?</strong> Wave your phone in a slow figure-8 a few times to recalibrate, and move away from metal objects, magnets, speakers and laptops — they bend the magnetic field your phone measures.</p>
+      </div>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Free online compass — point your phone and find north. No app.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Free%20online%20compass%20%E2%80%94%20point%20your%20phone%20and%20find%20north.%20No%20app&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-compass" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-compass" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Free%20online%20compass%20%E2%80%94%20point%20your%20phone%20and%20find%20north.%20No%20app.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-compass" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: "online compass not working"</h2>
+      <p>"Compass not working" is the most common thing people type after opening an online compass — and the reasons are almost always the same three. First, they opened it on a laptop or desktop, which has no magnetometer at all, and the page either showed a fake spinning needle or nothing at all. Second, they opened it on an iPhone, where Safari needs an extra permission for motion and orientation, and nobody told them to tap Allow. Third, the needle points the wrong way because the phone has never been calibrated, or because it is sitting next to a laptop, a speaker, or a magnetic phone case. People want a simple answer — which way is north, right now — and what they get instead is a page that pretends to know on hardware that cannot know. This page does the opposite: it reads the real sensor when one exists, and says so plainly when one does not.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I use an online compass for free?</h2>
+      <p>Tap Start compass on your phone, allow motion access, and hold the phone flat — the dial turns live and shows your heading in degrees and as a direction like NE. It reads your phone's magnetometer, so it is free with no app or signup. A laptop or desktop has no such sensor, so this page tells you that honestly instead of faking a reading.</p>
+      <p>An online compass is a web page that reads the magnetometer — the tiny electronic compass chip — inside your phone or tablet, through the browser's DeviceOrientation sensor, and turns that reading into a heading. Magnetic north is where a compass needle points; true (geographic) north is the direction of the North Pole. The gap between them, called magnetic declination, is a few degrees and depends on where on Earth you are.</p>
+      <!-- HOW TO -->
+      <h2>How to use the online compass in 4 steps</h2>
+      <p><strong>Step 1:</strong> open this page on your phone or tablet — not a desktop. <strong>Step 2:</strong> tap Start compass and allow motion access when asked (iPhone asks twice: once for the page, once for motion). <strong>Step 3:</strong> hold the phone flat, top edge pointing where you face, away from metal and magnets. <strong>Step 4:</strong> read the big number and direction — rotate until N reaches the top marker and you are facing north.</p>
+      <h2>Magnetic north vs true north</h2>
+      <table class="facts"><thead><tr><th></th><th>Magnetic north</th><th>True north</th></tr></thead><tbody>
+      <tr><td>What it is</td><td>Where a compass needle points — the Earth's magnetic pole</td><td>The geographic North Pole, the top of the Earth's axis</td></tr>
+      <tr><td>What this page shows</td><td>Yes — this is what your phone's sensor measures</td><td>No — correcting for it needs your location and a magnetic model</td></tr>
+      <tr><td>How far apart</td><td colspan="2">A few degrees in most places; more near the poles. For everyday use — hiking, checking a window's direction, pointing an antenna — magnetic north is close enough.</td></tr>
+      </tbody></table>
+      <h2>What to use it for — and what not to</h2>
+      <p>Good uses: orienting a map on a hike, checking which way a window faces before buying a plant, aligning a satellite dish or solar panel, setting up a telescope, or satisfying simple curiosity about the direction you are looking. Not for: safety-critical navigation, surveying, or anywhere a wrong heading could put you in danger — a phone compass is accurate to about 5–10° after calibration, and that is plenty for everyday orientation but not for precision work.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq"><summary>Is this online compass really free?</summary><p>Yes. Free, no signup, no app to install, and no limit on use.</p></details><details class="faq"><summary>Why doesn't the compass work on my laptop?</summary><p>Laptops and desktops do not have a magnetometer — the sensor this tool reads. No website can fix missing hardware. This page tells you that instead of showing a fake reading. Open it on your phone instead.</p></details><details class="faq"><summary>Why does my iPhone ask for permission?</summary><p>iOS requires an explicit prompt before a website can read motion and orientation sensors. Tap Start compass, then Allow when Safari asks. Without it, the compass cannot start.</p></details><details class="faq"><summary>Why is my compass inaccurate?</summary><p>Nearby metal, magnets, speakers, laptops and magnetic phone cases distort the magnetic field. Move away from them, remove a magnetic case, and wave the phone in a slow figure-8 to recalibrate.</p></details><details class="faq"><summary>Does the online compass use GPS or my location?</summary><p>No. It only reads the magnetometer — the chip that senses magnetic fields. It does not know or care where on the planet you are, and nothing is sent to a server.</p></details><details class="faq"><summary>Does it show magnetic north or true north?</summary><p>Magnetic north — that is what the phone sensor measures. True north is a few degrees away depending on your location; for everyday orientation the difference does not matter.</p></details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>Can I use the compass without internet?</strong> Yes — once the page has loaded, the compass runs entirely on your phone's hardware.</p>
+      <p><strong>Do I need to install an app?</strong> No. It runs in your phone's browser.</p>
+      <p><strong>How accurate is a phone compass?</strong> About 5–10° after calibration — fine for hiking and everyday orientation, not for surveying.</p>
+      <p><strong>Why does the needle jump around?</strong> The sensor is picking up interference, usually metal or electronics nearby. Move away and recalibrate with a figure-8 wave.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/world-clock" class="related-card"><h4>🕐 World Clock</h4><p>Live times worldwide free</p></a><a href="/tools/online-ruler" class="related-card"><h4>📏 Online Ruler</h4><p>Measure on screen free</p></a><a href="/tools/what-is-my-ip-address" class="related-card"><h4>🌐 What Is My IP</h4><p>Check your IP free</p></a><a href="/tools/image-resizer" class="related-card"><h4>🖼️ Image Resizer</h4><p>Resize images free</p></a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+
+<script>
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  var listening = false, gotReading = false, waitTimer = null;
+  var NAMES = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+  function cardinal(deg) { return NAMES[Math.round(deg / 45) % 8]; }
+  function showHeading(deg) {
+    deg = ((deg % 360) + 360) % 360;
+    gotReading = true;
+    $("headingOut").textContent = Math.round(deg) + "°";
+    $("cardinalOut").textContent = cardinal(deg) + " — " + ["North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"][Math.round(deg / 45) % 8];
+    $("dial").style.transform = "rotate(" + (-deg) + "deg)";
+    $("compassStatus").textContent = "Live — hold the phone flat, top edge pointing where you face.";
+  }
+  function onOrientation(ev) {
+    var heading = null;
+    if (typeof ev.webkitCompassHeading === "number" && !isNaN(ev.webkitCompassHeading)) heading = ev.webkitCompassHeading;
+    else if (ev.absolute === true && typeof ev.alpha === "number" && ev.alpha !== null) heading = 360 - ev.alpha;
+    else if (typeof ev.alpha === "number" && ev.alpha !== null) heading = 360 - ev.alpha;
+    if (heading !== null && !isNaN(heading)) showHeading(heading);
+  }
+  function noSensor(msg) {
+    var e = $("compassError"); e.hidden = false;
+    e.textContent = msg || "No compass sensor found on this device. Most laptops and desktops have no magnetometer — open this page on a phone or tablet for a live reading.";
+    $("compassStatus").textContent = "No live reading on this device.";
+    $("startCompass").disabled = false; $("stopCompass").disabled = true;
+  }
+  $("startCompass").addEventListener("click", function () {
+    $("compassError").hidden = true;
+    if (typeof DeviceOrientationEvent === "undefined") { noSensor("This browser does not expose orientation sensors. Try Chrome or Safari on a phone."); return; }
+    var begin = function () {
+      listening = true; gotReading = false;
+      window.addEventListener("deviceorientation", onOrientation);
+      window.addEventListener("deviceorientationabsolute", onOrientation);
+      $("startCompass").disabled = true; $("stopCompass").disabled = false;
+      $("compassStatus").textContent = "Waiting for sensor data… hold the phone flat.";
+      clearTimeout(waitTimer);
+      waitTimer = setTimeout(function () {
+        if (listening && !gotReading) {
+          stopListening();
+          noSensor("No sensor data arrived. This device has no magnetometer, or the browser blocked the sensor. Try a phone — on iPhone, check Settings > Safari > Motion & Orientation Access is on.");
+        }
+      }, 6000);
+    };
+    if (typeof DeviceOrientationEvent.requestPermission === "function") {
+      DeviceOrientationEvent.requestPermission().then(function (state) {
+        if (state === "granted") begin();
+        else noSensor("Motion permission was denied. Allow motion and orientation access for this site and tap Start compass again.");
+      }).catch(function () { noSensor("Motion permission could not be requested in this browser. Try Safari on an iPhone."); });
+    } else {
+      begin();
+    }
+  });
+  function stopListening() {
+    listening = false;
+    clearTimeout(waitTimer);
+    window.removeEventListener("deviceorientation", onOrientation);
+    window.removeEventListener("deviceorientationabsolute", onOrientation);
+    $("startCompass").disabled = false; $("stopCompass").disabled = true;
+    if (!gotReading) $("compassStatus").textContent = "Compass stopped.";
+  }
+  $("stopCompass").addEventListener("click", function () { stopListening(); toast("Compass stopped."); });
+
+  $("copyLink").addEventListener("click", function () {
+    if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
+  var cs = $("copyShare");
+  if (cs) { cs.addEventListener("click", function () {
+    var line = document.querySelector(".share-line").textContent.trim() + " " + location.href;
+    if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); }
+  }); }
+
+})();
+
+</script>
+</body>
+</html>

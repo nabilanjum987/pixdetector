@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Username Generator Free — Unique Handles Instantly</title>
+<meta name="description" content="Free username generator: pick a style, add your word, get unique handles for Instagram, TikTok, gaming and more. No signup, instant, copy in one click.">
+<meta name="keywords" content="username generator free, free username generator, instagram username ideas, cool username generator, gamer tag generator">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/username-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/username-generator">
+<meta property="og:title" content="Username Generator Free — Unique Handles Instantly">
+<meta property="og:description" content="Free username generator: pick a style, add your word, get unique handles for Instagram, TikTok, gaming and more. No signup, instant, copy in one click.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this username generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Generate as many usernames as you like, free, with no signup and no usage limit. Everything runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this generator check if a username is available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — and no free generator honestly can. Only the platform itself knows which handles are taken, and platforms do not offer a public availability check. Use the generator for ideas, then check your favourite on the platform in the signup or edit-profile field."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a username show as taken when the account looks empty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because platforms never recycle handles. An account with no posts, no picture and no activity still owns its username, and suspended or deleted accounts keep theirs claimed too. The name is gone for good, even if nobody is using it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a username be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under 15 characters is best — it is easy to say out loud, easy to type from memory and easy to fit on a profile. Instagram allows up to 30 and TikTok up to 24, but shorter handles are remembered far more often."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the same username on every platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can try, and you should — a consistent handle is easier for people to find and remember. Generate a name, then check it on each platform you use and claim it everywhere it is free before someone else does."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change my username later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the platform. Instagram and TikTok let you change it, but only every 14 or 30 days. Reddit does not let you change it at all after the first 30 days, so choose carefully there."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to generate a username",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Enter a seed word",
+      "text": "Type your name, a nickname or a hobby word — or leave it blank to generate from the style alone."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pick a style and length",
+      "text": "Choose aesthetic, gamer, professional, cute or minimal, and set a maximum length. Under 15 characters is easiest to remember."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generate and check availability",
+      "text": "Copy a favourite and check it on the platform itself, in the signup or edit-profile field. This tool cannot check availability for you."
+    }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.note{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#78350f;margin-bottom:16px}
+.note strong{color:#78350f}
+.trust{font-size:14px;color:var(--text2);margin-top:10px}
+input[type=text],textarea,select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 13px;outline:none}
+input[type=text]:focus,textarea:focus,select:focus{border-color:var(--accent)}
+textarea{resize:vertical}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+.result-list{margin-top:6px}
+.result-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.result-text{font-size:15px;font-weight:500;word-break:break-word}
+.result-empty{font-size:14px;color:var(--text2);line-height:1.7}
+.copy-one{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;flex-shrink:0}
+.result-meta{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.err{color:#f87171;font-size:14px;margin-top:10px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
+.share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+.share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.share-btns{display:flex;flex-wrap:wrap;gap:10px}
+.share-btns a,.share-btns button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+table.facts{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px}
+table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.facts th{color:var(--text);background:var(--bg2)}
+table.facts td{color:var(--text2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Username Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>Free Username Generator</h1>
+      <p>Pick a style, add your word, and get unique username ideas for Instagram, TikTok, gaming, Discord and more. Free, no signup, instant — copy any handle in one click.</p>
+    </div>
+    <div class="note"><strong>Honest limits — read first:</strong> This generator <strong>does NOT check whether a username is available</strong> on any platform — no free generator can, because only Instagram, TikTok, Xbox and the rest know which handles are taken. A name shown here may already be registered, even by an empty or inactive account. <strong>Always check it on the platform itself</strong> before you settle on it.</div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Username settings">
+        <h2>Your username</h2>
+        <label class="flabel" for="seedInput">Your word or name (optional)</label>
+        <input type="text" id="seedInput" value="maya" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <div style="margin-top:16px">
+          <label class="flabel" for="styleSelect">Style</label>
+          <select id="styleSelect">
+            <option value="aesthetic">Aesthetic</option>
+            <option value="gamer">Gamer</option>
+            <option value="professional">Professional</option>
+            <option value="cute">Cute</option>
+            <option value="minimal">Minimal</option>
+          </select>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="lenInput">Max length: <span id="lenOut">20</span> characters</label>
+          <input type="range" id="lenInput" min="6" max="30" value="20">
+        </div>
+        <div class="actions">
+          <button type="button" class="toggle" id="numToggle" aria-pressed="true">123 Add numbers</button>
+          <button type="button" class="toggle" id="sepToggle" aria-pressed="true">_ . Allow separators</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="genBtn">Generate usernames</button>
+          <button type="button" class="btn alt" id="moreBtn">Generate more</button>
+        </div>
+        <p class="trust">Leave the word blank to generate names from the style alone. Shorter is better — under 15 characters is easy to say and type from memory.</p>
+      </div>
+      <div class="bc-panel" aria-label="Username results">
+        <h2>Your usernames</h2>
+        <div class="result-list" id="results"></div>
+        <div class="actions">
+          <button type="button" class="btn alt" id="copyAllBtn">Copy all usernames</button>
+        </div>
+        <p class="result-meta" id="resultMeta">Click any username to copy it, then check it on the platform — this tool cannot see which handles are taken.</p>
+      </div>
+    </div>
+    <div class="share-box">
+      <h2>Share this tool</h2>
+      <p class="share-line">Free username generator — unique handles for Instagram, TikTok and gaming, no signup.</p>
+      <div class="share-btns">
+        <button type="button" id="copyLink">Copy link</button>
+        <button type="button" id="copyShareLine">Copy share line</button>
+        <a href="https://twitter.com/intent/tweet?text=Free%20username%20generator%20%E2%80%94%20unique%20handles%20for%20Instagram%2C%20TikTok%20and%20gaming%2C%20no%20signup.&amp;url=https%3A//pixdetector.vercel.app/tools/username-generator" target="_blank" rel="noopener">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/username-generator" target="_blank" rel="noopener">Share on Facebook</a>
+        <a href="https://wa.me/?text=Free%20username%20generator%20%E2%80%94%20unique%20handles%20for%20Instagram%2C%20TikTok%20and%20gaming%2C%20no%20signup.%20https%3A//pixdetector.vercel.app/tools/username-generator" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div class="tool-about">
+      <!-- PROBLEM -->
+      <h2>The problem: the username you want is always taken</h2>
+      <p>Everybody who has tried to sign up for Instagram, TikTok or Reddit knows the feeling: you type the name you want, and the platform says it is already taken. The worst part is that the account holding it often looks empty — no posts, no picture, no activity. That is not a glitch. Platforms never recycle handles: on Reddit, abandoned, suspended and even deleted accounts keep their username claimed forever, and the same is true on most other platforms. So the real problem is not finding a good name, it is finding a good name that is still free — and generators that pretend to check availability are misleading you, because only the platform itself knows what is taken.</p>
+      <!-- DIRECT ANSWER -->
+      <h2>How do I generate a free username?</h2>
+      <p>Type a word you like — your name, a nickname or a hobby — into the tool above, pick a style (aesthetic, gamer, professional, cute or minimal), set a maximum length, and click Generate usernames. You get 12 ideas instantly, free, with no signup. Copy a favourite, then check it on the platform itself: on Instagram or TikTok, type it into the edit-profile field, which shows availability in real time. If it is taken, add a number, an underscore or a second word and try again.</p>
+      <p>A username generator is a tool that combines a seed word with curated word banks and patterns to produce handle ideas for social media, gaming and forums. A username — also called a handle — is the unique name that identifies your account: it shows up in your profile, in every tag and mention, and in search results. The best handles are short (under 15 characters), easy to spell out loud, and the same across every platform you use.</p>
+      <!-- HOW TO -->
+      <h2>How to find a username that is actually free</h2>
+      <p><strong>Step 1:</strong> generate a batch of ideas here from a word you like and a style that fits your content. <strong>Step 2:</strong> shortlist 3 to 5 that are short, easy to spell and easy to say out loud. <strong>Step 3:</strong> check each one on the platform — type it into the signup or edit-profile field, which shows real-time availability — and claim the first one that is free. If all of them are taken, add a number, an underscore or a second word and generate a fresh batch.</p>
+      <h2>Platform username rules you need to know</h2>
+      <p>Every platform has its own rules, and a handle that works on one can be rejected on another. Instagram allows only lowercase letters, numbers, periods and underscores, with a 30-character cap — no hyphens, no spaces, no emoji, and no two periods in a row. TikTok allows letters, numbers, underscores and periods, up to 24 characters, and you can only change it once every 30 days. Reddit usernames are permanent: once you pick one, you cannot change it at all after the first 30 days. Discord lets you change your display name freely, but your unique username must still be free. This generator keeps its output to letters, numbers, underscores and periods, so the names it makes are valid on the big platforms — but the length cap you set is what keeps them usable.</p><table class="facts"><thead><tr><th>Platform</th><th>Max length</th><th>Allowed characters</th><th>Can you change it?</th></tr></thead><tbody><tr><td>Instagram</td><td>30</td><td>Letters, numbers, . _</td><td>Yes, every 14 days</td></tr><tr><td>TikTok</td><td>24</td><td>Letters, numbers, . _</td><td>Yes, every 30 days</td></tr><tr><td>Reddit</td><td>20</td><td>Letters, numbers, - _</td><td>No, after 30 days</td></tr><tr><td>X (Twitter)</td><td>15</td><td>Letters, numbers, _</td><td>Yes, anytime</td></tr><tr><td>Discord</td><td>32</td><td>Letters, numbers, . _</td><td>Yes, anytime</td></tr></tbody></table>
+      <h2>What to do when your favourite name is taken</h2>
+      <p>Do not give up on the name — vary it. Add a number that means something to you (a year, a lucky number) rather than a random string of digits. Add an underscore or a period between the words — "maya.rose" reads clean, "m_a_y_a" reads like a spam account. Add a second word that describes what you do: "maya.cooks", "maya.plays", "maya.draws". Or flip the order: "rosemaya" instead of "mayarose". What does not work is adding random letters to the end — "mayaxqz" is unmemorable and hard to tell anyone. If the name is taken on one platform but free on the others, weigh whether matching everywhere matters more than that exact name: a consistent handle across platforms is worth more than a perfect name on one of them.</p>
+      <!-- FAQ -->
+      <h2>FAQ</h2>
+      <details class="faq">
+        <summary>Is this username generator really free?</summary>
+        <p>Yes. Generate as many usernames as you like, free, with no signup and no usage limit. Everything runs in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Does this generator check if a username is available?</summary>
+        <p>No — and no free generator honestly can. Only the platform itself knows which handles are taken, and platforms do not offer a public availability check. Use the generator for ideas, then check your favourite on the platform in the signup or edit-profile field.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does a username show as taken when the account looks empty?</summary>
+        <p>Because platforms never recycle handles. An account with no posts, no picture and no activity still owns its username, and suspended or deleted accounts keep theirs claimed too. The name is gone for good, even if nobody is using it.</p>
+      </details>
+      <details class="faq">
+        <summary>How long should a username be?</summary>
+        <p>Under 15 characters is best — it is easy to say out loud, easy to type from memory and easy to fit on a profile. Instagram allows up to 30 and TikTok up to 24, but shorter handles are remembered far more often.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use the same username on every platform?</summary>
+        <p>You can try, and you should — a consistent handle is easier for people to find and remember. Generate a name, then check it on each platform you use and claim it everywhere it is free before someone else does.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I change my username later?</summary>
+        <p>It depends on the platform. Instagram and TikTok let you change it, but only every 14 or 30 days. Reddit does not let you change it at all after the first 30 days, so choose carefully there.</p>
+      </details>
+      <!-- RELATED QUESTIONS -->
+      <h2>Related questions</h2>
+      <p><strong>What makes a good username?</strong> Short, easy to spell, easy to say out loud, and the same across platforms. Avoid random numbers and strings of letters nobody can remember.</p>
+      <p><strong>Are numbers in a username bad?</strong> Not if they mean something — a birth year or a lucky number is fine. Random digits like "maya847291" look like a bot account.</p>
+      <p><strong>Can I use emoji in a username?</strong> No, on almost every platform. Instagram, TikTok and X only allow letters, numbers, periods and underscores in handles.</p>
+      <p><strong>What if someone has my name on one platform?</strong> Use a close variation there — add a word about what you do, like "maya.cooks" — and keep the same handle everywhere else so people can still find you.</p>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/slogan-generator" class="related-card"><h4>💬 Slogan Generator</h4><p>Catchy taglines, free</p></a><a href="/tools/fantasy-name-generator" class="related-card"><h4>🐉 Fantasy Name Generator</h4><p>D&D & RPG names</p></a><a href="/tools/team-name-generator" class="related-card"><h4>🏆 Team Name Generator</h4><p>Funny & cool team names</p></a><a href="/tools/font-generator" class="related-card"><h4>🔠 Font Generator</h4><p>Stylish text, free</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/name-generators.js"></script>
+<script>
+(function () {
+  var last = [];
+  var useNumbers = true, useSep = true;
+  function run() {
+    var seed = document.getElementById("seedInput").value;
+    var style = document.getElementById("styleSelect").value;
+    var maxLen = parseInt(document.getElementById("lenInput").value, 10);
+    last = NameGen.usernames(seed, style, maxLen, useNumbers, useSep, 12);
+    NameGen.renderResults(document.getElementById("results"), last, "Type a word and hit Generate.");
+    document.getElementById("resultMeta").textContent = last.length + " usernames generated. Check your favourite on the platform itself — this tool cannot see which handles are taken.";
+  }
+  document.getElementById("genBtn").addEventListener("click", run);
+  document.getElementById("moreBtn").addEventListener("click", run);
+  document.getElementById("styleSelect").addEventListener("change", run);
+  document.getElementById("lenInput").addEventListener("input", function () {
+    document.getElementById("lenOut").textContent = this.value;
+  });
+  document.getElementById("lenInput").addEventListener("change", run);
+  document.getElementById("numToggle").addEventListener("click", function () {
+    useNumbers = !useNumbers;
+    this.setAttribute("aria-pressed", useNumbers ? "true" : "false");
+    run();
+  });
+  document.getElementById("sepToggle").addEventListener("click", function () {
+    useSep = !useSep;
+    this.setAttribute("aria-pressed", useSep ? "true" : "false");
+    run();
+  });
+  NameGen.wireCopyAll("copyAllBtn", function () { return last; });
+  run();
+})();
+document.getElementById("copyLink").addEventListener("click", function () {
+  NameGen.copyText(location.href, "Link copied.");
+});
+document.getElementById("copyShareLine").addEventListener("click", function () {
+  NameGen.copyText("Free username generator \u2014 unique handles for Instagram, TikTok and gaming, no signup." + " " + location.href, "Share line copied.");
+});
+</script>
+</body>
+</html>

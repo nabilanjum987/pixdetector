@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this favicon generator really free?",
+      "name": "What is a favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Generate as many favicon sets as you like, free, with no signup, no watermark and no upload — everything runs in your browser."
+        "text": "The small icon beside your page title in the browser tab, bookmarks and search results; it identifies your site among many open tabs."
       }
     },
     {
       "@type": "Question",
-      "name": "What sizes do I get?",
+      "name": "What size should a favicon be?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A multi-size favicon.ico containing 16, 32 and 48-pixel versions, plus PNGs at 16, 32, 48 and 180 pixels (the last is the Apple touch icon for iOS home screens)."
+        "text": "There is no single size: favicon.ico holds 16/32/48 px, apple-touch-icon is 180×180, PWA icons are 192 and 512 px, and the SVG scales to any size. This tool gives you the .ico plus 16/32/48/180 PNGs."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my favicon blurry at 16×16?",
+      "name": "Do I still need a favicon.ico file?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "At 16×16 there are only 256 pixels, and a detailed logo has more detail than that. Use a simple, bold mark — one letter or symbol — with strong contrast. The preview on this page shows the 16-pixel version at real size before you download."
+        "text": "Yes — it is the legacy/desktop fallback older browsers and Google still read; ship a multi-size .ico with 16, 32 and 48 px, and let modern browsers prefer the SVG."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my favicon not showing up?",
+      "name": "Why is my favicon not showing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Usually the files are not in the site's root folder, the link tag is missing or mistyped, or the browser cached the old icon. Open the favicon.ico URL directly to check it loads, use the snippet from this page, then hard-refresh (Ctrl+Shift+R) or add ?v=2 to the link."
+        "text": "Usually browser caching (favicons are cached separately and aggressively), a wrong file path/404, or a wrong link tag. Test in incognito — if it shows there, it is cache. See the troubleshooter on this page."
       }
     },
     {
       "@type": "Question",
-      "name": "Should the favicon background be transparent?",
+      "name": "How do I force a favicon refresh?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Transparent is fine for browser tabs, but it can halo on dark tabs, and iOS renders a transparent Apple touch icon on black. A solid background is the safer choice for the 180-pixel icon."
+        "text": "Add ?v=2 to the link href and increment on updates; or hard refresh (Ctrl+Shift+R), visit yoursite.com/favicon.ico directly and refresh it, or clear the favicon cache via chrome://favicon-internals."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my logo uploaded to a server?",
+      "name": "How do I add a favicon to my website?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your image is resized and the .ico file is built in your browser. Nothing is uploaded, stored or shared."
+        "text": "Upload the generated files to your site root, paste the provided link tags into the <head>, then clear cache and reload. This page gives you the snippet to paste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What image should I upload to make a favicon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A square PNG with transparent background, 512×512 px or larger; an SVG is better if you have one. This tool exports PNG and .ico — it does not output SVG."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes a good favicon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A simple, bold mark that survives 16 px — wordmarks and detailed logos turn to mush; use the symbol alone, with strong letter/background contrast. Use the 16-pixel check on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a favicon from text or initials?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use Letters mode on this page: type 1–2 characters, pick colours and a shape, no logo needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a favicon from an emoji?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use Emoji mode on this page: paste an emoji as the icon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a favicon generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool is free with no signup. AI generators are freemium — Media.io gives 3 credits/day and watermarks high-res free downloads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a maskable icon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 512×512 PWA icon whose artwork stays inside a central safe zone (~409 px circle) so Android adaptive-icon masks can crop it without cutting off the logo. This tool does not generate PWA icons or a manifest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a site.webmanifest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The PWA manifest file that declares the 192/512 icons (and maskable icon) so the site can be installed on Android home screens. This tool does not generate a manifest — its download is the core favicon set only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a favicon help SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It doesn't rank pages directly, but Google shows favicons in search results and a missing one hurts perceived professionalism; Google requires a square favicon over 48×48 px at a stable crawlable URL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a PNG instead of .ico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modern browsers accept PNG favicons, but the .ico is still needed as the fallback for older browsers and some tooling; ship both — which is what this tool gives you."
       }
     }
   ]
@@ -77,8 +149,8 @@
   "step": [
     {
       "@type": "HowToStep",
-      "name": "Upload a square logo",
-      "text": "Choose a square image, 512×512 or larger. A simple, bold mark works best at tiny sizes."
+      "name": "Upload a square logo — or make one from letters or emoji",
+      "text": "Choose a square image, 512×512 or larger, or use Letters mode (1–2 characters) or Emoji mode — no logo needed. A simple, bold mark works best at tiny sizes."
     },
     {
       "@type": "HowToStep",
@@ -113,6 +185,11 @@ input[type=color]{width:44px;height:32px;padding:0;border:1px solid var(--border
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
+.fav-prev.dark{background:#111}
+.fav-prev.dark img{background:transparent}
+.tab-mock.dark{background:#1e293b;color:#e2e8f0}
 .meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
 .err{color:#f87171;font-size:14px;margin-top:10px}
 details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
@@ -178,13 +255,40 @@ audio{width:100%;margin-top:12px}
       <h1>Favicon Generator Free</h1>
       <p>Turn a logo into a real multi-size favicon.ico plus 16, 32, 48 and 180px PNGs — free, in your browser. No signup, no upload.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> A detailed logo turns to mush at 16×16 — use a simple, bold mark (one letter or symbol) for tiny sizes. The .ico here uses PNG-compressed entries, which work in all modern browsers; very old Internet Explorer versions need an older BMP-style .ico. Browsers cache favicons aggressively — after updating, hard-refresh or add <strong>?v=2</strong> to the link.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> core set only — multi-size favicon.ico plus 16/32/48/180 PNGs. No SVG output, no PWA 192/512 icons or site.webmanifest, no logo design, no AI icon art. A detailed logo turns to mush at 16×16 — use a simple, bold mark (one letter or symbol) for tiny sizes. The .ico here uses PNG-compressed entries, which work in all modern browsers; very old Internet Explorer versions need an older BMP-style .ico. Browsers cache favicons aggressively — after updating, hard-refresh or add <strong>?v=2</strong> to the link.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Favicon generator">
         <h2>Your logo</h2>
-        <label class="flabel" for="imgFile">Choose an image (square PNG works best, 512×512 or larger)</label>
-        <input type="file" id="imgFile" accept="image/*">
-        <p class="trust" id="fileInfo">No image chosen yet.</p>
+        <span class="flabel">Start from</span>
+        <div class="chips" id="modeChips">
+          <button type="button" class="chip" data-mode="logo" aria-pressed="true">Logo upload</button>
+          <button type="button" class="chip" data-mode="letters" aria-pressed="false">Letters / initials</button>
+          <button type="button" class="chip" data-mode="emoji" aria-pressed="false">Emoji</button>
+        </div>
+        <div id="logoPanel" style="margin-top:16px">
+          <label class="flabel" for="imgFile">Choose an image (square PNG works best, 512×512 or larger)</label>
+          <input type="file" id="imgFile" accept="image/*">
+          <p class="trust" id="fileInfo">No image chosen yet.</p>
+        </div>
+        <div id="lettersPanel" style="display:none;margin-top:16px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div><label class="flabel" for="letterText">Letters (1–2)</label><input type="text" id="letterText" value="PK" maxlength="2" style="width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none"></div>
+            <div><label class="flabel" for="letterShape">Shape</label><select id="letterShape"><option value="square" selected>Square</option><option value="rounded">Rounded</option><option value="circle">Circle</option></select></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div><label class="flabel" for="letterBg">Background colour</label><input type="color" id="letterBg" value="#0b3d2e"></div>
+            <div><label class="flabel" for="letterFg">Letter colour</label><input type="color" id="letterFg" value="#ffffff"></div>
+          </div>
+          <div class="actions"><button type="button" class="btn alt" id="makeLetters">Make icon from letters</button></div>
+          <p class="trust">For personal blogs, documentation sites or early-stage MVPs, a clean typographic identifier is often better than a complex logo.</p>
+        </div>
+        <div id="emojiPanel" style="display:none;margin-top:16px">
+          <label class="flabel" for="emojiText">Emoji</label>
+          <input type="text" id="emojiText" value="🚀" maxlength="4" style="width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none">
+          <div style="margin-top:12px"><label class="flabel" for="emojiBg">Background colour</label><input type="color" id="emojiBg" value="#0b3d2e"></div>
+          <div class="actions"><button type="button" class="btn alt" id="makeEmoji">Make icon from emoji</button></div>
+          <p class="trust">A 30-second path for blogs, docs and MVPs — paste an emoji and download the set.</p>
+        </div>
         <div style="margin-top:16px">
           <label class="flabel" for="bgSel">Background</label>
           <select id="bgSel">
@@ -217,6 +321,15 @@ audio{width:100%;margin-top:12px}
           <figure><img id="pv32" width="32" height="32" alt="Favicon at 32 pixels"><figcaption>32×32<br>tab (retina)</figcaption></figure>
           <figure><img id="pv48" width="48" height="48" alt="Favicon at 48 pixels"><figcaption>48×48<br>bookmark</figcaption></figure>
           <figure><img id="pv180" width="90" height="90" alt="Favicon at 180 pixels"><figcaption>180×180<br>Apple touch</figcaption></figure>
+        </div>
+        <div class="actions">
+          <button type="button" class="toggle" id="darkBtn" aria-pressed="false">Dark-tab preview: off</button>
+          <button type="button" class="toggle" id="check16Btn" aria-pressed="false">Will it survive 16 pixels?</button>
+        </div>
+        <p class="trust" id="darkWarn" hidden>Transparent background — on a dark tab this logo shows with no backing. Check the dark preview, or pick a solid background.</p>
+        <div id="check16Box" style="display:none;margin-top:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center">
+          <img id="check16Img" alt="Your favicon at 16 pixels, enlarged" style="width:160px;height:160px;image-rendering:pixelated;border:1px solid var(--border2);border-radius:4px">
+          <p class="trust" style="text-align:left">This is your icon at exactly 16×16, enlarged 10× with no smoothing — what a browser tab actually has to work with. If you can still tell what the mark is, it survives. If it is a grey smudge, use the symbol alone: one bold letter or shape, strong contrast.</p>
         </div>
         <p class="meta-line" id="metaLine">Upload a logo to see it at the sizes browsers actually show. If it is unreadable at 16×16, simplify it — a single bold letter survives, a wordmark does not.</p>
       </div>
@@ -254,33 +367,89 @@ audio{width:100%;margin-top:12px}
       </table>
       <h2>Why is my favicon not showing up?</h2>
       <p>Almost always one of four things. First, the files are not where the HTML says they are — upload them to the site's root folder and open the favicon.ico URL directly in your browser to check it loads. Second, the link tag is missing or mistyped — use the snippet from this page, with the leading slash. Third, the browser cached the old icon (or the absence of one): hard-refresh with Ctrl+Shift+R, test in an incognito window, or add ?v=2 to the href to force a fresh fetch. Fourth, Google search results show favicons on their own schedule — a new favicon can take days to appear there even when it works in tabs. If the icon loads at its direct URL and shows in incognito, the setup is right and the rest is cache.</p>
+      <h2>Which file does what — and what you actually need</h2>
+      <table class="facts">
+        <tr><th>File</th><th>Used by</th><th>In this download?</th></tr>
+        <tr><td>favicon.ico (16/32/48)</td><td>Browser tabs, bookmarks, legacy fallback; Google still reads it</td><td>Yes — multi-size .ico</td></tr>
+        <tr><td>favicon-16x16.png / 32x32</td><td>Tabs (32 on retina screens)</td><td>Yes</td></tr>
+        <tr><td>favicon-48x48.png</td><td>Bookmarks, shortcuts</td><td>Yes</td></tr>
+        <tr><td>apple-touch-icon.png (180)</td><td>iOS home screen</td><td>Yes</td></tr>
+        <tr><td>favicon.svg</td><td>Modern browsers, sharp at every size, can carry a dark-mode variant</td><td>No — this tool exports PNG and .ico only</td></tr>
+        <tr><td>icon-192 / icon-512 + site.webmanifest</td><td>Android home-screen install (PWA), maskable icon</td><td>No — core set only</td></tr>
+      </table>
+      <p>What you actually need for most sites: the .ico, the 16/32 PNGs and the 180 Apple touch icon — that is the set this tool gives you. Google wants a square favicon larger than 48×48 px at a stable, crawlable URL for search results. Add SVG and the PWA set later if your site becomes an installable app.</p>
+      <h2>Why isn't it showing? The troubleshooter</h2>
+      <p>The icon is uploaded and correct, but the tab still shows the old icon or a globe. Work through this list in order:</p>
+      <ol style="font-size:14px;color:var(--text2);line-height:1.9;margin:8px 0 4px;padding-left:20px">
+        <li><strong>Test in incognito</strong> — if it shows there, it is cache, not your files.</li>
+        <li><strong>Open yoursite.com/favicon.ico directly</strong> — if it 404s, the file is in the wrong folder or the path is wrong.</li>
+        <li><strong>Check the link tag</strong> — use the snippet from this page, with the leading slash, in the &lt;head&gt;.</li>
+        <li><strong>Hard refresh</strong> — Ctrl+Shift+R (Cmd+Shift+R on Mac).</li>
+        <li><strong>Add ?v=2 to the link href</strong> and increment it on every update, to force a fresh fetch.</li>
+        <li><strong>Clear the favicon cache via chrome://favicon-internals</strong>, then wait — a new favicon can take hours to days to appear everywhere, including Google search results.</li>
+      </ol>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this favicon generator really free?</summary>
-        <p>Yes. Generate as many favicon sets as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>What is a favicon?</summary>
+        <p>The small icon beside your page title in the browser tab, bookmarks and search results; it identifies your site among many open tabs.</p>
       </details>
-<details class="faq">
-        <summary>What sizes do I get?</summary>
-        <p>A multi-size favicon.ico containing 16, 32 and 48-pixel versions, plus PNGs at 16, 32, 48 and 180 pixels (the last is the Apple touch icon for iOS home screens).</p>
+      <details class="faq">
+        <summary>What size should a favicon be?</summary>
+        <p>There is no single size: favicon.ico holds 16/32/48 px, apple-touch-icon is 180×180, PWA icons are 192 and 512 px, and the SVG scales to any size. This tool gives you the .ico plus 16/32/48/180 PNGs.</p>
       </details>
-<details class="faq">
-        <summary>Why is my favicon blurry at 16×16?</summary>
-        <p>At 16×16 there are only 256 pixels, and a detailed logo has more detail than that. Use a simple, bold mark — one letter or symbol — with strong contrast. The preview on this page shows the 16-pixel version at real size before you download.</p>
+      <details class="faq">
+        <summary>Do I still need a favicon.ico file?</summary>
+        <p>Yes — it is the legacy/desktop fallback older browsers and Google still read; ship a multi-size .ico with 16, 32 and 48 px, and let modern browsers prefer the SVG.</p>
       </details>
-<details class="faq">
-        <summary>Why is my favicon not showing up?</summary>
-        <p>Usually the files are not in the site's root folder, the link tag is missing or mistyped, or the browser cached the old icon. Open the favicon.ico URL directly to check it loads, use the snippet from this page, then hard-refresh (Ctrl+Shift+R) or add ?v=2 to the link.</p>
+      <details class="faq">
+        <summary>Why is my favicon not showing?</summary>
+        <p>Usually browser caching (favicons are cached separately and aggressively), a wrong file path/404, or a wrong link tag. Test in incognito — if it shows there, it is cache. See the troubleshooter on this page.</p>
       </details>
-<details class="faq">
-        <summary>Should the favicon background be transparent?</summary>
-        <p>Transparent is fine for browser tabs, but it can halo on dark tabs, and iOS renders a transparent Apple touch icon on black. A solid background is the safer choice for the 180-pixel icon.</p>
+      <details class="faq">
+        <summary>How do I force a favicon refresh?</summary>
+        <p>Add ?v=2 to the link href and increment on updates; or hard refresh (Ctrl+Shift+R), visit yoursite.com/favicon.ico directly and refresh it, or clear the favicon cache via chrome://favicon-internals.</p>
       </details>
-<details class="faq">
-        <summary>Is my logo uploaded to a server?</summary>
-        <p>No. Your image is resized and the .ico file is built in your browser. Nothing is uploaded, stored or shared.</p>
+      <details class="faq">
+        <summary>How do I add a favicon to my website?</summary>
+        <p>Upload the generated files to your site root, paste the provided link tags into the &lt;head&gt;, then clear cache and reload. This page gives you the snippet to paste.</p>
       </details>
-
+      <details class="faq">
+        <summary>What image should I upload to make a favicon?</summary>
+        <p>A square PNG with transparent background, 512×512 px or larger; an SVG is better if you have one. This tool exports PNG and .ico — it does not output SVG.</p>
+      </details>
+      <details class="faq">
+        <summary>What makes a good favicon?</summary>
+        <p>A simple, bold mark that survives 16 px — wordmarks and detailed logos turn to mush; use the symbol alone, with strong letter/background contrast. Use the 16-pixel check on this page.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a favicon from text or initials?</summary>
+        <p>Yes — use Letters mode on this page: type 1–2 characters, pick colours and a shape, no logo needed.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a favicon from an emoji?</summary>
+        <p>Yes — use Emoji mode on this page: paste an emoji as the icon.</p>
+      </details>
+      <details class="faq">
+        <summary>Is a favicon generator really free?</summary>
+        <p>This tool is free with no signup. AI generators are freemium — Media.io gives 3 credits/day and watermarks high-res free downloads.</p>
+      </details>
+      <details class="faq">
+        <summary>What is a maskable icon?</summary>
+        <p>A 512×512 PWA icon whose artwork stays inside a central safe zone (~409 px circle) so Android adaptive-icon masks can crop it without cutting off the logo. This tool does not generate PWA icons or a manifest.</p>
+      </details>
+      <details class="faq">
+        <summary>What is a site.webmanifest?</summary>
+        <p>The PWA manifest file that declares the 192/512 icons (and maskable icon) so the site can be installed on Android home screens. This tool does not generate a manifest — its download is the core favicon set only.</p>
+      </details>
+      <details class="faq">
+        <summary>Does a favicon help SEO?</summary>
+        <p>It doesn&#x27;t rank pages directly, but Google shows favicons in search results and a missing one hurts perceived professionalism; Google requires a square favicon over 48×48 px at a stable crawlable URL.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use a PNG instead of .ico?</summary>
+        <p>Modern browsers accept PNG favicons, but the .ico is still needed as the fallback for older browsers and some tooling; ship both — which is what this tool gives you.</p>
+      </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>What size should a favicon be?</strong> There is no single size: favicon.ico holds 16, 32 and 48 pixels, the Apple touch icon is 180×180, and PWA icons are 192 and 512. This tool gives you 16, 32, 48 and 180.</p>
@@ -356,6 +525,7 @@ audio{width:100%;margin-top:12px}
     tab.src = $("pv16").src; tab.hidden = false;
     $("metaLine").textContent = "Source: " + img.naturalWidth + "×" + img.naturalHeight + ". Check the 16×16 version above — if it is unreadable, simplify the logo to one bold letter or symbol.";
     $("dlIco").disabled = false; $("dlAll").disabled = false; $("copyHtml").disabled = false;
+    $("darkWarn").hidden = $("bgSel").value !== "transparent";
     $("snippetBox").style.display = "block";
   }
   $("imgFile").addEventListener("change", function () {
@@ -377,6 +547,75 @@ audio{width:100%;margin-top:12px}
     reader.readAsDataURL(f);
   });
   $("bgSel").addEventListener("change", updatePreviews);
+  $("modeChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    var m = b.getAttribute("data-mode");
+    document.querySelectorAll("#modeChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    $("logoPanel").style.display = m === "logo" ? "block" : "none";
+    $("lettersPanel").style.display = m === "letters" ? "block" : "none";
+    $("emojiPanel").style.display = m === "emoji" ? "block" : "none";
+  });
+  function sourceFromCanvas(drawFn, label) {
+    var c = document.createElement("canvas");
+    c.width = 512; c.height = 512;
+    var x = c.getContext("2d");
+    drawFn(x, 512);
+    var im = new Image();
+    im.onload = function () {
+      img = im;
+      $("fileInfo").textContent = label + " — 512×512, generated in your browser";
+      updatePreviews();
+    };
+    im.src = c.toDataURL("image/png");
+  }
+  function roundRectPath(x, px, py, w, h, r) {
+    x.beginPath();
+    x.moveTo(px + r, py);
+    x.arcTo(px + w, py, px + w, py + h, r);
+    x.arcTo(px + w, py + h, px, py + h, r);
+    x.arcTo(px, py + h, px, py, r);
+    x.arcTo(px, py, px + w, py, r);
+    x.closePath();
+  }
+  $("makeLetters").addEventListener("click", function () {
+    var t = ($("letterText").value || "P").trim().toUpperCase().slice(0, 2) || "P";
+    var bg = $("letterBg").value, fg = $("letterFg").value, shape = $("letterShape").value;
+    sourceFromCanvas(function (x, S) {
+      x.fillStyle = bg;
+      if (shape === "circle") { x.beginPath(); x.arc(S / 2, S / 2, S / 2, 0, Math.PI * 2); x.fill(); }
+      else if (shape === "rounded") { roundRectPath(x, 0, 0, S, S, S * 0.22); x.fill(); }
+      else x.fillRect(0, 0, S, S);
+      x.fillStyle = fg; x.textAlign = "center"; x.textBaseline = "middle";
+      x.font = "700 " + Math.round(S * (t.length === 1 ? 0.62 : 0.45)) + "px Syne, 'DM Sans', sans-serif";
+      x.fillText(t, S / 2, S / 2 + S * 0.02);
+    }, "Letters \"" + t + "\"");
+    toast("Letter icon made — check the 16-pixel preview.");
+  });
+  $("makeEmoji").addEventListener("click", function () {
+    var t = ($("emojiText").value || "🚀").trim() || "🚀";
+    var bg = $("emojiBg").value;
+    sourceFromCanvas(function (x, S) {
+      x.fillStyle = bg; x.fillRect(0, 0, S, S);
+      x.textAlign = "center"; x.textBaseline = "middle";
+      x.font = Math.round(S * 0.62) + "px 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif";
+      x.fillText(t, S / 2, S / 2 + S * 0.02);
+    }, "Emoji \"" + t + "\"");
+    toast("Emoji icon made — check the 16-pixel preview.");
+  });
+  $("darkBtn").addEventListener("click", function () {
+    var on = !$("favPrev").classList.contains("dark");
+    $("favPrev").classList.toggle("dark", on);
+    document.querySelector(".tab-mock").classList.toggle("dark", on);
+    this.setAttribute("aria-pressed", on ? "true" : "false");
+    this.textContent = on ? "Dark-tab preview: on" : "Dark-tab preview: off";
+  });
+  $("check16Btn").addEventListener("click", function () {
+    if (!img) { toast("Upload a logo or make a letter/emoji icon first."); return; }
+    var c = renderSize(16);
+    $("check16Img").src = c.toDataURL("image/png");
+    $("check16Box").style.display = "block";
+    this.setAttribute("aria-pressed", "true");
+  });
   function saveBlob(blob, name) {
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = name;

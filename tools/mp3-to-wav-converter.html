@@ -20,26 +20,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this MP3 to WAV converter really free?",
+      "name": "Does converting MP3 to WAV improve quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Convert as many MP3s as you like, free, with no signup, no watermark and no upload — everything runs in your browser."
+        "text": "No. MP3 compression permanently deletes data (at 128 kbps, most content above ~16 kHz is cut; at 320 kbps the cutoff is ~19 kHz). Decoding to WAV stores the same decoded audio in a bigger file — a spectrogram shows a hard horizontal line where the MP3 stopped storing data."
       }
     },
     {
       "@type": "Question",
-      "name": "Will converting MP3 to WAV make it sound better?",
+      "name": "Why is the WAV file so much larger than the MP3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The WAV sounds exactly like the MP3. MP3 compression discards audio data permanently, and no converter can restore it. Convert to WAV only when your editor, DAW or sampler needs that format."
+        "text": "WAV stores raw uncompressed PCM — about 10 MB per minute — while MP3 compresses ~10:1. A 4 MB MP3 becomes roughly a 40 MB WAV."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is the WAV file so much bigger than the MP3?",
+      "name": "Why convert MP3 to WAV at all?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "WAV is uncompressed: it stores every audio sample. At 44.1 kHz stereo 16-bit, one minute is about 10 MB, while the same minute as a 128 kbps MP3 is about 1 MB. The size is the price of an editable, lossless file."
+        "text": "For editing and compatibility: DAWs, samplers, video editors and broadcast specs want uncompressed PCM; saving a WAV repeatedly adds no new compression artifacts the way re-saving MP3 does."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert MP3 to WAV for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload to a free online converter (XConvert, EchoWave, Notevibes) or open the MP3 in Audacity and File → Export as WAV; in-browser tools need no signup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert MP3 to WAV without uploading my file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Notevibes (200 MB max), Convertlo and Mokivo run entirely in your browser; your file never leaves your device. This page does the same: decoding runs in your browser with the Web Audio API."
       }
     },
     {
@@ -47,23 +63,79 @@
       "name": "What sample rate should I choose — 44.1 or 48 kHz?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use 44.1 kHz for CD work and most music software, and 48 kHz for video editing. Keeping the original rate is also fine and avoids resampling."
+        "text": "44.1 kHz 16-bit for CD burning and music; 48 kHz for video editing (Premiere/DaVinci/Final Cut) — mixing 44.1 kHz audio into a 48 kHz timeline causes drift. Leave as Original if unsure."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my MP3 uploaded to a server?",
+      "name": "Can I burn the converted WAV to an audio CD?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your MP3 is decoded in your browser with the Web Audio API and the WAV is built on your device. Nothing is uploaded, stored or shared."
+        "text": "Yes — audio CDs use 44.1 kHz 16-bit stereo PCM, exactly what a standard WAV holds; but it won't sound like the original CD, since the MP3's lost data stays lost."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I convert a large MP3, or many files at once?",
+      "name": "Will the WAV work in my DAW / audio editor?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This tool converts one file at a time. Very long files make very large WAVs — a one-hour MP3 becomes roughly a 600 MB WAV — so convert long recordings in sections if your browser struggles."
+        "text": "WAV is supported by virtually every editor and DAW, but check your app if it needs a specific sample rate, bit depth or channel layout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert MP3 to WAV on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Notevibes, Convertlo and Rendley state mobile support; iOS Safari and Android Chrome both work in-browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free MP3 to WAV converter with no file-size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not verified as unlimited — Convertr.org allows up to 1 GB per file (largest stated in this run); Zemzer's free tier is ~50 MB; Notevibes caps at 200 MB. “Unlimited” claims on small tools were not verified in this run."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert MP3 to WAV in Audacity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the MP3 in Audacity, then File → Export → Export as WAV; set the sample rate (e.g. 11.025 kHz) and mono in the export/project settings first if your destination needs exact specs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does converting MP3 to WAV and back to MP3 lose quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Re-encoding the decoded WAV to MP3 compresses again and loses more data each generation — only convert to MP3 once, for the final delivery copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a YouTube download to WAV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but the WAV is only as good as the YouTube audio it came from — “it's technically a wav but it's still mp3 quality because that's what it was ripped from”. Downloading YouTube audio also raises copyright questions — not verified as legal in this run."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between MP3 and WAV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP3 is lossy and small (~1 MB/minute at 128 kbps); WAV is uncompressed raw PCM (~10 MB/minute), the format editors and mastering tools expect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I keep the original MP3 after converting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — keep it alongside the WAV; the WAV is a working copy, not a recovered lossless master, and labelling it with sample rate/bit depth avoids confusion later."
       }
     }
   ]
@@ -178,7 +250,7 @@ audio{width:100%;margin-top:12px}
       <h1>MP3 to WAV Converter Free</h1>
       <p>Turn an MP3 into an uncompressed 16-bit WAV for editing, a DAW, or CD burning — free, in your browser, no signup and no upload.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Converting MP3 to WAV does <strong>not</strong> improve sound quality — MP3 already threw away data that cannot come back. The WAV will be about <strong>10× bigger</strong> than the MP3 (roughly 10 MB per minute at 44.1 kHz stereo). Only convert files you own or have permission to use.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Converting MP3 to WAV does <strong>not</strong> improve sound quality — MP3 already threw away data that cannot come back. The WAV will be about <strong>10× bigger</strong> than the MP3 (roughly 10 MB per minute at 44.1 kHz stereo) with the same sound. Convert for editing/compatibility, not for better sound. Only convert files you own or have permission to use.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="MP3 to WAV converter">
         <h2>Your MP3</h2>
@@ -189,9 +261,12 @@ audio{width:100%;margin-top:12px}
           <label class="flabel" for="rateSel">Sample rate</label>
           <select id="rateSel">
             <option value="0">Keep original rate</option>
-            <option value="44100" selected>44.1 kHz (CD quality)</option>
-            <option value="48000">48 kHz (video / editing)</option>
+            <option value="44100" selected>44.1 kHz — CD (44.1 kHz / 16-bit)</option>
+            <option value="48000">48 kHz — video editing (48 kHz / 16-bit)</option>
+            <option value="22050">22.05 kHz — small file</option>
+            <option value="16000">16 kHz — speech / small file (16 kHz / mono)</option>
           </select>
+          <p class="trust">This tool writes 16-bit PCM only — there is no 24-bit option here. If your studio needs 24-bit, use a converter that offers it (XConvert lists 16/24/32-bit) — note it uploads your file to a server.</p>
         </div>
         <div style="margin-top:16px">
           <label class="flabel" for="chanSel">Channels</label>
@@ -200,6 +275,19 @@ audio{width:100%;margin-top:12px}
             <option value="1">Mono (half the size — voice, podcasts)</option>
             <option value="2">Stereo</option>
           </select>
+        </div>
+        <p class="trust">Mono halves the file — pick it for podcasts and voiceovers.</p>
+        <div style="margin-top:16px">
+          <span class="flabel">Why do you need WAV?</span>
+          <div class="chips" id="useChips">
+            <button type="button" class="chip" data-rate="44100" data-chan="2">DAW import — 44.1 kHz stereo</button>
+            <button type="button" class="chip" data-rate="48000" data-chan="2">Video editing — 48 kHz stereo</button>
+            <button type="button" class="chip" data-rate="44100" data-chan="2">CD burning — 44.1 kHz stereo</button>
+            <button type="button" class="chip" data-rate="44100" data-chan="2">Sampler — 44.1 kHz stereo</button>
+            <button type="button" class="chip" data-rate="48000" data-chan="1">Voice-actor delivery — 48 kHz mono</button>
+            <button type="button" class="chip" data-rate="16000" data-chan="1">Speech / small file — 16 kHz mono</button>
+          </div>
+          <p class="trust" id="useNote">Pick a use case to set the sample rate and channels. Voice-actor delivery varies by client — check their spec first.</p>
         </div>
         <div class="actions">
           <button type="button" class="btn" id="convBtn" disabled>Convert to WAV</button>
@@ -210,6 +298,8 @@ audio{width:100%;margin-top:12px}
       <div class="bc-panel" aria-label="Result">
         <h2>Result</h2>
         <p class="meta-line" id="metaLine">Upload an MP3 to see its length, sample rate and the expected WAV size here.</p>
+        <canvas id="waveCanvas" width="600" height="80" style="width:100%;height:80px;display:none;background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-top:12px" aria-label="Waveform of your MP3"></canvas>
+        <p class="trust" id="waveNote" hidden>Waveform of your MP3 — the WAV keeps this exact shape; converting adds nothing back. A spectrogram view (which would show the MP3's frequency cutoff) is not built in yet.</p>
         <div class="result" id="resultBox" style="display:none">
           <h3>✅ Your WAV is ready</h3>
           <p id="resultText"></p>
@@ -232,7 +322,7 @@ audio{width:100%;margin-top:12px}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: your editor will not take the MP3</h2>
-      <p>The most common MP3-to-WAV story is not about quality at all — it is about a file that will not open. Pro Tools, older DAWs, samplers and CD-burning software often accept WAV or AIFF only, so an MP3 that plays fine everywhere else gets refused at the exact moment you need it. The second frustration is the size shock: a 4 MB MP3 comes back as a roughly 40 MB WAV, and people assume something went wrong. And the third is the quality myth — forums from r/audioengineering to the dBpoweramp boards repeat the same warning: converting MP3 to WAV does not make it sound better, because the MP3 encoder already discarded the data. People want a quick, free conversion with no install and no upload, and they want someone to say plainly what the WAV will and will not do.</p>
+      <p>The most common MP3-to-WAV story is not about quality at all — it is about a file that will not open. Pro Tools, older DAWs, samplers and CD-burning software often accept WAV or AIFF only, so an MP3 that plays fine everywhere else gets refused at the exact moment you need it. The second frustration is the size shock: a 4 MB MP3 comes back as a roughly 40 MB WAV, and people assume something went wrong. And the third is the quality myth — audio forums repeat the same warning: converting MP3 to WAV does not make it sound better, because the MP3 encoder already discarded the data. People want a quick, free conversion with no install and no upload, and they want someone to say plainly what the WAV will and will not do.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I convert MP3 to WAV for free?</h2>
       <p>Upload your MP3 here, pick 44.1 kHz for CD work or 48 kHz for video editing (or keep the original rate), choose stereo or mono, and press Convert to WAV. The file is decoded in your browser and downloaded as a standard 16-bit PCM WAV — free, with no signup and no upload. The WAV will sound exactly like the MP3 and be about ten times bigger, because WAV stores every sample uncompressed.</p>
@@ -252,33 +342,70 @@ audio{width:100%;margin-top:12px}
       <p>The honest rule, repeated across audio forums, is simple: use WAV when your tools require it, not because you think it will improve the mix. If you only need to listen, keep the MP3. If you need to edit, convert once from the original file and keep editing in WAV from then on — converting the same audio back and forth between MP3 and WAV only adds loss.</p>
       <h2>Which sample rate and channels should I pick?</h2>
       <p>44.1 kHz is the CD standard and the safest choice for music and most DAWs. 48 kHz is the video standard — pick it if the WAV is going into Premiere, DaVinci Resolve or Final Cut alongside video. Mono halves the file size and is the right call for voice, podcasts and dictation, where stereo adds nothing. Keeping the original rate avoids a resampling step, which is the cleanest option when you are unsure what the target software expects.</p>
+      <h2>What this tool does not do</h2>
+      <p><strong>No batch mode yet</strong> — this page converts one file at a time. For a whole sample library, XConvert offers batch upload with a ZIP download, but it uploads your files to a server. <strong>No 24-bit output</strong> — this tool writes 16-bit PCM only. <strong>No trim</strong> — cut the MP3 first (Audacity is free) if you only need part of it. And keep the original MP3 after converting: the WAV is a working copy, not a recovered lossless master, and its filename carries the sample rate and bit depth (for example <code>song_44.1k_16bit.wav</code>) so you can tell them apart later.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this MP3 to WAV converter really free?</summary>
-        <p>Yes. Convert as many MP3s as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>Does converting MP3 to WAV improve quality?</summary>
+        <p>No. MP3 compression permanently deletes data (at 128 kbps, most content above ~16 kHz is cut; at 320 kbps the cutoff is ~19 kHz). Decoding to WAV stores the same decoded audio in a bigger file — a spectrogram shows a hard horizontal line where the MP3 stopped storing data.</p>
       </details>
-<details class="faq">
-        <summary>Will converting MP3 to WAV make it sound better?</summary>
-        <p>No. The WAV sounds exactly like the MP3. MP3 compression discards audio data permanently, and no converter can restore it. Convert to WAV only when your editor, DAW or sampler needs that format.</p>
+      <details class="faq">
+        <summary>Why is the WAV file so much larger than the MP3?</summary>
+        <p>WAV stores raw uncompressed PCM — about 10 MB per minute — while MP3 compresses ~10:1. A 4 MB MP3 becomes roughly a 40 MB WAV.</p>
       </details>
-<details class="faq">
-        <summary>Why is the WAV file so much bigger than the MP3?</summary>
-        <p>WAV is uncompressed: it stores every audio sample. At 44.1 kHz stereo 16-bit, one minute is about 10 MB, while the same minute as a 128 kbps MP3 is about 1 MB. The size is the price of an editable, lossless file.</p>
+      <details class="faq">
+        <summary>Why convert MP3 to WAV at all?</summary>
+        <p>For editing and compatibility: DAWs, samplers, video editors and broadcast specs want uncompressed PCM; saving a WAV repeatedly adds no new compression artifacts the way re-saving MP3 does.</p>
       </details>
-<details class="faq">
+      <details class="faq">
+        <summary>How do I convert MP3 to WAV for free?</summary>
+        <p>Upload to a free online converter (XConvert, EchoWave, Notevibes) or open the MP3 in Audacity and File → Export as WAV; in-browser tools need no signup.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert MP3 to WAV without uploading my file?</summary>
+        <p>Yes — Notevibes (200 MB max), Convertlo and Mokivo run entirely in your browser; your file never leaves your device. This page does the same: decoding runs in your browser with the Web Audio API.</p>
+      </details>
+      <details class="faq">
         <summary>What sample rate should I choose — 44.1 or 48 kHz?</summary>
-        <p>Use 44.1 kHz for CD work and most music software, and 48 kHz for video editing. Keeping the original rate is also fine and avoids resampling.</p>
+        <p>44.1 kHz 16-bit for CD burning and music; 48 kHz for video editing (Premiere/DaVinci/Final Cut) — mixing 44.1 kHz audio into a 48 kHz timeline causes drift. Leave as Original if unsure.</p>
       </details>
-<details class="faq">
-        <summary>Is my MP3 uploaded to a server?</summary>
-        <p>No. Your MP3 is decoded in your browser with the Web Audio API and the WAV is built on your device. Nothing is uploaded, stored or shared.</p>
+      <details class="faq">
+        <summary>Can I burn the converted WAV to an audio CD?</summary>
+        <p>Yes — audio CDs use 44.1 kHz 16-bit stereo PCM, exactly what a standard WAV holds; but it won't sound like the original CD, since the MP3's lost data stays lost.</p>
       </details>
-<details class="faq">
-        <summary>Can I convert a large MP3, or many files at once?</summary>
-        <p>This tool converts one file at a time. Very long files make very large WAVs — a one-hour MP3 becomes roughly a 600 MB WAV — so convert long recordings in sections if your browser struggles.</p>
+      <details class="faq">
+        <summary>Will the WAV work in my DAW / audio editor?</summary>
+        <p>WAV is supported by virtually every editor and DAW, but check your app if it needs a specific sample rate, bit depth or channel layout.</p>
       </details>
-
+      <details class="faq">
+        <summary>Can I convert MP3 to WAV on my phone?</summary>
+        <p>Yes — Notevibes, Convertlo and Rendley state mobile support; iOS Safari and Android Chrome both work in-browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Is there a free MP3 to WAV converter with no file-size limit?</summary>
+        <p>Not verified as unlimited — Convertr.org allows up to 1 GB per file (largest stated in this run); Zemzer's free tier is ~50 MB; Notevibes caps at 200 MB. “Unlimited” claims on small tools were not verified in this run.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert MP3 to WAV in Audacity?</summary>
+        <p>Open the MP3 in Audacity, then File → Export → Export as WAV; set the sample rate (e.g. 11.025 kHz) and mono in the export/project settings first if your destination needs exact specs.</p>
+      </details>
+      <details class="faq">
+        <summary>Does converting MP3 to WAV and back to MP3 lose quality?</summary>
+        <p>Re-encoding the decoded WAV to MP3 compresses again and loses more data each generation — only convert to MP3 once, for the final delivery copy.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a YouTube download to WAV?</summary>
+        <p>Yes, but the WAV is only as good as the YouTube audio it came from — “it's technically a wav but it's still mp3 quality because that's what it was ripped from”. Downloading YouTube audio also raises copyright questions — not verified as legal in this run.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between MP3 and WAV?</summary>
+        <p>MP3 is lossy and small (~1 MB/minute at 128 kbps); WAV is uncompressed raw PCM (~10 MB/minute), the format editors and mastering tools expect.</p>
+      </details>
+      <details class="faq">
+        <summary>Should I keep the original MP3 after converting?</summary>
+        <p>Yes — keep it alongside the WAV; the WAV is a working copy, not a recovered lossless master, and labelling it with sample rate/bit depth avoids confusion later.</p>
+      </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Will converting MP3 to WAV improve the quality?</strong> No. The WAV sounds exactly like the MP3 — the data MP3 discarded cannot be recovered.</p>
@@ -329,6 +456,24 @@ audio{width:100%;margin-top:12px}
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   function fmtKB(n) { return n < 1024 ? n + " B" : (n / 1024 < 1024 ? (n / 1024).toFixed(1) + " KB" : (n / 1048576).toFixed(2) + " MB"); }
+  function drawWave(b) {
+    var cv = $("waveCanvas"); if (!cv) return;
+    var data = b.getChannelData(0), c = cv.getContext("2d");
+    var w = cv.width, h = cv.height;
+    c.clearRect(0, 0, w, h);
+    c.fillStyle = "#f59e0b";
+    var step = Math.max(1, Math.floor(data.length / w));
+    for (var x = 0; x < w; x++) {
+      var mn = 1, mx = -1;
+      for (var i = x * step; i < Math.min(data.length, (x + 1) * step); i += 4) {
+        var v = data[i]; if (v < mn) mn = v; if (v > mx) mx = v;
+      }
+      var y1 = (1 - mx) * h / 2, y2 = (1 - mn) * h / 2;
+      c.fillRect(x, y1, 1, Math.max(1, y2 - y1));
+    }
+    cv.style.display = "block";
+    var n = $("waveNote"); if (n) n.hidden = false;
+  }
   var buf = null, fname = "audio", outUrl = null;
   function encodeWAV(audioBuffer, channels) {
     var numCh = channels, sr = audioBuffer.sampleRate, len = audioBuffer.length * numCh * 2;
@@ -352,7 +497,7 @@ audio{width:100%;margin-top:12px}
     var blob = encodeWAV(b, ch);
     if (outUrl) URL.revokeObjectURL(outUrl);
     outUrl = URL.createObjectURL(blob);
-    var dl = $("dlLink"); dl.href = outUrl; dl.download = fname + ".wav";
+    var dl = $("dlLink"); dl.href = outUrl; dl.download = fname + "_" + (b.sampleRate / 1000) + "k_16bit.wav";
     $("resultText").innerHTML = "Source: <strong>" + fmtKB($("audFile").files[0].size) + " MP3</strong> · WAV: <strong>" + fmtKB(blob.size) + " at " + b.sampleRate + " Hz, " + ch + (ch === 1 ? " channel" : " channels") + ", 16-bit PCM</strong>. Same sound as the MP3 — now editable anywhere.";
     $("resultBox").style.display = "block";
     toast("WAV ready — " + fmtKB(blob.size));
@@ -365,6 +510,7 @@ audio{width:100%;margin-top:12px}
     var targetRate = parseInt($("rateSel").value, 10) || undefined;
     f.arrayBuffer().then(function (ab) { return ctx.decodeAudioData(ab); }).then(function (b) {
       buf = b;
+      drawWave(b);
       var chans = parseInt($("chanSel").value, 10) || b.numberOfChannels;
       var est = b.duration * (targetRate || b.sampleRate) * chans * 2;
       $("fileInfo").textContent = f.name + " — " + b.duration.toFixed(1) + "s, " + b.sampleRate + " Hz, " + b.numberOfChannels + (b.numberOfChannels === 1 ? " channel" : " channels") + " (" + fmtKB(f.size) + ")";
@@ -389,6 +535,28 @@ audio{width:100%;margin-top:12px}
       return;
     }
     finish(buf, chans);
+  });
+  function refreshEst() {
+    if (!buf) return;
+    var chans = parseInt($("chanSel").value, 10) || buf.numberOfChannels;
+    var tr = parseInt($("rateSel").value, 10) || buf.sampleRate;
+    var est = buf.duration * tr * chans * 2;
+    $("metaLine").textContent = "Decoded OK. Expected WAV: about " + fmtKB(est) + " at " + tr + " Hz, " + chans + (chans === 1 ? " channel" : " channels") + ". Same sound as the MP3 — just uncompressed.";
+  }
+  $("rateSel").addEventListener("change", refreshEst);
+  $("chanSel").addEventListener("change", refreshEst);
+})();
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var chips = document.querySelectorAll("#useChips .chip");
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () {
+      chips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      c.setAttribute("aria-pressed", "true");
+      var r = $("rateSel"), ch = $("chanSel");
+      if (r) { r.value = c.getAttribute("data-rate"); r.dispatchEvent(new Event("change")); }
+      if (ch) { ch.value = c.getAttribute("data-chan"); ch.dispatchEvent(new Event("change")); }
+    });
   });
 })();
 (function () {

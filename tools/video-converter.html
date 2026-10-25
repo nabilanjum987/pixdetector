@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this video converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Convert as many videos as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
-    { "@type": "Question", "name": "What format does the converted video come out as?", "acceptedAnswer": { "@type": "Answer", "text": "WebM (.webm). Browsers can record video but cannot encode MP4 (H.264), so no honest in-browser converter can hand you a real MP4 file. WebM plays in Chrome, Edge, Firefox and VLC. If you need a real MP4, use a free desktop tool like HandBrake or VLC." } },
-    { "@type": "Question", "name": "Why does conversion take as long as the video itself?", "acceptedAnswer": { "@type": "Answer", "text": "Because the conversion works by playing your video through once and recording it at the new size and quality. A 2-minute video takes about 2 minutes to convert. Keep the tab open while it runs." } },
-    { "@type": "Question", "name": "Is my video uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your video is read and re-encoded in your browser with the canvas and MediaRecorder APIs. Nothing is uploaded, stored, or shared." } },
-    { "@type": "Question", "name": "Does the converted video keep its sound?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when your browser allows it — the tool routes the video's audio into the recording. If a browser blocks that, the conversion still finishes but the output is video-only, and the page tells you so." } },
-    { "@type": "Question", "name": "Which video files can I upload?", "acceptedAnswer": { "@type": "Answer", "text": "Any video your browser can play: MP4, MOV, WebM, MKV and AVI in most cases. If a file will not load, it is usually an unsupported codec (for example some HEVC clips) — convert that file with HandBrake first, then use this tool." } }
+    {
+      "@type": "Question",
+      "name": "What is the best free video converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most people, HandBrake (free, open source, no limits, desktop) — for a quick one-off with no install, a no-upload browser converter; for small files online, CloudConvert's free tier (25 conversions/day, 1 GB)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a truly free video converter with no watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — HandBrake, VLC and FFmpeg are free with no watermark; online, VideoSnap, VidShift, XConvert and Restream all claim no watermark on their free tiers in this run's SERP. Check the size cap before uploading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a video without uploading it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser tools (VideoSnap, VidShift, Vexo) process locally, and this page does too: your video is re-encoded in your browser and nothing is uploaded. Desktop tools (HandBrake, VLC) never upload at all. Server tools (XConvert, Restream, CloudConvert) do upload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a video to MP4 for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — almost every converter offers MP4/H.264 output free. On this PixDetector page, no: this tool outputs WebM only (see the honest-limit box) — use a desktop tool or a server converter for a real MP4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my converted video lower quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Re-encoding always loses something; aggressive bitrate/CRF settings lose more. Use a high-quality preset, keep the original resolution, or remux without re-encoding when the codec already fits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert MOV to MP4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the MOV to a converter and pick MP4/H.264, or use HandBrake/VLC free on desktop. iPhone HEVC MOV files need a full transcode, not just a rename."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert MKV to MP4 without losing quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if the video inside is already H.264 — remuxing just changes the container and loses nothing. If it is another codec, it must be re-encoded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between MP4, WebM and MOV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are containers, not codecs: MP4 plays almost everywhere, WebM is smallest for modern browsers, MOV is Apple's container. What matters for playback is the codec inside (H.264, HEVC, VP9)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to use a free online video converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reputable ones (CloudConvert, FreeConvert, Convertio) use HTTPS and delete uploads within 24 hours. For sensitive footage, use a local tool instead — nothing leaves your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my video play after converting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the player lacks the codec, or the file was renamed rather than converted. Try VLC, or re-convert to MP4/H.264 + AAC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a video on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — browser converters work in a mobile browser; large files are slow on phones because the phone does the encoding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does video conversion take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A short clip converts in seconds; a long or 4K file takes minutes, and on server tools the upload time usually dominates. Browser tools depend on your own CPU. On this page conversion runs in real time — a 2-minute video takes about 2 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a video to audio (MP3)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — most converters offer audio-only output (MP3, AAC, WAV, FLAC, OGG); VideoSnap and VidShift both list it. This page always outputs a video file — for audio only, use the Video to MP3 Converter linked below."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the biggest file a free converter takes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It varies by tool: Convertio 100 MB, Zamzar 50 MB, CloudConvert/FreeConvert 1 GB free. Browser tools are limited by your device's memory instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install software to convert a video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — browser converters need no install; desktop converters (HandBrake, VLC) need one install and then work offline with no caps."
+      }
+    }
   ]
 }
 </script>
@@ -56,6 +170,9 @@
 input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
 select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
 video.preview-vid{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto;background:#000}
 .meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
 .err{color:#f87171;font-size:14px;margin-top:10px}
@@ -100,7 +217,7 @@ table.formats td{color:var(--text2)}
       <h1>Free Video Converter</h1>
       <p>Convert a video to a smaller size or a different quality, free, in your browser — no upload, no signup, no watermark. Output is WebM (.webm): browsers cannot encode MP4, and this page says so instead of pretending otherwise.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> the output is <strong>WebM, not MP4</strong> — no browser tool can encode a real MP4 file. Conversion runs at <strong>real-time speed</strong> (a 2-minute video takes about 2 minutes), and it works best in <strong>Chrome, Edge or Firefox</strong>. WebM plays in Chrome, Edge, Firefox and VLC.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Output is <strong>WebM — this tool cannot make MP4 in the browser</strong>. WebM plays in Chrome, Firefox, Edge and modern players; if you need MP4, use HandBrake/VLC free or the <a href="/tools/video-to-mp4-converter">MP4 page's server route</a>. Conversion runs at <strong>real-time speed</strong> (a 2-minute video takes about 2 minutes), and it works best in <strong>Chrome, Edge or Firefox</strong>.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Convert settings">
         <h2>Your video</h2>
@@ -127,6 +244,18 @@ table.formats td{color:var(--text2)}
           </div>
         </div>
         <p class="trust" id="outInfo">Output: WebM (.webm) at the size and quality you pick.</p>
+        <p class="trust">Quality in plain language: High = best quality · Medium = balanced · Low = smallest file. (Behind the labels: 5 / 2.5 / 1 Mbps video bitrate.)</p>
+        <div style="margin-top:16px">
+          <span class="flabel">What are you converting FROM?</span>
+          <div class="chips" id="srcChips">
+            <button type="button" class="chip" data-expect="iPhone MOV: if your browser can play it, conversion runs at normal speed. HEVC MOV files sometimes will not load at all — convert those with HandBrake first, then bring the result here.">iPhone MOV</button>
+            <button type="button" class="chip" data-expect="Screen recording (WebM): already in the browser's own format — converting only changes the size and quality, and it is usually the fastest job on this page.">Screen recording</button>
+            <button type="button" class="chip" data-expect="Camera MKV: browsers often cannot play MKV files, so the preview may stay blank. If it will not load, convert it with HandBrake or VLC first.">Camera MKV</button>
+            <button type="button" class="chip" data-expect="Old AVI: old codecs often will not play in a browser at all. Convert it with HandBrake or VLC first, then use this page for size and quality.">Old AVI</button>
+          </div>
+          <p class="trust" id="srcExpect">Pick a source above to see what to expect.</p>
+        </div>
+        <p class="trust" id="sizeEstimate">Pick a video to see an estimated output size.</p>
         <div class="actions">
           <button type="button" class="btn" id="convertBtn" disabled>Convert video</button>
           <button type="button" class="btn alt" id="cancelBtn" disabled>Cancel</button>
@@ -156,7 +285,7 @@ table.formats td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: every "free" converter has a catch</h2>
-      <p>The complaint people repeat most about free video converters is the catch hidden behind the word "free". Zamzar caps free files at 50 MB. AConvert stops at 200 MB. Clideo converts for free but stamps a watermark unless you pay $6 a month. Others make you upload a private video to a server, wait in a queue, and then delete it "within 24 hours" — if you trust them. And the classic one: an iPhone MOV that will not play on a Windows PC, because Windows wants a codec pack that costs $0.99. People want a converter that just works — no size cap, no watermark, no upload, no account — and tells them the truth about what it can and cannot output.</p>
+      <p>The complaint people repeat most about free video converters is the catch hidden behind the word "free". Reviewers report FreeConvert making them wait twenty minutes and then prompting them to pay. Convertio caps free files at 100 MB and Zamzar at 50 MB, so a real phone clip is over the limit before it starts. Others make you upload a private video to a server, wait in a queue behind paying users, and trust them to delete it afterwards. And the classic one: an iPhone MOV that will not play on a Windows PC, because Windows has no HEVC codec by default. People want a converter that just works — no size cap, no watermark, no upload, no account — and tells them the truth about what it can and cannot output.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I convert a video for free?</h2>
       <p>Upload your video here, pick an output size (original, 720p, 480p or 360p) and a quality level, then press Convert. The video plays through once in your browser while it is re-encoded, and the result downloads as a WebM (.webm) file — free, with no signup, no upload and no watermark. A 2-minute video takes about 2 minutes, because the conversion runs at real-time speed. If you need a real MP4 file, use a free desktop tool like HandBrake or VLC: browsers physically cannot encode MP4, and any page that claims otherwise is misleading you.</p>
@@ -175,32 +304,92 @@ table.formats td{color:var(--text2)}
         </tbody>
       </table>
       <h2>Why WebM, and where does it play?</h2>
-      <p>WebM is the video format browsers can actually write. It plays natively in Chrome, Edge and Firefox, in VLC on any computer, and on Android. It does not play in older Apple software or some TV apps — that is the honest trade-off of a free in-browser converter. If your destination needs MP4, the free desktop route is HandBrake (open the file, pick the "Fast 720p30" preset, start) or VLC (Media → Convert/Save → MP4). Both are free, and both keep your file on your own computer.</p>
+      <p>WebM is the video format browsers can actually write. It plays natively in Chrome, Edge and Firefox, in VLC on any computer, and on Android. It does not play in older Apple software or some TV apps — that is the honest trade-off of a free in-browser converter. If your destination needs MP4, the free desktop route is HandBrake (open the file, pick the "Fast 720p30" preset, start) or VLC (Media → Convert/Save → MP4). Both are free, and both keep your file on your own computer. If you landed here looking for MP4 specifically, the <a href="/tools/video-to-mp4-converter">video to MP4 page</a> explains the honest route.</p>
+      <h2>Container vs codec — the confusion behind half the searches</h2>
+      <p>MP4, WebM and MOV are containers — the box the video sits in. H.264, HEVC, VP8 and VP9 are codecs — how the pictures inside are compressed. What decides whether a file plays is the codec inside, not the name on the end. That is why renaming a file does not fix playback, and why the same .mov file sometimes plays and sometimes does not: iPhones do not always record with the same codec settings.</p>
+      <table class="formats">
+        <thead><tr><th>Format</th><th>Plays where</th><th>Does not play where</th></tr></thead>
+        <tbody>
+          <tr><td>MP4 (H.264)</td><td>Almost everything — Windows, Android, TVs, editors, browsers</td><td>Almost nowhere — the universal choice</td></tr>
+          <tr><td>WebM (VP8/VP9)</td><td>Chrome, Edge, Firefox, VLC, Android</td><td>Older Apple software, some TV apps</td></tr>
+          <tr><td>MOV (HEVC)</td><td>Apple devices</td><td>Windows, unless the HEVC codec is installed</td></tr>
+        </tbody>
+      </table>
+      <h2>How this tool compares</h2>
+      <p>Users decide on two things: does the file leave my device, and does it make MP4? Here is the honest strip:</p>
+      <table class="formats">
+        <thead><tr><th>Tool</th><th>Where your file goes</th><th>MP4 output</th><th>Free limit</th><th>Watermark</th></tr></thead>
+        <tbody>
+          <tr><td>PixDetector (this page)</td><td>Stays in your browser — no upload</td><td>No — WebM only</td><td>No server cap (limited by your device's memory)</td><td>None</td></tr>
+          <tr><td>XConvert</td><td>Uploaded to its server</td><td>Yes (H.264)</td><td>No size limit stated on the page</td><td>None claimed</td></tr>
+          <tr><td>Restream</td><td>Uploaded to its server</td><td>Yes (MP4/WebM)</td><td>Up to 2 GB</td><td>Not stated in this run</td></tr>
+          <tr><td>CloudConvert</td><td>Uploaded to its server</td><td>Yes</td><td>1 GB free; 25 conversions/day</td><td>Not stated in this run</td></tr>
+          <tr><td>HandBrake</td><td>Stays on your computer (desktop app)</td><td>Yes (MP4/MKV)</td><td>No caps</td><td>Never</td></tr>
+        </tbody>
+      </table>
+      <h2>What this tool does not do (yet)</h2>
+      <p><strong>No trim step.</strong> This tool converts the whole video from start to finish — if you only need a few seconds, trim the clip first (your phone's Photos app does it free), then convert the trimmed copy. <strong>No audio-only output.</strong> This page always outputs a video file; for sound only, use the <a href="/tools/video-to-mp3-converter">Video to MP3 Converter</a>. <strong>No remux fast path.</strong> Remuxing repackages a video without re-encoding it — seconds, no quality loss — but this tool re-encodes every frame, which is why it runs in real time. <strong>No MP4 output</strong> — see the box at the top.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this video converter really free?</summary>
-        <p>Yes. Convert as many videos as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>What is the best free video converter?</summary>
+        <p>For most people, HandBrake (free, open source, no limits, desktop) — for a quick one-off with no install, a no-upload browser converter; for small files online, CloudConvert's free tier (25 conversions/day, 1 GB).</p>
       </details>
       <details class="faq">
-        <summary>What format does the converted video come out as?</summary>
-        <p>WebM (.webm). Browsers can record video but cannot encode MP4 (H.264), so no honest in-browser converter can hand you a real MP4 file. WebM plays in Chrome, Edge, Firefox and VLC. If you need a real MP4, use a free desktop tool like HandBrake or VLC.</p>
+        <summary>Is there a truly free video converter with no watermark?</summary>
+        <p>Yes — HandBrake, VLC and FFmpeg are free with no watermark; online, VideoSnap, VidShift, XConvert and Restream all claim no watermark on their free tiers in this run's SERP. Check the size cap before uploading.</p>
       </details>
       <details class="faq">
-        <summary>Why does conversion take as long as the video itself?</summary>
-        <p>Because the conversion works by playing your video through once and recording it at the new size and quality. A 2-minute video takes about 2 minutes to convert. Keep the tab open while it runs.</p>
+        <summary>Can I convert a video without uploading it?</summary>
+        <p>Yes — browser tools (VideoSnap, VidShift, Vexo) process locally, and this page does too: your video is re-encoded in your browser and nothing is uploaded. Desktop tools (HandBrake, VLC) never upload at all. Server tools (XConvert, Restream, CloudConvert) do upload.</p>
       </details>
       <details class="faq">
-        <summary>Is my video uploaded to a server?</summary>
-        <p>No. Your video is read and re-encoded in your browser with the canvas and MediaRecorder APIs. Nothing is uploaded, stored, or shared.</p>
+        <summary>Can I convert a video to MP4 for free?</summary>
+        <p>Yes — almost every converter offers MP4/H.264 output free. On this PixDetector page, no: this tool outputs WebM only (see the honest-limit box) — use a desktop tool or a server converter for a real MP4.</p>
       </details>
       <details class="faq">
-        <summary>Does the converted video keep its sound?</summary>
-        <p>Yes, when your browser allows it — the tool routes the video's audio into the recording. If a browser blocks that, the conversion still finishes but the output is video-only, and the page tells you so.</p>
+        <summary>Why is my converted video lower quality?</summary>
+        <p>Re-encoding always loses something; aggressive bitrate/CRF settings lose more. Use a high-quality preset, keep the original resolution, or remux without re-encoding when the codec already fits.</p>
       </details>
       <details class="faq">
-        <summary>Which video files can I upload?</summary>
-        <p>Any video your browser can play: MP4, MOV, WebM, MKV and AVI in most cases. If a file will not load, it is usually an unsupported codec (for example some HEVC clips) — convert that file with HandBrake first, then use this tool.</p>
+        <summary>How do I convert MOV to MP4?</summary>
+        <p>Upload the MOV to a converter and pick MP4/H.264, or use HandBrake/VLC free on desktop. iPhone HEVC MOV files need a full transcode, not just a rename.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert MKV to MP4 without losing quality?</summary>
+        <p>Yes, if the video inside is already H.264 — remuxing just changes the container and loses nothing. If it is another codec, it must be re-encoded.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between MP4, WebM and MOV?</summary>
+        <p>They are containers, not codecs: MP4 plays almost everywhere, WebM is smallest for modern browsers, MOV is Apple's container. What matters for playback is the codec inside (H.264, HEVC, VP9).</p>
+      </details>
+      <details class="faq">
+        <summary>Is it safe to use a free online video converter?</summary>
+        <p>Reputable ones (CloudConvert, FreeConvert, Convertio) use HTTPS and delete uploads within 24 hours. For sensitive footage, use a local tool instead — nothing leaves your device.</p>
+      </details>
+      <details class="faq">
+        <summary>Why won't my video play after converting?</summary>
+        <p>Usually the player lacks the codec, or the file was renamed rather than converted. Try VLC, or re-convert to MP4/H.264 + AAC.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a video on my phone?</summary>
+        <p>Yes — browser converters work in a mobile browser; large files are slow on phones because the phone does the encoding.</p>
+      </details>
+      <details class="faq">
+        <summary>How long does video conversion take?</summary>
+        <p>A short clip converts in seconds; a long or 4K file takes minutes, and on server tools the upload time usually dominates. Browser tools depend on your own CPU. On this page conversion runs in real time — a 2-minute video takes about 2 minutes.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a video to audio (MP3)?</summary>
+        <p>Yes — most converters offer audio-only output (MP3, AAC, WAV, FLAC, OGG); VideoSnap and VidShift both list it. This page always outputs a video file — for audio only, use the Video to MP3 Converter linked below.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the biggest file a free converter takes?</summary>
+        <p>It varies by tool: Convertio 100 MB, Zamzar 50 MB, CloudConvert/FreeConvert 1 GB free. Browser tools are limited by your device's memory instead.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to install software to convert a video?</summary>
+        <p>No — browser converters need no install; desktop converters (HandBrake, VLC) need one install and then work offline with no caps.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -247,6 +436,29 @@ table.formats td{color:var(--text2)}
   </div>
 </footer>
 <div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function fmtMB(b) { return (b / 1048576).toFixed(1) + " MB"; }
+  function bitrate() { var s = $("qualitySelect"); if (!s) return 2500000; return s.value === "high" ? 5000000 : s.value === "low" ? 1000000 : 2500000; }
+  function updateEst() {
+    var el = $("sizeEstimate"); if (!el) return;
+    var v = $("srcVideo"); var d = (v && isFinite(v.duration)) ? v.duration : 0;
+    if (!d) { el.textContent = "Pick a video to see an estimated output size."; return; }
+    el.textContent = "Estimated output: about " + fmtMB(d * bitrate() / 8) + " for a " + Math.round(d) + "s video at this quality. Rough estimate only — the real WebM size depends on the footage.";
+  }
+  var v = $("srcVideo"); if (v) v.addEventListener("loadedmetadata", updateEst);
+  ["sizeSelect", "qualitySelect"].forEach(function (id) { var s = $(id); if (s) s.addEventListener("change", updateEst); });
+  var chips = document.querySelectorAll("#srcChips .chip");
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () {
+      chips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      c.setAttribute("aria-pressed", "true");
+      var t = $("srcExpect"); if (t) t.textContent = c.getAttribute("data-expect") || "";
+    });
+  });
+})();
+</script>
 <script src="../js/video-converter.js"></script>
 </body>
 </html>

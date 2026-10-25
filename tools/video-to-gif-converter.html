@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this video to GIF converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Make as many GIFs as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
-    { "@type": "Question", "name": "Why is my GIF so much bigger than the video?", "acceptedAnswer": { "@type": "Answer", "text": "GIF is a 1987 format with no modern compression: every frame is stored as a separate picture with at most 256 colours. A 5-second clip can easily become a 25 MB GIF. Keep clips to 2-5 seconds, 480 px wide and 10-12 fps — that usually lands between 1 and 3 MB." } },
-    { "@type": "Question", "name": "Why does the GIF look worse than the video?", "acceptedAnswer": { "@type": "Answer", "text": "GIF can only hold 256 colours per frame, so gradients and dark scenes band or get noisy, and fine detail is lost. That is a limit of the format, not of this tool. If you need better quality and a smaller file, use a short looping MP4 or WebP animation instead — most chat apps accept those now." } },
-    { "@type": "Question", "name": "Does a GIF have sound?", "acceptedAnswer": { "@type": "Answer", "text": "No. GIF is an image format and cannot carry audio. The sound in your video is dropped when it becomes a GIF." } },
-    { "@type": "Question", "name": "How long can my GIF clip be?", "acceptedAnswer": { "@type": "Answer", "text": "This tool allows up to 15 seconds, but the sweet spot is 2-5 seconds. Longer clips get very large and convert slowly, because every frame has to be drawn and encoded in your browser." } },
-    { "@type": "Question", "name": "Is my video uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your video is read and turned into a GIF in your browser with canvas and the gif.js library. Nothing is uploaded, stored, or shared." } }
+    {
+      "@type": "Question",
+      "name": "How do I convert a video to GIF for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload a short clip to a free converter (XConvert, Zight, GIFClear, Clipy, Ezgif), trim to the moment, pick FPS and size, download. On this page it runs in your browser with no upload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my GIF so big?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GIF stores every frame as an image with only 256 colours and weak compression — a 10-second 30 fps GIF is 300 full images. Shorten the clip, drop FPS to 10–15, resize to 480px."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my GIF look bad / grainy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 256-colour ceiling: the converter maps your video's millions of colours onto 256 slots, and a generic palette picks the wrong ones. A palette built from your clip looks much better — this page samples each frame's palette from that frame itself; see “How the colours are chosen” above."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a GIF be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2–6 seconds is the sweet spot (XConvert); Zight says clips under 10 seconds give the best balance; GIFClear caps at 15 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What FPS should I use for a GIF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10 FPS for chat/email, 15 FPS for smoother motion, up to 50 FPS for high-action clips. Lower FPS is the fastest way to shrink the file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a GIF have sound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — GIFs are silent by design. If the audio matters, send the video or use a muted looping MP4/WebM instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a GIF under 1 MB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resize to 480px wide, drop the palette to 64 colours, reduce FPS to 12–15; still over? Shorten the clip or convert to WebP/MP4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size GIF can I send on Discord?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Discord's cap is 20 MB in XConvert's preset (one guide lists 10 MB free / 50 MB Nitro Basic); keep reaction GIFs well under that — 480px, 10–15 FPS, a few seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a video to GIF on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in a mobile browser, but large sources are slow on phones; short clips work best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a video to GIF converter with no watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — XConvert, Zight, Clipy, GIFClear and Ezgif all claim no watermark in this run; Flixier's free GIF maker also claims no watermark on export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a GIF from a YouTube / TikTok / Instagram video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Download the clip first (where the platform allows it), then convert it — the converter itself takes a file, not a URL, on most free tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my GIF not animating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually it was saved or shared as a still image (some apps show only the first frame), or the file was re-encoded as a static image on upload. Download the .gif file itself and open it in a browser to check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add text to a GIF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Flixier and Imgflip offer caption/text overlays; Ezgif has a separate GIF editor for text and effects. This page does not add text — add captions in your video editor first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best free video to GIF converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For quality, Gifski (Mac, free) is the testers' pick; for online use, Ezgif is the long-standing default (free, no watermark, ads intrusive); for privacy, Zight or GIFClear process in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use GIF or MP4 for a website demo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP4/WebM — a GIF of the same clip is usually several times larger and slower to load; GIF wins only where an image is required (chat, email, README, docs) because it autoplays with no player."
+      }
+    }
   ]
 }
 </script>
@@ -56,6 +170,9 @@
 input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
 input[type=number],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
 video.preview-vid{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto;background:#000}
 img.preview-img{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto}
 .meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
@@ -101,7 +218,7 @@ table.formats td{color:var(--text2)}
       <h1>Free Video to GIF Converter</h1>
       <p>Turn a short video clip into a looping GIF, free, in your browser — no upload, no signup, no watermark. Trim the exact moment, set the frame rate and size, and download.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> GIF is an old format — <strong>basic quality only (256 colours, no sound)</strong>, and GIFs get big fast. Keep clips to <strong>2–5 seconds</strong> (15 seconds max here); <strong>long videos are slow</strong> because every frame is encoded in your browser. A 5-second clip can easily become a 25 MB file if you keep it full-size.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> GIF is an old format — <strong>basic quality only (256 colours, no sound)</strong>, and GIFs get big fast. Keep clips to <strong>2–5 seconds</strong> (15 seconds max here); <strong>long videos are slow</strong> because every frame is encoded in your browser. A 5-second clip can easily become several MB if you keep it full-size.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="GIF settings">
         <h2>Your video</h2>
@@ -139,6 +256,27 @@ table.formats td{color:var(--text2)}
             <option value="30">Smaller file (rougher colours)</option>
           </select>
         </div>
+        <div style="margin-top:16px">
+          <span class="flabel">Made for somewhere?</span>
+          <div class="chips" id="destChips">
+            <button type="button" class="chip" data-width="480" data-fps="10" data-quality="20">Discord — 480 px, 10 fps</button>
+            <button type="button" class="chip" data-width="480" data-fps="10" data-quality="20">Email — 480 px, 10 fps</button>
+            <button type="button" class="chip" data-width="320" data-fps="8" data-quality="30">Forum — 320 px, 8 fps</button>
+            <button type="button" class="chip" data-width="320" data-fps="10" data-quality="20">Chat — 320 px, 10 fps</button>
+          </div>
+          <p class="trust" id="destNote">Destination presets set width, frame rate and quality for that cap — Discord 20 MB, Email 25 MB, Forum 2 MB. Chat is the small-and-quick option.</p>
+        </div>
+        <div style="margin-top:16px">
+          <span class="flabel">What is the GIF for?</span>
+          <div class="chips" id="useChips">
+            <button type="button" class="chip" data-secs="3" data-width="480" data-fps="12" data-quality="10">Reaction GIF — 3 s</button>
+            <button type="button" class="chip" data-secs="5" data-width="480" data-fps="12" data-quality="20">Product demo — 5 s</button>
+            <button type="button" class="chip" data-secs="5" data-width="480" data-fps="10" data-quality="20">Bug report — 5 s</button>
+            <button type="button" class="chip" data-secs="5" data-width="480" data-fps="10" data-quality="20">Tutorial step — 5 s</button>
+            <button type="button" class="chip" data-secs="3" data-width="480" data-fps="12" data-quality="10">Meme — 3 s</button>
+          </div>
+          <p class="trust">Use-case presets set the clip length, width and frame rate. Trim first — this page cuts the clip before encoding, not after.</p>
+        </div>
         <p class="trust" id="clipInfo">Clip: 3.0 s · about 30 frames at 10 fps.</p>
         <div class="actions">
           <button type="button" class="btn" id="convertBtn" disabled>Make GIF</button>
@@ -152,7 +290,7 @@ table.formats td{color:var(--text2)}
         <h2>Preview</h2>
         <video class="preview-vid" id="srcVideo" controls playsinline preload="metadata"></video>
         <img class="preview-img" id="gifPreview" alt="Your GIF preview" hidden>
-        <p class="meta-line" id="metaLine">Upload a video, trim the moment, and press Make GIF. The finished GIF appears here.</p>
+        <p class="meta-line" id="metaLine">Upload a video, trim the moment, and press Make GIF. The finished GIF appears here — it is the real file, so check how it looks and how big it is before downloading.</p>
       </div>
     </div>
     <div class="share-box">
@@ -169,10 +307,10 @@ table.formats td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: the GIF comes out huge, blurry, or both</h2>
-      <p>The complaint people repeat most about video-to-GIF converters is the file size. You turn a 5-second clip into a GIF and get a 25 MB file that will not upload anywhere — to Discord, to an email, to a forum. The second complaint is quality: gradients go banded, dark scenes go noisy, faces go muddy. Both are the same cause: GIF is a 1987 format that stores every frame as a separate picture with at most 256 colours, while the video it came from compresses motion between frames and holds millions of colours. A 10-second 1080p clip can become a 300 MB GIF if you do not trim it down first. People want the reaction, the bug demo, the 3-second moment — small, loopable, and actually uploadable.</p>
+      <p>The complaint people repeat most about video-to-GIF converters is the file size. You turn a 5-second clip into a GIF and get a file several MB in size that will not upload anywhere — to Discord, to an email, to a forum. The second complaint is quality: gradients go banded, dark scenes go noisy, faces go muddy. Both are the same cause: GIF is a 1987 format that stores every frame as a separate picture with at most 256 colours, while the video it came from compresses motion between frames and holds millions of colours. A 10-second clip at full size can become many times larger than the video it came from if you do not trim it down first. People want the reaction, the bug demo, the 3-second moment — small, loopable, and actually uploadable.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I convert a video to a GIF for free?</h2>
-      <p>Upload your video here, set a start and end time for the exact moment you want (2–5 seconds is the sweet spot), pick 480 px wide and 10–12 frames per second, then press Make GIF. The clip is turned into a looping GIF in your browser — free, with no signup, no upload and no watermark — and you can download it when it finishes. That recipe (3 seconds, 480 px, 12 fps, tight crop) usually lands between 1 and 3 MB, which uploads almost anywhere. Longer clips, full width and high frame rates all make the file explode, so keep them short.</p>
+      <p>Upload your video here, set a start and end time for the exact moment you want (2–5 seconds is the sweet spot), pick 480 px wide and 10–12 frames per second, then press Make GIF. The clip is turned into a looping GIF in your browser — free, with no signup, no upload and no watermark — and you can download it when it finishes. That recipe (3 seconds, 480 px, 12 fps, tight crop) usually lands at a few MB, which uploads almost anywhere. Longer clips, full width and high frame rates all make the file explode, so keep them short.</p>
       <p>A video to GIF converter takes the frames of a video clip and writes them as an animated GIF — a single image file that plays on a loop wherever images work: chat, email, docs, forums, GitHub. GIFs autoplay without a player, which is why they survive as the internet's reaction format, but they carry no sound and only 256 colours per frame, so they are always a trade of quality for universality.</p>
       <!-- HOW TO -->
       <h2>How to convert a video to a GIF in 4 steps</h2>
@@ -187,32 +325,76 @@ table.formats td{color:var(--text2)}
           <tr><td>Best footage</td><td>Flat colours, UI demos, reactions</td><td>Live action, gradients, noise</td></tr>
         </tbody>
       </table>
-      <p>And one honest question to ask first: do you even need a GIF? Slack, Discord, X and most websites also accept short looping MP4 or WebP animations, which are often 5–10 times smaller at better quality. Use GIF when it has to work absolutely everywhere — email signatures, some documentation tools, old forums — and use a short video everywhere else.</p>
+      <p>And one honest question to ask first: do you even need a GIF? Slack, Discord, X and most websites also accept short looping MP4 or WebP animations, which are usually several times smaller at better quality. Use GIF when it has to work absolutely everywhere — email signatures, some documentation tools, old forums — and use a short video everywhere else.</p>
+      <h2>How the colours are chosen</h2>
+      <p>Each frame's 256 colours are sampled from that frame itself (per-frame NeuQuant quantisation in the gif.js encoder), not from one fixed generic palette. That is why flat-colour clips and UI demos usually look clean here. This is not a true two-pass global palette — a palette built from the whole clip in a first pass, as Clipy advertises for its server tool — so gradients and skin tones can still band. Pick "Best colours" if the clip matters, "Smaller file" if the size matters more.</p>
+      <h2>GIF too big? The fix, in order</h2>
+      <p>Check the size on the finished GIF above before sharing. If it is over the cap: 1. Shorten the clip — every second cut is frames you do not have to store. 2. Drop to 320 px wide. 3. Drop to 8–10 fps. 4. Pick the "Smaller file" quality. If it is still too big, the clip is not a GIF job — see the box below.</p>
+      <h2>GIF or MP4?</h2>
+      <p>If the clip needs sound, smooth motion or a small file, use a short looping MP4 or WebM instead — the <a href="/tools/video-converter">free video converter</a> makes one from the same clip, usually several times smaller at better quality. Use GIF only where an image is required and a video will not do: chat, email, docs and forums that autoplay images.</p>
+      <h2>What this tool does not do</h2>
+      <p>No text or caption overlay on the GIF — add captions in your video editor first, or use a GIF editor that offers them. No true two-pass global palette (see above). No batch mode — one clip at a time. And no sound, ever: GIF is a silent image format by design.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this video to GIF converter really free?</summary>
-        <p>Yes. Make as many GIFs as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>How do I convert a video to GIF for free?</summary>
+        <p>Upload a short clip to a free converter (XConvert, Zight, GIFClear, Clipy, Ezgif), trim to the moment, pick FPS and size, download. On this page it runs in your browser with no upload.</p>
       </details>
       <details class="faq">
-        <summary>Why is my GIF so much bigger than the video?</summary>
-        <p>GIF is a 1987 format with no modern compression: every frame is stored as a separate picture with at most 256 colours. A 5-second clip can easily become a 25 MB GIF. Keep clips to 2-5 seconds, 480 px wide and 10-12 fps — that usually lands between 1 and 3 MB.</p>
+        <summary>Why is my GIF so big?</summary>
+        <p>GIF stores every frame as an image with only 256 colours and weak compression — a 10-second 30 fps GIF is 300 full images. Shorten the clip, drop FPS to 10–15, resize to 480px.</p>
       </details>
       <details class="faq">
-        <summary>Why does the GIF look worse than the video?</summary>
-        <p>GIF can only hold 256 colours per frame, so gradients and dark scenes band or get noisy, and fine detail is lost. That is a limit of the format, not of this tool. If you need better quality and a smaller file, use a short looping MP4 or WebP animation instead — most chat apps accept those now.</p>
+        <summary>Why does my GIF look bad / grainy?</summary>
+        <p>The 256-colour ceiling: the converter maps your video's millions of colours onto 256 slots, and a generic palette picks the wrong ones. A palette built from your clip looks much better — this page samples each frame's palette from that frame itself; see “How the colours are chosen” above.</p>
       </details>
       <details class="faq">
-        <summary>Does a GIF have sound?</summary>
-        <p>No. GIF is an image format and cannot carry audio. The sound in your video is dropped when it becomes a GIF.</p>
+        <summary>How long should a GIF be?</summary>
+        <p>2–6 seconds is the sweet spot (XConvert); Zight says clips under 10 seconds give the best balance; GIFClear caps at 15 seconds.</p>
       </details>
       <details class="faq">
-        <summary>How long can my GIF clip be?</summary>
-        <p>This tool allows up to 15 seconds, but the sweet spot is 2-5 seconds. Longer clips get very large and convert slowly, because every frame has to be drawn and encoded in your browser.</p>
+        <summary>What FPS should I use for a GIF?</summary>
+        <p>10 FPS for chat/email, 15 FPS for smoother motion, up to 50 FPS for high-action clips. Lower FPS is the fastest way to shrink the file.</p>
       </details>
       <details class="faq">
-        <summary>Is my video uploaded to a server?</summary>
-        <p>No. Your video is read and turned into a GIF in your browser with canvas and the gif.js library. Nothing is uploaded, stored, or shared.</p>
+        <summary>Can a GIF have sound?</summary>
+        <p>No — GIFs are silent by design. If the audio matters, send the video or use a muted looping MP4/WebM instead.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I make a GIF under 1 MB?</summary>
+        <p>Resize to 480px wide, drop the palette to 64 colours, reduce FPS to 12–15; still over? Shorten the clip or convert to WebP/MP4.</p>
+      </details>
+      <details class="faq">
+        <summary>What size GIF can I send on Discord?</summary>
+        <p>Discord's cap is 20 MB in XConvert's preset (one guide lists 10 MB free / 50 MB Nitro Basic); keep reaction GIFs well under that — 480px, 10–15 FPS, a few seconds.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert a video to GIF on my phone?</summary>
+        <p>Yes in a mobile browser, but large sources are slow on phones; short clips work best.</p>
+      </details>
+      <details class="faq">
+        <summary>Is there a video to GIF converter with no watermark?</summary>
+        <p>Yes — XConvert, Zight, Clipy, GIFClear and Ezgif all claim no watermark in this run; Flixier's free GIF maker also claims no watermark on export.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a GIF from a YouTube / TikTok / Instagram video?</summary>
+        <p>Download the clip first (where the platform allows it), then convert it — the converter itself takes a file, not a URL, on most free tools.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is my GIF not animating?</summary>
+        <p>Usually it was saved or shared as a still image (some apps show only the first frame), or the file was re-encoded as a static image on upload. Download the .gif file itself and open it in a browser to check.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I add text to a GIF?</summary>
+        <p>Yes — Flixier and Imgflip offer caption/text overlays; Ezgif has a separate GIF editor for text and effects. This page does not add text — add captions in your video editor first.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the best free video to GIF converter?</summary>
+        <p>For quality, Gifski (Mac, free) is the testers' pick; for online use, Ezgif is the long-standing default (free, no watermark, ads intrusive); for privacy, Zight or GIFClear process in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Should I use GIF or MP4 for a website demo?</summary>
+        <p>MP4/WebM — a GIF of the same clip is usually several times larger and slower to load; GIF wins only where an image is required (chat, email, README, docs) because it autoplays with no player.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -374,6 +556,42 @@ table.formats td{color:var(--text2)}
     setTimeout(function () { a.remove(); }, 400);
     toast("GIF downloaded.");
   });
+  (function () {
+    function clipText() {
+      var s2 = parseFloat($("startInput").value) || 0;
+      var e2 = parseFloat($("endInput").value) || 0;
+      var fps = parseInt($("fpsSelect").value, 10) || 10;
+      var frames = Math.max(1, Math.round((e2 - s2) * fps));
+      var el = $("clipInfo");
+      if (el) el.textContent = "Clip: " + (e2 - s2).toFixed(1) + " s · about " + frames + " frames at " + fps + " fps." + ((e2 - s2) > 5 ? " Over 5 seconds — expect a big file and a slow conversion." : "");
+    }
+    function fire(el) { if (!el) return; el.dispatchEvent(new Event("input", { bubbles: true })); el.dispatchEvent(new Event("change", { bubbles: true })); }
+    function applyPreset(o) {
+      var v = $("srcVideo");
+      if (o.secs) {
+        var d = (v && isFinite(v.duration)) ? v.duration : 0;
+        $("startInput").value = (0).toFixed(1);
+        $("endInput").value = Math.min(o.secs, d || o.secs).toFixed(1);
+      }
+      if (o.width) $("widthSelect").value = String(o.width);
+      if (o.fps) $("fpsSelect").value = String(o.fps);
+      if (o.quality) $("qualitySelect").value = String(o.quality);
+      ["startInput", "endInput", "fpsSelect", "widthSelect", "qualitySelect"].forEach(function (id) { fire($(id)); });
+      clipText();
+    }
+    function wire(id, get) {
+      var chips = document.querySelectorAll("#" + id + " .chip");
+      chips.forEach(function (c) {
+        c.addEventListener("click", function () {
+          chips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+          c.setAttribute("aria-pressed", "true");
+          applyPreset(get(c));
+        });
+      });
+    }
+    wire("destChips", function (c) { return { width: parseInt(c.getAttribute("data-width"), 10), fps: parseInt(c.getAttribute("data-fps"), 10), quality: parseInt(c.getAttribute("data-quality"), 10) }; });
+    wire("useChips", function (c) { return { secs: parseFloat(c.getAttribute("data-secs")), width: parseInt(c.getAttribute("data-width"), 10), fps: parseInt(c.getAttribute("data-fps"), 10), quality: parseInt(c.getAttribute("data-quality"), 10) }; });
+  })();
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });
   });

@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this WPM test really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Take as many 60-second tests as you like, free, with no signup, no ads and no download. Everything runs in your browser." } },
-    { "@type": "Question", "name": "What is WPM and how is it calculated here?", "acceptedAnswer": { "@type": "Answer", "text": "WPM means words per minute. By convention, one word counts as five characters, including spaces. Net WPM is (correct characters divided by 5) divided by minutes — mistakes do not count. Raw WPM counts all characters typed. Always quote net WPM with accuracy beside it for an honest number." } },
-    { "@type": "Question", "name": "What is a good typing speed?", "acceptedAnswer": { "@type": "Answer", "text": "Below 25 WPM is beginner, 30 to 40 is average, 45 to 60 is good, 70 and above is fast. Most office and data-entry jobs ask for 40 to 60 WPM, and government exam targets are usually 30 to 35 WPM. These are rough ranges, not rules." } },
-    { "@type": "Question", "name": "Why is my accuracy more important than my speed?", "acceptedAnswer": { "@type": "Answer", "text": "Because mistakes cost time twice: once to make them, once to fix them. At 92% accuracy you make about 8 errors per 100 keystrokes — at 70 WPM that is 5 to 6 errors a minute. Slowing down 5 to 10 WPM to reach 98% accuracy usually delivers faster net output. Accuracy first, speed follows." } },
-    { "@type": "Question", "name": "Why is my 60-second score lower than my 30-second score?", "acceptedAnswer": { "@type": "Answer", "text": "Short tests reward bursts of speed; a 60-second test measures sustained typing, and most people score 5 to 10 WPM lower on it. The 60-second number is the one employers trust, because it exposes fatigue and accuracy drift. Use 60 seconds for benchmarks." } },
-    { "@type": "Question", "name": "How can I improve my typing speed?", "acceptedAnswer": { "@type": "Answer", "text": "Learn touch typing — all ten fingers, home row ASDF and JKL;, eyes on the screen. Practise at 80% of your maximum speed with zero errors, drill the keys you mistype most, and test daily: one 60-second test a day tracks progress, and 10 to 15 minutes of focused practice moves the needle." } }
+    {
+      "@type": "Question",
+      "name": "What is WPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Words per minute — typing speed. One “word” is counted as 5 characters including spaces, so WPM = (characters typed ÷ 5) ÷ minutes. On this page, net WPM counts only correct characters, and raw WPM counts everything typed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good typing speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rough ranges from the top pages: beginner below 25, average 30–40, good 45–60, fast 70+. For office work 40–50 is standard; transcription and legal roles typically ask 70–90+. Kwerty reports its own median attempt at 36 WPM — that is the brand’s own data, not an independent benchmark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my WPM different on different sites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formula is the same but the text and rules are not: word-pool difficulty, punctuation, whether errors must be corrected, whether spaces count, and test length all move the score. Compare yourself only on the same site, same length, same settings — that is why this page shows the median of your last 3 tests under identical conditions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between gross WPM and net WPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross WPM is raw speed with no penalty; net WPM subtracts errors (net = gross − errors per minute). Net is the honest, productive number — the one employers care about. This page shows both side by side, so the accuracy cost is visible, not hidden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is WPM calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Correct characters ÷ 5 ÷ elapsed minutes. Accuracy = correct key attempts ÷ total attempts × 100. Backspace does not erase earlier errors on most sites. On this page, spaces count as characters, and a word only counts as correct when the word and its following space are typed correctly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 120 WPM good?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — exceptional. Most people type 30–70 WPM; 120 with high accuracy is elite territory, and competitive typing starts around 120–140."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I increase my typing speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ten-finger touch typing on the home row (ASDF JKL;), accuracy first, 15–30 minutes daily; creators in this run recommend a minimum of 30 minutes a day, up to 1–3 hours. Expect roughly 10–15 WPM in 30 days of daily practice — that is Kwerty’s own claim, not independently verified."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to reach 100 WPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No fixed timeline — it depends on starting speed and daily practice. The “WPM Diary” creator in this run went from 45 WPM and was stuck at 55 on Day 4; treat months, not days, as the honest answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many tests should I take to know my real speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take three back-to-back tests with the same duration and settings and use the median — a single result is a sample, and best-of-five sits above the first attempt purely from variance (Kwerty’s own data — brand claim, not verified). This page does it for you: after each test it shows the median, best and worst of your last 3 tests under the same duration and mode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a typing certificate for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ratatype issues a free certificate (shown in the viral reel at 43 WPM); most test sites, including Monkeytype, do not. Check whether the employer accepts it before relying on it. This page does not issue a certificate — it gives you a shareable result card that states test length, mode and net vs gross WPM so the number is verifiable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a typing test work on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in a mobile browser, but scores on a touchscreen keyboard are not comparable to a physical keyboard — treat phone results as practice only, and compare phone scores with phone scores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is accuracy, and what should it be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The share of correct keystrokes. Below 90% means you are typing faster than your fingers can execute — slow down; accuracy first raises net WPM faster than raw speed does. 95%+ is the target for lessons on several sites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is raw WPM / consistency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Raw WPM counts all keystrokes including errors; consistency measures how steady your speed is second by second. A big gap between raw and net WPM means errors, not speed, are your problem. This page shows raw WPM, net WPM, a consistency score and a per-second speed graph after every test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a 5-minute typing test for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Job-style endurance: it exposes fatigue and accuracy drift. Most people score 5–10 WPM lower on five minutes than on one minute, and the five-minute number is the one employers trust (LearnType). Use the 5-minute mode on this page for the employer-trusted number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Monkeytype accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is consistent with itself, not with other sites — its common-word pool and rules tend to read higher than stricter sites. Use it to track your own progress on identical settings, not to compare against another site’s number. The reported 350 WPM auto-invalidation is debated in comments and was not verified against Monkeytype’s own docs in this run."
+      }
+    }
   ]
 }
 </script>
@@ -87,6 +201,17 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
 .toast.show{transform:translate(-50%,0);opacity:1}
 table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 16px}
+.mode-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.mode-row .lbl{font-size:13px;font-weight:600;color:var(--text2)}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+textarea.custom-text{width:100%;min-height:90px;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px;margin-top:10px}
+.graph{display:flex;align-items:flex-end;gap:3px;height:70px;margin-top:10px}
+.graph .bar{flex:1;background:var(--accent);border-radius:3px 3px 0 0;min-height:3px}
+.weak-keys{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.weak-keys .wk{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:6px 10px;font-size:13px}
+.weak-keys .wk b{font-family:monospace;font-size:15px}
+.hist-list{font-size:13px;color:var(--text2);line-height:1.9;margin-top:8px}
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
@@ -115,7 +240,7 @@ table.facts td{color:var(--text2)}
       <h1>Free WPM Test</h1>
       <p>Type for 60 seconds and get your net WPM, accuracy and characters per minute — instantly, with a new text every run. No signup, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> this test scores <strong>net WPM</strong> (mistakes do not count) on a 60-second passage of everyday words. It does not measure punctuation, number entry, or a different keyboard layout — and one test can vary by 5–10 WPM, so take it a few times for a reliable average.</div>
+    <div class="note"><strong>How this test scores you — read first:</strong> <strong>net WPM</strong> = (correct characters ÷ 5) ÷ minutes; <strong>gross (raw) WPM</strong> = (all characters typed ÷ 5) ÷ minutes. <strong>Spaces count</strong> as characters, and a word counts as correct only when the word and its following space are right. Accuracy = correct keystrokes ÷ all keystrokes × 100. Other sites measure differently — word-pool difficulty, punctuation, error rules and test length all move the score — so compare yourself only on the same site, same length, same settings. One test can vary by 5–10 WPM: take 3 and use the median (this page does it for you). This test does not measure a different keyboard layout, and phone-keyboard scores are not comparable to a physical keyboard.</div>
     <div class="mode-tabs" aria-label="More tools">
       <a href="/tools/timer-online">Timer</a>
       <a href="/tools/pomodoro-timer">Pomodoro</a>
@@ -124,6 +249,22 @@ table.facts td{color:var(--text2)}
     </div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="WPM typing test">
+        <div class="mode-row" aria-label="Test length"><span class="lbl">Length:</span>
+          <button type="button" class="chip" id="dur60" aria-pressed="true">60 seconds</button>
+          <button type="button" class="chip" id="dur300" aria-pressed="false">5 minutes (job-style)</button>
+          <span class="trust" style="margin:0">Most people score 5–10 WPM lower on 5 minutes than on 1 minute — the 5-minute number is the one employers trust.</span>
+        </div>
+        <div class="mode-row" aria-label="Test mode"><span class="lbl">Text:</span>
+          <button type="button" class="chip" data-mode="words" aria-pressed="true">Common words</button>
+          <button type="button" class="chip" data-mode="quote" aria-pressed="false">Quote</button>
+          <button type="button" class="chip" data-mode="code" aria-pressed="false">Code</button>
+          <button type="button" class="chip" data-mode="custom" aria-pressed="false">Custom text</button>
+          <button type="button" class="chip" id="punctToggle" aria-pressed="false">Punctuation + numbers</button>
+        </div>
+        <div id="customWrap" hidden>
+          <label class="flabel" for="customText">Paste your own text (work email, exam passage, code) — at least 20 words</label>
+          <textarea class="custom-text" id="customText" placeholder="Paste your text here, then press Restart test…"></textarea>
+        </div>
         <div class="stats">
           <div class="stat"><div class="num" id="statTime">60</div><div class="lbl">seconds left</div></div>
           <div class="stat"><div class="num" id="statWpm">0</div><div class="lbl">live WPM</div></div>
@@ -145,8 +286,28 @@ table.facts td{color:var(--text2)}
             <div class="result-card"><div class="num" id="resRaw">0</div><div class="lbl">raw WPM</div></div>
             <div class="result-card"><div class="num" id="resAcc">0%</div><div class="lbl">accuracy</div></div>
             <div class="result-card"><div class="num" id="resCpm">0</div><div class="lbl">chars / min</div></div>
+            <div class="result-card"><div class="num" id="resCons">—</div><div class="lbl">consistency</div></div>
           </div>
           <p class="trust" id="resNote"></p>
+          <h3 style="margin-top:18px;font-size:15px">Median of 3 — your real speed</h3>
+          <p class="trust" id="resMedian">Take 3 tests with the same length and mode and we show the median here. One test is a sample; the median is the number to trust.</p>
+          <h3 style="margin-top:18px;font-size:15px">Speed per second</h3>
+          <div class="graph" id="graphBars" aria-label="Per-second typing speed graph"></div>
+          <p class="trust">Each bar is one second of the test. A falling graph means fatigue; a spiky one means uneven rhythm.</p>
+          <h3 style="margin-top:18px;font-size:15px">Weak keys — what to fix next</h3>
+          <div class="weak-keys" id="weakList"><span class="trust">No weak keys yet — finish a test and your most-missed keys appear here.</span></div>
+          <div class="actions">
+            <button type="button" class="btn alt" id="drillBtn" disabled>Drill my weak keys (2 min)</button>
+          </div>
+          <h3 style="margin-top:18px;font-size:15px">Your history (this browser only, no signup)</h3>
+          <div class="hist-list" id="histList">No tests saved yet.</div>
+          <div class="actions">
+            <button type="button" class="btn" id="copyCardBtn">Copy shareable result card</button>
+            <button type="button" class="btn alt" id="exportJsonBtn">Export history (JSON)</button>
+            <button type="button" class="btn alt" id="exportCsvBtn">Export history (CSV)</button>
+            <button type="button" class="btn alt" id="clearHistBtn">Clear history</button>
+          </div>
+          <p class="trust" id="shareCardText"></p>
         </div>
       </div>
     </div>
@@ -183,33 +344,75 @@ table.facts td{color:var(--text2)}
           <tr><td>Top 1%</td><td>100+</td><td>Professional typists and competitive test takers.</td></tr>
         </tbody>
       </table>
+      <h2>The 5-minute job-style test</h2>
+      <p>Most typing tests are 15 or 60 seconds, and short tests flatter you: a 15-second burst reads far higher than a sustained test. Employers know this, which is why job-style tests run 5 minutes — long enough for fatigue and accuracy drift to show. Most people score 5–10 WPM lower on five minutes than on one minute. Use the 5-minute mode above when you want the number an employer would trust, and use 60 seconds for quick daily tracking. The result card states the length, so nobody mistakes a sprint for an endurance score.</p>
+      <h2>Why we show the median of 3, not your best</h2>
+      <p>One test is a sample: the same typist can swing 5–10 WPM between runs on luck alone — an easy passage, a good minute, a warm-up effect. A single best score is the most flattering number and the least honest one. Take three back-to-back tests with the same length and the same mode, and the median is your real speed: it ignores the lucky run and the bad run alike. This page stores your last 3 tests under the same length and mode (in your browser only) and shows the median, best and worst side by side.</p>
+      <h2>Why scores differ across sites</h2>
+      <p>The formula is the same everywhere — correct characters ÷ 5 ÷ minutes — but the text and rules are not. A common-word pool reads higher than a passage with punctuation, capitals and numbers; a site that lets you ignore errors reads higher than one that makes you correct them; a 15-second burst reads higher than a 60-second test. That is why one typist can be 40 WPM on one site and 60 on another, and neither site is lying. Compare yourself only on the same site, same length, same settings — and use the quote, code and punctuation modes here when you want a score that transfers to real emails, data entry and programming.</p>
       <h2>How to improve your WPM (the part that actually works)</h2>
       <p>First, learn touch typing: all ten fingers, home row ASDF and JKL;, eyes on the screen, not the keys. It feels slower for a week, then it is the single biggest speed gain available. Second, prioritise accuracy over speed: practise at 80% of your maximum comfortable speed with zero errors, and treat 97% accuracy as the gatekeeper for every WPM increase — speed with errors teaches bad habits, speed with accuracy builds muscle memory. Third, drill your problem keys: after each test, note which words you missed most — usually pinky-finger keys (P, Q, A, Z, semicolon) and combinations like "tion" and "qu". Fourth, practise a little every day: 10 to 15 minutes of focused practice beats one long weekly session, and one 60-second test a day tracks whether it is working.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this WPM test really free?</summary>
-        <p>Yes. Take as many 60-second tests as you like, free, with no signup, no ads and no download. Everything runs in your browser.</p>
-      </details>
-      <details class="faq">
-        <summary>What is WPM and how is it calculated here?</summary>
-        <p>WPM means words per minute. By convention, one word counts as five characters, including spaces. Net WPM is (correct characters divided by 5) divided by minutes — mistakes do not count. Raw WPM counts all characters typed. Always quote net WPM with accuracy beside it for an honest number.</p>
+        <summary>What is WPM?</summary>
+        <p>Words per minute — typing speed. One “word” is counted as 5 characters including spaces, so WPM = (characters typed ÷ 5) ÷ minutes. On this page, net WPM counts only correct characters, and raw WPM counts everything typed.</p>
       </details>
       <details class="faq">
         <summary>What is a good typing speed?</summary>
-        <p>Below 25 WPM is beginner, 30 to 40 is average, 45 to 60 is good, 70 and above is fast. Most office and data-entry jobs ask for 40 to 60 WPM, and government exam targets are usually 30 to 35 WPM. These are rough ranges, not rules.</p>
+        <p>Rough ranges from the top pages: beginner below 25, average 30–40, good 45–60, fast 70+. For office work 40–50 is standard; transcription and legal roles typically ask 70–90+. Kwerty reports its own median attempt at 36 WPM — that is the brand’s own data, not an independent benchmark.</p>
       </details>
       <details class="faq">
-        <summary>Why is my accuracy more important than my speed?</summary>
-        <p>Because mistakes cost time twice: once to make them, once to fix them. At 92% accuracy you make about 8 errors per 100 keystrokes — at 70 WPM that is 5 to 6 errors a minute. Slowing down 5 to 10 WPM to reach 98% accuracy usually delivers faster net output. Accuracy first, speed follows.</p>
+        <summary>Why is my WPM different on different sites?</summary>
+        <p>The formula is the same but the text and rules are not: word-pool difficulty, punctuation, whether errors must be corrected, whether spaces count, and test length all move the score. Compare yourself only on the same site, same length, same settings — that is why this page shows the median of your last 3 tests under identical conditions.</p>
       </details>
       <details class="faq">
-        <summary>Why is my 60-second score lower than my 30-second score?</summary>
-        <p>Short tests reward bursts of speed; a 60-second test measures sustained typing, and most people score 5 to 10 WPM lower on it. The 60-second number is the one employers trust, because it exposes fatigue and accuracy drift. Use 60 seconds for benchmarks.</p>
+        <summary>What is the difference between gross WPM and net WPM?</summary>
+        <p>Gross WPM is raw speed with no penalty; net WPM subtracts errors (net = gross − errors per minute). Net is the honest, productive number — the one employers care about. This page shows both side by side, so the accuracy cost is visible, not hidden.</p>
       </details>
       <details class="faq">
-        <summary>How can I improve my typing speed?</summary>
-        <p>Learn touch typing — all ten fingers, home row ASDF and JKL;, eyes on the screen. Practise at 80% of your maximum speed with zero errors, drill the keys you mistype most, and test daily: one 60-second test a day tracks progress, and 10 to 15 minutes of focused practice moves the needle.</p>
+        <summary>How is WPM calculated?</summary>
+        <p>Correct characters ÷ 5 ÷ elapsed minutes. Accuracy = correct key attempts ÷ total attempts × 100. Backspace does not erase earlier errors on most sites. On this page, spaces count as characters, and a word only counts as correct when the word and its following space are typed correctly.</p>
+      </details>
+      <details class="faq">
+        <summary>Is 120 WPM good?</summary>
+        <p>Yes — exceptional. Most people type 30–70 WPM; 120 with high accuracy is elite territory, and competitive typing starts around 120–140.</p>
+      </details>
+      <details class="faq">
+        <summary>How can I increase my typing speed?</summary>
+        <p>Ten-finger touch typing on the home row (ASDF JKL;), accuracy first, 15–30 minutes daily; creators in this run recommend a minimum of 30 minutes a day, up to 1–3 hours. Expect roughly 10–15 WPM in 30 days of daily practice — that is Kwerty’s own claim, not independently verified.</p>
+      </details>
+      <details class="faq">
+        <summary>How long does it take to reach 100 WPM?</summary>
+        <p>No fixed timeline — it depends on starting speed and daily practice. The “WPM Diary” creator in this run went from 45 WPM and was stuck at 55 on Day 4; treat months, not days, as the honest answer.</p>
+      </details>
+      <details class="faq">
+        <summary>How many tests should I take to know my real speed?</summary>
+        <p>Take three back-to-back tests with the same duration and settings and use the median — a single result is a sample, and best-of-five sits above the first attempt purely from variance (Kwerty’s own data — brand claim, not verified). This page does it for you: after each test it shows the median, best and worst of your last 3 tests under the same duration and mode.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I get a typing certificate for free?</summary>
+        <p>Ratatype issues a free certificate (shown in the viral reel at 43 WPM); most test sites, including Monkeytype, do not. Check whether the employer accepts it before relying on it. This page does not issue a certificate — it gives you a shareable result card that states test length, mode and net vs gross WPM so the number is verifiable.</p>
+      </details>
+      <details class="faq">
+        <summary>Does a typing test work on my phone?</summary>
+        <p>Yes, in a mobile browser, but scores on a touchscreen keyboard are not comparable to a physical keyboard — treat phone results as practice only, and compare phone scores with phone scores.</p>
+      </details>
+      <details class="faq">
+        <summary>What is accuracy, and what should it be?</summary>
+        <p>The share of correct keystrokes. Below 90% means you are typing faster than your fingers can execute — slow down; accuracy first raises net WPM faster than raw speed does. 95%+ is the target for lessons on several sites.</p>
+      </details>
+      <details class="faq">
+        <summary>What is raw WPM / consistency?</summary>
+        <p>Raw WPM counts all keystrokes including errors; consistency measures how steady your speed is second by second. A big gap between raw and net WPM means errors, not speed, are your problem. This page shows raw WPM, net WPM, a consistency score and a per-second speed graph after every test.</p>
+      </details>
+      <details class="faq">
+        <summary>What is a 5-minute typing test for?</summary>
+        <p>Job-style endurance: it exposes fatigue and accuracy drift. Most people score 5–10 WPM lower on five minutes than on one minute, and the five-minute number is the one employers trust (LearnType). Use the 5-minute mode on this page for the employer-trusted number.</p>
+      </details>
+      <details class="faq">
+        <summary>Is Monkeytype accurate?</summary>
+        <p>It is consistent with itself, not with other sites — its common-word pool and rules tend to read higher than stricter sites. Use it to track your own progress on identical settings, not to compare against another site’s number. The reported 350 WPM auto-invalidation is debated in comments and was not verified against Monkeytype’s own docs in this run.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -273,7 +476,29 @@ table.facts td{color:var(--text2)}
     'Cooking rice the right way takes patience more than skill. Rinse it until the water runs clear, add just enough water to cover it, and let it rest once the heat is off. If you lift the lid too soon, the steam escapes, and the grains turn out hard in the middle.',
     'When the team finally launched the project, nobody cheered. They just sat in silence for a moment, tired and proud at the same time. Months of late nights had come down to one small button on a screen, and when they pressed it, everything worked exactly as planned.'
   ];
+  var QUOTES = [
+    'The only way to do great work is to love what you do. If you have not found it yet, keep looking. Do not settle.',
+    'It does not matter how slowly you go as long as you do not stop. Small steps every day beat big promises made once.',
+    'Success is not final, failure is not fatal: it is the courage to continue that counts, even on the days it feels slow.'
+  ];
+  var CODE = [
+    'function total(items) { let sum = 0; for (let i = 0; i < items.length; i++) { sum += items[i]; } return sum; }',
+    'const user = { name: "Maya", age: 32, active: true }; if (user.active && user.age >= 18) { console.log(user.name); }',
+    'def average(nums): total = 0; for n in nums: total += n; return total / len(nums) if nums else 0'
+  ];
+  var PUNCT = [
+    'On 12 March 2026, the team shipped version 3.2: 48 fixes, 9 new features, and 1 big surprise! Did it work? Yes — revenue rose 23%, from $41,500 to $51,000 in 30 days.',
+    'Email me at 9:30 a.m. (Room 4, 2nd floor) with the Q3 figures: 1,250 units sold, 87% on time, and 3 returns. Call 555-0142 if the file is missing!',
+    'The recipe needs 250g flour, 2 eggs, 100ml milk & a pinch of salt. Bake at 180°C for 25–30 minutes — check at 20, then serve 4–6 people.'
+  ];
   var DURATION = 60;
+  var TEST_MODE = "words";
+  var PUNCT_ON = false;
+  var CUSTOM_TEXT = "";
+  var samples = [];
+  var wrongKeyMap = {};
+  var lastSampleSec = -1;
+  var lastResult = null;
   var words = [];
   var typed = []; /* per-word: { text, ok } — ok true when word+space typed correctly */
   var cur = 0; /* current word index */
@@ -285,7 +510,16 @@ table.facts td{color:var(--text2)}
   try { best = parseInt(localStorage.getItem('pixdetector-wpm-best') || '0', 10) || 0; } catch (e) { best = 0; }
   function showBest() { $('statBest').textContent = best > 0 ? best + ' WPM' : '—'; }
   function pickText() {
-    var t = TEXTS[Math.floor(Math.random() * TEXTS.length)];
+    var pool = TEXTS;
+    if (TEST_MODE === "quote") pool = QUOTES;
+    else if (TEST_MODE === "code") pool = CODE;
+    else if (TEST_MODE === "custom") {
+      var ct = (CUSTOM_TEXT || "").trim();
+      if (ct.split(/\s+/).length >= 5) return ct.split(/\s+/);
+      pool = TEXTS;
+    }
+    else if (PUNCT_ON) pool = PUNCT;
+    var t = pool[Math.floor(Math.random() * pool.length)];
     return t.split(' ');
   }
   function render() {
@@ -331,6 +565,8 @@ table.facts td{color:var(--text2)}
     $('statTime').textContent = String(left);
     $('testBar').style.width = (100 * (1 - left / DURATION)).toFixed(1) + '%';
     liveStats();
+    var secNow = DURATION - left;
+    if (secNow !== lastSampleSec) { lastSampleSec = secNow; samples.push(parseInt($('statWpm').textContent, 10) || 0); }
   }
   function finish() {
     if (finished) return;
@@ -353,6 +589,52 @@ table.facts td{color:var(--text2)}
     $('resRaw').textContent = String(raw);
     $('resAcc').textContent = acc + '%';
     $('resCpm').textContent = String(cpm);
+    lastResult = { net: net, raw: raw, acc: acc, cpm: cpm, dur: DURATION, mode: TEST_MODE, punct: PUNCT_ON };
+    /* consistency: steadiness of per-second WPM */
+    var cons = null;
+    if (samples.length > 2) {
+      var mean = samples.reduce(function (a, b) { return a + b; }, 0) / samples.length;
+      var variance = samples.reduce(function (a, b) { return a + Math.pow(b - mean, 2); }, 0) / samples.length;
+      var sd = Math.sqrt(variance);
+      cons = mean > 0 ? Math.max(0, Math.round(100 - (sd / mean) * 100)) : 0;
+    }
+    $('resCons').textContent = cons === null ? '—' : cons + '%';
+    /* per-second graph */
+    var gb = $('graphBars'); gb.innerHTML = '';
+    var maxS = Math.max.apply(null, samples.concat([1]));
+    samples.forEach(function (v) {
+      var bar = document.createElement('div'); bar.className = 'bar';
+      bar.style.height = Math.max(4, Math.round((v / maxS) * 100)) + '%';
+      bar.title = v + ' WPM';
+      gb.appendChild(bar);
+    });
+    /* weak keys */
+    var wk = Object.keys(wrongKeyMap).map(function (k) { return { k: k, n: wrongKeyMap[k] }; }).sort(function (a, b) { return b.n - a.n; }).slice(0, 8);
+    var wl = $('weakList'); wl.innerHTML = '';
+    if (!wk.length) { wl.innerHTML = '<span class="trust">No errors this run — nothing to fix.</span>'; $('drillBtn').disabled = true; }
+    else {
+      wk.forEach(function (e) {
+        var el = document.createElement('span'); el.className = 'wk';
+        el.innerHTML = '<b></b> × ' + e.n;
+        el.querySelector('b').textContent = e.k === ' ' ? 'space' : e.k;
+        wl.appendChild(el);
+      });
+      $('drillBtn').disabled = false;
+    }
+    /* history + median of 3 (same duration + mode) */
+    var hist = loadHist();
+    hist.push({ net: net, raw: raw, acc: acc, dur: DURATION, mode: TEST_MODE, date: new Date().toISOString().slice(0, 10) });
+    if (hist.length > 30) hist = hist.slice(-30);
+    try { localStorage.setItem('pixdetector-wpm-history', JSON.stringify(hist)); } catch (e) {}
+    var same = hist.filter(function (h) { return h.dur === DURATION && h.mode === TEST_MODE; }).slice(-3);
+    if (same.length >= 3) {
+      var vals = same.map(function (h) { return h.net; }).sort(function (a, b) { return a - b; });
+      $('resMedian').textContent = 'Median of your last 3 (' + DURATION + 's, ' + TEST_MODE + ' mode): ' + vals[1] + ' WPM — best ' + vals[2] + ', worst ' + vals[0] + '. The median is your real speed.';
+    } else {
+      $('resMedian').textContent = 'Only ' + same.length + ' test' + (same.length === 1 ? '' : 's') + ' under these settings so far — take ' + (3 - same.length) + ' more with the same length and mode to see your median.';
+    }
+    renderHist();
+    updateShareCard();
     var note = 'Net WPM counts only correct characters; raw WPM counts everything typed. ';
     if (acc < 95) { note += 'Your accuracy is below 95% — slow down a little and your net WPM will usually rise.'; }
     else if (net >= 70) { note += 'Fast — you are ahead of most typists.'; }
@@ -379,12 +661,16 @@ table.facts td{color:var(--text2)}
     finished = false;
     totalKeys = 0;
     wrongKeys = 0;
+    samples = [];
+    wrongKeyMap = {};
+    lastSampleSec = -1;
+    lastResult = null;
     $('statTime').textContent = String(DURATION);
     $('statWpm').textContent = '0';
     $('statAcc').textContent = '100%';
     $('testBar').style.width = '0%';
     $('resultsWrap').hidden = true;
-    $('testStatus').textContent = 'Click the text above and start typing — the 60-second timer starts with your first keystroke.';
+    $('testStatus').textContent = 'Click the text above and start typing — the ' + DURATION + '-second timer starts with your first keystroke.';
     $('typeInput').value = '';
     render();
     showBest();
@@ -400,7 +686,7 @@ table.facts td{color:var(--text2)}
       started = true;
       startAt = Date.now();
       timer = setInterval(tick, 200);
-      $('testStatus').textContent = 'Typing… 60 seconds. Correct characters turn green, mistakes turn red.';
+      $('testStatus').textContent = 'Typing… ' + DURATION + ' seconds. Correct characters turn green, mistakes turn red.';
     }
     if (!started) return;
     var w = words[cur] || '';
@@ -413,7 +699,7 @@ table.facts td{color:var(--text2)}
         var pos = prevLen + i;
         if (pos === w.length && added[i] === ' ') { continue; } /* word-completing space is not a keystroke error */
         totalKeys++;
-        if (pos >= w.length || added[i] !== w[pos]) { wrongKeys++; }
+        if (pos >= w.length || added[i] !== w[pos]) { wrongKeys++; var ch = added[i]; wrongKeyMap[ch] = (wrongKeyMap[ch] || 0) + 1; }
       }
     }
     /* word finished on space */
@@ -463,6 +749,91 @@ table.facts td{color:var(--text2)}
     var line = 'Free WPM test — check your typing speed in 60 seconds. No signup, no ads. ' + location.href;
     if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast('Share line copied.'); }, function () { toast('Copy was blocked.'); }); }
   });
+  function loadHist() {
+    try { return JSON.parse(localStorage.getItem('pixdetector-wpm-history') || '[]') || []; } catch (e) { return []; }
+  }
+  function renderHist() {
+    var hist = loadHist();
+    var el = $('histList');
+    if (!hist.length) { el.textContent = 'No tests saved yet.'; return; }
+    el.innerHTML = '';
+    hist.slice(-5).reverse().forEach(function (h) {
+      var d = document.createElement('div');
+      d.textContent = h.date + ' — ' + h.net + ' net WPM (' + h.raw + ' raw), ' + h.acc + '% accuracy, ' + h.dur + 's, ' + h.mode + ' mode';
+      el.appendChild(d);
+    });
+  }
+  function updateShareCard() {
+    if (!lastResult) return;
+    var r = lastResult;
+    var same = loadHist().filter(function (h) { return h.dur === r.dur && h.mode === r.mode; }).slice(-3);
+    var med = 'median pending (take 3 tests)';
+    if (same.length >= 3) { var v = same.map(function (h) { return h.net; }).sort(function (a, b) { return a - b; }); med = 'median of last 3: ' + v[1] + ' WPM'; }
+    var card = 'WPM test: ' + r.net + ' net WPM (' + r.raw + ' raw), ' + r.acc + '% accuracy, ' + r.dur + 's, ' + r.mode + ' mode, ' + med + ' — pixdetector.vercel.app/tools/wpm-test';
+    $('shareCardText').textContent = 'Shareable result card: ' + card;
+    return card;
+  }
+  function download(name, text, type) {
+    var blob = new Blob([text], { type: type || 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  function setPressed(id, on) { var el = $(id); if (el) el.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  $('dur60').addEventListener('click', function () { DURATION = 60; setPressed('dur60', true); setPressed('dur300', false); reset(true); });
+  $('dur300').addEventListener('click', function () { DURATION = 300; setPressed('dur60', false); setPressed('dur300', true); reset(true); toast('5-minute job-style test selected. Expect 5–10 WPM lower than a 1-minute sprint.'); });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-mode]'), function (btn) {
+    btn.addEventListener('click', function () {
+      TEST_MODE = btn.getAttribute('data-mode');
+      Array.prototype.forEach.call(document.querySelectorAll('[data-mode]'), function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      $('customWrap').hidden = TEST_MODE !== 'custom';
+      if (TEST_MODE === 'custom') { CUSTOM_TEXT = $('customText').value; }
+      reset(true);
+    });
+  });
+  $('customText').addEventListener('input', function () { CUSTOM_TEXT = this.value; });
+  $('punctToggle').addEventListener('click', function () {
+    PUNCT_ON = !PUNCT_ON;
+    this.setAttribute('aria-pressed', PUNCT_ON ? 'true' : 'false');
+    if (TEST_MODE === 'words') reset(true);
+    toast(PUNCT_ON ? 'Punctuation + numbers on (common-words mode).' : 'Punctuation + numbers off.');
+  });
+  $('copyCardBtn').addEventListener('click', function () {
+    var card = updateShareCard();
+    if (!card) { toast('Finish a test first, then copy the result card.'); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(card).then(function () { toast('Result card copied.'); }, function () { toast('Copy was blocked.'); });
+  });
+  $('exportJsonBtn').addEventListener('click', function () { download('wpm-history.json', JSON.stringify(loadHist(), null, 2)); toast('History exported as JSON.'); });
+  $('exportCsvBtn').addEventListener('click', function () {
+    var rows = [['date', 'net_wpm', 'raw_wpm', 'accuracy', 'duration_s', 'mode']];
+    loadHist().forEach(function (h) { rows.push([h.date, h.net, h.raw, h.acc, h.dur, h.mode]); });
+    download('wpm-history.csv', rows.map(function (r) { return r.join(','); }).join('\n'), 'text/csv');
+    toast('History exported as CSV.');
+  });
+  $('clearHistBtn').addEventListener('click', function () {
+    try { localStorage.removeItem('pixdetector-wpm-history'); } catch (e) {}
+    renderHist(); $('resMedian').textContent = 'History cleared. Take 3 tests with the same length and mode to see your median.';
+    toast('History cleared.');
+  });
+  $('drillBtn').addEventListener('click', function () {
+    var keys = Object.keys(wrongKeyMap).sort(function (a, b) { return wrongKeyMap[b] - wrongKeyMap[a]; }).slice(0, 5);
+    if (!keys.length) return;
+    var words2 = ['the', 'and', 'for', 'with', 'this', 'that', 'from', 'have', 'were', 'your'];
+    var drill = [];
+    for (var i = 0; i < 40; i++) {
+      var k = keys[i % keys.length];
+      var w = words2[i % words2.length];
+      drill.push(w.slice(0, 2) + k + w.slice(2));
+    }
+    CUSTOM_TEXT = drill.join(' ');
+    TEST_MODE = 'custom';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-mode]'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-mode') === 'custom' ? 'true' : 'false'); });
+    $('customWrap').hidden = false;
+    $('customText').value = CUSTOM_TEXT;
+    reset(true);
+    toast('Drill ready: 2 minutes on your weakest keys (' + keys.join(', ') + '). Type slowly and accurately.');
+  });
+  renderHist();
   words = pickText();
   render();
   showBest();

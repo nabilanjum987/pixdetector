@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this image blur tool really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Blur as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
-    { "@type": "Question", "name": "How do I blur a face or a license plate in a photo?", "acceptedAnswer": { "@type": "Answer", "text": "Upload the photo, switch to Regions mode, drag a box over the face or plate, pick Blur, Pixelate or Solid cover, and set the strength. Check at full zoom that no character is readable, then download. Reddit communities like r/whatismycar and r/IdiotsInCars require plates to be blurred before posting." } },
-    { "@type": "Question", "name": "Is a blur enough to hide something for good?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. A light blur can sometimes be partially reversed by AI tools, and on screenshots of codes or text the shapes can survive. A solid black box destroys the pixels completely and is the safest choice for anything that must never be readable. Blur is fine for looks; use a solid cover for secrets." } },
-    { "@type": "Question", "name": "Can I blur only part of an image?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use Regions mode and drag a box over each area you want to hide — a face, a plate, a name on a screenshot, an address on a label. You can add several regions, mix blur, pixelate and solid covers, and delete any region before downloading." } },
-    { "@type": "Question", "name": "What is the difference between blur and pixelate?", "acceptedAnswer": { "@type": "Answer", "text": "Blur smears the pixels into a soft fog; pixelate turns them into big blocks. Pixelate looks more obviously censored and is harder to guess back at high strength, while blur looks more natural. Both are weaker than a solid black box for anything sensitive." } },
-    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is blurred in your browser with the canvas element. Nothing is uploaded, stored, or shared — which matters most exactly when the photo contains something private." } }
+    {
+      "@type": "Question",
+      "name": "How do I blur an image online for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload a photo to a free blur tool, pick a blur, drag the intensity slider, and download — this tool is free with no signup, and everything runs in your browser so nothing uploads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I blur a face in a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool has no auto face detection, so switch to Regions mode and draw a box over the face by hand, set the strength high, preview, and download. Make the box slightly larger than the face, including hair and ears."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to blur a photo online — won't the tool keep my photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on the tool. In-browser tools never upload your photo; server tools copy it first. For anything sensitive, use a no-upload tool — this one processes entirely in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a light blur really hide a face?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a light blur leaves shape and skin tones readable and can sometimes be partly recovered. Push the strength high, or use pixelation with a large cell size for real anonymity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between blurring a face and blurring a background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Face blur hides a specific region for privacy; background blur keeps the subject sharp and softens everything behind it for style — it is not a privacy measure. This tool does not offer background blur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I blur just one part of an image, like a license plate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — switch to Regions mode and drag a box over the plate, face or text, then pick blur, pixelate or a solid cover. Whole-image-only tools can't select one region by hand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I blur the background of a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool does not have a background-blur mode — background blur needs an AI model that finds the subject, keeps it sharp, and blurs the rest, and hair and glass edges are where it struggles most. Here you can blur the whole image or selected regions instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Gaussian and motion blur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gaussian softens evenly in every direction — best for hiding faces and backgrounds. Motion blur pulls pixels along one angle for a sense of speed. This tool uses a Gaussian-style soft blur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I blur a photo on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this page works in a mobile browser; upload, drag the boxes with your finger, and download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is blurring better than pixelating for privacy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — pixelation hides a face more reliably than a light blur; a strong pixel mosaic throws detail away in solid blocks, while a soft blur smears it. Both are weaker than a solid cover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does blurring remove the location data from my photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The download here is a fresh image drawn from pixels only, so EXIF data such as GPS does not carry over — the location data is removed on export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I blur multiple faces in a group photo at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool has no auto face detection, so there is no one-click “blur all faces” here — drag a box over each face separately in Regions mode. Auto-detect tools blur several faces in one pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I undo a blur after downloading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with certainty — a strong blur scrambles pixel data for good, but a light blur over plain text can sometimes be partly guessed back by sharpening tools, so use a high blur factor for anything sensitive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I blur text or an address in a screenshot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drag a box over it in Regions mode and pick the solid black cover — blur alone does not guarantee that text cannot be reconstructed, and a solid cover is recommended for anything that must be hidden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free blur tool with no watermark and no signup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool is free with no watermark and no signup. Other free options include Pi7, OneImage, RegiAI and 123PassportPhoto; Img2Go's face blur is free but capped at 2 uses/day."
+      }
+    }
   ]
 }
 </script>
@@ -104,7 +218,7 @@ table.formats td{color:var(--text2)}
       <h1>Blur Image Online Free</h1>
       <p>Blur a whole photo or just the parts that need hiding — a face, a license plate, a name on a screenshot. Adjustable strength, pixelate or solid cover, free, in your browser. No signup, no upload.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> a light blur <strong>can sometimes be partially reversed</strong> by AI tools, and text shapes can survive it. For anything that must never be readable — a code, an address, an ID number — use the <strong>solid black cover</strong>, which destroys the pixels completely. Always zoom in and check the download before you post it.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> a light blur is <strong>NOT redaction</strong> — faces stay recognisable, text can be partly recovered. For anything sensitive use <strong>heavy blur, pixelate, or a solid cover</strong>. A solid black cover destroys the pixels completely; a light blur can sometimes be partly reversed. Always zoom in and check the download before you post it.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Blur settings">
         <h2>Your image</h2>
@@ -119,6 +233,7 @@ table.formats td{color:var(--text2)}
         <div style="margin-top:16px">
           <label class="flabel" for="strengthInput">Blur strength: <span id="strengthOut">12</span> px</label>
           <input type="range" id="strengthInput" min="1" max="30" value="12">
+          <p class="trust" id="strengthZone">Strength 12 px — medium: faces soften but may stay recognisable. Zones: 1–5 subtle look · 6–14 faces still recognisable · 15–30 redaction-grade. Check at full zoom.</p>
         </div>
         <div class="grid2" style="margin-top:16px">
           <div>
@@ -144,6 +259,7 @@ table.formats td{color:var(--text2)}
           <button type="button" class="btn" id="dlBtn" disabled>Download blurred image</button>
           <button type="button" class="btn alt" id="clearBtn" disabled>Clear regions</button>
         </div>
+        <p class="trust">✓ Location data removed on export — the download is a fresh image drawn from pixels only, so GPS and camera data do not carry over.</p>
         <p class="err" id="errorBox" role="alert" hidden></p>
       </div>
       <div class="bc-panel" aria-label="Blur area">
@@ -166,7 +282,7 @@ table.formats td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: post the photo, leak the plate</h2>
-      <p>The reason people reach for a blur tool is usually a deadline: a car photo for a listing, a group photo for social media, a screenshot for a support ticket — and somewhere in the frame sits a license plate, a child's face, a name, an address on a label, or an account number. Reddit communities like r/whatismycar and r/IdiotsInCars require plates to be blurred and remove posts that show them. The free tools people find first often make it worse: one gives a single free edit per week, another watermarks free exports, a third uploads your uncensored photo to its server to do the work. And the quiet trap: a light blur looks finished but can sometimes be partially reversed, so a code or plate character survives. People want a quick, private way to hide exactly the right area — and to know it is actually hidden before they post.</p>
+      <p>The reason people reach for a blur tool is usually a deadline: a car photo for a listing, a group photo for social media, a screenshot for a support ticket — and somewhere in the frame sits a license plate, a child's face, a name, an address on a label, or an account number. The use cases are everyday ones: a stranger in the background, a child, a witness, a coworker who never agreed to be posted. The free tools people find first often make it worse: one gives a single free edit per week, another watermarks free exports, a third uploads your uncensored photo to its server to do the work. And the quiet trap: a light blur looks finished but can sometimes be partially reversed, so a code or plate character survives. People want a quick, private way to hide exactly the right area — and to know it is actually hidden before they post.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I blur an image online for free?</h2>
       <p>Upload your photo here, choose Whole image to soften the entire photo or Regions to hide only specific areas, and set the strength. In Regions mode, drag a box over each face, plate, name or number, pick Soft blur, Pixelate or Solid black cover, and download the result as PNG, JPG or WebP. It is free, with no signup and no upload — the work happens in your browser, which matters most exactly when the photo contains something private. Before you post, zoom into the downloaded file and check that nothing sensitive is still readable; if it must never be readable, use the solid black cover, which destroys the pixels completely.</p>
@@ -184,31 +300,73 @@ table.formats td{color:var(--text2)}
         </tbody>
       </table>
       <p>The rule of thumb: blur for looks, solid box for secrets. And scan the whole frame before you share — a name can appear twice (in a header and again in a signature), an email can hide in a URL bar, a plate can reflect in a window. Blur every copy of it, then export a flattened file rather than sharing an editable project.</p>
+      <h2>How far is far enough? The strength guide</h2>
+      <p>The slider on this page runs 1–30, with labelled zones: 1–5 is a subtle look, 6–14 softens faces but leaves them recognisable, and 15–30 is redaction-grade. The same idea is behind Pi7's blur tool, which uses a 1–40 scale and notes that past 25, faces and text stop being readable. Whatever the scale, the rule is the same: push past the middle for anything sensitive, then zoom into the downloaded file and check that nothing is still readable. If it must never be readable, skip blur entirely and use the solid black cover.</p>
+      <h2>Background blur: a style effect, not privacy — and not in this tool</h2>
+      <p>Background blur keeps the subject sharp and softens everything behind it for style — it is not a privacy measure, and it is not the same as blurring a face. It needs an AI model that finds the subject, and hair, glass, transparent edges and low-contrast scenes are where that separation fails, leaving a smudged outline. This tool does not offer background blur: here you can blur the whole image or draw boxes over selected regions instead. Don't use a style blur where you need redaction.</p>
+      <h2>Auto face detection: not in this tool</h2>
+      <p>This tool does not auto-detect faces — there is no "blur all faces" button. In Regions mode you draw a box over each face, plate or piece of text by hand, which takes longer on group photos but keeps you in control of exactly what gets hidden. Auto-detect tools such as Facepixelizer and Convertlo blur several faces in one pass, in about 30–40 seconds per photo; hand-drawn masking is the honest trade-off this page makes for staying fully in-browser with no upload.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this image blur tool really free?</summary>
-        <p>Yes. Blur as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>How do I blur an image online for free?</summary>
+        <p>Upload a photo to a free blur tool, pick a blur, drag the intensity slider, and download — this tool is free with no signup, and everything runs in your browser so nothing uploads.</p>
       </details>
       <details class="faq">
-        <summary>How do I blur a face or a license plate in a photo?</summary>
-        <p>Upload the photo, switch to Regions mode, drag a box over the face or plate, pick Blur, Pixelate or Solid cover, and set the strength. Check at full zoom that no character is readable, then download. Reddit communities like r/whatismycar and r/IdiotsInCars require plates to be blurred before posting.</p>
+        <summary>How do I blur a face in a photo?</summary>
+        <p>This tool has no auto face detection, so switch to Regions mode and draw a box over the face by hand, set the strength high, preview, and download. Make the box slightly larger than the face, including hair and ears.</p>
       </details>
       <details class="faq">
-        <summary>Is a blur enough to hide something for good?</summary>
-        <p>Not always. A light blur can sometimes be partially reversed by AI tools, and on screenshots of codes or text the shapes can survive. A solid black box destroys the pixels completely and is the safest choice for anything that must never be readable. Blur is fine for looks; use a solid cover for secrets.</p>
+        <summary>Is it safe to blur a photo online — won&#x27;t the tool keep my photo?</summary>
+        <p>Depends on the tool. In-browser tools never upload your photo; server tools copy it first. For anything sensitive, use a no-upload tool — this one processes entirely in your browser.</p>
       </details>
       <details class="faq">
-        <summary>Can I blur only part of an image?</summary>
-        <p>Yes. Use Regions mode and drag a box over each area you want to hide — a face, a plate, a name on a screenshot, an address on a label. You can add several regions, mix blur, pixelate and solid covers, and delete any region before downloading.</p>
+        <summary>Does a light blur really hide a face?</summary>
+        <p>No — a light blur leaves shape and skin tones readable and can sometimes be partly recovered. Push the strength high, or use pixelation with a large cell size for real anonymity.</p>
       </details>
       <details class="faq">
-        <summary>What is the difference between blur and pixelate?</summary>
-        <p>Blur smears the pixels into a soft fog; pixelate turns them into big blocks. Pixelate looks more obviously censored and is harder to guess back at high strength, while blur looks more natural. Both are weaker than a solid black box for anything sensitive.</p>
+        <summary>What is the difference between blurring a face and blurring a background?</summary>
+        <p>Face blur hides a specific region for privacy; background blur keeps the subject sharp and softens everything behind it for style — it is not a privacy measure. This tool does not offer background blur.</p>
       </details>
       <details class="faq">
-        <summary>Is my image uploaded to a server?</summary>
-        <p>No. Your image is blurred in your browser with the canvas element. Nothing is uploaded, stored, or shared — which matters most exactly when the photo contains something private.</p>
+        <summary>Can I blur just one part of an image, like a license plate?</summary>
+        <p>Yes — switch to Regions mode and drag a box over the plate, face or text, then pick blur, pixelate or a solid cover. Whole-image-only tools can&#x27;t select one region by hand.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I blur the background of a photo?</summary>
+        <p>This tool does not have a background-blur mode — background blur needs an AI model that finds the subject, keeps it sharp, and blurs the rest, and hair and glass edges are where it struggles most. Here you can blur the whole image or selected regions instead.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between Gaussian and motion blur?</summary>
+        <p>Gaussian softens evenly in every direction — best for hiding faces and backgrounds. Motion blur pulls pixels along one angle for a sense of speed. This tool uses a Gaussian-style soft blur.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I blur a photo on my phone?</summary>
+        <p>Yes — this page works in a mobile browser; upload, drag the boxes with your finger, and download.</p>
+      </details>
+      <details class="faq">
+        <summary>Is blurring better than pixelating for privacy?</summary>
+        <p>No — pixelation hides a face more reliably than a light blur; a strong pixel mosaic throws detail away in solid blocks, while a soft blur smears it. Both are weaker than a solid cover.</p>
+      </details>
+      <details class="faq">
+        <summary>Does blurring remove the location data from my photo?</summary>
+        <p>The download here is a fresh image drawn from pixels only, so EXIF data such as GPS does not carry over — the location data is removed on export.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I blur multiple faces in a group photo at once?</summary>
+        <p>This tool has no auto face detection, so there is no one-click “blur all faces” here — drag a box over each face separately in Regions mode. Auto-detect tools blur several faces in one pass.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I undo a blur after downloading?</summary>
+        <p>Not with certainty — a strong blur scrambles pixel data for good, but a light blur over plain text can sometimes be partly guessed back by sharpening tools, so use a high blur factor for anything sensitive.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I blur text or an address in a screenshot?</summary>
+        <p>Drag a box over it in Regions mode and pick the solid black cover — blur alone does not guarantee that text cannot be reconstructed, and a solid cover is recommended for anything that must be hidden.</p>
+      </details>
+      <details class="faq">
+        <summary>Is there a free blur tool with no watermark and no signup?</summary>
+        <p>Yes — this tool is free with no watermark and no signup. Other free options include Pi7, OneImage, RegiAI and 123PassportPhoto; Img2Go&#x27;s face blur is free but capped at 2 uses/day.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -413,7 +571,16 @@ table.formats td{color:var(--text2)}
     canvas.style.cursor = mode === "regions" ? "crosshair" : "default";
     renderRegionList(); draw();
   });
-  $("strengthInput").addEventListener("input", function () { $("strengthOut").textContent = this.value; draw(); });
+  function zoneLabel(v) {
+    if (v <= 5) return "subtle look — softens, but faces and text stay readable";
+    if (v <= 14) return "medium — faces soften but may stay recognisable";
+    return "redaction-grade — faces and text stop being readable at full zoom";
+  }
+  $("strengthInput").addEventListener("input", function () {
+    $("strengthOut").textContent = this.value;
+    $("strengthZone").textContent = "Strength " + this.value + " px — " + zoneLabel(parseInt(this.value, 10)) + ". Zones: 1–5 subtle look · 6–14 faces still recognisable · 15–30 redaction-grade. Check at full zoom.";
+    draw();
+  });
   $("effectSelect").addEventListener("change", function () {
     if (selected >= 0 && regions[selected]) { regions[selected].effect = this.value; renderRegionList(); draw(); }
   });
@@ -433,7 +600,7 @@ table.formats td{color:var(--text2)}
       a.download = imgName + "-blurred." + ext;
       document.body.appendChild(a); a.click();
       setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
-      toast("Blurred image downloaded (" + fmtKB(blob.size) + ").");
+      toast("Blurred image downloaded (" + fmtKB(blob.size) + ") — location data removed on export.");
     }, fmt, fmt === "image/png" ? undefined : 0.92);
   });
   $("copyLink").addEventListener("click", function () {

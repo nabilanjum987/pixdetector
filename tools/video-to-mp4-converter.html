@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video to MP4 Converter Free — No Signup | PixDetector</title>
-<meta name="description" content="Free video converter in your browser — no upload, no signup, no watermark. Honest answer: output is WebM, not MP4, plus how to get a real MP4 free.">
+<title>Video to MP4: the Honest Free Route | PixDetector</title>
+<meta name="description" content="No browser can output a real MP4 — this page says so, converts to WebM free, and shows the free HandBrake/VLC route to a true MP4.">
 <meta name="keywords" content="video to mp4 converter free, convert video to mp4 free, mov to mp4 free, video to mp4 online, mp4 converter no signup">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/video-to-mp4-converter">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/video-to-mp4-converter">
-<meta property="og:title" content="Video to MP4 Converter Free — No Signup | PixDetector">
-<meta property="og:description" content="Free video converter in your browser — no upload, no signup, no watermark. Honest answer: output is WebM, not MP4, plus how to get a real MP4 free.">
+<meta property="og:title" content="Video to MP4: the Honest Free Route | PixDetector">
+<meta property="og:description" content="No browser can output a real MP4 — this page says so, converts to WebM free, and shows the free HandBrake/VLC route to a true MP4.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Can this page convert my video to a real MP4 file?", "acceptedAnswer": { "@type": "Answer", "text": "No — and this page says so instead of pretending otherwise. Browsers cannot encode MP4 (H.264), so no in-browser tool can hand you a real .mp4 file. This tool re-encodes your video to WebM (.webm), which plays in Chrome, Edge, Firefox and VLC. For a real MP4, use free HandBrake or VLC on your computer — the steps are above." } },
-    { "@type": "Question", "name": "Why won't my iPhone video play on Windows?", "acceptedAnswer": { "@type": "Answer", "text": "iPhones record MOV files with the HEVC (H.265) codec. Windows often cannot decode HEVC without the $0.99 HEVC Video Extensions from the Microsoft Store. Converting to a widely supported format fixes it — and renaming .mov to .mp4 does not, because the extension is only a label, not the video itself." } },
-    { "@type": "Question", "name": "How do I get a real MP4 for free?", "acceptedAnswer": { "@type": "Answer", "text": "Download HandBrake (free, handbrake.fr), open your video, pick the Fast 720p30 preset, and press Start. Or open VLC, go to Media, Convert/Save, add the file, choose Video - H.264 + MP3 (MP4), and Start. Both keep your file on your own computer." } },
-    { "@type": "Question", "name": "Is this video converter really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Convert as many videos as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
-    { "@type": "Question", "name": "Is my video uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your video is read and re-encoded in your browser with the canvas and MediaRecorder APIs. Nothing is uploaded, stored, or shared." } },
-    { "@type": "Question", "name": "Does the converted video keep its sound?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when your browser allows it — the tool routes the video's audio into the recording. If a browser blocks that, the conversion still finishes but the output is video-only, and the page tells you so." } }
+    {
+      "@type": "Question",
+      "name": "How do I convert a video to MP4 for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use HandBrake or VLC free on desktop (no caps, no watermark), or a free online MP4 converter (XConvert, Restream, CapCut) for small files. On this PixDetector page the in-browser tool outputs WebM, not MP4 — see the box at the top for the free MP4 route."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert MOV to MP4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the MOV to an MP4 converter and pick MP4/H.264, or use HandBrake/VLC; in Windows Photos, open the MOV → Trim → Save As also produces an MP4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my iPhone video play on Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The file is usually HEVC (H.265) inside a MOV container, and Windows has no HEVC codec by default. Install the HEVC Video Extension, play it in VLC, or convert it to MP4/H.264."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I just rename .mov to .mp4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes it plays, but it does not convert anything — the codec inside is unchanged, so HEVC files still fail in players without HEVC support. Convert properly instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does converting MOV to MP4 reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can — re-encoding loses a little, and aggressive settings lose more; converting can also remove HDR metadata. Keep the original resolution and use a high-quality preset, or remux without re-encoding when the codec already fits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best free MOV to MP4 converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For one-offs, XConvert's MOV page or Clipy (both free, no watermark, no signup in this run's SERP); for unlimited use, HandBrake or VLC on desktop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert WebM to MP4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — WebM screen recordings are a named use case. The codec usually needs a transcode, not just a rename."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert MKV to MP4 without losing quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes if the video inside is H.264 — remuxing changes only the container. If it is another codec, it must be re-encoded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a video small enough for Discord?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convert to MP4 and cap the size — Discord's free limit is 20 MB; XConvert offers a Discord 20 MB target-size preset, and resizing to 720p plus a lower CRF gets most clips under it. On this page the Discord preset below picks settings to fit 20 MB, but the output is WebM, not MP4 — use the box above for a real MP4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a video to MP4 converter with no watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — XConvert, Restream, CapCut, Jupitrr and Zight all claim no watermark in this run's SERP; HandBrake and VLC never watermark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert video to MP4 on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in a mobile browser, but large files are slow on phones; for iPhone clips, converting on a computer is faster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does MOV to MP4 take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A remux (codec already fits) takes seconds — Clipy quotes about 1 second for a typical iPhone clip remux, 10–15 seconds for a full transcode (vendor's own figures, not independently verified). A long 4K HEVC transcode takes minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the converted MP4 keep its audio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It should — MP4/H.264 + AAC is the standard pairing; the source audio carries over whenever the browser can decode it. If audio is missing, the source audio codec was unsupported — re-convert with AAC selected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert MP4 to MP4 to make it smaller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — re-encode the MP4 at a lower resolution/bitrate or higher CRF; that is compression, not a format change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MP4 the best format for YouTube / Instagram / TikTok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for uploads — MP4/H.264 is the accepted format on all three; WebM is for web playback, MOV is for Apple workflows."
+      }
+    }
   ]
 }
 </script>
@@ -56,6 +170,9 @@
 input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
 select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
 video.preview-vid{max-width:100%;max-height:320px;border-radius:10px;display:block;margin:0 auto;background:#000}
 .meta-line{font-size:13px;color:var(--text2);margin-top:12px;line-height:1.7;text-align:center}
 .err{color:#f87171;font-size:14px;margin-top:10px}
@@ -97,10 +214,18 @@ table.formats td{color:var(--text2)}
       Video to MP4 Converter
     </div>
     <div class="tool-page-header">
-      <h1>Free Video to MP4 Converter</h1>
-      <p><strong>Read this first:</strong> no browser tool can output a real MP4 file — browsers cannot encode MP4 (H.264). The tool below re-encodes your video to <strong>WebM (.webm)</strong>, which plays in Chrome, Edge, Firefox and VLC. If you need a true .mp4, the free HandBrake steps are in the guide below. No upload, no signup, no watermark either way.</p>
+      <h1>Video to MP4 — the Honest Free Route</h1>
+      <p><strong>Read this first:</strong> no browser tool can output a real MP4 file — browsers cannot encode MP4 (H.264). The tool below re-encodes your video to <strong>WebM (.webm)</strong>, which plays in Chrome, Edge, Firefox and VLC. If you need a true .mp4, the free HandBrake steps are in the box below. No upload, no signup, no watermark either way.</p>
+      <p><strong>Why MP4?</strong> MP4 with H.264 video plays on every phone, browser, editor and TV — that is why people ask for it. iPhone MOV files often use HEVC, which Windows cannot play by default, so MP4 is the fix most people really need.</p>
     </div>
     <div class="note"><strong>Honest limits — read first:</strong> the output is <strong>WebM, not MP4</strong> — any page promising a real MP4 from a browser is misleading you. Conversion runs at <strong>real-time speed</strong> (a 2-minute video takes about 2 minutes), and it works best in <strong>Chrome, Edge or Firefox</strong>. The guide below shows how to get a genuine MP4 free with HandBrake or VLC.</div>
+    <div class="bc-panel" style="margin-bottom:16px" aria-label="How to get a real MP4 free">
+      <h2>Get a real MP4 free — 3 steps, no watermark, no caps</h2>
+      <p class="trust" style="margin-top:0">The tool below outputs WebM. For a true .mp4 file, use one of these free routes — the desktop options keep your file on your own computer.</p>
+      <p><strong>HandBrake (desktop, free):</strong> 1. Download HandBrake and open your video. 2. Pick the "Fast 720p30" preset (H.264 MP4). 3. Press Start.</p>
+      <p><strong>VLC (desktop, free):</strong> 1. Open VLC → Media → Convert/Save. 2. Add the file and choose "Video – H.264 + MP3 (MP4)". 3. Press Start.</p>
+      <p><strong>Server converter (no install):</strong> XConvert's video-to-MP4 page is free with no watermark and no signup claimed — but your file is uploaded to its server to be encoded there. Use it for small, non-private clips only.</p>
+    </div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Convert settings">
         <h2>Your video</h2>
@@ -127,6 +252,27 @@ table.formats td{color:var(--text2)}
           </div>
         </div>
         <p class="trust" id="outInfo">Output: WebM (.webm) at the size and quality you pick.</p>
+        <p class="trust">Quality in plain language: High = best quality · Medium = balanced · Low = smallest file. (Behind the labels: 5 / 2.5 / 1 Mbps video bitrate.)</p>
+        <div style="margin-top:16px">
+          <span class="flabel">Where is your video from?</span>
+          <div class="chips" id="srcChips">
+            <button type="button" class="chip" data-expect="iPhone MOV: if the video inside is H.264, it only needs repackaging (a remux — seconds, no quality loss). If it is HEVC, it needs a full transcode, which is slow — use HandBrake for that, or the WebM tool below for a quick copy.">iPhone MOV</button>
+            <button type="button" class="chip" data-expect="Screen recording: usually WebM already, so the codec needs a transcode to become MP4 — renaming the file will not do it. Use HandBrake or the server route above for a real MP4.">Screen recording</button>
+            <button type="button" class="chip" data-expect="Camera MKV: if the video inside is H.264, a remux repackages it into MP4 in seconds with no quality loss. If it is another codec, it must be re-encoded.">Camera MKV</button>
+            <button type="button" class="chip" data-expect="Old AVI / WMV: old codecs need a full transcode — there is no fast path. Use HandBrake or VLC on desktop; the browser tool below may not even be able to play the file.">Old AVI / WMV</button>
+          </div>
+          <p class="trust" id="srcExpect">Pick a source above to see what to expect.</p>
+        </div>
+        <div style="margin-top:16px">
+          <span class="flabel">Make it fit somewhere</span>
+          <div class="chips" id="targetChips">
+            <button type="button" class="chip" data-target="20">Fit Discord (20 MB)</button>
+            <button type="button" class="chip" data-target="25">Fit Gmail (25 MB)</button>
+            <button type="button" class="chip" data-target="small">Smallest file (WhatsApp)</button>
+          </div>
+          <p class="trust" id="targetNote">Presets pick the best size and quality that fit the limit for your clip's length. The output here is still WebM — see the MP4 box above for a real MP4.</p>
+        </div>
+        <p class="trust" id="sizeEstimate">Pick a video to see an estimated output size.</p>
         <div class="actions">
           <button type="button" class="btn" id="convertBtn" disabled>Convert video</button>
           <button type="button" class="btn alt" id="cancelBtn" disabled>Cancel</button>
@@ -173,33 +319,86 @@ table.formats td{color:var(--text2)}
           <tr><td>MOV (HEVC)</td><td>Apple devices; Windows often needs a paid codec</td><td>Keeping iPhone originals; convert copies before sharing</td></tr>
         </tbody>
       </table>
+      <h2>Renaming .mov to .mp4 does not work</h2>
+      <p>Renaming changes the label on the file, not the video inside — the codec stays exactly as it was, so a HEVC file still fails in players without HEVC support. It has to be properly converted, not renamed.</p>
+      <h2>Remux vs transcode — the fast path most tools never mention</h2>
+      <p>Converting a video can mean two very different jobs. A <strong>remux</strong> only repackages the video — the pictures and sound are copied untouched into a new container. If the video inside is already H.264, an MOV only needs repackaging into MP4: it finishes in seconds with zero quality loss. A <strong>transcode</strong> decodes the video and encodes it again, which takes minutes for a long clip and always loses a little quality.</p>
+      <p>The fast path: if your file is already H.264, use a remux-capable tool instead of a full converter — XMedia Recode's "Lossless Direct Stream Copy" and Clipy's "Fastest" mode are the named examples. Clipy quotes about 1 second for a typical iPhone clip remux and 10–15 seconds for a full transcode (vendor's own figures, not independently verified). The in-browser tool on this page cannot remux — it always re-encodes, which is why it runs in real time.</p>
+      <h2>How this page compares</h2>
+      <p>Users decide on two things: does the file leave my device, and does it make MP4? Here is the honest strip:</p>
+      <table class="formats">
+        <thead><tr><th>Tool</th><th>Where your file goes</th><th>MP4 output</th><th>Free limit</th><th>Watermark</th></tr></thead>
+        <tbody>
+          <tr><td>PixDetector (this page)</td><td>Stays in your browser — no upload</td><td>No — WebM only</td><td>No server cap (limited by your device's memory)</td><td>None</td></tr>
+          <tr><td>XConvert</td><td>Uploaded to its server</td><td>Yes (H.264)</td><td>No size limit stated on the page</td><td>None claimed</td></tr>
+          <tr><td>CapCut</td><td>Uploaded to its server (editor)</td><td>Yes (MP4)</td><td>No size limit stated on the page</td><td>None claimed ("without a watermark")</td></tr>
+          <tr><td>Jupitrr</td><td>In your browser — local and private</td><td>MP4 claimed (not verified in this run)</td><td>Not stated</td><td>None claimed</td></tr>
+          <tr><td>HandBrake</td><td>Stays on your computer (desktop app)</td><td>Yes (MP4/MKV)</td><td>No caps</td><td>Never</td></tr>
+        </tbody>
+      </table>
       <h2>Stop the problem at the source (iPhone setting)</h2>
       <p>If you keep hitting this, change one iPhone setting: Settings → Camera → Formats → "Most Compatible". Your iPhone will then record H.264 MP4-style video that opens on Windows without any conversion. The trade-off is bigger files — HEVC exists to save space — so keep the "High Efficiency" setting if storage matters, and convert only the copies you share.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Can this page convert my video to a real MP4 file?</summary>
-        <p>No — and this page says so instead of pretending otherwise. Browsers cannot encode MP4 (H.264), so no in-browser tool can hand you a real .mp4 file. This tool re-encodes your video to WebM (.webm), which plays in Chrome, Edge, Firefox and VLC. For a real MP4, use free HandBrake or VLC on your computer — the steps are above.</p>
+        <summary>How do I convert a video to MP4 for free?</summary>
+        <p>Use HandBrake or VLC free on desktop (no caps, no watermark), or a free online MP4 converter (XConvert, Restream, CapCut) for small files. On this PixDetector page the in-browser tool outputs WebM, not MP4 — see the box at the top for the free MP4 route.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert MOV to MP4?</summary>
+        <p>Upload the MOV to an MP4 converter and pick MP4/H.264, or use HandBrake/VLC; in Windows Photos, open the MOV → Trim → Save As also produces an MP4.</p>
       </details>
       <details class="faq">
         <summary>Why won't my iPhone video play on Windows?</summary>
-        <p>iPhones record MOV files with the HEVC (H.265) codec. Windows often cannot decode HEVC without the $0.99 HEVC Video Extensions from the Microsoft Store. Converting to a widely supported format fixes it — and renaming .mov to .mp4 does not, because the extension is only a label, not the video itself.</p>
+        <p>The file is usually HEVC (H.265) inside a MOV container, and Windows has no HEVC codec by default. Install the HEVC Video Extension, play it in VLC, or convert it to MP4/H.264.</p>
       </details>
       <details class="faq">
-        <summary>How do I get a real MP4 for free?</summary>
-        <p>Download HandBrake (free, handbrake.fr), open your video, pick the Fast 720p30 preset, and press Start. Or open VLC, go to Media, Convert/Save, add the file, choose Video - H.264 + MP3 (MP4), and Start. Both keep your file on your own computer.</p>
+        <summary>Can I just rename .mov to .mp4?</summary>
+        <p>Sometimes it plays, but it does not convert anything — the codec inside is unchanged, so HEVC files still fail in players without HEVC support. Convert properly instead.</p>
       </details>
       <details class="faq">
-        <summary>Is this video converter really free?</summary>
-        <p>Yes. Convert as many videos as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>Does converting MOV to MP4 reduce quality?</summary>
+        <p>It can — re-encoding loses a little, and aggressive settings lose more; converting can also remove HDR metadata. Keep the original resolution and use a high-quality preset, or remux without re-encoding when the codec already fits.</p>
       </details>
       <details class="faq">
-        <summary>Is my video uploaded to a server?</summary>
-        <p>No. Your video is read and re-encoded in your browser with the canvas and MediaRecorder APIs. Nothing is uploaded, stored, or shared.</p>
+        <summary>What is the best free MOV to MP4 converter?</summary>
+        <p>For one-offs, XConvert's MOV page or Clipy (both free, no watermark, no signup in this run's SERP); for unlimited use, HandBrake or VLC on desktop.</p>
       </details>
       <details class="faq">
-        <summary>Does the converted video keep its sound?</summary>
-        <p>Yes, when your browser allows it — the tool routes the video's audio into the recording. If a browser blocks that, the conversion still finishes but the output is video-only, and the page tells you so.</p>
+        <summary>Can I convert WebM to MP4?</summary>
+        <p>Yes — WebM screen recordings are a named use case. The codec usually needs a transcode, not just a rename.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert MKV to MP4 without losing quality?</summary>
+        <p>Yes if the video inside is H.264 — remuxing changes only the container. If it is another codec, it must be re-encoded.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I make a video small enough for Discord?</summary>
+        <p>Convert to MP4 and cap the size — Discord's free limit is 20 MB; XConvert offers a Discord 20 MB target-size preset, and resizing to 720p plus a lower CRF gets most clips under it. On this page the Discord preset below picks settings to fit 20 MB, but the output is WebM, not MP4 — use the box above for a real MP4.</p>
+      </details>
+      <details class="faq">
+        <summary>Is there a video to MP4 converter with no watermark?</summary>
+        <p>Yes — XConvert, Restream, CapCut, Jupitrr and Zight all claim no watermark in this run's SERP; HandBrake and VLC never watermark.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert video to MP4 on my phone?</summary>
+        <p>Yes in a mobile browser, but large files are slow on phones; for iPhone clips, converting on a computer is faster.</p>
+      </details>
+      <details class="faq">
+        <summary>How long does MOV to MP4 take?</summary>
+        <p>A remux (codec already fits) takes seconds — Clipy quotes about 1 second for a typical iPhone clip remux, 10–15 seconds for a full transcode (vendor's own figures, not independently verified). A long 4K HEVC transcode takes minutes.</p>
+      </details>
+      <details class="faq">
+        <summary>Will the converted MP4 keep its audio?</summary>
+        <p>It should — MP4/H.264 + AAC is the standard pairing; the source audio carries over whenever the browser can decode it. If audio is missing, the source audio codec was unsupported — re-convert with AAC selected.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert MP4 to MP4 to make it smaller?</summary>
+        <p>Yes — re-encode the MP4 at a lower resolution/bitrate or higher CRF; that is compression, not a format change.</p>
+      </details>
+      <details class="faq">
+        <summary>Is MP4 the best format for YouTube / Instagram / TikTok?</summary>
+        <p>Yes for uploads — MP4/H.264 is the accepted format on all three; WebM is for web playback, MOV is for Apple workflows.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -246,6 +445,68 @@ table.formats td{color:var(--text2)}
   </div>
 </footer>
 <div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function fmtMB(b) { return (b / 1048576).toFixed(1) + " MB"; }
+  function bitrate() { var s = $("qualitySelect"); if (!s) return 2500000; return s.value === "high" ? 5000000 : s.value === "low" ? 1000000 : 2500000; }
+  function updateEst() {
+    var el = $("sizeEstimate"); if (!el) return;
+    var v = $("srcVideo"); var d = (v && isFinite(v.duration)) ? v.duration : 0;
+    if (!d) { el.textContent = "Pick a video to see an estimated output size."; return; }
+    el.textContent = "Estimated output: about " + fmtMB(d * bitrate() / 8) + " for a " + Math.round(d) + "s video at this quality. Rough estimate only — the real WebM size depends on the footage.";
+  }
+  var v = $("srcVideo"); if (v) v.addEventListener("loadedmetadata", updateEst);
+  ["sizeSelect", "qualitySelect"].forEach(function (id) { var s = $(id); if (s) s.addEventListener("change", updateEst); });
+  var chips = document.querySelectorAll("#srcChips .chip");
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () {
+      chips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      c.setAttribute("aria-pressed", "true");
+      var t = $("srcExpect"); if (t) t.textContent = c.getAttribute("data-expect") || "";
+    });
+  });
+  /* Target-size presets: pick the best size/quality combo that fits the limit. */
+  var COMBOS = [
+    ["original", "high", 5000000], ["original", "medium", 2500000],
+    ["720", "high", 5000000], ["720", "medium", 2500000],
+    ["480", "medium", 2500000], ["480", "low", 1000000], ["360", "low", 1000000]
+  ];
+  function applyTarget(mb) {
+    var note = $("targetNote");
+    var vid = $("srcVideo"); var d = (vid && isFinite(vid.duration)) ? vid.duration : 0;
+    var sizeSel = $("sizeSelect"), qualSel = $("qualitySelect");
+    if (!d) { if (note) note.textContent = "Pick a video first — the preset needs your clip's length to choose settings."; return; }
+    if (mb === "small") {
+      sizeSel.value = "360"; qualSel.value = "low";
+      if (note) note.textContent = "Smallest file picked (360p, Low). Check the app's current size limit before sending — limits change, so this page states none for WhatsApp.";
+      updateEst(); return;
+    }
+    var limit = mb * 1048576, picked = null;
+    for (var i = 0; i < COMBOS.length; i++) {
+      if (d * COMBOS[i][2] / 8 <= limit) { picked = COMBOS[i]; break; }
+    }
+    if (!picked) {
+      picked = COMBOS[COMBOS.length - 1];
+      sizeSel.value = picked[0]; qualSel.value = picked[1];
+      if (note) note.textContent = "Even the smallest setting is about " + fmtMB(d * 1000000 / 8) + " for a clip this long — trim it shorter or split it to fit " + mb + " MB.";
+    } else {
+      sizeSel.value = picked[0]; qualSel.value = picked[1];
+      if (note) note.textContent = "Picked " + (picked[0] === "original" ? "original size" : picked[0] + "p") + ", " + picked[1] + " quality — estimated about " + fmtMB(d * picked[2] / 8) + ", inside the " + mb + " MB limit. Output is still WebM; see the MP4 box above for a real MP4.";
+    }
+    updateEst();
+  }
+  var tChips = document.querySelectorAll("#targetChips .chip");
+  tChips.forEach(function (c) {
+    c.addEventListener("click", function () {
+      tChips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      c.setAttribute("aria-pressed", "true");
+      var t = c.getAttribute("data-target");
+      applyTarget(t === "small" ? "small" : parseInt(t, 10));
+    });
+  });
+})();
+</script>
 <script src="../js/video-converter.js"></script>
 </body>
 </html>

@@ -20,18 +20,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this audio converter really free?",
+      "name": "What is the best free online audio converter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Convert as many files as you like — no watermark, no sign-up, no upload and no ads. The first conversion downloads a ~30 MB engine into your browser, cached after that."
+        "text": "Depends on the job: XConvert for the widest format support (19 inputs); Mokivo/AudioSaw for in-browser privacy; Castos for a zero-config podcast MP3; AudioConvert.online for a balance of formats + privacy. No single tool wins on all four in this run."
       }
     },
     {
       "@type": "Question",
-      "name": "Why won't my OPUS voice note play on my iPhone?",
+      "name": "Is there a free audio converter with no signup?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Apple devices do not support OPUS files in Music, Voice Memos, Files, iMessage or CarPlay. Convert the OPUS file to M4A (for Apple) or MP3 (for everywhere) here and it will play."
+        "text": "Yes — XConvert, Mokivo, AudioSaw, AudioConvert.online and Castos all convert without an account; 123apps also needs no login but has a paid tier for some features (per its own page’s comment replies). This page needs no account either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert audio without uploading my file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Mokivo (Web Audio API), AudioSaw (ffmpeg.wasm in-browser), AudioConvert.online and Castos process locally; XConvert, Aspose and Restream upload to a server. Check before converting private recordings. This page processes locally in your browser — nothing is sent to a server."
       }
     },
     {
@@ -39,31 +47,95 @@
       "name": "How do I convert M4A to MP3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Upload the M4A, pick MP3 as the output and a bitrate (192 kbps is a good balance), then press Convert. The MP3 plays on virtually any device or app."
+        "text": "Drop the M4A into any converter above, pick MP3, choose a bitrate (192–320 kbps for music, 128 kbps for speech) and download. iPhone voice memos are M4A — this is the most common conversion in the run."
       }
     },
     {
       "@type": "Question",
-      "name": "Will I lose quality converting between formats?",
+      "name": "How do I convert a WhatsApp voice note to MP3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Converting lossy to lossy (for example MP3 to M4A, or OPUS to MP3) loses a little detail each time, because both formats discard data. Convert from the original file when you can, and match the source bitrate rather than picking the highest number."
+        "text": "WhatsApp saves voice messages as OPUS in an OGG container; upload it to a converter that accepts OPUS (XConvert, Mokivo — and this page) and export MP3 so it plays in QuickTime, Windows Media Player or PowerPoint. Use the “WhatsApp voice note” button above for the one-click path."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does the first conversion take so long?",
+      "name": "Does converting audio lose quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser. It is cached after that, so later conversions start fast. Conversion is also slower on big files and on phones."
+        "text": "Converting lossy → lossy (M4A → MP3) loses a little more each generation; converting to WAV/FLAC loses nothing further but can’t restore what was already lost. Always convert from the best source you have and keep the original."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my audio uploaded anywhere?",
+      "name": "What bitrate should I choose?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your file never leaves your device — it is read, converted and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page."
+        "text": "320 kbps for music you care about, 192 kbps for general listening, 128 kbps for speech/podcasts (Castos fixes 128 kbps for exactly this reason); higher bitrate = bigger file, same content. Use the slider presets on this page: Speech 128 / Music 192 / Best 320 / Lossless WAV-FLAC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert audio on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Mokivo, AudioConvert.online (25 MB cap per file on touch devices) and the small in-browser tools work in mobile browsers; the App Store’s “The Audio Converter” app is the install route on iPhone (free with in-app purchases). This page works in a mobile browser too, but the ~30 MB engine and conversion are slower on phones — keep clips short."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the converter take so long the first time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In-browser converters download ffmpeg.wasm (~30 MB) on first use — AudioConvert.online states ~32 MB; dev.to advises lazy-loading it only after a file is picked. Later visits reuse the browser cache. This page loads it only after you pick a file, never on page load, and shows a progress bar with a cancel option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert audio from a video file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some converters accept video input (Restream: MP4/MOV → MP3/WAV; AudioSaw: drop MP4; The Audio Converter app: MOV/MP4 in) — or extract the audio first, then convert it. Castos is audio-only and says so. This page is audio-only too: upload an audio file, not a video."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to use a free online audio converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on the tool — in-browser tools never receive your file; server tools vary (XConvert deletes after a few hours, Aspose after 24 hours). Commenters on the 123apps reels report virus warnings — those reports were not verified against the site itself in this run, but the trust concern is real and repeated. This page never receives your file: after the first conversion the engine is cached, so turn off wifi and convert again — it still works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between MP3, WAV, FLAC and AAC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP3 = small, lossy, universal; WAV = uncompressed, big, for editing; FLAC = lossless compression, smaller than WAV with nothing lost; AAC = Apple’s MP3-equivalent, better quality per megabyte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert multiple files at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes on batch tools — XConvert, Convertr.org and AudioSaw support batch; AudioConvert.online allows 10 files per batch. Free tiers on server tools may queue batches. This page converts one file at a time — batch conversion and ZIP download are not supported here yet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert OPUS to MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — XConvert and Mokivo both list OPUS as an input; pick MP3 as output. OPUS is the WhatsApp/Telegram voice-note format. This page accepts OPUS files too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won’t my file play in my car / PowerPoint / editor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Format support differs per device — older car stereos read MP3/WMA only, PowerPoint wants MP3/WAV, editors want WAV/AIFF. Convert to the format the destination accepts; the converter page’s format guide is the fix."
       }
     }
   ]
@@ -138,6 +210,9 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .result p{font-size:15px;line-height:1.8;color:var(--text2)}
 .result p strong{color:var(--accent)}
 table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+.mx-cell{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 10px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.mx-cell:hover{border-color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent)}
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
@@ -178,7 +253,7 @@ audio{width:100%;margin-top:12px}
       <h1>Audio Converter Free</h1>
       <p>Convert audio between MP3, WAV, FLAC, OGG and M4A — free, in your browser. No signup, no upload, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> First use downloads a <strong>~30 MB conversion engine</strong> (ffmpeg.wasm, cached after) — it is slow on big files and on phones, so keep clips short there. Re-encoding lossy to lossy (MP3 to M4A) loses a little quality each time; convert from the original file when you can. File tags/metadata are <strong>not</strong> carried over.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> First conversion downloads <strong>~30 MB of converter code</strong> (ffmpeg.wasm, one time, then cached). We load it <strong>only after you pick a file — never on page load</strong> — with a progress bar and a cancel button. It is slow on big files and on phones, so keep clips short there. Re-encoding lossy to lossy (MP3 to M4A) loses a little quality each time; convert from the original file when you can. File tags/metadata are <strong>not</strong> carried over. Privacy proof, not a promise: after the first conversion the engine is cached — turn off wifi and convert again; it still works, because nothing is uploaded.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Audio converter">
         <h2>Your audio</h2>
@@ -201,22 +276,52 @@ audio{width:100%;margin-top:12px}
             </select>
           </div>
           <div style="margin-top:16px" id="bitrateRow">
-            <label class="flabel" for="brSel">Bitrate (MP3 / OGG / M4A)</label>
-            <select id="brSel">
-              <option value="128">128 kbps — standard</option>
-              <option value="192" selected>192 kbps — better sound</option>
-              <option value="96">96 kbps — smallest file, voice</option>
-              <option value="320">320 kbps — music, biggest file</option>
-            </select>
+            <label class="flabel" for="brSlider">Bitrate (MP3 / OGG / M4A): <span id="brOut">192 kbps</span></label>
+            <input type="range" id="brSlider" min="64" max="320" step="32" value="192">
+            <div class="chips" style="margin-top:8px">
+              <button type="button" class="chip" data-br="128">Speech 128</button>
+              <button type="button" class="chip" data-br="192" aria-pressed="true">Music 192</button>
+              <button type="button" class="chip" data-br="320">Best 320</button>
+              <button type="button" class="chip" id="brLossless">Lossless WAV / FLAC</button>
+            </div>
+            <p class="trust" id="brEst">Pick a file to see the estimated output size.</p>
             <p class="trust">A higher bitrate never adds quality the source did not have. WAV and FLAC ignore bitrate — they are lossless.</p>
+          </div>
+          <div style="margin-top:16px">
+            <label class="flabel" for="srSel">Sample rate</label>
+            <select id="srSel">
+              <option value="8000">8000 Hz — phone / IVR</option>
+              <option value="16000">16000 Hz — voice</option>
+              <option value="22050">22050 Hz</option>
+              <option value="44100" selected>44100 Hz — CD quality</option>
+              <option value="48000">48000 Hz — video</option>
+            </select>
+          </div>
+          <div style="margin-top:16px">
+            <label class="flabel" for="chSel">Channels</label>
+            <select id="chSel">
+              <option value="2" selected>Stereo</option>
+              <option value="1">Mono</option>
+            </select>
+          </div>
+          <div style="margin-top:16px">
+            <label class="flabel">Exact-spec presets</label>
+            <div class="chips">
+              <button type="button" class="chip" id="presetIvr">IVR / phone system: WAV PCM 16-bit 8000 Hz mono</button>
+              <button type="button" class="chip" id="presetCd">CD: WAV 44.1 kHz / 16-bit stereo</button>
+              <button type="button" class="chip" id="presetVideo">Video: M4A 48 kHz stereo</button>
+            </div>
+            <p class="trust">IVR preset is the phone-secretary spec from the research (WAV PCM 16-bit, 8000 Hz, mono). CD is 44.1 kHz / 16-bit; video audio is 48 kHz.</p>
           </div>
           <div class="actions">
             <button type="button" class="btn" id="convBtn">Convert audio</button>
+            <button type="button" class="btn alt" id="waBtn">🎙️ I have a WhatsApp voice note → MP3</button>
             <button type="button" class="btn alt" id="resetBtn">Choose a different file</button>
           </div>
           <div class="progress-wrap" id="progressWrap">
             <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
             <p class="progress-text" id="progressText">Starting…</p>
+            <div class="actions"><button type="button" class="btn alt" id="cancelBtn" style="display:none">Cancel download</button></div>
           </div>
           <div class="result" id="resultBox">
             <h3>✅ Your converted audio is ready</h3>
@@ -224,6 +329,8 @@ audio{width:100%;margin-top:12px}
             <div class="actions"><a class="btn" id="dlLink" download="audio.mp3" href="#">Download</a></div>
           </div>
           <p class="err" id="errorBox" role="alert" hidden></p>
+          <p class="trust"><strong>Keep the original.</strong> Converting lossy → lossy loses a little each time. Keep your original file; convert from the best source you have.</p>
+          <p class="trust">Privacy proof, not a promise: your file is converted in your browser and never uploaded. After your first conversion the engine is cached — turn off wifi and convert again; it still works.</p>
         </div>
       </div>
       <div class="bc-panel" aria-label="About this conversion">
@@ -265,33 +372,80 @@ audio{width:100%;margin-top:12px}
       <p>Apple picked its own formats: Voice Memos exports M4A (AAC in an MP4 container), and messaging apps save voice notes as OPUS. Neither is a bug — but both break when the next app in line only accepts MP3. The fix is a one-way conversion to MP3 at 128–192 kbps for speech, or to M4A if the destination is Apple-only. For a WhatsApp voice note, convert OPUS to M4A at 64–96 kbps mono: the note was recorded around 24 kbps, so picking 320 kbps only makes a bigger file with no better sound.</p>
       <h2>Bitrates, honestly</h2>
       <p>96 kbps is fine for voice and the smallest file. 128 kbps is the standard for speech and most music. 192 kbps sounds better on good headphones. 320 kbps is the biggest file and only worth it for music from a high-quality source — it cannot rescue a low-quality recording. WAV and FLAC have no bitrate setting because they are lossless: WAV stores every sample (about 10 MB per minute), FLAC stores the same audio losslessly at roughly half that size.</p>
+      <h2>Format matrix — “I have X, I want Y”</h2>
+      <p>Click your pair before uploading anything. Every pair below is supported on this page.</p>
+      <table class="facts">
+        <tr><th>I have \darr; / I want \rightarrow</th><th>MP3</th><th>WAV</th><th>FLAC</th><th>OGG</th><th>M4A</th></tr>
+        <tr><td><strong>MP3</strong></td><td><button type="button" class="mx-cell" data-in="MP3" data-out="mp3">MP3</button></td><td><button type="button" class="mx-cell" data-in="MP3" data-out="wav">WAV</button></td><td><button type="button" class="mx-cell" data-in="MP3" data-out="flac">FLAC</button></td><td><button type="button" class="mx-cell" data-in="MP3" data-out="ogg">OGG</button></td><td><button type="button" class="mx-cell" data-in="MP3" data-out="m4a">M4A</button></td></tr>
+        <tr><td><strong>WAV</strong></td><td><button type="button" class="mx-cell" data-in="WAV" data-out="mp3">MP3</button></td><td><button type="button" class="mx-cell" data-in="WAV" data-out="wav">WAV</button></td><td><button type="button" class="mx-cell" data-in="WAV" data-out="flac">FLAC</button></td><td><button type="button" class="mx-cell" data-in="WAV" data-out="ogg">OGG</button></td><td><button type="button" class="mx-cell" data-in="WAV" data-out="m4a">M4A</button></td></tr>
+        <tr><td><strong>M4A</strong></td><td><button type="button" class="mx-cell" data-in="M4A" data-out="mp3">MP3</button></td><td><button type="button" class="mx-cell" data-in="M4A" data-out="wav">WAV</button></td><td><button type="button" class="mx-cell" data-in="M4A" data-out="flac">FLAC</button></td><td><button type="button" class="mx-cell" data-in="M4A" data-out="ogg">OGG</button></td><td><button type="button" class="mx-cell" data-in="M4A" data-out="m4a">M4A</button></td></tr>
+        <tr><td><strong>FLAC</strong></td><td><button type="button" class="mx-cell" data-in="FLAC" data-out="mp3">MP3</button></td><td><button type="button" class="mx-cell" data-in="FLAC" data-out="wav">WAV</button></td><td><button type="button" class="mx-cell" data-in="FLAC" data-out="flac">FLAC</button></td><td><button type="button" class="mx-cell" data-in="FLAC" data-out="ogg">OGG</button></td><td><button type="button" class="mx-cell" data-in="FLAC" data-out="m4a">M4A</button></td></tr>
+        <tr><td><strong>OGG</strong></td><td><button type="button" class="mx-cell" data-in="OGG" data-out="mp3">MP3</button></td><td><button type="button" class="mx-cell" data-in="OGG" data-out="wav">WAV</button></td><td><button type="button" class="mx-cell" data-in="OGG" data-out="flac">FLAC</button></td><td><button type="button" class="mx-cell" data-in="OGG" data-out="ogg">OGG</button></td><td><button type="button" class="mx-cell" data-in="OGG" data-out="m4a">M4A</button></td></tr>
+        <tr><td><strong>OPUS</strong></td><td><button type="button" class="mx-cell" data-in="OPUS" data-out="mp3">MP3</button></td><td><button type="button" class="mx-cell" data-in="OPUS" data-out="wav">WAV</button></td><td><button type="button" class="mx-cell" data-in="OPUS" data-out="flac">FLAC</button></td><td><button type="button" class="mx-cell" data-in="OPUS" data-out="ogg">OGG</button></td><td><button type="button" class="mx-cell" data-in="OPUS" data-out="m4a">M4A</button></td></tr>
+      </table>
+      <p class="trust">WMA, AIFF and AMR are not listed as supported inputs on this page — the six formats above are. Video files (MP4/MOV) are not accepted here; extract the audio first, then convert it.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this audio converter really free?</summary>
-        <p>Yes. Convert as many files as you like — no watermark, no sign-up, no upload and no ads. The first conversion downloads a ~30 MB engine into your browser, cached after that.</p>
+        <summary>What is the best free online audio converter?</summary>
+        <p>Depends on the job: XConvert for the widest format support (19 inputs); Mokivo/AudioSaw for in-browser privacy; Castos for a zero-config podcast MP3; AudioConvert.online for a balance of formats + privacy. No single tool wins on all four in this run.</p>
       </details>
-<details class="faq">
-        <summary>Why won't my OPUS voice note play on my iPhone?</summary>
-        <p>Apple devices do not support OPUS files in Music, Voice Memos, Files, iMessage or CarPlay. Convert the OPUS file to M4A (for Apple) or MP3 (for everywhere) here and it will play.</p>
+      <details class="faq">
+        <summary>Is there a free audio converter with no signup?</summary>
+        <p>Yes — XConvert, Mokivo, AudioSaw, AudioConvert.online and Castos all convert without an account; 123apps also needs no login but has a paid tier for some features (per its own page’s comment replies). This page needs no account either.</p>
       </details>
-<details class="faq">
+      <details class="faq">
+        <summary>Can I convert audio without uploading my file?</summary>
+        <p>Yes — Mokivo (Web Audio API), AudioSaw (ffmpeg.wasm in-browser), AudioConvert.online and Castos process locally; XConvert, Aspose and Restream upload to a server. Check before converting private recordings. This page processes locally in your browser — nothing is sent to a server.</p>
+      </details>
+      <details class="faq">
         <summary>How do I convert M4A to MP3?</summary>
-        <p>Upload the M4A, pick MP3 as the output and a bitrate (192 kbps is a good balance), then press Convert. The MP3 plays on virtually any device or app.</p>
+        <p>Drop the M4A into any converter above, pick MP3, choose a bitrate (192–320 kbps for music, 128 kbps for speech) and download. iPhone voice memos are M4A — this is the most common conversion in the run.</p>
       </details>
-<details class="faq">
-        <summary>Will I lose quality converting between formats?</summary>
-        <p>Converting lossy to lossy (for example MP3 to M4A, or OPUS to MP3) loses a little detail each time, because both formats discard data. Convert from the original file when you can, and match the source bitrate rather than picking the highest number.</p>
+      <details class="faq">
+        <summary>How do I convert a WhatsApp voice note to MP3?</summary>
+        <p>WhatsApp saves voice messages as OPUS in an OGG container; upload it to a converter that accepts OPUS (XConvert, Mokivo — and this page) and export MP3 so it plays in QuickTime, Windows Media Player or PowerPoint. Use the “WhatsApp voice note” button above for the one-click path.</p>
       </details>
-<details class="faq">
-        <summary>Why does the first conversion take so long?</summary>
-        <p>The first conversion downloads a ~30 MB conversion engine (ffmpeg.wasm) into your browser. It is cached after that, so later conversions start fast. Conversion is also slower on big files and on phones.</p>
+      <details class="faq">
+        <summary>Does converting audio lose quality?</summary>
+        <p>Converting lossy → lossy (M4A → MP3) loses a little more each generation; converting to WAV/FLAC loses nothing further but can’t restore what was already lost. Always convert from the best source you have and keep the original.</p>
       </details>
-<details class="faq">
-        <summary>Is my audio uploaded anywhere?</summary>
-        <p>No. Your file never leaves your device — it is read, converted and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page.</p>
+      <details class="faq">
+        <summary>What bitrate should I choose?</summary>
+        <p>320 kbps for music you care about, 192 kbps for general listening, 128 kbps for speech/podcasts (Castos fixes 128 kbps for exactly this reason); higher bitrate = bigger file, same content. Use the slider presets on this page: Speech 128 / Music 192 / Best 320 / Lossless WAV-FLAC.</p>
       </details>
-
+      <details class="faq">
+        <summary>Can I convert audio on my phone?</summary>
+        <p>Yes — Mokivo, AudioConvert.online (25 MB cap per file on touch devices) and the small in-browser tools work in mobile browsers; the App Store’s “The Audio Converter” app is the install route on iPhone (free with in-app purchases). This page works in a mobile browser too, but the ~30 MB engine and conversion are slower on phones — keep clips short.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does the converter take so long the first time?</summary>
+        <p>In-browser converters download ffmpeg.wasm (~30 MB) on first use — AudioConvert.online states ~32 MB; dev.to advises lazy-loading it only after a file is picked. Later visits reuse the browser cache. This page loads it only after you pick a file, never on page load, and shows a progress bar with a cancel option.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert audio from a video file?</summary>
+        <p>Some converters accept video input (Restream: MP4/MOV → MP3/WAV; AudioSaw: drop MP4; The Audio Converter app: MOV/MP4 in) — or extract the audio first, then convert it. Castos is audio-only and says so. This page is audio-only too: upload an audio file, not a video.</p>
+      </details>
+      <details class="faq">
+        <summary>Is it safe to use a free online audio converter?</summary>
+        <p>Depends on the tool — in-browser tools never receive your file; server tools vary (XConvert deletes after a few hours, Aspose after 24 hours). Commenters on the 123apps reels report virus warnings — those reports were not verified against the site itself in this run, but the trust concern is real and repeated. This page never receives your file: after the first conversion the engine is cached, so turn off wifi and convert again — it still works.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between MP3, WAV, FLAC and AAC?</summary>
+        <p>MP3 = small, lossy, universal; WAV = uncompressed, big, for editing; FLAC = lossless compression, smaller than WAV with nothing lost; AAC = Apple’s MP3-equivalent, better quality per megabyte.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert multiple files at once?</summary>
+        <p>Yes on batch tools — XConvert, Convertr.org and AudioSaw support batch; AudioConvert.online allows 10 files per batch. Free tiers on server tools may queue batches. This page converts one file at a time — batch conversion and ZIP download are not supported here yet.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert OPUS to MP3?</summary>
+        <p>Yes — XConvert and Mokivo both list OPUS as an input; pick MP3 as output. OPUS is the WhatsApp/Telegram voice-note format. This page accepts OPUS files too.</p>
+      </details>
+      <details class="faq">
+        <summary>Why won’t my file play in my car / PowerPoint / editor?</summary>
+        <p>Format support differs per device — older car stereos read MP3/WMA only, PowerPoint wants MP3/WAV, editors want WAV/AIFF. Convert to the format the destination accepts; the converter page’s format guide is the fix.</p>
+      </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>How do I convert M4A to MP3?</strong> Upload the M4A here, pick MP3 at 192 kbps, and convert — the MP3 then plays on any device.</p>
@@ -344,7 +498,7 @@ audio{width:100%;margin-top:12px}
   function fmtBytes(n) { if (!isFinite(n) || n <= 0) return "—"; if (n < 1024) return n + " B"; if (n < 1048576) return (n / 1024).toFixed(1) + " KB"; return (n / 1048576).toFixed(2) + " MB"; }
   function showError(msg) { var e = $("errorBox"); e.hidden = false; e.textContent = msg; }
   function clearError() { var e = $("errorBox"); e.hidden = true; e.textContent = ""; }
-  var state = { file: null, url: null, busy: false, engineReady: false, ffmpeg: null, fetchFile: null, outUrl: null };
+  var state = { file: null, url: null, busy: false, engineReady: false, ffmpeg: null, fetchFile: null, outUrl: null, duration: 0, cancelLoad: false };
   var dropzone = $("dropzone"), fileInput = $("fileInput");
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -360,16 +514,20 @@ audio{width:100%;margin-top:12px}
   }
   async function ensureEngine() {
     if (state.engineReady) return true;
+    state.cancelLoad = false;
+    $("cancelBtn").style.display = "inline-block";
     setProgress(0.05, "Loading the conversion engine (about 30 MB, first use only — cached after)…");
     try { await loadScript("https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.0/dist/ffmpeg.min.js"); }
-    catch (e) { showError("The conversion engine could not be downloaded. Check your internet connection and try again — nothing was converted."); $("progressWrap").style.display = "none"; return false; }
+    catch (e) { showError("The conversion engine could not be downloaded. Check your internet connection and try again — nothing was converted."); $("progressWrap").style.display = "none"; $("cancelBtn").style.display = "none"; return false; }
+    if (state.cancelLoad) { $("progressWrap").style.display = "none"; $("cancelBtn").style.display = "none"; return false; }
     if (!window.FFmpeg || !window.FFmpeg.createFFmpeg) { showError("The conversion engine loaded but did not start correctly. Reload the page and try again."); $("progressWrap").style.display = "none"; return false; }
     try {
       var ff = window.FFmpeg.createFFmpeg({ log: false, corePath: "https://cdn.jsdelivr.net/npm/@ffmpeg/core-st@0.11.0/dist/ffmpeg-core.js" });
       state.fetchFile = window.FFmpeg.fetchFile;
       setProgress(0.2, "Starting the engine…");
       await ff.load();
-      state.ffmpeg = ff; state.engineReady = true; return true;
+      if (state.cancelLoad) { $("progressWrap").style.display = "none"; $("cancelBtn").style.display = "none"; return false; }
+      state.ffmpeg = ff; state.engineReady = true; $("cancelBtn").style.display = "none"; return true;
     } catch (e) {
       showError("The conversion engine failed to start (" + (e && e.message ? e.message : e) + "). Try Chrome or Edge, and check your connection.");
       $("progressWrap").style.display = "none"; return false;
@@ -382,6 +540,8 @@ audio{width:100%;margin-top:12px}
     state.file = file; state.url = URL.createObjectURL(file);
     $("fileInfo").textContent = file.name + " — " + fmtBytes(file.size);
     var p = $("player"); p.src = state.url; p.hidden = false;
+    state.duration = 0;
+    p.onloadedmetadata = function () { state.duration = p.duration || 0; updateEst(); };
     $("settingsBlock").style.display = "block";
   }
   var MIME = { mp3: "audio/mpeg", wav: "audio/wav", flac: "audio/flac", ogg: "audio/ogg", m4a: "audio/mp4" };
@@ -394,7 +554,8 @@ audio{width:100%;margin-top:12px}
     setProgress(0.35, "Reading your audio…");
     try {
       var ff = state.ffmpeg;
-      var fmt = $("fmtSel").value, br = $("brSel").value;
+      var fmt = $("fmtSel").value, br = bitrate();
+      $("cancelBtn").style.display = "none";
       var ext = (state.file.name.match(/\.[^.]+$/) || [".bin"])[0].toLowerCase();
       var inName = "input" + ext, outName = "output." + fmt;
       var data = await state.fetchFile(state.file);
@@ -406,6 +567,7 @@ audio{width:100%;margin-top:12px}
       else if (fmt === "flac") args.push("-vn", "-c:a", "flac");
       else if (fmt === "ogg") args.push("-vn", "-b:a", br + "k", "-c:a", "libvorbis");
       else if (fmt === "m4a") args.push("-vn", "-b:a", br + "k", "-c:a", "aac");
+      args.push("-ar", $("srSel").value, "-ac", $("chSel").value);
       args.push(outName);
       if (ff.setProgress) { ff.setProgress(function (p) { if (p && isFinite(p.ratio)) setProgress(0.5 + p.ratio * 0.45, "Converting… " + Math.round(p.ratio * 100) + "%"); }); }
       await ff.run.apply(ff, args);
@@ -424,6 +586,7 @@ audio{width:100%;margin-top:12px}
       showError("Conversion failed: " + (e && e.message ? e.message : e) + " Try a different file or a shorter clip.");
     } finally {
       $("progressWrap").style.display = "none";
+      $("cancelBtn").style.display = "none";
       state.busy = false; $("convBtn").disabled = false;
     }
   }
@@ -436,6 +599,72 @@ audio{width:100%;margin-top:12px}
   $("fmtSel").addEventListener("change", function () {
     var f = this.value;
     $("bitrateRow").style.display = (f === "wav" || f === "flac") ? "none" : "block";
+    updateEst();
+  });
+  function bitrate() { var sl = $("brSlider"); return sl ? sl.value : "192"; }
+  function updateEst() {
+    var el = $("brEst");
+    if (!el) return;
+    var dur = state.duration;
+    if (!dur || !isFinite(dur) || dur <= 0) { el.textContent = "Pick a file to see the estimated output size."; return; }
+    var fmt = $("fmtSel").value;
+    var sr = parseInt($("srSel").value, 10) || 44100;
+    var ch = parseInt($("chSel").value, 10) || 2;
+    var bytes;
+    if (fmt === "wav") bytes = sr * 2 * ch * dur;
+    else if (fmt === "flac") bytes = sr * 2 * ch * dur * 0.55;
+    else bytes = parseInt(bitrate(), 10) * 1000 / 8 * dur;
+    var mins = Math.floor(dur / 60), secs = Math.round(dur % 60);
+    el.textContent = "Estimated output: ~" + fmtBytes(bytes) + " for " + mins + "m " + secs + "s of audio" + ((fmt === "wav" || fmt === "flac") ? " (lossless)" : " at " + bitrate() + " kbps") + ".";
+  }
+  function setBr(v) {
+    $("brSlider").value = v;
+    $("brOut").textContent = v + " kbps";
+    Array.prototype.forEach.call(document.querySelectorAll("[data-br]"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-br") === String(v) ? "true" : "false"); });
+    updateEst();
+  }
+  $("brSlider").addEventListener("input", function () { setBr(this.value); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-br]"), function (b) {
+    b.addEventListener("click", function () { setBr(b.getAttribute("data-br")); });
+  });
+  $("brLossless").addEventListener("click", function () {
+    $("fmtSel").value = "flac";
+    $("fmtSel").dispatchEvent(new Event("change"));
+    toast("Lossless selected: FLAC output. Bitrate does not apply to lossless formats.");
+  });
+  function applyPreset(fmt, sr, ch, br) {
+    $("fmtSel").value = fmt;
+    $("fmtSel").dispatchEvent(new Event("change"));
+    $("srSel").value = sr;
+    $("chSel").value = ch;
+    if (br) setBr(br);
+    updateEst();
+  }
+  $("presetIvr").addEventListener("click", function () { applyPreset("wav", "8000", "1"); toast("IVR preset: WAV PCM 16-bit, 8000 Hz, mono."); });
+  $("presetCd").addEventListener("click", function () { applyPreset("wav", "44100", "2"); toast("CD preset: WAV 44.1 kHz / 16-bit stereo."); });
+  $("presetVideo").addEventListener("click", function () { applyPreset("m4a", "48000", "2", "192"); toast("Video preset: M4A 48 kHz stereo at 192 kbps."); });
+  $("waBtn").addEventListener("click", function () {
+    $("fmtSel").value = "mp3";
+    $("fmtSel").dispatchEvent(new Event("change"));
+    setBr("128");
+    toast("Voice-note path set: OPUS \u2192 MP3 at 128 kbps. Upload your WhatsApp voice note, then press Convert audio.");
+    $("dropzone").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+  $("cancelBtn").addEventListener("click", function () {
+    state.cancelLoad = true;
+    $("progressWrap").style.display = "none";
+    $("cancelBtn").style.display = "none";
+    state.busy = false; $("convBtn").disabled = false;
+    toast("Engine download cancelled. Press Convert audio to try again.");
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".mx-cell"), function (b) {
+    b.addEventListener("click", function () {
+      var out = b.getAttribute("data-out"), inp = b.getAttribute("data-in");
+      $("fmtSel").value = out;
+      $("fmtSel").dispatchEvent(new Event("change"));
+      toast("Picked " + inp + " \u2192 " + out.toUpperCase() + ": upload your " + inp + " file, then press Convert audio.");
+      $("dropzone").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   });
   $("convBtn").addEventListener("click", convert);
   $("resetBtn").addEventListener("click", function () {

@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this PNG to WebP converter really free?",
+      "name": "What is the difference between PNG, JPG and WebP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Convert as many PNGs as you like, free, with no signup, no watermark and no upload — everything runs in your browser."
+        "text": "PNG is lossless with transparency but large; JPG is lossy, no transparency, much smaller — best for photos; WebP is Google’s modern format, lossy or lossless, keeps transparency, and is smaller than both — best for the web."
       }
     },
     {
       "@type": "Question",
-      "name": "Does WebP keep PNG transparency?",
+      "name": "Why convert PNG to WebP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. WebP supports an alpha channel like PNG, so transparent areas stay transparent. That is the main reason to choose WebP over JPG for logos and graphics."
+        "text": "Same photo, smaller file than JPG, AND transparency is kept — WebP is the web format; Google measured lossy WebP 25–34% smaller than comparable JPEG at equal quality."
       }
     },
     {
       "@type": "Question",
-      "name": "How much smaller will my WebP be?",
+      "name": "Why convert PNG to JPG?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Typically 25–80% smaller than the PNG for photos and graphics — Google measured lossy WebP at 25–34% smaller than comparable JPEG at equal quality. Small flat-colour PNGs and tiny icons are the exception: they can come out bigger as WebP."
+        "text": "To shrink the file — a PNG photo typically becomes 5–10x smaller as JPG with little visible loss — so it fits email limits (Gmail 25MB, Outlook 20MB), forms and chats. JPG is also the format every form, email client and old app accepts, so convert to JPG here when a site rejects WebP."
       }
     },
     {
       "@type": "Question",
-      "name": "Will WebP make my website faster?",
+      "name": "What happens to the transparent background when I convert PNG to JPG?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It can help a lot when your images are large, especially combined with resizing to the display size. It is not a guarantee — if the image is already small, or something else is slowing the page, the gain is small. Convert one large image and compare first."
+        "text": "It must become a solid colour — white on good tools, black on broken ones — because JPG cannot store transparency. Pick the background colour before converting; if you need transparency, use WebP or stay with PNG. This page shows a live preview of the colour before you convert."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I convert WebP back to PNG?",
+      "name": "Will converting to WebP reduce image quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, but the quality lost in a lossy WebP conversion never comes back. Always keep your original PNG as the master copy."
+        "text": "Lossy WebP at quality 90% is invisible on most photos, at 75% slightly softer. Lossless WebP loses nothing, and this tool’s 100% setting is the browser’s highest quality — but true lossless WebP is not available from a canvas converter, so keep your PNG as the master copy. Screenshots and text stay sharpest as PNG."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my PNG uploaded to a server?",
+      "name": "How do I choose the right quality setting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The conversion uses the canvas element and runs entirely in your browser. No files are transmitted."
+        "text": "90% for reports and presentations (visually identical), 75–85% for web and quick sharing, and use target-size mode when a form demands an exact KB limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to upload my image to a free converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the tool — in-browser converters never upload anything; server tools vary (some delete after 24 hours, some don’t state it). For ID documents or client work, use an in-browser tool. This converter runs entirely in your browser: open DevTools → Network tab while converting and you will see no upload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert many images at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool takes up to 30 files at once, each keeping its name with the new extension, with a Download all button. Server tools like XConvert take hundreds in one job."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will a WebP image work everywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every current browser displays WebP, but some older apps, forms and printers still reject it — convert WebP back to JPG for those, and keep PNG if transparency matters. Use the format switcher above to convert back to JPG here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert PNG to WebP on my iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a browser converter (mobile works on the small tools in this run) — upload, convert, download; no app install needed. iPhone HEIC photos need a HEIC-capable converter first. Very large photos can hit mobile browser canvas limits, so use a desktop browser for big files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What quality should I use for printing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For print, don’t use WebP — use JPG at 95–100% and set DPI to 300 if the tool offers it. WebP is a screen format. For screen use, WebP at 80–90% is enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does converting remove metadata (EXIF)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browser (canvas) conversion strips camera data and location automatically — a privacy bonus. Server tools vary; MConverter states it preserves as much metadata as possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my converted WebP bigger than the original PNG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A small, simple PNG (logo, flat graphic) can be smaller than a WebP of the same image, and a high-quality WebP from a tiny JPG can grow too. Check the before/after sizes; if it grew, keep the original. This page flags it on every file instead of silently delivering a larger file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert WebP back to PNG or JPG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — any image converter handles WebP input; choose PNG to keep transparency, JPG for maximum compatibility. Use the format switcher above: upload the WebP and pick JPG or PNG as the output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install software to convert images?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — every tool in this run works in the browser; right-click desktop tools (File Converter, Filee) exist for people who convert constantly, but they are optional."
       }
     }
   ]
@@ -78,12 +150,12 @@
     {
       "@type": "HowToStep",
       "name": "Upload your PNGs",
-      "text": "Choose up to 10 PNG files. They are read in your browser and never uploaded."
+      "text": "Choose up to 30 PNG, JPG or WebP files. They are read in your browser and never uploaded."
     },
     {
       "@type": "HowToStep",
       "name": "Set the quality",
-      "text": "Drag the quality slider — 90% is visually identical for most images; 75–85% is the sweet spot for the web."
+      "text": "Pick the output format (JPG, WebP, AVIF or PNG), check the live background preview, then drag the quality slider — 90% is visually identical for most images; 75–85% is the sweet spot for the web."
     },
     {
       "@type": "HowToStep",
@@ -138,6 +210,10 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .result p{font-size:15px;line-height:1.8;color:var(--text2)}
 .result p strong{color:var(--accent)}
 table.facts{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+#previewCanvas{max-width:100%;border:1px solid var(--border2);border-radius:8px;background:repeating-conic-gradient(#d4d4d4 0% 25%, #ffffff 0% 50%) 0 0 / 20px 20px}
+.preview-wrap{margin-top:16px}
+input[type=number]{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 12px;width:110px}
+.chip:disabled{opacity:.4;cursor:not-allowed}
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
@@ -178,28 +254,59 @@ audio{width:100%;margin-top:12px}
       <h1>PNG to WebP Converter Free</h1>
       <p>Make PNGs 25–80% smaller as WebP — with transparency kept — free, in your browser. No signup, no upload, no watermark.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> WebP from this tool is <strong>lossy</strong>: the quality slider trades a little detail for a smaller file, and a lossy WebP can be <strong>bigger</strong> than a small PNG (flat graphics, tiny icons) — check the size shown before downloading. Very old software may not open WebP; keep the original PNG as a fallback.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> WebP from this tool is <strong>lossy</strong>: the quality slider trades a little detail for a smaller file, and a lossy WebP can be <strong>bigger</strong> than a small PNG (flat graphics, tiny icons) — check the size shown before downloading. Animated WebP is not supported here — only the first frame converts. Very large photos can hit mobile browser canvas limits, so convert big files on a desktop browser. Every current browser displays WebP; if a form rejects it, convert back to JPG here. Keep the original PNG as a fallback.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="PNG to WebP Converter">
-        <h2>Your PNGs</h2>
-        <label class="flabel" for="imgFiles">Choose PNG files (up to 10)</label>
-        <input type="file" id="imgFiles" accept="image/png,.png" multiple>
-        <p class="trust" id="fileInfo">No files chosen yet.</p>
+        <h2>Your images</h2>
+        <label class="flabel">Output format — one converter, four outputs</label>
+        <div class="chips" id="fmtChips" role="group" aria-label="Output format">
+          <button type="button" class="chip" data-fmt="jpg" aria-pressed="false">JPG</button>
+          <button type="button" class="chip" data-fmt="webp" aria-pressed="true">WebP</button>
+          <button type="button" class="chip" data-fmt="avif" aria-pressed="false">AVIF</button>
+          <button type="button" class="chip" data-fmt="png" aria-pressed="false">PNG</button>
+        </div>
+        <p class="trust" id="fmtNote"></p>
         <div style="margin-top:16px">
+          <label class="flabel" for="imgFiles">Choose images (up to 30) — PNG, JPG or WebP in</label>
+          <input type="file" id="imgFiles" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" multiple>
+        </div>
+        <p class="trust" id="fileInfo">No files chosen yet.</p>
+        <div class="preview-wrap" id="previewWrap" hidden>
+          <label class="flabel">Live preview — background applied before converting</label>
+          <canvas id="previewCanvas" width="320" height="200"></canvas>
+          <p class="trust" id="previewCap">Pick a file to see the preview.</p>
+        </div>
+        <div style="margin-top:16px" id="bgRow">
+          <label class="flabel">Background for transparent areas</label>
+          <div class="chips" id="bgChips">
+            <button type="button" class="chip" data-bg="white" aria-pressed="true">White</button>
+            <button type="button" class="chip" data-bg="black" aria-pressed="false">Black</button>
+            <button type="button" class="chip" data-bg="custom" aria-pressed="false">Custom colour</button>
+            <button type="button" class="chip" data-bg="keep" aria-pressed="false">Keep transparency (WebP/PNG only)</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:8px"><input type="color" id="bgColor" value="#ffffff"><span class="trust" id="bgHint">White fills see-through areas.</span></div>
+        </div>
+        <div style="margin-top:16px" id="qualityRow">
           <label class="flabel" for="qInput">Quality: <span id="qOut">90%</span></label>
           <input type="range" id="qInput" min="10" max="100" value="90">
           <p class="trust" id="qHint"></p>
+          <label id="losslessLabel" style="display:block;font-size:14px;color:var(--text2);margin-top:8px"><input type="checkbox" id="losslessChk"> Highest quality (100%)</label>
+          <p class="trust" id="losslessNote" hidden>Highest quality (100%) is the browser’s best WebP quality — true lossless WebP is not available from a canvas converter. Keep your PNG as the lossless master.</p>
         </div>
-        
+        <div style="margin-top:16px">
+          <label class="flabel" for="targetKB">Target file size (optional)</label>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><input type="number" id="targetKB" min="0" placeholder="e.g. 200"><span class="trust">KB — leave blank for quality mode. The tool lowers quality step by step to hit it (JPG/WebP only).</span></div>
+        </div>
         <div class="actions">
-          <button type="button" class="btn" id="convBtn" disabled>Convert to WebP</button>
+          <button type="button" class="btn" id="convBtn" disabled>Convert</button>
         </div>
         <p class="err" id="errorBox" role="alert" hidden></p>
       </div>
       <div class="bc-panel" aria-label="Converted files">
         <h2>Converted files</h2>
         <div id="fileList"><p class="meta-line">Upload PNGs to convert them here. Each file keeps its name, with the new extension.</p></div>
-        <p class="trust" style="text-align:center">Conversion runs in your browser with the canvas element. Nothing is uploaded.</p>
+        <p class="trust" style="text-align:center">🔒 <strong>Files never leave your device.</strong> Conversion runs in your browser with the canvas element. Proof: open DevTools → Network tab while converting — you will see no upload.</p>
+        <div class="actions" style="justify-content:center"><button type="button" class="btn alt" id="downloadAllBtn" disabled>Download all as ZIP</button></div>
       </div>
     </div>
     <div class="share-box">
@@ -219,11 +326,11 @@ audio{width:100%;margin-top:12px}
       <p>The PNG-to-WebP story starts in PageSpeed Insights: "Serve images in next-gen formats" next to a hero image that is a 2 MB PNG. PNG is the right format for a logo that needs transparency, but it is a heavy format for a photo or a large graphic on a web page, and every extra kilobyte is slower loading on a phone. The second frustration is the surprise in the other direction — people convert a PNG to WebP expecting a smaller file and get a bigger one, because a small flat-colour PNG or a tiny icon can compress better as PNG than as lossy WebP. The third is quality anxiety: which quality setting keeps the image looking the same, and will the transparency survive? People want a free converter that keeps the transparent background, shows the size before and after, and says plainly when WebP is not the right call.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I convert PNG to WebP for free?</h2>
-      <p>Upload up to 10 PNGs here, set the quality slider (90% is visually identical for most images, 80% is the sweet spot for web pages), and press Convert to WebP. Each file downloads as a WebP, free, with no signup and no upload. Transparency is kept — unlike JPG, WebP has an alpha channel — and the list shows the old size next to the new size so you can see the saving.</p>
+      <p>Upload up to 30 images here, pick the output format, set the quality slider (90% is visually identical for most images, 80% is the sweet spot for web pages), and press Convert. Each file downloads in your chosen format, free, with no signup and no upload. Transparency is kept — unlike JPG, WebP has an alpha channel — and the list shows the old size next to the new size so you can see the saving.</p>
       <p>A PNG to WebP converter is a tool that re-encodes a PNG image in Google's WebP format. WebP is a modern web image format: Google measured lossy WebP at 25–34% smaller than comparable JPEG images at equal quality, and it supports transparency like PNG, so a logo keeps its see-through background while the file shrinks. Every current browser can display WebP, and about 97% of users' browsers support it — but older software and some apps still cannot open it, so keep the original PNG.</p>
       <!-- HOW TO -->
       <h2>How to convert PNG to WebP in 3 steps</h2>
-      <p><strong>Step 1:</strong> upload up to 10 PNG files — they are read in your browser and never uploaded. <strong>Step 2:</strong> set the quality slider (90% default; 80% for web pages). <strong>Step 3:</strong> press Convert to WebP and download each file. Compare the sizes shown: if a WebP comes out bigger than its PNG, keep the PNG for that image.</p>
+      <p><strong>Step 1:</strong> upload up to 30 PNG, JPG or WebP files — they are read in your browser and never uploaded. <strong>Step 2:</strong> pick the output format and set the quality slider (90% default; 80% for web pages). <strong>Step 3:</strong> press Convert and download each file, or use Download all. Compare the sizes shown: if a WebP comes out bigger than its PNG, keep the PNG for that image.</p>
       <h2>WebP vs PNG vs JPG: which one, when?</h2>
       <table class="facts">
         <tr><th>Format</th><th>Compression</th><th>Transparency</th><th>Best for</th></tr>
@@ -234,33 +341,82 @@ audio{width:100%;margin-top:12px}
       <p>Use WebP for images served on a website: photos, product shots, blog graphics and logos that need transparency. Keep PNG for the master copy, for screenshots with small text, and for anything that must open in every program. Use JPG instead of WebP when the image has no transparency and must open in older software — or use our <a href="/tools/png-to-jpg-converter">PNG to JPG converter</a>. And never convert a lossy file back and forth: always convert from the original PNG, not from a JPG you made earlier.</p>
       <h2>Will WebP always make my site faster?</h2>
       <p>Not always, and that is worth saying plainly. WebP helps most when your images are large photographs or graphics — swapping those can cut a page's image weight by half. It helps least on images that are already small, or on flat graphics that PNG already compresses well. The biggest wins come from combining WebP with resizing the image to its display size: a 4000-pixel PNG resized to 800 pixels and converted to WebP is a different file entirely. Convert one large image, compare the sizes, and check it still looks right before converting the rest.</p>
+
+      <h2>Which format should you pick?</h2>
+      <table class="facts">
+        <tr><th>If you need…</th><th>Pick</th><th>Why</th></tr>
+        <tr><td>A form or email to accept it</td><td>JPG</td><td>Every form, email client and old app accepts JPG. No transparency — pick a background colour.</td></tr>
+        <tr><td>The smallest file for your website</td><td>WebP</td><td>Smaller than JPG at the same quality, and transparency is kept.</td></tr>
+        <tr><td>A logo with transparency</td><td>WebP or PNG</td><td>Both keep the alpha channel. WebP is smaller; PNG opens everywhere.</td></tr>
+        <tr><td>Print</td><td>JPG at 95%+</td><td>Highest quality, 300 DPI if your print tool offers it.</td></tr>
+        <tr><td>A master copy to keep</td><td>PNG</td><td>Lossless. Never convert your only copy to a lossy format.</td></tr>
+      </table>
+      <p>Use the format switcher above — one converter, four outputs (JPG, WebP, AVIF, PNG). Need maximum compatibility? Use our <a href="/tools/png-to-jpg-converter">PNG to JPG converter</a> instead.</p>
+
+      <h2>WebP trust notes</h2>
+      <p>Every current browser displays WebP. If a form, app or printer rejects it, convert back to JPG here with the format switcher above — that is the mirror conversion, and it takes seconds. The “highest quality (100%)” option is the browser’s best WebP quality; true lossless WebP is not available from a canvas-based converter, so keep your PNG as the lossless master. One warning: animated WebP files are not supported here — only the first frame converts, so do not feed an animated WebP into this tool expecting the animation to survive.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this PNG to WebP converter really free?</summary>
-        <p>Yes. Convert as many PNGs as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>What is the difference between PNG, JPG and WebP?</summary>
+        <p>PNG is lossless with transparency but large; JPG is lossy, no transparency, much smaller — best for photos; WebP is Google’s modern format, lossy or lossless, keeps transparency, and is smaller than both — best for the web.</p>
       </details>
-<details class="faq">
-        <summary>Does WebP keep PNG transparency?</summary>
-        <p>Yes. WebP supports an alpha channel like PNG, so transparent areas stay transparent. That is the main reason to choose WebP over JPG for logos and graphics.</p>
+      <details class="faq">
+        <summary>Why convert PNG to WebP?</summary>
+        <p>Same photo, smaller file than JPG, AND transparency is kept — WebP is the web format; Google measured lossy WebP 25–34% smaller than comparable JPEG at equal quality.</p>
       </details>
-<details class="faq">
-        <summary>How much smaller will my WebP be?</summary>
-        <p>Typically 25–80% smaller than the PNG for photos and graphics — Google measured lossy WebP at 25–34% smaller than comparable JPEG at equal quality. Small flat-colour PNGs and tiny icons are the exception: they can come out bigger as WebP.</p>
+      <details class="faq">
+        <summary>Why convert PNG to JPG?</summary>
+        <p>To shrink the file — a PNG photo typically becomes 5–10x smaller as JPG with little visible loss — so it fits email limits (Gmail 25MB, Outlook 20MB), forms and chats. JPG is also the format every form, email client and old app accepts, so convert to JPG here when a site rejects WebP.</p>
       </details>
-<details class="faq">
-        <summary>Will WebP make my website faster?</summary>
-        <p>It can help a lot when your images are large, especially combined with resizing to the display size. It is not a guarantee — if the image is already small, or something else is slowing the page, the gain is small. Convert one large image and compare first.</p>
+      <details class="faq">
+        <summary>What happens to the transparent background when I convert PNG to JPG?</summary>
+        <p>It must become a solid colour — white on good tools, black on broken ones — because JPG cannot store transparency. Pick the background colour before converting; if you need transparency, use WebP or stay with PNG. This page shows a live preview of the colour before you convert.</p>
       </details>
-<details class="faq">
-        <summary>Can I convert WebP back to PNG?</summary>
-        <p>Yes, but the quality lost in a lossy WebP conversion never comes back. Always keep your original PNG as the master copy.</p>
+      <details class="faq">
+        <summary>Will converting to WebP reduce image quality?</summary>
+        <p>Lossy WebP at quality 90% is invisible on most photos, at 75% slightly softer. Lossless WebP loses nothing, and this tool’s 100% setting is the browser’s highest quality — but true lossless WebP is not available from a canvas converter, so keep your PNG as the master copy. Screenshots and text stay sharpest as PNG.</p>
       </details>
-<details class="faq">
-        <summary>Is my PNG uploaded to a server?</summary>
-        <p>No. The conversion uses the canvas element and runs entirely in your browser. No files are transmitted.</p>
+      <details class="faq">
+        <summary>How do I choose the right quality setting?</summary>
+        <p>90% for reports and presentations (visually identical), 75–85% for web and quick sharing, and use target-size mode when a form demands an exact KB limit.</p>
       </details>
-
+      <details class="faq">
+        <summary>Is it safe to upload my image to a free converter?</summary>
+        <p>It depends on the tool — in-browser converters never upload anything; server tools vary (some delete after 24 hours, some don’t state it). For ID documents or client work, use an in-browser tool. This converter runs entirely in your browser: open DevTools → Network tab while converting and you will see no upload.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert many images at once?</summary>
+        <p>Yes — this tool takes up to 30 files at once, each keeping its name with the new extension, with a Download all button. Server tools like XConvert take hundreds in one job.</p>
+      </details>
+      <details class="faq">
+        <summary>Will a WebP image work everywhere?</summary>
+        <p>Every current browser displays WebP, but some older apps, forms and printers still reject it — convert WebP back to JPG for those, and keep PNG if transparency matters. Use the format switcher above to convert back to JPG here.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert PNG to WebP on my iPhone?</summary>
+        <p>Use a browser converter (mobile works on the small tools in this run) — upload, convert, download; no app install needed. iPhone HEIC photos need a HEIC-capable converter first. Very large photos can hit mobile browser canvas limits, so use a desktop browser for big files.</p>
+      </details>
+      <details class="faq">
+        <summary>What quality should I use for printing?</summary>
+        <p>For print, don’t use WebP — use JPG at 95–100% and set DPI to 300 if the tool offers it. WebP is a screen format. For screen use, WebP at 80–90% is enough.</p>
+      </details>
+      <details class="faq">
+        <summary>Does converting remove metadata (EXIF)?</summary>
+        <p>Browser (canvas) conversion strips camera data and location automatically — a privacy bonus. Server tools vary; MConverter states it preserves as much metadata as possible.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is my converted WebP bigger than the original PNG?</summary>
+        <p>A small, simple PNG (logo, flat graphic) can be smaller than a WebP of the same image, and a high-quality WebP from a tiny JPG can grow too. Check the before/after sizes; if it grew, keep the original. This page flags it on every file instead of silently delivering a larger file.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert WebP back to PNG or JPG?</summary>
+        <p>Yes — any image converter handles WebP input; choose PNG to keep transparency, JPG for maximum compatibility. Use the format switcher above: upload the WebP and pick JPG or PNG as the output.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to install software to convert images?</summary>
+        <p>No — every tool in this run works in the browser; right-click desktop tools (File Converter, Filee) exist for people who convert constantly, but they are optional.</p>
+      </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Does WebP keep transparency?</strong> Yes. Unlike JPG, WebP has an alpha channel, so transparent areas stay transparent.</p>
@@ -306,27 +462,36 @@ audio{width:100%;margin-top:12px}
   </div>
 </footer>
 <div class="toast" id="toast" role="status"></div>
+<script src="../js/jszip.min.js"></script>
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   function fmtKB(n) { return n < 1024 ? n + " B" : (n / 1024 < 1024 ? (n / 1024).toFixed(1) + " KB" : (n / 1048576).toFixed(2) + " MB"); }
-  var MIME = "image/webp", EXT = "webp", FMT = "WebP";
+  var FORMATS = { jpg: { mime: "image/jpeg", ext: "jpg", label: "JPG" }, webp: { mime: "image/webp", ext: "webp", label: "WebP" }, avif: { mime: "image/avif", ext: "avif", label: "AVIF" }, png: { mime: "image/png", ext: "png", label: "PNG" } };
+  var outFmt = "webp";
+  var MIME = FORMATS[outFmt].mime, EXT = FORMATS[outFmt].ext, FMT = FORMATS[outFmt].label;
+  var bgMode = "white";
+  var previewImg = null;
+  var dlBtns = [];
+  var zipFiles = [];
   var files = [];
   function updateHint() {
     var q = parseInt($("qInput").value, 10);
     $("qOut").textContent = q + "%";
     $("qHint").textContent = q >= 90 ? "90–100%: visually identical to the original for most images; biggest files." : q >= 75 ? "75–89%: the sweet spot for web images — much smaller, barely any visible loss." : "Below 75%: smallest files, but soft edges and blocky gradients start to show.";
+    var lc0 = $("losslessChk"), ln0 = $("losslessNote");
+    if (lc0 && ln0) ln0.hidden = !(outFmt === "webp" && lc0.checked);
   }
   updateHint();
   $("qInput").addEventListener("input", updateHint);
   $("imgFiles").addEventListener("change", function () {
-    files = Array.prototype.slice.call(this.files || []).filter(function (f) { return /^image\/png$/i.test(f.type) || /\.png$/i.test(f.name); });
-    if (files.length > 10) { files = files.slice(0, 10); toast("Only the first 10 files were kept."); }
-    if (!files.length) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose PNG files."; $("convBtn").disabled = true; return; }
+    files = Array.prototype.slice.call(this.files || []).filter(function (f) { return /^image\/(png|jpe?g|webp)$/i.test(f.type) || /\.(png|jpe?g|webp)$/i.test(f.name); });
+    if (files.length > 30) { files = files.slice(0, 30); toast("Only the first 30 files were kept."); }
+    if (!files.length) { var e = $("errorBox"); e.hidden = false; e.textContent = "Please choose PNG, JPG or WebP files."; $("convBtn").disabled = true; return; }
     $("errorBox").hidden = true;
     var total = files.reduce(function (a, f) { return a + f.size; }, 0);
-    $("fileInfo").textContent = files.length + (files.length === 1 ? " PNG" : " PNGs") + " — " + fmtKB(total) + " total.";
+    $("fileInfo").textContent = files.length + (files.length === 1 ? " image" : " images") + " — " + fmtKB(total) + " total.";
     $("convBtn").disabled = false;
     $("fileList").innerHTML = "";
     files.forEach(function (f) {
@@ -336,6 +501,14 @@ audio{width:100%;margin-top:12px}
       row.appendChild(nm); row.appendChild(mt);
       $("fileList").appendChild(row);
     });
+    var r = new FileReader();
+    r.onload = function () {
+      var im = new Image();
+      im.onload = function () { previewImg = im; $("previewWrap").hidden = false; drawPreview(); };
+      im.onerror = function () { previewImg = null; $("previewWrap").hidden = true; };
+      im.src = r.result;
+    };
+    r.readAsDataURL(files[0]);
   });
   function convertOne(file, q, bg, done) {
     var reader = new FileReader();
@@ -358,24 +531,94 @@ audio{width:100%;margin-top:12px}
     reader.onerror = function () { done(null, "Could not read " + file.name + "."); };
     reader.readAsDataURL(file);
   }
+  function resolveBg() {
+    if (bgMode === "keep") {
+      if (outFmt === "webp" || outFmt === "png") return null;
+      return "#ffffff";
+    }
+    if (bgMode === "black") return "#000000";
+    if (bgMode === "custom") { var c = $("bgColor"); return c ? c.value : "#ffffff"; }
+    return "#ffffff";
+  }
+  function drawPreview() {
+    var cv = $("previewCanvas");
+    if (!cv || !previewImg) return;
+    var ctx = cv.getContext("2d");
+    var scale = Math.min(cv.width / previewImg.naturalWidth, cv.height / previewImg.naturalHeight, 1);
+    var w = Math.max(1, Math.round(previewImg.naturalWidth * scale)), h = Math.max(1, Math.round(previewImg.naturalHeight * scale));
+    var x = Math.round((cv.width - w) / 2), y = Math.round((cv.height - h) / 2);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    var bg = resolveBg();
+    if (bg) { ctx.fillStyle = bg; ctx.fillRect(x, y, w, h); }
+    ctx.drawImage(previewImg, x, y, w, h);
+    var cap = $("previewCap");
+    if (cap) cap.textContent = (bg ? "Background " + bg + " fills transparent areas." : "Transparency kept \u2014 the checkerboard shows see-through areas.") + " Output: " + FMT + ".";
+  }
+  function updateBgPreview() {
+    var keepBtn = document.querySelector('#bgChips [data-bg="keep"]');
+    if (keepBtn) keepBtn.disabled = !(outFmt === "webp" || outFmt === "png");
+    var hint = $("bgHint");
+    if (hint) {
+      if (bgMode === "keep") hint.textContent = (outFmt === "webp" || outFmt === "png") ? "Transparency will be kept in the " + FMT + " output." : "JPG cannot keep transparency \u2014 white will be used instead.";
+      else if (outFmt === "jpg") hint.textContent = "This colour fills see-through areas. JPG has no transparency.";
+      else hint.textContent = "A colour here flattens transparency. Leave it on \u201cKeep transparency\u201d to keep the alpha channel.";
+    }
+    drawPreview();
+  }
+  function setOutputFormat(fmt) {
+    outFmt = fmt;
+    var F = FORMATS[fmt];
+    MIME = F.mime; EXT = F.ext; FMT = F.label;
+    Array.prototype.forEach.call(document.querySelectorAll("#fmtChips .chip"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-fmt") === fmt ? "true" : "false"); });
+    $("convBtn").textContent = "Convert to " + F.label;
+    var qr = $("qualityRow");
+    if (qr) qr.style.display = fmt === "png" ? "none" : "block";
+    var ll = $("losslessLabel"), lc = $("losslessChk");
+    if (ll) ll.style.display = fmt === "webp" ? "block" : "none";
+    if (lc && fmt !== "webp") lc.checked = false;
+    var tk = $("targetKB");
+    if (tk) tk.disabled = !(fmt === "jpg" || fmt === "webp");
+    var fn = $("fmtNote");
+    if (fn) fn.textContent = fmt === "jpg" ? "JPG: smallest files for forms and email. No transparency \u2014 pick a background colour." : fmt === "webp" ? "WebP: smallest files for the web, transparency kept. Every current browser displays WebP." : fmt === "avif" ? "AVIF: even smaller than WebP in Chrome/Edge. Other browsers may not export it \u2014 if conversion fails, pick WebP." : "PNG: lossless, transparency kept. Biggest files \u2014 best for masters, screenshots and text.";
+    updateBgPreview();
+    updateHint();
+  }
+  function convertWithTarget(file, q, bg, targetBytes, done) {
+    var quals = [0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1];
+    var best = null, i = 0;
+    (function next() {
+      if (i >= quals.length) { done(best, null); return; }
+      convertOne(file, quals[i], bg, function (blob, err) {
+        if (err) { done(null, err); return; }
+        if (!best || blob.size < best.size) best = blob;
+        if (blob.size <= targetBytes) { done(blob, null); return; }
+        i++; next();
+      });
+    })();
+  }
   $("convBtn").addEventListener("click", function () {
     if (!files.length) return;
     var q = parseInt($("qInput").value, 10) / 100;
-    var bg = null;
-    var bgEl = $("bgColor");
-    if (bgEl) bg = bgEl.value;
+    var lc = $("losslessChk");
+    if (lc && lc.checked && (outFmt === "webp" || outFmt === "jpg")) q = 1;
+    var bg = resolveBg();
+    var target = parseInt(($("targetKB").value || "0"), 10) || 0;
     var list = $("fileList"); list.innerHTML = "";
     var doneCount = 0;
+    dlBtns = [];
+    zipFiles = [];
+    var da = $("downloadAllBtn");
+    if (da) da.disabled = true;
     files.forEach(function (f) {
       var row = document.createElement("div"); row.className = "file-row";
       var nm = document.createElement("span"); nm.className = "fname"; nm.textContent = f.name;
-      var mt = document.createElement("span"); mt.className = "fmeta"; mt.textContent = "converting…";
+      var mt = document.createElement("span"); mt.className = "fmeta"; mt.textContent = "converting\u2026";
       var btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Download"; btn.disabled = true;
       row.appendChild(nm); row.appendChild(mt); row.appendChild(btn);
       list.appendChild(row);
-      convertOne(f, q, bg, function (blob, err) {
+      function finishOne(blob, err) {
         doneCount++;
-        if (err) { mt.textContent = err; return; }
+        if (err) { mt.textContent = err; if (doneCount === files.length) toast("Done \u2014 some files failed. See the list."); return; }
         var base = f.name.replace(/\.[^.]+$/, "") || "image";
         var url = URL.createObjectURL(blob);
         btn.disabled = false;
@@ -384,11 +627,63 @@ audio{width:100%;margin-top:12px}
           a.href = url; a.download = base + "." + EXT;
           document.body.appendChild(a); a.click(); a.remove();
         });
-        mt.textContent = fmtKB(f.size) + " → " + fmtKB(blob.size) + " " + FMT + " (" + Math.round(blob.size / f.size * 100) + "% of original)";
-        if (doneCount === files.length) toast(files.length + (files.length === 1 ? " file" : " files") + " converted — download each one.");
-      });
+        dlBtns.push(btn);
+        zipFiles.push({ name: base + "." + EXT, blob: blob });
+        var pct = Math.round((1 - blob.size / f.size) * 100);
+        if (blob.size > f.size) mt.textContent = fmtKB(f.size) + " \u2192 " + fmtKB(blob.size) + " " + FMT + " \u2014 " + Math.abs(pct) + "% BIGGER. Keep the original instead.";
+        else mt.textContent = fmtKB(f.size) + " \u2192 " + fmtKB(blob.size) + " " + FMT + " (" + pct + "% smaller)";
+        if (doneCount === files.length) {
+          toast(files.length + (files.length === 1 ? " file" : " files") + " converted \u2014 download each one, or use Download all.");
+          var d2 = $("downloadAllBtn");
+          if (d2) d2.disabled = dlBtns.length === 0;
+        }
+      }
+      if (target > 0 && (outFmt === "jpg" || outFmt === "webp")) convertWithTarget(f, q, bg, target * 1024, finishOne);
+      else convertOne(f, q, bg, finishOne);
     });
   });
+  Array.prototype.forEach.call(document.querySelectorAll("#fmtChips .chip"), function (b) {
+    b.addEventListener("click", function () { setOutputFormat(b.getAttribute("data-fmt")); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("#bgChips .chip"), function (b) {
+    b.addEventListener("click", function () {
+      bgMode = b.getAttribute("data-bg");
+      Array.prototype.forEach.call(document.querySelectorAll("#bgChips .chip"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      updateBgPreview();
+    });
+  });
+  $("bgColor").addEventListener("input", function () {
+    if (bgMode !== "custom") {
+      bgMode = "custom";
+      Array.prototype.forEach.call(document.querySelectorAll("#bgChips .chip"), function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-bg") === "custom" ? "true" : "false"); });
+    }
+    updateBgPreview();
+  });
+  $("losslessChk").addEventListener("change", function () {
+    $("qInput").disabled = this.checked;
+    updateHint();
+  });
+  $("downloadAllBtn").addEventListener("click", function () {
+    if (!zipFiles.length) { toast("Nothing converted yet."); return; }
+    if (typeof JSZip === "undefined") {
+      dlBtns.forEach(function (b, i) { setTimeout(function () { b.click(); }, i * 300); });
+      toast("ZIP engine unavailable — downloading " + dlBtns.length + " file(s) one by one.");
+      return;
+    }
+    var zip = new JSZip();
+    zipFiles.forEach(function (zf) { zip.file(zf.name, zf.blob); });
+    zip.generateAsync({ type: "blob" }).then(function (content) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(content);
+      a.download = "converted-images-" + FMT.toLowerCase() + ".zip";
+      document.body.appendChild(a); a.click(); a.remove();
+      toast("ZIP downloaded with " + zipFiles.length + " file(s).");
+    }).catch(function () {
+      dlBtns.forEach(function (b, i) { setTimeout(function () { b.click(); }, i * 300); });
+      toast("ZIP failed — downloading files one by one instead.");
+    });
+  });
+  setOutputFormat(outFmt);
 })();
 (function () {
   var $ = function (id) { return document.getElementById(id); };

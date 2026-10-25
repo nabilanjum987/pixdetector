@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this YouTube thumbnail maker really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Make as many thumbnails as you like, free, with no signup and no watermark. Everything runs in your browser." } },
-    { "@type": "Question", "name": "What size should a YouTube thumbnail be?", "acceptedAnswer": { "@type": "Answer", "text": "1280 by 720 pixels, 16:9, under 2 MB, in JPG, PNG or GIF. This tool exports exactly 1280 by 720 PNG, which YouTube accepts. Custom thumbnails need a verified channel in YouTube Studio." } },
-    { "@type": "Question", "name": "How many words should I put on a thumbnail?", "acceptedAnswer": { "@type": "Answer", "text": "Three to five words, not ten. The video title already sits under the thumbnail, so the thumbnail only needs the hook — in letters big enough to read on a phone. Use the small-size preview on this page to check yours." } },
-    { "@type": "Question", "name": "Will my thumbnail be readable on a phone?", "acceptedAnswer": { "@type": "Answer", "text": "That is the real test: most viewers see your thumbnail tiny, in a feed. Use the phone-size preview toggle here — if the words still read at that size, the thumbnail works. Thick outlines and strong contrast (light text on dark, or the reverse) are what save text on busy photos." } },
-    { "@type": "Question", "name": "Can I use my own photo as the background?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload a photo and it fills the 1280 by 720 canvas. A close, expressive face reads best at small sizes; keep the bottom-right corner clear, because YouTube covers it with the video length." } },
-    { "@type": "Question", "name": "Is my photo uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your photo is drawn onto a canvas in your browser and never uploaded, stored, or shared." } }
+    {
+      "@type": "Question",
+      "name": "What size should a YouTube thumbnail be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1280×720 pixels, 16:9, under 2 MB, JPG/PNG/WEBP. Minimum width 640 px."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free YouTube thumbnail maker with no watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Canva, Snappa, Photopea, GIMP and several small browser tools export watermark-free; Fotor and Kapwing watermark free exports. This tool also exports watermark-free, with no signup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best free YouTube thumbnail maker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roundups say Canva for beginners (biggest free template library); for a focused no-signup tool, the small browser makers; for full control with no limits, Photopea or GIMP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many words should a thumbnail have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3–5 words maximum, bold sans-serif, minimum 48pt at full resolution; more than 4 words usually reduces readability on mobile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should the thumbnail repeat the video title?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — the text should add to the title, not repeat it word for word; repeating it wastes space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a face on my thumbnail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Faces help — one source cites roughly 30–38% higher CTR from large-scale studies (their figure, not independently verified) — but only genuine emotion; fake shock faces on every video are now penalised, and an unknown face alone won't lift CTR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a YouTube thumbnail on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Canva and Adobe Express have mobile apps; this page works in a mobile browser, and the browser tools work on mobile browsers too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use AI-generated thumbnails on YouTube?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — YouTube has no rule against AI thumbnails; its synthetic-media disclosure rules target realistic video, not still artwork. Keep the thumbnail honest about the video's content. Note this tool has no AI image generation — it is a canvas template editor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my thumbnail blurry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually uploaded below 1280×720, or over-sharpened then compressed; export sRGB, PNG or high-quality JPG, and test clarity at 160 px wide using the preview on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the YouTube thumbnail file size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2 MB maximum. This page shows the size of your export so you can check before uploading; if a PNG comes out over 2 MB, download the JPG version instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I enable custom thumbnails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Verify your YouTube account (phone verification code) — the option is off by default on new channels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I A/B test thumbnails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YouTube Studio's Test & Compare lets you upload up to 3 variants; change only one element per test and run at least 72 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What colours work best for thumbnails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High contrast against YouTube's white/dark interface; red = urgency, yellow = energy, blue = trust; cap at three colours — background, text, accent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a thumbnail without Photoshop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Canva, Adobe Express, Snappa and browser canvas tools like this one are built for exactly this, with pre-sized 1280×720 templates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do auto-generated thumbnails hurt CTR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — custom thumbnails outperform auto-generated ones by a wide margin; one source claims 60–70% (their figure, not independently verified); YouTube says 90% of best-performing videos use custom thumbnails."
+      }
+    }
   ]
 }
 </script>
@@ -33,7 +147,7 @@
   "@type": "HowTo",
   "name": "How to make a YouTube thumbnail for free",
   "step": [
-    { "@type": "HowToStep", "name": "Pick a design", "text": "Choose Bold, Photo or Split — three simple layouts that work at phone size." },
+    { "@type": "HowToStep", "name": "Pick a design", "text": "Choose Bold, Photo or Split — or a one-tap style (YouTuber, Neon, Gradient, Comic, Label) or a niche template (gaming, tutorial, finance, vlog, fitness). Simple layouts that work at phone size." },
     { "@type": "HowToStep", "name": "Add your photo and words", "text": "Upload a background photo if you have one, then type 3-5 punchy words and a short sub-line." },
     { "@type": "HowToStep", "name": "Check it small", "text": "Turn on the phone-size preview. If the words still read, the thumbnail works." },
     { "@type": "HowToStep", "name": "Download the PNG", "text": "Download the 1280 by 720 PNG and upload it in YouTube Studio." }
@@ -80,6 +194,13 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 table.formats{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
 table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.formats th{color:var(--text);background:var(--bg2)}
+.yt-prev{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.yt-prev figure{margin:0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px}
+.yt-prev img{width:100%;border-radius:6px;display:block}
+.yt-prev #pvSide{width:168px}
+.yt-prev figcaption{font-size:12px;color:var(--text2);margin-top:8px}
+.mock-title{font-size:13px;font-weight:600;margin:8px 0 2px;line-height:1.4}
+.mock-chan{font-size:12px;color:var(--text2);margin:0}
 table.formats td{color:var(--text2)}
 </style>
 </head>
@@ -106,7 +227,7 @@ table.formats td{color:var(--text2)}
       <h1>Free YouTube Thumbnail Maker</h1>
       <p>Make a YouTube thumbnail at the exact 1280×720 size — bold text, your photo, PNG download. Free, no signup, no watermark. Simple designs only: three clean layouts, not a full design studio.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> this is a <strong>simple thumbnail maker, not Canva</strong> — three fixed layouts, no layers, no background removal, no AI images. What it does do: correct size, big readable text, and a clean export. Keep the <strong>bottom-right corner clear</strong> — YouTube covers it with the video length.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Canvas templates — <strong>simple designs only</strong>. No AI image generation, no Photoshop-level editing, no layers, no background removal. What it does do: correct size, big readable text, and a clean export. Keep the <strong>bottom-right corner clear</strong> — YouTube covers it with the video length.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Thumbnail settings">
         <h2>Your thumbnail</h2>
@@ -116,13 +237,38 @@ table.formats td{color:var(--text2)}
           <button type="button" class="chip" data-design="photo" aria-pressed="false">Photo + text</button>
           <button type="button" class="chip" data-design="split" aria-pressed="false">Split colour</button>
         </div>
+        <span class="flabel" style="margin-top:16px">One-tap style</span>
+        <div class="chips" id="styleChips">
+          <button type="button" class="chip" data-style="youtuber">YouTuber</button>
+          <button type="button" class="chip" data-style="neon">Neon</button>
+          <button type="button" class="chip" data-style="gradient">Gradient</button>
+          <button type="button" class="chip" data-style="comic">Comic</button>
+          <button type="button" class="chip" data-style="label">Label</button>
+        </div>
+        <span class="flabel" style="margin-top:16px">Template by niche</span>
+        <div class="chips" id="nicheChips">
+          <button type="button" class="chip" data-niche="gaming">Gaming</button>
+          <button type="button" class="chip" data-niche="tutorial">Tutorial</button>
+          <button type="button" class="chip" data-niche="finance">Finance</button>
+          <button type="button" class="chip" data-niche="vlog">Vlog</button>
+          <button type="button" class="chip" data-niche="fitness">Fitness</button>
+        </div>
+        <p class="trust">Styles and niche templates are presets of the controls on this page — colours, outline and sample words. They are templates, not AI images.</p>
         <div style="margin-top:16px">
           <label class="flabel" for="bgFile">Background photo (optional)</label>
           <input type="file" id="bgFile" accept="image/*">
         </div>
         <div style="margin-top:16px">
+          <label class="flabel" for="vidFile">Or grab a frame from your video (optional)</label>
+          <input type="file" id="vidFile" accept="video/*">
+          <video id="vidPrev" controls style="width:100%;margin-top:10px;border-radius:10px;display:none"></video>
+          <div class="actions"><button type="button" class="btn alt" id="grabBtn" disabled>Grab this frame as background</button></div>
+          <p class="trust">Scrub the video to the frame you want, pause it, then grab it — the still becomes your thumbnail background.</p>
+        </div>
+        <div style="margin-top:16px">
           <label class="flabel" for="mainText">Main words (3–5 is best)</label>
           <input type="text" id="mainText" value="I TRIED IT" maxlength="30" autocomplete="off">
+          <p class="trust" id="wordHint">3 words — in the 3–5 sweet spot.</p>
         </div>
         <div style="margin-top:16px">
           <label class="flabel" for="subText">Sub-line (optional)</label>
@@ -149,16 +295,32 @@ table.formats td{color:var(--text2)}
         <div class="actions">
           <button type="button" class="toggle" id="outlineBtn" aria-pressed="true">Thick text outline: on</button>
           <button type="button" class="toggle" id="smallBtn" aria-pressed="false">Phone-size preview</button>
+          <button type="button" class="toggle" id="safeBtn" aria-pressed="false">Safe-zone overlay: off</button>
         </div>
         <div class="actions">
           <button type="button" class="btn" id="dlBtn">Download PNG (1280×720)</button>
+          <button type="button" class="btn alt" id="dlJpgBtn">Download JPG (smaller file)</button>
         </div>
+        <p class="trust" id="sizeMeter">No export yet — the size of your download will show here, against YouTube's 2 MB limit.</p>
         <p class="err" id="errorBox" role="alert" hidden></p>
       </div>
       <div class="bc-panel" aria-label="Preview">
         <h2>Preview</h2>
-        <canvas class="thumb" id="thumbCanvas" width="1280" height="720"></canvas>
+        <div style="position:relative">
+          <canvas class="thumb" id="thumbCanvas" width="1280" height="720"></canvas>
+          <div id="safeOverlay" hidden style="position:absolute;inset:5%;border:2px dashed #fbbf24;border-radius:6px;pointer-events:none">
+            <span style="position:absolute;top:4px;left:6px;background:rgba(0,0,0,.7);color:#fff;font-size:11px;padding:2px 6px;border-radius:4px">Safe zone — keep text inside</span>
+            <span style="position:absolute;right:0;bottom:0;background:rgba(220,38,38,.9);color:#fff;font-size:11px;padding:2px 6px;border-radius:4px 0 0 0">duration badge</span>
+          </div>
+        </div>
         <p class="meta-line" id="metaLine">1280 × 720 px · PNG · under YouTube's 2 MB limit in most cases. The red corner mark shows where YouTube puts the video length — keep text out of it.</p>
+        <h3 style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin:18px 0 10px">Preview in YouTube — at real sizes</h3>
+        <div class="yt-prev">
+          <figure><img id="pvHome" alt="Thumbnail at home-feed size"><figcaption>Home feed · 320 px</figcaption><p class="mock-title">Your video title goes here — the thumbnail sits above it</p><p class="mock-chan">Your Channel · 12K views · 2 days ago</p></figure>
+          <figure><img id="pvSide" alt="Thumbnail at sidebar size"><figcaption>Sidebar · ~168 px — Test at 160 px</figcaption><p class="mock-title">Your video title…</p><p class="mock-chan">Your Channel</p></figure>
+          <figure><img id="pvPhone" alt="Thumbnail at phone size"><figcaption>Phone feed</figcaption><p class="mock-title">Your video title goes here</p><p class="mock-chan">Your Channel · 12K views</p></figure>
+        </div>
+        <p class="meta-line">If the words still read in the 168 px sidebar preview — the "Test at 160 px" check — the thumbnail works on a phone too.</p>
       </div>
     </div>
     <div class="share-box">
@@ -179,7 +341,7 @@ table.formats td{color:var(--text2)}
       <!-- DIRECT ANSWER -->
       <h2>How do I make a YouTube thumbnail for free?</h2>
       <p>Pick one of the three simple designs here, upload a background photo if you have one, type 3–5 punchy words (the hook, not a summary — the video title already sits under the thumbnail), and download the 1280×720 PNG. It is free, with no signup and no watermark, because the thumbnail is drawn on a canvas in your browser. Before you download, turn on the phone-size preview: if the words still read at that size, the thumbnail works. YouTube accepts JPG, PNG or GIF under 2 MB, and custom thumbnails need a verified channel.</p>
-      <p>A YouTube thumbnail is the 1280×720 still image that represents your video in search results, on the home feed and in "Up next". YouTube recommends 1280×720 pixels (16:9, at least 640 wide), under 2 MB. It is the single biggest lever on click-through rate after the title itself — a custom thumbnail beats YouTube's auto-generated frame almost every time, because the auto frame is usually a random mid-sentence face.</p>
+      <p>A YouTube thumbnail is the 1280×720 still image that represents your video in search results, on the home feed and in "Up next". YouTube recommends 1280×720 pixels (16:9, at least 640 wide), under 2 MB. It is the single biggest lever on click-through rate after the title itself. YouTube says 90% of best-performing videos use custom thumbnails — the auto-generated frame is usually a random mid-sentence face.</p>
       <!-- HOW TO -->
       <h2>How to make a YouTube thumbnail in 4 steps</h2>
       <p><strong>Step 1:</strong> pick a design — Bold gradient for text-led videos, Photo + text when you have a strong face or shot, Split colour for a clean two-tone look. <strong>Step 2:</strong> upload a background photo and type your words — 3–5 words, big enough for a phone. <strong>Step 3:</strong> check the phone-size preview and the red corner mark (YouTube's timestamp covers the bottom-right). <strong>Step 4:</strong> download the PNG and upload it in YouTube Studio under Thumbnail.</p>
@@ -192,35 +354,77 @@ table.formats td{color:var(--text2)}
           <tr><td>Strong contrast</td><td>Light text on dark, or the reverse. Thick outlines save text on busy photos.</td></tr>
           <tr><td>Test it small</td><td>If the phone preview still tells the story, the thumbnail works.</td></tr>
           <tr><td>Keep the corner clear</td><td>The video length covers the bottom-right; a red bar crosses the bottom for watched videos.</td></tr>
+          <tr><td>Don't repeat the title</td><td>The title is already under the thumbnail — add new hook words instead of copying it word for word.</td></tr>
+          <tr><td>One focal point</td><td>One dominant face or object. Two competing subjects split attention and nothing reads at 160 px.</td></tr>
+          <tr><td>A genuine face</td><td>Real emotion reads; the same shocked face on every video is now penalised by YouTube. (One source cites roughly 30–38% higher CTR for faces — their figure, not independently verified.)</td></tr>
+          <tr><td>Consistent brand kit</td><td>Same colours and text style across videos, so subscribers spot yours in the feed.</td></tr>
         </tbody>
       </table>
       <h2>YouTube thumbnail size and rules</h2>
       <p>Size: 1280×720 pixels, 16:9, at least 640 pixels wide. File: JPG, PNG or GIF, up to 2 MB — a PNG from this maker is usually well under that, but a very detailed photo background can push it close; if so, the file still downloads fine and YouTube accepts it up to the limit. Overlays: the video length covers the bottom-right corner, and a red progress bar crosses the bottom for videos the viewer has already watched. Custom thumbnails need a verified channel in YouTube Studio, and you can change a thumbnail any time after upload.</p>
+      <h2>Test at 160 px, and watch the 2 MB limit</h2>
+      <p>Two failures kill most thumbnails. First, size: thumbnails render around 160–168 px wide on phones, and most failed thumbnails look fine on desktop but are illegible on phones — use the "Preview in YouTube" sidebar mock above, at about 168 px, as the test. Second, file size: YouTube caps custom thumbnails at 2 MB. This page shows the size of every export — if a PNG comes out over 2 MB, download the JPG version instead, which is much smaller at the same 1280×720 size.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this YouTube thumbnail maker really free?</summary>
-        <p>Yes. Make as many thumbnails as you like, free, with no signup and no watermark. Everything runs in your browser.</p>
-      </details>
-      <details class="faq">
         <summary>What size should a YouTube thumbnail be?</summary>
-        <p>1280 by 720 pixels, 16:9, under 2 MB, in JPG, PNG or GIF. This tool exports exactly 1280 by 720 PNG, which YouTube accepts. Custom thumbnails need a verified channel in YouTube Studio.</p>
+        <p>1280×720 pixels, 16:9, under 2 MB, JPG/PNG/WEBP. Minimum width 640 px.</p>
       </details>
       <details class="faq">
-        <summary>How many words should I put on a thumbnail?</summary>
-        <p>Three to five words, not ten. The video title already sits under the thumbnail, so the thumbnail only needs the hook — in letters big enough to read on a phone. Use the small-size preview on this page to check yours.</p>
+        <summary>Is there a free YouTube thumbnail maker with no watermark?</summary>
+        <p>Yes — Canva, Snappa, Photopea, GIMP and several small browser tools export watermark-free; Fotor and Kapwing watermark free exports. This tool also exports watermark-free, with no signup.</p>
       </details>
       <details class="faq">
-        <summary>Will my thumbnail be readable on a phone?</summary>
-        <p>That is the real test: most viewers see your thumbnail tiny, in a feed. Use the phone-size preview toggle here — if the words still read at that size, the thumbnail works. Thick outlines and strong contrast (light text on dark, or the reverse) are what save text on busy photos.</p>
+        <summary>What is the best free YouTube thumbnail maker?</summary>
+        <p>Roundups say Canva for beginners (biggest free template library); for a focused no-signup tool, the small browser makers; for full control with no limits, Photopea or GIMP.</p>
       </details>
       <details class="faq">
-        <summary>Can I use my own photo as the background?</summary>
-        <p>Yes. Upload a photo and it fills the 1280 by 720 canvas. A close, expressive face reads best at small sizes; keep the bottom-right corner clear, because YouTube covers it with the video length.</p>
+        <summary>How many words should a thumbnail have?</summary>
+        <p>3–5 words maximum, bold sans-serif, minimum 48pt at full resolution; more than 4 words usually reduces readability on mobile.</p>
       </details>
       <details class="faq">
-        <summary>Is my photo uploaded to a server?</summary>
-        <p>No. Your photo is drawn onto a canvas in your browser and never uploaded, stored, or shared.</p>
+        <summary>Should the thumbnail repeat the video title?</summary>
+        <p>No — the text should add to the title, not repeat it word for word; repeating it wastes space.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need a face on my thumbnail?</summary>
+        <p>Faces help — one source cites roughly 30–38% higher CTR from large-scale studies (their figure, not independently verified) — but only genuine emotion; fake shock faces on every video are now penalised, and an unknown face alone won&#x27;t lift CTR.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a YouTube thumbnail on my phone?</summary>
+        <p>Yes — Canva and Adobe Express have mobile apps; this page works in a mobile browser, and the browser tools work on mobile browsers too.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use AI-generated thumbnails on YouTube?</summary>
+        <p>Yes — YouTube has no rule against AI thumbnails; its synthetic-media disclosure rules target realistic video, not still artwork. Keep the thumbnail honest about the video&#x27;s content. Note this tool has no AI image generation — it is a canvas template editor.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is my thumbnail blurry?</summary>
+        <p>Usually uploaded below 1280×720, or over-sharpened then compressed; export sRGB, PNG or high-quality JPG, and test clarity at 160 px wide using the preview on this page.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the YouTube thumbnail file size limit?</summary>
+        <p>2 MB maximum. This page shows the size of your export so you can check before uploading; if a PNG comes out over 2 MB, download the JPG version instead.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I enable custom thumbnails?</summary>
+        <p>Verify your YouTube account (phone verification code) — the option is off by default on new channels.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I A/B test thumbnails?</summary>
+        <p>YouTube Studio&#x27;s Test &amp; Compare lets you upload up to 3 variants; change only one element per test and run at least 72 hours.</p>
+      </details>
+      <details class="faq">
+        <summary>What colours work best for thumbnails?</summary>
+        <p>High contrast against YouTube&#x27;s white/dark interface; red = urgency, yellow = energy, blue = trust; cap at three colours — background, text, accent.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a thumbnail without Photoshop?</summary>
+        <p>Yes — Canva, Adobe Express, Snappa and browser canvas tools like this one are built for exactly this, with pre-sized 1280×720 templates.</p>
+      </details>
+      <details class="faq">
+        <summary>Do auto-generated thumbnails hurt CTR?</summary>
+        <p>Yes — custom thumbnails outperform auto-generated ones by a wide margin; one source claims 60–70% (their figure, not independently verified); YouTube says 90% of best-performing videos use custom thumbnails.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -347,11 +551,22 @@ table.formats td{color:var(--text2)}
     ctx.fillStyle = "#fff"; ctx.font = "700 30px 'DM Sans', sans-serif"; ctx.textAlign = "center";
     ctx.fillText("12:34", W - 75, H - 27);
   }
-  function redraw() { draw(); }
+  function redraw() { draw(); updatePreviews(); }
+  function updatePreviews() {
+    try {
+      var url = canvas.toDataURL("image/png");
+      ["pvHome", "pvSide", "pvPhone"].forEach(function (id) { var el = $(id); if (el) el.src = url; });
+    } catch (err) { /* preview only — export still works */ }
+  }
+  function updateWordHint() {
+    var n = $("mainText").value.trim().split(/\s+/).filter(Boolean).length;
+    $("wordHint").textContent = n + (n === 1 ? " word" : " words") + (n >= 3 && n <= 5 ? " — in the 3–5 sweet spot." : n < 3 ? " — add a hook word or two (3–5 is best)." : " — trim to 3–5 words, or it won't read at phone size.");
+  }
   ["mainText", "subText", "color1", "color2", "textColor", "posSelect"].forEach(function (id) {
     $(id).addEventListener("input", redraw);
     $(id).addEventListener("change", redraw);
   });
+  $("mainText").addEventListener("input", updateWordHint);
   $("sizeRange").addEventListener("input", function () { $("sizeOut").textContent = this.value; redraw(); });
   $("designChips").addEventListener("click", function (ev) {
     var b = ev.target.closest(".chip"); if (!b) return;
@@ -386,16 +601,86 @@ table.formats td{color:var(--text2)}
     };
     reader.readAsDataURL(f);
   });
+  var STYLES = {
+    youtuber: { c1: "#1d4ed8", c2: "#f59e0b", tcol: "#ffffff", outline: true },
+    neon: { c1: "#0f172a", c2: "#7c3aed", tcol: "#fde047", outline: true },
+    gradient: { c1: "#7c3aed", c2: "#ec4899", tcol: "#ffffff", outline: true },
+    comic: { c1: "#facc15", c2: "#f97316", tcol: "#111827", outline: false },
+    label: { c1: "#f8fafc", c2: "#e2e8f0", tcol: "#111827", outline: false }
+  };
+  $("styleChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    var st = STYLES[b.getAttribute("data-style")]; if (!st) return;
+    $("color1").value = st.c1; $("color2").value = st.c2; $("textColor").value = st.tcol;
+    if (state.outline !== st.outline) $("outlineBtn").click();
+    redraw();
+    toast("Style applied: " + b.textContent + ".");
+  });
+  var NICHES = {
+    gaming: { design: "bold", c1: "#7c3aed", c2: "#111827", main: "I BEAT IT", sub: "on the hardest mode" },
+    tutorial: { design: "split", c1: "#0ea5e9", c2: "#f8fafc", main: "DO IT IN 5 MIN", sub: "step by step" },
+    finance: { design: "bold", c1: "#065f46", c2: "#f59e0b", main: "SAVE $1,000", sub: "starting this month" },
+    vlog: { design: "photo", c1: "#ec4899", c2: "#f59e0b", main: "MY DAY IN TOKYO", sub: "vlog 12" },
+    fitness: { design: "bold", c1: "#dc2626", c2: "#111827", main: "30 DAYS. DONE.", sub: "the honest results" }
+  };
+  $("nicheChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    var n = NICHES[b.getAttribute("data-niche")]; if (!n) return;
+    state.design = n.design;
+    document.querySelectorAll("#designChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-design") === n.design ? "true" : "false"); });
+    $("color1").value = n.c1; $("color2").value = n.c2;
+    $("mainText").value = n.main; $("subText").value = n.sub;
+    updateWordHint(); redraw();
+    toast("Template applied: " + b.textContent + ". Swap in your own words.");
+  });
+  $("safeBtn").addEventListener("click", function () {
+    var on = $("safeOverlay").hidden;
+    $("safeOverlay").hidden = !on;
+    this.setAttribute("aria-pressed", on ? "true" : "false");
+    this.textContent = on ? "Safe-zone overlay: on" : "Safe-zone overlay: off";
+  });
+  var vidUrl = null;
+  $("vidFile").addEventListener("change", function () {
+    var f = this.files[0]; if (!f) return;
+    if (vidUrl) URL.revokeObjectURL(vidUrl);
+    vidUrl = URL.createObjectURL(f);
+    var v = $("vidPrev");
+    v.src = vidUrl; v.style.display = "block";
+    $("grabBtn").disabled = false;
+  });
+  $("grabBtn").addEventListener("click", function () {
+    var v = $("vidPrev");
+    if (!v.videoWidth) { toast("Wait for the video to load, then pause on a frame."); return; }
+    var tmp = document.createElement("canvas");
+    tmp.width = W; tmp.height = H;
+    var tctx = tmp.getContext("2d");
+    var sc = Math.max(W / v.videoWidth, H / v.videoHeight), dw = v.videoWidth * sc, dh = v.videoHeight * sc;
+    tctx.drawImage(v, (W - dw) / 2, (H - dh) / 2, dw, dh);
+    var im = new Image();
+    im.onload = function () { state.bg = im; redraw(); toast("Frame grabbed as background."); };
+    im.src = tmp.toDataURL("image/png");
+  });
+  function saveThumb(blob, name, label) {
+    if (!blob) { toast("Export failed in this browser."); return; }
+    var kb = blob.size / 1024;
+    $("sizeMeter").textContent = "Last export: " + label + " " + (kb < 1024 ? kb.toFixed(0) + " KB" : (kb / 1024).toFixed(2) + " MB") + " — " + (blob.size <= 2 * 1024 * 1024 ? "under YouTube's 2 MB limit." : "OVER YouTube's 2 MB limit — download the JPG version instead.");
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+    toast("Thumbnail downloaded (1280×720 " + label + ").");
+  }
   $("dlBtn").addEventListener("click", function () {
-    canvas.toBlob(function (blob) {
-      if (!blob) { toast("Export failed in this browser."); return; }
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "youtube-thumbnail-1280x720.png";
-      document.body.appendChild(a); a.click();
-      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
-      toast("Thumbnail downloaded (1280×720 PNG).");
-    }, "image/png");
+    canvas.toBlob(function (blob) { saveThumb(blob, "youtube-thumbnail-1280x720.png", "PNG"); }, "image/png");
+  });
+  $("dlJpgBtn").addEventListener("click", function () {
+    var flat = document.createElement("canvas");
+    flat.width = W; flat.height = H;
+    var fctx = flat.getContext("2d");
+    fctx.fillStyle = "#000"; fctx.fillRect(0, 0, W, H);
+    fctx.drawImage(canvas, 0, 0);
+    flat.toBlob(function (blob) { saveThumb(blob, "youtube-thumbnail-1280x720.jpg", "JPG"); }, "image/jpeg", 0.92);
   });
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); });

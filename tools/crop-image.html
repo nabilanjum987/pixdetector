@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is this image cropper really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Crop as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser." } },
-    { "@type": "Question", "name": "Does cropping reduce image quality?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cropping only cuts away pixels outside the frame — the pixels you keep are untouched, so the kept area stays exactly as sharp as the source. Saving as JPG or WebP re-encodes once at the quality you pick; PNG is lossless." } },
-    { "@type": "Question", "name": "What size should I crop for Instagram?", "acceptedAnswer": { "@type": "Answer", "text": "A square post is 1080 by 1080 (1:1), a portrait post is 1080 by 1350 (4:5), and Stories and Reels are 1080 by 1920 (9:16). Instagram shows profile pictures as a circle, so crop a square with the face centred and space around the head." } },
-    { "@type": "Question", "name": "Why does Instagram crop my photo badly?", "acceptedAnswer": { "@type": "Answer", "text": "Because your photo's ratio does not match the platform's. Instagram crops uploads to its own ratios, usually from the centre — which cuts off heads, text and edges. Crop to the right ratio here first, and the platform has nothing left to cut." } },
-    { "@type": "Question", "name": "What is the difference between cropping and resizing?", "acceptedAnswer": { "@type": "Answer", "text": "Cropping cuts part of the picture away to change its shape or focus. Resizing changes the whole picture's pixel dimensions. Crop first to get the shape right, then resize if you need exact pixels." } },
-    { "@type": "Question", "name": "Is my image uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image is cropped in your browser with the canvas element. Nothing is uploaded, stored, or shared." } }
+    {
+      "@type": "Question",
+      "name": "How do I crop an image online for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open a free browser cropper, upload or paste your image, drag the crop box to frame what you want to keep, and download — no account needed. This tool runs entirely in your browser, so nothing uploads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cropping reduce image quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — cropping only removes pixels around the edges; the pixels you keep are untouched. A cropped PNG stays lossless; a cropped JPEG keeps its original quality unless the tool re-encodes it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I crop an image to an exact size in pixels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the width × height inputs on this page to set the selection to exact source pixels, then download. Drag-only croppers need a second resize step to hit exact pixels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between cropping and resizing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cropping removes part of the image; resizing changes its dimensions. Cropping changes framing, resizing changes scale. Crop first to get the shape right, then resize if you need exact pixels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I crop an image on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool works in a mobile browser on iOS and Android; pick from Photos, drag the handles with your finger, and download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What aspect ratio should I use for a profile picture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1:1 square — most avatar uploads want a square; crop to 1:1 first, then export. Instagram shows profile pictures as a circle, so keep the face centred with space around the head."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I crop a photo into a circle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crop to a square first (otherwise you get an oval), turn on Circle mode on this page, and download as PNG — JPG has no transparency, so the corners turn white or black. An image file can't actually be round: a circle crop is a square picture with the corners turned transparent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to crop an ID photo or screenshot online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only with an in-browser tool — the crop happens on your device and nothing uploads. Server-upload tools copy your image elsewhere, so check before cropping sensitive images. This tool never uploads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I crop a GIF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with this tool — it handles still images (JPG, PNG, WebP). For GIFs, EZGIF is the most-used free GIF cropper: no account and exact dimensions, though its interface looks dated. Kapwing and VEED crop GIFs but add signup and export limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size should I crop a YouTube thumbnail / Instagram post to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common targets from the guides: square feed post 1080 × 1080, vertical story 1080 × 1920, link preview 1200 × 628, profile picture 400 × 400 — always verify the platform's current guidelines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything to crop an image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — this tool is a web page, not an app, which is handy on locked-down work laptops where you cannot install software."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I crop multiple images at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with this tool — it crops one image at a time, and there is no batch mode or ZIP export here. Batch tools such as Vayce crop a batch with per-file framing and ZIP export, and iLoveIMG supports modifying multiple images at the same time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will cropping remove the background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — cropping only trims the edges of the frame. Removing a background needs a background-removal tool, not a cropper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the downloaded cropped image go?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wherever your browser normally puts downloads — usually the Downloads folder on desktop, or Files/Photos on mobile; the original on your device is untouched."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I crop before or after compressing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crop first — cropping before compression is more stable than compressing first and cropping later."
+      }
+    }
   ]
 }
 </script>
@@ -34,7 +148,7 @@
   "name": "How to crop an image for free",
   "step": [
     { "@type": "HowToStep", "name": "Upload your image", "text": "Choose an image file. It is read in your browser and never uploaded." },
-    { "@type": "HowToStep", "name": "Pick a ratio or drag freely", "text": "Lock the selection to 1:1, 16:9, 9:16 or 4:3, or leave it on Free and drag any rectangle." },
+    { "@type": "HowToStep", "name": "Pick a ratio, exact pixels or paste", "text": "Lock the selection to a destination ratio (1:1 profile, 16:9 thumbnail, 9:16 story), type exact pixel dimensions, or paste a screenshot with Ctrl+V — then drag the selection box." },
     { "@type": "HowToStep", "name": "Position the selection", "text": "Drag inside the box to move it and drag the corner handle to resize it, keeping the subject in frame." },
     { "@type": "HowToStep", "name": "Download the crop", "text": "Pick PNG, JPG or WebP and download the cropped image at full source resolution." }
   ]
@@ -56,6 +170,9 @@
 input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
 input[type=range],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
 input[type=range]{padding:0}
+input[type=number]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.toggle[aria-pressed="false"]{opacity:.6}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
@@ -102,7 +219,7 @@ table.formats td{color:var(--text2)}
       <h1>Crop Image Online Free</h1>
       <p>Crop any image to the exact shape you need — drag the selection, lock it to 1:1, 16:9, 9:16 or 4:3, and download as PNG, JPG or WebP. Free, no signup, no upload, no watermark.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> cropping <strong>cannot add back what you cut away</strong> — download a copy and keep your original. Cropping never improves sharpness; it only changes the shape and focus. The download is rendered from your <strong>full-resolution original</strong>, not the small preview.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> cropping is <strong>not resizing</strong> — it trims the frame, it does not make a small image bigger or sharper. Cropping <strong>cannot add back what you cut away</strong> — download a copy and keep your original. Cropping never improves sharpness; it only changes the shape and focus. The download is rendered from your <strong>full-resolution original</strong>, not the small preview.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Crop settings">
         <h2>Your image</h2>
@@ -112,11 +229,29 @@ table.formats td{color:var(--text2)}
         <span class="flabel" style="margin-top:16px">Aspect ratio</span>
         <div class="chips" id="ratioChips">
           <button type="button" class="chip" data-ratio="free" aria-pressed="true">Free</button>
-          <button type="button" class="chip" data-ratio="1" aria-pressed="false">1:1 square</button>
-          <button type="button" class="chip" data-ratio="1.7778" aria-pressed="false">16:9 wide</button>
-          <button type="button" class="chip" data-ratio="0.5625" aria-pressed="false">9:16 story</button>
-          <button type="button" class="chip" data-ratio="1.3333" aria-pressed="false">4:3 photo</button>
+          <button type="button" class="chip" data-ratio="1" aria-pressed="false">1:1 · profile / post</button>
+          <button type="button" class="chip" data-ratio="1.7778" aria-pressed="false">16:9 · YouTube thumbnail</button>
+          <button type="button" class="chip" data-ratio="0.5625" aria-pressed="false">9:16 · Story / Reel</button>
+          <button type="button" class="chip" data-ratio="0.8" aria-pressed="false">4:5 · portrait post</button>
+          <button type="button" class="chip" data-ratio="1.3333" aria-pressed="false">4:3 · photo</button>
+          <button type="button" class="chip" data-ratio="1.5" aria-pressed="false">3:2 · photo</button>
+          <button type="button" class="chip" data-ratio="2.3333" aria-pressed="false">21:9 · banner</button>
         </div>
+        <div class="grid2" style="margin-top:16px">
+          <div>
+            <label class="flabel" for="pxW">Exact width (px)</label>
+            <input type="number" id="pxW" min="1" placeholder="e.g. 1200">
+          </div>
+          <div>
+            <label class="flabel" for="pxH">Exact height (px)</label>
+            <input type="number" id="pxH" min="1" placeholder="e.g. 628">
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn alt" id="pxApply" disabled>Apply exact size</button>
+          <button type="button" class="toggle" id="circleBtn" aria-pressed="false">Circle crop: off</button>
+        </div>
+        <p class="trust">Tip: copy a screenshot, then press <strong>Ctrl+V</strong> anywhere on this page to paste it straight into the cropper — no file picker needed. Circle mode forces a 1:1 square and downloads a transparent PNG. The selection size above is live, in source pixels.</p>
         <div class="grid2" style="margin-top:16px">
           <div>
             <label class="flabel" for="fmtSelect">Download format</label>
@@ -174,36 +309,77 @@ table.formats td{color:var(--text2)}
           <tr><td>Instagram portrait post</td><td>4:5</td><td>1080 × 1350</td></tr>
           <tr><td>Stories / Reels / TikTok</td><td>9:16</td><td>1080 × 1920</td></tr>
           <tr><td>YouTube thumbnail</td><td>16:9</td><td>1280 × 720</td></tr>
-          <tr><td>Facebook / LinkedIn link image</td><td>1.91:1</td><td>1200 × 630</td></tr>
-          <tr><td>Profile picture (any platform)</td><td>1:1</td><td>Square, face centred — the platform masks it into a circle</td></tr>
+          <tr><td>Facebook / LinkedIn link image</td><td>1.91:1</td><td>1200 × 628</td></tr>
+          <tr><td>Profile picture (any platform)</td><td>1:1</td><td>400 × 400 — square, face centred; the platform masks it into a circle</td></tr>
         </tbody>
       </table>
-      <p>One correction worth making up front: there is no such thing as a "circle crop" size. Every platform that shows round avatars takes a square (1:1) upload and masks it into a circle itself. You never need to crop to a circle — you need a clean square with your subject centred, and the platform does the rest.</p>
+      <p><strong>Circle crop, done right:</strong> an image file can't actually be round — what you're making is a square picture with the corners turned transparent. So crop to a square (1:1) first, or you get an oval, then turn on Circle mode above and download as PNG. JPG has no transparency, so the corners turn white or black. Many platforms also mask a square upload into a circle themselves, so a clean centred square works there too.</p>
+      <p>These are the common targets from the guides — always verify the platform's current guidelines before publishing, because sizes change.</p>
+      <h2>Crop first, compress later</h2>
+      <p>Cropping before compression is more stable than compressing first and cropping later. Crop to the shape you need here, then shrink the file with an image compressor if it is still too big — that way the compressor works on the pixels you actually keep, not on edges you were going to cut anyway. One warning: saving as JPG or WebP re-encodes the image once, which can soften fine texture slightly; PNG is lossless, so if every pixel matters, download PNG.</p>
+      <h2>Batch cropping</h2>
+      <p>This tool crops one image at a time — there is no batch mode or ZIP export here, and the page won't pretend otherwise. If you need the same crop applied to many images, batch tools such as Vayce offer per-file framing with a "Download all as ZIP" export, and iLoveIMG supports modifying multiple images at the same time.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this image cropper really free?</summary>
-        <p>Yes. Crop as many images as you like, free, with no signup, no watermark and no upload — everything runs in your browser.</p>
+        <summary>How do I crop an image online for free?</summary>
+        <p>Open a free browser cropper, upload or paste your image, drag the crop box to frame what you want to keep, and download — no account needed. This tool runs entirely in your browser, so nothing uploads.</p>
       </details>
       <details class="faq">
         <summary>Does cropping reduce image quality?</summary>
-        <p>No. Cropping only cuts away pixels outside the frame — the pixels you keep are untouched, so the kept area stays exactly as sharp as the source. Saving as JPG or WebP re-encodes once at the quality you pick; PNG is lossless.</p>
+        <p>No — cropping only removes pixels around the edges; the pixels you keep are untouched. A cropped PNG stays lossless; a cropped JPEG keeps its original quality unless the tool re-encodes it.</p>
       </details>
       <details class="faq">
-        <summary>What size should I crop for Instagram?</summary>
-        <p>A square post is 1080 by 1080 (1:1), a portrait post is 1080 by 1350 (4:5), and Stories and Reels are 1080 by 1920 (9:16). Instagram shows profile pictures as a circle, so crop a square with the face centred and space around the head.</p>
-      </details>
-      <details class="faq">
-        <summary>Why does Instagram crop my photo badly?</summary>
-        <p>Because your photo's ratio does not match the platform's. Instagram crops uploads to its own ratios, usually from the centre — which cuts off heads, text and edges. Crop to the right ratio here first, and the platform has nothing left to cut.</p>
+        <summary>How do I crop an image to an exact size in pixels?</summary>
+        <p>Use the width × height inputs on this page to set the selection to exact source pixels, then download. Drag-only croppers need a second resize step to hit exact pixels.</p>
       </details>
       <details class="faq">
         <summary>What is the difference between cropping and resizing?</summary>
-        <p>Cropping cuts part of the picture away to change its shape or focus. Resizing changes the whole picture's pixel dimensions. Crop first to get the shape right, then resize if you need exact pixels.</p>
+        <p>Cropping removes part of the image; resizing changes its dimensions. Cropping changes framing, resizing changes scale. Crop first to get the shape right, then resize if you need exact pixels.</p>
       </details>
       <details class="faq">
-        <summary>Is my image uploaded to a server?</summary>
-        <p>No. Your image is cropped in your browser with the canvas element. Nothing is uploaded, stored, or shared.</p>
+        <summary>Can I crop an image on my phone?</summary>
+        <p>Yes — this tool works in a mobile browser on iOS and Android; pick from Photos, drag the handles with your finger, and download.</p>
+      </details>
+      <details class="faq">
+        <summary>What aspect ratio should I use for a profile picture?</summary>
+        <p>1:1 square — most avatar uploads want a square; crop to 1:1 first, then export. Instagram shows profile pictures as a circle, so keep the face centred with space around the head.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I crop a photo into a circle?</summary>
+        <p>Crop to a square first (otherwise you get an oval), turn on Circle mode on this page, and download as PNG — JPG has no transparency, so the corners turn white or black. An image file can&#x27;t actually be round: a circle crop is a square picture with the corners turned transparent.</p>
+      </details>
+      <details class="faq">
+        <summary>Is it safe to crop an ID photo or screenshot online?</summary>
+        <p>Only with an in-browser tool — the crop happens on your device and nothing uploads. Server-upload tools copy your image elsewhere, so check before cropping sensitive images. This tool never uploads.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I crop a GIF?</summary>
+        <p>Not with this tool — it handles still images (JPG, PNG, WebP). For GIFs, EZGIF is the most-used free GIF cropper: no account and exact dimensions, though its interface looks dated. Kapwing and VEED crop GIFs but add signup and export limits.</p>
+      </details>
+      <details class="faq">
+        <summary>What size should I crop a YouTube thumbnail / Instagram post to?</summary>
+        <p>Common targets from the guides: square feed post 1080 × 1080, vertical story 1080 × 1920, link preview 1200 × 628, profile picture 400 × 400 — always verify the platform&#x27;s current guidelines.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to install anything to crop an image?</summary>
+        <p>No — this tool is a web page, not an app, which is handy on locked-down work laptops where you cannot install software.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I crop multiple images at once?</summary>
+        <p>Not with this tool — it crops one image at a time, and there is no batch mode or ZIP export here. Batch tools such as Vayce crop a batch with per-file framing and ZIP export, and iLoveIMG supports modifying multiple images at the same time.</p>
+      </details>
+      <details class="faq">
+        <summary>Will cropping remove the background?</summary>
+        <p>No — cropping only trims the edges of the frame. Removing a background needs a background-removal tool, not a cropper.</p>
+      </details>
+      <details class="faq">
+        <summary>Where does the downloaded cropped image go?</summary>
+        <p>Wherever your browser normally puts downloads — usually the Downloads folder on desktop, or Files/Photos on mobile; the original on your device is untouched.</p>
+      </details>
+      <details class="faq">
+        <summary>Should I crop before or after compressing?</summary>
+        <p>Crop first — cropping before compression is more stable than compressing first and cropping later.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -260,6 +436,7 @@ table.formats td{color:var(--text2)}
   var dispW = 0, dispH = 0, scale = 1; /* display px per natural px */
   var sel = null; /* {x,y,w,h} in display coords */
   var ratio = null; /* null = free */
+  var circleMode = false;
   var drag = null; /* {mode, startX, startY, orig} */
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -285,7 +462,11 @@ table.formats td{color:var(--text2)}
     }
     /* border + handle */
     ctx.strokeStyle = "#fbbf24"; ctx.lineWidth = 2;
-    ctx.strokeRect(sel.x, sel.y, sel.w, sel.h);
+    if (circleMode) {
+      ctx.beginPath(); ctx.arc(sel.x + sel.w / 2, sel.y + sel.h / 2, Math.min(sel.w, sel.h) / 2, 0, Math.PI * 2); ctx.stroke();
+    } else {
+      ctx.strokeRect(sel.x, sel.y, sel.w, sel.h);
+    }
     ctx.fillStyle = "#fbbf24";
     ctx.fillRect(sel.x + sel.w - 10, sel.y + sel.h - 10, 20, 20);
     updateSelInfo();
@@ -368,6 +549,7 @@ table.formats td{color:var(--text2)}
         $("origInfo").textContent = "Original: " + f.name + " — " + im.naturalWidth + "×" + im.naturalHeight + " (" + fmtKB(origSize) + ")";
         fitSelection();
         $("dlBtn").disabled = false;
+        $("pxApply").disabled = false;
         $("resetBtn").disabled = false;
       };
       im.onerror = function () { var e = $("errorBox"); e.hidden = false; e.textContent = "Could not read that image. Try a JPG, PNG or WebP file."; };
@@ -392,8 +574,10 @@ table.formats td{color:var(--text2)}
     out.width = sw; out.height = sh;
     var octx = out.getContext("2d");
     octx.imageSmoothingEnabled = true; octx.imageSmoothingQuality = "high";
+    if (circleMode) { octx.save(); octx.beginPath(); octx.arc(sw / 2, sh / 2, Math.min(sw, sh) / 2, 0, Math.PI * 2); octx.clip(); }
     octx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
-    var fmt = $("fmtSelect").value;
+    if (circleMode) { octx.restore(); }
+    var fmt = circleMode ? "image/png" : $("fmtSelect").value;
     var q = parseInt($("qInput").value, 10) / 100;
     var ext = fmt === "image/png" ? "png" : fmt === "image/jpeg" ? "jpg" : "webp";
     out.toBlob(function (blob) {
@@ -412,6 +596,42 @@ table.formats td{color:var(--text2)}
   $("copyShare").addEventListener("click", function () {
     var line = $("copyShare").getAttribute("data-share") || "";
     if (navigator.clipboard) navigator.clipboard.writeText(line + " " + location.href).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); });
+  });
+  $("pxApply").addEventListener("click", function () {
+    if (!img) return;
+    var w = parseInt($("pxW").value, 10), h = parseInt($("pxH").value, 10);
+    if (!w || !h || w < 1 || h < 1) { toast("Type a width and height in pixels first."); return; }
+    if (w > img.naturalWidth || h > img.naturalHeight) { toast("That size is bigger than the original (" + img.naturalWidth + "×" + img.naturalHeight + ") — cropping can't make an image bigger."); return; }
+    ratio = null;
+    document.querySelectorAll("#ratioChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-ratio") === "free" ? "true" : "false"); });
+    var dw = Math.round(w * scale), dh = Math.round(h * scale);
+    sel = clampSel({ x: Math.max(0, (dispW - dw) / 2), y: Math.max(0, (dispH - dh) / 2), w: dw, h: dh });
+    draw();
+    $("dlBtn").disabled = false;
+  });
+  $("circleBtn").addEventListener("click", function () {
+    circleMode = !circleMode;
+    this.setAttribute("aria-pressed", circleMode ? "true" : "false");
+    this.textContent = circleMode ? "Circle crop: on (PNG)" : "Circle crop: off";
+    if (!img) return;
+    if (circleMode) {
+      ratio = 1;
+      document.querySelectorAll("#ratioChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-ratio") === "1" ? "true" : "false"); });
+      fitSelection();
+    } else { draw(); }
+  });
+  document.addEventListener("paste", function (ev) {
+    var files = (ev.clipboardData && ev.clipboardData.files) || [];
+    if (!files.length) return;
+    var f = files[0];
+    if (!/^image\//.test(f.type)) return;
+    ev.preventDefault();
+    try {
+      var dt = new DataTransfer();
+      dt.items.add(f);
+      $("imgFile").files = dt.files;
+      $("imgFile").dispatchEvent(new Event("change"));
+    } catch (err) { toast("Paste didn't work in this browser — use the file picker instead."); }
   });
   draw();
 })();

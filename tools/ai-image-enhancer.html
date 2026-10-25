@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Enhancer Free | PixDetector</title>
+<meta name="description" content="Enhance photos free in your browser — sharpen, contrast, brightness, saturation and 2x upscale. No upload, no sign-up, download instantly.">
+<meta name="keywords" content="ai image enhancer free, enhance image online, sharpen image, upscale image 2x, improve photo quality, photo enhancer free">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/ai-image-enhancer">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/ai-image-enhancer">
+<meta property="og:title" content="AI Image Enhancer Free | PixDetector">
+<meta property="og:description" content="Enhance photos free in your browser — sharpen, contrast, brightness, saturation and 2x upscale. No upload, no sign-up, download instantly.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this image enhancer really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can enhance and download as many images as you like with no watermark, no sign-up and no usage limit. Everything runs in your browser, so there is nothing to pay for and no account to create." } },
+    { "@type": "Question", "name": "Does this tool use AI to enhance my photo?", "acceptedAnswer": { "@type": "Answer", "text": "No. Despite the name, no AI system runs on this page. Enhancement here is classic image processing done entirely in your browser: sharpening with a convolution filter, contrast and brightness adjustments, saturation control, and canvas upscaling. No photo is sent anywhere and no AI processing of any kind takes place." } },
+    { "@type": "Question", "name": "Is my photo uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your image never leaves your device. It is loaded into your browser's memory, processed locally on your own computer or phone, and the download is generated from that local result. Closing the tab removes it completely." } },
+    { "@type": "Question", "name": "What does the 2x upscale do?", "acceptedAnswer": { "@type": "Answer", "text": "The 2x upscale doubles the width and height of your image (four times the pixels) using high-quality canvas smoothing, then sharpens the result so the larger image stays crisp. It makes a small image usable at a bigger size, but it cannot invent detail that was never in the original photo." } },
+    { "@type": "Question", "name": "What is the best way to enhance a blurry photo?", "acceptedAnswer": { "@type": "Answer", "text": "Start with the Auto Enhance preset, then raise Sharpen gradually while watching the preview — too much sharpening adds halos and grain. Add a little contrast and saturation for punch. A slightly soft photo improves a lot; a heavily blurred or very low-resolution photo can only be improved so far, because no detail can be recovered that is not in the file." } }
+  ]
+}
+</script>
+<style>
+.ie-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.ie-tool{grid-template-columns:1fr}}
+.ie-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.ie-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:28px 16px;text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent)}
+.dropzone p{font-size:15px;color:var(--text);margin-bottom:6px}
+.dropzone span{font-size:13px;color:var(--text2)}
+#fileInput{display:none}
+.fileinfo{font-size:13px;color:var(--text2);margin-top:12px;min-height:20px;word-break:break-word;line-height:1.6}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.slider-row{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.compare-wrap{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;min-height:180px;display:flex;align-items:center;justify-content:center}
+.compare-wrap canvas{display:block;max-width:100%;height:auto}
+#afterCanvas{position:absolute;top:0;left:0}
+.compare-divider{position:absolute;top:0;bottom:0;width:2px;background:var(--accent);left:50%;pointer-events:none;display:none}
+.compare-divider::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#000;font-size:11px;font-weight:700;border-radius:999px;padding:4px 8px;white-space:nowrap}
+.compare-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text2);font-size:14px;text-align:center;padding:20px;line-height:1.7}
+.compare-tags{position:absolute;top:10px;left:10px;right:10px;display:none;justify-content:space-between;pointer-events:none;z-index:2}
+.compare-tags span{background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;border-radius:999px;padding:4px 10px}
+.compare-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.seg{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.seg[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.compare-slider{flex:1;min-width:140px;accent-color:var(--accent)}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;min-height:20px;word-break:break-word}
+.ie-block{margin-top:40px}
+.ie-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.ie-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.notice{background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--text2);line-height:1.7;margin-top:16px}
+.notice strong{color:var(--text)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      AI Image Enhancer Free
+    </div>
+    <div class="tool-page-header">
+      <h1>✨ AI Image Enhancer Free</h1>
+      <p>Sharpen, brighten and upscale your photos right in the browser — free, with no sign-up and no upload. Your image never leaves your device.</p>
+    </div>
+    <div class="ie-tool">
+      <div class="ie-panel" aria-label="Enhancement settings">
+        <h2>Your image</h2>
+        <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload an image">
+          <p>📁 Drop an image here or click to upload</p>
+          <span>JPG, PNG, WebP or GIF — processed locally, never uploaded</span>
+        </div>
+        <input id="fileInput" type="file" accept="image/*">
+        <p class="fileinfo" id="fileInfo">No image loaded yet.</p>
+        <div class="actions">
+          <button type="button" class="btn alt" id="sampleBtn">Try a sample image</button>
+          <button type="button" class="btn alt" id="clearBtn" disabled>Remove image</button>
+        </div>
+        <hr class="divider">
+        <h2>Enhance</h2>
+        <div class="slider-row">
+          <label for="sharpenRange">Sharpen</label>
+          <input id="sharpenRange" type="range" min="0" max="100" step="1" value="40">
+          <output id="sharpenOut" for="sharpenRange">40</output>
+        </div>
+        <div class="slider-row">
+          <label for="contrastRange">Contrast</label>
+          <input id="contrastRange" type="range" min="-100" max="100" step="1" value="15">
+          <output id="contrastOut" for="contrastRange">15</output>
+        </div>
+        <div class="slider-row">
+          <label for="brightRange">Brightness</label>
+          <input id="brightRange" type="range" min="-100" max="100" step="1" value="0">
+          <output id="brightOut" for="brightRange">0</output>
+        </div>
+        <div class="slider-row">
+          <label for="satRange">Saturation</label>
+          <input id="satRange" type="range" min="0" max="200" step="1" value="110">
+          <output id="satOut" for="satRange">110</output>
+        </div>
+        <div class="compare-controls" style="margin-top:16px">
+          <button type="button" class="seg" id="upscaleToggle" aria-pressed="false">2x upscale: Off</button>
+          <button type="button" class="btn alt" id="autoBtn">✨ Auto Enhance</button>
+          <button type="button" class="btn alt" id="resetBtn">Reset sliders</button>
+        </div>
+        <p class="hint">Every slider updates the preview instantly. Sharpen adds crispness to soft edges; contrast deepens the difference between light and dark; saturation makes colours richer. The Auto Enhance button applies a balanced starting point — adjust from there to taste.</p>
+        <div class="notice"><strong>Honest note:</strong> this page runs no AI system. Enhancement here is classic in-browser image processing — a sharpening convolution filter, contrast and brightness maths, saturation control and canvas upscaling. Your photo is never uploaded and no AI processing of any kind takes place.</div>
+      </div>
+      <div class="ie-panel" aria-label="Enhanced preview">
+        <h2>Preview — before &amp; after</h2>
+        <div class="compare-wrap" id="compareWrap">
+          <div class="compare-empty" id="compareEmpty">
+            <span style="font-size:32px">🖼️</span>
+            <span>Upload an image to see it enhanced here.<br>Drag the slider to compare before and after.</span>
+          </div>
+          <canvas id="beforeCanvas" style="display:none"></canvas>
+          <canvas id="afterCanvas" style="display:none"></canvas>
+          <div class="compare-tags" id="compareTags"><span>BEFORE</span><span>AFTER</span></div>
+          <div class="compare-divider" id="compareDivider"></div>
+        </div>
+        <div class="compare-controls">
+          <button type="button" class="seg" data-view="before" aria-pressed="false">Before</button>
+          <button type="button" class="seg" data-view="split" aria-pressed="true">Compare</button>
+          <button type="button" class="seg" data-view="after" aria-pressed="false">After</button>
+          <input id="compareRange" class="compare-slider" type="range" min="0" max="100" step="1" value="50" aria-label="Before and after comparison position">
+        </div>
+        <p class="meta-line" id="metaLine"></p>
+        <div class="actions">
+          <button type="button" class="btn" id="dlBtn" disabled>Download enhanced PNG</button>
+        </div>
+        <p class="fineprint"><strong>Tip:</strong> download at 2x upscale for a larger file you can print or post at full size. The download is a PNG generated from the preview you see — what you see is exactly what you get.</p>
+      </div>
+    </div>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>Most photos need only a small push to look their best: a little sharpening to bring back edge definition, a touch of contrast so the image stops looking washed out, and slightly richer colour. This enhancer does exactly that, entirely inside your browser. There is no account to create, no upload queue, no watermark stamped on your download and no limit on how many images you enhance. It works on phone photos, screenshots, product shots, old scanned pictures and social media images — anything you can open as a JPG, PNG, WebP or GIF.</p>
+      <p>Let us be completely clear about what happens here, because the name of this page uses the words people search for. <strong>No AI system runs on this page.</strong> There is no machine learning behind the sliders, no photo is sent to any service, and nothing is analysed in the background. The enhancement is classic image processing that has been used in photo editors for decades: a sharpening convolution that strengthens the difference between neighbouring pixels along edges, straightforward brightness and contrast maths applied to every pixel, a saturation adjustment that moves each colour further from grey, and high-quality canvas smoothing when the image is doubled in size. That honesty matters — it is also why the tool is instant and private. Your photo never leaves your device, so there is nothing to leak, nothing to wait for and nothing stored about you.</p>
+      <p>Because the processing is local, the results are predictable and repeatable. The same image with the same slider positions always produces the same output, which makes this tool handy for batches of similar photos: find the settings that suit one product shot, then apply the same numbers to the rest. It also means the tool works offline once the page has loaded, and on a slow connection it is no slower than on a fast one.</p>
+      <h2 style="margin-top:28px">How to enhance an image in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Upload your photo</h3><p>Click the upload box or drag an image onto it. It loads instantly and stays on your device — nothing is sent anywhere.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Adjust the sliders</h3><p>Try Auto Enhance first, then fine-tune sharpen, contrast, brightness and saturation. Drag the compare slider to check before against after.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Download the result</h3><p>Switch on 2x upscale if you need a bigger file, then download the enhanced image as a PNG — free, with no watermark.</p></div>
+      </div>
+      <h2 style="margin-top:28px">What each control actually does</h2>
+      <p><strong>Sharpen</strong> runs a 3×3 convolution filter over the image. Along every edge it increases the difference between neighbouring pixels, which the eye reads as crispness. A value around 30–50 suits most phone photos. Push it past 70 and you will start to see bright halos around edges and extra grain in flat areas like skies, so stop as soon as the detail looks clear.</p>
+      <p><strong>Contrast</strong> stretches the tones apart: dark pixels get darker and bright pixels get brighter. A small positive value (10–25) is usually enough to rescue a flat, hazy-looking photo. Negative contrast flattens the image and is occasionally useful for taming a harsh, over-contrasty shot before printing.</p>
+      <p><strong>Brightness</strong> shifts every pixel up or down by the same amount. It is the right fix for a photo that is simply too dark or too washed out, but it cannot recover detail that is clipped to pure black or pure white — those pixels hold no information to bring back.</p>
+      <p><strong>Saturation</strong> controls how vivid the colours are. At 100 the colours are unchanged; at 0 the image is greyscale; at 110–130 most photos look a little more alive without looking unnatural. Portraits usually need less saturation than landscapes or product photos.</p>
+      <p><strong>2x upscale</strong> doubles the width and height, giving four times as many pixels, using the browser's high-quality image smoothing, and then sharpens the enlarged result. It makes a small image usable at a larger size — for a print, a slide deck or a marketplace listing that demands minimum dimensions. What it cannot do is invent detail that was never captured. A 500-pixel-wide photo upscaled to 1000 pixels will look cleaner and larger, but it will not gain the fine texture of a photo originally shot at 1000 pixels.</p>
+      <h2 style="margin-top:28px">What this enhancer cannot fix</h2>
+      <p>Honest tools say what they cannot do. This enhancer cannot deblur a photo that is badly out of focus, cannot remove heavy compression blocks from a repeatedly re-saved JPEG, and cannot reconstruct a face or text that is only a few pixels wide. Those jobs need a trained restoration system, which this page deliberately does not pretend to be. What it does very well is the everyday job: making a decent photo look finished — sharper, punchier and the right size — in seconds, privately, for free.</p>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+        <summary>Is this image enhancer really free?</summary>
+        <p>Yes. Enhance and download as many images as you like — <strong>no watermark, no sign-up, no usage limit</strong>. Everything runs in your browser, so there is nothing to pay for and no account to create.</p>
+      </details>
+      <details class="faq">
+        <summary>Does this tool use AI to enhance my photo?</summary>
+        <p>No. Despite the name, <strong>no AI system runs on this page</strong>. Enhancement here is classic image processing done entirely in your browser: sharpening with a convolution filter, contrast and brightness adjustments, saturation control, and canvas upscaling. No photo is sent anywhere and no AI processing of any kind takes place.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my photo uploaded anywhere?</summary>
+        <p>No. Your image <strong>never leaves your device</strong>. It is loaded into your browser's memory, processed locally on your own computer or phone, and the download is generated from that local result. Closing the tab removes it completely.</p>
+      </details>
+      <details class="faq">
+        <summary>What does the 2x upscale do?</summary>
+        <p>The 2x upscale <strong>doubles the width and height</strong> of your image (four times the pixels) using high-quality canvas smoothing, then sharpens the result so the larger image stays crisp. It makes a small image usable at a bigger size, but it cannot invent detail that was never in the original photo.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the best way to enhance a blurry photo?</summary>
+        <p>Start with the Auto Enhance preset, then raise Sharpen gradually while watching the preview — <strong>too much sharpening adds halos and grain</strong>. Add a little contrast and saturation for punch. A slightly soft photo improves a lot; a heavily blurred or very low-resolution photo can only be improved so far, because no detail can be recovered that is not in the file.</p>
+      </details>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a><a href="/tools/ai-image-analyzer" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a><a href="/tools/ai-image-quality-checker" class="related-card"><h4>⭐ Quality Checker</h4><p>Check image quality</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var state = { sharpen: 40, contrast: 15, brightness: 0, saturation: 110, upscale: false, view: "split", compare: 50 };
+  var DEFAULTS = { sharpen: 40, contrast: 15, brightness: 0, saturation: 110 };
+  var AUTO = { sharpen: 55, contrast: 20, brightness: 5, saturation: 120 };
+
+  var sourceCanvas = null;   /* original image at natural size */
+  var sourceName = "";
+  var sourceBytes = 0;
+  var renderQueued = false;
+
+  var dropzone = $("dropzone"), fileInput = $("fileInput"), fileInfo = $("fileInfo"),
+      beforeCanvas = $("beforeCanvas"), afterCanvas = $("afterCanvas"),
+      compareWrap = $("compareWrap"), compareEmpty = $("compareEmpty"),
+      compareTags = $("compareTags"), compareDivider = $("compareDivider"),
+      metaLine = $("metaLine"), dlBtn = $("dlBtn");
+  var workCanvas = document.createElement("canvas");
+
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+
+  function fmtBytes(n) {
+    if (!n) return "";
+    if (n < 1024) return n + " B";
+    if (n < 1048576) return (n / 1024).toFixed(1) + " KB";
+    return (n / 1048576).toFixed(2) + " MB";
+  }
+
+  /* ---------- loading ---------- */
+  function setSource(canvas, name, bytes) {
+    sourceCanvas = canvas;
+    sourceName = name || "image";
+    sourceBytes = bytes || 0;
+    compareEmpty.style.display = "none";
+    beforeCanvas.style.display = "block";
+    afterCanvas.style.display = "block";
+    compareTags.style.display = "flex";
+    $("clearBtn").disabled = false;
+    dlBtn.disabled = false;
+    fileInfo.textContent = sourceName + " · " + sourceCanvas.width + " × " + sourceCanvas.height + " px" + (sourceBytes ? " · " + fmtBytes(sourceBytes) : "");
+    applyView();
+    render();
+  }
+
+  function loadFile(file) {
+    if (!file) return;
+    if (!file.type || file.type.indexOf("image/") !== 0) { toast("That file is not an image — pick a JPG, PNG, WebP or GIF."); return; }
+    var url = URL.createObjectURL(file);
+    var img = new Image();
+    img.onload = function () {
+      var c = document.createElement("canvas");
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext("2d").drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+      setSource(c, file.name, file.size);
+      toast("Image loaded — drag the sliders to enhance it.");
+    };
+    img.onerror = function () { URL.revokeObjectURL(url); toast("That image could not be opened. Try a different file."); };
+    img.src = url;
+  }
+
+  function loadSample() {
+    var c = document.createElement("canvas");
+    c.width = 640; c.height = 400;
+    var x = c.getContext("2d");
+    var g = x.createLinearGradient(0, 0, 640, 400);
+    g.addColorStop(0, "#1e3a5f"); g.addColorStop(0.55, "#2e7d6b"); g.addColorStop(1, "#c98a2b");
+    x.fillStyle = g; x.fillRect(0, 0, 640, 400);
+    x.fillStyle = "#f4e8c8";
+    x.beginPath(); x.arc(500, 90, 55, 0, Math.PI * 2); x.fill();
+    x.fillStyle = "#12233a";
+    x.beginPath(); x.moveTo(0, 400); x.lineTo(180, 180); x.lineTo(360, 400); x.closePath(); x.fill();
+    x.beginPath(); x.moveTo(240, 400); x.lineTo(430, 140); x.lineTo(640, 400); x.closePath(); x.fill();
+    x.fillStyle = "#ffffff"; x.font = "bold 44px 'DM Sans', sans-serif";
+    x.fillText("Sample photo", 36, 360);
+    x.font = "20px 'DM Sans', sans-serif";
+    x.fillText("Try the sliders — then upload your own image.", 36, 388);
+    setSource(c, "sample-image.png", 0);
+    toast("Sample loaded — now try the sliders.");
+  }
+
+  /* ---------- enhancement (all local, classic processing) ---------- */
+  function applyAdjustments(data, bright, contrast, sat) {
+    var b = bright;                                   /* -100..100 added per channel */
+    var c = contrast * 2.55;                          /* -255..255 */
+    var f = (259 * (c + 255)) / (255 * (259 - c));    /* standard contrast factor */
+    var s = sat / 100;                                /* 1 = unchanged */
+    for (var i = 0; i < data.length; i += 4) {
+      var r = data[i], gg = data[i + 1], bl = data[i + 2];
+      var gray = 0.299 * r + 0.587 * gg + 0.114 * bl;
+      r = gray + (r - gray) * s;
+      gg = gray + (gg - gray) * s;
+      bl = gray + (bl - gray) * s;
+      r = f * (r - 128) + 128 + b;
+      gg = f * (gg - 128) + 128 + b;
+      bl = f * (bl - 128) + 128 + b;
+      data[i] = r < 0 ? 0 : r > 255 ? 255 : r;
+      data[i + 1] = gg < 0 ? 0 : gg > 255 ? 255 : gg;
+      data[i + 2] = bl < 0 ? 0 : bl > 255 ? 255 : bl;
+    }
+  }
+
+  function sharpenImageData(src, w, h, amount) {
+    /* 3x3 sharpening convolution: centre 1+4a, neighbours -a */
+    var s = src.data, out = new Uint8ClampedArray(s.length);
+    var c0 = 1 + 4 * amount, n = -amount;
+    for (var y = 0; y < h; y++) {
+      for (var x = 0; x < w; x++) {
+        for (var ch = 0; ch < 3; ch++) {
+          var sum = 0;
+          for (var ky = -1; ky <= 1; ky++) {
+            var yy = y + ky; if (yy < 0) yy = 0; if (yy > h - 1) yy = h - 1;
+            for (var kx = -1; kx <= 1; kx++) {
+              var xx = x + kx; if (xx < 0) xx = 0; if (xx > w - 1) xx = w - 1;
+              var k = (kx === 0 && ky === 0) ? c0 : n;
+              sum += s[(yy * w + xx) * 4 + ch] * k;
+            }
+          }
+          out[(y * w + x) * 4 + ch] = sum < 0 ? 0 : sum > 255 ? 255 : sum;
+        }
+        out[(y * w + x) * 4 + 3] = s[(y * w + x) * 4 + 3];
+      }
+    }
+    return new ImageData(out, w, h);
+  }
+
+  function outputSize() {
+    var scale = state.upscale ? 2 : 1;
+    var w = sourceCanvas.width * scale, h = sourceCanvas.height * scale;
+    if (w > 4000) { var s = 4000 / sourceCanvas.width; w = 4000; h = Math.round(sourceCanvas.height * s); }
+    if (h > 4000) { var s2 = 4000 / sourceCanvas.height; h = 4000; w = Math.round(sourceCanvas.width * s2); }
+    return { w: w, h: h };
+  }
+
+  function render() {
+    if (!sourceCanvas) return;
+    var size = outputSize(), w = size.w, h = size.h;
+    [beforeCanvas, afterCanvas, workCanvas].forEach(function (cv) { cv.width = w; cv.height = h; });
+    var bctx = beforeCanvas.getContext("2d");
+    bctx.imageSmoothingEnabled = true; bctx.imageSmoothingQuality = "high";
+    bctx.drawImage(sourceCanvas, 0, 0, w, h);
+    var wctx = workCanvas.getContext("2d");
+    wctx.imageSmoothingEnabled = true; wctx.imageSmoothingQuality = "high";
+    wctx.drawImage(sourceCanvas, 0, 0, w, h);
+    var imgData = wctx.getImageData(0, 0, w, h);
+    applyAdjustments(imgData.data, state.brightness, state.contrast, state.saturation);
+    if (state.sharpen > 0) imgData = sharpenImageData(imgData, w, h, state.sharpen / 100);
+    wctx.putImageData(imgData, 0, 0);
+    var actx = afterCanvas.getContext("2d");
+    actx.drawImage(workCanvas, 0, 0);
+    metaLine.textContent = "Output: " + w + " × " + h + " px" + (state.upscale ? " · 2x upscale on" : " · original size") +
+      " · Sharpen " + state.sharpen + " · Contrast " + state.contrast + " · Brightness " + state.brightness + " · Saturation " + state.saturation;
+  }
+
+  function queueRender() {
+    if (renderQueued) return;
+    renderQueued = true;
+    var done = false;
+    function run() { if (done) return; done = true; renderQueued = false; render(); }
+    requestAnimationFrame(run);
+    setTimeout(run, 50); /* fallback: render even if rAF stalls (background/headless tabs) */
+  }
+
+  /* ---------- compare view ---------- */
+  function applyView() {
+    var segs = document.querySelectorAll("[data-view]");
+    for (var i = 0; i < segs.length; i++) segs[i].setAttribute("aria-pressed", segs[i].getAttribute("data-view") === state.view ? "true" : "false");
+    if (!sourceCanvas) return;
+    var p = state.compare;
+    if (state.view === "before") {
+      afterCanvas.style.display = "none"; beforeCanvas.style.display = "block";
+      compareDivider.style.display = "none";
+      afterCanvas.style.clipPath = "";
+    } else if (state.view === "after") {
+      beforeCanvas.style.display = "none"; afterCanvas.style.display = "block";
+      compareDivider.style.display = "none";
+      afterCanvas.style.clipPath = "";
+    } else {
+      beforeCanvas.style.display = "block"; afterCanvas.style.display = "block";
+      compareDivider.style.display = "block";
+      compareDivider.style.left = p + "%";
+      afterCanvas.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+    }
+  }
+
+  /* ---------- events ---------- */
+  dropzone.addEventListener("click", function () { fileInput.click(); });
+  dropzone.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); } });
+  fileInput.addEventListener("change", function () { loadFile(fileInput.files[0]); fileInput.value = ""; });
+  ["dragenter", "dragover"].forEach(function (ev) {
+    dropzone.addEventListener(ev, function (e) { e.preventDefault(); dropzone.classList.add("over"); });
+  });
+  ["dragleave", "drop"].forEach(function (ev) {
+    dropzone.addEventListener(ev, function (e) { e.preventDefault(); dropzone.classList.remove("over"); });
+  });
+  dropzone.addEventListener("drop", function (e) {
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+
+  $("sampleBtn").addEventListener("click", loadSample);
+  $("clearBtn").addEventListener("click", function () {
+    sourceCanvas = null;
+    beforeCanvas.style.display = "none"; afterCanvas.style.display = "none";
+    compareTags.style.display = "none"; compareDivider.style.display = "none";
+    compareEmpty.style.display = "flex";
+    fileInfo.textContent = "No image loaded yet.";
+    metaLine.textContent = "";
+    dlBtn.disabled = true; $("clearBtn").disabled = true;
+  });
+
+  function bindRange(id, out, key) {
+    $(id).addEventListener("input", function () {
+      state[key] = parseFloat(this.value);
+      $(out).textContent = this.value;
+      queueRender();
+    });
+  }
+  bindRange("sharpenRange", "sharpenOut", "sharpen");
+  bindRange("contrastRange", "contrastOut", "contrast");
+  bindRange("brightRange", "brightOut", "brightness");
+  bindRange("satRange", "satOut", "saturation");
+
+  function setSliders(vals) {
+    state.sharpen = vals.sharpen; state.contrast = vals.contrast;
+    state.brightness = vals.brightness; state.saturation = vals.saturation;
+    $("sharpenRange").value = vals.sharpen; $("sharpenOut").textContent = vals.sharpen;
+    $("contrastRange").value = vals.contrast; $("contrastOut").textContent = vals.contrast;
+    $("brightRange").value = vals.brightness; $("brightOut").textContent = vals.brightness;
+    $("satRange").value = vals.saturation; $("satOut").textContent = vals.saturation;
+    queueRender();
+  }
+  $("autoBtn").addEventListener("click", function () { setSliders(AUTO); toast("Auto Enhance applied — adjust the sliders to taste."); });
+  $("resetBtn").addEventListener("click", function () { setSliders(DEFAULTS); toast("Sliders reset."); });
+
+  $("upscaleToggle").addEventListener("click", function () {
+    state.upscale = !state.upscale;
+    this.setAttribute("aria-pressed", state.upscale ? "true" : "false");
+    this.textContent = "2x upscale: " + (state.upscale ? "On" : "Off");
+    queueRender();
+  });
+
+  document.querySelectorAll("[data-view]").forEach(function (b) {
+    b.addEventListener("click", function () { state.view = b.getAttribute("data-view"); applyView(); });
+  });
+  $("compareRange").addEventListener("input", function () {
+    state.compare = parseFloat(this.value);
+    if (state.view !== "split") { state.view = "split"; }
+    applyView();
+  });
+
+  dlBtn.addEventListener("click", function () {
+    if (!sourceCanvas) return;
+    render();
+    var base = sourceName.replace(/\.[^.]+$/, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "").toLowerCase() || "image";
+    if (afterCanvas.toBlob) {
+      afterCanvas.toBlob(function (blob) {
+        if (!blob) { toast("Download failed — try again."); return; }
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "enhanced-" + base + ".png";
+        document.body.appendChild(a); a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+        toast("Enhanced PNG downloaded.");
+      }, "image/png");
+    } else {
+      var a2 = document.createElement("a");
+      a2.href = afterCanvas.toDataURL("image/png");
+      a2.download = "enhanced-" + base + ".png";
+      a2.click();
+      toast("Enhanced PNG downloaded.");
+    }
+  });
+
+  /* Test access is via the page's own DOM (canvas element ids, buttons). */
+})();
+</script>
+</body>
+</html>

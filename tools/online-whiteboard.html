@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Whiteboard Free | PixDetector</title>
+<meta name="description" content="Free online whiteboard — draw, sketch and brainstorm with pens, colours and an eraser. Save your board as a PNG. No sign-up, nothing uploaded.">
+<meta name="keywords" content="online whiteboard free, free whiteboard online, draw online, digital whiteboard, online drawing board, sketch online, whiteboard app">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/online-whiteboard">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/online-whiteboard">
+<meta property="og:title" content="Online Whiteboard Free | PixDetector">
+<meta property="og:description" content="Free online whiteboard — draw, sketch and brainstorm with pens, colours and an eraser. Save your board as a PNG. No sign-up, nothing uploaded.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this online whiteboard really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The whiteboard is completely free to use with no time limit, no watermark and no sign-up. Draw as much as you like and save your board as a PNG as often as you want." } },
+    { "@type": "Question", "name": "Do I need to sign up or install anything?", "acceptedAnswer": { "@type": "Answer", "text": "No. The whiteboard runs entirely in your browser — there is no account to create, no app to install and no extension to add. Open the page and start drawing straight away." } },
+    { "@type": "Question", "name": "Can I save my whiteboard drawing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click 'Save as PNG' and your whole board downloads as a standard PNG image file you can share, print, paste into a document or keep as a record of your session." } },
+    { "@type": "Question", "name": "Does the whiteboard work on a phone or tablet?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The board supports mouse, trackpad, finger and stylus input, so you can sketch on a phone or tablet just as easily as on a desktop. On touch screens, use one finger to draw and two fingers to scroll the page." } },
+    { "@type": "Question", "name": "Is anything I draw uploaded or saved online?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything you draw stays on your own device — nothing is uploaded to a server, stored in an account or shared with anyone. Closing the tab erases the board, so save a PNG first if you want to keep it." } }
+  ]
+}
+</script>
+<style>
+.wb-tool{margin-bottom:8px}
+.wb-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.wb-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px}
+.wb-toolbar .group{display:flex;align-items:center;gap:8px}
+.wb-toolbar .sep{width:1px;height:28px;background:var(--border2);margin:0 4px}
+.wb-toolbar .tlabel{font-size:13px;font-weight:600;color:var(--text2)}
+.swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;flex:none}
+.swatch[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent)}
+.color-pick{width:34px;height:30px;padding:0;border:1px solid var(--border2);border-radius:8px;background:none;cursor:pointer}
+.slider-row{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:110px;accent-color:var(--accent)}
+.slider-row output{color:var(--text);min-width:28px;text-align:right}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.active{background:var(--accent);color:#000;border-color:var(--accent)}
+#wbCanvas{display:block;width:100%;height:480px;background:#ffffff;border-radius:10px;cursor:crosshair;touch-action:none}
+.wb-meta{font-size:13px;color:var(--text2);margin-top:12px;min-height:20px}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.wb-block{margin-top:40px}
+.wb-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.wb-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Online Whiteboard Free
+    </div>
+    <div class="tool-page-header">
+      <h1>📝 Online Whiteboard Free</h1>
+      <p>Sketch ideas, explain a problem, or doodle for fun on a blank canvas — pens, colours, eraser, undo and one-click PNG export. Everything runs in your browser, nothing is uploaded.</p>
+    </div>
+    <div class="wb-tool">
+      <div class="wb-panel" aria-label="Online whiteboard">
+        <div class="wb-toolbar">
+          <div class="group" role="group" aria-label="Pen colour">
+            <span class="tlabel">Pen</span>
+            <button type="button" class="swatch" data-color="#111111" style="background:#111111" aria-label="Black pen" aria-pressed="true"></button>
+            <button type="button" class="swatch" data-color="#e5484d" style="background:#e5484d" aria-label="Red pen" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-color="#2563eb" style="background:#2563eb" aria-label="Blue pen" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-color="#16a34a" style="background:#16a34a" aria-label="Green pen" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-color="#ea580c" style="background:#ea580c" aria-label="Orange pen" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-color="#7c3aed" style="background:#7c3aed" aria-label="Purple pen" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-color="#db2777" style="background:#db2777" aria-label="Pink pen" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-color="#92400e" style="background:#92400e" aria-label="Brown pen" aria-pressed="false"></button>
+            <input type="color" class="color-pick" id="customColor" value="#111111" aria-label="Custom pen colour" title="Custom colour">
+          </div>
+          <div class="sep"></div>
+          <div class="group slider-row">
+            <label for="brushRange">Brush</label>
+            <input id="brushRange" type="range" min="1" max="40" step="1" value="4">
+            <output id="brushOut" for="brushRange">4 px</output>
+          </div>
+          <div class="sep"></div>
+          <div class="group">
+            <button type="button" class="btn alt" id="eraserBtn" aria-pressed="false">🧽 Eraser</button>
+            <button type="button" class="btn alt" id="undoBtn" disabled>↩ Undo</button>
+            <button type="button" class="btn alt" id="clearBtn">🗑 Clear</button>
+          </div>
+          <div class="sep"></div>
+          <div class="group">
+            <button type="button" class="btn" id="saveBtn">💾 Save as PNG</button>
+          </div>
+        </div>
+        <canvas id="wbCanvas" width="1000" height="480" aria-label="Whiteboard drawing canvas"></canvas>
+        <p class="wb-meta" id="wbMeta">Blank canvas — draw with your mouse, finger or stylus.</p>
+        <p class="fineprint"><strong>Tip:</strong> on a touch screen, draw with one finger and scroll the page with two. Press Undo to step back through your strokes one at a time, or Clear to start over. Save as PNG any time to keep a copy — closing the tab erases the board.</p>
+      </div>
+    </div>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>A whiteboard is the fastest way to think out loud. Whether you are sketching a website layout, working through a maths problem with a student, mapping a business idea, or just doodling while an idea forms, a blank canvas with a pen beats a blank document every time. This free online whiteboard gives you that canvas instantly — no account, no app to install, no meeting link to join. Open the page and start drawing with your mouse, trackpad, finger or stylus.</p>
+      <p>Everything happens in your browser. Your strokes are never uploaded to a server, stored in an account, or shared with anyone else, so you can sketch client work, homework answers, passwords-as-diagrams or anything else without worrying about who else can see it. The board is yours alone: when you close the tab it is gone, which is exactly why the one-click PNG export is there — save the board whenever a sketch is worth keeping, and it downloads as a standard image file you can paste into a document, send in a message, or print.</p>
+      <p>The tool is deliberately simple, because a whiteboard should stay out of your way. Eight pen colours cover the usual jobs — black for writing, red for corrections, blue and green for diagrams, and the rest for highlighting — plus a custom colour picker for anything else. The brush slider runs from a fine 1-pixel line for writing and detail work up to a thick 40-pixel marker for headings and emphasis. The eraser rubs out mistakes without touching the rest of your drawing, and undo steps back through your strokes one at a time, so a slip of the hand costs one click instead of the whole board.</p>
+      <h2 style="margin-top:28px">How to use the whiteboard in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Pick a pen and draw</h3><p>Choose a colour from the palette, set your brush size, then press and drag on the canvas. It works with a mouse, trackpad, finger or stylus.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Fix mistakes as you go</h3><p>Use the eraser to rub out a section, or Undo to step back through your strokes one at a time. Clear wipes the whole board when you want a fresh start.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Save your board</h3><p>Click Save as PNG to download your drawing as a standard image file — share it, print it, or paste it into a document.</p></div>
+      </div>
+      <h2 style="margin-top:28px">What is an online whiteboard good for?</h2>
+      <p>Teachers use it to explain a problem live on a video call, tutors to work through homework with a student, and parents to practise handwriting or drawing with children. Freelancers sketch wireframes and logo ideas before opening design software, and small teams map out a process or brainstorm on a call without paying for a collaboration suite. It is also just a pleasant place to doodle: a blank page with no rules and no audience. Because the board is private by default, it suits anything you would not want on a shared or recorded board — rough drafts, half-formed ideas, and notes that are only for you. If you need to keep a result, export the PNG before you close the tab; if you only needed to think something through, close it and the board disappears with it.</p>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+        <summary>Is this online whiteboard really free?</summary>
+        <p>Yes. The whiteboard is completely free to use with no time limit, no watermark and no sign-up. Draw as much as you like and save your board as a PNG as often as you want.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to sign up or install anything?</summary>
+        <p>No. The whiteboard runs entirely in your browser — there is no account to create, no app to install and no extension to add. Open the page and start drawing straight away.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I save my whiteboard drawing?</summary>
+        <p>Yes. Click 'Save as PNG' and your whole board downloads as a standard PNG image file you can share, print, paste into a document or keep as a record of your session.</p>
+      </details>
+      <details class="faq">
+        <summary>Does the whiteboard work on a phone or tablet?</summary>
+        <p>Yes. The board supports mouse, trackpad, finger and stylus input, so you can sketch on a phone or tablet just as easily as on a desktop. On touch screens, use one finger to draw and two fingers to scroll the page.</p>
+      </details>
+      <details class="faq">
+        <summary>Is anything I draw uploaded or saved online?</summary>
+        <p>No. Everything you draw stays on your own device — nothing is uploaded to a server, stored in an account or shared with anyone. Closing the tab erases the board, so save a PNG first if you want to keep it.</p>
+      </details>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a><a href="/tools/ai-image-analyzer" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a><a href="/tools/ai-image-quality-checker" class="related-card"><h4>⭐ Quality Checker</h4><p>Check image quality</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var canvas = $("wbCanvas"), ctx = canvas.getContext("2d");
+  var meta = $("wbMeta"), undoBtn = $("undoBtn");
+
+  var state = { color: "#111111", size: 4, erasing: false };
+  var drawing = false, lastX = 0, lastY = 0, strokeCount = 0;
+  var history = []; // dataURL snapshots, one per stroke (max 30)
+
+  function fillWhite() { ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+
+  function fitCanvas() {
+    // Keep the CSS height (480px) and match internal width to the displayed width.
+    var w = Math.max(320, Math.floor(canvas.clientWidth || 1000));
+    var dpr = window.devicePixelRatio || 1;
+    var old = null;
+    if (canvas.width > 0) { old = document.createElement("canvas"); old.width = canvas.width; old.height = canvas.height; old.getContext("2d").drawImage(canvas, 0, 0); }
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(480 * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    fillWhite();
+    if (old) ctx.drawImage(old, 0, 0, w, 480);
+  }
+
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+
+  function updateMeta() {
+    meta.textContent = strokeCount === 0
+      ? "Blank canvas — draw with your mouse, finger or stylus."
+      : strokeCount + (strokeCount === 1 ? " stroke" : " strokes") + " on the board · " + history.length + " undo step" + (history.length === 1 ? "" : "s") + " available.";
+    undoBtn.disabled = history.length === 0;
+  }
+
+  function pushHistory() {
+    history.push(canvas.toDataURL("image/png"));
+    if (history.length > 30) history.shift();
+    updateMeta();
+  }
+
+  function restoreFrom(dataUrl) {
+    var img = new Image();
+    img.onload = function () {
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      var dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.restore();
+      updateMeta();
+    };
+    img.src = dataUrl;
+  }
+
+  function pos(e) {
+    var r = canvas.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+
+  function startStroke(e) {
+    e.preventDefault();
+    var p = pos(e);
+    pushHistory();
+    drawing = true;
+    lastX = p.x; lastY = p.y;
+    try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* synthetic events / older browsers */ }
+    drawDot(p.x, p.y);
+  }
+
+  function drawDot(x, y) {
+    ctx.beginPath();
+    ctx.fillStyle = state.erasing ? "#ffffff" : state.color;
+    ctx.arc(x, y, (state.erasing ? Math.max(state.size, 12) : state.size) / 2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function moveStroke(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    var p = pos(e);
+    ctx.beginPath();
+    ctx.strokeStyle = state.erasing ? "#ffffff" : state.color;
+    ctx.lineWidth = state.erasing ? Math.max(state.size, 12) : state.size;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+    lastX = p.x; lastY = p.y;
+  }
+
+  function endStroke(e) {
+    if (!drawing) return;
+    drawing = false;
+    strokeCount++;
+    updateMeta();
+  }
+
+  canvas.addEventListener("pointerdown", startStroke);
+  canvas.addEventListener("pointermove", moveStroke);
+  canvas.addEventListener("pointerup", endStroke);
+  canvas.addEventListener("pointercancel", endStroke);
+  canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+
+  /* ---------- toolbar ---------- */
+  document.querySelectorAll(".swatch").forEach(function (b) {
+    b.addEventListener("click", function () {
+      state.color = b.getAttribute("data-color");
+      state.erasing = false;
+      $("eraserBtn").setAttribute("aria-pressed", "false");
+      $("eraserBtn").classList.remove("active");
+      $("customColor").value = state.color;
+      document.querySelectorAll(".swatch").forEach(function (s) {
+        s.setAttribute("aria-pressed", s === b ? "true" : "false");
+      });
+    });
+  });
+
+  $("customColor").addEventListener("input", function () {
+    state.color = this.value;
+    state.erasing = false;
+    $("eraserBtn").setAttribute("aria-pressed", "false");
+    $("eraserBtn").classList.remove("active");
+    document.querySelectorAll(".swatch").forEach(function (s) {
+      s.setAttribute("aria-pressed", s.getAttribute("data-color").toLowerCase() === state.color.toLowerCase() ? "true" : "false");
+    });
+  });
+
+  $("brushRange").addEventListener("input", function () {
+    state.size = parseInt(this.value, 10);
+    $("brushOut").textContent = this.value + " px";
+  });
+
+  $("eraserBtn").addEventListener("click", function () {
+    state.erasing = !state.erasing;
+    this.setAttribute("aria-pressed", state.erasing ? "true" : "false");
+    this.classList.toggle("active", state.erasing);
+  });
+
+  undoBtn.addEventListener("click", function () {
+    if (!history.length) return;
+    var prev = history.pop();
+    strokeCount = Math.max(0, strokeCount - 1);
+    restoreFrom(prev);
+    toast("Undone");
+  });
+
+  $("clearBtn").addEventListener("click", function () {
+    if (strokeCount === 0) { toast("The board is already blank."); return; }
+    pushHistory();
+    fillWhite();
+    strokeCount = 0;
+    updateMeta();
+    toast("Board cleared");
+  });
+
+  $("saveBtn").addEventListener("click", function () {
+    if (canvas.toBlob) {
+      canvas.toBlob(function (blob) {
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "whiteboard.png";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+        toast("Whiteboard saved as PNG");
+      }, "image/png");
+    } else {
+      var a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "whiteboard.png";
+      a.click();
+      toast("Whiteboard saved as PNG");
+    }
+  });
+
+  var rs;
+  window.addEventListener("resize", function () {
+    clearTimeout(rs);
+    rs = setTimeout(fitCanvas, 200);
+  });
+
+  fitCanvas();
+  updateMeta();
+})();
+</script>
+</body>
+</html>

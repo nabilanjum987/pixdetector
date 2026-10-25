@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free SSL Certificate | PixDetector</title>
+<meta name="description" content="Get a free SSL certificate for your website — Let's Encrypt, Cloudflare and ZeroSSL compared, with setup steps, renewal and mixed-content fixes. No cost.">
+<meta name="keywords" content="free ssl certificate, free ssl, let's encrypt, certbot ssl, cloudflare free ssl, zerossl, install ssl certificate free, https certificate free">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/free-ssl-certificate">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/free-ssl-certificate">
+<meta property="og:title" content="Free SSL Certificate | PixDetector">
+<meta property="og:description" content="Get a free SSL certificate for your website — Let's Encrypt, Cloudflare and ZeroSSL compared, with setup steps, renewal and mixed-content fixes. No cost.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is a free SSL certificate as secure as a paid one?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A free certificate from Let's Encrypt or ZeroSSL uses the same encryption as a paid domain-validated certificate. The padlock in the browser works the same way. Paid certificates only add extras such as organisation validation, extended validation, a warranty or a longer validity period — none of which change the encryption itself." } },
+    { "@type": "Question", "name": "How long does a free SSL certificate last?", "acceptedAnswer": { "@type": "Answer", "text": "Let's Encrypt and ZeroSSL certificates last 90 days. That is by design — short lifetimes limit the damage if a certificate is compromised. Set up automatic renewal with Certbot or your hosting panel so the certificate renews itself before it expires and your site never goes insecure." } },
+    { "@type": "Question", "name": "Do I need a free SSL certificate if my site is already behind Cloudflare?", "acceptedAnswer": { "@type": "Answer", "text": "Cloudflare's free plan encrypts the connection between visitors and Cloudflare, but that is only half the journey. For full end-to-end encryption, install a certificate on your own server too and set Cloudflare's SSL mode to Full or Full (Strict). Flexible mode leaves the connection between Cloudflare and your server unencrypted." } },
+    { "@type": "Question", "name": "Why does my site still show “Not Secure” after installing SSL?", "acceptedAnswer": { "@type": "Answer", "text": "The most common cause is mixed content: your page loads over HTTPS, but an image, script or stylesheet still loads over HTTP. Browsers then show a warning or block the insecure resource. Fix every link to use HTTPS or a relative URL, then clear your cache and reload. A second cause is that your server still serves the HTTP version — add a redirect from HTTP to HTTPS." } },
+    { "@type": "Question", "name": "Can I get a free SSL certificate for a subdomain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Let's Encrypt and ZeroSSL both issue free certificates for subdomains such as blog.example.com, and Let's Encrypt also offers free wildcard certificates that cover every subdomain of a domain at once. Your host may need to support DNS-based validation for wildcards." } }
+  ]
+}
+</script>
+<style>
+.ssl-block{margin-top:40px}
+.ssl-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.ssl-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px;line-height:1.7}
+.ssl-block p{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:14px}
+.ssl-block p strong{color:var(--text)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+table.formats{width:100%;border-collapse:collapse;font-size:13px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+table.formats .fname{color:var(--text);font-weight:600;white-space:nowrap}
+.mono{font-family:monospace;font-size:12px}
+.codebox{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-family:monospace;font-size:13px;color:var(--text);line-height:1.8;overflow-x:auto;margin-bottom:14px;white-space:pre}
+.note{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:14px}
+.note strong{color:var(--text)}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Free SSL Certificate
+    </div>
+    <div class="tool-page-header">
+      <h1>🔒 Free SSL Certificate</h1>
+      <p>A free SSL certificate encrypts your website, shows the padlock in browsers, and helps your rankings. This guide shows you exactly how to get one — with Let's Encrypt, Cloudflare, or ZeroSSL — and keep it renewed.</p>
+    </div>
+    <section class="ssl-block" aria-labelledby="whatH">
+      <h2 id="whatH">What is SSL/TLS and why does it matter?</h2>
+      <p>SSL — now properly called <strong>TLS</strong> — is the encryption layer that turns <strong>http://</strong> into <strong>https://</strong>. When a visitor opens your site over HTTPS, everything sent between their browser and your server is encrypted: passwords, form entries, and page content cannot be read or tampered with on the way. Without it, anyone on the same network can see or alter what passes between your site and its visitors.</p>
+      <p>An SSL certificate is the document that proves your server really is who it claims to be. A certificate authority checks that you control the domain, then signs your certificate. The browser trusts that signature and shows the padlock icon. Since 2018, Chrome marks every plain-HTTP page as "Not Secure", and Google has confirmed HTTPS is a ranking signal — so a certificate is no longer optional for any serious site.</p>
+      <p>The good news: a certificate no longer costs anything. Free certificate authorities such as <strong>Let's Encrypt</strong> issue domain-validated certificates that use exactly the same encryption as paid ones. Paid certificates only add extras — organisation validation, a warranty, or a longer validity period — none of which change the encryption itself. For most sites, free is the right choice.</p>
+    </section>
+    <section class="ssl-block" aria-labelledby="leH">
+      <h2 id="leH">Option 1: Let's Encrypt with Certbot (best for your own server)</h2>
+      <p>Let's Encrypt is a free, non-profit certificate authority trusted by every major browser. Certbot is its official tool: it proves you own the domain, installs the certificate, and sets up automatic renewal. If you run a Linux server with Apache or Nginx, this is the standard way to get HTTPS.</p>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Install Certbot</h3><p>On Ubuntu or Debian, run <span class="mono">sudo apt install certbot python3-certbot-nginx</span> (use the Apache plugin instead if you run Apache).</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Request the certificate</h3><p>Run <span class="mono">sudo certbot --nginx -d example.com -d www.example.com</span>. Certbot proves you control the domain and configures your server automatically.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Test renewal</h3><p>Run <span class="mono">sudo certbot renew --dry-run</span>. If the test passes, renewal is automatic — Certbot installs a timer that renews the certificate before it expires.</p></div>
+      </div>
+      <p style="margin-top:18px">Many hosts make this even easier: cPanel, Plesk, and managed hosts such as SiteGround or DreamHost offer one-click Let's Encrypt in their control panel, with no command line needed at all. If your host has an "SSL/TLS Status" or "Let's Encrypt" section, start there — it is the fastest route.</p>
+    </section>
+    <section class="ssl-block" aria-labelledby="cfH">
+      <h2 id="cfH">Option 2: Cloudflare free SSL (easiest for any site)</h2>
+      <p>Cloudflare's free plan puts its global network in front of your site and issues a free shared certificate for your domain automatically. You point your domain's nameservers to Cloudflare, and visitors connect to Cloudflare over HTTPS. It also adds a free CDN and basic protection against attacks — useful even if your host already offers SSL.</p>
+      <p>Cloudflare's SSL modes matter, because they describe how much of the journey is encrypted. Flexible mode encrypts only the visitor-to-Cloudflare half; the connection from Cloudflare to your server stays plain HTTP. Full mode encrypts both halves, using any valid certificate on your server — including a free Let's Encrypt one. Full (Strict) is the same, but Cloudflare verifies that your server's certificate is genuinely valid. <strong>Use Full or Full (Strict)</strong>; Flexible is only a temporary stopgap while you set up a real certificate.</p>
+      <table class="formats">
+        <thead><tr><th>Mode</th><th>Visitor → Cloudflare</th><th>Cloudflare → your server</th><th>When to use it</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">Flexible</td><td>Encrypted</td><td>Not encrypted</td><td>Only as a temporary step while you install a certificate on your server.</td></tr>
+          <tr><td class="fname">Full</td><td>Encrypted</td><td>Encrypted</td><td>Your server has any certificate, even self-signed. Good default.</td></tr>
+          <tr><td class="fname">Full (Strict)</td><td>Encrypted</td><td>Encrypted + verified</td><td>Best option — your server has a valid certificate from Let's Encrypt or another trusted authority.</td></tr>
+          <tr><td class="fname">Off</td><td>Not encrypted</td><td>Not encrypted</td><td>Never for a public site.</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="ssl-block" aria-labelledby="zsH">
+      <h2 id="zsH">Option 3: ZeroSSL (free certificates without the command line)</h2>
+      <p>ZeroSSL is another free certificate authority, and its web dashboard is the simplest route if you cannot or do not want to use the command line. Create an account, enter your domain, and prove you own it by adding a DNS record or uploading a verification file to your site. ZeroSSL then issues a 90-day certificate that you download and install in your hosting panel. It also offers a free ACME client and a simple API for automation, and — unlike Let's Encrypt's web flow — it works well for people who manage certificates manually for a small number of domains.</p>
+    </section>
+    <section class="ssl-block" aria-labelledby="renewH">
+      <h2 id="renewH">Renewal: the 90-day cycle</h2>
+      <p>Free certificates last <strong>90 days</strong>. That is deliberate: short lifetimes limit the damage if a certificate is ever compromised. The catch is that you must renew on time — an expired certificate makes browsers show a full-page security warning, which is worse than having no certificate at all.</p>
+      <p>The fix is automation. Certbot installs a scheduled renewal check by default; most hosting panels renew Let's Encrypt certificates automatically too. If you manage certificates by hand, set a calendar reminder for day 60 of every certificate and renew early — a certificate can be renewed any time before it expires, and renewing early costs nothing. A monthly check of your site's expiry date is a good habit: if your certificate ever has fewer than 30 days left and no renewal is scheduled, something is wrong.</p>
+    </section>
+    <section class="ssl-block" aria-labelledby="mixedH">
+      <h2 id="mixedH">Fixing mixed-content warnings</h2>
+      <p>The most common problem after installing SSL is mixed content: your page loads over HTTPS, but an image, script, or stylesheet still loads over HTTP. Browsers either block that resource or show a warning, and the padlock disappears. To fix it, change every hardcoded <span class="mono">http://</span> link in your pages, templates, and database to <span class="mono">https://</span> — or use protocol-relative URLs that start with <span class="mono">//</span>, which inherit the page's protocol. Pay special attention to images embedded in old blog posts and to third-party widgets, ad scripts, and fonts.</p>
+      <p>Then force every visitor onto HTTPS with a redirect. On Apache, add this to your <span class="mono">.htaccess</span> file:</p>
+      <div class="codebox">RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</div>
+      <p>On Nginx, add a server block that returns a 301 redirect from port 80 to the HTTPS version. After the redirect is live, update your sitemap and any canonical tags to use HTTPS, and resubmit the sitemap in Search Console so Google re-crawls the secure URLs.</p>
+    </section>
+    <section class="ssl-block" aria-labelledby="checkH">
+      <h2 id="checkH">How to check your certificate is working</h2>
+      <p>Open your site in a private browser window and look for the padlock next to the address bar. Click the padlock to see the certificate details: the domain name, who issued it, and the expiry date. Then test more thoroughly with a free checker — SSL Labs' SSL Test (ssllabs.com/ssltest) grades your setup from A+ to F and flags weak protocols, missing intermediate certificates, and renewal problems. Also try loading your site with <span class="mono">http://</span> in the address bar: it should redirect straight to HTTPS. If any of these checks fail, fix them before announcing the change — a half-finished HTTPS migration hurts more than it helps.</p>
+      <div class="note"><strong>Honest note:</strong> no website can generate a real SSL certificate in your browser. A certificate only works because a trusted authority verifies you control the domain — that check has to happen on a server, not in a web page. Any site offering an instant "generate certificate" button is either issuing a useless self-signed certificate or faking it. The methods on this page are the real ones.</div>
+    </section>
+    <div class="tool-about">
+      <h2>About This Guide</h2>
+      <p>Every website needs HTTPS today — not just shops and banks. Browsers warn visitors away from plain-HTTP pages, Google treats HTTPS as a ranking signal, and features such as service workers, geolocation, and modern payment APIs simply refuse to work without a secure connection. Yet many small sites still run without a certificate, usually because the owner assumes it costs money or requires technical skill. Neither is true any more: a free certificate takes minutes to set up, and this guide walks through the three simplest ways to get one.</p>
+      <p>Which option should you choose? If your host offers one-click Let's Encrypt in its control panel, use that — it is the fastest and most reliable route, with automatic renewal built in. If you run your own server, install Certbot and let it handle everything. If your host offers no SSL at all, put Cloudflare's free plan in front of your site and set its SSL mode to Full (Strict) with a Let's Encrypt certificate on the server. And if you manage a handful of domains by hand and prefer a dashboard to a command line, ZeroSSL is the simplest manual route. Whichever you pick, the certificate itself is identical in strength — the difference is only in how you install and renew it.</p>
+      <h2 style="margin-top:28px">How to get a free SSL certificate in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Pick your method</h3><p>One-click Let's Encrypt in your hosting panel if available; Certbot on your own server; Cloudflare's free plan if your host offers no SSL.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Prove you own the domain</h3><p>Your host, Certbot, or Cloudflare verifies domain control automatically — usually by placing a file on your server or a DNS record.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Force HTTPS and check</h3><p>Redirect all HTTP traffic to HTTPS, fix any mixed content, then test with SSL Labs and confirm the padlock appears.</p></div>
+      </div>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+        <summary>Is a free SSL certificate as secure as a paid one?</summary>
+        <p>Yes. A free certificate from Let's Encrypt or ZeroSSL uses the same encryption as a paid domain-validated certificate. The padlock in the browser works the same way. Paid certificates only add extras such as organisation validation, extended validation, a warranty or a longer validity period — none of which change the encryption itself.</p>
+      </details>
+      <details class="faq">
+        <summary>How long does a free SSL certificate last?</summary>
+        <p>Let's Encrypt and ZeroSSL certificates last 90 days. That is by design — short lifetimes limit the damage if a certificate is compromised. Set up automatic renewal with Certbot or your hosting panel so the certificate renews itself before it expires and your site never goes insecure.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need a free SSL certificate if my site is already behind Cloudflare?</summary>
+        <p>Cloudflare's free plan encrypts the connection between visitors and Cloudflare, but that is only half the journey. For full end-to-end encryption, install a certificate on your own server too and set Cloudflare's SSL mode to Full or Full (Strict). Flexible mode leaves the connection between Cloudflare and your server unencrypted.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does my site still show “Not Secure” after installing SSL?</summary>
+        <p>The most common cause is mixed content: your page loads over HTTPS, but an image, script or stylesheet still loads over HTTP. Browsers then show a warning or block the insecure resource. Fix every link to use HTTPS or a relative URL, then clear your cache and reload. A second cause is that your server still serves the HTTP version — add a redirect from HTTP to HTTPS.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I get a free SSL certificate for a subdomain?</summary>
+        <p>Yes. Let's Encrypt and ZeroSSL both issue free certificates for subdomains such as blog.example.com, and Let's Encrypt also offers free wildcard certificates that cover every subdomain of a domain at once. Your host may need to support DNS-based validation for wildcards.</p>
+      </details>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a><a href="/tools/ai-image-analyzer" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a><a href="/tools/ai-image-seo-checker" class="related-card"><h4>📈 SEO Checker</h4><p>Optimize image SEO</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

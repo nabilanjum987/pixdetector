@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Signature Generator | PixDetector</title>
+<meta name="description" content="Free online signature generator — type your name in elegant script fonts or draw your own signature, then download it as a transparent PNG. No sign-up.">
+<meta name="keywords" content="online signature generator, free signature generator, digital signature maker, create signature online, electronic signature generator, transparent signature png, handwritten signature maker">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/online-signature-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/online-signature-generator">
+<meta property="og:title" content="Online Signature Generator | PixDetector">
+<meta property="og:description" content="Free online signature generator — type your name in elegant script fonts or draw your own signature, then download it as a transparent PNG. No sign-up.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Great+Vibes&family=Dancing+Script:wght@500;700&family=Sacramento&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this online signature generator really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Create and download unlimited signatures as transparent PNGs — no watermark, no sign-up, no usage limit. The generator runs entirely in your browser, so your name and signature never leave your device." } },
+    { "@type": "Question", "name": "Will my signature have a transparent background?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The download is a real PNG with an alpha channel — the canvas is never filled with a background colour, so the signature drops cleanly onto documents, photos, PDFs and letterheads with no white box around it." } },
+    { "@type": "Question", "name": "Is a signature made here legally valid?", "acceptedAnswer": { "@type": "Answer", "text": "A typed or drawn signature image is a picture of a signature, not a certified electronic signature. It is fine for informal use such as emails, documents, watermarks and branding, but for contracts and legally binding documents use a proper e-signature service that records consent, identity and an audit trail." } },
+    { "@type": "Question", "name": "What if the script fonts do not load?", "acceptedAnswer": { "@type": "Answer", "text": "The page loads Great Vibes, Dancing Script and Sacramento from Google Fonts. If those fonts are blocked — for example on an offline connection — your name still renders in your browser's built-in cursive fallback font, and the drawing pad always works regardless of fonts." } },
+    { "@type": "Question", "name": "Can I use my signature on a document or email?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Download the transparent PNG and insert it into Word, Google Docs, a PDF editor or your email signature settings, then resize it to fit the signature line. Because the background is transparent it blends into any page colour." } }
+  ]
+}
+</script>
+<style>
+.sig-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.sig-tool{grid-template-columns:1fr}}
+.sig-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.sig-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+#nameInput{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;padding:12px 14px;outline:none}
+#nameInput:focus{border-color:var(--accent)}
+.mode-tabs{display:flex;gap:8px;margin-bottom:16px}
+.mode-tab{flex:1;background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:10px;padding:10px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer}
+.mode-tab[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:15px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.chip.font-greatvibes{font-family:'Great Vibes',cursive;font-size:19px}
+.chip.font-dancing{font-family:'Dancing Script',cursive;font-size:19px}
+.chip.font-sacramento{font-family:'Sacramento',cursive;font-size:19px}
+.chip.font-cursive{font-family:cursive;font-size:17px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.examples{margin-top:14px;font-size:13px;color:var(--text2)}
+.ex-chip{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 10px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;margin:2px}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.slider-row{display:grid;grid-template-columns:110px 1fr 40px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.row-flex{display:flex;gap:20px;flex-wrap:wrap}
+.color-field{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2)}
+.color-field input{width:36px;height:28px;padding:0;border:1px solid var(--border2);border-radius:6px;background:none;cursor:pointer}
+.label-card{background:#fff;border-radius:10px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;min-height:140px;justify-content:center}
+.label-card.checker{background:repeating-conic-gradient(#e8e8f0 0% 25%, #ffffff 0% 50%) 0 0/24px 24px}
+#sigCanvas{max-width:100%;height:auto;touch-action:none;cursor:crosshair;display:block}
+#sigCanvas.draw-mode{cursor:crosshair}
+.preview-error{display:none;color:#f87171;font-size:14px;text-align:center}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;min-height:20px;word-break:break-word}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.sig-block{margin-top:40px}
+.sig-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.sig-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Online Signature Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>✒️ Online Signature Generator</h1>
+      <p>Type your name in an elegant script font, or draw your own signature with a mouse or finger, then download it as a transparent PNG. Everything runs in your browser — nothing you type or draw is ever uploaded.</p>
+    </div>
+    <div class="sig-tool">
+      <div class="sig-panel" aria-label="Signature settings">
+        <div class="mode-tabs" role="group" aria-label="Signature mode">
+          <button type="button" class="mode-tab" id="modeType" aria-pressed="true">✍️ Type a name</button>
+          <button type="button" class="mode-tab" id="modeDraw" aria-pressed="false">🖊️ Draw it yourself</button>
+        </div>
+        <div id="typeControls">
+          <div class="field">
+            <label class="flabel" for="nameInput">Your name</label>
+            <input id="nameInput" type="text" value="Alex Morgan" autocomplete="off" autocapitalize="off" spellcheck="false" />
+          </div>
+          <span class="flabel" id="styleLabel" style="margin-top:16px">Signature style</span>
+          <div class="chips" id="styleChips" role="group" aria-labelledby="styleLabel">
+            <button type="button" class="chip font-greatvibes" data-font="'Great Vibes', cursive" data-style="Great Vibes" aria-pressed="true">Alex Morgan</button>
+            <button type="button" class="chip font-dancing" data-font="'Dancing Script', cursive" data-style="Dancing Script" aria-pressed="false">Alex Morgan</button>
+            <button type="button" class="chip font-sacramento" data-font="'Sacramento', cursive" data-style="Sacramento" aria-pressed="false">Alex Morgan</button>
+            <button type="button" class="chip font-cursive" data-font="cursive" data-style="Classic Cursive" aria-pressed="false">Alex Morgan</button>
+          </div>
+          <p class="hint" id="styleHint">Great Vibes — a flowing, formal script. Pick a style, then tune the colour and size below.</p>
+          <div class="examples">
+            <span>Try:</span>
+            <button type="button" class="ex-chip" data-ex-name="Sarah Ahmed" data-ex-style="Great Vibes">Sarah Ahmed</button>
+            <button type="button" class="ex-chip" data-ex-name="John Carter" data-ex-style="Dancing Script">John Carter</button>
+            <button type="button" class="ex-chip" data-ex-name="Emma Wilson" data-ex-style="Sacramento">Emma Wilson</button>
+          </div>
+        </div>
+        <div id="drawControls" style="display:none">
+          <p class="hint" style="margin-top:0">Draw your signature on the pad on the right using your mouse, trackpad or finger. Press <strong>Undo</strong> to remove your last stroke, or <strong>Clear</strong> to start over. A thicker pen and darker ink usually look best on documents.</p>
+          <div class="actions" style="margin-top:4px">
+            <button type="button" class="btn alt" id="undoBtn">↩ Undo stroke</button>
+            <button type="button" class="btn alt" id="clearBtn">🗑 Clear pad</button>
+          </div>
+        </div>
+        <hr class="divider" />
+        <h2>Appearance</h2>
+        <div class="slider-row">
+          <label for="sizeRange">Size</label>
+          <input id="sizeRange" type="range" min="32" max="120" step="2" value="72" />
+          <output id="sizeOut" for="sizeRange">72</output>
+        </div>
+        <div class="slider-row" id="penRow" style="display:none">
+          <label for="penRange">Pen width</label>
+          <input id="penRange" type="range" min="1" max="10" step="1" value="3" />
+          <output id="penOut" for="penRange">3</output>
+        </div>
+        <div class="row-flex" style="margin-top:16px;">
+          <label class="color-field">Ink colour <input type="color" id="inkColor" value="#111111" /></label>
+        </div>
+        <p class="hint">Dark ink on a transparent background works on almost any document. Blue ink (#1a3a8f) looks like a classic pen signature if you prefer it.</p>
+      </div>
+      <div class="sig-panel" aria-label="Signature preview">
+        <h2>Preview</h2>
+        <div class="label-card checker">
+          <canvas id="sigCanvas" width="900" height="300" role="img" aria-label="Signature preview"></canvas>
+          <p class="preview-error" id="previewError" role="alert"></p>
+        </div>
+        <p class="meta-line" id="metaLine"></p>
+        <div class="actions">
+          <button type="button" class="btn" id="dlPng">Download transparent PNG</button>
+          <button type="button" class="btn alt" id="copyPng">Copy PNG</button>
+        </div>
+        <p class="fineprint"><strong>Transparency tip:</strong> the checkerboard behind the preview shows transparency — it is not part of your download. The PNG has a real alpha channel, so it sits cleanly on any document or photo with no white box.</p>
+      </div>
+    </div>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>A signature is still the fastest way to make a document feel personal, even in a world of typed names and email approvals. This generator gives you a clean digital version of yours in seconds, without installing an app, creating an account, or handing your name to a server. Type your name and pick one of three elegant script fonts — Great Vibes for a formal flourish, Dancing Script for a friendly handwritten feel, or Sacramento for a light, casual stroke — or switch to the drawing pad and sign with your mouse, trackpad or finger, exactly as you would on paper. Either way, the result downloads as a transparent PNG, ready to drop into a document, a PDF, an email signature, or a website.</p>
+      <p>Transparency is what makes this tool genuinely useful rather than just decorative. A signature saved on a white background always leaves an ugly white rectangle when pasted onto a coloured letterhead, a photo, or a shaded form field. Here the canvas is never filled with a background colour, so the PNG carries a real alpha channel: only the ink itself is visible, and whatever sits underneath shows through. That is the same trick professional designers use for logos, and it means one download works everywhere — Word, Google Docs, PDF editors, Canva, email clients, and image editors — without any extra cleanup.</p>
+      <p>Because everything runs in your browser, your signature stays yours. Nothing you type or draw is uploaded, stored, or sent anywhere, and there is no account to create and no watermark stamped on the result. You can generate as many versions as you like — try a different font, a bolder size, blue ink instead of black — and keep the one that looks most like you. If you draw your signature, the undo button removes one stroke at a time, so a shaky line does not mean starting from scratch.</p>
+      <h2 style="margin-top:28px">How to create your signature in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Type or draw</h3><p>Type your name and choose a script style, or switch to the drawing pad and sign freehand with your mouse or finger.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Style it</h3><p>Adjust the size, pick an ink colour, and for drawn signatures set the pen width until it looks right on the checkerboard preview.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Download the PNG</h3><p>Save the transparent PNG and insert it into your document, PDF, or email signature — it blends into any background.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Where to use your digital signature</h2>
+      <p>A transparent PNG signature is useful far beyond signing letters. Freelancers paste it into invoices and proposals to look established; job seekers add it to cover letters and CVs; small business owners put it on quotes, receipts, and certificates; teachers and coaches sign digital worksheets and completion certificates. It also works as a personal watermark on photos and artwork, and as the sign-off image in an email signature block. For any of these uses, keep the file at a generous size and shrink it in the document rather than stretching a small one — the download is exported at full canvas resolution, so it stays crisp when resized down.</p>
+      <p>One honest limit to keep in mind: a signature image is a picture, not a certified electronic signature. It is perfect for informal and everyday use, but contracts, legal filings, and regulated documents usually need a proper e-signature service that records who signed, when, and with what consent. Use this tool for the everyday cases, and reach for a dedicated e-signature platform when the document carries legal weight.</p>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+        <summary>Is this online signature generator really free?</summary>
+        <p>Yes. Create and download unlimited signatures as transparent PNGs — <strong>no watermark, no sign-up, no usage limit</strong>. The generator runs entirely in your browser, so your name and signature never leave your device.</p>
+      </details>
+      <details class="faq">
+        <summary>Will my signature have a transparent background?</summary>
+        <p>Yes. The download is a real PNG with an alpha channel — the canvas is never filled with a background colour, so the signature drops cleanly onto documents, photos, PDFs and letterheads with <strong>no white box</strong> around it.</p>
+      </details>
+      <details class="faq">
+        <summary>Is a signature made here legally valid?</summary>
+        <p>A typed or drawn signature image is a picture of a signature, not a certified electronic signature. It is fine for informal use such as emails, documents, watermarks and branding, but for contracts and legally binding documents use a <strong>proper e-signature service</strong> that records consent, identity and an audit trail.</p>
+      </details>
+      <details class="faq">
+        <summary>What if the script fonts do not load?</summary>
+        <p>The page loads Great Vibes, Dancing Script and Sacramento from Google Fonts. If those fonts are blocked — for example on an offline connection — your name still renders in your browser's built-in <strong>cursive fallback font</strong>, and the drawing pad always works regardless of fonts.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use my signature on a document or email?</summary>
+        <p>Yes. Download the transparent PNG and insert it into Word, Google Docs, a PDF editor or your email signature settings, then resize it to fit the signature line. Because the background is transparent it <strong>blends into any page colour</strong>.</p>
+      </details>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create print-ready barcodes</p></a><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a><a href="/tools/ai-image-analyzer" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a><a href="/tools/ai-image-quality-checker" class="related-card"><h4>⭐ Quality Checker</h4><p>Check image quality</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var canvas = $("sigCanvas"), ctx = canvas.getContext("2d");
+  var nameInput = $("nameInput"), errBox = $("previewError"), metaLine = $("metaLine");
+  var dlPng = $("dlPng"), copyBtn = $("copyPng");
+
+  var state = {
+    mode: "type",
+    font: "'Great Vibes', cursive",
+    styleName: "Great Vibes",
+    size: 72,
+    penWidth: 3,
+    ink: "#111111"
+  };
+  var undoStack = [];   /* snapshots (data URLs) of canvas before each stroke / render */
+  var drawing = false, lastX = 0, lastY = 0, strokeMoved = false;
+
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+
+  function snapshot() {
+    undoStack.push(canvas.toDataURL("image/png"));
+    if (undoStack.length > 50) undoStack.shift();
+  }
+
+  function restoreSnapshot(dataUrl, cb) {
+    var img = new Image();
+    img.onload = function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+      if (cb) cb();
+    };
+    img.onerror = function () { if (cb) cb(); };
+    img.src = dataUrl;
+  }
+
+  function canvasIsBlank() {
+    var d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    for (var i = 3; i < d.length; i += 4) { if (d[i] !== 0) return false; }
+    return true;
+  }
+
+  function updateMeta() {
+    if (canvasIsBlank()) {
+      errBox.style.display = "block";
+      errBox.textContent = state.mode === "type"
+        ? "Type your name in the box to see your signature."
+        : "Draw your signature on the pad to see it here.";
+      dlPng.disabled = copyBtn.disabled = true;
+      metaLine.textContent = "";
+      return;
+    }
+    errBox.style.display = "none";
+    dlPng.disabled = copyBtn.disabled = false;
+    metaLine.textContent = state.mode === "type"
+      ? state.styleName + " · " + state.size + "px · transparent PNG " + canvas.width + " \u00D7 " + canvas.height
+      : "Hand-drawn · pen " + state.penWidth + "px · transparent PNG " + canvas.width + " \u00D7 " + canvas.height;
+  }
+
+  function renderTyped() {
+    var name = nameInput.value.trim();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (!name) { updateMeta(); return; }
+    ctx.fillStyle = state.ink;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    /* Shrink to fit the canvas width so long names never clip. */
+    var size = state.size;
+    ctx.font = size + "px " + state.font;
+    var w = ctx.measureText(name).width;
+    if (w > canvas.width - 40) {
+      size = Math.max(16, Math.floor(size * (canvas.width - 40) / w));
+      ctx.font = size + "px " + state.font;
+    }
+    ctx.fillText(name, canvas.width / 2, canvas.height / 2 + size * 0.05);
+    updateMeta();
+  }
+
+  function render() {
+    if (state.mode === "type") renderTyped();
+    else updateMeta();
+  }
+
+  /* ---------- mode switching ---------- */
+  function setMode(mode) {
+    state.mode = mode;
+    $("modeType").setAttribute("aria-pressed", mode === "type" ? "true" : "false");
+    $("modeDraw").setAttribute("aria-pressed", mode === "draw" ? "true" : "false");
+    $("typeControls").style.display = mode === "type" ? "" : "none";
+    $("drawControls").style.display = mode === "draw" ? "" : "none";
+    $("penRow").style.display = mode === "draw" ? "" : "none";
+    canvas.classList.toggle("draw-mode", mode === "draw");
+    if (mode === "type") renderTyped();
+    else updateMeta();
+  }
+  $("modeType").addEventListener("click", function () { setMode("type"); });
+  $("modeDraw").addEventListener("click", function () { setMode("draw"); });
+
+  /* ---------- type mode events ---------- */
+  var t;
+  nameInput.addEventListener("input", function () { clearTimeout(t); t = setTimeout(renderTyped, 120); });
+
+  $("styleChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip");
+    if (!b) return;
+    state.font = b.getAttribute("data-font");
+    state.styleName = b.getAttribute("data-style");
+    var chips = this.querySelectorAll(".chip");
+    for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", chips[i] === b ? "true" : "false");
+    $("styleHint").textContent = state.styleName + " — pick a style, then tune the colour and size below.";
+    renderTyped();
+  });
+
+  document.querySelectorAll(".ex-chip").forEach(function (b) {
+    b.addEventListener("click", function () {
+      setMode("type");
+      nameInput.value = b.getAttribute("data-ex-name");
+      var want = b.getAttribute("data-ex-style");
+      var chips = document.querySelectorAll("#styleChips .chip");
+      chips.forEach(function (c) {
+        var on = c.getAttribute("data-style") === want;
+        c.setAttribute("aria-pressed", on ? "true" : "false");
+        if (on) { state.font = c.getAttribute("data-font"); state.styleName = want; }
+      });
+      renderTyped();
+    });
+  });
+
+  $("sizeRange").addEventListener("input", function () {
+    state.size = parseInt(this.value, 10);
+    $("sizeOut").textContent = this.value;
+    if (state.mode === "type") renderTyped();
+  });
+  $("penRange").addEventListener("input", function () {
+    state.penWidth = parseInt(this.value, 10);
+    $("penOut").textContent = this.value;
+  });
+  $("inkColor").addEventListener("input", function () {
+    state.ink = this.value;
+    if (state.mode === "type") renderTyped();
+  });
+
+  /* ---------- draw mode: pointer drawing ---------- */
+  function posFromEvent(ev) {
+    var r = canvas.getBoundingClientRect();
+    return {
+      x: (ev.clientX - r.left) * (canvas.width / r.width),
+      y: (ev.clientY - r.top) * (canvas.height / r.height)
+    };
+  }
+
+  canvas.addEventListener("pointerdown", function (ev) {
+    if (state.mode !== "draw") return;
+    ev.preventDefault();
+    var p = posFromEvent(ev);
+    snapshot();
+    drawing = true; strokeMoved = false;
+    lastX = p.x; lastY = p.y;
+    try { canvas.setPointerCapture(ev.pointerId); } catch (e) { /* synthetic events may not support capture */ }
+    /* A tap without movement still leaves a dot. */
+    ctx.fillStyle = state.ink;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, state.penWidth / 2, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  canvas.addEventListener("pointermove", function (ev) {
+    if (!drawing || state.mode !== "draw") return;
+    ev.preventDefault();
+    var p = posFromEvent(ev);
+    ctx.strokeStyle = state.ink;
+    ctx.lineWidth = state.penWidth;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+    lastX = p.x; lastY = p.y;
+    strokeMoved = true;
+  });
+
+  function endStroke() {
+    if (!drawing) return;
+    drawing = false;
+    if (!strokeMoved) { /* dot already drawn on pointerdown */ }
+    updateMeta();
+  }
+  canvas.addEventListener("pointerup", endStroke);
+  canvas.addEventListener("pointercancel", endStroke);
+
+  $("undoBtn").addEventListener("click", function () {
+    if (!undoStack.length) { toast("Nothing to undo yet."); return; }
+    restoreSnapshot(undoStack.pop(), updateMeta);
+  });
+  $("clearBtn").addEventListener("click", function () {
+    snapshot();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    updateMeta();
+    toast("Pad cleared.");
+  });
+
+  /* ---------- download / copy ---------- */
+  function fileBase() {
+    var s = (nameInput.value || "signature").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return "signature-" + (s || "online");
+  }
+
+  function saveBlob(blob, name) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+  }
+
+  dlPng.addEventListener("click", function () {
+    if (canvasIsBlank()) { toast("Nothing to download yet — type a name or draw first."); return; }
+    if (canvas.toBlob) {
+      canvas.toBlob(function (blob) { saveBlob(blob, fileBase() + ".png"); toast("Transparent PNG downloaded"); }, "image/png");
+    } else {
+      var a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = fileBase() + ".png";
+      a.click();
+      toast("Transparent PNG downloaded");
+    }
+  });
+
+  copyBtn.addEventListener("click", function () {
+    if (canvasIsBlank()) { toast("Nothing to copy yet — type a name or draw first."); return; }
+    if (!navigator.clipboard || typeof ClipboardItem === "undefined") {
+      toast("Copy isn't supported in this browser — use Download PNG.");
+      return;
+    }
+    canvas.toBlob(function (blob) {
+      try {
+        navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]).then(
+          function () { toast("Signature copied — paste it anywhere."); },
+          function () { toast("Copy was blocked — use Download PNG instead."); }
+        );
+      } catch (e) { toast("Copy isn't supported here — use Download PNG."); }
+    }, "image/png");
+  });
+
+  /* Re-render once the script fonts arrive so the first paint uses them. */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { if (state.mode === "type") renderTyped(); });
+  }
+  renderTyped();
+})();
+</script>
+</body>
+</html>

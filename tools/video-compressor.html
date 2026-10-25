@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Video Compressor | PixDetector</title>
+<meta name="description" content="Compress videos online for free — shrink MP4, MOV and WebM files in your browser. Pick a quality preset, download a smaller WebM. No sign-up, no upload.">
+<meta name="keywords" content="video compressor free, free video compressor, compress video online, reduce video size, shrink mp4, video size reducer, compress video without losing quality">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/video-compressor">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/video-compressor">
+<meta property="og:title" content="Free Video Compressor | PixDetector">
+<meta property="og:description" content="Compress videos online for free — shrink MP4, MOV and WebM files in your browser. Pick a quality preset, download a smaller WebM. No sign-up, no upload.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this video compressor really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Compress as many videos as you like with no watermark, no sign-up and no file-size limit beyond what your browser can handle. Everything runs locally in your browser." } },
+    { "@type": "Question", "name": "Why is the compressed video a WebM file?", "acceptedAnswer": { "@type": "Answer", "text": "Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari, and most editors and converters accept it. If you need an MP4, convert the WebM afterwards with a free tool such as HandBrake or FFmpeg." } },
+    { "@type": "Question", "name": "Does the compressed video keep its audio?", "acceptedAnswer": { "@type": "Answer", "text": "No. This compressor re-encodes the picture only, so the downloaded WebM is video-only and has no audio track. If your video needs its sound, use a desktop tool such as HandBrake instead — it keeps the audio and usually compresses further." } },
+    { "@type": "Question", "name": "How long does compression take?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly as long as the video itself. The video is played through in real time while the browser re-encodes it, so a 2-minute clip takes about 2 minutes. Keep the tab open and in the foreground while it runs." } },
+    { "@type": "Question", "name": "Is my video uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your video never leaves your device — it is read, re-encoded and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page." } },
+    { "@type": "Question", "name": "Will compressing reduce the video quality?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, a little — compression works by throwing away picture detail, and a lower bitrate means a smaller file with softer detail. The Balanced preset (~2.5 Mbps) looks good for most phone and screen recordings; use the High preset (~5 Mbps) when quality matters more than size, and the Small preset (~1 Mbps) when you just need the tiniest file." } }
+  ]
+}
+</script>
+<style>
+.vc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.vc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.dropzone{border:2px dashed var(--border2);border-radius:var(--radius);padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:var(--bg3)}
+.dropzone .dz-icon{font-size:34px;display:block;margin-bottom:10px}
+.dropzone .dz-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.dropzone .dz-sub{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6}
+#fileInput{display:none}
+.vid-preview{width:100%;border-radius:10px;background:#000;display:none;margin-top:16px;max-height:320px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.info-cell{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.info-cell .k{font-size:12px;color:var(--text2);letter-spacing:.5px;text-transform:uppercase}
+.info-cell .v{font-size:16px;font-weight:700;margin-top:4px;word-break:break-word}
+select.vc-select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 12px;outline:none;cursor:pointer}
+select.vc-select:focus{border-color:var(--accent)}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.progress-wrap{display:none;margin-top:18px}
+.progress-bar{height:10px;background:var(--bg3);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s linear}
+.progress-text{font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
+.result{display:none;margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.result h3{font-family:'Syne',sans-serif;font-size:16px;margin-bottom:10px}
+.result .savings{font-size:15px;line-height:1.8;color:var(--text2)}
+.result .savings strong{color:var(--accent)}
+.error{display:none;color:#f87171;font-size:14px;line-height:1.7;margin-top:14px}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Free Video Compressor
+    </div>
+    <div class="tool-page-header">
+      <h1>🎬 Free Video Compressor</h1>
+      <p>Drop in a video and shrink it right here in your browser — pick a quality preset, keep the resolution you want, and download a smaller WebM file. Nothing is uploaded, and there is no sign-up.</p>
+    </div>
+
+    <div class="vc-panel" aria-label="Video compressor">
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose a video file">
+        <span class="dz-icon">📹</span>
+        <span class="dz-title">Drop a video here, or click to choose one</span>
+        <p class="dz-sub">MP4, MOV, WebM and most other formats your browser can play.<br>Your video never leaves this device.</p>
+      </div>
+      <input id="fileInput" type="file" accept="video/*" />
+
+      <video id="vidPreview" class="vid-preview" controls muted playsinline></video>
+
+      <div class="info-grid" id="infoGrid" style="display:none">
+        <div class="info-cell"><div class="k">File name</div><div class="v" id="infoName">—</div></div>
+        <div class="info-cell"><div class="k">Original size</div><div class="v" id="infoSize">—</div></div>
+        <div class="info-cell"><div class="k">Duration</div><div class="v" id="infoDuration">—</div></div>
+        <div class="info-cell"><div class="k">Resolution</div><div class="v" id="infoRes">—</div></div>
+      </div>
+
+      <div id="settingsBlock" style="display:none">
+        <hr class="divider" />
+        <h2>Compression settings</h2>
+        <span class="flabel" id="qualityLabel">Quality preset</span>
+        <div class="chips" id="qualityChips" role="group" aria-labelledby="qualityLabel">
+          <button type="button" class="chip" data-bitrate="1000000" aria-pressed="false">Small · ~1 Mbps</button>
+          <button type="button" class="chip" data-bitrate="2500000" aria-pressed="true">Balanced · ~2.5 Mbps</button>
+          <button type="button" class="chip" data-bitrate="5000000" aria-pressed="false">High · ~5 Mbps</button>
+        </div>
+        <p class="hint" id="qualityHint">Balanced (~2.5 Mbps) looks good for most phone and screen recordings.</p>
+        <div style="margin-top:16px">
+          <label class="flabel" for="scaleSelect">Resolution</label>
+          <select class="vc-select" id="scaleSelect">
+            <option value="0" selected>Keep original resolution</option>
+            <option value="1280">Scale down to max 1280 px wide (720p)</option>
+            <option value="854">Scale down to max 854 px wide (480p)</option>
+            <option value="640">Scale down to max 640 px wide (360p)</option>
+          </select>
+        </div>
+        <p class="hint" id="estimateLine"></p>
+        <div class="actions">
+          <button type="button" class="btn" id="compressBtn">Compress video</button>
+          <button type="button" class="btn alt" id="resetBtn">Choose a different video</button>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <p class="progress-text" id="progressText">Starting…</p>
+        </div>
+        <div class="result" id="resultBox">
+          <h3>✅ Your compressed video is ready</h3>
+          <p class="savings" id="resultText"></p>
+          <div class="actions">
+            <a class="btn" id="downloadLink" download="video-compressed.webm" href="#">Download WebM</a>
+            <button type="button" class="btn alt" id="compressAgainBtn">Compress again with different settings</button>
+          </div>
+        </div>
+        <p class="error" id="errorBox" role="alert"></p>
+        <p class="fineprint"><strong>Honest notes:</strong> the output is a <strong>WebM</strong> file — the only format browsers can re-encode natively — and it is <strong>video-only, with no audio track</strong>. Compression runs in real time, so a 2-minute video takes about 2 minutes; keep this tab open and in the foreground while it works. Quality depends on your browser's built-in encoder, and a lower bitrate means a smaller file with softer detail.</p>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>Videos are big because every second is dozens of still pictures, and a phone recording at 4K can easily pass 100 MB a minute. That is fine on your phone, but it is a problem the moment you need to send the clip in a message, attach it to an email, or upload it to a form with a size limit. This compressor shrinks the file by re-encoding it at a lower bitrate — and, if you choose, at a lower resolution — so the same video takes up far less space while still looking good on a screen.</p>
+      <p>Everything happens inside your browser. There is no upload, no queue and no server doing the work, which is why there is no file-size limit beyond what your own device can handle — and also why your video stays completely private. The trade-off is that browsers can only re-encode into formats they natively support, so the result is a WebM file, and the picture is re-encoded without its audio track. WebM plays directly in Chrome, Firefox, Edge and Safari, and if you need an MP4 or the original sound, a free desktop tool such as HandBrake or FFmpeg will convert it in seconds.</p>
+      <p>Pick the preset that matches your goal. <strong>Small (~1 Mbps)</strong> is for the tiniest file — good enough for a quick preview or a chat message where size matters more than detail. <strong>Balanced (~2.5 Mbps)</strong> is the sweet spot for most phone footage, screen recordings and clips shared online. <strong>High (~5 Mbps)</strong> keeps the most detail for videos you plan to keep or show on a big screen. Dropping the resolution helps too: a 4K clip scaled to 720p needs far fewer bits to look sharp, so combining a lower resolution with the Balanced preset is often the biggest single saving.</p>
+      <h2 style="margin-top:28px">How to compress a video in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Choose your video</h3><p>Drop an MP4, MOV, WebM or other playable video onto the page, or click to pick one from your device. Its size, length and resolution appear instantly.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Pick a preset</h3><p>Choose Small, Balanced or High quality, and optionally scale the resolution down. The page shows an estimated output size before you start.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Compress and download</h3><p>Press Compress and wait — it takes roughly as long as the video itself. Then download the smaller WebM file.</p></div>
+      </div>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+        <summary>Is this video compressor really free?</summary>
+        <p>Yes. Compress as many videos as you like with no watermark, no sign-up and no file-size limit beyond what your browser can handle. Everything runs locally in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is the compressed video a WebM file?</summary>
+        <p>Browsers can only re-encode video into formats they natively support, and WebM (VP8/VP9) is the one every modern browser can write. WebM plays in Chrome, Firefox, Edge and Safari, and most editors and converters accept it. If you need an MP4, convert the WebM afterwards with a free tool such as HandBrake or FFmpeg.</p>
+      </details>
+      <details class="faq">
+        <summary>Does the compressed video keep its audio?</summary>
+        <p>No. This compressor re-encodes the picture only, so the downloaded WebM is video-only and has no audio track. If your video needs its sound, use a desktop tool such as HandBrake instead — it keeps the audio and usually compresses further.</p>
+      </details>
+      <details class="faq">
+        <summary>How long does compression take?</summary>
+        <p>Roughly as long as the video itself. The video is played through in real time while the browser re-encodes it, so a 2-minute clip takes about 2 minutes. Keep the tab open and in the foreground while it runs.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my video uploaded anywhere?</summary>
+        <p>No. Your video never leaves your device — it is read, re-encoded and downloaded entirely in your browser. Nothing is sent to a server, and nothing is stored after you close the page.</p>
+      </details>
+      <details class="faq">
+        <summary>Will compressing reduce the video quality?</summary>
+        <p>Yes, a little — compression works by throwing away picture detail, and a lower bitrate means a smaller file with softer detail. The Balanced preset (~2.5 Mbps) looks good for most phone and screen recordings; use the High preset (~5 Mbps) when quality matters more than size, and the Small preset (~1 Mbps) when you just need the tiniest file.</p>
+      </details>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/barcode-generator" class="related-card"><h4>🏷️ Barcode Generator</h4><p>Create barcodes free</p></a><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a><a href="/tools/ai-image-analyzer" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a><a href="/tools/ai-image-quality-checker" class="related-card"><h4>⭐ Quality Checker</h4><p>Check image quality</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+    <script>
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+
+        var QUALITY_HINTS = {
+          1000000: "Small (~1 Mbps) — the tiniest file. Fine for previews and chat messages; detail will look soft.",
+          2500000: "Balanced (~2.5 Mbps) looks good for most phone and screen recordings.",
+          5000000: "High (~5 Mbps) — keeps the most detail. Use it when quality matters more than size."
+        };
+
+        var state = {
+          file: null, url: null,
+          duration: 0, width: 0, height: 0,
+          bitrate: 2500000, scale: 0,
+          busy: false, outUrl: null
+        };
+
+        var dropzone = $("dropzone"), fileInput = $("fileInput"),
+            preview = $("vidPreview"), infoGrid = $("infoGrid"),
+            settingsBlock = $("settingsBlock"), estimateLine = $("estimateLine"),
+            compressBtn = $("compressBtn"), errorBox = $("errorBox"),
+            progressWrap = $("progressWrap"), progressFill = $("progressFill"),
+            progressText = $("progressText"), resultBox = $("resultBox"),
+            resultText = $("resultText"), downloadLink = $("downloadLink");
+
+        function toast(msg) {
+          var t = $("toast");
+          t.textContent = msg;
+          t.classList.add("show");
+          clearTimeout(t._h);
+          t._h = setTimeout(function () { t.classList.remove("show"); }, 2600);
+        }
+
+        function fmtBytes(n) {
+          if (!isFinite(n) || n <= 0) return "—";
+          if (n < 1024) return n + " B";
+          if (n < 1048576) return (n / 1024).toFixed(1) + " KB";
+          if (n < 1073741824) return (n / 1048576).toFixed(2) + " MB";
+          return (n / 1073741824).toFixed(2) + " GB";
+        }
+
+        function fmtTime(s) {
+          if (!isFinite(s) || s <= 0) return "—";
+          s = Math.round(s);
+          var m = Math.floor(s / 60), r = s % 60;
+          return m + ":" + (r < 10 ? "0" : "") + r;
+        }
+
+        function showError(msg) {
+          errorBox.style.display = "block";
+          errorBox.textContent = msg;
+        }
+        function clearError() { errorBox.style.display = "none"; errorBox.textContent = ""; }
+
+        function outDims() {
+          var w = state.width, h = state.height;
+          if (state.scale > 0 && w > state.scale) {
+            var f = state.scale / w;
+            w = state.scale;
+            h = Math.round(h * f);
+          }
+          // Encoders prefer even dimensions.
+          if (w % 2) w -= 1;
+          if (h % 2) h -= 1;
+          return { w: Math.max(2, w), h: Math.max(2, h) };
+        }
+
+        function updateEstimate() {
+          if (!state.file) { estimateLine.textContent = ""; return; }
+          var est = Math.round(state.bitrate * state.duration / 8);
+          var d = outDims();
+          var resNote = (state.scale > 0 && state.width > state.scale)
+            ? " · output " + d.w + "×" + d.h
+            : " · output " + d.w + "×" + d.h;
+          estimateLine.textContent = "Estimated output: about " + fmtBytes(est) +
+            " (from " + fmtBytes(state.file.size) + ")" + resNote +
+            ". Estimate only — the real file depends on the footage.";
+        }
+
+        function pickMime() {
+          var cands = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+          for (var i = 0; i < cands.length; i++) {
+            try { if (window.MediaRecorder && MediaRecorder.isTypeSupported(cands[i])) return cands[i]; } catch (e) {}
+          }
+          return "";
+        }
+
+        function loadFile(file) {
+          clearError();
+          resultBox.style.display = "none";
+          progressWrap.style.display = "none";
+          if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; }
+          if (!file) return;
+          if (!file.type || file.type.indexOf("video/") !== 0) {
+            showError("That doesn't look like a video file. Please choose an MP4, MOV, WebM or other video file.");
+            return;
+          }
+          if (state.url) URL.revokeObjectURL(state.url);
+          state.file = file;
+          state.url = URL.createObjectURL(file);
+          preview.src = state.url;
+          preview.style.display = "block";
+          preview.load();
+          preview.onloadedmetadata = function () {
+            state.duration = preview.duration;
+            state.width = preview.videoWidth;
+            state.height = preview.videoHeight;
+            if (!isFinite(state.duration) || state.duration <= 0) {
+              showError("This video's length could not be read, so it can't be compressed here. Try converting it to MP4 first (e.g. with HandBrake) and upload it again.");
+              infoGrid.style.display = "none";
+              settingsBlock.style.display = "none";
+              return;
+            }
+            if (!state.width || !state.height) {
+              showError("This file has no video picture to compress (it may be audio-only).");
+              infoGrid.style.display = "none";
+              settingsBlock.style.display = "none";
+              return;
+            }
+            $("infoName").textContent = file.name;
+            $("infoSize").textContent = fmtBytes(file.size);
+            $("infoDuration").textContent = fmtTime(state.duration);
+            $("infoRes").textContent = state.width + " × " + state.height;
+            infoGrid.style.display = "grid";
+            settingsBlock.style.display = "block";
+            updateEstimate();
+          };
+          preview.onerror = function () {
+            showError("Your browser couldn't play this video file, so it can't be compressed here. Try an MP4 version of the same clip.");
+            infoGrid.style.display = "none";
+            settingsBlock.style.display = "none";
+          };
+        }
+
+        function compress() {
+          if (state.busy || !state.file) return;
+          clearError();
+          resultBox.style.display = "none";
+          if (typeof MediaRecorder === "undefined") {
+            showError("This browser can't record video (MediaRecorder is not supported). Try Chrome, Edge or Firefox.");
+            return;
+          }
+          var canvas = document.createElement("canvas");
+          if (typeof canvas.captureStream !== "function") {
+            showError("This browser can't capture video from a canvas, so in-browser compression isn't possible here. Try Chrome or Firefox.");
+            return;
+          }
+          var dims = outDims();
+          canvas.width = dims.w;
+          canvas.height = dims.h;
+          var ctx = canvas.getContext("2d");
+          var mime = pickMime();
+          var stream;
+          try {
+            stream = canvas.captureStream(30);
+          } catch (e) {
+            showError("Could not start the video capture stream in this browser. Try Chrome or Firefox.");
+            return;
+          }
+          var rec;
+          try {
+            rec = mime ? new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: state.bitrate })
+                       : new MediaRecorder(stream, { videoBitsPerSecond: state.bitrate });
+          } catch (e) {
+            showError("Your browser refused to start the video recorder (" + (e && e.message ? e.message : e) + "). Try Chrome or Firefox.");
+            return;
+          }
+          var chunks = [];
+          rec.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+          rec.onerror = function () {
+            state.busy = false;
+            compressBtn.disabled = false;
+            progressWrap.style.display = "none";
+            showError("The browser's encoder reported an error part-way through. Try a shorter clip or a different browser.");
+          };
+          rec.onstop = function () {
+            state.busy = false;
+            compressBtn.disabled = false;
+            progressWrap.style.display = "none";
+            var blob = new Blob(chunks, { type: "video/webm" });
+            if (!blob.size) {
+              showError("The encoder produced an empty file. Try a different video or browser.");
+              return;
+            }
+            if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+            state.outUrl = URL.createObjectURL(blob);
+            var saved = state.file.size - blob.size;
+            var pct = state.file.size > 0 ? Math.round(saved / state.file.size * 100) : 0;
+            var base = state.file.name.replace(/\.[^.]+$/, "") || "video";
+            downloadLink.href = state.outUrl;
+            downloadLink.download = base + "-compressed.webm";
+            resultText.innerHTML = "Original: <strong>" + fmtBytes(state.file.size) + "</strong> · Compressed: <strong>" +
+              fmtBytes(blob.size) + "</strong> · " +
+              (saved > 0 ? "Saved <strong>" + fmtBytes(saved) + " (" + pct + "% smaller)</strong>" : "Output is about the same size — this clip was already heavily compressed") +
+              "<br>Format: WebM (" + (mime || "browser default") + "), " + dims.w + "×" + dims.h + ", video-only (no audio track).";
+            resultBox.style.display = "block";
+            resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            toast("Compression finished — " + fmtBytes(blob.size));
+          };
+
+          state.busy = true;
+          compressBtn.disabled = true;
+          progressWrap.style.display = "block";
+          progressFill.style.width = "0%";
+          progressText.textContent = "Starting… this runs in real time, about as long as the video (" + fmtTime(state.duration) + ").";
+
+          var src = document.createElement("video");
+          src.muted = true;
+          src.playsInline = true;
+          src.preload = "auto";
+          src.src = state.url;
+          var raf = 0, stopped = false;
+
+          function drawLoop() {
+            if (stopped) return;
+            if (src.readyState >= 2) {
+              ctx.drawImage(src, 0, 0, dims.w, dims.h);
+              var p = state.duration > 0 ? Math.min(100, src.currentTime / state.duration * 100) : 0;
+              progressFill.style.width = p.toFixed(1) + "%";
+              progressText.textContent = "Compressing… " + Math.round(p) + "% (" + fmtTime(src.currentTime) + " / " + fmtTime(state.duration) + ") — keep this tab open.";
+            }
+            raf = requestAnimationFrame(drawLoop);
+          }
+          src.onended = function () {
+            stopped = true;
+            cancelAnimationFrame(raf);
+            progressFill.style.width = "100%";
+            progressText.textContent = "Finishing up…";
+            try { rec.stop(); } catch (e) {}
+          };
+          src.onerror = function () {
+            stopped = true;
+            cancelAnimationFrame(raf);
+            try { rec.stop(); } catch (e) {}
+            state.busy = false;
+            compressBtn.disabled = false;
+            progressWrap.style.display = "none";
+            showError("The video could not be played back for re-encoding. Try an MP4 version of the same clip.");
+          };
+          src.onloadedmetadata = function () {
+            src.currentTime = 0;
+            var started = src.play();
+            if (started && started.catch) started.catch(function () {
+              stopped = true;
+              cancelAnimationFrame(raf);
+              try { rec.stop(); } catch (e) {}
+              state.busy = false;
+              compressBtn.disabled = false;
+              progressWrap.style.display = "none";
+              showError("Playback was blocked by the browser, so compression couldn't start. Click Compress again.");
+            });
+            try { rec.start(500); } catch (e) {
+              stopped = true;
+              cancelAnimationFrame(raf);
+              state.busy = false;
+              compressBtn.disabled = false;
+              progressWrap.style.display = "none";
+              showError("The recorder couldn't start (" + (e && e.message ? e.message : e) + "). Try Chrome or Firefox.");
+              return;
+            }
+            drawLoop();
+          };
+          src.load();
+        }
+
+        /* ---------- events ---------- */
+        dropzone.addEventListener("click", function () { fileInput.click(); });
+        dropzone.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fileInput.click(); }
+        });
+        fileInput.addEventListener("change", function () {
+          if (fileInput.files && fileInput.files[0]) loadFile(fileInput.files[0]);
+        });
+        ["dragenter", "dragover"].forEach(function (evName) {
+          dropzone.addEventListener(evName, function (ev) { ev.preventDefault(); dropzone.classList.add("over"); });
+        });
+        ["dragleave", "drop"].forEach(function (evName) {
+          dropzone.addEventListener(evName, function (ev) { ev.preventDefault(); dropzone.classList.remove("over"); });
+        });
+        dropzone.addEventListener("drop", function (ev) {
+          var f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0];
+          if (f) loadFile(f);
+        });
+
+        $("qualityChips").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".chip");
+          if (!b || state.busy) return;
+          state.bitrate = parseInt(b.getAttribute("data-bitrate"), 10);
+          var chips = this.querySelectorAll(".chip");
+          for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", chips[i] === b ? "true" : "false");
+          $("qualityHint").textContent = QUALITY_HINTS[state.bitrate];
+          updateEstimate();
+        });
+
+        $("scaleSelect").addEventListener("change", function () {
+          state.scale = parseInt(this.value, 10);
+          updateEstimate();
+        });
+
+        compressBtn.addEventListener("click", compress);
+
+        $("compressAgainBtn").addEventListener("click", function () {
+          resultBox.style.display = "none";
+          if (state.outUrl) { URL.revokeObjectURL(state.outUrl); state.outUrl = null; }
+          compressBtn.disabled = false;
+          window.scrollTo({ top: settingsBlock.offsetTop - 20, behavior: "smooth" });
+        });
+
+        $("resetBtn").addEventListener("click", function () {
+          if (state.busy) return;
+          fileInput.value = "";
+          if (state.url) URL.revokeObjectURL(state.url);
+          if (state.outUrl) URL.revokeObjectURL(state.outUrl);
+          state.file = null; state.url = null; state.outUrl = null;
+          preview.removeAttribute("src");
+          preview.style.display = "none";
+          preview.load();
+          infoGrid.style.display = "none";
+          settingsBlock.style.display = "none";
+          resultBox.style.display = "none";
+          progressWrap.style.display = "none";
+          clearError();
+        });
+      })();
+    </script>
+  </body>
+</html>

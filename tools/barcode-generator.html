@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Barcode Generator | PixDetector</title>
+<meta name="description" content="Free barcode generator — create Code 128, EAN-13, UPC-A and Code 39 barcodes online. Download PNG or SVG, print, or generate a batch. No sign-up.">
+<meta name="keywords" content="barcode generator free, free barcode generator, code 128 generator, ean-13 generator, upc barcode generator, barcode maker, create barcode online">
+<link rel="canonical" href="https://pixdetector.vercel.app/tools/barcode-generator">
+<meta property="og:url" content="https://pixdetector.vercel.app/tools/barcode-generator">
+<meta property="og:title" content="Free Barcode Generator | PixDetector">
+<meta property="og:description" content="Free barcode generator — create Code 128, EAN-13, UPC-A and Code 39 barcodes online. Download PNG or SVG, print, or generate a batch. No sign-up.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is this barcode generator really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can create and download unlimited barcodes as PNG or SVG with no watermark, no sign-up and no usage limit." } },
+    { "@type": "Question", "name": "Will barcodes from here scan properly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the generator produces standard Code 128, EAN-13, UPC-A, Code 39, EAN-8, ITF-14, MSI and Pharmacode symbols that any scanner or phone app can read, as long as you keep enough contrast and the white margin (quiet zone) around the bars." } },
+    { "@type": "Question", "name": "Can I put an EAN-13 or UPC from here on a product I sell in shops?", "acceptedAnswer": { "@type": "Answer", "text": "The codes are technically valid, but retailers require product numbers registered with GS1 in your country. Use this generator freely for internal labels, inventory, assets and testing; register with GS1 before printing numbers on products for retail sale." } },
+    { "@type": "Question", "name": "Should I download PNG or SVG?", "acceptedAnswer": { "@type": "Answer", "text": "Choose SVG for printing and design work — it stays perfectly sharp at any size. Choose PNG for documents, spreadsheets and websites; PNGs are exported at 3x size so they print cleanly too." } },
+    { "@type": "Question", "name": "Do I need to work out the check digit myself?", "acceptedAnswer": { "@type": "Answer", "text": "No. For EAN-13, UPC-A, EAN-8 and ITF-14, type the number without the last digit and the check digit is calculated and added automatically. If you type the full number including the check digit, it is verified instead." } }
+  ]
+}
+</script>
+<style>
+.bc-tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px}
+@media(max-width:720px){.bc-tool{grid-template-columns:1fr}}
+.bc-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.bc-panel h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:14px}
+.flabel{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px}
+#dataInput{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;padding:12px 14px;outline:none}
+#dataInput:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
+.hint{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.6}
+.examples{margin-top:14px;font-size:13px;color:var(--text2)}
+.ex-chip{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:6px 10px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;margin:2px}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
+.slider-row{display:grid;grid-template-columns:110px 1fr 40px;align-items:center;gap:12px;margin-bottom:12px;font-size:14px;color:var(--text2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+.slider-row output{text-align:right;color:var(--text)}
+.row-flex{display:flex;gap:20px}
+.color-field{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2)}
+.color-field input{width:36px;height:28px;padding:0;border:1px solid var(--border2);border-radius:6px;background:none;cursor:pointer}
+.toggle{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:999px;padding:8px 14px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.toggle .track{display:inline-block;width:34px;height:18px;border-radius:999px;background:var(--accent);position:relative}
+.toggle .track::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#000}
+.toggle[aria-pressed="false"] .track{background:var(--text3)}
+.toggle[aria-pressed="false"] .track::after{right:auto;left:2px;background:#fff}
+.label-card{background:#fff;border-radius:10px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;min-height:140px;justify-content:center;overflow-x:auto}
+#barcodeSvg{max-width:100%;height:auto}
+.preview-error{display:none;color:#f87171;font-size:14px;text-align:center}
+.meta-line{font-size:13px;color:var(--text2);margin-top:12px;min-height:20px;word-break:break-word}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:var(--accent);color:#000;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+.btn.alt{background:var(--bg3);color:var(--text);border:1px solid var(--border2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.fineprint{font-size:13px;color:var(--text2);margin-top:14px;line-height:1.7}
+.bc-block{margin-top:40px}
+.bc-block h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px}
+.bc-block .sub{font-size:15px;color:var(--text2);margin-bottom:18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
+.step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+table.formats{width:100%;border-collapse:collapse;font-size:13px}
+table.formats th,table.formats td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
+table.formats th{color:var(--text);background:var(--bg2)}
+table.formats td{color:var(--text2)}
+table.formats .fname{color:var(--text);font-weight:600;white-space:nowrap}
+.mono{font-family:monospace;font-size:12px}
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
+details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.batch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:16px}
+.batch-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px}
+.bc-stage{background:#fff;border-radius:8px;padding:10px;display:flex;justify-content:center;align-items:center;min-height:80px;overflow-x:auto}
+.bc-stage svg{max-width:100%;height:auto}
+.bc-err{color:#dc2626;font-size:13px;text-align:center}
+.bc-value{font-size:12px;color:var(--text2);word-break:break-all;margin:10px 0 8px;text-align:center}
+.bc-actions{display:flex;gap:8px;justify-content:center}
+.bc-actions button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
+#batchInput{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:monospace;font-size:14px;padding:12px 14px;outline:none;resize:vertical}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--text);color:#000;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:99;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Pix<span>Detector</span></a>
+    <div class="nav-links">
+      <a href="/#tools">All Tools</a>
+      <a href="/#how">How it Works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-badge">FREE</div>
+  </div>
+</nav>
+<div class="tool-page">
+  <div class="tool-page-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#tools">Tools</a><span>›</span>
+      Free Barcode Generator
+    </div>
+    <div class="tool-page-header">
+      <h1>🏷️ Free Barcode Generator</h1>
+      <p>Type any text or number, pick a format, and download a print-ready barcode as PNG or SVG. Everything runs in your browser — the data you type never leaves this page.</p>
+    </div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Barcode settings">
+        <div class="field">
+          <label class="flabel" for="dataInput">Barcode data</label>
+          <input id="dataInput" type="text" value="SKU-2026-0001" autocomplete="off" autocapitalize="off" spellcheck="false" />
+        </div>
+        <span class="flabel" id="formatLabel" style="margin-top:16px">Format</span>
+        <div class="chips" id="formatChips" role="group" aria-labelledby="formatLabel">
+          <button type="button" class="chip" data-format="CODE128" aria-pressed="true">Code 128</button>
+          <button type="button" class="chip" data-format="EAN13" aria-pressed="false">EAN-13</button>
+          <button type="button" class="chip" data-format="UPC" aria-pressed="false">UPC-A</button>
+          <button type="button" class="chip" data-format="CODE39" aria-pressed="false">Code 39</button>
+          <button type="button" class="chip" data-format="EAN8" aria-pressed="false">EAN-8</button>
+          <button type="button" class="chip" data-format="ITF14" aria-pressed="false">ITF-14</button>
+          <button type="button" class="chip" data-format="MSI" aria-pressed="false">MSI</button>
+          <button type="button" class="chip" data-format="pharmacode" aria-pressed="false">Pharmacode</button>
+        </div>
+        <p class="hint" id="formatHint"></p>
+        <div class="examples">
+          <span>Try:</span>
+          <button type="button" class="ex-chip" data-ex-format="EAN13" data-ex-value="590123412345">Retail product (EAN-13)</button>
+          <button type="button" class="ex-chip" data-ex-format="UPC" data-ex-value="03600029145">US product (UPC-A)</button>
+          <button type="button" class="ex-chip" data-ex-format="CODE39" data-ex-value="ASSET-1042">Asset tag (Code 39)</button>
+          <button type="button" class="ex-chip" data-ex-format="ITF14" data-ex-value="1001234500001">Carton (ITF-14)</button>
+        </div>
+        <hr class="divider" />
+        <h2>Appearance</h2>
+        <div class="slider-row">
+          <label for="widthRange">Bar width</label>
+          <input id="widthRange" type="range" min="1" max="4" step="0.5" value="2" />
+          <output id="widthOut" for="widthRange">2</output>
+        </div>
+        <div class="slider-row">
+          <label for="heightRange">Height</label>
+          <input id="heightRange" type="range" min="40" max="160" step="5" value="90" />
+          <output id="heightOut" for="heightRange">90</output>
+        </div>
+        <div class="slider-row">
+          <label for="fontRange">Text size</label>
+          <input id="fontRange" type="range" min="10" max="26" step="1" value="17" />
+          <output id="fontOut" for="fontRange">17</output>
+        </div>
+        <div class="slider-row">
+          <label for="marginRange">Margin</label>
+          <input id="marginRange" type="range" min="0" max="30" step="2" value="12" />
+          <output id="marginOut" for="marginRange">12</output>
+        </div>
+        <div class="row-flex" style="margin-top:16px;">
+          <label class="color-field">Bars <input type="color" id="lineColor" value="#111111" /></label>
+          <label class="color-field">Background <input type="color" id="bgColor" value="#ffffff" /></label>
+        </div>
+        <div style="margin-top:12px;">
+          <button type="button" class="toggle" id="textToggle" aria-pressed="true"><span class="track"></span> Show text under the bars</button>
+        </div>
+      </div>
+      <div class="bc-panel" aria-label="Barcode preview">
+        <h2>Preview</h2>
+        <div class="label-card">
+          <svg id="barcodeSvg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generated barcode"></svg>
+          <p class="preview-error" id="previewError" role="alert"></p>
+        </div>
+        <p class="meta-line" id="metaLine"></p>
+        <div class="actions">
+          <button type="button" class="btn" id="dlPng">Download PNG</button>
+          <button type="button" class="btn alt" id="dlSvg">Download SVG</button>
+          <button type="button" class="btn alt" id="copyPng">Copy PNG</button>
+        </div>
+        <p class="fineprint"><strong>Printing tip:</strong> keep the white margin around the bars — scanners need that quiet zone. PNGs download at 3× size for sharp printouts; SVG is sharp at any size.</p>
+      </div>
+    </div>
+    <section class="bc-block" aria-labelledby="batchH">
+      <h2 id="batchH">Need a whole sheet of barcodes?</h2>
+      <p class="sub">Paste one value per line below. Every line is generated with the format and appearance settings above, ready to download one by one.</p>
+      <div class="bc-panel">
+        <label class="flabel" for="batchInput">One barcode value per line (max 40)</label>
+        <textarea id="batchInput" rows="5" spellcheck="false">SKU-2026-0001
+SKU-2026-0002
+SKU-2026-0003
+SKU-2026-0004</textarea>
+        <div class="actions">
+          <button type="button" class="btn" id="batchGo">Generate batch</button>
+        </div>
+        <div class="batch-grid" id="batchGrid"></div>
+      </div>
+    </section>
+    <div class="tool-about">
+      <h2>About This Tool</h2>
+      <p>Barcodes are how the physical world gets a machine-readable name. A warehouse scans a Code 128 label to find a box, a shop scans an EAN-13 at the till, a hospital scans a Pharmacode to verify packaging. This generator creates those same standard barcodes right in your browser — nothing is uploaded, nothing is stored, and there is no watermark or usage limit. Type your data, pick the format that matches where the barcode will be used, and download it as a PNG for documents or an SVG for professional printing.</p>
+      <p>Every format follows its official specification, including check digits. For EAN-13, UPC-A, EAN-8 and ITF-14, type the number without its final digit and the check digit is calculated and added automatically; type the full number and it is verified instead. The batch mode generates a whole sheet at once — one value per line, up to 40 — so labelling a shelf or a stock delivery takes minutes, not hours.</p>
+      <h2 style="margin-top:28px">How to make a barcode in three steps</h2>
+      <div class="steps">
+        <div class="step"><span class="num">STEP 1</span><h3>Enter your data</h3><p>Type the text or number the barcode should carry — a SKU, a product number, an asset ID, anything.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Pick the right format</h3><p>Code 128 handles almost everything. Use EAN-13 or UPC-A for retail products, ITF-14 for shipping cartons.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Download and print</h3><p>Adjust the size and colours, then save as PNG for documents or SVG for professional printing.</p></div>
+      </div>
+      <h2 style="margin-top:28px">Which barcode format should you use?</h2>
+      <p>Every format above follows its official specification, including check digits. The short version:</p>
+      <table class="formats">
+        <thead><tr><th>Format</th><th>Best for</th><th>Accepts</th><th>Good to know</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">Code 128</td><td>Labels, inventory, shipping, warehousing</td><td class="mono">Letters, numbers, punctuation</td><td>The all-rounder — compact and supported by every scanner.</td></tr>
+          <tr><td class="fname">EAN-13</td><td>Retail products worldwide</td><td class="mono">12–13 digits</td><td>The barcode on most shop products outside North America.</td></tr>
+          <tr><td class="fname">UPC-A</td><td>Retail products in the US &amp; Canada</td><td class="mono">11–12 digits</td><td>The North American retail standard.</td></tr>
+          <tr><td class="fname">Code 39</td><td>Asset tags, ID badges, automotive</td><td class="mono">Uppercase, digits, - . $ / + %</td><td>Old and simple; very widely supported, but takes more space.</td></tr>
+          <tr><td class="fname">EAN-8</td><td>Small products and packaging</td><td class="mono">7–8 digits</td><td>The short version of EAN-13 for tiny items.</td></tr>
+          <tr><td class="fname">ITF-14</td><td>Shipping cartons and outer boxes</td><td class="mono">13–14 digits</td><td>Designed to print directly onto corrugated cardboard.</td></tr>
+          <tr><td class="fname">MSI</td><td>Warehouse shelves, internal inventory</td><td class="mono">Digits only</td><td>A legacy format still common on shelf-edge labels.</td></tr>
+          <tr><td class="fname">Pharmacode</td><td>Pharmaceutical packaging</td><td class="mono">One number, 3–131070</td><td>Used to verify packaging in pharma production lines.</td></tr>
+        </tbody>
+      </table>
+      <h2 style="margin-top:28px">FAQ</h2>
+      <details class="faq">
+        <summary>Is this barcode generator really free?</summary>
+        <p>Yes. Create and download unlimited barcodes as PNG or SVG — <strong>no watermark, no sign-up, no usage limit</strong>. The generator runs entirely in your browser.</p>
+      </details>
+      <details class="faq">
+        <summary>Will barcodes from here scan properly?</summary>
+        <p>Yes. The output follows the official specification for each format, including check digits, so any scanner or phone app can read it. For reliable scanning keep <strong>dark bars on a light background</strong> and don't crop the white margin around the code.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I put an EAN-13 or UPC from here on a product I sell in shops?</summary>
+        <p>The codes themselves are technically valid, but retailers require product numbers that are <strong>registered with GS1</strong> in your country, so your number is uniquely yours. Use this generator freely for internal labels, inventory, assets and print tests — and register with GS1 before printing numbers on products for retail sale.</p>
+      </details>
+      <details class="faq">
+        <summary>Should I download PNG or SVG?</summary>
+        <p><strong>SVG</strong> for printing and design work — it stays perfectly sharp at any size. <strong>PNG</strong> for documents, spreadsheets and websites; PNGs here are exported at 3× size, so they print cleanly as well.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to work out the check digit myself?</summary>
+        <p>No. For EAN-13, UPC-A, EAN-8 and ITF-14, type the number <strong>without</strong> the final digit and the check digit is calculated and added automatically. If you type the full number including the check digit, it gets verified instead — and flagged if it's wrong.</p>
+      </details>
+    </div>
+    <div class="related-tools">
+      <h2>Related Tools</h2>
+      <div class="related-grid"><a href="/tools/image-to-prompt" class="related-card"><h4>🎨 Image to Prompt</h4><p>Turn images into prompts</p></a><a href="/tools/ai-image-analyzer" class="related-card"><h4>🔬 Image Analyzer</h4><p>Full image analysis</p></a><a href="/tools/ai-image-quality-checker" class="related-card"><h4>⭐ Quality Checker</h4><p>Check image quality</p></a><a href="/tools/ai-image-seo-checker" class="related-card"><h4>📈 SEO Checker</h4><p>Optimize image SEO</p></a></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Pix<span>Detector</span></div>
+        <p>Free AI image detection and analysis tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Top Tools</h4>
+        <a href="/tools/ai-generated-image-checker">AI Image Checker</a>
+        <a href="/tools/ai-deepfake-checker">Deepfake Checker</a>
+        <a href="/tools/ai-generated-image-checker">Fake Image Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Analysis</h4>
+        <a href="/tools/ai-image-analyzer">Image Analyzer</a>
+        <a href="/tools/ai-image-quality-checker">Quality Checker</a>
+        <a href="/tools/ai-image-seo-checker">SEO Checker</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="/about">About Us</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixDetector — Free AI Image Detection Tools</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="../js/jsbarcode.min.js"></script>
+    <script>
+      (function () {
+        var $ = function (id) { return document.getElementById(id); };
+
+        var HINTS = {
+          CODE128: "Any letters, numbers and punctuation. The all-rounder for labels, inventory and shipping.",
+          EAN13: "Numbers only: type 12 digits and the 13th check digit is added automatically — or type all 13 to have it verified.",
+          UPC: "Numbers only: type 11 digits and the check digit is added automatically — or type all 12 to have it verified.",
+          CODE39: "Uppercase letters, numbers and - . $ / + % and spaces. Lowercase is converted to uppercase automatically.",
+          EAN8: "Numbers only: type 7 digits and the check digit is added automatically — or type all 8 to have it verified.",
+          ITF14: "Numbers only: type 13 digits and the check digit is added automatically — or type all 14. Used on shipping cartons.",
+          MSI: "Numbers only. A legacy format still used on warehouse shelves and internal inventory labels.",
+          pharmacode: "One whole number between 3 and 131070. Used on pharmaceutical packaging."
+        };
+        var NAMES = {
+          CODE128: "Code 128", EAN13: "EAN-13", UPC: "UPC-A", CODE39: "Code 39",
+          EAN8: "EAN-8", ITF14: "ITF-14", MSI: "MSI", pharmacode: "Pharmacode"
+        };
+
+        var state = {
+          format: "CODE128",
+          width: 2, height: 90, fontSize: 17, margin: 12,
+          lineColor: "#111111", background: "#ffffff", display: true
+        };
+        var lastValue = "";
+
+        var dataInput = $("dataInput"), svg = $("barcodeSvg"),
+            errBox = $("previewError"), metaLine = $("metaLine"),
+            hint = $("formatHint"), dlPng = $("dlPng"), dlSvg = $("dlSvg");
+
+        function toast(msg) {
+          var t = $("toast");
+          t.textContent = msg;
+          t.classList.add("show");
+          clearTimeout(t._h);
+          t._h = setTimeout(function () { t.classList.remove("show"); }, 2600);
+        }
+
+        function cleanValue(v) {
+          if (state.format === "CODE39") return v.toUpperCase();
+          return v;
+        }
+
+        function makeOptions() {
+          return {
+            format: state.format,
+            width: state.width,
+            height: state.height,
+            displayValue: state.display,
+            fontSize: state.fontSize,
+            lineColor: state.lineColor,
+            background: state.background,
+            margin: state.margin,
+            font: "'IBM Plex Mono', monospace"
+          };
+        }
+
+        function render() {
+          var raw = dataInput.value;
+          var value = cleanValue(raw.trim());
+          lastValue = value;
+          hint.textContent = HINTS[state.format];
+          hint.classList.remove("warn");
+          if (typeof JsBarcode === "undefined") {
+            svg.style.display = "none";
+            errBox.style.display = "block";
+            errBox.textContent = "The barcode engine could not be loaded. Check your connection and reload the page.";
+            dlPng.disabled = dlSvg.disabled = $("copyPng").disabled = true;
+            metaLine.textContent = "";
+            return;
+          }
+          if (!value) {
+            svg.style.display = "none";
+            errBox.style.display = "block";
+            errBox.textContent = "Type something in the barcode data box to see your barcode.";
+            dlPng.disabled = dlSvg.disabled = $("copyPng").disabled = true;
+            metaLine.textContent = "";
+            return;
+          }
+          try {
+            svg.innerHTML = "";
+            JsBarcode(svg, value, makeOptions());
+            svg.style.display = "block";
+            errBox.style.display = "none";
+            dlPng.disabled = dlSvg.disabled = $("copyPng").disabled = false;
+            var shown = value;
+            if (state.display) {
+              var texts = svg.querySelectorAll("text");
+              if (texts.length) {
+                shown = "";
+                for (var ti = 0; ti < texts.length; ti++) shown += texts[ti].textContent;
+              }
+            }
+            metaLine.textContent = NAMES[state.format] + " · encodes \u201C" + shown + "\u201D · " +
+              svg.getAttribute("width") + " \u00D7 " + svg.getAttribute("height");
+            if (state.format === "CODE39" && raw !== raw.toUpperCase()) {
+              hint.textContent = HINTS[state.format] + " Your text was converted to uppercase.";
+            }
+          } catch (e) {
+            svg.style.display = "none";
+            errBox.style.display = "block";
+            errBox.textContent = friendlyError(String(e && e.message ? e.message : e));
+            dlPng.disabled = dlSvg.disabled = $("copyPng").disabled = true;
+            metaLine.textContent = "";
+          }
+        }
+
+        function friendlyError(msg) {
+          if (/not a valid input/i.test(msg) || /checksum/i.test(msg)) {
+            return msg.replace(/^"|"$/g, "") + " — check the format rules above the preview.";
+          }
+          if (/should be/i.test(msg) || /length/i.test(msg) || /digit/i.test(msg)) {
+            return msg + " — see the format note under the format buttons.";
+          }
+          return "That data doesn't fit " + NAMES[state.format] + ". " + msg;
+        }
+
+        function fileBase(value) {
+          var s = String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+          return "barcode-" + (s || "code");
+        }
+
+        function serializeSvg(svgEl) {
+          var clone = svgEl.cloneNode(true);
+          clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+          return new XMLSerializer().serializeToString(clone);
+        }
+
+        function saveBlob(blob, name) {
+          var a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = name;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+        }
+
+        function downloadSvg(svgEl, value) {
+          var blob = new Blob([serializeSvg(svgEl)], { type: "image/svg+xml;charset=utf-8" });
+          saveBlob(blob, fileBase(value) + ".svg");
+          toast("SVG downloaded");
+        }
+
+        function svgToCanvas(svgEl, scale, cb) {
+          var xml = serializeSvg(svgEl);
+          var url = URL.createObjectURL(new Blob([xml], { type: "image/svg+xml;charset=utf-8" }));
+          var img = new Image();
+          img.onload = function () {
+            var w = parseFloat(svgEl.getAttribute("width")) || img.width;
+            var h = parseFloat(svgEl.getAttribute("height")) || img.height;
+            var s = scale;
+            if (w * s > 4000) s = Math.max(1, Math.floor(4000 / w));
+            var canvas = document.createElement("canvas");
+            canvas.width = Math.round(w * s);
+            canvas.height = Math.round(h * s);
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = state.background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            URL.revokeObjectURL(url);
+            cb(canvas);
+          };
+          img.onerror = function () { URL.revokeObjectURL(url); toast("Export failed — try the SVG download instead."); };
+          img.src = url;
+        }
+
+        function downloadPng(svgEl, value) {
+          svgToCanvas(svgEl, 3, function (canvas) {
+            if (canvas.toBlob) {
+              canvas.toBlob(function (blob) { saveBlob(blob, fileBase(value) + ".png"); toast("PNG downloaded at 3\u00D7 size"); }, "image/png");
+            } else {
+              var a = document.createElement("a");
+              a.href = canvas.toDataURL("image/png");
+              a.download = fileBase(value) + ".png";
+              a.click();
+              toast("PNG downloaded at 3\u00D7 size");
+            }
+          });
+        }
+
+        /* ---------- events: main tool ---------- */
+        var t;
+        dataInput.addEventListener("input", function () { clearTimeout(t); t = setTimeout(render, 120); });
+
+        $("formatChips").addEventListener("click", function (ev) {
+          var b = ev.target.closest(".chip");
+          if (!b) return;
+          state.format = b.getAttribute("data-format");
+          var chips = this.querySelectorAll(".chip");
+          for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", chips[i] === b ? "true" : "false");
+          render();
+        });
+
+        document.querySelectorAll(".ex-chip").forEach(function (b) {
+          b.addEventListener("click", function () {
+            state.format = b.getAttribute("data-ex-format");
+            dataInput.value = b.getAttribute("data-ex-value");
+            var chips = document.querySelectorAll("#formatChips .chip");
+            chips.forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-format") === state.format ? "true" : "false"); });
+            render();
+          });
+        });
+
+        function bindRange(id, out, key, suffix) {
+          $(id).addEventListener("input", function () {
+            state[key] = parseFloat(this.value);
+            $(out).textContent = this.value + (suffix || "");
+            render();
+          });
+        }
+        bindRange("widthRange", "widthOut", "width");
+        bindRange("heightRange", "heightOut", "height");
+        bindRange("fontRange", "fontOut", "fontSize");
+        bindRange("marginRange", "marginOut", "margin");
+
+        $("lineColor").addEventListener("input", function () { state.lineColor = this.value; render(); });
+        $("bgColor").addEventListener("input", function () { state.background = this.value; render(); });
+
+        $("textToggle").addEventListener("click", function () {
+          state.display = !state.display;
+          this.setAttribute("aria-pressed", state.display ? "true" : "false");
+          render();
+        });
+
+        dlPng.addEventListener("click", function () { if (lastValue) downloadPng(svg, lastValue); });
+        dlSvg.addEventListener("click", function () { if (lastValue) downloadSvg(svg, lastValue); });
+        $("copyPng").addEventListener("click", function () {
+          if (!lastValue) return;
+          if (!navigator.clipboard || typeof ClipboardItem === "undefined") {
+            toast("Copy isn't supported in this browser — use Download PNG.");
+            return;
+          }
+          svgToCanvas(svg, 3, function (canvas) {
+            canvas.toBlob(function (blob) {
+              try {
+                navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]).then(
+                  function () { toast("Barcode image copied — paste it anywhere."); },
+                  function () { toast("Copy was blocked — use Download PNG instead."); }
+                );
+              } catch (e) { toast("Copy isn't supported here — use Download PNG."); }
+            }, "image/png");
+          });
+        });
+
+        /* ---------- batch ---------- */
+        $("batchGo").addEventListener("click", function () {
+          var grid = $("batchGrid");
+          grid.innerHTML = "";
+          var lines = $("batchInput").value.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+          if (!lines.length) { toast("Paste at least one value, one per line."); return; }
+          if (lines.length > 40) { toast("Only the first 40 lines were generated."); lines = lines.slice(0, 40); }
+          if (typeof JsBarcode === "undefined") { toast("Barcode engine not loaded — reload the page."); return; }
+          lines.forEach(function (line) {
+            var value = state.format === "CODE39" ? line.toUpperCase() : line;
+            var card = document.createElement("div");
+            card.className = "batch-card";
+            var stage = document.createElement("div");
+            stage.className = "bc-stage";
+            var s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            s.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+            stage.appendChild(s);
+            var ok = true;
+            try { JsBarcode(s, value, makeOptions()); }
+            catch (e) {
+              ok = false;
+              stage.removeChild(s);
+              var p = document.createElement("p");
+              p.className = "bc-err";
+              p.textContent = "Doesn't fit " + NAMES[state.format];
+              stage.appendChild(p);
+            }
+            var val = document.createElement("p");
+            val.className = "bc-value";
+            val.textContent = line;
+            card.appendChild(stage);
+            card.appendChild(val);
+            if (ok) {
+              var acts = document.createElement("div");
+              acts.className = "bc-actions";
+              var bP = document.createElement("button");
+              bP.type = "button"; bP.textContent = "PNG";
+              bP.addEventListener("click", function () { downloadPng(s, value); });
+              var bS = document.createElement("button");
+              bS.type = "button"; bS.textContent = "SVG";
+              bS.addEventListener("click", function () { downloadSvg(s, value); });
+              acts.appendChild(bP); acts.appendChild(bS);
+              card.appendChild(acts);
+            }
+            grid.appendChild(card);
+          });
+          toast(lines.length + " barcode" + (lines.length === 1 ? "" : "s") + " generated with " + NAMES[state.format] + " settings.");
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

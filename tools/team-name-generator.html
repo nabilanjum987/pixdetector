@@ -20,6 +20,46 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "What is a good team name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One that fits the sport, the vibe and the joke — fierce names intimidate, funny names get remembered; fantasy sports names are usually player puns (“Hurts So Good,” “Luka Magic”), while real sports teams want a mascot-style name with a tagline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my fantasy team name get cut off in the app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many fantasy apps truncate long names in mobile standings — use the 15- or 20-character max option so the joke still reads after the app clips it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a name generator check if a team name is available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in the browser — the generators in this run build names offline from word lists and cannot see registrations. Check the team name in your league app before committing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a team name generator and a random team generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A team name generator invents a name for your team; a random team generator splits a list of people into fair teams. This page does both: generate a name above, or split your players into teams with the team splitter below."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to credit the generator when I use a team name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a generated team name is yours to use once generated, and no credit to the generator is required."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is this team name generator really free?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -64,6 +104,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. Mild double meanings are common in adult leagues, but names go on results boards where kids can read them. If you would not say it at the front desk, do not print it on the shirt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we agree on a team name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generate a shortlist of 3 to 5, let everyone vote, and pick the one the whole group is happy to claim. The name everyone owns beats the cleverest joke nobody owns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if another team already has our name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add your town, a theme word or a second word to make it yours — “Riverside Wolves” instead of “Wolves”. Check with your league before printing shirts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the same name for our group chat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — most of these names work as group chat names too, especially the funny and punny ones. Short names read best in a chat list."
       }
     }
   ]
@@ -136,6 +200,21 @@ table.facts{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16p
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;text-decoration:none}
+.mode-tabs a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.result-row{flex-wrap:wrap}
+.result-text{flex:1 1 55%}
+.result-actions{display:flex;gap:6px;flex-shrink:0}
+.result-note{flex:1 1 100%;font-size:13px;color:var(--text2);line-height:1.6}
+.fav-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;flex-shrink:0}
+.fav-btn[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.check-links{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
+.check-links .check-label{font-size:12px;color:var(--text2);font-weight:700}
+.check-links a{font-size:12px;color:var(--text2);border:1px solid var(--border2);border-radius:999px;padding:4px 10px;text-decoration:none}
+.check-links a:hover{color:var(--text)}
+.split-team{font-size:14px;line-height:1.7;color:var(--text2);margin-bottom:8px}
+.split-team strong{color:var(--text)}
 </style>
 </head>
 <body>
@@ -161,7 +240,14 @@ table.facts td{color:var(--text2)}
       <h1>Free Team Name Generator</h1>
       <p>Generate funny, fierce, classic and punny team names for soccer, basketball, football, esports, quiz nights and work teams. Free, no signup, instant.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> These names are <strong>generated from word lists, not checked against any league or trademark register</strong>. A funny name can already belong to another team, and some punny names are rude enough to get rejected on a results board where kids can read them. <strong>Check the name with your league or organiser</strong> before you print it on shirts.</div>
+    <nav class="mode-tabs" aria-label="Name generator modes">
+  <a href="/tools/slogan-generator">Slogan</a>
+  <a href="/tools/username-generator">Username</a>
+  <a href="/tools/acronym-generator">Acronym</a>
+  <a href="/tools/fantasy-name-generator">Fantasy name</a>
+  <a href="/tools/team-name-generator" aria-current="page">Team name</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> Template + word-list output — a first draft to rewrite, not a finished brand line. We can't check availability or trademarks — check the name where you'll use it. Names are generated from word lists, not checked against any league or trademark register. A funny name can already belong to another team, and some punny names are rude enough to get rejected on a results board where kids can read them. Check the name with your league or organiser before you print it on shirts.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Team name settings">
         <h2>Your team</h2>
@@ -175,6 +261,7 @@ table.facts td{color:var(--text2)}
             <option value="volleyball">Volleyball</option>
             <option value="hockey">Ice Hockey</option>
             <option value="esports">Esports / Gaming</option>
+            <option value="fantasy">Fantasy sports (NFL, NBA)</option>
             <option value="quiz">Quiz / Trivia Night</option>
             <option value="work">Work / Office Team</option>
             <option value="running">Running Club</option>
@@ -188,6 +275,8 @@ table.facts td{color:var(--text2)}
             <option value="classic">Classic</option>
             <option value="cool">Cool</option>
             <option value="punny">Punny</option>
+            <option value="modern">Modern</option>
+            <option value="mythical">Mythical</option>
           </select>
         </div>
         <div style="margin-top:16px">
@@ -209,6 +298,40 @@ table.facts td{color:var(--text2)}
         <p class="result-meta" id="resultMeta">Click any name to copy it. Say your shortlist out loud and picture it on the team shirt before you decide.</p>
       </div>
     </div>
+    <div class="bc-panel" id="favPanel" aria-label="Your shortlist">
+      <h2>Your shortlist — pinned names</h2>
+      <p class="trust" style="margin-top:0">Pin any result with the &#9734; Pin button and it stays here, saved in this browser even after you reload or close the page. Your shortlist never leaves your device.</p>
+      <div class="result-list" id="favBarList"></div>
+      <div class="actions">
+        <button type="button" class="btn alt" id="copyFavsBtn">Copy shortlist</button>
+        <button type="button" class="btn alt" id="clearFavsBtn">Clear shortlist</button>
+      </div>
+    </div>
+    <div class="bc-panel" id="splitterPanel" aria-label="Split people into fair teams">
+      <h2>Split people into fair teams</h2>
+      <p class="trust" style="margin-top:0">A team <em>name</em> generator invents a name for your team. A random team generator does a different job — it splits a list of people into fair teams. This page does both: use the splitter below when you have the players and need the teams. For picking one winner from a list instead, use the <a href="/tools/random-name-picker">random name picker</a>.</p>
+      <label class="flabel" for="splitInput">Names — one per line</label>
+      <textarea id="splitInput" rows="5" spellcheck="false" placeholder="Alex
+Maya
+Jordan
+Sam
+Priya
+Lee"></textarea>
+      <div style="margin-top:16px">
+        <label class="flabel" for="splitCount">Number of teams</label>
+        <select id="splitCount">
+          <option value="2">2 teams</option>
+          <option value="3">3 teams</option>
+          <option value="4">4 teams</option>
+          <option value="5">5 teams</option>
+          <option value="6">6 teams</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="splitBtn">Split into teams</button>
+      </div>
+      <div id="splitResults" style="margin-top:14px"></div>
+    </div>
     <div class="share-box">
       <h2>Share this tool</h2>
       <p class="share-line">Free team name generator — funny, fierce and punny names for any team, no signup.</p>
@@ -223,20 +346,51 @@ table.facts td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: every team name list has the same ten jokes</h2>
-      <p>Picking a team name is harder than it looks, and the lists online make it worse: every "funny team names" page recycles the same ten jokes, so your team ends up with the same name as three other teams in the league. The real problem is agreement — a name has to make the whole group laugh or feel proud, fit on a shirt and a results board, and survive being chanted out loud. The complaints are consistent: generators give recycled mascot names with no connection to the actual team, the funny ones are either too rude for a family league or too tame to be funny, and nobody can agree because there is nothing to react to. People want names built around their sport, their style and their own inside joke — something to shortlist, vote on and claim as theirs.</p>
+      <p>Picking a team name is harder than it looks, and the lists online make it worse: every "funny team names" page recycles the same ten jokes, so your team ends up with the same name as three other teams in the league. The real problem is agreement — a name has to make the whole group laugh or feel proud, fit on a shirt and a results board, and survive being chanted out loud. The complaints are consistent: half the results for “team name generator” are not name inventors at all — they split a list of people into teams — so people land on the wrong kind of tool. Generators give recycled mascot names with no connection to the actual team, the funny ones are either too rude for a family league or too tame to be funny, and nobody can agree because there is nothing to react to. People want names built around their sport, their style and their own inside joke — something to shortlist, vote on and claim as theirs.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I generate a team name for free?</h2>
-      <p>Pick your sport or activity — soccer, basketball, football, esports, quiz night, work team or running club — choose a style (funny, fierce, classic, cool or punny), add a theme word like your town or an inside joke if you have one, and click Generate team names. You get 10 names instantly, free, with no signup. Copy your shortlist, say each name out loud, picture it on the team shirt, and let the group vote — the name everyone is happy to claim beats the cleverest joke nobody owns.</p>
+      <p>Pick your sport — soccer, basketball, football, fantasy sports, esports, quiz night or work team — choose a style, add a theme word if you have one, and click Generate team names. You get 10 names instantly, free, with no signup. Say your shortlist out loud, let the group vote, and check the winner with your league before printing shirts.</p>
       <p>A team name generator is a tool that builds team names from a sport, a style and an optional theme word. A team name is the identity a group plays under: it goes on shirts, results boards, group chats and league tables. The good ones are short, easy to yell, tied to the sport or the group's personality, and original enough that no other team in the league is using the same one. Punny names work best when the joke comes from the sport itself — "Net Results" for soccer, "Ball Don't Lie" for basketball — rather than from a generic joke list.</p>
       <!-- HOW TO -->
       <h2>How to pick a team name in 3 steps</h2>
       <p><strong>Step 1:</strong> generate a batch here from your sport, a style the group likes, and a theme word only your team would understand. <strong>Step 2:</strong> shortlist 3 to 5 names, say each one out loud, and picture it on the shirt and the results board — drop anything that is hard to chant or embarrassing to wear. <strong>Step 3:</strong> let the group vote, then check the winner with your league or organiser before you print it, because some names are already taken or too rude for a family league.</p>
       <h2>What makes a good team name?</h2>
-      <p>Four tests, and a name should pass at least three of them. <strong>Short:</strong> easy to yell across a field and easy to fit on a shirt — two or three words is ideal. <strong>Tied to the sport:</strong> the best puns come from the game's own words — chalk for climbing, net for soccer, spike for volleyball — so every player gets the joke instantly. <strong>Yours:</strong> a theme word from your group — your town, your mascot, your inside joke — makes the name impossible for another team to copy. <strong>Wearable:</strong> if you would not want it on a results board where kids can read it, do not pick it, no matter how funny it is in the group chat. And one practical note: fantasy sports apps truncate long names on mobile standings, so if your league app clips names, keep it under 15–20 characters so the joke still reads.</p><table class="facts"><thead><tr><th>Sport</th><th>Punny example</th><th>Why it works</th></tr></thead><tbody><tr><td>Soccer</td><td>Net Results</td><td>Uses the sport's own word, two words, easy to chant.</td></tr><tr><td>Basketball</td><td>Hoop There It Is</td><td>A phrase everyone knows, rebuilt with a basketball word.</td></tr><tr><td>Volleyball</td><td>Block Party</td><td>One volleyball term, one party — short and proud.</td></tr><tr><td>Esports</td><td>Lag Lords</td><td>An inside joke every gamer understands instantly.</td></tr><tr><td>Quiz night</td><td>The Quizzard of Oz</td><td>A film title rebuilt with a quiz word.</td></tr></tbody></table>
+      <p>Four tests, and a name should pass at least three of them. <strong>Short:</strong> easy to yell across a field and easy to fit on a shirt — two or three words is ideal. <strong>Tied to the sport:</strong> the best puns come from the game's own words — chalk for climbing, net for soccer, spike for volleyball — so every player gets the joke instantly. <strong>Yours:</strong> a theme word from your group — your town, your mascot, your inside joke — makes the name impossible for another team to copy. <strong>Wearable:</strong> if you would not want it on a results board where kids can read it, do not pick it, no matter how funny it is in the group chat. And one practical note: fantasy sports apps truncate long names on mobile standings, so if your league app clips names, keep it under 15–20 characters so the joke still reads.</p><table class="facts"><thead><tr><th>Sport</th><th>Punny example</th><th>Why it works</th></tr></thead><tbody><tr><td>Soccer</td><td>Net Results</td><td>Uses the sport's own word, two words, easy to chant.</td></tr><tr><td>Basketball</td><td>Hoop There It Is</td><td>A phrase everyone knows, rebuilt with a basketball word.</td></tr><tr><td>Volleyball</td><td>Block Party</td><td>One volleyball term, one party — short and proud.</td></tr><tr><td>Esports</td><td>Lag Lords</td><td>An inside joke every gamer understands instantly.</td></tr><tr><td>Quiz night</td><td>The Quizzard of Oz</td><td>A film title rebuilt with a quiz word.</td></tr><tr><td>Fantasy sports</td><td>Hurts So Good</td><td>A player-name pun — the joke is the player's name.</td></tr></tbody></table>
       <h2>Funny vs fierce: which style should you pick?</h2>
-      <p>It depends on who is on the team and who will see the name. <strong>Funny</strong> works best for casual leagues, quiz nights, office teams and friend groups — a name that makes the group laugh relaxes everyone before the game starts, and Reddit threads consistently rank pun-based names as the most upvoted suggestions. <strong>Fierce</strong> fits competitive leagues where the name is a statement: it builds pride and sounds serious on a results board. <strong>Classic</strong> is the safe choice for school teams, corporate events and anything with kids — "United", "Royal" and "City" never embarrass anyone. <strong>Punny</strong> is the highest-risk, highest-reward style: when the pun lands it is the most memorable name in the league, and when it does not it is just confusing. If your group cannot agree, generate one batch in each style and vote — the style with the most votes is usually the answer.</p>
+      <p>It depends on who is on the team and who will see the name. <strong>Funny</strong> works best for casual leagues, quiz nights, office teams and friend groups — a name that makes the group laugh relaxes everyone before the game starts. <strong>Fierce</strong> fits competitive leagues where the name is a statement: it builds pride and sounds serious on a results board. <strong>Classic</strong> is the safe choice for school teams, corporate events and anything with kids — "United", "Royal" and "City" never embarrass anyone. <strong>Punny</strong> is the highest-risk, highest-reward style: when the pun lands it is the most memorable name in the league, and when it does not it is just confusing. If your group cannot agree, generate one batch in each style and vote — the style with the most votes is usually the answer.</p>
+      <h2>Fantasy sports names are pun names</h2>
+      <p>Fantasy leagues are mostly about puns on player names — "Hurts So Good," "Curry in a Hurry," "Judge Dredd," "Luka Magic" — and league apps truncate long names on mobile standings, so keep fantasy names under 15–20 characters so the joke still reads after the app clips it. Pick the Fantasy sports option above for the pun list; pick a real sport for mascot-style names for an actual team.</p>
+      <h2>How this tool compares with the top results</h2>
+      <p>The "team name generator" results split across two intents: inventing a name, and splitting people into teams. This page does both — and the fantasy-sports pun names that top the results have their own sport option above. The jersey claim below is the vendor's own words, marked as not independently verified.</p>
+      <table class="facts"><thead><tr><th>Tool</th><th>What it does</th><th>The catch</th></tr></thead><tbody>
+      <tr><td>Fantasy Name HQ</td><td>Fantasy sports names, "Extra Punny" mode, 15/20-character max</td><td>Fantasy-sports only — useless for a real sports team, school team or work team</td></tr>
+      <tr><td>Hamco</td><td>12 sports, 8 styles, 10 names each with a tagline; claims tuning by a uniform supplier "that has put names on more than 10,000 real team jerseys since 2011" — claim not independently verified</td><td>20 generations/day cap stated on the page</td></tr>
+      <tr><td>QuickTeamGenerator</td><td>Splits a list of people into fair teams (Fisher–Yates shuffle)</td><td>A people-splitter, not a name inventor — it names teams "Team 1, Team 2…" unless you rename them</td></tr>
+      <tr><td>AIFreeBox</td><td>AI team names, 33 languages, 38 naming styles</td><td>"Free and Ultra plans" — the free/paid line is not spelled out</td></tr>
+      <tr><td>RandomTeamPicker</td><td>Splits people into balanced teams, "+1" badge on teams that get the extra person</td><td>No name invention at all</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2>FAQ</h2>
+      <details class="faq">
+        <summary>What is a good team name?</summary>
+        <p>One that fits the sport, the vibe and the joke — fierce names intimidate, funny names get remembered; fantasy sports names are usually player puns (“Hurts So Good,” “Luka Magic”), while real sports teams want a mascot-style name with a tagline.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does my fantasy team name get cut off in the app?</summary>
+        <p>Many fantasy apps truncate long names in mobile standings — use the 15- or 20-character max option so the joke still reads after the app clips it.</p>
+      </details>
+      <details class="faq">
+        <summary>Can a name generator check if a team name is available?</summary>
+        <p>Not in the browser — the generators in this run build names offline from word lists and cannot see registrations. Check the team name in your league app before committing.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between a team name generator and a random team generator?</summary>
+        <p>A team name generator invents a name for your team; a random team generator splits a list of people into fair teams. This page does both: generate a name above, or split your players into teams with the team splitter below.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to credit the generator when I use a team name?</summary>
+        <p>No — a generated team name is yours to use once generated, and no credit to the generator is required.</p>
+      </details>
       <details class="faq">
         <summary>Is this team name generator really free?</summary>
         <p>Yes. Generate as many team names as you like, free, with no signup and no usage limit. Everything runs in your browser.</p>
@@ -261,16 +415,22 @@ table.facts td{color:var(--text2)}
         <summary>Can a team name be too rude?</summary>
         <p>Yes. Mild double meanings are common in adult leagues, but names go on results boards where kids can read them. If you would not say it at the front desk, do not print it on the shirt.</p>
       </details>
-      <!-- RELATED QUESTIONS -->
-      <h2>Related questions</h2>
-      <p><strong>How do we agree on a team name?</strong> Generate a shortlist of 3 to 5, let everyone vote, and pick the one the whole group is happy to claim. The name everyone owns beats the cleverest joke nobody owns.</p>
-      <p><strong>What if another team already has our name?</strong> Add your town, a theme word or a second word to make it yours — "Riverside Wolves" instead of "Wolves". Check with your league before printing shirts.</p>
-      <p><strong>Do fantasy sports team names work differently?</strong> Yes — fantasy leagues are mostly about puns on player names, and league apps truncate long names on mobile. Keep fantasy names under 15–20 characters.</p>
-      <p><strong>Can I use the same name for our group chat?</strong> Yes — most of these names work as group chat names too, especially the funny and punny ones. Short names read best in a chat list.</p>
+      <details class="faq">
+        <summary>How do we agree on a team name?</summary>
+        <p>Generate a shortlist of 3 to 5, let everyone vote, and pick the one the whole group is happy to claim. The name everyone owns beats the cleverest joke nobody owns.</p>
+      </details>
+      <details class="faq">
+        <summary>What if another team already has our name?</summary>
+        <p>Add your town, a theme word or a second word to make it yours — “Riverside Wolves” instead of “Wolves”. Check with your league before printing shirts.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use the same name for our group chat?</summary>
+        <p>Yes — most of these names work as group chat names too, especially the funny and punny ones. Short names read best in a chat list.</p>
+      </details>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
-      <div class="related-grid"><a href="/tools/slogan-generator" class="related-card"><h4>💬 Slogan Generator</h4><p>Catchy taglines, free</p></a><a href="/tools/username-generator" class="related-card"><h4>👤 Username Generator</h4><p>Unique handles, free</p></a><a href="/tools/fantasy-name-generator" class="related-card"><h4>🐉 Fantasy Name Generator</h4><p>D&D & RPG names</p></a><a href="/tools/meme-generator" class="related-card"><h4>😂 Meme Generator</h4><p>Make memes free</p></a></div>
+      <div class="related-grid"><a href="/tools/slogan-generator" class="related-card"><h4>💬 Slogan Generator</h4><p>Catchy taglines, free</p></a><a href="/tools/username-generator" class="related-card"><h4>👤 Username Generator</h4><p>Unique handles, free</p></a><a href="/tools/fantasy-name-generator" class="related-card"><h4>🐉 Fantasy Name Generator</h4><p>D&D & RPG names</p></a><a href="/tools/random-name-picker" class="related-card"><h4>🎲 Random Name Picker</h4><p>Pick a winner free</p></a></div>
     </div>
   </div>
 </div>
@@ -315,7 +475,8 @@ table.facts td{color:var(--text2)}
     var style = document.getElementById("styleSelect").value;
     var theme = document.getElementById("themeInput").value;
     last = NameGen.teamNames(sport, style, theme, 10);
-    NameGen.renderResults(document.getElementById("results"), last, "Pick a sport and hit Generate.");
+    var notes = last.map(function () { return NameGen.teamFit(sport, style); });
+    NameGen.renderResultsWithNotes(document.getElementById("results"), last, notes, "Pick a sport and hit Generate.");
     document.getElementById("resultMeta").textContent = last.length + " team names generated. Say your shortlist out loud — a name that is hard to chant is a name nobody will chant.";
   }
   document.getElementById("genBtn").addEventListener("click", run);
@@ -323,6 +484,20 @@ table.facts td{color:var(--text2)}
   document.getElementById("sportSelect").addEventListener("change", run);
   document.getElementById("styleSelect").addEventListener("change", run);
   NameGen.wireCopyAll("copyAllBtn", function () { return last; });
+  document.getElementById("splitBtn").addEventListener("click", function () {
+    var text = document.getElementById("splitInput").value;
+    var box = document.getElementById("splitResults");
+    if (!text.trim()) {
+      box.innerHTML = '<p class="result-empty">Paste one name per line first \u2014 then split.</p>';
+      return;
+    }
+    var n = parseInt(document.getElementById("splitCount").value, 10);
+    var teams = NameGen.splitTeams(text, n);
+    var lines = teams.map(function (t) {
+      return t.name + " \u2014 " + (t.members.length ? t.members.join(", ") : "no players");
+    });
+    NameGen.renderResults(box, lines, "");
+  });
   run();
 })();
 document.getElementById("copyLink").addEventListener("click", function () {

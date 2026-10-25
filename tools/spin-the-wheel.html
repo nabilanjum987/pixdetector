@@ -20,34 +20,98 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this spin the wheel tool really free?",
+      "name": "How do I spin a wheel online for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. You can spin as many times as you like with no signup, no payment, no ads on the wheel and no download. Everything runs in your browser."
+        "text": "Paste your names or options, one per line, press SPIN THE WHEEL, and the wheel lands on one at random — free, with no account and nothing to download. Every entry gets an equal slice, so every entry has the same chance."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the result really random?",
+      "name": "Is a spin-the-wheel picker really random and fair?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The winning entry is picked with your browser's secure random generator (crypto.getRandomValues), and every entry gets an equal slice of the wheel, so every entry has exactly the same chance."
+        "text": "Yes, when it uses the browser's crypto random source (crypto.getRandomValues()) with rejection sampling — every entry then has exactly the same chance. A wheel built on a naive sort(() => Math.random() - 0.5) shuffle is genuinely biased, which is why this page shuffles with Fisher–Yates instead."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use my own names or choices?",
+      "name": "How do I pick a random student fairly in class?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 that is the only way it works. Type or paste your own entries, one per line, up to 60. The tool has no built-in names."
+        "text": "Paste the class list, mark absent students with the Here checkbox so they are never picked, leave fair (no-repeat) mode on, and spin where the whole class can see it. Everyone gets one turn before anyone gets a second."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I pick several different winners?",
+      "name": "Can the same person win twice in a row?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Turn on \u201cRemove winner after each spin\u201d before you spin. Each winner is taken off the wheel, so nobody is picked twice."
+        "text": "With pure randomness, yes — repeats are normal. If that is a problem, leave “Remove winner after each spin” on, so each name can only be drawn once per round."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is fair (no-repeat) mode, and why is it on by default?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fair mode takes each winner off the wheel until the whole list has had a turn, then the round resets. It is on by default because pure random picks can call on the same student twice while skipping a quarter of the class — and to a class keeping score, that feels like favouritism, not randomness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many entries can the wheel hold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 500 entries. If you paste more, only the first 500 are used, and the page says so. With very long lists the slice labels get small, so the entry list below the box is the place to check your names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I mark a student absent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Here checkbox next to each name in the entry list. Unchecked names stay on your list but are never picked, so an absent student cannot stall the lesson and the fair round does not skew."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when everyone has had a turn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The page shows “Round complete — every entry has had a turn” and offers a reset. Press “Reset round” to put all names back on the wheel and start again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why shouldn't I re-spin when I don't like the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because re-spinning destroys the trust the wheel exists to create. The moment you spin again because the “wrong” person was selected, everyone watching concludes the draw is only random until you disapprove of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this wheel for a giveaway or raffle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — paste the entrants, spin live on screen, leave remove-winner on so nobody wins twice, and record your screen while you spin. The recording is free proof that the draw happened once, in the open."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Math.random() good enough for a draw?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a casual game, yes. For a draw anyone might challenge, no — Math.random() is pseudo-random, and a naive shuffle built on it is biased. This page draws winners with crypto.getRandomValues() and rejection sampling, and shuffles with Fisher–Yates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is wrong with sort(() => Math.random() - 0.5)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It looks like a shuffle but it is not uniform — some orders come up far more often than others. The correct shuffle is Fisher–Yates, which this page uses for its shuffle button."
       }
     },
     {
@@ -55,15 +119,23 @@
       "name": "Are my entries uploaded anywhere?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your entries stay in your browser on your own device. Nothing is sent to a server, stored, or shared."
+        "text": "No. Your entries stay in your browser on your own device and are saved in this browser's local storage only, so the list is still there when you come back. Nothing is sent to a server. Clearing your browsing data wipes the saved list."
       }
     },
     {
       "@type": "Question",
-      "name": "Why did the same entry win twice in a row?",
+      "name": "Can I import a list from a spreadsheet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because spins are independent \u2014 the wheel has no memory. A name that just won is exactly as likely to win again, unless you turn on \u201cRemove winner after each spin\u201d."
+        "text": "Yes — use the CSV import button, or paste straight from a spreadsheet: one entry per line, or comma-separated. The wheel takes up to 500 entries, and duplicate labels count as separate chances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the wheel work on a projector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — press “Projector mode” for fullscreen with a huge winner display, confetti and a sound toggle, plus a spin-length choice from 2 to 12 seconds. The whole room can watch the pick happen."
       }
     }
   ]
@@ -78,7 +150,7 @@
     {
       "@type": "HowToStep",
       "name": "Add your entries",
-      "text": "Type or paste your names, prizes or choices, one per line, up to 60 entries."
+      "text": "Type or paste your names, prizes or choices, one per line, up to 500 entries. Untick Here next to anyone absent."
     },
     {
       "@type": "HowToStep",
@@ -88,7 +160,7 @@
     {
       "@type": "HowToStep",
       "name": "Use the winner",
-      "text": "Read the winner in the result box. Turn on Remove winner to draw the next one without repeats."
+      "text": "Read the winner in the result box. Remove winner is on by default, so each winner sits out until the round is complete — then press Reset round."
     }
   ]
 }
@@ -152,6 +224,21 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.modes a{background:var(--card);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--text);text-decoration:none}
+.modes a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.projector .result-big{font-size:clamp(48px,9vw,110px)!important}
+.entry-list{max-height:220px;overflow:auto;border:1px solid var(--border);border-radius:10px;padding:8px 12px;background:var(--bg2);margin-top:8px}
+.entry-row{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);padding:6px 0;cursor:pointer}
+.entry-row input{width:auto;accent-color:var(--accent)}
+.die-face.die-drop{opacity:.45;text-decoration:line-through}
+.die-face.die-extra{border-style:dashed}
 </style>
 </head>
 <body>
@@ -175,14 +262,20 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     </div>
     <div class="tool-page-header">
       <h1>Free Spin the Wheel</h1>
-      <p>Add your own names, prizes or choices, spin the wheel, and get a fair random pick in seconds. Free, no signup, no ads — everything runs in your browser.</p>
+      <p>Add your own names, prizes or choices — up to 500 entries, with a Here checkbox for anyone absent — spin the wheel, and get a fair random pick in seconds. Free, no signup, no ads, with a projector mode for the whole room. Everything runs in your browser.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Your entries are yours: <strong>the wheel only spins what you type or paste</strong> — it has no built-in names. Spins are independent, so the same entry can win twice unless you turn on “Remove winner”. The wheel holds up to 60 entries.</div>
+    <nav class="modes" aria-label="Random tools">
+      <a href="/tools/spin-the-wheel" aria-current="page">🎡 Spin the Wheel</a>
+      <a href="/tools/random-number-generator">🔢 Random Number</a>
+      <a href="/tools/dice-roller">🎲 Dice Roller</a>
+      <a href="/tools/random-name-picker">🎲 Random Name Picker</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> This tool is for classrooms, raffles, games and decisions — not for gambling, regulated prize draws, or anything needing independent audit. Short streaks (same name twice, three 3s in five rolls) are normal randomness, not rigging. Saved lists live in this browser only — clearing browsing data wipes them.</div>
     
-    <div class="bc-tool">
+    <div class="bc-tool" id="toolGrid">
       <div class="bc-panel" aria-label="Spin the wheel">
         <h2>Your entries</h2>
-        <label class="flabel" for="wheelEntries">One entry per line (2 to 60)</label>
+        <label class="flabel" for="wheelEntries">One entry per line (up to 500) — or import a CSV below</label>
         <textarea id="wheelEntries" rows="9" spellcheck="false">Pizza night
 Movie night
 Tacos
@@ -195,9 +288,17 @@ Salad bowls</textarea>
           <button type="button" class="btn alt" id="shuffleBtn">Shuffle entries</button>
           <button type="button" class="btn alt" id="clearBtn">Clear</button>
         </div>
-        <label class="check-row"><input type="checkbox" id="removeWinner"> Remove winner after each spin</label>
+        <label class="check-row"><input type="checkbox" id="removeWinner" checked> Remove winner after each spin (fair mode — on by default)</label>
         <p class="hint" id="entryCount"></p>
         <div class="actions"><button type="button" class="btn big" id="spinBtn">SPIN THE WHEEL</button></div>
+        <div class="field" style="margin-top:14px"><label class="flabel" for="csvFile">Import a list (.csv or .txt — one entry per line, or comma-separated)</label><input type="file" id="csvFile" accept=".csv,.txt,text/csv,text/plain"></div>
+        <div class="field"><label class="flabel" for="spinDur">Spin length</label><select id="spinDur"><option value="2000">2 seconds</option><option value="4200" selected>4 seconds</option><option value="8000">8 seconds</option><option value="12000">12 seconds</option></select></div>
+        <label class="check-row"><input type="checkbox" id="soundOn" checked> Sound on spin (drum roll + fanfare)</label>
+        <h2 style="margin-top:16px">Entries — tick Here for who is in</h2>
+        <p class="hint">Untick a name to mark them absent: they stay on your list but are never picked. Duplicate labels count as separate chances.</p>
+        <div class="entry-list" id="entryList"></div>
+        <p class="status" id="roundState" hidden></p>
+        <div class="actions"><button type="button" class="btn alt" id="roundResetBtn" hidden>Reset round — everyone back on the wheel</button><button type="button" class="btn alt" id="projectorBtn">📽 Projector mode</button></div>
         <p class="status" id="wheelStatus">Add your entries, then spin.</p>
       </div>
       <div class="bc-panel" aria-label="Wheel">
@@ -217,31 +318,66 @@ Salad bowls</textarea>
       <!-- PROBLEM -->
       <h2>The problem: picking fairly when everyone is watching</h2>
       <p>Teachers calling on students, giveaway hosts drawing a winner, friends settling where to eat — the hard part is rarely the choice itself. It is making the choice in a way the whole group accepts. Pick by hand and someone suspects favouritism. Use a hat and the draw happens out of sight. The complaints people raise about existing spinner wheels are consistent: slow pages crowded with ads, a sign-up wall before the first spin, and wheels that cap entries or hide the result behind a pro plan. What people actually want is simple — paste a list, spin, and watch the result land where everyone can see it.</p>
+      <p>The classroom version of this problem is the sharpest one. A teacher asks a question and the same three hands shoot up, while seventeen other students go quiet — not because they do not know the answer, but because they know they will never be asked. A wheel the whole class can watch fixes that: when the selection happens in front of everyone, the “why him again?” argument loses its fuel. The wheel picked him — not you. The same logic holds for a giveaway: a winner announced with no visible draw is just the host's word.</p>
       <!-- DIRECT ANSWER -->
-      <h2>How do I spin a wheel to pick something at random?</h2>
-      <p>Type or paste your entries one per line, press SPIN THE WHEEL, and watch the wheel slow down until the pointer lands on one entry — free, with no signup and no download, because the whole tool runs in your browser. Every entry gets an equal slice of the wheel, so every entry has exactly the same chance of winning. Turn on "Remove winner after each spin" when you need several different winners in a row, for example drawing a presentation order or a list of prize winners.</p>
+      <h2>How do I spin a wheel to pick something at random? The direct answer</h2>
+      <p>Paste your entries one per line, press SPIN THE WHEEL, and watch the pointer land on one entry — free, with no signup, because the whole tool runs in your browser. Every entry gets an equal slice, so every entry has exactly the same chance. Turn on “Remove winner after each spin” to draw several different winners in a row.</p>
       <p>A spin the wheel tool is a visual random picker: a circle divided into equal slices, one slice per entry, with a pointer that stops on exactly one of them. The winner is chosen with your browser's secure random generator before the animation plays, so the spin is a reveal, not a trick — the wheel cannot be steered toward a favourite entry.</p>
       <!-- HOW TO -->
       <h2>How to use the spin the wheel tool in 3 steps</h2>
       <p><strong>Step 1:</strong> replace the sample entries with your own — one name, prize or choice per line, up to 60 entries. <strong>Step 2:</strong> press SPIN THE WHEEL and watch the pointer settle. <strong>Step 3:</strong> read the winner in the big result box, then spin again or turn on "Remove winner" to draw the next one without repeats.</p>
       <h2>Is the spin really fair?</h2>
-      <p>Yes. Every slice is the same size, and the winning slice is picked with <strong>crypto.getRandomValues()</strong> — the same secure random source browsers use for encryption — with plain Math.random only as a fallback. Spins are independent: a name that just won is exactly as likely to win again on the next spin, unless you remove it. The wheel has no memory, no favourites and no way to weight one entry over another. Your entries never leave your device; nothing is uploaded or stored on a server.</p>
+      <p>Yes. Every slice is the same size, and the winning slice is picked with <strong>crypto.getRandomValues()</strong> plus rejection sampling — the same secure random source browsers use for encryption — with plain Math.random only as a fallback. Shuffles use the Fisher–Yates algorithm, because the familiar sort(() =&gt; Math.random() - 0.5) shortcut is biased, not uniform. Spins are independent: a name that just won is exactly as likely to win again on the next spin, unless you remove it. The wheel has no memory, no favourites and no way to weight one entry over another. Your entries never leave your device; nothing is uploaded to a server — the list is saved in this browser only.</p>
       <h2>What can you decide with a wheel?</h2>
       <p>Classroom turns and cold-calling, giveaway and raffle winners, team picks, presentation order, dinner choices, game-night decisions, chores, and any "who goes first?" question. For a raffle with many prizes, turn on "Remove winner after each spin" so nobody wins twice. For a class list, spin once per question and keep everyone paying attention — anyone could be next.</p>
+
+      <h2>Fair randomness — the mechanism, in one line</h2>
+      <p>Every winner is picked with <strong>crypto.getRandomValues()</strong> plus rejection sampling, and shuffles use the <strong>Fisher–Yates</strong> algorithm. Math.random()-only tools are fine for games, but not for a draw anyone might challenge.</p>
+
+      <h2>Which random tool do I need?</h2>
+      <p>One tool, four modes — pick the job, not the page:</p>
+      <table class="tbl">
+        <tr><th>Job</th><th>Use</th></tr>
+        <tr><td>Pick one entry where the whole room can watch</td><td><a href="/tools/spin-the-wheel">Spin the Wheel</a></td></tr>
+        <tr><td>Draw numbers from a range you choose</td><td><a href="/tools/random-number-generator">Random Number Generator</a></td></tr>
+        <tr><td>Roll dice for a game</td><td><a href="/tools/dice-roller">Dice Roller</a></td></tr>
+        <tr><td>Draw names from a list you paste</td><td><a href="/tools/random-name-picker">Random Name Picker</a></td></tr>
+      </table>
+
+      <h2>How this wheel compares with the top free wheels</h2>
+      <p>The comparison below uses the free wheel tools found in a live search on 25 Oct 2026. Caps and features are what those pages state about themselves — “not stated” means the fetched page did not say.</p>
+      <table class="tbl">
+        <tr><th>Tool</th><th>Entry cap</th><th>Randomness</th><th>Remove-winner</th><th>What stands out</th></tr>
+        <tr><td>Spinthewheelsonline</td><td>300</td><td>crypto.getRandomValues(), Math.random fallback</td><td>Yes</td><td>Last 20 results in history; spin length 2–12 seconds</td></tr>
+        <tr><td>LK Forge</td><td>100</td><td>“Provably fair” crypto randomness</td><td>Yes</td><td>Weights up to ×5 per slice</td></tr>
+        <tr><td>Spinthewheel.biz</td><td>Not stated</td><td>Not stated</td><td>Yes</td><td>Weights with % win chance shown</td></tr>
+        <tr><td>TrueWedge</td><td>Not stated</td><td>Not stated</td><td>Not mentioned</td><td>Ready-made wheels (coin flip, yes/no, all 50 US states); no ads</td></tr>
+        <tr><td>RandomGeneratorWheels</td><td>“Unlimited” claimed, not verified</td><td>Not stated</td><td>Yes (auto-remove)</td><td>OBS overlay + elimination mode for live giveaways</td></tr>
+        <tr><td>This page</td><td>500</td><td>crypto.getRandomValues() + rejection sampling</td><td>Yes — on by default</td><td>Here/Absent toggle, CSV import, projector mode, list saved in this browser</td></tr>
+      </table>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this spin the wheel tool really free?</summary><p>Yes. You can spin as many times as you like with no signup, no payment, no ads on the wheel and no download. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>Is the result really random?</summary><p>Yes. The winning entry is picked with your browser's secure random generator (crypto.getRandomValues), and every entry gets an equal slice of the wheel, so every entry has exactly the same chance.</p></details>
-      <details class="faq"><summary>Can I use my own names or choices?</summary><p>Yes — that is the only way it works. Type or paste your own entries, one per line, up to 60. The tool has no built-in names.</p></details>
-      <details class="faq"><summary>How do I pick several different winners?</summary><p>Turn on “Remove winner after each spin” before you spin. Each winner is taken off the wheel, so nobody is picked twice.</p></details>
-      <details class="faq"><summary>Are my entries uploaded anywhere?</summary><p>No. Your entries stay in your browser on your own device. Nothing is sent to a server, stored, or shared.</p></details>
-      <details class="faq"><summary>Why did the same entry win twice in a row?</summary><p>Because spins are independent — the wheel has no memory. A name that just won is exactly as likely to win again, unless you turn on “Remove winner after each spin”.</p></details>
+      <details class="faq"><summary>How do I spin a wheel online for free?</summary><p>Paste your names or options, one per line, press SPIN THE WHEEL, and the wheel lands on one at random — free, with no account and nothing to download. Every entry gets an equal slice, so every entry has the same chance.</p></details>
+      <details class="faq"><summary>Is a spin-the-wheel picker really random and fair?</summary><p>Yes, when it uses the browser's crypto random source (crypto.getRandomValues()) with rejection sampling — every entry then has exactly the same chance. A wheel built on a naive sort(() =&gt; Math.random() - 0.5) shuffle is genuinely biased, which is why this page shuffles with Fisher–Yates instead.</p></details>
+      <details class="faq"><summary>How do I pick a random student fairly in class?</summary><p>Paste the class list, mark absent students with the Here checkbox so they are never picked, leave fair (no-repeat) mode on, and spin where the whole class can see it. Everyone gets one turn before anyone gets a second.</p></details>
+      <details class="faq"><summary>Can the same person win twice in a row?</summary><p>With pure randomness, yes — repeats are normal. If that is a problem, leave “Remove winner after each spin” on, so each name can only be drawn once per round.</p></details>
+      <details class="faq"><summary>What is fair (no-repeat) mode, and why is it on by default?</summary><p>Fair mode takes each winner off the wheel until the whole list has had a turn, then the round resets. It is on by default because pure random picks can call on the same student twice while skipping a quarter of the class — and to a class keeping score, that feels like favouritism, not randomness.</p></details>
+      <details class="faq"><summary>How many entries can the wheel hold?</summary><p>Up to 500 entries. If you paste more, only the first 500 are used, and the page says so. With very long lists the slice labels get small, so the entry list below the box is the place to check your names.</p></details>
+      <details class="faq"><summary>How do I mark a student absent?</summary><p>Use the Here checkbox next to each name in the entry list. Unchecked names stay on your list but are never picked, so an absent student cannot stall the lesson and the fair round does not skew.</p></details>
+      <details class="faq"><summary>What happens when everyone has had a turn?</summary><p>The page shows “Round complete — every entry has had a turn” and offers a reset. Press “Reset round” to put all names back on the wheel and start again.</p></details>
+      <details class="faq"><summary>Why shouldn't I re-spin when I don't like the result?</summary><p>Because re-spinning destroys the trust the wheel exists to create. The moment you spin again because the “wrong” person was selected, everyone watching concludes the draw is only random until you disapprove of it.</p></details>
+      <details class="faq"><summary>Can I use this wheel for a giveaway or raffle?</summary><p>Yes — paste the entrants, spin live on screen, leave remove-winner on so nobody wins twice, and record your screen while you spin. The recording is free proof that the draw happened once, in the open.</p></details>
+      <details class="faq"><summary>Is Math.random() good enough for a draw?</summary><p>For a casual game, yes. For a draw anyone might challenge, no — Math.random() is pseudo-random, and a naive shuffle built on it is biased. This page draws winners with crypto.getRandomValues() and rejection sampling, and shuffles with Fisher–Yates.</p></details>
+      <details class="faq"><summary>What is wrong with sort(() =&gt; Math.random() - 0.5)?</summary><p>It looks like a shuffle but it is not uniform — some orders come up far more often than others. The correct shuffle is Fisher–Yates, which this page uses for its shuffle button.</p></details>
+      <details class="faq"><summary>Are my entries uploaded anywhere?</summary><p>No. Your entries stay in your browser on your own device and are saved in this browser's local storage only, so the list is still there when you come back. Nothing is sent to a server. Clearing your browsing data wipes the saved list.</p></details>
+      <details class="faq"><summary>Can I import a list from a spreadsheet?</summary><p>Yes — use the CSV import button, or paste straight from a spreadsheet: one entry per line, or comma-separated. The wheel takes up to 500 entries, and duplicate labels count as separate chances.</p></details>
+      <details class="faq"><summary>Does the wheel work on a projector?</summary><p>Yes — press “Projector mode” for fullscreen with a huge winner display, confetti and a sound toggle, plus a spin-length choice from 2 to 12 seconds. The whole room can watch the pick happen.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I spin a wheel with my own names?</strong> Yes — this wheel only spins entries you type or paste. It has no built-in names.</p>
-      <p><strong>How many entries can the wheel hold?</strong> Up to 60 entries. With more than that the labels get too small to read on the wheel.</p>
-      <p><strong>Can the same person win twice?</strong> Yes, unless you turn on "Remove winner after each spin", which takes each winner off the wheel.</p>
+      <p><strong>How many entries can the wheel hold?</strong> Up to 500 entries. With very long lists the slice labels get small, so check your names in the entry list below the box.</p>
+      <p><strong>Can the same person win twice?</strong> Only if you turn “Remove winner after each spin” off — it is on by default, so each winner sits out until the round is complete, then you reset the round.</p>
       <p><strong>Does the wheel work on a phone or projector?</strong> Yes — it runs in any modern browser, so it works on phones, tablets, laptops and classroom projectors.</p>
 
     </div>
@@ -296,12 +432,63 @@ Salad bowls</textarea>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var toast = window.__pdToast || function () {};
+
+  var audioCtx = null;
+  function beep(freq, start, dur) {
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = "triangle"; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, audioCtx.currentTime + start);
+      g.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + start + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + start + dur);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(audioCtx.currentTime + start); o.stop(audioCtx.currentTime + start + dur + 0.05);
+    } catch (_) {}
+  }
+  function soundOn() { var el = $("soundOn"); return el && el.checked; }
+  function playFanfare() { if (!soundOn()) return; [523, 659, 784, 1047].forEach(function (f, i) { beep(f, i * 0.13, 0.25); }); }
+  function confettiBurst() {
+    var c = document.createElement("canvas");
+    c.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:200";
+    document.body.appendChild(c);
+    var x = c.getContext("2d");
+    c.width = window.innerWidth; c.height = window.innerHeight;
+    var colors = ["#f59e0b", "#38bdf8", "#a78bfa", "#34d399", "#f472b6", "#22c55e"];
+    var ps = [];
+    for (var i = 0; i < 140; i++) ps.push({ x: Math.random() * c.width, y: -20 - Math.random() * 80, w: 6 + Math.random() * 6, h: 8 + Math.random() * 8, vy: 2 + Math.random() * 3, vx: -1 + Math.random() * 2, r: Math.random() * Math.PI, vr: -0.1 + Math.random() * 0.2, col: colors[i % colors.length] });
+    var t0 = null;
+    function tick(ts) {
+      if (!t0) t0 = ts;
+      x.clearRect(0, 0, c.width, c.height);
+      ps.forEach(function (p) { p.x += p.vx; p.y += p.vy; p.r += p.vr; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.col; x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); x.restore(); });
+      if (ts - t0 < 2600) requestAnimationFrame(tick); else c.remove();
+    }
+    requestAnimationFrame(tick);
+  }
+  function wireProjector() {
+    var btn = $("projectorBtn"); if (!btn) return;
+    btn.addEventListener("click", function () {
+      var grid = $("toolGrid");
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else if (grid && grid.requestFullscreen) { grid.requestFullscreen(); }
+    });
+    document.addEventListener("fullscreenchange", function () {
+      document.body.classList.toggle("projector", !!document.fullscreenElement);
+    });
+  }
+
+  wireProjector();
   var COLORS = ["#f59e0b", "#38bdf8", "#a78bfa", "#34d399", "#f472b6", "#facc15", "#60a5fa", "#fb923c", "#2dd4bf", "#e879f9"];
   var entries = [], rotation = 0, spinning = false, history = [];
+  var disabledNames = {}, roundOriginal = null, lastRendered = null;
   var canvas = $("wheelCanvas"), ctx = canvas.getContext("2d");
-  function parseEntries() {
-    var lines = $("wheelEntries").value.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
-    return lines.slice(0, 60);
+  var LS_KEY = "pd-wheel-entries";
+  function rawLines() {
+    return $("wheelEntries").value.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 500);
+  }
+  function activeEntries() {
+    return rawLines().filter(function (n) { return !disabledNames[n]; });
   }
   function secureInt(n) {
     if (window.crypto && crypto.getRandomValues) {
@@ -310,6 +497,33 @@ Salad bowls</textarea>
       return a[0] % n;
     }
     return Math.floor(Math.random() * n);
+  }
+  function saveEntries() { try { localStorage.setItem(LS_KEY, $("wheelEntries").value); } catch (_) {} }
+  function loadEntries() {
+    try { var saved = localStorage.getItem(LS_KEY); if (saved) $("wheelEntries").value = saved; } catch (_) {}
+  }
+  function renderEntryList() {
+    var list = $("entryList"); if (!list) return;
+    var lines = rawLines();
+    var key = lines.join("\n");
+    if (key === lastRendered) return;
+    lastRendered = key;
+    list.innerHTML = "";
+    lines.forEach(function (name) {
+      var lab = document.createElement("label");
+      lab.className = "entry-row";
+      var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.checked = !disabledNames[name];
+      cb.setAttribute("aria-label", "Here: " + name);
+      cb.addEventListener("change", function () {
+        if (cb.checked) delete disabledNames[name]; else disabledNames[name] = true;
+        refresh();
+      });
+      var sp = document.createElement("span");
+      sp.textContent = name;
+      lab.appendChild(cb); lab.appendChild(sp);
+      list.appendChild(lab);
+    });
   }
   function drawWheel(rotDeg) {
     var rot = rotDeg * Math.PI / 180;
@@ -332,27 +546,63 @@ Salad bowls</textarea>
     ctx.fillStyle = "#f59e0b"; ctx.beginPath(); ctx.moveTo(cx - 12, 6); ctx.lineTo(cx + 12, 6); ctx.lineTo(cx, 30); ctx.closePath(); ctx.fill();
   }
   function refresh() {
-    entries = parseEntries();
-    $("entryCount").textContent = entries.length + " entr" + (entries.length === 1 ? "y" : "ies") + " on the wheel" + (entries.length >= 60 ? " (60 max)" : "") + ".";
+    entries = activeEntries();
+    var total = rawLines().length;
+    $("entryCount").textContent = entries.length + " of " + total + " entr" + (total === 1 ? "y" : "ies") + " on the wheel (absent ones ticked off)" + (total >= 500 ? " — 500 max" : "") + ". List saved in this browser only.";
+    renderEntryList();
     drawWheel(rotation);
   }
-  $("wheelEntries").addEventListener("input", refresh);
+  function playSpinSound() {
+    if (!soundOn()) return;
+    for (var i = 0; i < 8; i++) beep(180 + i * 30, i * 0.12, 0.1);
+  }
+  function showRoundComplete() {
+    var rs = $("roundState"); rs.hidden = false;
+    rs.textContent = "Round complete — every entry has had a turn. Press \u201CReset round\u201D to put all names back on the wheel.";
+    $("roundResetBtn").hidden = false;
+  }
+  $("wheelEntries").addEventListener("input", function () { roundOriginal = null; saveEntries(); refresh(); });
   $("shuffleBtn").addEventListener("click", function () {
-    var list = parseEntries();
+    var list = rawLines();
     for (var i = list.length - 1; i > 0; i--) { var j = secureInt(i + 1); var t = list[i]; list[i] = list[j]; list[j] = t; }
-    $("wheelEntries").value = list.join("\n"); refresh(); toast("Entries shuffled.");
+    $("wheelEntries").value = list.join("\n"); lastRendered = null; saveEntries(); refresh(); toast("Entries shuffled (Fisher–Yates).");
   });
-  $("clearBtn").addEventListener("click", function () { $("wheelEntries").value = ""; refresh(); $("wheelResult").textContent = "?"; });
+  $("clearBtn").addEventListener("click", function () { $("wheelEntries").value = ""; roundOriginal = null; disabledNames = {}; lastRendered = null; saveEntries(); refresh(); $("wheelResult").textContent = "?"; });
+  $("removeWinner").addEventListener("change", function () {
+    roundOriginal = null;
+    $("roundState").hidden = true; $("roundResetBtn").hidden = true;
+  });
+  $("roundResetBtn").addEventListener("click", function () {
+    if (roundOriginal) { $("wheelEntries").value = roundOriginal.join("\n"); roundOriginal = null; }
+    $("roundState").hidden = true; $("roundResetBtn").hidden = true;
+    lastRendered = null; saveEntries(); refresh();
+    $("wheelStatus").textContent = "New round — everyone is back on the wheel.";
+  });
+  $("csvFile").addEventListener("change", function (ev) {
+    var f = ev.target.files && ev.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      var parts = String(r.result || "").split(/[\r\n,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+      var lines = rawLines().concat(parts).slice(0, 500);
+      $("wheelEntries").value = lines.join("\n");
+      lastRendered = null; saveEntries(); refresh();
+      toast(parts.length + " entries imported (" + lines.length + " on the wheel).");
+    };
+    r.readAsText(f);
+    ev.target.value = "";
+  });
   $("spinBtn").addEventListener("click", function () {
     if (spinning) return;
     refresh();
-    if (entries.length < 2) { $("wheelStatus").textContent = "Add at least 2 entries to spin."; return; }
+    if (entries.length < 1) { $("wheelStatus").textContent = "Add at least 1 entry to spin (absent ones do not count)."; return; }
+    if ($("removeWinner").checked && !roundOriginal) roundOriginal = rawLines().slice();
     spinning = true; $("spinBtn").disabled = true;
     var winner = secureInt(entries.length);
     var segDeg = 360 / entries.length;
-    var centerDeg = winner * segDeg + segDeg / 2; // measured from top (rotation 0 = segment 0 starts at top)
+    var centerDeg = winner * segDeg + segDeg / 2;
     var target = (270 - centerDeg + 360) % 360 + 360 * 6;
-    var start = rotation, dur = 4200, t0 = null;
+    var start = rotation, dur = parseInt($("spinDur").value, 10) || 4200, t0 = null;
+    playSpinSound();
     function frame(ts) {
       if (!t0) t0 = ts;
       var p = Math.min(1, (ts - t0) / dur);
@@ -366,15 +616,19 @@ Salad bowls</textarea>
       $("wheelStatus").textContent = "The wheel picked: " + win;
       history.unshift(win);
       $("wheelHistory").textContent = "Winners: " + history.slice(0, 20).join("  \u00b7  ");
+      playFanfare(); confettiBurst();
       if ($("removeWinner").checked) {
-        var idx = entries.indexOf(win);
-        if (idx > -1) { entries.splice(idx, 1); $("wheelEntries").value = entries.join("\n"); refresh(); }
+        var lines = rawLines();
+        var idx = lines.indexOf(win);
+        if (idx > -1) { lines.splice(idx, 1); $("wheelEntries").value = lines.join("\n"); saveEntries(); refresh(); }
+        if (entries.length === 0) showRoundComplete();
       }
       spinning = false; $("spinBtn").disabled = false;
       toast("Winner: " + win);
     }
     requestAnimationFrame(frame);
   });
+  loadEntries();
   refresh();
 })();
 

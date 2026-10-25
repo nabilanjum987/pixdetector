@@ -20,6 +20,38 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How do I make an acronym from a phrase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take the first letter of each word, skipping small joining words like “and,” “of” and “the” — “Self-Contained Underwater Breathing Apparatus” becomes SCUBA. Acronyms that form a real word are much easier to remember."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an acronym, an initialism and a backronym?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An acronym is pronounced as a word (NASA, SCUBA); an initialism is spelled out letter by letter (FBI, HTML); a backronym assigns a meaning to an existing word afterwards (SARAH = Sincere, Ambitious, Resilient, Affectionate, Honest) — and the backronym is what most searchers actually want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a generated acronym commercially?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short abbreviations are generally not protected by copyright, but check the acronym is not already trademarked or in use in your industry before building a brand around it — short combinations are often already claimed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to credit the generator when I use an acronym?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a generated acronym or backronym is yours to use once generated, and no credit to the generator is required."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is this acronym generator really free?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -28,18 +60,10 @@
     },
     {
       "@type": "Question",
-      "name": "What is the difference between an acronym and an initialism?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An acronym is pronounced as a word (NASA, SCUBA, LASER). An initialism is pronounced letter by letter (FBI, BBC, IBM). This tool generates initials, which may form either type depending on the letters."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "How do I make an acronym easier to pronounce?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Prefer vowel-friendly patterns — alternating consonants and vowels — and avoid heavy consonant clusters. Shorter acronyms (3–5 letters) also tend to be more pronounceable, and skipping small words like \"and\" and \"of\" often helps."
+        "text": "Prefer vowel-friendly patterns — alternating consonants and vowels — and avoid heavy consonant clusters. Shorter acronyms (3–5 letters) also tend to be more pronounceable, and skipping small words like “and” and “of” often helps."
       }
     },
     {
@@ -55,7 +79,7 @@
       "name": "Can I make a backronym from a word I already like?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — switch the mode to \"Word → backronym\", type the word (up to about 12 letters), and the tool expands each letter into a real word. Click \"Shuffle backronym\" for a fresh expansion of the same letters."
+        "text": "Yes — type the word (up to about 12 letters) into the “Word → backronym” box and click “Build backronym”. Click “Shuffle backronym” for a fresh expansion of the same letters."
       }
     },
     {
@@ -64,6 +88,38 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. Search it in your industry, in domain names and in trademark databases before committing. Short combinations are often already claimed, and an acronym can also mean something unfortunate in another language or field."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some acronyms become real words?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When an acronym is pronounceable and useful, people start saying it as a word — laser and radar began as acronyms and are now ordinary words. That is the sign of a great one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is alphabet soup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Too many acronyms at once. When a team needs a 50-page glossary to understand a status report, the acronyms have stopped being shortcuts and become obstacles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an acronym be trademarked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A distinctive acronym can be registered as a trademark, but generic or purely descriptive ones usually cannot. Check your local trademark database first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my phrase makes an unpronounceable acronym?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is an honest result, not a failure. Shorten the phrase, swap a word, or drop a word — a 4-letter sayable acronym beats a 7-letter string nobody can pronounce."
       }
     }
   ]
@@ -82,8 +138,8 @@
     },
     {
       "@type": "HowToStep",
-      "name": "Generate the acronym",
-      "text": "Choose whether to skip small joining words, then click Generate. The tool shows the acronym, its expansion and a pronounceability note."
+      "name": "Generate the acronym — or the backronym",
+      "text": "Choose whether to skip small joining words, then click Make acronym. The tool shows the acronym, its expansion and a pronounceability note. For the other direction, type a word in the backronym box and click Build backronym."
     },
     {
       "@type": "HowToStep",
@@ -136,6 +192,21 @@ table.facts{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16p
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;text-decoration:none}
+.mode-tabs a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.result-row{flex-wrap:wrap}
+.result-text{flex:1 1 55%}
+.result-actions{display:flex;gap:6px;flex-shrink:0}
+.result-note{flex:1 1 100%;font-size:13px;color:var(--text2);line-height:1.6}
+.fav-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;flex-shrink:0}
+.fav-btn[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.check-links{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
+.check-links .check-label{font-size:12px;color:var(--text2);font-weight:700}
+.check-links a{font-size:12px;color:var(--text2);border:1px solid var(--border2);border-radius:999px;padding:4px 10px;text-decoration:none}
+.check-links a:hover{color:var(--text)}
+.split-team{font-size:14px;line-height:1.7;color:var(--text2);margin-bottom:8px}
+.split-team strong{color:var(--text)}
 </style>
 </head>
 <body>
@@ -161,27 +232,36 @@ table.facts td{color:var(--text2)}
       <h1>Free Acronym Generator</h1>
       <p>Turn any phrase into a memorable acronym — or start from a word and build a backronym that spells it out. Free, no signup, instant, copy in one click.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This tool builds acronyms from <strong>first letters only</strong> — it does not invent words the way an AI chatbot would. If the letters do not spell a pronounceable word, that is an honest result: not every phrase makes a good acronym. <strong>Always search an acronym before you use it</strong> — a short combination may already mean something else in your industry.</div>
+    <nav class="mode-tabs" aria-label="Name generator modes">
+  <a href="/tools/slogan-generator">Slogan</a>
+  <a href="/tools/username-generator">Username</a>
+  <a href="/tools/acronym-generator" aria-current="page">Acronym</a>
+  <a href="/tools/fantasy-name-generator">Fantasy name</a>
+  <a href="/tools/team-name-generator">Team name</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> Template + word-list output — a first draft to rewrite, not a finished brand line. We can't check availability or trademarks — check the name where you'll use it. Acronyms are built from first letters only — the tool does not invent words the way an AI chatbot would. If the letters do not spell a pronounceable word, that is an honest result. Always search an acronym before you use it — a short combination may already mean something else in your industry.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Acronym settings">
         <h2>Your phrase or word</h2>
-        <label class="flabel" for="phraseInput">Phrase (for acronyms) or word (for backronyms)</label>
+        <h2 style="font-size:15px;margin-bottom:10px">1. Phrase &rarr; acronym</h2>
+        <label class="flabel" for="phraseInput">Your phrase</label>
         <textarea id="phraseInput" rows="3" spellcheck="false">Self-Contained Underwater Breathing Apparatus</textarea>
-        <div style="margin-top:16px">
-          <label class="flabel" for="modeSelect">Mode</label>
-          <select id="modeSelect">
-            <option value="acronym">Phrase → acronym (first letters)</option>
-            <option value="backronym">Word → backronym (expand each letter)</option>
-          </select>
-        </div>
-        <div class="actions" id="acronymOpts">
+        <div class="actions">
           <button type="button" class="toggle" id="skipToggle" aria-pressed="true">Skip small words (and, of, the)</button>
         </div>
         <div class="actions">
-          <button type="button" class="btn" id="genBtn">Generate acronym</button>
+          <button type="button" class="btn" id="genBtn">Make acronym</button>
+        </div>
+        <div style="margin-top:20px">
+          <h2 style="font-size:15px;margin-bottom:10px">2. Word &rarr; backronym</h2>
+          <label class="flabel" for="wordInput">Your word (up to about 12 letters)</label>
+          <input type="text" id="wordInput" value="CRAFT" autocomplete="off" autocapitalize="off" spellcheck="false">
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="backBtn">Build backronym</button>
           <button type="button" class="btn alt" id="moreBtn">Shuffle backronym</button>
         </div>
-        <p class="trust">Try it: "Self-Contained Underwater Breathing Apparatus" becomes SCUBA. Short phrases with 3–5 words make the most memorable acronyms.</p>
+        <p class="trust">Try it: "Self-Contained Underwater Breathing Apparatus" becomes SCUBA. Short phrases with 3–5 words make the most memorable acronyms. The backronym direction — starting from a word you like and finding words for each letter — is what most searchers actually want.</p>
       </div>
       <div class="bc-panel" aria-label="Acronym results">
         <h2>Your acronym</h2>
@@ -190,7 +270,22 @@ table.facts td{color:var(--text2)}
         <div class="actions">
           <button type="button" class="btn alt" id="copyAllBtn">Copy acronym</button>
         </div>
+        <h2 style="margin-top:18px">Your backronym</h2>
+        <div class="result-list" id="backResults"></div>
+        <p class="result-meta" id="backMeta"></p>
+        <div class="actions">
+          <button type="button" class="btn alt" id="copyBackBtn">Copy backronym</button>
+        </div>
         <p class="trust">Pronounceability note: acronyms that read as a real word (NASA, SCUBA, LASER) are remembered far more easily than letter soup.</p>
+      </div>
+    </div>
+    <div class="bc-panel" id="favPanel" aria-label="Your shortlist">
+      <h2>Your shortlist — pinned names</h2>
+      <p class="trust" style="margin-top:0">Pin any result with the &#9734; Pin button and it stays here, saved in this browser even after you reload or close the page. Your shortlist never leaves your device.</p>
+      <div class="result-list" id="favBarList"></div>
+      <div class="actions">
+        <button type="button" class="btn alt" id="copyFavsBtn">Copy shortlist</button>
+        <button type="button" class="btn alt" id="clearFavsBtn">Clear shortlist</button>
       </div>
     </div>
     <div class="share-box">
@@ -207,10 +302,10 @@ table.facts td{color:var(--text2)}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: most acronyms are unpronounceable letter soup</h2>
-      <p>Coming up with an acronym by hand looks easy and is not. You write the phrase, circle the starting letters, and try to bend them into a real word — usually a few tries before anything clicks, and often nothing clicks at all. The two complaints that come up again and again are the same: the result is a stiff string of consonants nobody can say out loud, and the words were clearly forced just to fit the letters, so the expansion reads like a joke. A bad acronym fails at its only job — it is harder to remember than the full phrase it was supposed to shorten. People want a short name that reads like a word, where every word in the expansion genuinely describes the thing it names.</p>
+      <p>Coming up with an acronym by hand looks easy and is not. You write the phrase, circle the starting letters, and try to bend them into a real word — usually a few tries before anything clicks, and often nothing clicks at all. The two complaints that come up again and again are the same: the result is a stiff string of consonants nobody can say out loud, and the words were clearly forced just to fit the letters, so the expansion reads like a joke. A bad acronym fails at its only job — it is harder to remember than the full phrase it was supposed to shorten. People want a short name that reads like a word, where every word in the expansion genuinely describes the thing it names. The backronym direction — starting from a word you like and finding words for each letter — is what most searchers actually want, and most tools only offer one direction: one leading tool does backronyms only, another does initials only.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I make an acronym from words?</h2>
-      <p>Type your phrase into the tool above — for example, "Self-Contained Underwater Breathing Apparatus" — choose whether to skip small words like "and" and "of", and click Generate acronym. You get the acronym instantly, free, with no signup: SCUBA, in this case. The tool also tells you whether the result is pronounceable. Aim for 3 to 5 letters, check the acronym is not already claimed in your industry, and say it aloud — if you cannot say it in one go, shorten the phrase and try again.</p>
+      <p>Type your phrase into the Phrase → acronym box and click Make acronym — “Self-Contained Underwater Breathing Apparatus” becomes SCUBA. Or type a word into the Word → backronym box and click Build backronym to expand each letter into a word. Both are free, instant, and need no signup.</p>
       <p>An acronym generator is a tool that turns a phrase into a short abbreviation made from its first letters. An acronym is pronounced as a word — NASA, SCUBA, LASER, RADAR — while an initialism is pronounced letter by letter — FBI, BBC, IBM, ATM. A backronym works the other way round: you pick a word first, like HOPE or FAST, and then find words that fit each letter. The acronyms that stick are short, pronounceable, and honest: every word in the expansion actually describes the thing it names.</p>
       <!-- HOW TO -->
       <h2>How to make an acronym in 3 steps</h2>
@@ -219,19 +314,40 @@ table.facts td{color:var(--text2)}
       <p>The three get mixed up constantly, and the difference is how you say them. An <strong>acronym</strong> is read as a single word: NASA, SCUBA, LASER, RADAR. An <strong>initialism</strong> is read letter by letter: FBI, HTML, USA, ATM. A <strong>backronym</strong> is a phrase invented after the fact to fit a word you already chose — the USA PATRIOT Act is the famous example, standing for "Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism". This tool makes all three: phrase mode gives you an acronym or initialism depending on the letters, and word mode builds backronyms.</p><table class="facts"><thead><tr><th>Type</th><th>Pronounced as</th><th>Examples</th></tr></thead><tbody><tr><td>Acronym</td><td>One word</td><td>NASA, LASER, SCUBA, RADAR</td></tr><tr><td>Initialism</td><td>Letter by letter</td><td>FBI, BBC, IBM, ATM</td></tr><tr><td>Backronym</td><td>Meaning added later to a word</td><td>USA PATRIOT Act, SPECTRE</td></tr></tbody></table>
       <h2>What makes an acronym stick</h2>
       <p>Three traits, and you can check any result above against them. <strong>It is pronounceable.</strong> SCUBA survived because it reads as a word; a string of consonants needs too much explaining. Vowels are your friends — you need them to make the word sayable. <strong>The words actually describe the thing.</strong> LASER stands for Light Amplification by Stimulated Emission of Radiation, and every word is doing real work. If the expansion reads like words chosen only to force initials, the name is not ready. <strong>It is short enough to remember.</strong> Four to six letters is the sweet spot; longer names still work, but people remember TEAM far more easily than a ten-letter surname. And one warning: forcing a weak word to fill a hard letter — X, Z or Q — usually produces a word nobody uses. Switch to a different phrase instead of accepting it.</p>
+      <h2>How this tool compares with the top results</h2>
+      <p>Nobody in the top five combines both directions on one page — this page does: phrase &rarr; initials and letters &rarr; backronym, side by side. Claims below marked "not independently verified" are the vendor's own words, not checked in our research.</p>
+      <table class="facts"><thead><tr><th>Tool</th><th>What it does</th><th>The catch</th></tr></thead><tbody>
+      <tr><td>Webuify</td><td>Backronyms from 2–10 letters, 8 categories, lock words and shuffle the rest</td><td>Backronym-only direction featured</td></tr>
+      <tr><td>Wild Creek</td><td>Phrase &rarr; initials, skips joining words</td><td>Initials only — it "does not invent pronounceable words"</td></tr>
+      <tr><td>aiseo.ai</td><td>AI acronyms with a tone picker; claims "4.8 (1,400+ reviews)" and "250,000+ acronyms created" — both claims not independently verified</td><td>5 free generations — a cap the free pitch does not lead with</td></tr>
+      <tr><td>nameacronym.net</td><td>Backronyms from 29+ themed word lists</td><td>Name-backronym only; the clearest acronym/initialism/backronym explainer in the results</td></tr>
+      <tr><td>acronymgenerator.top</td><td>Both directions, 5/10/15/20 results, from a "1,100+ words" bank — word-count claim not independently verified</td><td>Small unknown brand</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2>FAQ</h2>
+      <details class="faq">
+        <summary>How do I make an acronym from a phrase?</summary>
+        <p>Take the first letter of each word, skipping small joining words like “and,” “of” and “the” — “Self-Contained Underwater Breathing Apparatus” becomes SCUBA. Acronyms that form a real word are much easier to remember.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between an acronym, an initialism and a backronym?</summary>
+        <p>An acronym is pronounced as a word (NASA, SCUBA); an initialism is spelled out letter by letter (FBI, HTML); a backronym assigns a meaning to an existing word afterwards (SARAH = Sincere, Ambitious, Resilient, Affectionate, Honest) — and the backronym is what most searchers actually want.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use a generated acronym commercially?</summary>
+        <p>Short abbreviations are generally not protected by copyright, but check the acronym is not already trademarked or in use in your industry before building a brand around it — short combinations are often already claimed.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to credit the generator when I use an acronym?</summary>
+        <p>No — a generated acronym or backronym is yours to use once generated, and no credit to the generator is required.</p>
+      </details>
       <details class="faq">
         <summary>Is this acronym generator really free?</summary>
         <p>Yes. Generate as many acronyms and backronyms as you like, free, with no signup and no usage limit. Everything runs in your browser.</p>
       </details>
       <details class="faq">
-        <summary>What is the difference between an acronym and an initialism?</summary>
-        <p>An acronym is pronounced as a word (NASA, SCUBA, LASER). An initialism is pronounced letter by letter (FBI, BBC, IBM). This tool generates initials, which may form either type depending on the letters.</p>
-      </details>
-      <details class="faq">
         <summary>How do I make an acronym easier to pronounce?</summary>
-        <p>Prefer vowel-friendly patterns — alternating consonants and vowels — and avoid heavy consonant clusters. Shorter acronyms (3–5 letters) also tend to be more pronounceable, and skipping small words like "and" and "of" often helps.</p>
+        <p>Prefer vowel-friendly patterns — alternating consonants and vowels — and avoid heavy consonant clusters. Shorter acronyms (3–5 letters) also tend to be more pronounceable, and skipping small words like “and” and “of” often helps.</p>
       </details>
       <details class="faq">
         <summary>How many letters should an acronym have?</summary>
@@ -239,18 +355,28 @@ table.facts td{color:var(--text2)}
       </details>
       <details class="faq">
         <summary>Can I make a backronym from a word I already like?</summary>
-        <p>Yes — switch the mode to "Word → backronym", type the word (up to about 12 letters), and the tool expands each letter into a real word. Click "Shuffle backronym" for a fresh expansion of the same letters.</p>
+        <p>Yes — type the word (up to about 12 letters) into the “Word → backronym” box and click “Build backronym”. Click “Shuffle backronym” for a fresh expansion of the same letters.</p>
       </details>
       <details class="faq">
         <summary>Should I check an acronym before using it?</summary>
         <p>Yes. Search it in your industry, in domain names and in trademark databases before committing. Short combinations are often already claimed, and an acronym can also mean something unfortunate in another language or field.</p>
       </details>
-      <!-- RELATED QUESTIONS -->
-      <h2>Related questions</h2>
-      <p><strong>Why do some acronyms become real words?</strong> When an acronym is pronounceable and useful, people start saying it as a word — laser and radar began as acronyms and are now ordinary words. That is the sign of a great one.</p>
-      <p><strong>What is alphabet soup?</strong> Too many acronyms at once. When a team needs a 50-page glossary to understand a status report, the acronyms have stopped being shortcuts and become obstacles.</p>
-      <p><strong>Can an acronym be trademarked?</strong> A distinctive acronym can be registered as a trademark, but generic or purely descriptive ones usually cannot. Check your local trademark database first.</p>
-      <p><strong>What if my phrase makes an unpronounceable acronym?</strong> That is an honest result, not a failure. Shorten the phrase, swap a word, or drop a word — a 4-letter sayable acronym beats a 7-letter string nobody can pronounce.</p>
+      <details class="faq">
+        <summary>Why do some acronyms become real words?</summary>
+        <p>When an acronym is pronounceable and useful, people start saying it as a word — laser and radar began as acronyms and are now ordinary words. That is the sign of a great one.</p>
+      </details>
+      <details class="faq">
+        <summary>What is alphabet soup?</summary>
+        <p>Too many acronyms at once. When a team needs a 50-page glossary to understand a status report, the acronyms have stopped being shortcuts and become obstacles.</p>
+      </details>
+      <details class="faq">
+        <summary>Can an acronym be trademarked?</summary>
+        <p>A distinctive acronym can be registered as a trademark, but generic or purely descriptive ones usually cannot. Check your local trademark database first.</p>
+      </details>
+      <details class="faq">
+        <summary>What if my phrase makes an unpronounceable acronym?</summary>
+        <p>That is an honest result, not a failure. Shorten the phrase, swap a word, or drop a word — a 4-letter sayable acronym beats a 7-letter string nobody can pronounce.</p>
+      </details>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -294,50 +420,57 @@ table.facts td{color:var(--text2)}
 <script>
 (function () {
   var last = [];
+  var lastBack = [];
   var skipSmall = true;
-  function run() {
+  function runAcronym() {
     var input = document.getElementById("phraseInput").value.trim();
-    var mode = document.getElementById("modeSelect").value;
     var box = document.getElementById("results");
     var meta = document.getElementById("resultMeta");
     last = [];
     if (!input) {
-      NameGen.renderResults(box, [], "Type a phrase or a word first.");
+      NameGen.renderResults(box, [], "Type a phrase first.");
       meta.textContent = "";
       return;
     }
-    if (mode === "backronym") {
-      var b = NameGen.backronym(input);
-      var line = b.letters + " — " + b.words.join(" ");
-      last = [line];
-      NameGen.renderResults(box, [line], "");
-      meta.textContent = NameGen.pronounceableScore(b.letters) + " Backronyms work best at 3–6 letters; longer words start to read like a sentence.";
-    } else {
-      var a = NameGen.acronymFromPhrase(input, skipSmall);
-      var line2 = a.letters + " — " + a.words.join(" ");
-      last = [line2];
-      var variants = [];
-      variants.push(line2);
-      var alt = NameGen.acronymFromPhrase(input, !skipSmall);
-      if (alt.letters !== a.letters) variants.push(alt.letters + " — " + alt.words.join(" ") + " (all words included)");
-      NameGen.renderResults(box, variants, "");
-      meta.textContent = NameGen.pronounceableScore(a.letters) + " " + a.letters.length + " letters from " + a.words.length + " words.";
-    }
+    var a = NameGen.acronymFromPhrase(input, skipSmall);
+    var line = a.letters + " \u2014 " + a.words.join(" ");
+    last = [line];
+    var variants = [line];
+    var alt = NameGen.acronymFromPhrase(input, !skipSmall);
+    if (alt.letters !== a.letters) variants.push(alt.letters + " \u2014 " + alt.words.join(" ") + " (all words included)");
+    NameGen.renderResults(box, variants, "");
+    meta.textContent = NameGen.pronounceableScore(a.letters) + " " + a.letters.length + " letters from " + a.words.length + " words.";
   }
-  document.getElementById("genBtn").addEventListener("click", run);
-  document.getElementById("moreBtn").addEventListener("click", run);
-  document.getElementById("modeSelect").addEventListener("change", function () {
-    document.getElementById("acronymOpts").style.display = this.value === "backronym" ? "none" : "flex";
-    run();
-  });
+  function runBackronym() {
+    var input = document.getElementById("wordInput").value.trim();
+    var box = document.getElementById("backResults");
+    var meta = document.getElementById("backMeta");
+    lastBack = [];
+    if (!input) {
+      NameGen.renderResults(box, [], "Type a word first.");
+      meta.textContent = "";
+      return;
+    }
+    var b = NameGen.backronym(input);
+    var line = b.letters + " \u2014 " + b.words.join(" ");
+    lastBack = [line];
+    NameGen.renderResults(box, [line], "");
+    meta.textContent = NameGen.pronounceableScore(b.letters) + " Backronyms work best at 3\u20136 letters; longer words start to read like a sentence.";
+  }
+  document.getElementById("genBtn").addEventListener("click", runAcronym);
+  document.getElementById("backBtn").addEventListener("click", runBackronym);
+  document.getElementById("moreBtn").addEventListener("click", runBackronym);
   document.getElementById("skipToggle").addEventListener("click", function () {
     skipSmall = !skipSmall;
     this.setAttribute("aria-pressed", skipSmall ? "true" : "false");
-    run();
+    runAcronym();
   });
   NameGen.wireCopyAll("copyAllBtn", function () { return last; });
-  run();
+  NameGen.wireCopyAll("copyBackBtn", function () { return lastBack; });
+  runAcronym();
+  runBackronym();
 })();
+
 document.getElementById("copyLink").addEventListener("click", function () {
   NameGen.copyText(location.href, "Link copied.");
 });

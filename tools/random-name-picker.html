@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Random Name Picker — No Signup | PixDetector</title>
-<meta name="description" content="Pick a random name from your own list — paste names, pick one or several, no repeats if you want. Free, no signup, nothing uploaded.">
+<meta name="description" content="Pick a random name from your own list — paste up to 500 names, mark absent, no repeats, CSV import. Free, no signup.">
 <meta name="keywords" content="random name picker, random name picker free, pick a random name, random student picker, classroom name picker, pick a name from a list">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/random-name-picker">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/random-name-picker">
 <meta property="og:title" content="Free Random Name Picker — No Signup | PixDetector">
-<meta property="og:description" content="Pick a random name from your own list — paste names, pick one or several, no repeats if you want. Free, no signup, nothing uploaded.">
+<meta property="og:description" content="Pick a random name from your own list — paste up to 500 names, mark absent, no repeats, CSV import. Free, no signup.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -20,34 +20,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this random name picker really free?",
+      "name": "How do I pick a random name from a list I paste?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Pick as many names as you like with no signup, no payment and no download. Everything runs in your browser."
+        "text": "Paste the names one per line into the box, press PICK A NAME, and one name is picked — the list never leaves your browser on the in-browser tools, and this page is one of them."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this tool have built-in names?",
+      "name": "How many names can a random name picker handle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The list comes from you \u2014 paste your own names, one per line. This picker chooses from your list; it does not invent names."
+        "text": "It varies widely: some free draws take as few as 20 names, wheel tools take 100 to 500 entries, and one roster tool takes up to 20,000. This picker takes up to 500 names."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I pick a random student for my class?",
+      "name": "Can I use a random picker for a giveaway or raffle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Paste your class list, one name per line, leave \u201cNo repeats\u201d on, and press PICK A NAME. Each student sits out until the whole class has had a turn."
+        "text": "Yes — paste the entrants, draw live on screen, remove each winner so nobody wins twice, and record your screen so the draw is provable."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I pick more than one name at a time?",
+      "name": "How do I pick a random student fairly in class?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 choose how many to pick, from 1 to 10. With \u201cNo repeats\u201d on, all the picked names are different."
+        "text": "Paste the class list, mark absent students with the Here checkbox, leave “No repeats” on, and pick where the class can see it. Everyone gets one turn before anyone gets a second."
       }
     },
     {
@@ -55,15 +55,87 @@
       "name": "Can the same name be picked twice?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only if you turn \u201cNo repeats\u201d off. With it on, a picked name stays out of the pool until you start a new round."
+        "text": "Only if you turn “No repeats” off. With it on, a picked name stays out of the pool until you start a new round."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my list of names uploaded or saved?",
+      "name": "How do I mark a student absent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your names stay in your browser tab and are never sent to a server, stored, or shared. Close the page and they are gone."
+        "text": "Use the Here checkbox next to each name in the list. Unchecked names stay on your list but are never picked, so an absent student cannot stall the lesson and the fair round does not skew."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when everyone has been picked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The page shows “Round complete — everyone has had a turn”. Press “Start a new round” to put all names back in the pool and go again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If I paste the same name twice, does it get two chances?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — each pasted line is one chance, so a name pasted twice has two chances of being picked. If you want each person to have exactly one chance, paste each name once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my list uploaded or saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your list is never uploaded or sent to a server. It is saved in this browser's local storage only, so it is still there when you come back on the same browser — clearing your browsing data wipes it, and it never syncs to another device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import a list from a spreadsheet or CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use the CSV import button, or paste straight from a spreadsheet: one name per line, or comma-separated. The picker takes up to 500 names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the pick really random and fair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Names are picked with the browser's crypto random source (crypto.getRandomValues()) and rejection sampling, so every name in the pool has exactly the same chance. Shuffles use Fisher–Yates, not a biased sort-based shuffle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between this picker and the spin-the-wheel tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The picker draws a name and shows it; the wheel draws the same kind of list with a visible animated spin the whole room can watch. Use the picker for a quick draw, the wheel when the draw itself needs to be seen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why shouldn't I re-pick when I don't like the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because re-picking destroys the trust the draw exists to create. The moment you draw again because the “wrong” person was picked, everyone watching concludes the draw is only random until you disapprove of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pick more than one name at a time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — choose how many to pick, from 1 to 10. With “No repeats” on, all the picked names are different."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the picker work on a projector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — press “Projector mode” for fullscreen with a huge winner display, confetti and a sound toggle, so the whole room can watch the pick happen."
       }
     }
   ]
@@ -78,7 +150,7 @@
     {
       "@type": "HowToStep",
       "name": "Paste your names",
-      "text": "Paste your names one per line. The list comes from you \u2014 the tool has no built-in names."
+      "text": "Paste your names one per line, up to 500, or import a CSV. The list comes from you — the tool has no built-in names. Untick Here next to anyone absent."
     },
     {
       "@type": "HowToStep",
@@ -152,6 +224,21 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.modes a{background:var(--card);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--text);text-decoration:none}
+.modes a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.projector .result-big{font-size:clamp(48px,9vw,110px)!important}
+.entry-list{max-height:220px;overflow:auto;border:1px solid var(--border);border-radius:10px;padding:8px 12px;background:var(--bg2);margin-top:8px}
+.entry-row{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);padding:6px 0;cursor:pointer}
+.entry-row input{width:auto;accent-color:var(--accent)}
+.die-face.die-drop{opacity:.45;text-decoration:line-through}
+.die-face.die-extra{border-style:dashed}
 </style>
 </head>
 <body>
@@ -175,15 +262,21 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     </div>
     <div class="tool-page-header">
       <h1>Free Random Name Picker</h1>
-      <p>Pick a random name from your own list — paste your names, pick one or several, and never pick the same person twice in a round unless you want to. Free, no signup, nothing uploaded.</p>
+      <p>Pick a random name from your own list — paste up to 500 names, mark anyone absent, pick one or several, and never pick the same person twice in a round unless you want to. Free, no signup, nothing uploaded.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> <strong>This tool has no built-in names</strong> — the list comes from you. It picks from names you paste; it does not invent them. Your list is never uploaded and is gone when you close the page.</div>
+    <nav class="modes" aria-label="Random tools">
+      <a href="/tools/spin-the-wheel">🎡 Spin the Wheel</a>
+      <a href="/tools/random-number-generator">🔢 Random Number</a>
+      <a href="/tools/dice-roller">🎲 Dice Roller</a>
+      <a href="/tools/random-name-picker" aria-current="page">🎲 Random Name Picker</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> This tool is for classrooms, raffles, games and decisions — not for gambling, regulated prize draws, or anything needing independent audit. Short streaks (same name twice, three 3s in five rolls) are normal randomness, not rigging. Saved lists live in this browser only — clearing browsing data wipes them.</div>
     
-    <div class="bc-tool">
+    <div class="bc-tool" id="toolGrid">
       <div class="bc-panel" aria-label="Random name picker">
         <h2>Your list of names</h2>
         <p class="hint" style="margin-top:0"><strong>This tool has no built-in names.</strong> The list comes from you \u2014 paste your own names below. Nothing is uploaded.</p>
-        <label class="flabel" for="pickList">Paste names, one per line</label>
+        <label class="flabel" for="pickList">Paste names, one per line (up to 500) — or import a CSV below</label>
         <textarea id="pickList" rows="10" spellcheck="false">Ava
 Liam
 Mia
@@ -200,6 +293,13 @@ Omar</textarea>
           <button type="button" class="btn big" id="pickBtn">PICK A NAME</button>
           <button type="button" class="btn alt" id="pickClear">Clear list</button>
         </div>
+        <div class="field" style="margin-top:14px"><label class="flabel" for="csvFile">Import a list (.csv or .txt — one name per line, or comma-separated)</label><input type="file" id="csvFile" accept=".csv,.txt,text/csv,text/plain"></div>
+        <label class="check-row"><input type="checkbox" id="soundOn" checked> Sound on pick (fanfare)</label>
+        <h2 style="margin-top:16px">Names — tick Here for who is in</h2>
+        <p class="hint">Untick a name to mark them absent: they stay on your list but are never picked. A name pasted twice has two chances.</p>
+        <div class="entry-list" id="entryList"></div>
+        <p class="status" id="roundState" hidden></p>
+        <div class="actions"><button type="button" class="btn alt" id="projectorBtn">📽 Projector mode</button></div>
         <p class="hint" id="pickCountLine"></p>
       </div>
       <div class="bc-panel" aria-label="Picked names">
@@ -218,32 +318,67 @@ Omar</textarea>
       <!-- PROBLEM -->
       <h2>The problem: calling on the same few people every time</h2>
       <p>Every teacher knows it: ask a question and the same three hands go up, while the rest of the class quietly checks out. Every giveaway host knows the other version: draw a winner by hand and someone in the comments says it was fixed. The complaints about name pickers follow the same pattern as the wheel — tools that ship with fake sample names you have to delete first, tools that pick the same person twice in a row with no way to stop it, and tools that make you create an account before you can use your own class list. What teachers and hosts actually want is the simplest possible thing: paste my list, pick one fairly, and do not pick the same person twice until everyone has had a turn.</p>
+      <p>Two classroom mistakes make a fair picker unfair in practice. The first is forgetting to mark absent students: they get picked, the class stalls, and the fair round quietly skews. The second is re-spinning because you do not like the result — the moment you do, everyone watching concludes the draw is only random until you disapprove of it. This page has a Here checkbox per name for the first, and a no-repeat round for the second.</p>
       <!-- DIRECT ANSWER -->
-      <h2>How do I pick a random name from a list?</h2>
-      <p>Paste your names below, one per line, choose how many to pick, and press PICK A NAME — free, with no signup, and the pick happens instantly in your browser. With "No repeats" turned on, each name sits out until the whole list has had a turn, then everyone is back in the pool. Every name in your list has exactly the same chance of being picked.</p>
-      <p>A random name picker is a tool that chooses one or more names from a list you provide. This one has no built-in names — the list comes from you, whether that is a class register, a team roster, or a list of giveaway entrants — and the pick is made with your browser's secure random generator, so the result cannot be steered.</p>
+      <h2>How do I pick a random name from a list? The direct answer</h2>
+      <p>Paste your names below, one per line, choose how many to pick, and press PICK A NAME — free, with no signup, and the pick happens instantly in your browser. With “No repeats” on, each name sits out until the whole list has had a turn. Every name has exactly the same chance.</p>
+      <p>A random name picker is a tool that chooses one or more names from a list you provide. This one has no built-in names — the list comes from you, whether that is a class register, a team roster, or a list of giveaway entrants — and the pick is made with your browser's secure random generator, so the result cannot be steered. Picks use crypto.getRandomValues() with rejection sampling, and shuffles use Fisher–Yates — the naive sort(() =&gt; Math.random() - 0.5) shuffle is biased, so this page never uses it.</p>
       <!-- HOW TO -->
       <h2>How to pick a random name in 3 steps</h2>
       <p><strong>Step 1:</strong> paste your names, one per line — copy them straight from a spreadsheet or a document. <strong>Step 2:</strong> choose how many names to pick (1 to 10) and leave "No repeats" on if nobody should be picked twice. <strong>Step 3:</strong> press PICK A NAME. When everyone has had a turn, press "Start a new round" to put all names back in.</p>
       <h2>Fair picks for classrooms</h2>
       <p>The "No repeats" mode is built for classrooms: it works like drawing names from a hat, one at a time, without putting them back. Nobody is called on twice while someone else has never been called on, which keeps the whole class paying attention — anyone could be next. When the round is over, one button resets the pool. If you want a visible draw the class can watch, the <a href="/tools/spin-the-wheel">spin the wheel</a> tool picks from the same kind of list with an animated wheel instead.</p>
       <h2>What this picker cannot do</h2>
-      <p>It cannot invent names for you. If you need name ideas — for a character, a baby, a team or a business — that is a different tool: a name generator creates names, while this picker only chooses from names you already have. It also cannot save your list between visits: your names stay in this browser tab and are gone when you close the page, which is also why nothing you paste is ever uploaded or seen by anyone else.</p>
+      <p>It cannot invent names for you. If you need name ideas — for a character, a baby, a team or a business — that is a different tool: a name generator creates names, while this picker only chooses from names you already have. Your list is saved in this browser only, so it is there when you come back on the same browser — but clearing browsing data wipes it, and it never syncs to another device. That is also why nothing you paste is ever uploaded or seen by anyone else.</p>
+
+      <h2>Fair randomness — the mechanism, in one line</h2>
+      <p>Every pick is made with <strong>crypto.getRandomValues()</strong> plus rejection sampling, and shuffles use the <strong>Fisher–Yates</strong> algorithm. Math.random()-only tools are fine for games, but not for a draw anyone might challenge.</p>
+
+      <h2>Which random tool do I need?</h2>
+      <p>One tool, four modes — pick the job, not the page:</p>
+      <table class="tbl">
+        <tr><th>Job</th><th>Use</th></tr>
+        <tr><td>Pick one entry where the whole room can watch</td><td><a href="/tools/spin-the-wheel">Spin the Wheel</a></td></tr>
+        <tr><td>Draw numbers from a range you choose</td><td><a href="/tools/random-number-generator">Random Number Generator</a></td></tr>
+        <tr><td>Roll dice for a game</td><td><a href="/tools/dice-roller">Dice Roller</a></td></tr>
+        <tr><td>Draw names from a list you paste</td><td><a href="/tools/random-name-picker">Random Name Picker</a></td></tr>
+      </table>
+
+      <h2>How this picker compares with the top free name pickers</h2>
+      <p>The comparison below uses the free name pickers found in a live search on 25 Oct 2026. Caps and features are what those pages state about themselves — “not stated” means the fetched page did not say.</p>
+      <table class="tbl">
+        <tr><th>Tool</th><th>Name cap</th><th>Randomness</th><th>Remove-winner</th><th>What stands out</th></tr>
+        <tr><td>Wheel of Names</td><td>500 entries, 200 chars each</td><td>Not stated</td><td>Not named in the fetched text</td><td>Enable/disable entries, shuffle; last 100 winners saved in browser</td></tr>
+        <tr><td>Aispinneronline</td><td>Not stated</td><td>Not stated</td><td>Yes</td><td>Classroom/team/party presets; video recorder adds a watermark</td></tr>
+        <tr><td>Shiken</td><td>Not stated</td><td>Not stated</td><td>Yes</td><td>Classroom pitch; a funnel into a quiz product</td></tr>
+        <tr><td>SnipGeek</td><td>20,000 names per roster</td><td>crypto.getRandomValues()</td><td>Yes — winners without replacement</td><td>Presentation mode; duplicate-name detection skips repeats; lists in local storage</td></tr>
+        <tr><td>Spin2Choose</td><td>200 entries</td><td>Crypto-secure</td><td>Not named in the fetched text</td><td>Weighted entries 1×–5×; shareable wheel links</td></tr>
+        <tr><td>This page</td><td>500 names</td><td>crypto.getRandomValues() + rejection sampling</td><td>Yes — on by default</td><td>Here/Absent toggle, CSV import, projector mode, list saved in this browser</td></tr>
+      </table>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this random name picker really free?</summary><p>Yes. Pick as many names as you like with no signup, no payment and no download. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>Does this tool have built-in names?</summary><p>No. The list comes from you — paste your own names, one per line. This picker chooses from your list; it does not invent names.</p></details>
-      <details class="faq"><summary>How do I pick a random student for my class?</summary><p>Paste your class list, one name per line, leave “No repeats” on, and press PICK A NAME. Each student sits out until the whole class has had a turn.</p></details>
-      <details class="faq"><summary>Can I pick more than one name at a time?</summary><p>Yes — choose how many to pick, from 1 to 10. With “No repeats” on, all the picked names are different.</p></details>
+      <details class="faq"><summary>How do I pick a random name from a list I paste?</summary><p>Paste the names one per line into the box, press PICK A NAME, and one name is picked — the list never leaves your browser on the in-browser tools, and this page is one of them.</p></details>
+      <details class="faq"><summary>How many names can a random name picker handle?</summary><p>It varies widely: some free draws take as few as 20 names, wheel tools take 100 to 500 entries, and one roster tool takes up to 20,000. This picker takes up to 500 names.</p></details>
+      <details class="faq"><summary>Can I use a random picker for a giveaway or raffle?</summary><p>Yes — paste the entrants, draw live on screen, remove each winner so nobody wins twice, and record your screen so the draw is provable.</p></details>
+      <details class="faq"><summary>How do I pick a random student fairly in class?</summary><p>Paste the class list, mark absent students with the Here checkbox, leave “No repeats” on, and pick where the class can see it. Everyone gets one turn before anyone gets a second.</p></details>
       <details class="faq"><summary>Can the same name be picked twice?</summary><p>Only if you turn “No repeats” off. With it on, a picked name stays out of the pool until you start a new round.</p></details>
-      <details class="faq"><summary>Is my list of names uploaded or saved?</summary><p>No. Your names stay in your browser tab and are never sent to a server, stored, or shared. Close the page and they are gone.</p></details>
+      <details class="faq"><summary>How do I mark a student absent?</summary><p>Use the Here checkbox next to each name in the list. Unchecked names stay on your list but are never picked, so an absent student cannot stall the lesson and the fair round does not skew.</p></details>
+      <details class="faq"><summary>What happens when everyone has been picked?</summary><p>The page shows “Round complete — everyone has had a turn”. Press “Start a new round” to put all names back in the pool and go again.</p></details>
+      <details class="faq"><summary>If I paste the same name twice, does it get two chances?</summary><p>Yes — each pasted line is one chance, so a name pasted twice has two chances of being picked. If you want each person to have exactly one chance, paste each name once.</p></details>
+      <details class="faq"><summary>Is my list uploaded or saved?</summary><p>Your list is never uploaded or sent to a server. It is saved in this browser's local storage only, so it is still there when you come back on the same browser — clearing your browsing data wipes it, and it never syncs to another device.</p></details>
+      <details class="faq"><summary>Can I import a list from a spreadsheet or CSV?</summary><p>Yes — use the CSV import button, or paste straight from a spreadsheet: one name per line, or comma-separated. The picker takes up to 500 names.</p></details>
+      <details class="faq"><summary>Is the pick really random and fair?</summary><p>Yes. Names are picked with the browser's crypto random source (crypto.getRandomValues()) and rejection sampling, so every name in the pool has exactly the same chance. Shuffles use Fisher–Yates, not a biased sort-based shuffle.</p></details>
+      <details class="faq"><summary>What is the difference between this picker and the spin-the-wheel tool?</summary><p>The picker draws a name and shows it; the wheel draws the same kind of list with a visible animated spin the whole room can watch. Use the picker for a quick draw, the wheel when the draw itself needs to be seen.</p></details>
+      <details class="faq"><summary>Why shouldn't I re-pick when I don't like the result?</summary><p>Because re-picking destroys the trust the draw exists to create. The moment you draw again because the “wrong” person was picked, everyone watching concludes the draw is only random until you disapprove of it.</p></details>
+      <details class="faq"><summary>Can I pick more than one name at a time?</summary><p>Yes — choose how many to pick, from 1 to 10. With “No repeats” on, all the picked names are different.</p></details>
+      <details class="faq"><summary>Does the picker work on a projector?</summary><p>Yes — press “Projector mode” for fullscreen with a huge winner display, confetti and a sound toggle, so the whole room can watch the pick happen.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Does this picker have built-in names?</strong> No. The list comes from you — paste your own names, one per line. That is the whole point: it picks from your list, it does not invent one.</p>
       <p><strong>Can the same name be picked twice?</strong> Only if you turn "No repeats" off. With it on, each name sits out until everyone has been picked once.</p>
-      <p><strong>How many names can I paste?</strong> There is no hard cap on the list, but lists of up to a few hundred names work best. Pick 1 to 10 names at a time.</p>
-      <p><strong>Is my class list uploaded anywhere?</strong> No. Your names stay in your browser on your own device and are never sent to a server.</p>
+      <p><strong>How many names can I paste?</strong> Up to 500 names. Pick 1 to 10 names at a time.</p>
+      <p><strong>Is my class list uploaded anywhere?</strong> No. Your names stay in your browser on your own device and are never sent to a server. The list is saved in this browser only — clearing browsing data wipes it.</p>
 
     </div>
     <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/spin-the-wheel" class="related-card"><h4>🎰 Spin the Wheel</h4><p>Fair random picker</p></a><a href="/tools/random-number-generator" class="related-card"><h4>🔢 Random Number Generator</h4><p>Random numbers in any range</p></a><a href="/tools/team-name-generator" class="related-card"><h4>👥 Team Name Generator</h4><p>Name your team</p></a><a href="/tools/username-generator" class="related-card"><h4>👤 Username Generator</h4><p>Create usernames</p></a></div></div>
@@ -297,9 +432,57 @@ Omar</textarea>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var toast = window.__pdToast || function () {};
-  var picked = [];
+
+  var audioCtx = null;
+  function beep(freq, start, dur) {
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = "triangle"; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, audioCtx.currentTime + start);
+      g.gain.exponentialRampToValueAtTime(0.15, audioCtx.currentTime + start + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + start + dur);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(audioCtx.currentTime + start); o.stop(audioCtx.currentTime + start + dur + 0.05);
+    } catch (_) {}
+  }
+  function soundOn() { var el = $("soundOn"); return el && el.checked; }
+  function playFanfare() { if (!soundOn()) return; [523, 659, 784, 1047].forEach(function (f, i) { beep(f, i * 0.13, 0.25); }); }
+  function confettiBurst() {
+    var c = document.createElement("canvas");
+    c.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:200";
+    document.body.appendChild(c);
+    var x = c.getContext("2d");
+    c.width = window.innerWidth; c.height = window.innerHeight;
+    var colors = ["#f59e0b", "#38bdf8", "#a78bfa", "#34d399", "#f472b6", "#22c55e"];
+    var ps = [];
+    for (var i = 0; i < 140; i++) ps.push({ x: Math.random() * c.width, y: -20 - Math.random() * 80, w: 6 + Math.random() * 6, h: 8 + Math.random() * 8, vy: 2 + Math.random() * 3, vx: -1 + Math.random() * 2, r: Math.random() * Math.PI, vr: -0.1 + Math.random() * 0.2, col: colors[i % colors.length] });
+    var t0 = null;
+    function tick(ts) {
+      if (!t0) t0 = ts;
+      x.clearRect(0, 0, c.width, c.height);
+      ps.forEach(function (p) { p.x += p.vx; p.y += p.vy; p.r += p.vr; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.col; x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); x.restore(); });
+      if (ts - t0 < 2600) requestAnimationFrame(tick); else c.remove();
+    }
+    requestAnimationFrame(tick);
+  }
+  function wireProjector() {
+    var btn = $("projectorBtn"); if (!btn) return;
+    btn.addEventListener("click", function () {
+      var grid = $("toolGrid");
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else if (grid && grid.requestFullscreen) { grid.requestFullscreen(); }
+    });
+    document.addEventListener("fullscreenchange", function () {
+      document.body.classList.toggle("projector", !!document.fullscreenElement);
+    });
+  }
+
+  wireProjector();
+  var pickedIdx = {}, disabledNames = {}, lastRendered = null;
+  var LS_KEY = "pd-picker-names";
   function names() {
-    return $("pickList").value.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean);
+    return $("pickList").value.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 500);
   }
   function secureInt(n) {
     if (window.crypto && crypto.getRandomValues) {
@@ -309,44 +492,129 @@ Omar</textarea>
     }
     return Math.floor(Math.random() * n);
   }
-  function refreshCount() {
-    var n = names().length;
-    $("pickCountLine").textContent = n + " name" + (n === 1 ? "" : "s") + " in your list" + (picked.length ? "  \u00b7  " + picked.length + " already picked this round" : "") + ".";
+  function saveList() { try { localStorage.setItem(LS_KEY, $("pickList").value); } catch (_) {} }
+  function loadList() {
+    try { var saved = localStorage.getItem(LS_KEY); if (saved) $("pickList").value = saved; } catch (_) {}
   }
-  $("pickList").addEventListener("input", refreshCount);
-  $("pickClear").addEventListener("click", function () { $("pickList").value = ""; picked = []; $("pickResult").textContent = "?"; $("pickHistory").textContent = "Nobody picked yet."; refreshCount(); });
-  $("pickReset").addEventListener("click", function () { picked = []; $("pickHistory").textContent = "Nobody picked yet."; $("pickStatus").textContent = "New round started \u2014 everyone is back in the pool."; refreshCount(); });
+  function poolIndices() {
+    var list = names(), out = [];
+    for (var i = 0; i < list.length; i++) {
+      if (!disabledNames[list[i]] && !pickedIdx[i]) out.push(i);
+    }
+    return out;
+  }
+  function pickedCount() {
+    var c = 0, list = names();
+    for (var i = 0; i < list.length; i++) if (pickedIdx[i]) c++;
+    return c;
+  }
+  function refreshCount() {
+    var n = names().length, p = pickedCount();
+    var absent = 0;
+    names().forEach(function (nm) { if (disabledNames[nm]) absent++; });
+    $("pickCountLine").textContent = n + " name" + (n === 1 ? "" : "s") + " in your list" + (p ? "  \u00b7  " + p + " already picked this round" : "") + (absent ? "  \u00b7  " + absent + " marked absent" : "") + (n >= 500 ? "  \u00b7  500 max" : "") + ". Saved in this browser only.";
+  }
+  function renderEntryList() {
+    var list = $("entryList"); if (!list) return;
+    var lines = names();
+    var key = lines.join("\n");
+    if (key === lastRendered) return;
+    lastRendered = key;
+    list.innerHTML = "";
+    lines.forEach(function (name) {
+      var lab = document.createElement("label");
+      lab.className = "entry-row";
+      var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.checked = !disabledNames[name];
+      cb.setAttribute("aria-label", "Here: " + name);
+      cb.addEventListener("change", function () {
+        if (cb.checked) delete disabledNames[name]; else disabledNames[name] = true;
+        refreshCount();
+      });
+      var sp = document.createElement("span");
+      sp.textContent = name;
+      lab.appendChild(cb); lab.appendChild(sp);
+      list.appendChild(lab);
+    });
+  }
+  function refreshAll() { renderEntryList(); refreshCount(); }
+  $("pickList").addEventListener("input", function () {
+    pickedIdx = {};
+    $("pickHistory").textContent = "Nobody picked yet.";
+    $("roundState").hidden = true;
+    saveList(); refreshAll();
+  });
+  $("pickClear").addEventListener("click", function () {
+    $("pickList").value = ""; pickedIdx = {}; disabledNames = {}; lastRendered = null;
+    $("pickResult").textContent = "?"; $("pickHistory").textContent = "Nobody picked yet.";
+    $("roundState").hidden = true; saveList(); refreshAll();
+  });
+  $("pickReset").addEventListener("click", function () {
+    pickedIdx = {};
+    $("pickHistory").textContent = "Nobody picked yet.";
+    $("pickStatus").textContent = "New round started \u2014 everyone is back in the pool.";
+    $("roundState").hidden = true; refreshAll();
+  });
+  $("csvFile").addEventListener("change", function (ev) {
+    var f = ev.target.files && ev.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      var parts = String(r.result || "").split(/[\r\n,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+      var lines = names().concat(parts).slice(0, 500);
+      $("pickList").value = lines.join("\n");
+      pickedIdx = {}; lastRendered = null; saveList(); refreshAll();
+      toast(parts.length + " names imported (" + lines.length + " in the list).");
+    };
+    r.readAsText(f);
+    ev.target.value = "";
+  });
   $("pickBtn").addEventListener("click", function () {
     var list = names();
     if (list.length < 1) { $("pickStatus").textContent = "Paste at least one name first."; return; }
     var count = parseInt($("pickCount").value, 10); if (isNaN(count) || count < 1) count = 1; if (count > 10) count = 10;
     var noRepeat = $("pickNoRepeat").checked;
-    var pool = noRepeat ? list.filter(function (n) { return picked.indexOf(n) === -1; }) : list.slice();
-    if (!pool.length) { $("pickStatus").textContent = "Everyone has been picked this round. Press \u201cStart a new round\u201d to put all names back in."; return; }
+    var pool = noRepeat ? poolIndices() : list.map(function (_, i) { return i; }).filter(function (i) { return !disabledNames[list[i]]; });
+    if (!pool.length) {
+      if (noRepeat && pickedCount() > 0) {
+        $("pickStatus").textContent = "Round complete \u2014 everyone has had a turn. Press \u201CStart a new round\u201D to go again.";
+        var rs = $("roundState"); rs.hidden = false; rs.textContent = "Round complete \u2014 everyone has had a turn. Press \u201CStart a new round\u201D to put all names back in.";
+      } else {
+        $("pickStatus").textContent = "Everyone left is marked absent \u2014 tick Here next to at least one name.";
+      }
+      return;
+    }
     if (count > pool.length) count = pool.length;
     var btn = $("pickBtn"); btn.disabled = true;
     var ticks = 0, iv = setInterval(function () {
-      $("pickResult").textContent = pool[secureInt(pool.length)];
+      $("pickResult").textContent = list[pool[secureInt(pool.length)]];
       ticks++;
       if (ticks >= 8) {
         clearInterval(iv);
-        var chosen = [];
+        var chosen = [], avail = pool.slice();
         for (var i = 0; i < count; i++) {
-          var idx = secureInt(pool.length);
-          chosen.push(pool[idx]);
-          if (noRepeat) pool.splice(idx, 1);
+          var idx = secureInt(avail.length);
+          chosen.push(avail[idx]);
+          if (noRepeat) avail.splice(idx, 1);
         }
-        chosen.forEach(function (n) { if (picked.indexOf(n) === -1) picked.push(n); });
-        $("pickResult").textContent = chosen.join("  \u00b7  ");
-        $("pickStatus").textContent = chosen.length === 1 ? "Picked: " + chosen[0] : "Picked " + chosen.length + " names.";
-        $("pickHistory").textContent = "Picked this round: " + picked.join(", ");
-        refreshCount();
+        var chosenNames = chosen.map(function (i) { return list[i]; });
+        if (noRepeat) chosen.forEach(function (i) { pickedIdx[i] = true; });
+        $("pickResult").textContent = chosenNames.join("  \u00b7  ");
+        $("pickStatus").textContent = chosenNames.length === 1 ? "Picked: " + chosenNames[0] : "Picked " + chosenNames.length + " names.";
+        var pickedNames = [];
+        list.forEach(function (nm, i) { if (pickedIdx[i]) pickedNames.push(nm); });
+        $("pickHistory").textContent = pickedNames.length ? "Picked this round: " + pickedNames.join(", ") : "Nobody picked yet.";
+        if (noRepeat && poolIndices().length === 0) {
+          var rs2 = $("roundState"); rs2.hidden = false; rs2.textContent = "Round complete \u2014 everyone has had a turn. Press \u201CStart a new round\u201D to go again.";
+        }
+        refreshAll();
+        playFanfare(); confettiBurst();
         btn.disabled = false;
-        toast("Picked: " + chosen.join(", "));
+        toast("Picked: " + chosenNames.join(", "));
       }
     }, 70);
   });
-  refreshCount();
+  loadList();
+  refreshAll();
 })();
 
 </script>

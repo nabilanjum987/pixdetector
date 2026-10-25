@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Random Number Generator | PixDetector</title>
-<meta name="description" content="Generate random numbers free in any range — pick how many, allow or block repeats, sort and copy. No signup, instant, private.">
+<meta name="description" content="Generate random numbers free in any range — count, unique-only, even/odd, sort, stats, copy and download. No signup, instant.">
 <meta name="keywords" content="random number generator, random number generator free, generate random numbers, random number picker, random integer generator">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/random-number-generator">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/random-number-generator">
 <meta property="og:title" content="Free Random Number Generator | PixDetector">
-<meta property="og:description" content="Generate random numbers free in any range — pick how many, allow or block repeats, sort and copy. No signup, instant, private.">
+<meta property="og:description" content="Generate random numbers free in any range — count, unique-only, even/odd, sort, stats, copy and download. No signup, instant.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -20,42 +20,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this random number generator really free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Generate as many numbers as you like with no signup, no payment and no download. Everything runs in your browser."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "How do I generate a random number between 1 and 100?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Leave the minimum at 1 and the maximum at 100, set how many numbers you want, and press Generate. Both 1 and 100 can come up."
+        "text": "Set minimum 1, maximum 100, count 1, and press Generate. Every value in the range is equally likely, and both ends are included, so 1 and 100 can both come up."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I get unique numbers with no repeats?",
+      "name": "Can I generate random numbers without repeats?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 tick \u201cNo repeats\u201d. The tool draws without replacement, so no number appears twice. If you ask for more unique numbers than the range holds, it shows an error instead of cheating."
+        "text": "Yes — tick “No repeats”. The tool draws without replacement, so no number appears twice. It shows an error if you ask for more unique numbers than the range holds, for example 7 unique numbers between 1 and 6."
       }
     },
     {
       "@type": "Question",
-      "name": "Can the minimum or maximum be negative?",
+      "name": "Is a free random number generator truly random?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Any whole numbers work, including negatives, as long as the minimum is not bigger than the maximum."
+        "text": "For classroom, raffle and game use, yes — this page draws from the browser's crypto random source (crypto.getRandomValues()) with rejection sampling, which is unpredictable. Strictly, Math.random() is pseudo-random, so a tool built on that alone is weaker."
       }
     },
     {
       "@type": "Question",
-      "name": "Are the numbers really random?",
+      "name": "Can random numbers be negative or decimals?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "They are drawn with your browser's secure random source (crypto.getRandomValues) and rejection sampling, so every number in the range has exactly the same chance. Good enough for raffles, games and sampling \u2014 not for cryptography or gambling systems."
+        "text": "Negative whole numbers work here — set a negative minimum, such as -50 to 50. Decimals are not supported on this page: it generates whole numbers only, so use a dedicated decimal tool if you need them."
       }
     },
     {
@@ -63,7 +55,87 @@
       "name": "How many numbers can I generate at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Up to 100 in one click. Copy them all with one button or download them as a .txt file."
+        "text": "Up to 1,000 in one click. Copy them all with one button or download them as a .txt file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the statistics mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mean is the average of your numbers, median is the middle value when they are sorted, and sum is the total of all of them. The page also shows the smallest and largest values drawn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get only even or only odd numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the even/odd filter above the Generate button. The draw is limited to numbers of that kind inside your range — if the range holds no even or no odd number, the page says so instead of guessing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for a lottery draw?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a casual lottery-style draw, yes — set the range (for example 1 to 49), ask for 3 unique numbers, and draw. It is not suitable for a regulated lottery or anything needing an independent audit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did I get the same number twice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because each draw is independent — the generator has no memory. Short streaks, like the same number twice in a row, are normal randomness, not rigging. Tick “No repeats” if repeats would be wrong for your draw."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is rejection sampling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A method that throws away the few raw random values that would favour smaller numbers, so every number in your range has exactly equal odds. Without it, a simple remainder operation makes some numbers slightly more likely than others."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is crypto.getRandomValues() better than Math.random()?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for draws. crypto.getRandomValues() draws from the operating system's entropy pool — hardware events and timing jitter — so it is genuinely unpredictable. Math.random() is a deterministic algorithm: fine for games and animations, weaker for a draw anyone might challenge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I copy or download the results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — “Copy all” copies the numbers comma-separated, and “Download .txt” saves them one per line. Both work with no signup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my numbers uploaded or stored anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The numbers are drawn in your browser and never leave your device. Nothing is uploaded, stored on a server, or shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between this and the dice roller or wheel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This page draws numbers from a range you choose. The dice roller rolls physical-style dice with notation like 4d6kh3, and the spin-the-wheel tool picks one entry from a list you paste, visibly, in front of a room."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the tool refuse more unique numbers than the range holds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is a maths limit, not a bug: there are only 6 numbers between 1 and 6, so 7 unique draws from that range are impossible. Widen the range or lower the count."
       }
     }
   ]
@@ -83,7 +155,7 @@
     {
       "@type": "HowToStep",
       "name": "Choose how many",
-      "text": "Pick how many numbers you need, from 1 to 100, and tick No repeats if each number may only appear once."
+      "text": "Pick how many numbers you need, from 1 to 1,000, and tick No repeats if each number may only appear once. Use the even/odd filter if you need only even or only odd numbers."
     },
     {
       "@type": "HowToStep",
@@ -152,6 +224,21 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.modes a{background:var(--card);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--text);text-decoration:none}
+.modes a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.projector .result-big{font-size:clamp(48px,9vw,110px)!important}
+.entry-list{max-height:220px;overflow:auto;border:1px solid var(--border);border-radius:10px;padding:8px 12px;background:var(--bg2);margin-top:8px}
+.entry-row{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);padding:6px 0;cursor:pointer}
+.entry-row input{width:auto;accent-color:var(--accent)}
+.die-face.die-drop{opacity:.45;text-decoration:line-through}
+.die-face.die-extra{border-style:dashed}
 </style>
 </head>
 <body>
@@ -175,18 +262,25 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     </div>
     <div class="tool-page-header">
       <h1>Free Random Number Generator</h1>
-      <p>Generate one or many random numbers in any range you choose, with an option for unique numbers only. Free, no signup, instant — and your numbers never leave your browser.</p>
+      <p>Generate one or many random numbers in any range you choose — with unique-only, even/odd, sort, and mean/median/sum statistics. Free, no signup, instant — and your numbers never leave your browser.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Every number in your range has exactly equal odds. <strong>“No repeats” cannot give you more unique numbers than the range holds</strong> — that is a maths limit, not a bug. These numbers are for draws, games and sampling, not for cryptography or gambling.</div>
+    <nav class="modes" aria-label="Random tools">
+      <a href="/tools/spin-the-wheel">🎡 Spin the Wheel</a>
+      <a href="/tools/random-number-generator" aria-current="page">🔢 Random Number</a>
+      <a href="/tools/dice-roller">🎲 Dice Roller</a>
+      <a href="/tools/random-name-picker">🎲 Random Name Picker</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> This tool is for classrooms, raffles, games and decisions — not for gambling, regulated prize draws, or anything needing independent audit. Short streaks (same name twice, three 3s in five rolls) are normal randomness, not rigging. Saved lists live in this browser only — clearing browsing data wipes them.</div>
     
-    <div class="bc-tool">
+    <div class="bc-tool" id="toolGrid">
       <div class="bc-panel" aria-label="Random number generator">
         <h2>Generate random numbers</h2>
         <div class="field"><label class="flabel" for="rngMin">Minimum</label><input type="number" id="rngMin" value="1" step="1"></div>
         <div class="field"><label class="flabel" for="rngMax">Maximum</label><input type="number" id="rngMax" value="100" step="1"></div>
-        <div class="field"><label class="flabel" for="rngCount">How many numbers (1\u2013100)</label><input type="number" id="rngCount" value="1" min="1" max="100" step="1"></div>
+        <div class="field"><label class="flabel" for="rngCount">How many numbers (1–1,000)</label><input type="number" id="rngCount" value="1" min="1" max="1000" step="1"></div>
         <label class="check-row"><input type="checkbox" id="rngUnique"> No repeats (unique numbers only)</label>
         <label class="check-row"><input type="checkbox" id="rngSort"> Sort results smallest first</label>
+        <div class="field"><label class="flabel" for="rngParity">Even / odd</label><select id="rngParity"><option value="any" selected>Any number</option><option value="even">Even numbers only</option><option value="odd">Odd numbers only</option></select></div>
         <div class="actions"><button type="button" class="btn big" id="rngGo">Generate</button></div>
         <p class="hint">Both ends are included: 1 to 100 can give you 1 or 100. Negative numbers work too.</p>
       </div>
@@ -197,6 +291,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <div class="actions">
           <button type="button" class="btn alt" id="rngCopy" disabled>Copy all</button>
           <button type="button" class="btn alt" id="rngDl" disabled>Download .txt</button>
+          <button type="button" class="btn alt" id="projectorBtn">📽 Projector mode</button>
         </div>
         <p class="trust">Free, no signup. Numbers are drawn with your browser's secure random source.</p>
       </div>
@@ -208,30 +303,66 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <!-- PROBLEM -->
       <h2>The problem: "random" tools that are not random enough to trust</h2>
       <p>People reach for a random number generator for things that matter a little — a raffle draw, a lottery-style pick, a classroom sample, a game. The complaints that follow them around are familiar: tools that only generate one number at a time, tools that quietly allow repeats when you needed unique numbers, tools that cap the count at a uselessly small number, and tools buried under ads. The other complaint is subtler — people are not sure the numbers are fair at all, because the tool never says how it picks them. What people want is plain: any range, as many numbers as they need, a clear unique option, and an honest statement about how the numbers are drawn.</p>
+      <p>Lottery-style draws are the classic use: pick 3 unique numbers from 1 to 49, and the draw has to be one nobody can challenge. That is also why this page draws with the browser's crypto random source instead of Math.random() — for a casual game either works, but for a draw anyone might question, the stronger source is the honest choice.</p>
       <!-- DIRECT ANSWER -->
-      <h2>How do I generate a random number?</h2>
-      <p>Enter a minimum and a maximum, choose how many numbers you need, and press Generate — free, with no signup, and the numbers appear instantly in your browser. Both ends of the range are included, so 1 to 100 can give you 1 or 100. Tick "No repeats" for a lottery-style draw where no number may appear twice, and "Sort results" if you want them in order. Every number in your range has exactly the same chance of being picked.</p>
+      <h2>How do I generate a random number? The direct answer</h2>
+      <p>Enter a minimum and a maximum, choose how many numbers you need, and press Generate — free, with no signup, and the numbers appear instantly in your browser. Both ends of the range are included, so 1 to 100 can give you 1 or 100. Tick “No repeats” for a draw where no number may appear twice.</p>
       <p>A random number generator is a tool that picks numbers from a range with no pattern and no memory. This one draws each number from your browser's secure random source, crypto.getRandomValues, using rejection sampling — a method that throws away the few raw values that would favour smaller numbers — so every number in the range has exactly equal odds.</p>
       <!-- HOW TO -->
       <h2>How to generate random numbers in 3 steps</h2>
       <p><strong>Step 1:</strong> set your minimum and maximum — negative numbers work, so -50 to 50 is fine. <strong>Step 2:</strong> choose how many numbers you need (1 to 100) and tick "No repeats" if each number may only appear once. <strong>Step 3:</strong> press Generate, then copy all the results or download them as a .txt file.</p>
       <h2>When to allow repeats — and when not to</h2>
-      <p>Allow repeats when each draw is independent, like rolling a die again or simulating coin flips. Block repeats ("No repeats") when you are drawing winners, lottery numbers or a sample — anywhere the same number appearing twice would be wrong. If you ask for more unique numbers than the range holds, for example 7 unique numbers between 1 and 6, the tool tells you plainly instead of silently giving you repeats. That is a maths limit, not a bug: there are only 6 numbers to draw from.</p>
+      <p>Allow repeats when each draw is independent, like rolling a die again or simulating coin flips. Block repeats ("No repeats") when you are drawing winners, lottery numbers or a sample — anywhere the same number appearing twice would be wrong. If you ask for more unique numbers than the range holds, for example 7 unique numbers between 1 and 6, the tool tells you plainly instead of silently giving you repeats. That is a maths limit, not a bug: there are only 6 numbers to draw from. Unique draws work by shuffling the whole range with the Fisher–Yates algorithm and taking the first numbers — never by re-rolling until something new appears.</p>
       <h2>Are these numbers random enough for a raffle?</h2>
       <p>Yes, for everyday draws — raffles, giveaways, classroom picks, games and sampling. The generator uses the same class of randomness browsers use for passwords and encryption keys, which is far stronger than the plain Math.random used by most simple tools. It is not suitable for cryptography, gambling systems or security keys: for those you need a dedicated cryptographic tool, and no web page generator should be trusted with that job.</p>
+
+      <h2>Fair randomness — the mechanism, in one line</h2>
+      <p>Every number is drawn with <strong>crypto.getRandomValues()</strong> plus rejection sampling, so every number in your range has exactly equal odds. Math.random()-only tools are fine for games, but not for a draw anyone might challenge.</p>
+
+      <h2>Which random tool do I need?</h2>
+      <p>One tool, four modes — pick the job, not the page:</p>
+      <table class="tbl">
+        <tr><th>Job</th><th>Use</th></tr>
+        <tr><td>Pick one entry where the whole room can watch</td><td><a href="/tools/spin-the-wheel">Spin the Wheel</a></td></tr>
+        <tr><td>Draw numbers from a range you choose</td><td><a href="/tools/random-number-generator">Random Number Generator</a></td></tr>
+        <tr><td>Roll dice for a game</td><td><a href="/tools/dice-roller">Dice Roller</a></td></tr>
+        <tr><td>Draw names from a list you paste</td><td><a href="/tools/random-name-picker">Random Name Picker</a></td></tr>
+      </table>
+
+      <h2>How this generator compares with the top free random number tools</h2>
+      <p>The comparison below uses the free random number tools found in a live search on 25 Oct 2026. Caps and features are what those pages state about themselves — “not stated” means the fetched page did not say.</p>
+      <table class="tbl">
+        <tr><th>Tool</th><th>Count per draw</th><th>Randomness</th><th>Statistics / export</th><th>What stands out</th></tr>
+        <tr><td>GeneratorNumber</td><td>10,000</td><td>PHP mt_rand() — server-side, not crypto-secure (the page says so)</td><td>Mean/median/sum, download as .txt</td><td>Range ±2 billion; even/odd filter</td></tr>
+        <tr><td>GetToolly</td><td>1,000</td><td>Not stated</td><td>Not stated</td><td>Worked example (1–100, 5 results)</td></tr>
+        <tr><td>Tolvido</td><td>Not stated</td><td>crypto.getRandomValues() + rejection sampling, modulo bias explained</td><td>Not stated</td><td>Worked lottery example (3 unique numbers 1–49)</td></tr>
+        <tr><td>FinanceWave</td><td>Not stated</td><td>In-browser</td><td>Copy/reset/share-link</td><td>Generic template page; locale number formatting</td></tr>
+        <tr><td>UltraTool360</td><td>Not stated</td><td>Not stated</td><td>Not stated</td><td>Negatives allowed; unique-only toggle</td></tr>
+        <tr><td>This page</td><td>1,000</td><td>crypto.getRandomValues() + rejection sampling, in-browser</td><td>Mean/median/sum, copy-all + download .txt</td><td>Even/odd filter, unique-only, sort, negatives allowed</td></tr>
+      </table>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this random number generator really free?</summary><p>Yes. Generate as many numbers as you like with no signup, no payment and no download. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>How do I generate a random number between 1 and 100?</summary><p>Leave the minimum at 1 and the maximum at 100, set how many numbers you want, and press Generate. Both 1 and 100 can come up.</p></details>
-      <details class="faq"><summary>Can I get unique numbers with no repeats?</summary><p>Yes — tick “No repeats”. The tool draws without replacement, so no number appears twice. If you ask for more unique numbers than the range holds, it shows an error instead of cheating.</p></details>
-      <details class="faq"><summary>Can the minimum or maximum be negative?</summary><p>Yes. Any whole numbers work, including negatives, as long as the minimum is not bigger than the maximum.</p></details>
-      <details class="faq"><summary>Are the numbers really random?</summary><p>They are drawn with your browser's secure random source (crypto.getRandomValues) and rejection sampling, so every number in the range has exactly the same chance. Good enough for raffles, games and sampling — not for cryptography or gambling systems.</p></details>
-      <details class="faq"><summary>How many numbers can I generate at once?</summary><p>Up to 100 in one click. Copy them all with one button or download them as a .txt file.</p></details>
+      <details class="faq"><summary>How do I generate a random number between 1 and 100?</summary><p>Set minimum 1, maximum 100, count 1, and press Generate. Every value in the range is equally likely, and both ends are included, so 1 and 100 can both come up.</p></details>
+      <details class="faq"><summary>Can I generate random numbers without repeats?</summary><p>Yes — tick “No repeats”. The tool draws without replacement, so no number appears twice. It shows an error if you ask for more unique numbers than the range holds, for example 7 unique numbers between 1 and 6.</p></details>
+      <details class="faq"><summary>Is a free random number generator truly random?</summary><p>For classroom, raffle and game use, yes — this page draws from the browser's crypto random source (crypto.getRandomValues()) with rejection sampling, which is unpredictable. Strictly, Math.random() is pseudo-random, so a tool built on that alone is weaker.</p></details>
+      <details class="faq"><summary>Can random numbers be negative or decimals?</summary><p>Negative whole numbers work here — set a negative minimum, such as -50 to 50. Decimals are not supported on this page: it generates whole numbers only, so use a dedicated decimal tool if you need them.</p></details>
+      <details class="faq"><summary>How many numbers can I generate at once?</summary><p>Up to 1,000 in one click. Copy them all with one button or download them as a .txt file.</p></details>
+      <details class="faq"><summary>What do the statistics mean?</summary><p>Mean is the average of your numbers, median is the middle value when they are sorted, and sum is the total of all of them. The page also shows the smallest and largest values drawn.</p></details>
+      <details class="faq"><summary>How do I get only even or only odd numbers?</summary><p>Use the even/odd filter above the Generate button. The draw is limited to numbers of that kind inside your range — if the range holds no even or no odd number, the page says so instead of guessing.</p></details>
+      <details class="faq"><summary>Can I use this for a lottery draw?</summary><p>For a casual lottery-style draw, yes — set the range (for example 1 to 49), ask for 3 unique numbers, and draw. It is not suitable for a regulated lottery or anything needing an independent audit.</p></details>
+      <details class="faq"><summary>Why did I get the same number twice?</summary><p>Because each draw is independent — the generator has no memory. Short streaks, like the same number twice in a row, are normal randomness, not rigging. Tick “No repeats” if repeats would be wrong for your draw.</p></details>
+      <details class="faq"><summary>What is rejection sampling?</summary><p>A method that throws away the few raw random values that would favour smaller numbers, so every number in your range has exactly equal odds. Without it, a simple remainder operation makes some numbers slightly more likely than others.</p></details>
+      <details class="faq"><summary>Is crypto.getRandomValues() better than Math.random()?</summary><p>Yes for draws. crypto.getRandomValues() draws from the operating system's entropy pool — hardware events and timing jitter — so it is genuinely unpredictable. Math.random() is a deterministic algorithm: fine for games and animations, weaker for a draw anyone might challenge.</p></details>
+      <details class="faq"><summary>Can I copy or download the results?</summary><p>Yes — “Copy all” copies the numbers comma-separated, and “Download .txt” saves them one per line. Both work with no signup.</p></details>
+      <details class="faq"><summary>Are my numbers uploaded or stored anywhere?</summary><p>No. The numbers are drawn in your browser and never leave your device. Nothing is uploaded, stored on a server, or shared.</p></details>
+      <details class="faq"><summary>What is the difference between this and the dice roller or wheel?</summary><p>This page draws numbers from a range you choose. The dice roller rolls physical-style dice with notation like 4d6kh3, and the spin-the-wheel tool picks one entry from a list you paste, visibly, in front of a room.</p></details>
+      <details class="faq"><summary>Why does the tool refuse more unique numbers than the range holds?</summary><p>That is a maths limit, not a bug: there are only 6 numbers between 1 and 6, so 7 unique draws from that range are impossible. Widen the range or lower the count.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>Can I generate a random number between 1 and 100?</strong> Yes — that is the default range. Change the minimum and maximum to any whole numbers you like.</p>
       <p><strong>Can the numbers be negative?</strong> Yes. Set a negative minimum, such as -50 to 50, and the draw includes negative numbers.</p>
+      <p><strong>Can I get only even or odd numbers?</strong> Yes — use the even/odd filter; the draw is limited to numbers of that kind inside your range.</p>
       <p><strong>What does "no repeats" do?</strong> It draws each number only once, like pulling names from a hat. You cannot ask for more unique numbers than the range holds.</p>
       <p><strong>Are the numbers really random?</strong> They come from your browser's secure random source with rejection sampling, so every number in the range has exactly equal odds. Each draw is independent of the last.</p>
 
@@ -287,6 +418,20 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var toast = window.__pdToast || function () {};
+
+  function wireProjector() {
+    var btn = $("projectorBtn"); if (!btn) return;
+    btn.addEventListener("click", function () {
+      var grid = $("toolGrid");
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else if (grid && grid.requestFullscreen) { grid.requestFullscreen(); }
+    });
+    document.addEventListener("fullscreenchange", function () {
+      document.body.classList.toggle("projector", !!document.fullscreenElement);
+    });
+  }
+
+  wireProjector();
   var last = [];
   function secureInt(min, max) {
     var range = max - min + 1;
@@ -304,23 +449,32 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     if (isNaN(min) || isNaN(max)) { out.innerHTML = '<p class="err">Enter a minimum and a maximum.</p>'; return; }
     if (min > max) { out.innerHTML = '<p class="err">The minimum is bigger than the maximum. Swap them round.</p>'; return; }
     if (isNaN(count) || count < 1) count = 1;
-    if (count > 100) count = 100;
-    var unique = $("rngUnique").checked, size = max - min + 1;
-    if (unique && count > size) { out.innerHTML = '<p class="err">You asked for ' + count + ' unique numbers, but the range ' + min + ' to ' + max + ' only holds ' + size + '. Lower the count or widen the range.</p>'; return; }
+    if (count > 1000) count = 1000;
+    var parity = $("rngParity").value;
+    function matches(v) { return parity === "any" || (parity === "even" ? v % 2 === 0 : Math.abs(v % 2) === 1); }
+    var feasible = 0;
+    for (var v = min; v <= max; v++) if (matches(v)) feasible++;
+    if (feasible === 0) { out.innerHTML = '<p class="err">There is no ' + (parity === "even" ? "even" : "odd") + ' number between ' + min + ' and ' + max + '. Widen the range or switch the filter to “Any number”.</p>'; return; }
+    var unique = $("rngUnique").checked;
+    if (unique && count > feasible) { out.innerHTML = '<p class="err">You asked for ' + count + ' unique ' + (parity === "any" ? "" : parity + " ") + 'numbers, but the range ' + min + ' to ' + max + ' only holds ' + feasible + '. Lower the count or widen the range.</p>'; return; }
     var res = [];
     if (unique) {
-      var pool = []; for (var v = min; v <= max; v++) pool.push(v);
+      var pool = []; for (var pv = min; pv <= max; pv++) if (matches(pv)) pool.push(pv);
       for (var i = pool.length - 1; i > 0; i--) { var j = secureInt(0, i); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
       res = pool.slice(0, count);
     } else {
-      for (var k = 0; k < count; k++) res.push(secureInt(min, max));
+      var guard = 0;
+      while (res.length < count && guard < count * 100 + 100) { var n = secureInt(min, max); if (matches(n)) res.push(n); guard++; }
     }
     if ($("rngSort").checked) res.sort(function (a, b) { return a - b; });
     last = res;
     out.innerHTML = res.map(function (n) { return '<span class="num-chip">' + n + '</span>'; }).join("");
     var sum = res.reduce(function (a, b) { return a + b; }, 0);
     var mean = (sum / res.length).toFixed(2);
-    stats.textContent = res.length + " number" + (res.length === 1 ? "" : "s") + " between " + min + " and " + max + "  \u00b7  Smallest " + Math.min.apply(null, res) + "  \u00b7  Largest " + Math.max.apply(null, res) + "  \u00b7  Average " + mean;
+    var sorted = res.slice().sort(function (a, b) { return a - b; });
+    var mid = Math.floor(sorted.length / 2);
+    var median = sorted.length % 2 ? sorted[mid] : ((sorted[mid - 1] + sorted[mid]) / 2);
+    stats.textContent = res.length + " number" + (res.length === 1 ? "" : "s") + " between " + min + " and " + max + "  \u00b7  Smallest " + Math.min.apply(null, res) + "  \u00b7  Largest " + Math.max.apply(null, res) + "  \u00b7  Sum " + sum + "  \u00b7  Average (mean) " + mean + "  \u00b7  Median " + median;
     $("rngCopy").disabled = false; $("rngDl").disabled = false;
   });
   $("rngCopy").addEventListener("click", function () {

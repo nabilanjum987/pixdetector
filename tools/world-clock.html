@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this world clock really free?",
+      "name": "What time is it in London, New York or Tokyo right now?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Free, no signup, no app, no limit \u2014 the clocks run entirely in your browser."
+        "text": "The live clock for each city is at the top of this page — London, New York and Tokyo are on the board by default, with the date and UTC offset shown on every card. Add any other city from the search box."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the time accurate?",
+      "name": "How many time zones are there?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It is as accurate as your device clock, because it takes the current moment from your device and converts it into each city's time zone. If your device clock is a minute fast, every clock here is a minute fast."
+        "text": "More than 24 — about 38–40 counting half-hour and 45-minute offsets such as India at UTC+5:30, Nepal at UTC+5:45 and the Chatham Islands at UTC+12:45, spanning UTC−12 to UTC+14. “24” is the common wrong answer."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it handle daylight saving time?",
+      "name": "What is the time difference between New York and London?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, automatically. Your browser's time-zone data knows each city's DST rules, so offsets change on the right dates without you doing anything."
+        "text": "Usually 5 hours, with New York behind London — but 4 hours in the week between Europe ending daylight saving on 25 Oct 2026 and the US ending it on 1 Nov 2026. Never quote a fixed gap without the date."
       }
     },
     {
       "@type": "Question",
-      "name": "How many cities can I add?",
+      "name": "Is it day or night in a city right now?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "As many as you like from the list of major cities and time zones. The defaults cover the eight most-searched cities."
+        "text": "Each card on this page shows a day-part label — Morning, Work hours, Evening or Asleep — next to the live time, so you can tell at a glance whether someone is awake. It is a time-of-day cue, not a sunrise or sunset forecast."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it need the internet?",
+      "name": "Does a place observe daylight saving time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only to load the page. After that the clocks tick from your device clock, so they keep working offline."
+        "text": "Many places do not — Japan, South Korea, India, most of Arizona and Hawaii among them — and their gap to places that do observe it changes twice a year."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is it tomorrow in Sydney but today in New York?",
+      "name": "When do the clocks change in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because Sydney is about 14\u201316 hours ahead of New York. When it is morning in New York, it is already the next day's early hours in Sydney \u2014 the date line sits between them in the Pacific."
+        "text": "In Europe the clocks went back on 25 Oct 2026; in the US they go back on 1 Nov 2026. The two changes a week apart are what create the gap week, when London–New York is 4 hours instead of the usual 5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between EST and EDT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EST is Eastern Standard Time (UTC−5, winter); EDT is Eastern Daylight Time (UTC−4, summer). Writing “EST” in summer is an hour wrong — “ET” or “Eastern Time” is the safe form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I schedule a meeting across time zones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick the cities, look at the meeting overlap finder on this page for a slot inside everyone’s 9-to-5, and send the invite with the time zone named — never a bare time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my recurring meeting move an hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It did not move in its home zone — the gap between the zones changed when one side’s clocks changed. Check which city’s clock the series follows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does UTC+5:30 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That place is 5 hours 30 minutes ahead of Coordinated Universal Time (UTC). Half-hour offsets are real — India is UTC+5:30, not +5 or +6."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What time is it in UTC / GMT now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UTC is the reference all zones are measured against; GMT is effectively the same clock reading for everyday use. The live UTC clock is shown at the top of this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see the time in multiple cities at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — add each city as a card on one board; this page does it free with no account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the world clock accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes when it uses the browser’s time-zone data and the device clock — accurate to the second. If a time looks wrong, check the device clock and browser version first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the world clock work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — after the page loads, the clocks tick from your device clock, so they keep working offline. Your saved cities are stored in this browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add my city and save my cities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Type the city in the search box and tap Add city. The list is saved in this browser’s local storage with no account — but it does not sync to other devices, so add the same cities again on your phone."
       }
     }
   ]
@@ -89,6 +161,16 @@
       "@type": "HowToStep",
       "name": "Compare and plan",
       "text": "Each card shows how far ahead or behind that city is. Switch 12-hour and 24-hour time with one tap."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Convert a future meeting time",
+      "text": "Enter the date and time in one city and pick a second city \u2014 the converter shows what time your 3 PM Tuesday call will be there, and gives you a shareable link and a copy-for-Slack line."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Find a shared working slot",
+      "text": "The meeting overlap finder shows working-hours bands for every saved city on one timeline, so the hours that suit everyone are visible at a glance."
     }
   ]
 }
@@ -134,6 +216,19 @@ table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
 
 .clock-card{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px}.clock-card h3{font-family:'Syne',sans-serif;font-size:15px;margin-bottom:2px}.clock-time{font-family:'Syne',sans-serif;font-size:26px;font-weight:800}.clock-date{font-size:13px;color:var(--text2)}.clock-diff{font-size:13px;color:var(--accent);font-weight:600}.clock-card button{background:none;border:none;color:var(--text2);cursor:pointer;font-size:15px;float:right}
+.clock-part{font-size:13px;color:var(--text2);margin-top:4px}
+.clock-iana{font-size:12px;color:var(--text2);font-family:monospace;margin-top:2px}
+.dst-banner{background:#dbeafe;border:1px solid #3b82f6;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#1e3a8a;margin-bottom:16px}
+.dst-banner strong{color:#1e3a8a}
+.conv-result{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.8;margin-top:12px}
+.conv-result strong{color:var(--accent)}
+.ov-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:12px}
+.ov-table th,.ov-table td{border:1px solid var(--border);padding:4px 2px;text-align:center}
+.ov-table th{color:var(--text2);font-weight:600}
+.ov-table td.work{background:#166534;color:#bbf7d0}
+.ov-table td.off{background:var(--bg2);color:var(--text2)}
+.ov-table td.shared{background:var(--accent);color:#000;font-weight:700}
+.ov-table td.city{font-size:12px;text-align:left;padding:4px 8px;color:var(--text);font-weight:600;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -160,6 +255,7 @@ table.facts td{color:var(--text2)}
       <p>See the live time and date in major cities side by side, updated every second — no signup, no app. Add any city, compare how far ahead or behind each one is, and switch between 12-hour and 24-hour time.</p>
     </div>
     <div class="note"><strong>Honest limits — read first:</strong> <strong>Times come from your device clock plus your browser's time-zone data</strong> — if your device clock is wrong, these times will be wrong too. Daylight saving is handled automatically. No API is used and nothing is sent to a server.</div>
+    <div class="dst-banner" id="dstBanner" role="status"><strong>DST gap week, live:</strong> checking the London–New York gap…</div>
     
     <div class="bc-panel" aria-label="World clock" style="margin-bottom:20px">
       <h2>Live times</h2>
@@ -172,23 +268,48 @@ table.facts td{color:var(--text2)}
         <button type="button" class="btn alt" id="resetCities">Reset defaults</button>
       </div>
       <p class="trust" id="localLine"></p>
+      <p class="trust" id="utcLine"></p>
+      <p class="trust">Saved cities live in this browser only — they do <strong>not sync between devices</strong>, so add the same cities again on your phone or another computer.</p>
       <div id="clockGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:12px"></div>
       <p class="err" id="cityError" role="alert" hidden></p>
     </div>
-    <div class="share-box"><h2>Share this tool</h2><p class="share-line">What time is it in Tokyo, London or New York? Free live world clock.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=What%20time%20is%20it%20in%20Tokyo%2C%20London%20or%20New%20York%3F%20Free%20live%20world%20clock&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fworld-clock" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fworld-clock" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=What%20time%20is%20it%20in%20Tokyo%2C%20London%20or%20New%20York%3F%20Free%20live%20world%20clock.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fworld-clock" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="bc-panel" aria-label="Time zone converter" style="margin-bottom:20px">
+      <h2>Time zone converter — what time will my call be there?</h2>
+      <p class="trust" style="margin-top:0">A world clock answers “what time is it there <em>now</em>?” A converter answers “what time will my 3 PM Tuesday call be there?” — enter a future date and time below.</p>
+      <div class="grid2">
+        <div><label class="flabel" for="convDate">Date</label><input type="date" id="convDate"></div>
+        <div><label class="flabel" for="convTime">Time</label><input type="time" id="convTime" value="15:00"></div>
+        <div><label class="flabel" for="convFrom">From city</label><select id="convFrom"></select></div>
+        <div><label class="flabel" for="convTo">To city</label><select id="convTo"></select></div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="convBtn">Convert time</button>
+        <button type="button" class="btn alt" id="convCopySlack" disabled>Copy for Slack</button>
+        <button type="button" class="btn alt" id="convCopyLink" disabled>Copy shareable link</button>
+      </div>
+      <div class="conv-result" id="convResult" hidden></div>
+      <p class="err" id="convError" role="alert" hidden></p>
+    </div>
+    <div class="bc-panel" aria-label="Meeting overlap finder" style="margin-bottom:20px">
+      <h2>Meeting overlap finder — when is everyone at work?</h2>
+      <p class="trust" style="margin-top:0">Working hours are 9:00–17:00 in each city. Green hours are inside a city’s working day; the gold row shows the hours that work for <em>every</em> saved city at once. Times are shown in your local time.</p>
+      <div id="overlapBox"></div>
+      <p class="trust" id="overlapSummary"></p>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">What time is it in Tokyo, London or New York — and what time will your 3 PM Tuesday call be there? Free live world clock and converter.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=What%20time%20is%20it%20in%20Tokyo%2C%20London%20or%20New%20York%3F%20Free%20live%20world%20clock&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fworld-clock" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fworld-clock" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=What%20time%20is%20it%20in%20Tokyo%2C%20London%20or%20New%20York%3F%20Free%20live%20world%20clock.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fworld-clock" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: "what time is it there, right now?"</h2>
-      <p>It is the most ordinary question in a connected world — calling family overseas, joining a meeting with a team in three countries, checking whether the London office is still open — and the answers people get are oddly unhelpful: a single city on a search page, or a clock site buried in ads and pop-ups. What people actually want is several cities side by side, at a glance, with the date attached, so they can see at once that it is tomorrow in Sydney while it is still today in New York. On social media this need barely appears as discussion at all — nobody posts about world clocks, they just search for the time — which is itself the signal: the tool has to be instant, obvious, and free of friction. This page is that: the cities you care about, live, with nothing to install and no account standing between you and the answer.</p>
+      <p>The problem is rarely the clock — it is the sentence around it. An Instagram reel from 20 Oct 2026 puts it in one line: “STOP SENDING WRONG TIMES — 3 PM WHOSE TIME?” Saying “let’s meet at 3 PM” without naming a time zone causes confusion, missed meetings and lost deals. A Facebook post from a team coordinating across San Francisco, Chicago, Vietnam and London makes the deeper point: the problem “goes beyond simple clock conversion to consider whether the proposed hour falls within working hours or requires someone to sacrifice sleep.” And this week the maths itself is a trap: Europe ended daylight saving on 25 Oct 2026 and the US ends it on 1 Nov, so London–New York is 4 hours apart right now, not the usual 5 — a fixed “+9” or “+5” shortcut gets the meeting wrong by an hour. Add the missing-city complaint — fans asking “Where is Nairobi?” under sports kickoff-time graphics that list only eleven cities — and the job is clear: several cities side by side, any city searchable, the date attached, and a converter that names the zone instead of leaving it to guesswork.</p>
       <!-- DIRECT ANSWER -->
       <h2>What time is it in another city right now?</h2>
-      <p>This free world clock shows the live time and date in major cities side by side, updated every second — no signup, no app. Search to add any city, compare how far ahead or behind each one is, and switch between 12-hour and 24-hour time. It uses your browser's own time-zone data, so daylight saving is handled automatically.</p>
-      <p>A world clock is a tool that shows the current local time in cities around the world at the same moment. The Earth is divided into 24 time zones, each roughly one hour apart, measured as an offset from UTC — Coordinated Universal Time, the world's time standard. A city ahead of UTC, like Tokyo at UTC+9, is nine hours ahead of London in winter; a city behind it, like New York at UTC-5, is five hours behind.</p>
+      <p>This free world clock shows the live time and date in cities side by side, updated every second — no signup, no app. Add any city, see whether it is morning or working hours there, and convert a future meeting time into any other zone. It uses your browser's own time-zone data, so daylight saving is handled automatically.</p>
+      <p>A world clock shows the current local time in cities around the world at the same moment. There are not 24 time zones — there are about 38–40, counting half-hour and 45-minute offsets such as India at UTC+5:30, Nepal at UTC+5:45 and the Chatham Islands at UTC+12:45, spanning UTC−12 to UTC+14. Every zone is an offset from UTC — Coordinated Universal Time, the world's time standard. A city ahead of UTC, like Tokyo at UTC+9, is nine hours ahead of London in winter; a city behind it, like New York at UTC-5, is five hours behind.</p>
       <!-- HOW TO -->
       <h2>How to use the world clock in 3 steps</h2>
       <p><strong>Step 1:</strong> read the default cities — your own local time is shown first, then New York, London, Paris, Dubai, Mumbai, Singapore, Tokyo and Sydney. <strong>Step 2:</strong> type any city in the search box and tap Add city; tap × on a card to remove it. <strong>Step 3:</strong> switch between 12-hour and 24-hour time, and read the "ahead/behind" line under each clock to plan a call.</p>
       <h2>How time zones actually work</h2>
-      <p>Every place on Earth keeps time as an offset from UTC. London sits at UTC+0 in winter and UTC+1 in summer (British Summer Time). New York is UTC-5 in winter and UTC-4 in summer. Tokyo never changes — UTC+9 all year. That is why the gap between two cities changes through the year: New York and London are 5 hours apart in winter but only 4 in summer, because their daylight-saving clocks change on different dates. This page never does that maths by hand — it asks your browser for each city's real offset right now, including daylight saving, so the times are right on any date.</p>
+      <p>Every place on Earth keeps time as an offset from UTC. London sits at UTC+0 in winter and UTC+1 in summer (British Summer Time). New York is UTC-5 in winter and UTC-4 in summer. Tokyo never changes — UTC+9 all year. That is why the gap between two cities changes through the year: New York and London are usually 5 hours apart, but only 4 in the gap weeks when one side has changed its clocks and the other has not — late October, when Europe changes first, and March, when the US changes first. This page never does that maths by hand — it asks your browser for each city's real offset right now, including daylight saving, so the times are right on any date.</p>
       <h2>Planning a call across time zones</h2>
       <table class="facts"><thead><tr><th>If you are in</th><th>Good overlap with</th><th>Watch out for</th></tr></thead><tbody>
       <tr><td>London (afternoon)</td><td>New York morning, Dubai evening</td><td>Tokyo and Sydney are already asleep or nearly</td></tr>
@@ -197,15 +318,41 @@ table.facts td{color:var(--text2)}
       <tr><td>Sydney (morning)</td><td>Singapore and Tokyo morning</td><td>London and New York are still yesterday evening</td></tr>
       </tbody></table>
       <p>The rule of thumb: a 9-to-5 overlap only exists when two cities are within about 8 hours of each other. Beyond that, one side is always outside working hours — pick a time that is merely inconvenient for both, not impossible for one.</p>
+      <h2>“3 PM whose time?” — the one rule that stops missed meetings</h2>
+      <p>Never send a bare time. Always name the zone — “3 PM London time”, not “3 PM” — and send a link or a converted time instead of asking the other person to do the maths in their head. Use “ET” or “Eastern Time”, not “EST”: writing EST in summer is an hour wrong, because EST is the winter abbreviation (UTC−5) and summer is EDT (UTC−4). For a recurring meeting, say which city’s clock the series follows — a meeting that stays at the same local time in its home zone silently moves for everyone else when the clocks change. The converter above does all three: it names both zones, it works on a future date (so the DST rules for that date apply), and it gives you a shareable link and a copy-for-Slack line.</p>
+      <h2>World clock vs time-zone converter — which job is which?</h2>
+      <table class="facts"><thead><tr><th>Question</th><th>Use this</th><th>Why</th></tr></thead><tbody>
+      <tr><td>What time is it there now?</td><td>The world clock board</td><td>Live time, date and day-part for every saved city at a glance</td></tr>
+      <tr><td>What time will my 3 PM Tuesday call be there?</td><td>The converter</td><td>A future date needs that date’s DST rules, not today’s offset</td></tr>
+      <tr><td>Is it morning / working hours there?</td><td>The day-part label on each card</td><td>A bare time like 14:30 does not say whether the person is asleep</td></tr>
+      <tr><td>When can we all meet?</td><td>The overlap finder</td><td>Working-hours bands across every saved city, with the shared slot highlighted</td></tr>
+      <tr><td>How do I tell someone the time?</td><td>Shareable link / copy for Slack</td><td>A link shows the proposed time in their zone — a bare “3 PM” does not</td></tr>
+      </tbody></table>
+      <h2>This page vs your phone's world clock</h2>
+      <p>People already use the phone world clock daily — it is the most common social format in this niche, a screenshot of five cities. The phone app cannot do three things this page can: convert a future date, show working-hours bands across your cities, or share a link that shows the proposed time in the other person's zone. That is the whole reason to use the web tool instead.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this world clock really free?</summary><p>Yes. Free, no signup, no app, no limit — the clocks run entirely in your browser.</p></details><details class="faq"><summary>Is the time accurate?</summary><p>It is as accurate as your device clock, because it takes the current moment from your device and converts it into each city's time zone. If your device clock is a minute fast, every clock here is a minute fast.</p></details><details class="faq"><summary>Does it handle daylight saving time?</summary><p>Yes, automatically. Your browser's time-zone data knows each city's DST rules, so offsets change on the right dates without you doing anything.</p></details><details class="faq"><summary>How many cities can I add?</summary><p>As many as you like from the list of major cities and time zones. The defaults cover the eight most-searched cities.</p></details><details class="faq"><summary>Does it need the internet?</summary><p>Only to load the page. After that the clocks tick from your device clock, so they keep working offline.</p></details><details class="faq"><summary>Why is it tomorrow in Sydney but today in New York?</summary><p>Because Sydney is about 14–16 hours ahead of New York. When it is morning in New York, it is already the next day's early hours in Sydney — the date line sits between them in the Pacific.</p></details>
+      <details class="faq"><summary>What time is it in London, New York or Tokyo right now?</summary><p>The live clock for each city is at the top of this page — London, New York and Tokyo are on the board by default, with the date and UTC offset shown on every card. Add any other city from the search box.</p></details>
+      <details class="faq"><summary>How many time zones are there?</summary><p>More than 24 — about 38–40 counting half-hour and 45-minute offsets such as India at UTC+5:30, Nepal at UTC+5:45 and the Chatham Islands at UTC+12:45, spanning UTC−12 to UTC+14. “24” is the common wrong answer.</p></details>
+      <details class="faq"><summary>What is the time difference between New York and London?</summary><p>Usually 5 hours, with New York behind London — but 4 hours in the week between Europe ending daylight saving on 25 Oct 2026 and the US ending it on 1 Nov 2026. Never quote a fixed gap without the date.</p></details>
+      <details class="faq"><summary>Is it day or night in a city right now?</summary><p>Each card on this page shows a day-part label — Morning, Work hours, Evening or Asleep — next to the live time, so you can tell at a glance whether someone is awake. It is a time-of-day cue, not a sunrise or sunset forecast.</p></details>
+      <details class="faq"><summary>Does a place observe daylight saving time?</summary><p>Many places do not — Japan, South Korea, India, most of Arizona and Hawaii among them — and their gap to places that do observe it changes twice a year.</p></details>
+      <details class="faq"><summary>When do the clocks change in 2026?</summary><p>In Europe the clocks went back on 25 Oct 2026; in the US they go back on 1 Nov 2026. The two changes a week apart are what create the gap week, when London–New York is 4 hours instead of the usual 5.</p></details>
+      <details class="faq"><summary>What is the difference between EST and EDT?</summary><p>EST is Eastern Standard Time (UTC−5, winter); EDT is Eastern Daylight Time (UTC−4, summer). Writing “EST” in summer is an hour wrong — “ET” or “Eastern Time” is the safe form.</p></details>
+      <details class="faq"><summary>How do I schedule a meeting across time zones?</summary><p>Pick the cities, look at the meeting overlap finder on this page for a slot inside everyone’s 9-to-5, and send the invite with the time zone named — never a bare time.</p></details>
+      <details class="faq"><summary>Why did my recurring meeting move an hour?</summary><p>It did not move in its home zone — the gap between the zones changed when one side’s clocks changed. Check which city’s clock the series follows.</p></details>
+      <details class="faq"><summary>What does UTC+5:30 mean?</summary><p>That place is 5 hours 30 minutes ahead of Coordinated Universal Time (UTC). Half-hour offsets are real — India is UTC+5:30, not +5 or +6.</p></details>
+      <details class="faq"><summary>What time is it in UTC / GMT now?</summary><p>UTC is the reference all zones are measured against; GMT is effectively the same clock reading for everyday use. The live UTC clock is shown at the top of this page.</p></details>
+      <details class="faq"><summary>Can I see the time in multiple cities at once?</summary><p>Yes — add each city as a card on one board; this page does it free with no account.</p></details>
+      <details class="faq"><summary>Is the world clock accurate?</summary><p>Yes when it uses the browser’s time-zone data and the device clock — accurate to the second. If a time looks wrong, check the device clock and browser version first.</p></details>
+      <details class="faq"><summary>Does the world clock work offline?</summary><p>Yes — after the page loads, the clocks tick from your device clock, so they keep working offline. Your saved cities are stored in this browser.</p></details>
+      <details class="faq"><summary>How do I add my city and save my cities?</summary><p>Type the city in the search box and tap Add city. The list is saved in this browser’s local storage with no account — but it does not sync to other devices, so add the same cities again on your phone.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>What time is it in London right now?</strong> Look at the London card — it shows the live time, date and UTC offset, updated every second.</p>
-      <p><strong>How do I convert a meeting time between zones?</strong> Add both cities, read the "ahead/behind" line, and add or subtract that gap from your meeting time.</p>
+      <p><strong>How do I convert a meeting time between zones?</strong> Use the converter above: enter the date and time in one city and pick the other city. It applies that date's DST rules, which the "ahead/behind" line alone cannot do.</p>
       <p><strong>Why do some cities share the same time?</strong> Because they sit in the same time zone — for example Paris, Berlin and Madrid all use Central European Time.</p>
-      <p><strong>Does the clock save my cities?</strong> Yes — your added cities are saved in this browser, so they are still here next visit.</p>
+      <p><strong>Does the clock save my cities?</strong> Yes — your added cities are saved in this browser, so they are still here next visit. They do not sync to other devices, so add them again on your phone.</p>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -256,7 +403,7 @@ table.facts td{color:var(--text2)}
   var CITIES = [
     { name: "New York", tz: "America/New_York" }, { name: "Los Angeles", tz: "America/Los_Angeles" },
     { name: "Chicago", tz: "America/Chicago" }, { name: "Toronto", tz: "America/Toronto" },
-    { name: "Mexico City", tz: "America/Mexico_City" }, { name: "São Paulo", tz: "America/Sao_Paulo" },
+    { name: "Mexico City", tz: "America/Mexico_City" }, { name: "S\u00e3o Paulo", tz: "America/Sao_Paulo" },
     { name: "London", tz: "Europe/London" }, { name: "Paris", tz: "Europe/Paris" },
     { name: "Berlin", tz: "Europe/Berlin" }, { name: "Madrid", tz: "Europe/Madrid" },
     { name: "Moscow", tz: "Europe/Moscow" }, { name: "Cairo", tz: "Africa/Cairo" },
@@ -267,7 +414,29 @@ table.facts td{color:var(--text2)}
     { name: "Shanghai", tz: "Asia/Shanghai" }, { name: "Tokyo", tz: "Asia/Tokyo" },
     { name: "Seoul", tz: "Asia/Seoul" }, { name: "Sydney", tz: "Australia/Sydney" },
     { name: "Melbourne", tz: "Australia/Melbourne" }, { name: "Auckland", tz: "Pacific/Auckland" },
-    { name: "Honolulu", tz: "Pacific/Honolulu" }, { name: "Lahore", tz: "Asia/Karachi" }
+    { name: "Honolulu", tz: "Pacific/Honolulu" }, { name: "Lahore", tz: "Asia/Karachi" },
+    { name: "Nairobi", tz: "Africa/Nairobi" }, { name: "Lusaka", tz: "Africa/Lusaka" },
+    { name: "Johannesburg", tz: "Africa/Johannesburg" }, { name: "Accra", tz: "Africa/Accra" },
+    { name: "Casablanca", tz: "Africa/Casablanca" }, { name: "Addis Ababa", tz: "Africa/Addis_Ababa" },
+    { name: "Kathmandu", tz: "Asia/Kathmandu" }, { name: "St. John's", tz: "America/St_Johns" },
+    { name: "Chatham Islands", tz: "Pacific/Chatham" }, { name: "Adelaide", tz: "Australia/Adelaide" },
+    { name: "Perth", tz: "Australia/Perth" }, { name: "Brisbane", tz: "Australia/Brisbane" },
+    { name: "Reykjavik", tz: "Atlantic/Reykjavik" }, { name: "Anchorage", tz: "America/Anchorage" },
+    { name: "Dublin", tz: "Europe/Dublin" }, { name: "Lisbon", tz: "Europe/Lisbon" },
+    { name: "Rome", tz: "Europe/Rome" }, { name: "Amsterdam", tz: "Europe/Amsterdam" },
+    { name: "Stockholm", tz: "Europe/Stockholm" }, { name: "Athens", tz: "Europe/Athens" },
+    { name: "Istanbul", tz: "Europe/Istanbul" }, { name: "Jakarta", tz: "Asia/Jakarta" },
+    { name: "Manila", tz: "Asia/Manila" }, { name: "Kuala Lumpur", tz: "Asia/Kuala_Lumpur" },
+    { name: "Ho Chi Minh City", tz: "Asia/Ho_Chi_Minh" }, { name: "Colombo", tz: "Asia/Colombo" },
+    { name: "Islamabad", tz: "Asia/Karachi" }, { name: "Tehran", tz: "Asia/Tehran" },
+    { name: "Riyadh", tz: "Asia/Riyadh" }, { name: "Tel Aviv", tz: "Asia/Jerusalem" },
+    { name: "Cape Town", tz: "Africa/Johannesburg" }, { name: "Vancouver", tz: "America/Vancouver" },
+    { name: "Montreal", tz: "America/Toronto" }, { name: "Denver", tz: "America/Denver" },
+    { name: "Phoenix", tz: "America/Phoenix" }, { name: "Seattle", tz: "America/Los_Angeles" },
+    { name: "Atlanta", tz: "America/New_York" }, { name: "Miami", tz: "America/New_York" },
+    { name: "Dallas", tz: "America/Chicago" }, { name: "Houston", tz: "America/Chicago" },
+    { name: "Santiago", tz: "America/Santiago" }, { name: "Lima", tz: "America/Lima" },
+    { name: "Bogota", tz: "America/Bogota" }, { name: "Buenos Aires", tz: "America/Argentina/Buenos_Aires" },
   ];
   var DEFAULTS = ["New York", "London", "Paris", "Dubai", "Mumbai", "Singapore", "Tokyo", "Sydney"];
   var hour12 = true, shown = [];
@@ -276,6 +445,135 @@ table.facts td{color:var(--text2)}
   var list = $("cityList");
   CITIES.forEach(function (c) { var o = document.createElement("option"); o.value = c.name; list.appendChild(o); });
   function tzOf(name) { var c = CITIES.filter(function (x) { return x.name === name; })[0]; return c ? c.tz : null; }
+
+  function tzParts(tz, date) {
+    try {
+      var p = new Intl.DateTimeFormat("en-US", { timeZone: tz, hour12: false, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }).formatToParts(date);
+      var g = function (t) { var x = p.filter(function (y) { return y.type === t; })[0]; return x ? parseInt(x.value, 10) : 0; };
+      return { year: g("year"), month: g("month"), day: g("day"), hour: g("hour") % 24, minute: g("minute") };
+    } catch (e) { return null; }
+  }
+  function dayPart(hour) {
+    if (hour >= 6 && hour < 12) return "Morning";
+    if (hour >= 12 && hour < 17) return "Work hours";
+    if (hour >= 17 && hour < 21) return "Evening";
+    return "Asleep";
+  }
+  function dayLabel(tz, date) {
+    var c = tzParts(tz, date); if (!c) return "";
+    var cd = c.year * 10000 + c.month * 100 + c.day;
+    var ld = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+    return cd > ld ? "Tomorrow" : cd < ld ? "Yesterday" : "Today";
+  }
+  function fmtDiff(min) {
+    if (min === 0) return "Same time as you";
+    var a = Math.abs(min), h = Math.floor(a / 60), m = a % 60;
+    var s = h ? h + "h" : "";
+    if (m) s += (s ? " " : "") + m + "m";
+    return s + (min > 0 ? " ahead of you" : " behind you");
+  }
+  function updateUtc() {
+    var el = $("utcLine"); if (!el) return;
+    var f = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", hour: "numeric", minute: "2-digit", second: "2-digit", hour12: hour12, weekday: "short", month: "short", day: "numeric" });
+    el.textContent = "UTC now: " + f.format(new Date()) + " (GMT is effectively the same reading).";
+  }
+  function updateDstBanner() {
+    var el = $("dstBanner"); if (!el) return;
+    var now = new Date();
+    var gap = (offsetMinutes("Europe/London", now) - offsetMinutes("America/New_York", now)) / 60;
+    if (gap === 4) {
+      el.innerHTML = "<strong>DST gap week, live:</strong> London\u2013New York is <strong>4 hours</strong> right now, not the usual 5. Europe\u2019s clocks went back on 25 Oct 2026; US clocks go back on 1 Nov 2026, when the gap returns to 5 hours. Any meeting set from a memorised \u201c5-hour\u201d gap this week is an hour out \u2014 use the converter below for the exact date.";
+    } else {
+      el.innerHTML = "<strong>London\u2013New York is " + gap + " hours right now</strong> (usually 5). The gap drops to 4 in the week between Europe ending daylight saving (25 Oct 2026) and the US ending it (1 Nov 2026) \u2014 and again in March, when the US changes first. Never quote a fixed gap without the date.";
+    }
+  }
+  var lastOverlapMin = -1;
+  function renderOverlap() {
+    var box = $("overlapBox"); if (!box) return;
+    var now = new Date();
+    if (now.getMinutes() === lastOverlapMin && box.dataset.cities === shown.join("|")) return;
+    lastOverlapMin = now.getMinutes(); box.dataset.cities = shown.join("|");
+    var cities = shown.slice(0, 10);
+    var start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+    var shared = [];
+    var rows = cities.map(function (name) {
+      var tz = tzOf(name); var cells = [];
+      for (var h = 0; h < 24; h++) {
+        var at = new Date(start.getTime() + h * 3600000);
+        var p = tzParts(tz, at);
+        var work = p && p.hour >= 9 && p.hour < 17;
+        cells.push(work);
+      }
+      return { name: name, cells: cells };
+    });
+    for (var h2 = 0; h2 < 24; h2++) {
+      if (rows.length && rows.every(function (r) { return r.cells[h2]; })) shared.push(h2);
+    }
+    var t = '<table class="ov-table"><thead><tr><th class="city">City</th>';
+    for (var h3 = 0; h3 < 24; h3++) t += "<th>" + h3 + "</th>";
+    t += "</tr></thead><tbody>";
+    rows.forEach(function (r) {
+      t += '<tr><td class="city">' + r.name + "</td>";
+      r.cells.forEach(function (w) { t += '<td class="' + (w ? "work" : "off") + '">' + (w ? "\u2713" : "") + "</td>"; });
+      t += "</tr>";
+    });
+    t += '<tr><td class="city">Everyone</td>';
+    for (var h4 = 0; h4 < 24; h4++) t += '<td class="' + (shared.indexOf(h4) !== -1 ? "shared" : "off") + '">' + (shared.indexOf(h4) !== -1 ? "\u2713" : "") + "</td>";
+    t += "</tr></tbody></table>";
+    box.innerHTML = t;
+    var sum = $("overlapSummary");
+    if (!rows.length) { sum.textContent = ""; return; }
+    if (!shared.length) { sum.textContent = "No hour today suits every saved city at once \u2014 the cities are too far apart for a shared 9-to-5. Pick a time that is merely inconvenient for both sides, not impossible for one."; return; }
+    var ranges = [], s0 = shared[0], prev = shared[0];
+    for (var k = 1; k <= shared.length; k++) {
+      if (k < shared.length && shared[k] === prev + 1) { prev = shared[k]; continue; }
+      ranges.push(s0 === prev ? s0 + ":00" : s0 + ":00\u2013" + (prev + 1) + ":00");
+      if (k < shared.length) { s0 = shared[k]; prev = shared[k]; }
+    }
+    sum.textContent = "Shared working-hours window today (your local time): " + ranges.join(", ") + ".";
+  }
+  function instantFromLocalInTz(tz, y, mo, d, h, mi) {
+    var guess = Date.UTC(y, mo - 1, d, h, mi);
+    var off = offsetMinutes(tz, new Date(guess));
+    var t1 = guess - off * 60000;
+    var off2 = offsetMinutes(tz, new Date(t1));
+    return new Date(t1 - (off2 - off) * 60000);
+  }
+  function convertFuture() {
+    var dateV = $("convDate").value, timeV = $("convTime").value;
+    var fromTz = $("convFrom").value, toTz = $("convTo").value;
+    var err = $("convError"), res = $("convResult");
+    err.hidden = true; res.hidden = true;
+    if (!dateV || !timeV) { err.hidden = false; err.textContent = "Pick a date and a time first."; return; }
+    var parts = dateV.split("-"), tp = timeV.split(":");
+    var instant = instantFromLocalInTz(fromTz, parseInt(parts[0], 10), parseInt(parts[1], 10), parseInt(parts[2], 10), parseInt(tp[0], 10), parseInt(tp[1], 10));
+    var fromName = $("convFrom").selectedOptions[0].textContent, toName = $("convTo").selectedOptions[0].textContent;
+    var fmt = function (tz) { return new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", hour12: hour12 }).format(instant); };
+    var fromOff = fmtOffset(offsetMinutes(fromTz, instant)), toOff = fmtOffset(offsetMinutes(toTz, instant));
+    res.innerHTML = "<strong>" + timeV + " on " + dateV + " in " + fromName + " (" + fromOff + ")</strong> is <strong>" + fmt(toTz) + " in " + toName + " (" + toOff + ")</strong>.";
+    res.hidden = false;
+    $("convCopySlack").disabled = false; $("convCopyLink").disabled = false;
+    res.dataset.slack = "Meeting: " + timeV + " " + fromName + " time = " + fmt(toTz) + " " + toName + " time (" + dateV + ").";
+    res.dataset.link = location.origin + location.pathname + "?from=" + encodeURIComponent(fromTz) + "&to=" + encodeURIComponent(toTz) + "&date=" + encodeURIComponent(dateV) + "&time=" + encodeURIComponent(timeV);
+  }
+  function fillConvSelects() {
+    ["convFrom", "convTo"].forEach(function (id) {
+      var sel = $(id); if (!sel) return;
+      CITIES.forEach(function (c) { var o = document.createElement("option"); o.value = c.tz; o.textContent = c.name + " (" + c.tz + ")"; sel.appendChild(o); });
+    });
+    $("convFrom").value = "America/New_York"; $("convTo").value = "Europe/London";
+    var today = new Date(); var iso = today.getFullYear() + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + ("0" + today.getDate()).slice(-2);
+    $("convDate").value = iso;
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get("from") && $( "convFrom").querySelector('option[value="' + q.get("from") + '"]')) $("convFrom").value = q.get("from");
+      if (q.get("to") && $("convTo").querySelector('option[value="' + q.get("to") + '"]')) $("convTo").value = q.get("to");
+      if (q.get("date")) $("convDate").value = q.get("date");
+      if (q.get("time")) $("convTime").value = q.get("time");
+      if (q.get("from") || q.get("to")) convertFuture();
+    } catch (e) {}
+  }
+
   function offsetMinutes(tz, date) {
     try {
       var parts = new Intl.DateTimeFormat("en-US", { timeZone: tz, hour12: false, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" }).formatToParts(date);
@@ -301,19 +599,27 @@ table.facts td{color:var(--text2)}
       var dateFmt = new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", month: "short", day: "numeric" });
       var off = offsetMinutes(tz, now);
       var diff = off - localOff;
-      var diffTxt = diff === 0 ? "Same time as you" : (diff > 0 ? Math.abs(diff) / 60 + "h ahead of you" : Math.abs(diff) / 60 + "h behind you");
+      var diffTxt = fmtDiff(diff);
+      var parts = tzParts(tz, now);
+      var partTxt = parts ? dayPart(parts.hour) + " \u00b7 " + dayLabel(tz, now) : "";
       var card = document.createElement("div");
       card.className = "clock-card";
-      var x = document.createElement("button"); x.type = "button"; x.textContent = "×"; x.setAttribute("aria-label", "Remove " + name);
+      var x = document.createElement("button"); x.type = "button"; x.textContent = "\u00d7"; x.setAttribute("aria-label", "Remove " + name);
       x.addEventListener("click", function () { shown = shown.filter(function (n) { return n !== name; }); save(); render(); });
       var h = document.createElement("h3"); h.textContent = name;
       var t = document.createElement("div"); t.className = "clock-time"; t.textContent = timeFmt.format(now);
-      var d = document.createElement("div"); d.className = "clock-date"; d.textContent = dateFmt.format(now) + " · " + fmtOffset(off);
+      var d = document.createElement("div"); d.className = "clock-date"; d.textContent = dateFmt.format(now) + " \u00b7 " + fmtOffset(off);
       var df = document.createElement("div"); df.className = "clock-diff"; df.textContent = diffTxt;
-      card.appendChild(x); card.appendChild(h); card.appendChild(t); card.appendChild(d); card.appendChild(df);
+      var dp = document.createElement("div"); dp.className = "clock-part"; dp.textContent = partTxt;
+      var ia = document.createElement("div"); ia.className = "clock-iana"; ia.textContent = tz;
+      card.appendChild(x); card.appendChild(h); card.appendChild(t); card.appendChild(d); card.appendChild(df); card.appendChild(dp); card.appendChild(ia);
       grid.appendChild(card);
     });
+    updateUtc();
+    updateDstBanner();
+    renderOverlap();
   }
+  fillConvSelects();
   render();
   setInterval(render, 1000);
   $("toggleFmt").addEventListener("click", function () {
@@ -333,6 +639,15 @@ table.facts td{color:var(--text2)}
     toast(match.name + " added.");
   });
   $("resetCities").addEventListener("click", function () { shown = DEFAULTS.slice(); save(); render(); toast("Back to the default cities."); });
+  $("convBtn").addEventListener("click", convertFuture);
+  $("convCopySlack").addEventListener("click", function () {
+    var res = $("convResult");
+    if (navigator.clipboard && res.dataset.slack) { navigator.clipboard.writeText(res.dataset.slack).then(function () { toast("Copied for Slack."); }, function () { toast("Copy was blocked."); }); }
+  });
+  $("convCopyLink").addEventListener("click", function () {
+    var res = $("convResult");
+    if (navigator.clipboard && res.dataset.link) { navigator.clipboard.writeText(res.dataset.link).then(function () { toast("Shareable link copied."); }, function () { toast("Copy was blocked."); }); }
+  });
 
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }

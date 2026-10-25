@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Dice Roller — D4 to D20 Online | PixDetector</title>
-<meta name="description" content="Roll dice free online — d4, d6, d8, d10, d12, d20, up to 6 dice with a modifier and total. No signup, no app, instant.">
+<title>Free Dice Roller — Notation, D4 to D100 | PixDetector</title>
+<meta name="description" content="Roll dice free online — type 4d6kh3 or tap d20, advantage, exploding dice, keep/drop, modifier. No signup, no app.">
 <meta name="keywords" content="dice roller, dice roller online, roll dice online, virtual dice roller, d20 roller, dnd dice roller, free dice roller">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/dice-roller">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/dice-roller">
-<meta property="og:title" content="Free Dice Roller — D4 to D20 Online | PixDetector">
-<meta property="og:description" content="Roll dice free online — d4, d6, d8, d10, d12, d20, up to 6 dice with a modifier and total. No signup, no app, instant.">
+<meta property="og:title" content="Free Dice Roller — Notation, D4 to D100 | PixDetector">
+<meta property="og:description" content="Roll dice free online — type 4d6kh3 or tap d20, advantage, exploding dice, keep/drop, modifier. No signup, no app.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -20,10 +20,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this dice roller really free?",
+      "name": "How do I roll dice online for D&D?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Roll as many times as you like with no signup, no payment and no app to install. Everything runs in your browser."
+        "text": "Pick the die (d4 to d20, or d100) or type the notation — for example 1d20+5 for an attack, 3d6 for damage — press ROLL DICE, and read each die plus the total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does 4d6kh3 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roll four six-sided dice and keep the highest three — the standard way to generate D&D ability scores. Dropping the lowest die shifts the average from 10.5 to about 12.24."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are advantage and disadvantage in D&D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roll two d20s and keep the highest (advantage, written 2d20kh1) or the lowest (disadvantage, 2d20kl1). The toggle on this page sets that up for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are exploding dice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a die rolls its maximum value it rolls again and adds — explosions can chain if you hit the maximum again. Tick “Exploding dice” to turn this on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I type dice notation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Type it in the notation box: NdS for N dice with S sides, + or - a modifier, khN to keep the highest N, klN to keep the lowest N, and ! for exploding dice. Examples: 4d6kh3, 1d20+5, 2d20kh1, 3d6!."
       }
     },
     {
@@ -31,7 +63,7 @@
       "name": "Which dice can I roll?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "d4, d6, d8, d10, d12 and d20 \u2014 the six standard tabletop dice. Roll 1 to 6 dice at once, with an optional modifier."
+        "text": "d4, d6, d8, d10, d12, d20 and d100 — tap a die button for the beginner route, or type any of them in the notation box. Roll 1 to 20 dice at once."
       }
     },
     {
@@ -44,10 +76,10 @@
     },
     {
       "@type": "Question",
-      "name": "Are the rolls really random?",
+      "name": "What do kept and discarded dice mean?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Each die is drawn with your browser's secure random source (crypto.getRandomValues), so every face has exactly equal odds and each roll is independent of the last."
+        "text": "When you keep only some dice (for example kh3 out of 4d6), the kept dice count towards the total and the discarded ones are shown dimmed with a line through them, so you can see exactly what was dropped and why."
       }
     },
     {
@@ -55,15 +87,55 @@
       "name": "What is a natural 20 or a natural 1?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On a d20, a natural 20 is the highest possible roll \u2014 a critical hit in Dungeons & Dragons \u2014 and a natural 1 is a critical miss. This roller highlights them in green and red."
+        "text": "On a d20, a natural 20 is the highest possible roll — a critical hit in Dungeons & Dragons — and a natural 1 is a critical miss. This roller highlights them in green and red."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use this for Dungeons & Dragons?",
+      "name": "Are the rolls really random?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. d20 rolls with modifiers cover attack rolls and ability checks, and multiple d6 or d8 rolls cover damage. The history keeps your last 10 rolls visible to the whole table."
+        "text": "Yes. Each die is drawn with your browser's secure random source (crypto.getRandomValues()) with rejection sampling, so every face has exactly equal odds. Some well-known rollers honestly state they use Math.random() instead — fine for games, but not for a roll anyone might challenge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I keep rolling low numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Random has no memory. A bad streak feels rigged, but in a small sample it is expected — five rolls coming up 3, 3, 4, 3, 5 looks rigged and is not. A bad streak never makes a good roll “due”."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I roll more than one die at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — up to 20 dice in one roll, either by setting the count or by typing notation like 8d6. Every die is shown separately, kept or discarded, before the total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the roller keep a history?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — your last 20 rolls stay visible below the results, with the notation and the total, so the whole table can check a roll. Press “Clear history” to wipe it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this roller for games other than D&D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — d6 covers board games, d20 covers D&D ability checks and attacks, and d100 covers percentile rolls. The notation box covers any combination a tabletop game asks for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this dice roller really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Roll as many times as you like with no signup, no payment and no app to install. Everything runs in your browser."
       }
     }
   ]
@@ -78,12 +150,12 @@
     {
       "@type": "HowToStep",
       "name": "Choose your die",
-      "text": "Pick d4, d6, d8, d10, d12 or d20. d6 covers board games; d20 covers Dungeons & Dragons."
+      "text": "Pick d4, d6, d8, d10, d12, d20 or d100. d6 covers board games; d20 covers Dungeons & Dragons."
     },
     {
       "@type": "HowToStep",
       "name": "Set dice and modifier",
-      "text": "Choose how many dice to roll, from 1 to 6, and add a modifier such as +3 for a bonus."
+      "text": "Choose how many dice to roll, from 1 to 20, and add a modifier such as +3 for a bonus — or type the whole roll as notation, like 4d6kh3, in the notation box."
     },
     {
       "@type": "HowToStep",
@@ -152,6 +224,21 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.modes a{background:var(--card);border:1px solid var(--border2);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--text);text-decoration:none}
+.modes a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.projector .result-big{font-size:clamp(48px,9vw,110px)!important}
+.entry-list{max-height:220px;overflow:auto;border:1px solid var(--border);border-radius:10px;padding:8px 12px;background:var(--bg2);margin-top:8px}
+.entry-row{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);padding:6px 0;cursor:pointer}
+.entry-row input{width:auto;accent-color:var(--accent)}
+.die-face.die-drop{opacity:.45;text-decoration:line-through}
+.die-face.die-extra{border-style:dashed}
 </style>
 </head>
 <body>
@@ -175,11 +262,17 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     </div>
     <div class="tool-page-header">
       <h1>Free Dice Roller</h1>
-      <p>Roll virtual dice free — d4, d6, d8, d10, d12 and d20, up to 6 dice at once, with a modifier and a clear total. No signup, no app, no ads.</p>
+      <p>Roll virtual dice free — type notation like 4d6kh3 or tap d4 to d100, up to 20 dice at once, with advantage, exploding dice, keep/drop and a modifier. No signup, no app, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Every die is shown separately, then added up honestly — <strong>no hidden maths</strong>. Rolls are independent: a bad streak never makes a good roll “due”. This roller is for games and lessons, not for gambling.</div>
+    <nav class="modes" aria-label="Random tools">
+      <a href="/tools/spin-the-wheel">🎡 Spin the Wheel</a>
+      <a href="/tools/random-number-generator">🔢 Random Number</a>
+      <a href="/tools/dice-roller" aria-current="page">🎲 Dice Roller</a>
+      <a href="/tools/random-name-picker">🎲 Random Name Picker</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> This tool is for classrooms, raffles, games and decisions — not for gambling, regulated prize draws, or anything needing independent audit. Short streaks (same name twice, three 3s in five rolls) are normal randomness, not rigging. Saved lists live in this browser only — clearing browsing data wipes them.</div>
     
-    <div class="bc-tool">
+    <div class="bc-tool" id="toolGrid">
       <div class="bc-panel" aria-label="Dice roller">
         <h2>Roll the dice</h2>
         <span class="flabel">Die type</span>
@@ -190,8 +283,13 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <button type="button" class="chip" data-sides="10" aria-pressed="false">d10</button>
           <button type="button" class="chip" data-sides="12" aria-pressed="false">d12</button>
           <button type="button" class="chip" data-sides="20" aria-pressed="false">d20</button>
+          <button type="button" class="chip" data-sides="100" aria-pressed="false">d100</button>
         </div>
-        <div class="field" style="margin-top:16px"><label class="flabel" for="diceCount">Number of dice (1\u20136)</label><input type="number" id="diceCount" value="1" min="1" max="6" step="1"></div>
+        <div class="field" style="margin-top:16px"><label class="flabel" for="diceNotation">Dice notation — type it, e.g. 4d6kh3 or 1d20+5</label><input type="text" id="diceNotation" value="1d20+5" spellcheck="false"></div>
+        <div class="field"><label class="flabel" for="diceAdv">Advantage / disadvantage (d20)</label><select id="diceAdv"><option value="none" selected>Normal roll</option><option value="adv">Advantage — roll 2d20, keep highest</option><option value="dis">Disadvantage — roll 2d20, keep lowest</option></select></div>
+        <div class="field"><label class="flabel" for="diceKeepN">Keep highest (0 = keep all dice)</label><input type="number" id="diceKeepN" value="0" min="0" max="20" step="1"></div>
+        <label class="check-row"><input type="checkbox" id="diceExplode"> Exploding dice — a maximum roll rolls again and adds</label>
+        <div class="field" style="margin-top:16px"><label class="flabel" for="diceCount">Number of dice (1–20)</label><input type="number" id="diceCount" value="1" min="1" max="20" step="1"></div>
         <div class="field"><label class="flabel" for="diceMod">Modifier (+ or \u2212, e.g. +3 for a strength bonus)</label><input type="number" id="diceMod" value="0" step="1"></div>
         <div class="actions"><button type="button" class="btn big" id="rollBtn">ROLL DICE</button></div>
         <p class="hint">Press Space to roll again. A natural 20 on a d20 is green; a natural 1 is red.</p>
@@ -202,39 +300,86 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <div class="result-box" style="margin-top:12px"><div class="result-big" id="diceTotal">\u2014</div><p class="status" id="diceBreakdown" style="text-align:center"></p></div>
         <h2 style="margin-top:16px">Roll history</h2>
         <p class="status" id="diceHistory">No rolls yet.</p>
-        <div class="actions"><button type="button" class="btn alt" id="diceClear">Clear history</button></div>
+        <div class="actions"><button type="button" class="btn alt" id="diceClear">Clear history</button><button type="button" class="btn alt" id="projectorBtn">📽 Projector mode</button></div>
       </div>
     </div>
 
-    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Roll dice free online — d4 to d20, up to 6 dice, modifier and total. No signup, no app.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Roll%20dice%20free%20online%20%E2%80%94%20d4%20to%20d20%2C%20up%20to%206%20dice%2C%20modifier%20and%20total.%20No%20signup%2C%20no%20app.&amp;url=https%3A//pixdetector.vercel.app/tools/dice-roller" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/dice-roller" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Roll%20dice%20free%20online%20%E2%80%94%20d4%20to%20d20%2C%20up%20to%206%20dice%2C%20modifier%20and%20total.%20No%20signup%2C%20no%20app.%20https%3A//pixdetector.vercel.app/tools/dice-roller" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Roll dice free online — type 4d6kh3 or tap d20, advantage, exploding dice, keep/drop. No signup, no app.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShareLine">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Roll%20dice%20free%20online%20%E2%80%94%20type%204d6kh3%20or%20tap%20d20%2C%20advantage%2C%20exploding%20dice%2C%20keep%2Fdrop.%20No%20signup%2C%20no%20app.&amp;url=https%3A//pixdetector.vercel.app/tools/dice-roller" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/dice-roller" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Roll%20dice%20free%20online%20%E2%80%94%20type%204d6kh3%20or%20tap%20d20%2C%20advantage%2C%20exploding%20dice%2C%20keep%2Fdrop.%20No%20signup%2C%20no%20app.%20https%3A//pixdetector.vercel.app/tools/dice-roller" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
 
       <!-- PROBLEM -->
       <h2>The problem: no dice on the table, and nobody trusts a hidden roll</h2>
       <p>Board game night without the dice box, a D&amp;D session over video call, a classroom probability lesson — the moment someone needs a die that is not there, the search starts. The complaints about online dice rollers are not about the maths. They are about trust and clutter: players suspect the roller is rigged after a bad streak, the tool is buried in ads, it only rolls one d6, or it hides the individual dice and shows only a total. On forums for virtual tabletops, the same thread comes up every few months — "the rolls are either super high or super low" — and the answer is always the same: that is what random looks like in a small sample. What players actually want is a roller that shows every die, adds the total honestly, and says plainly how the numbers are drawn.</p>
+      <p>The other half of the complaints is about notation. To a new D&amp;D player, 4d6kh3, 2d20kl1 and the ! for exploding dice read like a foreign language — and plain click-a-die tools cannot express them at all. So the player either goes back to physical dice or opens a second tool. This page puts both on one screen: type the notation if you know it, tap a die if you do not.</p>
       <!-- DIRECT ANSWER -->
-      <h2>How do I roll dice online?</h2>
-      <p>Pick a die — d4, d6, d8, d10, d12 or d20 — choose how many dice to roll (1 to 6), add a modifier if your game uses one, and press ROLL DICE. Each die is shown separately, then added up with your modifier into one total. It is free, with no signup and no app to install, and every roll is drawn with your browser's secure random source, so every face of every die has exactly the same chance.</p>
+      <h2>How do I roll dice online? The direct answer</h2>
+      <p>Pick a die — d4 to d20 — choose how many to roll, add a modifier if your game uses one, and press ROLL DICE, or type notation like 4d6kh3 in the notation box. Each die is shown, then added up with your modifier into one total. It is free, with no signup, and every face has the same chance.</p>
       <p>A dice roller is a virtual replacement for physical dice: it picks a number from 1 to the number of sides, once per die, and adds the results. A d20 is the twenty-sided die used in Dungeons &amp; Dragons; a d6 is the ordinary six-sided die from board games. Rolling 2d6+3 means roll two six-sided dice, add them, then add 3.</p>
       <!-- HOW TO -->
       <h2>How to roll dice in 3 steps</h2>
       <p><strong>Step 1:</strong> choose your die type — d6 for board games, d20 for D&amp;D. <strong>Step 2:</strong> set how many dice (up to 6) and a modifier, such as +3 for a strength bonus or -2 for a penalty. <strong>Step 3:</strong> press ROLL DICE (or hit Space) and read each die plus the total. Your last 10 rolls stay in the history below.</p>
       <h2>Is this dice roller really random — or rigged?</h2>
-      <p>It is random, and the streaks are normal. Each die is drawn independently with crypto.getRandomValues, the browser's secure random source, so a roll has no memory of the last one. A run of low numbers never makes a high number "due" — that feeling is the gambler's fallacy, and it is why bad streaks feel rigged when they are not. In fact, computer dice are fairer than most physical dice: real dice can be slightly weighted or unevenly shaped, while a good digital draw gives every face exactly equal odds. If your whole group rolls at the same moment and gets similar results, that is coincidence in a small sample, not a shared seed.</p>
+      <p>It is random, and the streaks are normal. Each die is drawn independently with crypto.getRandomValues, the browser's secure random source, so a roll has no memory of the last one. A run of low numbers never makes a high number "due" — that feeling is the gambler's fallacy, and it is why bad streaks feel rigged when they are not. In fact, computer dice are fairer than most physical dice: real dice can be slightly weighted or unevenly shaped, while a good digital draw gives every face exactly equal odds. The draw uses rejection sampling: raw values that would favour low faces are thrown away, so every face has exactly equal odds. The wheel and number tools in this family shuffle with the Fisher–Yates algorithm; dice need no shuffle, because each die is drawn independently. If your whole group rolls at the same moment and gets similar results, that is coincidence in a small sample, not a shared seed.</p>
       <h2>What do the colours mean?</h2>
       <p>On a d20, a natural 20 — the highest face — is shown in green: a critical hit in D&amp;D. A natural 1 is shown in red: a critical miss. The colours only flag standout dice; they never change the total. The modifier is added after the dice are summed, exactly as the rules of most tabletop games require.</p>
+
+      <h2>Dice notation cheat sheet</h2>
+      <p>Notation is the shorthand every tabletop rulebook uses. Type any of these in the notation box:</p>
+      <table class="tbl">
+        <tr><th>Notation</th><th>Meaning</th></tr>
+        <tr><td>1d20+5</td><td>Roll one d20, add 5 — an attack roll or ability check</td></tr>
+        <tr><td>3d6</td><td>Roll three d6 and add them — damage</td></tr>
+        <tr><td>4d6kh3</td><td>Roll four d6, keep the highest three — D&amp;D ability scores</td></tr>
+        <tr><td>2d20kh1</td><td>Advantage — roll two d20, keep the highest</td></tr>
+        <tr><td>2d20kl1</td><td>Disadvantage — roll two d20, keep the lowest</td></tr>
+        <tr><td>3d6!</td><td>Exploding — a 6 rolls again and adds, and can chain</td></tr>
+      </table>
+      <h2>Fair randomness — the mechanism, in one line</h2>
+      <p>Every die is drawn with <strong>crypto.getRandomValues()</strong> plus rejection sampling, so every face has exactly equal odds. Math.random()-only tools are fine for games, but not for a roll anyone might challenge.</p>
+
+      <h2>Which random tool do I need?</h2>
+      <p>One tool, four modes — pick the job, not the page:</p>
+      <table class="tbl">
+        <tr><th>Job</th><th>Use</th></tr>
+        <tr><td>Pick one entry where the whole room can watch</td><td><a href="/tools/spin-the-wheel">Spin the Wheel</a></td></tr>
+        <tr><td>Draw numbers from a range you choose</td><td><a href="/tools/random-number-generator">Random Number Generator</a></td></tr>
+        <tr><td>Roll dice for a game</td><td><a href="/tools/dice-roller">Dice Roller</a></td></tr>
+        <tr><td>Draw names from a list you paste</td><td><a href="/tools/random-name-picker">Random Name Picker</a></td></tr>
+      </table>
+
+      <h2>How this roller compares with the top free dice rollers</h2>
+      <p>The comparison below uses the free dice rollers found in a live search on 25 Oct 2026. Features are what those pages state about themselves — “not stated” means the fetched page did not say.</p>
+      <table class="tbl">
+        <tr><th>Tool</th><th>Randomness</th><th>Notation input</th><th>Advantage / keep-drop / exploding</th><th>What stands out</th></tr>
+        <tr><td>Obsidian Roller</td><td>Math.random() — stated honestly on the page</td><td>Not stated</td><td>Not stated</td><td>Multiplayer rooms; D&amp;D, Pathfinder, Shadowrun, Call of Cthulhu and more</td></tr>
+        <tr><td>ToolsSeek</td><td>Math.random() — stated</td><td>No</td><td>No</td><td>d4–d20, up to 10 dice, modifier, each die in a coloured chip</td></tr>
+        <tr><td>123MiniApps</td><td>“Cryptographic randomness, not Math.random”</td><td>Yes — full notation</td><td>Yes — all three</td><td>Session statistics and roll history; explains the 3d6 bell curve</td></tr>
+        <tr><td>Rollune</td><td>Not stated</td><td>Not stated</td><td>Not stated</td><td>Dice + character sheets + soundboard; an app landing page, the roller is one card</td></tr>
+        <tr><td>Uplup</td><td>Not stated</td><td>No</td><td>No</td><td>Up to 100 dice, distribution bars, CSV/TXT export, undo, Space to roll</td></tr>
+        <tr><td>This page</td><td>crypto.getRandomValues() + rejection sampling</td><td>Yes — notation box + tap-a-die buttons</td><td>Yes — all three</td><td>Every die shown with kept/discarded marked; history of the last 20 rolls</td></tr>
+      </table>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this dice roller really free?</summary><p>Yes. Roll as many times as you like with no signup, no payment and no app to install. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>Which dice can I roll?</summary><p>d4, d6, d8, d10, d12 and d20 — the six standard tabletop dice. Roll 1 to 6 dice at once, with an optional modifier.</p></details>
+      <details class="faq"><summary>How do I roll dice online for D&amp;D?</summary><p>Pick the die (d4 to d20, or d100) or type the notation — for example 1d20+5 for an attack, 3d6 for damage — press ROLL DICE, and read each die plus the total.</p></details>
+      <details class="faq"><summary>What does 4d6kh3 mean?</summary><p>Roll four six-sided dice and keep the highest three — the standard way to generate D&amp;D ability scores. Dropping the lowest die shifts the average from 10.5 to about 12.24.</p></details>
+      <details class="faq"><summary>What are advantage and disadvantage in D&amp;D?</summary><p>Roll two d20s and keep the highest (advantage, written 2d20kh1) or the lowest (disadvantage, 2d20kl1). The toggle on this page sets that up for you.</p></details>
+      <details class="faq"><summary>What are exploding dice?</summary><p>When a die rolls its maximum value it rolls again and adds — explosions can chain if you hit the maximum again. Tick “Exploding dice” to turn this on.</p></details>
+      <details class="faq"><summary>How do I type dice notation?</summary><p>Type it in the notation box: NdS for N dice with S sides, + or - a modifier, khN to keep the highest N, klN to keep the lowest N, and ! for exploding dice. Examples: 4d6kh3, 1d20+5, 2d20kh1, 3d6!.</p></details>
+      <details class="faq"><summary>Which dice can I roll?</summary><p>d4, d6, d8, d10, d12, d20 and d100 — tap a die button for the beginner route, or type any of them in the notation box. Roll 1 to 20 dice at once.</p></details>
       <details class="faq"><summary>How does the modifier work?</summary><p>The modifier is added to the total after the dice are rolled. Rolling 2d6+3 means roll two six-sided dice, add them together, then add 3.</p></details>
-      <details class="faq"><summary>Are the rolls really random?</summary><p>Yes. Each die is drawn with your browser's secure random source (crypto.getRandomValues), so every face has exactly equal odds and each roll is independent of the last.</p></details>
-      <details class="faq"><summary>What is a natural 20 or a natural 1?</summary><p>On a d20, a natural 20 is the highest possible roll — a critical hit in Dungeons & Dragons — and a natural 1 is a critical miss. This roller highlights them in green and red.</p></details>
-      <details class="faq"><summary>Can I use this for Dungeons &amp; Dragons?</summary><p>Yes. d20 rolls with modifiers cover attack rolls and ability checks, and multiple d6 or d8 rolls cover damage. The history keeps your last 10 rolls visible to the whole table.</p></details>
+      <details class="faq"><summary>What do kept and discarded dice mean?</summary><p>When you keep only some dice (for example kh3 out of 4d6), the kept dice count towards the total and the discarded ones are shown dimmed with a line through them, so you can see exactly what was dropped and why.</p></details>
+      <details class="faq"><summary>What is a natural 20 or a natural 1?</summary><p>On a d20, a natural 20 is the highest possible roll — a critical hit in Dungeons &amp; Dragons — and a natural 1 is a critical miss. This roller highlights them in green and red.</p></details>
+      <details class="faq"><summary>Are the rolls really random?</summary><p>Yes. Each die is drawn with your browser's secure random source (crypto.getRandomValues()) with rejection sampling, so every face has exactly equal odds. Some well-known rollers honestly state they use Math.random() instead — fine for games, but not for a roll anyone might challenge.</p></details>
+      <details class="faq"><summary>Why do I keep rolling low numbers?</summary><p>Random has no memory. A bad streak feels rigged, but in a small sample it is expected — five rolls coming up 3, 3, 4, 3, 5 looks rigged and is not. A bad streak never makes a good roll “due”.</p></details>
+      <details class="faq"><summary>Can I roll more than one die at once?</summary><p>Yes — up to 20 dice in one roll, either by setting the count or by typing notation like 8d6. Every die is shown separately, kept or discarded, before the total.</p></details>
+      <details class="faq"><summary>Does the roller keep a history?</summary><p>Yes — your last 20 rolls stay visible below the results, with the notation and the total, so the whole table can check a roll. Press “Clear history” to wipe it.</p></details>
+      <details class="faq"><summary>Can I use this roller for games other than D&amp;D?</summary><p>Yes — d6 covers board games, d20 covers D&amp;D ability checks and attacks, and d100 covers percentile rolls. The notation box covers any combination a tabletop game asks for.</p></details>
+      <details class="faq"><summary>Is this dice roller really free?</summary><p>Yes. Roll as many times as you like with no signup, no payment and no app to install. Everything runs in your browser.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
-      <p><strong>What dice can I roll here?</strong> d4, d6, d8, d10, d12 and d20 — the six standard tabletop dice. Roll 1 to 6 of them at once.</p>
+      <p><strong>What dice can I roll here?</strong> d4, d6, d8, d10, d12, d20 and d100. Roll 1 to 20 of them at once, or type notation like 4d6kh3.</p>
+      <p><strong>What does 4d6kh3 mean?</strong> Roll four d6 and keep the highest three — the standard D&amp;D ability-score roll. Dropping the lowest die raises the average from 10.5 to about 12.24.</p>
       <p><strong>How does the modifier work?</strong> It is added to the total after the dice are rolled. 2d6+3 means roll two d6, add them, then add 3.</p>
       <p><strong>Can I roll for D&amp;D?</strong> Yes — d20 with a modifier covers attack rolls and ability checks, and 2d6 or 3d6 cover damage and character stats.</p>
       <p><strong>Why do I keep rolling low numbers?</strong> Random has no memory. A bad streak feels rigged, but in a small sample it is expected — and computer dice are statistically fairer than most physical dice.</p>
@@ -291,6 +436,20 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var toast = window.__pdToast || function () {};
+
+  function wireProjector() {
+    var btn = $("projectorBtn"); if (!btn) return;
+    btn.addEventListener("click", function () {
+      var grid = $("toolGrid");
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else if (grid && grid.requestFullscreen) { grid.requestFullscreen(); }
+    });
+    document.addEventListener("fullscreenchange", function () {
+      document.body.classList.toggle("projector", !!document.fullscreenElement);
+    });
+  }
+
+  wireProjector();
   var sides = 6, history = [], rolling = false;
   function secureInt(n) {
     if (window.crypto && crypto.getRandomValues) {
@@ -300,50 +459,137 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     }
     return Math.floor(Math.random() * n);
   }
+  function parseNotation(raw) {
+    var s = String(raw || "").replace(/\s+/g, "").toLowerCase();
+    var m = /^(\d*)d(\d+)(kh(\d+)|kl(\d+))?(!)?([+-]\d+)?$/.exec(s);
+    if (!m) return null;
+    var count = m[1] ? parseInt(m[1], 10) : 1;
+    var sd = parseInt(m[2], 10);
+    var keep = null;
+    if (m[3]) keep = { mode: m[3].indexOf("kh") === 0 ? "kh" : "kl", n: parseInt(m[4] || m[5], 10) };
+    var spec = { count: count, sides: sd, keep: keep, explode: !!m[6], mod: m[7] ? parseInt(m[7], 10) : 0 };
+    if (spec.count < 1 || spec.count > 20 || spec.sides < 2 || spec.sides > 100) return null;
+    if (spec.keep && (spec.keep.n < 1 || spec.keep.n > spec.count)) return null;
+    return spec;
+  }
+  function notationFromControls() {
+    var adv = $("diceAdv").value;
+    var keepN = parseInt($("diceKeepN").value, 10) || 0;
+    var count = parseInt($("diceCount").value, 10) || 1;
+    if (count < 1) count = 1; if (count > 20) count = 20;
+    var mod = parseInt($("diceMod").value, 10) || 0;
+    var s = "";
+    if (adv === "adv") s = "2d20kh1";
+    else if (adv === "dis") s = "2d20kl1";
+    else {
+      s = count + "d" + sides;
+      if (keepN > 0 && keepN < count) s += "kh" + keepN;
+      if ($("diceExplode").checked) s += "!";
+      if (mod > 0) s += "+" + mod; else if (mod < 0) s += mod;
+    }
+    $("diceNotation").value = s;
+    return s;
+  }
+  function syncControlsFromNotation(spec) {
+    sides = spec.sides;
+    var chips = $("dieChips").querySelectorAll(".chip");
+    for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", parseInt(chips[i].getAttribute("data-sides"), 10) === spec.sides ? "true" : "false");
+    $("diceCount").value = spec.count;
+    $("diceMod").value = spec.mod;
+    $("diceExplode").checked = spec.explode;
+    $("diceKeepN").value = (spec.keep && spec.keep.mode === "kh") ? spec.keep.n : 0;
+    if (spec.count === 2 && spec.sides === 20 && spec.keep && spec.keep.mode === "kh" && spec.keep.n === 1) $("diceAdv").value = "adv";
+    else if (spec.count === 2 && spec.sides === 20 && spec.keep && spec.keep.mode === "kl" && spec.keep.n === 1) $("diceAdv").value = "dis";
+    else $("diceAdv").value = "none";
+  }
   $("dieChips").addEventListener("click", function (ev) {
     var b = ev.target.closest(".chip"); if (!b) return;
     sides = parseInt(b.getAttribute("data-sides"), 10);
     var chips = this.querySelectorAll(".chip");
     for (var i = 0; i < chips.length; i++) chips[i].setAttribute("aria-pressed", chips[i] === b ? "true" : "false");
+    if (sides !== 20) $("diceAdv").value = "none";
+    notationFromControls();
   });
-  function showRoll(vals, mod, final) {
+  ["diceAdv", "diceKeepN", "diceExplode", "diceCount", "diceMod"].forEach(function (id) {
+    $(id).addEventListener("change", notationFromControls);
+  });
+  $("diceNotation").addEventListener("change", function () {
+    var spec = parseNotation($("diceNotation").value);
+    if (spec) syncControlsFromNotation(spec);
+  });
+  function rollSpec(spec) {
+    var faces = [];
+    for (var i = 0; i < spec.count; i++) {
+      var v = secureInt(spec.sides) + 1;
+      faces.push({ v: v, kept: true, extra: false });
+      if (spec.explode) {
+        var guard = 0;
+        while (v === spec.sides && guard < 10) {
+          v = secureInt(spec.sides) + 1;
+          faces.push({ v: v, kept: true, extra: true });
+          guard++;
+        }
+      }
+    }
+    if (spec.keep) {
+      var order = faces.map(function (f, idx) { return idx; }).sort(function (a, b) { return faces[b].v - faces[a].v; });
+      var keepSet = {};
+      if (spec.keep.mode === "kh") order.slice(0, spec.keep.n).forEach(function (i) { keepSet[i] = true; });
+      else order.slice(-spec.keep.n).forEach(function (i) { keepSet[i] = true; });
+      faces.forEach(function (f, idx) { f.kept = !!keepSet[idx]; });
+    }
+    var total = faces.filter(function (f) { return f.kept; }).reduce(function (a, f) { return a + f.v; }, 0) + spec.mod;
+    return { faces: faces, mod: spec.mod, total: total };
+  }
+  function showRoll(res) {
     var faces = $("diceFaces"); faces.innerHTML = "";
-    vals.forEach(function (v) {
+    res.faces.forEach(function (f) {
       var d = document.createElement("span");
-      d.className = "die-face" + ((sides === 20 && v === 20) ? " crit" : "") + ((sides === 20 && v === 1) ? " fumble" : "");
-      d.textContent = v; faces.appendChild(d);
+      d.className = "die-face" + (f.kept ? "" : " die-drop") + (f.extra ? " die-extra" : "") +
+        ((sides === 20 && f.kept && f.v === 20) ? " crit" : "") + ((sides === 20 && f.kept && f.v === 1) ? " fumble" : "");
+      d.textContent = f.v;
+      if (f.extra) d.title = "Exploding die — rolled again";
+      if (!f.kept) d.title = "Discarded by keep/drop";
+      faces.appendChild(d);
     });
-    $("diceTotal").textContent = "Total: " + final;
-    var parts = vals.join(" + ");
-    $("diceBreakdown").textContent = vals.length > 1 || mod !== 0 ? parts + (mod > 0 ? " + " + mod : mod < 0 ? " \u2212 " + Math.abs(mod) : "") + " = " + final : "Single d" + sides + " roll";
+    $("diceTotal").textContent = "Total: " + res.total;
+    var kept = res.faces.filter(function (f) { return f.kept; }).map(function (f) { return f.v; });
+    var dropped = res.faces.filter(function (f) { return !f.kept; }).map(function (f) { return f.v; });
+    var parts = kept.join(" + ");
+    if (dropped.length) parts += "  (dropped " + dropped.join(", ") + ")";
+    if (res.mod > 0) parts += " + " + res.mod;
+    else if (res.mod < 0) parts += " \u2212 " + Math.abs(res.mod);
+    $("diceBreakdown").textContent = parts + " = " + res.total;
   }
   function roll() {
     if (rolling) return;
-    var count = parseInt($("diceCount").value, 10); if (isNaN(count) || count < 1) count = 1; if (count > 6) count = 6;
-    var mod = parseInt($("diceMod").value, 10); if (isNaN(mod)) mod = 0;
+    var spec = parseNotation($("diceNotation").value);
+    if (!spec) {
+      $("diceBreakdown").textContent = "Could not read that notation. Try 4d6kh3 or 1d20+5 — up to 20 dice, d2 to d100.";
+      return;
+    }
+    syncControlsFromNotation(spec);
     rolling = true; $("rollBtn").disabled = true;
     var ticks = 0;
     var iv = setInterval(function () {
-      var tmp = []; for (var i = 0; i < count; i++) tmp.push(secureInt(sides) + 1);
-      showRoll(tmp, mod, tmp.reduce(function (a, b) { return a + b; }, 0) + mod);
+      showRoll(rollSpec(spec));
       ticks++;
       if (ticks >= 7) {
         clearInterval(iv);
-        var vals = []; for (var j = 0; j < count; j++) vals.push(secureInt(sides) + 1);
-        var sum = vals.reduce(function (a, b) { return a + b; }, 0), final = sum + mod;
-        showRoll(vals, mod, final);
-        var label = count + "d" + sides + (mod > 0 ? "+" + mod : mod < 0 ? "" + mod : "") + " = " + vals.join(",") + " \u2192 " + final;
+        var final = rollSpec(spec);
+        showRoll(final);
+        var label = $("diceNotation").value + " = " + final.faces.filter(function (f) { return f.kept; }).map(function (f) { return f.v; }).join(",") + " \u2192 " + final.total;
         history.unshift(label);
-        $("diceHistory").textContent = history.slice(0, 10).join("\n");
-        if (sides === 20 && vals.indexOf(20) > -1) toast("Natural 20! Critical hit.");
-        else if (sides === 20 && vals.indexOf(1) > -1) toast("Natural 1. Ouch.");
+        $("diceHistory").textContent = history.slice(0, 20).join("\n");
+        if (spec.sides === 20 && final.faces.some(function (f) { return f.kept && f.v === 20; })) toast("Natural 20! Critical hit.");
+        else if (spec.sides === 20 && final.faces.some(function (f) { return f.kept && f.v === 1; })) toast("Natural 1. Ouch.");
         rolling = false; $("rollBtn").disabled = false;
       }
     }, 80);
   }
   $("rollBtn").addEventListener("click", roll);
   document.addEventListener("keydown", function (e) {
-    if (e.code === "Space" && document.activeElement && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") { e.preventDefault(); roll(); }
+    if (e.code === "Space" && document.activeElement && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA" && document.activeElement.tagName !== "SELECT") { e.preventDefault(); roll(); }
   });
   $("diceClear").addEventListener("click", function () { history = []; $("diceHistory").textContent = "No rolls yet."; $("diceTotal").textContent = "\u2014"; $("diceFaces").innerHTML = '<p class="status">Pick your dice and roll.</p>'; });
 })();

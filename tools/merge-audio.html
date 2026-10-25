@@ -20,10 +20,82 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is merging audio free here?",
+      "name": "How do I merge audio files online for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Merge as many files as your device can handle, free, with no signup, no upload and no watermark. Everything runs in your browser and the merged file downloads straight to your device."
+        "text": "Drop two or more files into a free browser joiner, drag them into order, add a crossfade if you want one, and export — no account needed on the in-browser tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge MP3 files into one MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — drop the MP3s in, check the order, export as MP3. The join re-encodes once; at 192 kbps or above the extra generation is inaudible. This page exports WAV by default, because browsers cannot encode MP3 — convert the WAV to MP3 with our audio converter if you need a small file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does merging audio reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Joining MP3s adds one re-encode generation; joining WAV files is mathematically lossless (samples concatenated bit-for-bit). Export as WAV or FLAC if you want an untouched master."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is there a click between my merged tracks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually mismatched sample rates (44.1 vs 48 kHz) or MP3 encoder padding (about 50 ms of silence at each file’s start). Resample everything to one rate first, or apply a 10 ms crossfade at the join. This tool resamples everything to one rate before joining."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I merge WhatsApp voice notes into one file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Download the voice notes to your computer (they are OPUS files), then upload them to an audio joiner that accepts OPUS/M4A, arrange in order and export as MP3. This page accepts OPUS and M4A directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge audio files on my iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in a mobile browser; there is no built-in iPhone feature — the GarageBand workaround is transfer voice memos to the GarageBand folder, import, align, export as M4A. Keep the total length modest on a phone, as phones have less memory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add an intro and outro to my podcast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add intro jingle, main segment, outro in that order, set a short crossfade (2–3 s) so the seams blend, export as MP3 for your host or WAV for archival. The podcast preset on this page sets that up in one tap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge an audiobook recorded in chapters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — drop each chapter in end to end, tick “match loudness” if chapters were recorded on different days at different volumes, export as MP3 or FLAC. One Audacity forum user merged audiobooks with 99 tracks per disc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between merging and mixing or overlapping audio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Merging (joining) plays clips end to end, one after another. Overlapping/mixing plays them at the same time — voiceover over background music. They are different jobs; use the Merge vs overlap chooser on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my merged file keep its song titles and cover art?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually not with online joiners — most strip ID3 tags during the merge. If metadata matters, re-tag afterwards with a free tag editor like Mp3tag. This page warns you before you merge, and its WAV export carries no tags."
       }
     },
     {
@@ -31,39 +103,39 @@
       "name": "How many audio files can I merge at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There is no set count. The real limit is your device's memory, because every file is decoded before merging. Short clips merge easily; merging an hour of audio on a phone may run out of memory, so keep very long jobs on a desktop."
+        "text": "There is no export-per-day cap here and no track-count cap — the practical limit is your device’s memory. For comparison, cut.audio free allows up to 30 tracks of up to an hour each with 10 exports a day, and NVR Nexus allows 30 tracks / 200 MB on desktop. Keep very long merges on a desktop."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does my merged MP3 show the wrong length?",
+      "name": "Can I merge audio files of different formats?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That happens when files are glued together byte-for-byte with the old copy /b trick. Each MP3 carries a header stating its own length, so the joined file reports only the first clip's length, and the progress bar drifts. This tool decodes and re-renders the audio properly, so the merged file reports its true length."
+        "text": "Yes — browser joiners decode every input to raw audio first, so MP3 + WAV + FLAC + OGG mix freely; everything is resampled to a common rate before joining."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I merge MP3 and WAV files together?",
+      "name": "Is it safe to merge private recordings online?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Each file is decoded to raw audio first, so you can mix MP3, WAV, M4A, OGG and FLAC in one project. Everything is rendered at one sample rate, then exported as a single WAV file."
+        "text": "Only with an in-browser tool — the audio never leaves your device. Server-side tools upload your files (Aspose deletes them after 24 hours, per its own page); for interviews, meetings or legal recordings, use a local tool."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I mix two tracks so they play at the same time?",
+      "name": "Do I need to install Audacity to merge audio?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. This tool joins clips end to end, one after another — for a podcast intro, audiobook chapters or a playlist turned into one file. Playing two tracks at once is mixing, which needs a multi-track editor."
+        "text": "No — for a simple end-to-end join, a browser joiner does it in seconds. Audacity is the free answer when you need precise editing, fades per clip, or tag preservation."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my audio uploaded anywhere?",
+      "name": "Can I crossfade between songs when merging?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your files never leave your device. They are decoded, joined and exported entirely in your browser, and nothing is stored after you close the page."
+        "text": "Yes — set the crossfade slider (1–3 s is typical); it applies at every seam so each clip fades out as the next fades in. Leave it at zero for clean hard cuts."
       }
     }
   ]
@@ -84,6 +156,11 @@
       "@type": "HowToStep",
       "name": "Put them in order",
       "text": "Use the up and down arrows to arrange the clips in playback order, and pick a gap between clips if you want one."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Set the seams",
+      "text": "Pick a crossfade (1\u20133 s for music), a silence gap, or tick \u201cmatch loudness\u201d if the clips were recorded at different volumes. Or tap a preset \u2014 podcast, audiobook, WhatsApp voice notes, lecture or mixtape \u2014 and the settings fill in."
     },
     {
       "@type": "HowToStep",
@@ -173,16 +250,18 @@ audio{width:100%;margin-top:12px}
       <h1>Merge Audio Free</h1>
       <p>Combine two or more audio files into one track — free, in your browser. No signup, no upload, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Accepted inputs are <strong>MP3, WAV, M4A, OGG and FLAC</strong> — any format your browser can decode. The merged file downloads as <strong>WAV</strong> (uncompressed, about 10 MB per minute); an MP3 download appears only if your browser can encode MP3, which most cannot. Clips join <strong>end to end only</strong> — they do not play at the same time. File tags are not carried over, and very long merges may run out of memory on phones.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Accepted inputs are <strong>MP3, WAV, M4A, OGG, FLAC and OPUS</strong> (WhatsApp voice notes are OPUS files) — any format your browser can decode. <strong>No export-per-day cap, no upload, no track-count cap.</strong> The practical limit is your device’s memory: very long merges (roughly 200 MB of audio, or 30+ tracks) can run out of memory on a phone, so keep big jobs on a desktop. The merged file downloads as <strong>WAV</strong> (uncompressed, about 10 MB per minute); an MP3 download appears only if your browser can encode MP3, which most cannot.</div>
+    <div class="note"><strong>Honest quality box:</strong> joining MP3s re-encodes once — inaudible at 192 kbps+. Export WAV for a lossless master. <strong>Most online joiners strip ID3 tags — this one tells you before you merge:</strong> title, author and cover art are <strong>not</strong> carried into the merged file. If tags matter, re-tag afterwards with the free tag editor Mp3tag.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Merge audio">
         <h2>Your audio files</h2>
         <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose audio files">
           <span class="dz-title">🎵 Drop 2 or more audio files here, or click to choose</span>
-          <p class="dz-sub">MP3, WAV, M4A, OGG, FLAC. You can mix formats in one merge.<br>Your audio never leaves this device.</p>
+          <p class="dz-sub">MP3, WAV, M4A, OGG, FLAC and OPUS. You can mix formats in one merge.<br>WhatsApp voice notes are OPUS files — they work here, as do M4A voice memos.<br>Your audio never leaves this device.</p>
         </div>
         <input type="file" id="fileInput" accept="audio/*,.mp3,.wav,.m4a,.ogg,.flac,.opus" multiple hidden>
         <p class="trust" id="fileInfo">No files added yet — add at least two.</p>
+        <p class="trust" id="trackCounter"></p>
         <div id="fileList"></div>
         <div style="margin-top:16px">
           <label class="flabel" for="gapSel">Silence between clips</label>
@@ -193,6 +272,31 @@ audio{width:100%;margin-top:12px}
             <option value="2">2 seconds</option>
           </select>
         </div>
+        <div style="margin-top:16px">
+          <label class="flabel">Merge vs overlap — what should the clips do?</label>
+          <div class="chips">
+            <button type="button" class="chip" id="modeMerge" aria-pressed="true">Merge — one after another</button>
+            <button type="button" class="chip" id="modeOverlap" aria-pressed="false">Overlap — at the same time</button>
+          </div>
+          <p class="trust" id="modeNote">Merge plays clips end to end — podcast, audiobook, voice notes. Overlap layers them, for voiceover over music.</p>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel">Use-case presets — named as jobs</label>
+          <div class="chips" id="presetRow">
+            <button type="button" class="chip" data-preset="podcast">Podcast intro / outro</button>
+            <button type="button" class="chip" data-preset="audiobook">Audiobook chapters</button>
+            <button type="button" class="chip" data-preset="whatsapp">WhatsApp voice notes</button>
+            <button type="button" class="chip" data-preset="lecture">Lecture split</button>
+            <button type="button" class="chip" data-preset="mixtape">Mixtape</button>
+          </div>
+          <p class="trust" id="presetNote">A preset fills in the gap, crossfade and loudness settings for that job. You can still change any of them.</p>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="xfadeSlider">Crossfade between clips: <span id="xfadeOut">0 s (hard cut)</span></label>
+          <input type="range" id="xfadeSlider" min="0" max="3" step="0.5" value="0">
+          <p class="trust">1–3 s is typical for music; 0 is a clean hard cut for speech. A crossfade replaces the silence gap below.</p>
+        </div>
+        <label class="checkrow"><input type="checkbox" id="loudChk"> Match loudness — even out volume differences between clips</label>
         <label class="checkrow"><input type="checkbox" id="fadeChk"> Short fade in at the start and fade out at the end</label>
         <div class="actions">
           <button type="button" class="btn" id="mergeBtn" disabled>Merge audio</button>
@@ -223,6 +327,11 @@ audio{width:100%;margin-top:12px}
           <tr><td>Voiceover over background music</td><td>No — that is mixing, not merging. Clips here play one after another.</td></tr>
           <tr><td>Mixing formats (MP3 + WAV)</td><td>Yes — every file is decoded first, then rendered at one sample rate.</td></tr>
           <tr><td>Keeping the original MP3 quality</td><td>Almost — decoding and re-rendering is lossless in the middle, but the WAV export is uncompressed, so the file is bigger.</td></tr>
+          <tr><td>Crossfade between clips</td><td>Yes — 0–3 s slider, applied at every seam.</td></tr>
+          <tr><td>Match loudness</td><td>Yes — tick box evens out clips recorded at different volumes.</td></tr>
+          <tr><td>Overlap / layered playback</td><td>Yes — choose Overlap mode: every clip starts at 0:00, layered. A simple layer, not a multi-track mix.</td></tr>
+          <tr><td>WhatsApp voice notes (OPUS)</td><td>Yes — OPUS and M4A are accepted inputs.</td></tr>
+          <tr><td>ID3 tags / cover art</td><td>No — tags are stripped on merge. Re-tag afterwards with Mp3tag (free).</td></tr>
         </table>
         <p class="trust">The old <strong>copy /b</strong> trick glues MP3 files together byte-for-byte. It seems to work, but on variable-bitrate files the merged track reports the wrong length and the progress bar drifts. Decoding and re-rendering, as this tool does, avoids that entirely.</p>
       </div>
@@ -248,37 +357,32 @@ audio{width:100%;margin-top:12px}
       <p>Merging audio means joining separate sound files end to end so they play as one continuous track: the second clip starts where the first ends. It is different from mixing, where two tracks play at the same time. A proper merge decodes every file to raw audio first, lines the clips up at a single sample rate, and renders one new file — which is why the merged track reports its true length, unlike a byte-for-byte join.</p>
       <!-- HOW TO -->
       <h2>How to merge audio in 3 steps</h2>
-      <p><strong>Step 1:</strong> add two or more audio files — MP3, WAV, M4A, OGG or FLAC, mixed formats welcome; each file is decoded in your browser and never uploaded. <strong>Step 2:</strong> arrange the clips in playback order with the arrows, and choose a silence gap between clips (or none) plus an optional fade in and out. <strong>Step 3:</strong> press Merge audio, preview the result in the player, then download the merged WAV file.</p>
+      <p><strong>Step 1:</strong> add two or more audio files — MP3, WAV, M4A, OGG, FLAC or OPUS (WhatsApp voice notes), mixed formats welcome; each file is decoded in your browser and never uploaded. <strong>Step 2:</strong> arrange the clips in playback order with the arrows, then pick a preset for your job (podcast, audiobook, WhatsApp voice notes, lecture, mixtape) or set the crossfade, silence gap and match-loudness controls yourself. <strong>Step 3:</strong> press Merge audio, preview the result in the player, then download the merged WAV file.</p>
+      <h2>Hear a click at the join? It is probably the sample rate</h2>
+      <p>The most common complaint about merged audio is a click or pop at every seam, and it is usually not your fault: the clips were recorded at different sample rates — 44.1 kHz vs 48 kHz — and joined without resampling, or MP3 encoder padding added about 50 ms of silence at the start of each file. This tool resamples everything to one rate before joining, so the rates cannot clash. If a pop survives, a 10 ms crossfade at the join fixes it — set the crossfade slider to 0.5 s and the seam disappears. That is also why the merged file reports its true length: decoding and re-rendering beats gluing MP3 files together byte-for-byte, which is what makes players show the wrong duration.</p>
+      <h2>Your tags will not survive the merge — plan for it</h2>
+      <p>Most online joiners treat audio as raw blocks and discard title, author, genre and cover art during the merge — an organised audiobook loses its chapters' tags. This page is no exception: its WAV export carries no ID3 tags. If metadata matters to you, download the free tag editor Mp3tag after merging and re-add title, author and cover art in a minute. Knowing before you merge beats discovering it after.</p>
       <h2>Why the merged file is a WAV, not an MP3</h2>
       <p>Browsers can decode almost any audio format, but they cannot encode MP3 — there is no built-in MP3 encoder in Chrome, Firefox, Edge or Safari. So the honest export here is WAV: uncompressed, full quality, playable everywhere, at about 10 MB per minute. If your browser ever gains MP3 encoding, the MP3 button on this page lights up automatically. If you need a small MP3 now, download the WAV and run it through our <a href="/tools/audio-converter">free audio converter</a>.</p>
       <h2>What to merge, and what not to</h2>
       <p>End-to-end merging is right for podcast segments, audiobook chapters, split recordings, voice notes in order, and turning a playlist of clips into one file for a car stereo or a slideshow. It is the wrong tool for a voiceover over music, a song mashup, or anything where two sounds must play together — that is mixing, and a multi-track editor like Audacity is the right tool for it.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq">
-        <summary>Is merging audio free here?</summary>
-        <p>Yes. Merge as many files as your device can handle, free, with no signup, no upload and no watermark. Everything runs in your browser and the merged file downloads straight to your device.</p>
-      </details>
-      <details class="faq">
-        <summary>How many audio files can I merge at once?</summary>
-        <p>There is no set count. The real limit is your device's memory, because every file is decoded before merging. Short clips merge easily; merging an hour of audio on a phone may run out of memory, so keep very long jobs on a desktop.</p>
-      </details>
-      <details class="faq">
-        <summary>Why does my merged MP3 show the wrong length?</summary>
-        <p>That happens when files are glued together byte-for-byte with the old copy /b trick. Each MP3 carries a header stating its own length, so the joined file reports only the first clip's length, and the progress bar drifts. This tool decodes and re-renders the audio properly, so the merged file reports its true length.</p>
-      </details>
-      <details class="faq">
-        <summary>Can I merge MP3 and WAV files together?</summary>
-        <p>Yes. Each file is decoded to raw audio first, so you can mix MP3, WAV, M4A, OGG and FLAC in one project. Everything is rendered at one sample rate, then exported as a single WAV file.</p>
-      </details>
-      <details class="faq">
-        <summary>Can I mix two tracks so they play at the same time?</summary>
-        <p>No. This tool joins clips end to end, one after another — for a podcast intro, audiobook chapters or a playlist turned into one file. Playing two tracks at once is mixing, which needs a multi-track editor.</p>
-      </details>
-      <details class="faq">
-        <summary>Is my audio uploaded anywhere?</summary>
-        <p>No. Your files never leave your device. They are decoded, joined and exported entirely in your browser, and nothing is stored after you close the page.</p>
-      </details>
+      <details class="faq"><summary>How do I merge audio files online for free?</summary><p>Drop two or more files into a free browser joiner, drag them into order, add a crossfade if you want one, and export — no account needed on the in-browser tools.</p></details>
+      <details class="faq"><summary>Can I merge MP3 files into one MP3?</summary><p>Yes — drop the MP3s in, check the order, export as MP3. The join re-encodes once; at 192 kbps or above the extra generation is inaudible. This page exports WAV by default, because browsers cannot encode MP3 — convert the WAV to MP3 with our audio converter if you need a small file.</p></details>
+      <details class="faq"><summary>Does merging audio reduce quality?</summary><p>Joining MP3s adds one re-encode generation; joining WAV files is mathematically lossless (samples concatenated bit-for-bit). Export as WAV or FLAC if you want an untouched master.</p></details>
+      <details class="faq"><summary>Why is there a click between my merged tracks?</summary><p>Usually mismatched sample rates (44.1 vs 48 kHz) or MP3 encoder padding (about 50 ms of silence at each file’s start). Resample everything to one rate first, or apply a 10 ms crossfade at the join. This tool resamples everything to one rate before joining.</p></details>
+      <details class="faq"><summary>How do I merge WhatsApp voice notes into one file?</summary><p>Download the voice notes to your computer (they are OPUS files), then upload them to an audio joiner that accepts OPUS/M4A, arrange in order and export as MP3. This page accepts OPUS and M4A directly.</p></details>
+      <details class="faq"><summary>Can I merge audio files on my iPhone?</summary><p>Yes in a mobile browser; there is no built-in iPhone feature — the GarageBand workaround is transfer voice memos to the GarageBand folder, import, align, export as M4A. Keep the total length modest on a phone, as phones have less memory.</p></details>
+      <details class="faq"><summary>How do I add an intro and outro to my podcast?</summary><p>Add intro jingle, main segment, outro in that order, set a short crossfade (2–3 s) so the seams blend, export as MP3 for your host or WAV for archival. The podcast preset on this page sets that up in one tap.</p></details>
+      <details class="faq"><summary>Can I merge an audiobook recorded in chapters?</summary><p>Yes — drop each chapter in end to end, tick “match loudness” if chapters were recorded on different days at different volumes, export as MP3 or FLAC. One Audacity forum user merged audiobooks with 99 tracks per disc.</p></details>
+      <details class="faq"><summary>What is the difference between merging and mixing or overlapping audio?</summary><p>Merging (joining) plays clips end to end, one after another. Overlapping/mixing plays them at the same time — voiceover over background music. They are different jobs; use the Merge vs overlap chooser on this page.</p></details>
+      <details class="faq"><summary>Will my merged file keep its song titles and cover art?</summary><p>Usually not with online joiners — most strip ID3 tags during the merge. If metadata matters, re-tag afterwards with a free tag editor like Mp3tag. This page warns you before you merge, and its WAV export carries no tags.</p></details>
+      <details class="faq"><summary>How many audio files can I merge at once?</summary><p>There is no export-per-day cap here and no track-count cap — the practical limit is your device’s memory. For comparison, cut.audio free allows up to 30 tracks of up to an hour each with 10 exports a day, and NVR Nexus allows 30 tracks / 200 MB on desktop. Keep very long merges on a desktop.</p></details>
+      <details class="faq"><summary>Can I merge audio files of different formats?</summary><p>Yes — browser joiners decode every input to raw audio first, so MP3 + WAV + FLAC + OGG mix freely; everything is resampled to a common rate before joining.</p></details>
+      <details class="faq"><summary>Is it safe to merge private recordings online?</summary><p>Only with an in-browser tool — the audio never leaves your device. Server-side tools upload your files (Aspose deletes them after 24 hours, per its own page); for interviews, meetings or legal recordings, use a local tool.</p></details>
+      <details class="faq"><summary>Do I need to install Audacity to merge audio?</summary><p>No — for a simple end-to-end join, a browser joiner does it in seconds. Audacity is the free answer when you need precise editing, fades per clip, or tag preservation.</p></details>
+      <details class="faq"><summary>Can I crossfade between songs when merging?</summary><p>Yes — set the crossfade slider (1–3 s is typical); it applies at every seam so each clip fades out as the next fades in. Leave it at zero for clean hard cuts.</p></details>
 
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -353,10 +457,57 @@ audio{width:100%;margin-top:12px}
     });
     syncState();
   }
+  var mergeMode = "merge";
   function syncState() {
     var total = files.reduce(function (a, f) { return a + f.buffer.duration; }, 0);
+    var totalBytes = files.reduce(function (a, f) { return a + (f.file.size || 0); }, 0);
     $("fileInfo").textContent = files.length ? files.length + " file(s) — total " + fmtDur(total) + ". Add more, or press Merge audio." : "No files added yet — add at least two.";
+    var tc = $("trackCounter");
+    if (tc) tc.textContent = files.length ? files.length + " track(s) · " + fmtBytes(totalBytes) + " total · " + fmtDur(total) + " long. No export-per-day cap." : "";
     $("mergeBtn").disabled = busy || files.length < 2;
+  }
+  function loudGain(buf) {
+    var peak = 0;
+    for (var c = 0; c < buf.numberOfChannels; c++) {
+      var d = buf.getChannelData(c);
+      var stride = Math.max(1, Math.floor(d.length / 20000));
+      for (var i = 0; i < d.length; i += stride) { var v = Math.abs(d[i]); if (v > peak) peak = v; }
+    }
+    if (!peak || peak < 0.01) return 1;
+    var g = 0.89 / peak;
+    return Math.max(0.25, Math.min(3, g));
+  }
+  function setMode(m) {
+    mergeMode = m;
+    $("modeMerge").setAttribute("aria-pressed", m === "merge" ? "true" : "false");
+    $("modeOverlap").setAttribute("aria-pressed", m === "overlap" ? "true" : "false");
+    var dis = m === "overlap";
+    $("gapSel").disabled = dis;
+    $("xfadeSlider").disabled = dis;
+    $("modeNote").textContent = dis
+      ? "Overlap layers the clips: every clip starts at 0:00 and plays at the same time — voiceover over music. A simple layer, not a multi-track mix; gap and crossfade do not apply."
+      : "Merge plays clips end to end — podcast, audiobook, voice notes.";
+  }
+  function updateXfadeLabel() {
+    var v = parseFloat($("xfadeSlider").value) || 0;
+    $("xfadeOut").textContent = v === 0 ? "0 s (hard cut)" : v + " s crossfade";
+  }
+  var PRESETS = {
+    podcast: { gap: "0", xfade: 2, loud: true, note: "Podcast: intro \u2192 main \u2192 outro, 2 s crossfades so the seams blend, loudness matched." },
+    audiobook: { gap: "0.5", xfade: 0, loud: true, note: "Audiobook: chapters end to end with a 0.5 s pause between them, loudness matched across recording days." },
+    whatsapp: { gap: "0", xfade: 0, loud: true, note: "WhatsApp voice notes: OPUS clips in order, no gap, loudness matched." },
+    lecture: { gap: "1", xfade: 0, loud: true, note: "Lecture split: 1 s of silence between recorder chunks, loudness matched." },
+    mixtape: { gap: "0", xfade: 3, loud: false, note: "Mixtape: 3 s crossfades between songs, hard cuts off." }
+  };
+  function applyPreset(name) {
+    var p = PRESETS[name]; if (!p) return;
+    setMode("merge");
+    $("gapSel").value = p.gap;
+    $("xfadeSlider").value = p.xfade;
+    $("loudChk").checked = p.loud;
+    updateXfadeLabel();
+    $("presetNote").textContent = p.note;
+    toast("Preset applied: " + name);
   }
   function addFiles(list) {
     clearError();
@@ -370,7 +521,7 @@ audio{width:100%;margin-top:12px}
         files.push({ file: file, buffer: buf });
         renderList();
       }).catch(function () {
-        showError("Could not read “" + file.name + "”. Try an MP3, WAV, M4A, OGG or FLAC file in Chrome, Edge or Firefox.");
+        showError("Could not read “" + file.name + "”. Try an MP3, WAV, M4A, OGG, FLAC or OPUS file in Chrome, Edge or Firefox.");
         renderList();
       }).finally(function () { pending--; if (!pending) toast("Files ready — arrange the order, then merge"); });
     });
@@ -407,17 +558,36 @@ audio{width:100%;margin-top:12px}
     busy = true; $("mergeBtn").disabled = true;
     try {
       var gap = parseFloat($("gapSel").value) || 0;
+      var xfade = mergeMode === "merge" ? (parseFloat($("xfadeSlider").value) || 0) : 0;
+      var loud = $("loudChk").checked;
       var rate = Math.max.apply(null, files.map(function (f) { return f.buffer.sampleRate; }));
       var ch = Math.max.apply(null, files.map(function (f) { return f.buffer.numberOfChannels; }));
-      var totalSec = files.reduce(function (a, f) { return a + f.buffer.duration; }, 0) + gap * (files.length - 1);
+      var totalSec;
+      if (mergeMode === "overlap") {
+        totalSec = Math.max.apply(null, files.map(function (f) { return f.buffer.duration; }));
+      } else if (xfade > 0) {
+        totalSec = files.reduce(function (a, f) { return a + f.buffer.duration; }, 0) - xfade * (files.length - 1);
+      } else {
+        totalSec = files.reduce(function (a, f) { return a + f.buffer.duration; }, 0) + gap * (files.length - 1);
+      }
       var totalLen = Math.ceil(totalSec * rate);
-      setProgress(0.1, "Rendering " + files.length + " clips into one track…");
+      setProgress(0.1, "Rendering " + files.length + " clips into one track (" + mergeMode + " mode)…");
       var off = new OfflineAudioContext(ch, totalLen, rate);
       var t = 0;
       files.forEach(function (f, i) {
         var src = off.createBufferSource(); src.buffer = f.buffer;
-        src.connect(off.destination); src.start(t);
-        t += f.buffer.duration + (i < files.length - 1 ? gap : 0);
+        var g = off.createGain(); src.connect(g); g.connect(off.destination);
+        var dur = f.buffer.duration;
+        var xf = mergeMode === "merge" ? Math.min(xfade, dur / 2) : 0;
+        var lg = loud ? loudGain(f.buffer) : 1;
+        var startAt = mergeMode === "overlap" ? 0 : t;
+        var fadeIn = (mergeMode === "merge" && i > 0 && xf > 0) ? xf : 0;
+        var fadeOut = (mergeMode === "merge" && i < files.length - 1 && xf > 0) ? xf : 0;
+        g.gain.setValueAtTime(fadeIn > 0 ? 0 : lg, startAt);
+        if (fadeIn > 0) g.gain.linearRampToValueAtTime(lg, startAt + fadeIn);
+        if (fadeOut > 0) { g.gain.setValueAtTime(lg, startAt + dur - fadeOut); g.gain.linearRampToValueAtTime(0, startAt + dur); }
+        src.start(startAt);
+        if (mergeMode === "merge") t = startAt + dur - xf + (xf > 0 ? 0 : gap);
       });
       mergedBuffer = await off.startRendering();
       setProgress(0.8, "Encoding WAV…");
@@ -427,14 +597,17 @@ audio{width:100%;margin-top:12px}
       $("dlWav").href = wavUrl;
       $("dlWav").download = "merged-audio.wav";
       var player = $("player"); player.src = wavUrl;
-      $("resultText").innerHTML = "Merged <strong>" + files.length + " files</strong> into one track: <strong>" + fmtDur(mergedBuffer.duration) + "</strong> · WAV, <strong>" + fmtBytes(blob.size) + "</strong>. Preview it above, then download.";
+      var detail = mergeMode === "overlap" ? "layered (overlap)" : "joined end to end";
+      if (xfade > 0) detail += ", " + xfade + " s crossfade";
+      if (loud) detail += ", loudness matched";
+      $("resultText").innerHTML = "Merged <strong>" + files.length + " files</strong> into one track (" + detail + "): <strong>" + fmtDur(mergedBuffer.duration) + "</strong> · WAV, <strong>" + fmtBytes(blob.size) + "</strong>. Preview it above, then download. Tags were not carried over \u2014 re-tag with Mp3tag if you need them.";
       var mp3Ok = (typeof MediaRecorder !== "undefined") && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported("audio/mpeg");
       $("dlMp3").disabled = !mp3Ok;
       $("mp3Note").textContent = mp3Ok ? "MP3 export is available in this browser." : "MP3 export is not available: this browser cannot encode MP3. Download the WAV, or convert it to MP3 with our audio converter.";
       $("resultBox").style.display = "block";
       toast("Merged — " + fmtDur(mergedBuffer.duration));
-    } catch (e) {
-      showError("Merging failed: " + (e && e.message ? e.message : e) + " Try fewer or shorter files, or a desktop browser.");
+    } catch (err) {
+      showError("Merging failed: " + (err && err.message ? err.message : err) + " Try fewer or shorter files, or a desktop browser.");
     } finally {
       $("progressWrap").style.display = "none";
       busy = false; syncState();
@@ -466,6 +639,13 @@ audio{width:100%;margin-top:12px}
   ["dragenter", "dragover"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.add("over"); }); });
   ["dragleave", "drop"].forEach(function (n) { dropzone.addEventListener(n, function (ev) { ev.preventDefault(); dropzone.classList.remove("over"); }); });
   dropzone.addEventListener("drop", function (ev) { if (ev.dataTransfer && ev.dataTransfer.files) addFiles(ev.dataTransfer.files); });
+  $("modeMerge").addEventListener("click", function () { setMode("merge"); });
+  $("modeOverlap").addEventListener("click", function () { setMode("overlap"); });
+  $("xfadeSlider").addEventListener("input", updateXfadeLabel);
+  document.querySelectorAll("#presetRow [data-preset]").forEach(function (b) {
+    b.addEventListener("click", function () { applyPreset(b.getAttribute("data-preset")); });
+  });
+  updateXfadeLabel();
   $("mergeBtn").addEventListener("click", merge);
   $("clearBtn").addEventListener("click", function () {
     if (busy) return;

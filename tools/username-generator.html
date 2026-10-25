@@ -20,18 +20,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this username generator really free?",
+      "name": "How do I come up with a username that isn't taken?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Generate as many usernames as you like, free, with no signup and no usage limit. Everything runs in your browser."
+        "text": "Generate a batch of ideas, then check each one on the platform itself — a generator cannot see availability. Add a number, underscore or short interest word (mia_reads, mia-on-bikes) to a taken base name."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this generator check if a username is available?",
+      "name": "Can I change my username later if I pick a bad one?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — and no free generator honestly can. Only the platform itself knows which handles are taken, and platforms do not offer a public availability check. Use the generator for ideas, then check your favourite on the platform in the signup or edit-profile field."
+        "text": "It depends on the platform — Reddit usernames are permanent and never recycled, even after deletion, so choose carefully there. Instagram and X let you change handles; check the platform’s rule before committing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good username for Instagram / gaming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short, memorable, easy to spell, and consistent across your accounts — compound words read cleanest for gaming handles, dotted/underscore formats suit forums and LinkedIn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a name generator check if a username is available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in the browser — this generator builds names offline from word lists and cannot see registrations. Use the check links beside each result to open that handle on Instagram, X, TikTok or Reddit: if the profile page exists, the name is taken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to credit the generator when I use a username?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a generated username is yours to use once generated, and no credit to the generator is required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this username generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Generate as many usernames as you like, free, with no signup and no usage limit. Everything runs in your browser."
       }
     },
     {
@@ -60,10 +92,34 @@
     },
     {
       "@type": "Question",
-      "name": "Can I change my username later?",
+      "name": "What makes a good username?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the platform. Instagram and TikTok let you change it, but only every 14 or 30 days. Reddit does not let you change it at all after the first 30 days, so choose carefully there."
+        "text": "Short, easy to spell, easy to say out loud, and the same across platforms. Avoid random numbers and strings of letters nobody can remember."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are numbers in a username bad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not if they mean something — a birth year or a lucky number is fine. Random digits like “maya847291” look like a bot account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use emoji in a username?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, on almost every platform. Instagram, TikTok and X only allow letters, numbers, periods and underscores in handles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if someone has my name on one platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a close variation there — add a word about what you do, like “maya.cooks” — and keep the same handle everywhere else so people can still find you."
       }
     }
   ]
@@ -136,6 +192,21 @@ table.facts{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16p
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
+.mode-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mode-tabs a{background:var(--bg2);border:1px solid var(--border2);color:var(--text2);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;text-decoration:none}
+.mode-tabs a[aria-current="page"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.result-row{flex-wrap:wrap}
+.result-text{flex:1 1 55%}
+.result-actions{display:flex;gap:6px;flex-shrink:0}
+.result-note{flex:1 1 100%;font-size:13px;color:var(--text2);line-height:1.6}
+.fav-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;flex-shrink:0}
+.fav-btn[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.check-links{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
+.check-links .check-label{font-size:12px;color:var(--text2);font-weight:700}
+.check-links a{font-size:12px;color:var(--text2);border:1px solid var(--border2);border-radius:999px;padding:4px 10px;text-decoration:none}
+.check-links a:hover{color:var(--text)}
+.split-team{font-size:14px;line-height:1.7;color:var(--text2);margin-bottom:8px}
+.split-team strong{color:var(--text)}
 </style>
 </head>
 <body>
@@ -161,7 +232,14 @@ table.facts td{color:var(--text2)}
       <h1>Free Username Generator</h1>
       <p>Pick a style, add your word, and get unique username ideas for Instagram, TikTok, gaming, Discord and more. Free, no signup, instant — copy any handle in one click.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This generator <strong>does NOT check whether a username is available</strong> on any platform — no free generator can, because only Instagram, TikTok, Xbox and the rest know which handles are taken. A name shown here may already be registered, even by an empty or inactive account. <strong>Always check it on the platform itself</strong> before you settle on it.</div>
+    <nav class="mode-tabs" aria-label="Name generator modes">
+  <a href="/tools/slogan-generator">Slogan</a>
+  <a href="/tools/username-generator" aria-current="page">Username</a>
+  <a href="/tools/acronym-generator">Acronym</a>
+  <a href="/tools/fantasy-name-generator">Fantasy name</a>
+  <a href="/tools/team-name-generator">Team name</a>
+    </nav>
+    <div class="note"><strong>Honest limits — read first:</strong> Template + word-list output — a first draft to rewrite, not a finished brand line. We can't check availability or trademarks — check the name where you'll use it. Usernames are built offline from word lists — this tool cannot see which handles are taken. A name shown here may already be registered, even by an empty or inactive account. Use the check links beside each result to test it on the platform itself.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Username settings">
         <h2>Your username</h2>
@@ -200,6 +278,15 @@ table.facts td{color:var(--text2)}
         <p class="result-meta" id="resultMeta">Click any username to copy it, then check it on the platform — this tool cannot see which handles are taken.</p>
       </div>
     </div>
+    <div class="bc-panel" id="favPanel" aria-label="Your shortlist">
+      <h2>Your shortlist — pinned names</h2>
+      <p class="trust" style="margin-top:0">Pin any result with the &#9734; Pin button and it stays here, saved in this browser even after you reload or close the page. Your shortlist never leaves your device.</p>
+      <div class="result-list" id="favBarList"></div>
+      <div class="actions">
+        <button type="button" class="btn alt" id="copyFavsBtn">Copy shortlist</button>
+        <button type="button" class="btn alt" id="clearFavsBtn">Clear shortlist</button>
+      </div>
+    </div>
     <div class="share-box">
       <h2>Share this tool</h2>
       <p class="share-line">Free username generator — unique handles for Instagram, TikTok and gaming, no signup.</p>
@@ -217,7 +304,7 @@ table.facts td{color:var(--text2)}
       <p>Everybody who has tried to sign up for Instagram, TikTok or Reddit knows the feeling: you type the name you want, and the platform says it is already taken. The worst part is that the account holding it often looks empty — no posts, no picture, no activity. That is not a glitch. Platforms never recycle handles: on Reddit, abandoned, suspended and even deleted accounts keep their username claimed forever, and the same is true on most other platforms. So the real problem is not finding a good name, it is finding a good name that is still free — and generators that pretend to check availability are misleading you, because only the platform itself knows what is taken.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I generate a free username?</h2>
-      <p>Type a word you like — your name, a nickname or a hobby — into the tool above, pick a style (aesthetic, gamer, professional, cute or minimal), set a maximum length, and click Generate usernames. You get 12 ideas instantly, free, with no signup. Copy a favourite, then check it on the platform itself: on Instagram or TikTok, type it into the edit-profile field, which shows availability in real time. If it is taken, add a number, an underscore or a second word and try again.</p>
+      <p>Type a word you like — your name, a nickname or a hobby — into the tool above, pick a style and a maximum length, and click Generate usernames. You get 12 ideas instantly, free, with no signup. Copy a favourite, then use the check links under it to open that handle on Instagram, X, TikTok or Reddit.</p>
       <p>A username generator is a tool that combines a seed word with curated word banks and patterns to produce handle ideas for social media, gaming and forums. A username — also called a handle — is the unique name that identifies your account: it shows up in your profile, in every tag and mention, and in search results. The best handles are short (under 15 characters), easy to spell out loud, and the same across every platform you use.</p>
       <!-- HOW TO -->
       <h2>How to find a username that is actually free</h2>
@@ -226,15 +313,42 @@ table.facts td{color:var(--text2)}
       <p>Every platform has its own rules, and a handle that works on one can be rejected on another. Instagram allows only lowercase letters, numbers, periods and underscores, with a 30-character cap — no hyphens, no spaces, no emoji, and no two periods in a row. TikTok allows letters, numbers, underscores and periods, up to 24 characters, and you can only change it once every 30 days. Reddit usernames are permanent: once you pick one, you cannot change it at all after the first 30 days. Discord lets you change your display name freely, but your unique username must still be free. This generator keeps its output to letters, numbers, underscores and periods, so the names it makes are valid on the big platforms — but the length cap you set is what keeps them usable.</p><table class="facts"><thead><tr><th>Platform</th><th>Max length</th><th>Allowed characters</th><th>Can you change it?</th></tr></thead><tbody><tr><td>Instagram</td><td>30</td><td>Letters, numbers, . _</td><td>Yes, every 14 days</td></tr><tr><td>TikTok</td><td>24</td><td>Letters, numbers, . _</td><td>Yes, every 30 days</td></tr><tr><td>Reddit</td><td>20</td><td>Letters, numbers, - _</td><td>No, after 30 days</td></tr><tr><td>X (Twitter)</td><td>15</td><td>Letters, numbers, _</td><td>Yes, anytime</td></tr><tr><td>Discord</td><td>32</td><td>Letters, numbers, . _</td><td>Yes, anytime</td></tr></tbody></table>
       <h2>What to do when your favourite name is taken</h2>
       <p>Do not give up on the name — vary it. Add a number that means something to you (a year, a lucky number) rather than a random string of digits. Add an underscore or a period between the words — "maya.rose" reads clean, "m_a_y_a" reads like a spam account. Add a second word that describes what you do: "maya.cooks", "maya.plays", "maya.draws". Or flip the order: "rosemaya" instead of "mayarose". What does not work is adding random letters to the end — "mayaxqz" is unmemorable and hard to tell anyone. If the name is taken on one platform but free on the others, weigh whether matching everywhere matters more than that exact name: a consistent handle across platforms is worth more than a perfect name on one of them.</p>
+      <h2>How the check links work</h2>
+      <p>Every result on this page carries check links for Instagram, X, TikTok and Reddit. Each link opens that platform's profile page for the handle — the same manual check other generators link to for Reddit. If the profile exists, or the signup field says the name is taken, the handle is gone and you should try the next one. No generator can do this check for you in the browser: only the platform itself knows which handles are taken, and the honest tools in the results say so on the page.</p>
+      <h2>How this tool compares with the top results</h2>
+      <p>The top results for "username generator free" are small, clean tools — and not one of them offers an availability check. The check links beside each result on this page are the missing feature.</p>
+      <table class="facts"><thead><tr><th>Tool</th><th>What it does</th><th>The catch</th></tr></thead><tbody>
+      <tr><td>Outfeed AI</td><td>Seed word + 6 styles, 30 names per batch</td><td>No availability check</td></tr>
+      <tr><td>Overchat</td><td>Length slider 4–40, categories, pin-to-shortlist that survives reload</td><td>Only 5 names per batch; no availability check; honest on the page that it builds names offline and cannot see taken handles</td></tr>
+      <tr><td>TestMu AI</td><td>Style presets, batch output, custom length</td><td>A testing-cloud company's side tool; no availability check</td></tr>
+      <tr><td>Cool Username Generator</td><td>8 formatting styles, keyword weaving, all in-browser</td><td>No availability check; no length control stated</td></tr>
+      <tr><td>ContentStudio (Pinterest)</td><td>AI username tool, no signup</td><td>Pinterest-only — and the tool itself does not check availability</td></tr>
+      </tbody></table>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this username generator really free?</summary>
-        <p>Yes. Generate as many usernames as you like, free, with no signup and no usage limit. Everything runs in your browser.</p>
+        <summary>How do I come up with a username that isn't taken?</summary>
+        <p>Generate a batch of ideas, then check each one on the platform itself — a generator cannot see availability. Add a number, underscore or short interest word (mia_reads, mia-on-bikes) to a taken base name.</p>
       </details>
       <details class="faq">
-        <summary>Does this generator check if a username is available?</summary>
-        <p>No — and no free generator honestly can. Only the platform itself knows which handles are taken, and platforms do not offer a public availability check. Use the generator for ideas, then check your favourite on the platform in the signup or edit-profile field.</p>
+        <summary>Can I change my username later if I pick a bad one?</summary>
+        <p>It depends on the platform — Reddit usernames are permanent and never recycled, even after deletion, so choose carefully there. Instagram and X let you change handles; check the platform’s rule before committing.</p>
+      </details>
+      <details class="faq">
+        <summary>What is a good username for Instagram / gaming?</summary>
+        <p>Short, memorable, easy to spell, and consistent across your accounts — compound words read cleanest for gaming handles, dotted/underscore formats suit forums and LinkedIn.</p>
+      </details>
+      <details class="faq">
+        <summary>Can a name generator check if a username is available?</summary>
+        <p>Not in the browser — this generator builds names offline from word lists and cannot see registrations. Use the check links beside each result to open that handle on Instagram, X, TikTok or Reddit: if the profile page exists, the name is taken.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to credit the generator when I use a username?</summary>
+        <p>No — a generated username is yours to use once generated, and no credit to the generator is required.</p>
+      </details>
+      <details class="faq">
+        <summary>Is this username generator really free?</summary>
+        <p>Yes. Generate as many usernames as you like, free, with no signup and no usage limit. Everything runs in your browser.</p>
       </details>
       <details class="faq">
         <summary>Why does a username show as taken when the account looks empty?</summary>
@@ -249,15 +363,21 @@ table.facts td{color:var(--text2)}
         <p>You can try, and you should — a consistent handle is easier for people to find and remember. Generate a name, then check it on each platform you use and claim it everywhere it is free before someone else does.</p>
       </details>
       <details class="faq">
-        <summary>Can I change my username later?</summary>
-        <p>It depends on the platform. Instagram and TikTok let you change it, but only every 14 or 30 days. Reddit does not let you change it at all after the first 30 days, so choose carefully there.</p>
+        <summary>What makes a good username?</summary>
+        <p>Short, easy to spell, easy to say out loud, and the same across platforms. Avoid random numbers and strings of letters nobody can remember.</p>
       </details>
-      <!-- RELATED QUESTIONS -->
-      <h2>Related questions</h2>
-      <p><strong>What makes a good username?</strong> Short, easy to spell, easy to say out loud, and the same across platforms. Avoid random numbers and strings of letters nobody can remember.</p>
-      <p><strong>Are numbers in a username bad?</strong> Not if they mean something — a birth year or a lucky number is fine. Random digits like "maya847291" look like a bot account.</p>
-      <p><strong>Can I use emoji in a username?</strong> No, on almost every platform. Instagram, TikTok and X only allow letters, numbers, periods and underscores in handles.</p>
-      <p><strong>What if someone has my name on one platform?</strong> Use a close variation there — add a word about what you do, like "maya.cooks" — and keep the same handle everywhere else so people can still find you.</p>
+      <details class="faq">
+        <summary>Are numbers in a username bad?</summary>
+        <p>Not if they mean something — a birth year or a lucky number is fine. Random digits like “maya847291” look like a bot account.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use emoji in a username?</summary>
+        <p>No, on almost every platform. Instagram, TikTok and X only allow letters, numbers, periods and underscores in handles.</p>
+      </details>
+      <details class="faq">
+        <summary>What if someone has my name on one platform?</summary>
+        <p>Use a close variation there — add a word about what you do, like “maya.cooks” — and keep the same handle everywhere else so people can still find you.</p>
+      </details>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -307,8 +427,8 @@ table.facts td{color:var(--text2)}
     var style = document.getElementById("styleSelect").value;
     var maxLen = parseInt(document.getElementById("lenInput").value, 10);
     last = NameGen.usernames(seed, style, maxLen, useNumbers, useSep, 12);
-    NameGen.renderResults(document.getElementById("results"), last, "Type a word and hit Generate.");
-    document.getElementById("resultMeta").textContent = last.length + " usernames generated. Check your favourite on the platform itself — this tool cannot see which handles are taken.";
+    NameGen.renderUsernames(document.getElementById("results"), last, "Type a word and hit Generate.");
+    document.getElementById("resultMeta").textContent = last.length + " usernames generated. Use the check links under each name to open that handle on Instagram, X, TikTok or Reddit — this tool cannot see which handles are taken.";
   }
   document.getElementById("genBtn").addEventListener("click", run);
   document.getElementById("moreBtn").addEventListener("click", run);

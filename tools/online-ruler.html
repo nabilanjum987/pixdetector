@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this online ruler really free?",
+      "name": "Is an online ruler accurate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Free, no signup, no download, no app \u2014 it runs entirely in your browser."
+        "text": "Only after calibration. Calibrated, expect about 0.5–1 mm over 10 cm for household use. Uncalibrated, a desktop monitor can be 10–20% off, and a phone far worse. Do not trust an uncalibrated reading at all."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate is an online ruler?",
+      "name": "How do I calibrate an online ruler?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "After calibration, accurate to about half a millimetre for small objects held flat on the screen. Before calibration, it can be off by 60% \u2014 which is why this page warns you until you calibrate."
+        "text": "Hold a standard bank or credit card (85.6 mm wide) flat against the screen and drag the on-screen box or slider until its width matches the card exactly, then confirm. No card handy: type your screen’s diagonal in inches instead."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I calibrate with a credit card?",
+      "name": "Why is my online ruler the wrong size?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hold a standard credit or ID card against the blue box on this page and drag the slider until the box is exactly as wide as the card. A standard card is 85.60 mm wide, so the box is now showing true size."
+        "text": "Because every screen has a different pixel density and the browser assumes 96 pixels per inch. A 4K monitor and a 1080p laptop show the same 100-pixel line at different physical sizes — calibration is what fixes it."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use my phone as a ruler?",
+      "name": "Do I need to calibrate every time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 open this page in your phone browser and calibrate with a card. Phones have the sharpest screens, so calibration matters most on a phone."
+        "text": "No — calibration is saved in your browser’s local storage and persists until you clear browser data, switch screens or monitors, or change display scaling."
       }
     },
     {
       "@type": "Question",
-      "name": "What if I do not have a card?",
+      "name": "Does browser zoom affect an online ruler?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Enter your screen's diagonal size in inches and its pixel width instead \u2014 the page calculates the density from those two numbers. It is slightly less accurate than the card method."
+        "text": "Yes — zooming in or out stretches or shrinks the ruler along with everything else on the page, so calibrate and measure at 100% zoom. This page warns you if it detects zoom that is not 100%."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is the ruler a different size on every screen?",
+      "name": "Can I use an online ruler on my phone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because every screen has a different pixel density. A browser draws in CSS pixels, and one CSS pixel is a different physical size on every display \u2014 calibration is what bridges that gap."
+        "text": "Yes — on a phone held upright the ruler runs down the long side of the screen. Accuracy is best on iPhones (recognised exactly); Android is estimated, usually within a few percent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is PPI and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PPI (pixels per inch) is how densely a screen packs pixels. The ruler needs it to convert pixel positions into real centimetres or inches — a 227 PPI MacBook Retina needs far more pixels per centimetre than a 96 PPI laptop screen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I measure in inches instead of cm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — switch units in the toolbar; 1 inch = 25.4 mm exactly, and a correct centimetre calibration makes inches correct too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I measure something longer than my screen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can’t in one placement — measure in sections, or use the scroll-to-extend mode. For anything much longer, use a tape measure; a screen ruler is for small objects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an online ruler measure a ring size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if it is calibrated — a ring is the one household case where a fraction of a millimetre matters, and a sizer built on the same card calibration is the honest way to offer it. A rough uncalibrated reading is not good enough for a ring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe and private to use an online ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The ruler itself needs no upload — it is drawn in your browser from your screen’s pixel density, and calibration stays in localStorage on your device. Avoid tools that ask you to upload a photo to measure it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to download an app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — the browser tools work with nothing to install; that is the point. App-store ruler apps exist, but at least one heavily promoted AR ruler app drew a comment that it was “non-functional beyond ads” after install."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I print an online ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but print at “Actual Size” / 100% scale — “Fit to Page” shrinks it by about 5–7% — and check the print against a credit card before using it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I measure with an online ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Small flat things held against the screen: screws, keys, coins, rings, phone cases, cables, beads, watch bands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most accurate online ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no verified ranking — the honest answer is that the most accurate one is whichever asks you to calibrate with a card and tells you its error. Any ruler that never asks for calibration is an estimate wearing a ruler’s clothes."
       }
     }
   ]
@@ -84,6 +156,16 @@
       "@type": "HowToStep",
       "name": "Choose a unit",
       "text": "Pick centimetres, millimetres or inches, and horizontal or vertical orientation."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Or auto-detect your device",
+      "text": "If your iPhone, iPad or MacBook is recognised, the page sets its pixel density for you \u2014 then verify against a card for exact work."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Type a length to see it at real size",
+      "text": "Enter a length such as 10 cm and the page draws that exact span on screen, so you can compare a real object against it."
     },
     {
       "@type": "HowToStep",
@@ -132,8 +214,13 @@ table.facts{width:100%;border-collapse:collapse;font-size:14px}
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
-
-
+.len-bar-wrap{margin-top:12px}
+.len-bar{height:34px;background:var(--accent);border-radius:8px;position:relative;min-width:2px}
+.len-bar span{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#000;font-weight:700;font-size:13px;white-space:nowrap}
+.warnbox{background:#fef3c7;border:1px solid #f59e0b;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.7;color:#78350f;margin-top:12px}
+.warnbox strong{color:#78350f}
+.cantdo{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.8;color:var(--text2);margin:12px 0}
+.cantdo strong{color:var(--text)}
 </style>
 </head>
 <body>
@@ -159,15 +246,17 @@ table.facts td{color:var(--text2)}
       <h1>Online Ruler Free</h1>
       <p>Measure small objects right on your screen — in centimetres, millimetres or inches. Free, no signup, no download, no app. Calibrate first, or the numbers mean nothing.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> <strong>Calibrate before you trust any number.</strong> Until you calibrate, this ruler assumes 96 pixels per inch — the web default — which can be off by 60% on a phone or high-DPI screen. Use a standard credit or ID card (85.60 mm wide) to set it, and the page shows an 'uncalibrated' warning until you do.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> <strong>Calibrate before you trust any number.</strong> An uncalibrated ruler reading is simply wrong, not approximately right: until you calibrate, this ruler assumes 96 pixels per inch — the web default — which can be 10–20% off on a desktop monitor and far worse on a phone. Accuracy once calibrated is about <strong>0.5–1 mm over 10 cm</strong>; uncalibrated, every reading on this page is badged <strong>ESTIMATE — calibrate for a real measurement</strong>. Use a standard credit or ID card (85.60 mm wide) to set it, and the page shows the warning until you do.</div>
     
     <div class="bc-panel" aria-label="Ruler" style="margin-bottom:20px">
-      <h2>Your ruler <span id="calBadge" style="font-size:13px;color:#f87171;font-weight:600">— NOT CALIBRATED, numbers are approximate</span></h2>
+      <h2>Your ruler <span id="calBadge" style="font-size:13px;color:#f87171;font-weight:600">— ESTIMATE — calibrate for a real measurement</span></h2>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
         <button type="button" class="chip" data-unit="cm" aria-pressed="true">Centimetres (cm)</button>
         <button type="button" class="chip" data-unit="mm" aria-pressed="false">Millimetres (mm)</button>
         <button type="button" class="chip" data-unit="in" aria-pressed="false">Inches (in)</button>
+        <button type="button" class="chip" data-unit="px" aria-pressed="false">Pixels (px) — for designers</button>
         <button type="button" class="chip" id="flipRuler" aria-pressed="false">Vertical ruler</button>
+        <button type="button" class="chip" id="fullBtn" aria-pressed="false">Fullscreen</button>
       </div>
       <div id="rulerBox" style="position:relative;overflow-x:auto;border:1px solid var(--border2);border-radius:10px;background:var(--bg2);padding:0">
         <canvas id="rulerCanvas" height="90" style="display:block;cursor:crosshair"></canvas>
@@ -175,7 +264,16 @@ table.facts td{color:var(--text2)}
         <div id="measureLine2" style="position:absolute;top:0;bottom:0;width:2px;background:#00e5ff;display:none"></div>
       </div>
       <p class="trust" id="measureOut">Click once to set the start point, click again to set the end point — the distance between them is your measurement.</p>
+      <p class="warnbox" id="zoomWarn" hidden><strong>Zoom or screen changed:</strong> <span id="zoomWarnText"></span></p>
       <div class="actions"><button type="button" class="btn alt" id="clearMeasure">Clear measurement</button></div>
+      <h2 style="margin-top:22px">Type a length, see it at real size</h2>
+      <p class="trust">Enter a length and the page draws that exact span on screen — hold a real object against it to compare.</p>
+      <div class="grid2">
+        <div><label class="flabel" for="typeLenVal">Length</label><input type="number" id="typeLenVal" min="0.1" max="100" step="0.1" placeholder="e.g. 10" value="10"></div>
+        <div><label class="flabel" for="typeLenUnit">Unit</label><select id="typeLenUnit"><option value="cm" selected>cm</option><option value="mm">mm</option><option value="in">inches</option></select></div>
+      </div>
+      <div class="actions"><button type="button" class="btn" id="showLenBtn">Show this length</button></div>
+      <div class="len-bar-wrap" id="lenBarWrap" hidden><div class="len-bar" id="lenBar"><span id="lenBarLabel"></span></div><p class="trust" id="lenBarNote"></p></div>
       <h2 style="margin-top:22px">Calibrate your screen</h2>
       <p class="trust">A standard credit or ID card is 85.60 mm wide. Hold your card against the box below and drag the slider until the box is exactly as wide as your card.</p>
       <div id="cardBox" style="height:54px;background:var(--accent);border-radius:8px;margin:10px 0;position:relative"><span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#000;font-weight:700;font-size:13px">CARD — drag slider until this box matches your card</span></div>
@@ -185,7 +283,8 @@ table.facts td{color:var(--text2)}
         <div><label class="flabel" for="diagInput">Or enter screen diagonal (inches)</label><input type="number" id="diagInput" min="3" max="60" step="0.1" placeholder="e.g. 15.6"></div>
         <div><label class="flabel" for="resInput">Screen width (pixels)</label><input type="number" id="resInput" min="320" max="8000" step="1" placeholder="e.g. 1920"></div>
       </div>
-      <div class="actions"><button type="button" class="btn" id="diagCalc">Calculate from diagonal</button></div>
+      <div class="actions"><button type="button" class="btn" id="diagCalc">Calculate from diagonal</button><button type="button" class="btn alt" id="autoDetect">Detect my device</button></div>
+      <p class="trust" id="autoDetectOut">Auto-detection recognises common iPhones, iPads and MacBooks from screen size and pixel ratio. Anything else: use the card method above — it works on every screen.</p>
       <p class="ok" id="calOk" hidden></p>
     </div>
     <div class="share-box"><h2>Share this tool</h2><p class="share-line">Measure in cm and inches right on your screen — free online ruler.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Measure%20in%20cm%20and%20inches%20right%20on%20your%20screen%20%E2%80%94%20free%20online%20ruler&amp;url=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-ruler" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-ruler" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Measure%20in%20cm%20and%20inches%20right%20on%20your%20screen%20%E2%80%94%20free%20online%20ruler.%20https%3A%2F%2Fpixdetector.vercel.app%2Ftools%2Fonline-ruler" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
@@ -195,11 +294,22 @@ table.facts td{color:var(--text2)}
       <p>It happens constantly: you need to measure something small — a ring, a screw, a photo print, the width of a phone case, a gap on a shelf — and there is no ruler in the drawer. So you search for an online ruler, and most of them hand you a picture of a ruler that is simply wrong, because every screen packs a different number of pixels into an inch. A 27-inch 4K monitor holds about 163 pixels per inch; a phone can hold 460. A ruler that assumes the web default of 96 pixels per inch can be off by 60% on a modern phone, and nothing on the page tells you. On social media the same frustration shows up around heavily promoted "AR ruler" apps — one widely shared reel's comments report an installed app that did nothing but show ads. What people actually want is a plain screen ruler that admits the problem and fixes it: calibrate once against a real object, then measure.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I measure something with an online ruler?</h2>
-      <p>Calibrate once with a standard credit card, then hold the object against your screen and read its length in cm, mm or inches — free, no signup, no app. Without calibration the ruler guesses your screen's pixel density and can be far out, so this page shows an 'uncalibrated' warning until you set it.</p>
+      <p>Calibrate once with a standard credit card, then hold the object against your screen and read its length in cm, mm or inches — free, no signup, no app. Without calibration the ruler guesses your screen's pixel density and can be far out, so this page badges every uncalibrated reading ESTIMATE until you set it. Calibrated accuracy is about 0.5–1 mm over 10 cm; uncalibrated, expect 10–20% error or worse.</p>
       <p>An online ruler is a measuring tool drawn on your screen at real physical size. Screens do not know their own physical size, so a browser measures everything in CSS pixels — and a CSS pixel is not a fixed physical length. Calibration tells the ruler how many CSS pixels make one real inch on your screen, using a physical reference you already own: a standard card, which is 85.60 mm wide by international standard ISO 7810.</p>
       <!-- HOW TO -->
       <h2>How to use the online ruler in 3 steps</h2>
       <p><strong>Step 1 — calibrate:</strong> hold a standard credit or ID card against the blue box and drag the slider until the box is exactly as wide as your card. The page now knows your screen's real pixel density. <strong>Step 2 — choose a unit:</strong> centimetres, millimetres or inches, and horizontal or vertical. <strong>Step 3 — measure:</strong> lay the object flat against the screen along the ruler, or click two points on the ruler to measure the distance between them.</p>
+      <h2>How accurate is it, exactly?</h2>
+      <p>Calibrated, expect about <strong>0.5–1 mm over 10 cm</strong> for household use — that is the figure the honest ruler pages state, and it is what a careful card calibration delivers on a flat screen with a straight-on view. Uncalibrated, a desktop monitor is typically 10–20% off and a phone far worse, because the browser's 96 PPI guess is nowhere near a 300–460 PPI phone screen. Two things undo a good calibration without warning: browser zoom (if Chrome or Safari is set to 110%, your ruler is a lie) and moving the window to a different monitor. This page watches for both and warns you when it detects them — recalibrate when it does.</p>
+      <div class="cantdo"><strong>What it can't do:</strong> a screen ruler cannot measure curves, circumferences or room dimensions, anything longer than your screen, or anything that does not lie flat against it. For 0.1 mm work — engineering fits, machined parts — use calipers, not a screen. For a ring, a calibrated reading is the minimum; an uncalibrated one is not good enough.</div>
+      <h2>Measure without a ruler — your hand is one</h2>
+      <p>No ruler, no screen, no card? Your own hand is a rough measuring tool — a viral infographic shared across Facebook groups lists six hand positions: index finger ≈ 1 inch, thumb width ≈ 2 inches, fist ≈ 4 inches, thumb-to-index span ≈ 6 inches, thumb-to-pinky span ≈ 9 inches, elbow-to-fingertip ≈ 18 inches. These are estimates — hands differ — so measure your own hand against a card once, then it is a usable rough ruler anywhere.</p>
+      <h2>Three ways to calibrate — which is best?</h2>
+      <table class="facts"><thead><tr><th>Method</th><th>How it works</th><th>Accuracy</th></tr></thead><tbody>
+      <tr><td>Credit card (best)</td><td>Match the on-screen box to a standard card, 85.6 × 53.98 mm</td><td>Best — a real physical reference on your exact screen</td></tr>
+      <tr><td>Screen diagonal</td><td>Type the diagonal in inches plus the screen width in pixels</td><td>Good — slightly less accurate than the card</td></tr>
+      <tr><td>Auto device detection</td><td>Recognises common iPhones, iPads and MacBooks from screen size and pixel ratio</td><td>Good for recognised models — verify against a card for exact work</td></tr>
+      </tbody></table>
       <h2>Why calibration matters</h2>
       <table class="facts"><thead><tr><th>Screen</th><th>Real density</th><th>Error if you trust 96 PPI</th></tr></thead><tbody>
       <tr><td>Old office monitor</td><td>~96 PPI</td><td>Nearly right — the default was made for this</td></tr>
@@ -212,13 +322,29 @@ table.facts td{color:var(--text2)}
       <p>You can measure flat, small objects held against the screen: paper, cards, photos, jewellery, screws, phone cases, printed diagrams. You cannot measure a room, a person, or anything that does not fit on your screen — for that you need a tape measure, not a web page. And a screen measurement is never as precise as a steel ruler: after calibration, expect accuracy within about half a millimetre for small objects, which is plenty for everyday checks but not for engineering.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this online ruler really free?</summary><p>Yes. Free, no signup, no download, no app — it runs entirely in your browser.</p></details><details class="faq"><summary>How accurate is an online ruler?</summary><p>After calibration, accurate to about half a millimetre for small objects held flat on the screen. Before calibration, it can be off by 60% — which is why this page warns you until you calibrate.</p></details><details class="faq"><summary>How do I calibrate with a credit card?</summary><p>Hold a standard credit or ID card against the blue box on this page and drag the slider until the box is exactly as wide as the card. A standard card is 85.60 mm wide, so the box is now showing true size.</p></details><details class="faq"><summary>Can I use my phone as a ruler?</summary><p>Yes — open this page in your phone browser and calibrate with a card. Phones have the sharpest screens, so calibration matters most on a phone.</p></details><details class="faq"><summary>What if I do not have a card?</summary><p>Enter your screen's diagonal size in inches and its pixel width instead — the page calculates the density from those two numbers. It is slightly less accurate than the card method.</p></details><details class="faq"><summary>Why is the ruler a different size on every screen?</summary><p>Because every screen has a different pixel density. A browser draws in CSS pixels, and one CSS pixel is a different physical size on every display — calibration is what bridges that gap.</p></details>
+      <details class="faq"><summary>Is an online ruler accurate?</summary><p>Only after calibration. Calibrated, expect about 0.5–1 mm over 10 cm for household use. Uncalibrated, a desktop monitor can be 10–20% off, and a phone far worse. Do not trust an uncalibrated reading at all.</p></details>
+      <details class="faq"><summary>How do I calibrate an online ruler?</summary><p>Hold a standard bank or credit card (85.6 mm wide) flat against the screen and drag the on-screen box or slider until its width matches the card exactly, then confirm. No card handy: type your screen’s diagonal in inches instead.</p></details>
+      <details class="faq"><summary>Why is my online ruler the wrong size?</summary><p>Because every screen has a different pixel density and the browser assumes 96 pixels per inch. A 4K monitor and a 1080p laptop show the same 100-pixel line at different physical sizes — calibration is what fixes it.</p></details>
+      <details class="faq"><summary>Do I need to calibrate every time?</summary><p>No — calibration is saved in your browser’s local storage and persists until you clear browser data, switch screens or monitors, or change display scaling.</p></details>
+      <details class="faq"><summary>Does browser zoom affect an online ruler?</summary><p>Yes — zooming in or out stretches or shrinks the ruler along with everything else on the page, so calibrate and measure at 100% zoom. This page warns you if it detects zoom that is not 100%.</p></details>
+      <details class="faq"><summary>Can I use an online ruler on my phone?</summary><p>Yes — on a phone held upright the ruler runs down the long side of the screen. Accuracy is best on iPhones (recognised exactly); Android is estimated, usually within a few percent.</p></details>
+      <details class="faq"><summary>What is PPI and why does it matter?</summary><p>PPI (pixels per inch) is how densely a screen packs pixels. The ruler needs it to convert pixel positions into real centimetres or inches — a 227 PPI MacBook Retina needs far more pixels per centimetre than a 96 PPI laptop screen.</p></details>
+      <details class="faq"><summary>Can I measure in inches instead of cm?</summary><p>Yes — switch units in the toolbar; 1 inch = 25.4 mm exactly, and a correct centimetre calibration makes inches correct too.</p></details>
+      <details class="faq"><summary>How do I measure something longer than my screen?</summary><p>You can’t in one placement — measure in sections, or use the scroll-to-extend mode. For anything much longer, use a tape measure; a screen ruler is for small objects.</p></details>
+      <details class="faq"><summary>Can an online ruler measure a ring size?</summary><p>Yes, if it is calibrated — a ring is the one household case where a fraction of a millimetre matters, and a sizer built on the same card calibration is the honest way to offer it. A rough uncalibrated reading is not good enough for a ring.</p></details>
+      <details class="faq"><summary>Is it safe and private to use an online ruler?</summary><p>The ruler itself needs no upload — it is drawn in your browser from your screen’s pixel density, and calibration stays in localStorage on your device. Avoid tools that ask you to upload a photo to measure it.</p></details>
+      <details class="faq"><summary>Do I need to download an app?</summary><p>No — the browser tools work with nothing to install; that is the point. App-store ruler apps exist, but at least one heavily promoted AR ruler app drew a comment that it was “non-functional beyond ads” after install.</p></details>
+      <details class="faq"><summary>Can I print an online ruler?</summary><p>Yes, but print at “Actual Size” / 100% scale — “Fit to Page” shrinks it by about 5–7% — and check the print against a credit card before using it.</p></details>
+      <details class="faq"><summary>What can I measure with an online ruler?</summary><p>Small flat things held against the screen: screws, keys, coins, rings, phone cases, cables, beads, watch bands.</p></details>
+      <details class="faq"><summary>What is the most accurate online ruler?</summary><p>There is no verified ranking — the honest answer is that the most accurate one is whichever asks you to calibrate with a card and tells you its error. Any ruler that never asks for calibration is an estimate wearing a ruler’s clothes.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>How do I measure 1 inch online?</strong> Switch to inches and calibrate first — after calibration, the "1" mark is exactly one real inch.</p>
       <p><strong>Can I measure in millimetres?</strong> Yes — switch to mm mode and every small tick is 1 mm, with longer marks at each centimetre.</p>
       <p><strong>Does the calibration save?</strong> Yes — your setting is saved in this browser, so it is still calibrated next visit. It resets if you clear site data.</p>
-      <p><strong>Why does the ruler change when I zoom?</strong> Browser zoom changes the size of a CSS pixel, which breaks calibration. Keep zoom at 100% while measuring.</p>
+      <p><strong>Why does the ruler change when I zoom?</strong> Browser zoom changes the size of a CSS pixel, which breaks calibration. Keep zoom at 100% while measuring — this page warns you if it detects zoom or a screen change.</p>
+      <p><strong>Can I measure in pixels?</strong> Yes — switch to Pixels (px) mode. It measures on-screen elements in CSS pixels, which is what designers and developers need; it does not need calibration, because a CSS pixel is the unit itself.</p>
+      <p><strong>Does auto-detection work on Android?</strong> Not exactly — Android screens vary too much to recognise by size alone, so the page estimates them (usually within a few percent). iPhones, iPads and MacBooks are recognised exactly; anything else should use the card method.</p>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -285,6 +411,20 @@ table.facts td{color:var(--text2)}
     ctx.fillStyle = "#111118"; ctx.fillRect(0, 0, w, h);
     ctx.strokeStyle = "#f0f0f8"; ctx.fillStyle = "#f0f0f8";
     ctx.font = "12px 'DM Sans', sans-serif"; ctx.textAlign = "center";
+    if (unit === "px") {
+      ctx.strokeStyle = "#f0f0f8"; ctx.fillStyle = "#f0f0f8";
+      for (var px = 0; px <= w; px += 10) {
+        var isMaj = px % 100 === 0, isMidP = !isMaj && px % 50 === 0;
+        var lenP = isMaj ? 34 : isMidP ? 22 : 12;
+        ctx.beginPath(); ctx.moveTo(px, h); ctx.lineTo(px, h - lenP); ctx.stroke();
+        if (isMaj) ctx.fillText(String(px), px, 18);
+      }
+      ctx.fillStyle = "#8888a8"; ctx.textAlign = "left";
+      ctx.fillText("CSS pixels", 8, 18);
+      if (startX !== null) { var l1p = $("measureLine"); l1p.style.display = "block"; l1p.style.left = startX + "px"; }
+      if (endX !== null) { var l2p = $("measureLine2"); l2p.style.display = "block"; l2p.style.left = endX + "px"; }
+      return;
+    }
     var stepMm = unit === "mm" ? 1 : unit === "in" ? 25.4 : 10;
     var majorMm = unit === "mm" ? 10 : unit === "in" ? 25.4 : 10;
     var totalMm = w * mmPerPx();
@@ -307,7 +447,7 @@ table.facts td{color:var(--text2)}
   function updateBadge() {
     var b = $("calBadge");
     if (calibrated) { b.textContent = "— CALIBRATED at " + ppi + " PPI"; b.style.color = "#34d399"; }
-    else { b.textContent = "— NOT CALIBRATED, numbers are approximate"; b.style.color = "#f87171"; }
+    else { b.textContent = "— ESTIMATE — calibrate for a real measurement"; b.style.color = "#f87171"; }
     $("ppiOut").textContent = ppi + " PPI" + (calibrated ? " (calibrated)" : " (uncalibrated guess)");
     $("cardBox").style.width = Math.round(85.60 / mmPerPx()) + "px";
     $("cardBox").style.maxWidth = "100%";
@@ -350,6 +490,7 @@ table.facts td{color:var(--text2)}
     toast(vertical ? "Vertical mode: rotate your object, or use the horizontal ruler for most things." : "Horizontal ruler.");
   });
   function fmtDist(mm) {
+    if (unit === "px") return Math.round(mm) + " px";
     if (unit === "in") return (mm / 25.4).toFixed(2) + " in (" + mm.toFixed(1) + " mm)";
     if (unit === "mm") return mm.toFixed(1) + " mm (" + (mm / 10).toFixed(2) + " cm)";
     return (mm / 10).toFixed(2) + " cm (" + mm.toFixed(1) + " mm)";
@@ -363,8 +504,8 @@ table.facts td{color:var(--text2)}
       $("measureOut").textContent = "Start point set. Click again to set the end point.";
     } else if (endX === null) {
       endX = px;
-      var distMm = Math.abs(endX - startX) * mmPerPx();
-      $("measureOut").textContent = "Distance: " + fmtDist(distMm) + (calibrated ? "" : " — approximate: calibrate first for a real measurement.");
+      var distMm = unit === "px" ? Math.abs(endX - startX) : Math.abs(endX - startX) * mmPerPx();
+      $("measureOut").textContent = "Distance: " + fmtDist(distMm) + (calibrated || unit === "px" ? "" : " — ESTIMATE: calibrate for a real measurement.");
     } else {
       startX = px; endX = null;
       $("measureLine2").style.display = "none";
@@ -382,6 +523,77 @@ table.facts td{color:var(--text2)}
   window.addEventListener("resize", sizeCanvas);
   updateBadge();
   sizeCanvas();
+
+
+  var KNOWN_DEVICES = [
+    { w: 390, h: 844, dpr: 3, ppi: 460, name: "iPhone 12 / 13 / 14" },
+    { w: 393, h: 852, dpr: 3, ppi: 460, name: "iPhone 14 Pro / 15" },
+    { w: 402, h: 874, dpr: 3, ppi: 460, name: "iPhone 15 Pro Max" },
+    { w: 414, h: 896, dpr: 2, ppi: 326, name: "iPhone 11 / XR" },
+    { w: 375, h: 667, dpr: 2, ppi: 326, name: "iPhone SE" },
+    { w: 360, h: 780, dpr: 3, ppi: 476, name: "iPhone 12 / 13 mini" },
+    { w: 820, h: 1180, dpr: 2, ppi: 264, name: "iPad Air / iPad 10th gen" },
+    { w: 834, h: 1194, dpr: 2, ppi: 264, name: "iPad Pro 11-inch" },
+    { w: 1024, h: 1366, dpr: 2, ppi: 264, name: "iPad Pro 12.9-inch" },
+    { w: 1440, h: 900, dpr: 2, ppi: 227, name: "MacBook Air 13-inch" },
+    { w: 1512, h: 982, dpr: 2, ppi: 254, name: "MacBook Pro 14-inch" },
+    { w: 1728, h: 1117, dpr: 2, ppi: 254, name: "MacBook Pro 16-inch" }
+  ];
+  function autoDetectDevice() {
+    var sw = window.screen.width, sh = window.screen.height, dpr = window.devicePixelRatio || 1;
+    var out = $("autoDetectOut");
+    var match = null;
+    KNOWN_DEVICES.forEach(function (d) {
+      var sameSize = (d.w === sw && d.h === sh) || (d.w === sh && d.h === sw);
+      if (sameSize && Math.abs(d.dpr - dpr) < 0.01) match = d;
+    });
+    if (!match) {
+      out.textContent = "This device was not recognised (" + sw + "\u00d7" + sh + " CSS px, pixel ratio " + dpr + ") \u2014 use the card method above; it works on every screen.";
+      return;
+    }
+    setPpi(match.ppi);
+    out.textContent = "Recognised as " + match.name + " at " + match.ppi + " PPI. This is a model lookup, not a measurement \u2014 verify against a card for exact work.";
+    toast("Device detected: " + match.name + " (" + match.ppi + " PPI).");
+  }
+  $("autoDetect").addEventListener("click", autoDetectDevice);
+  function showTypedLength() {
+    var v = parseFloat($("typeLenVal").value), u = $("typeLenUnit").value;
+    if (!v || v <= 0) { toast("Enter a length first."); return; }
+    var mm = u === "in" ? v * 25.4 : u === "mm" ? v : v * 10;
+    var px = Math.round(mm / mmPerPx());
+    var wrap = $("lenBarWrap"), bar = $("lenBar");
+    wrap.hidden = false;
+    bar.style.width = Math.min(px, 2000) + "px";
+    bar.style.maxWidth = "100%";
+    $("lenBarLabel").textContent = v + " " + u + (px > 2000 ? " (longer than this screen \u2014 shown truncated)" : "");
+    $("lenBarNote").textContent = calibrated ? "Drawn at real size on this screen." : "ESTIMATE \u2014 calibrate for a real measurement.";
+  }
+  $("showLenBtn").addEventListener("click", showTypedLength);
+  $("fullBtn").addEventListener("click", function () {
+    var box = $("rulerBox");
+    if (document.fullscreenElement) { document.exitFullscreen(); this.textContent = "Fullscreen"; }
+    else if (box.requestFullscreen) { box.requestFullscreen(); this.textContent = "Exit fullscreen"; }
+    sizeCanvas();
+  });
+  document.addEventListener("fullscreenchange", function () { sizeCanvas(); });
+  var initScreenW = window.screen.width, initScreenH = window.screen.height;
+  function checkZoom() {
+    var warn = $("zoomWarn"), txt = $("zoomWarnText");
+    var zoom = 1;
+    try { if (window.visualViewport) zoom = window.visualViewport.scale; } catch (e) {}
+    if (zoom && Math.abs(zoom - 1) > 0.01) {
+      warn.hidden = false;
+      txt.textContent = "Browser zoom is " + Math.round(zoom * 100) + "%, not 100% \u2014 your calibration no longer applies. Press Ctrl+0 (Cmd+0 on Mac) to reset zoom, then recalibrate.";
+    } else if (window.screen.width !== initScreenW || window.screen.height !== initScreenH) {
+      warn.hidden = false;
+      txt.textContent = "The screen changed (window moved to another monitor, or display changed) \u2014 recalibrate before trusting a measurement.";
+    } else {
+      warn.hidden = true;
+    }
+  }
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", checkZoom);
+  window.addEventListener("resize", function () { sizeCanvas(); checkZoom(); });
+  checkZoom();
 
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }

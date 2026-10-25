@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Currency Converter — Live Rates | PixDetector</title>
-<meta name="description" content="Convert currencies free with live Frankfurter rates — 32 major currencies, rate date shown. No signup. If the feed is down, we say so — never stale rates.">
+<meta name="description" content="Convert currencies free with live Frankfurter rates — 32 major currencies, rate date shown. If the feed is down, cached rates show with their age stamped.">
 <meta name="keywords" content="currency converter free, exchange rate converter, convert usd to eur, live exchange rates, money converter">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/currency-converter">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/currency-converter">
 <meta property="og:title" content="Free Currency Converter — Live Rates | PixDetector">
-<meta property="og:description" content="Convert currencies free with live Frankfurter rates — 32 major currencies, rate date shown. No signup. If the feed is down, we say so — never stale rates.">
+<meta property="og:description" content="Convert currencies free with live Frankfurter rates — 32 major currencies, rate date shown. If the feed is down, cached rates show with their age stamped.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this currency converter really free?",
+      "name": "How do I convert USD to EUR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Convert any amount between 32 major currencies, free, with no signup and no ads. Rates come from the free Frankfurter API, which publishes European Central Bank reference rates."
+        "text": "Enter the amount in USD, select USD as From and EUR as To, and press Convert. The tool multiplies by the current USD/EUR rate and shows the converted amount plus the rate used and its date."
       }
     },
     {
       "@type": "Question",
-      "name": "Where do the exchange rates come from?",
+      "name": "What is the mid-market rate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "From the Frankfurter API (api.frankfurter.app), a free keyless service that republishes the European Central Bank's daily reference rates. Every result on this page shows the date of the rate it used, so you can see exactly how fresh it is."
+        "text": "The midpoint between the wholesale buy and sell prices of a currency, the fairest benchmark there is. Banks and card networks add their own margin on top, so what you receive is usually a little less. This page shows the mid-market rate."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is the rate my bank gives me different?",
+      "name": "Why is the rate at my bank / the airport different from Google?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This converter shows the mid-market (interbank) rate — the fair benchmark rate banks trade at with each other. Your bank, card network or transfer service adds a margin of roughly 0.5% to 4% plus sometimes a fixed fee, so what you actually receive is a little less. Use this page to check the benchmark, then compare it with the quote you are offered."
+        "text": "Google shows the mid-market rate; your bank adds a margin, typically 1–4% worse, and calls the worse figure its exchange rate. Airport kiosks are the most expensive, at 5–12% below mid-market, because their customers are captive and last-minute."
       }
     },
     {
       "@type": "Question",
-      "name": "What happens if the rate service is down?",
+      "name": "Why does every currency converter show a different price?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The page shows a clear error — 'Live rates unavailable' — and no conversion at all. It never shows yesterday's rate as if it were live. Wait a few minutes and press Refresh rates to try again."
+        "text": "Different sources, different update times, and different margins. Some show clean mid-market, some bake in a spread, some use a daily snapshot. Compare against a named mid-market source and check the update timestamp, which this page shows on every result."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use this for a large transfer or a business payment?",
+      "name": "How often do exchange rates update?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only as a planning estimate. Rates move during the day, the ECB reference rate updates once a day, and your provider will add its own margin. For a large or time-sensitive transfer, always confirm the exact rate with your bank or transfer provider on the day."
+        "text": "Continuously during market hours, as foreign exchange runs 24 hours a day, 5 days a week. This page's source, the Frankfurter API, republishes the European Central Bank reference rate once a day, so intraday moves are not reflected and weekend rates are Friday's closing rate."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my conversion data sent anywhere?",
+      "name": "Can I use a currency converter offline?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only the two currency codes are sent to the Frankfurter rate API to fetch the rate — no amount, no name, no account details and nothing stored. Your amounts are calculated in your browser and never leave your device."
+        "text": "A web page cannot fetch fresh rates offline. This page saves the last rates in your browser, so if the feed is down it keeps converting from the cached rates and stamps their age on the result, so you can see how old the numbers are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is the best free currency converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the job: quick lookups, Google Finance; transfers, Wise, which shows the real mid-market rate with a transparent fee; offline travel, XE; reporting, the ECB. No single converter is best for every use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is XE or Wise better?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For converting and looking up, both are trusted. For sending money, Wise shows the real mid-market rate with a transparent fee, while Xe's transfer rates may include a small margin, with fees waived above $1,000. In one Finder comparison from September 2026, Wise delivered more rupees on both $500 and $10,000 test transfers to India."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an exchange rate and a conversion fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The rate is the underlying price of the currency; the fee is the service charge, flat, percentage, or hidden as a markup inside a worse rate. This page's markup calculator shows the hidden part in money terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I lose money converting currency twice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in practice. Each conversion pays a spread and possibly a fee, and rounding to the smallest unit shaves a little more. Converting there and back at the same mid-market rate still loses money to the two spreads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I pay in local currency or my home currency abroad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Local currency. Decline dynamic currency conversion at the till or ATM: the shop's rate is usually worse than your card network's."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate a conversion by hand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the amount by the exchange rate, for example 100 USD × 0.8902 = 89.02 EUR. For two non-dollar currencies, convert via USD as the cross rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are converter rates the same as bank rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not usually. Currency converters typically display the mid-market rate, while banks and exchange services generally add a markup or spread. Use this page to check the benchmark, then compare it with the quote you are offered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert currency for travel budgeting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, that is the main use case: vacation budgeting, invoice conversion and online shopping price checks. The rate is an estimate for planning, not a locked quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the rate can't be loaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This page shows the last cached rates with their age stamped, so you can still convert, and a Refresh rates button to retry the live feed. If no cached rates exist yet for that pair, it shows a clear error instead of a made-up number."
       }
     }
   ]
@@ -78,7 +150,7 @@
     {
       "@type": "HowToStep",
       "name": "Enter an amount",
-      "text": "Type the amount you want to convert, for example 100."
+      "text": "Type the amount you want to convert."
     },
     {
       "@type": "HowToStep",
@@ -88,7 +160,7 @@
     {
       "@type": "HowToStep",
       "name": "Read the live result",
-      "text": "The converted amount, the rate and the rate date appear instantly. If the rate feed is down, the page says so instead of showing a stale rate."
+      "text": "The converted amount, the rate and the rate date appear instantly. If the rate feed is down, the page shows the last cached rates with their age stamped, plus a retry button."
     }
   ]
 }
@@ -166,12 +238,12 @@ table.facts td{color:var(--text2)}
       <h1>Currency Converter Free</h1>
       <p>Convert money between 32 major currencies with live rates — free, no signup, no ads. The rate date is always shown.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Rates come from the free <strong>Frankfurter API</strong> (European Central Bank reference rates, updated once a day) — this is the <strong>mid-market rate</strong>, not the rate your bank will give you: banks add a margin of about 0.5–4% plus fees. Use this for travel budgets, invoices and shopping estimates, <strong>not</strong> for large transfers — confirm the exact rate with your provider on the day. <strong>If the rate feed is down, this page shows an error and no conversion — never a stale rate.</strong></div>
+    <div class="note"><strong>Honest limits — read first:</strong> Rates come from the free <strong>Frankfurter API</strong> (European Central Bank reference rates, updated once a day) — this is the <strong>mid-market rate</strong>, not the rate your bank will give you: banks add a margin of about 0.5–4% plus fees. Use this for travel budgets, invoices and shopping estimates, <strong>not</strong> for large transfers — confirm the exact rate with your provider on the day. <strong>If the rate feed is down, this page shows the last cached rates with their age stamped — never presented as live — plus a retry button.</strong></div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Currency converter">
         <h2>Convert money</h2>
         <label class="flabel" for="amountInput">Amount</label>
-        <input type="number" id="amountInput" min="0" step="any" value="100" inputmode="decimal">
+        <input type="text" id="amountInput" inputmode="decimal" placeholder="e.g. 100" autocomplete="off">
         <div class="twin" style="margin-top:14px">
           <div>
             <label class="flabel" for="fromSel">From</label>
@@ -214,7 +286,32 @@ table.facts td{color:var(--text2)}
           <tr><td>Weekend rate</td><td>Markets close Friday evening New York time, so weekend converters reuse Friday's closing rate.</td></tr>
         </table>
         <p class="trust">Two converters can both be "right" and still show different numbers: one may use this morning's rate and the other yesterday's, or one may quietly include a margin. That is why this page always shows the rate date next to the result — a conversion without a date is a number you cannot trust.</p>
+        <h2 style="margin-top:20px">Quick amounts</h2>
+        <table class="facts">
+          <tr><th id="denomFrom">From</th><th id="denomTo">To</th></tr>
+          <tbody id="denomBody"><tr><td colspan="2">Convert an amount above to fill this table.</td></tr></tbody>
+        </table>
+        <p class="trust">The table uses the same rate as your last conversion, so it changes when you change the pair or refresh the rates.</p>
       </div>
+    </div>
+    <div class="bc-panel" aria-label="What you actually get" style="margin-bottom:8px">
+      <h2>What you actually get — the markup calculator</h2>
+      <p class="trust" style="margin-top:0">The rate above is the mid-market rate. Your bank, card or transfer service will quote you a worse rate — the gap is their margin, and it never appears as a fee. Type the rate you were actually quoted and see the markup in real money.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+        <div>
+          <label class="flabel" for="mkAmount">Amount in <span class="mk-from">USD</span></label>
+          <input type="text" id="mkAmount" inputmode="decimal" placeholder="e.g. 3,000" autocomplete="off">
+        </div>
+        <div>
+          <label class="flabel" for="mkQuote">Rate you were quoted (per 1 <span class="mk-from">USD</span> in <span class="mk-to">EUR</span>)</label>
+          <input type="text" id="mkQuote" inputmode="decimal" placeholder="e.g. 0.88" autocomplete="off">
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="mkGo">Show the markup</button>
+      </div>
+      <p class="trust" id="mkOut">Convert an amount above first — the calculator needs the live mid-market rate for your pair.</p>
+      <p class="trust"><strong>Worked example from a real trip:</strong> on $3,000 exchanged, the mid-market rate was 1 USD = 0.92 EUR but the bank offered 1 USD = 0.88 EUR — a 4.3% markup, 120 EUR (about $130) lost. That is the gap this calculator measures.</p>
     </div>
     <div class="share-box">
       <h2>Share this tool</h2>
@@ -233,40 +330,76 @@ table.facts td{color:var(--text2)}
       <p>Ask three currency converters what 100 dollars is in euros and you will get three different answers — and most of them will not tell you why. One is using this morning's rate, one is using yesterday's, and one has quietly baked in a margin without saying so. The travel forums are full of the same story: someone budgeted a trip on a converter's number, then found the hotel cost 10% more because the bank's rate, the card's fee and the weekend's stale rate all piled up. The worst version of this is a converter that fails silently — the rate feed goes down and the page keeps showing an old number as if it were live, or quietly substitutes 1.0 and tells you 100 dollars equals 100 euros. What people want is not another number. They want a number they can trust: the rate, the date of the rate, the source of the rate, and an honest admission when the rate is not available.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I convert currency for free?</h2>
-      <p>Enter an amount, pick the two currencies, and press Convert. The result uses the live Frankfurter rate — European Central Bank reference rates, updated daily — and shows the rate, the inverse rate and the date of the rate, free, with no signup. If the rate feed is down, the page shows an error and no conversion, never a stale rate.</p>
+      <p>Enter an amount, pick the two currencies, and press Convert. The result uses the live Frankfurter rate — European Central Bank reference rates, updated daily — and shows the rate, the inverse rate and the date of the rate, free, with no signup. If the rate feed is down, the page shows the last cached rates with their age stamped, never presented as live, plus a retry button.</p>
       <p>A currency converter multiplies your amount by the exchange rate — the price of one currency in another. If 1 US dollar equals 0.89 euros, then 100 dollars converts to about 89 euros. Rates move all day as banks trade, so any converter is only as good as the freshness of its rate — which is why the rate date matters as much as the number.</p>
       <!-- HOW TO -->
       <h2>How to convert currency in 3 steps</h2>
-      <p><strong>Step 1:</strong> type the amount — 100, for example. <strong>Step 2:</strong> pick the currency you have in From and the one you want in To, or tap a popular pair; the ⇄ button swaps them. <strong>Step 3:</strong> press Convert and read the result: the converted amount, the rate (1 USD = 0.89 EUR), the inverse rate, and the date of the rate. Press Refresh rates any time to pull the latest available rate.</p>
+      <p><strong>Step 1:</strong> type the amount. <strong>Step 2:</strong> pick the currency you have in From and the one you want in To, or tap a popular pair; the ⇄ button swaps them. <strong>Step 3:</strong> press Convert and read the result: the converted amount, the rate (1 USD = 0.89 EUR), the inverse rate, and the date of the rate. Press Refresh rates any time to pull the latest available rate. If the feed is down, the page shows the last cached rates with their age stamped instead of a dead error.</p>
       <h2>Mid-market, bank rate, and what you actually pay</h2>
       <p>The mid-market rate is the wholesale price large banks trade at with each other — the fair benchmark, and the rate this page shows. Your bank, card network or transfer service adds a spread on top, typically 0.5% to 4%, plus sometimes a fixed fee. So if this page says 100 USD = 89.34 EUR and your bank offers 87.50 EUR, the bank kept about 2% — that is normal, and now you can measure it instead of guessing. Airport and hotel counters are the worst deal of all, often 5–10% below mid-market.</p>
       <h2>What this converter cannot do</h2>
-      <p>It cannot tell you what your bank will charge — only your provider can. It cannot convert cryptocurrency, and it cannot give you a real-time ticking rate: the ECB reference rate updates once a day, so intraday moves are not reflected. On weekends the rate shown is Friday's closing rate, because the foreign-exchange market is closed. All of that is stated on the result itself, next to the date.</p>
+      <p>It cannot tell you what your bank will charge — only your provider can. It cannot convert cryptocurrency, and it cannot give you a real-time ticking rate: the ECB reference rate updates once a day, so intraday moves are not reflected. On weekends the rate shown is Friday's closing rate, because the foreign-exchange market is closed. It also cannot fetch fresh rates without a connection: if the feed is down, the page falls back to the last rates it saved in your browser, with the age stamped on them — so you can still convert offline, but you can see exactly how old the numbers are. All of that is stated on the result itself, next to the date.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is this currency converter really free?</summary>
-        <p>Yes. Convert any amount between 32 major currencies, free, with no signup and no ads. Rates come from the free Frankfurter API, which publishes European Central Bank reference rates.</p>
+        <summary>How do I convert USD to EUR?</summary>
+        <p>Enter the amount in USD, select USD as From and EUR as To, and press Convert. The tool multiplies by the current USD/EUR rate and shows the converted amount plus the rate used and its date.</p>
       </details>
       <details class="faq">
-        <summary>Where do the exchange rates come from?</summary>
-        <p>From the Frankfurter API (api.frankfurter.app), a free keyless service that republishes the European Central Bank's daily reference rates. Every result on this page shows the date of the rate it used, so you can see exactly how fresh it is.</p>
+        <summary>What is the mid-market rate?</summary>
+        <p>The midpoint between the wholesale buy and sell prices of a currency, the fairest benchmark there is. Banks and card networks add their own margin on top, so what you receive is usually a little less. This page shows the mid-market rate.</p>
       </details>
       <details class="faq">
-        <summary>Why is the rate my bank gives me different?</summary>
-        <p>This converter shows the mid-market (interbank) rate — the fair benchmark rate banks trade at with each other. Your bank, card network or transfer service adds a margin of roughly 0.5% to 4% plus sometimes a fixed fee, so what you actually receive is a little less. Use this page to check the benchmark, then compare it with the quote you are offered.</p>
+        <summary>Why is the rate at my bank / the airport different from Google?</summary>
+        <p>Google shows the mid-market rate; your bank adds a margin, typically 1–4% worse, and calls the worse figure its exchange rate. Airport kiosks are the most expensive, at 5–12% below mid-market, because their customers are captive and last-minute.</p>
       </details>
       <details class="faq">
-        <summary>What happens if the rate service is down?</summary>
-        <p>The page shows a clear error — 'Live rates unavailable' — and no conversion at all. It never shows yesterday's rate as if it were live. Wait a few minutes and press Refresh rates to try again.</p>
+        <summary>Why does every currency converter show a different price?</summary>
+        <p>Different sources, different update times, and different margins. Some show clean mid-market, some bake in a spread, some use a daily snapshot. Compare against a named mid-market source and check the update timestamp, which this page shows on every result.</p>
       </details>
       <details class="faq">
-        <summary>Can I use this for a large transfer or a business payment?</summary>
-        <p>Only as a planning estimate. Rates move during the day, the ECB reference rate updates once a day, and your provider will add its own margin. For a large or time-sensitive transfer, always confirm the exact rate with your bank or transfer provider on the day.</p>
+        <summary>How often do exchange rates update?</summary>
+        <p>Continuously during market hours, as foreign exchange runs 24 hours a day, 5 days a week. This page's source, the Frankfurter API, republishes the European Central Bank reference rate once a day, so intraday moves are not reflected and weekend rates are Friday's closing rate.</p>
       </details>
       <details class="faq">
-        <summary>Is my conversion data sent anywhere?</summary>
-        <p>Only the two currency codes are sent to the Frankfurter rate API to fetch the rate — no amount, no name, no account details and nothing stored. Your amounts are calculated in your browser and never leave your device.</p>
+        <summary>Can I use a currency converter offline?</summary>
+        <p>A web page cannot fetch fresh rates offline. This page saves the last rates in your browser, so if the feed is down it keeps converting from the cached rates and stamps their age on the result, so you can see how old the numbers are.</p>
+      </details>
+      <details class="faq">
+        <summary>Which is the best free currency converter?</summary>
+        <p>It depends on the job: quick lookups, Google Finance; transfers, Wise, which shows the real mid-market rate with a transparent fee; offline travel, XE; reporting, the ECB. No single converter is best for every use.</p>
+      </details>
+      <details class="faq">
+        <summary>Is XE or Wise better?</summary>
+        <p>For converting and looking up, both are trusted. For sending money, Wise shows the real mid-market rate with a transparent fee, while Xe's transfer rates may include a small margin, with fees waived above $1,000. In one Finder comparison from September 2026, Wise delivered more rupees on both $500 and $10,000 test transfers to India.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between an exchange rate and a conversion fee?</summary>
+        <p>The rate is the underlying price of the currency; the fee is the service charge, flat, percentage, or hidden as a markup inside a worse rate. This page's markup calculator shows the hidden part in money terms.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I lose money converting currency twice?</summary>
+        <p>Yes, in practice. Each conversion pays a spread and possibly a fee, and rounding to the smallest unit shaves a little more. Converting there and back at the same mid-market rate still loses money to the two spreads.</p>
+      </details>
+      <details class="faq">
+        <summary>Should I pay in local currency or my home currency abroad?</summary>
+        <p>Local currency. Decline dynamic currency conversion at the till or ATM: the shop's rate is usually worse than your card network's.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I calculate a conversion by hand?</summary>
+        <p>Multiply the amount by the exchange rate, for example 100 USD × 0.8902 = 89.02 EUR. For two non-dollar currencies, convert via USD as the cross rate.</p>
+      </details>
+      <details class="faq">
+        <summary>Are converter rates the same as bank rates?</summary>
+        <p>Not usually. Currency converters typically display the mid-market rate, while banks and exchange services generally add a markup or spread. Use this page to check the benchmark, then compare it with the quote you are offered.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert currency for travel budgeting?</summary>
+        <p>Yes, that is the main use case: vacation budgeting, invoice conversion and online shopping price checks. The rate is an estimate for planning, not a locked quote.</p>
+      </details>
+      <details class="faq">
+        <summary>What happens if the rate can't be loaded?</summary>
+        <p>This page shows the last cached rates with their age stamped, so you can still convert, and a Refresh rates button to retry the live feed. If no cached rates exist yet for that pair, it shows a clear error instead of a made-up number.</p>
       </details>
 
       <!-- RELATED QUESTIONS -->
@@ -274,7 +407,7 @@ table.facts td{color:var(--text2)}
       <p><strong>How do I convert USD to EUR?</strong> Pick USD in From and EUR in To, enter the amount, and press Convert — the live rate and its date appear instantly.</p>
       <p><strong>What is the mid-market rate?</strong> The midpoint between the wholesale buying and selling prices of a currency — the fairest benchmark. Banks add their margin on top of it.</p>
       <p><strong>Why do converters show different rates?</strong> They use different sources and different update times — one may show today's rate and another yesterday's. This page always shows the rate date so you can tell.</p>
-      <p><strong>Can I convert currencies offline?</strong> No — live rates need an internet connection. If the feed is down, this page says so instead of guessing.</p>
+      <p><strong>Can I convert currencies offline?</strong> Fresh rates need a connection, but this page saves the last rates in your browser and keeps converting from them offline, with the age stamped on the result — so you can see how old the numbers are.</p>
     </div>
     <div class="related-tools">
       <h2>Related Tools</h2>
@@ -353,12 +486,73 @@ table.facts td{color:var(--text2)}
       .then(function (data) {
         if (!data || !data.rates || typeof data.rates !== "object" || !data.date) throw new Error("Rate service returned an unexpected response.");
         cache = data;
+        saveCache(data);
         return data;
       });
   }
+  var lastRate = null;
+  function ageText(ts) {
+    var s = Math.max(0, Math.round((Date.now() - ts) / 1000));
+    if (s < 60) return "just now";
+    var m = Math.floor(s / 60); if (m < 60) return m + (m === 1 ? " minute" : " minutes") + " ago";
+    var h = Math.floor(m / 60); if (h < 24) return h + (h === 1 ? " hour" : " hours") + " ago";
+    var d = Math.floor(h / 24); return d + (d === 1 ? " day" : " days") + " ago";
+  }
+  function loadCache() {
+    try { var c = JSON.parse(localStorage.getItem("pixdetector-fx-cache") || "null"); if (c && c.data && c.data.rates && c.fetchedAt) return c; } catch (e) {}
+    return null;
+  }
+  function saveCache(data) {
+    try { localStorage.setItem("pixdetector-fx-cache", JSON.stringify({ data: data, fetchedAt: Date.now() })); } catch (e) {}
+  }
+  function fmtAmountInput() {
+    var el = $("amountInput");
+    var raw = el.value.replace(/,/g, "").replace(/[^0-9.]/g, "");
+    var parts = raw.split(".");
+    if (parts.length > 2) raw = parts[0] + "." + parts.slice(1).join("");
+    parts = raw.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    el.value = parts.join(".");
+  }
+  function amountValue() { return parseFloat($("amountInput").value.replace(/,/g, "")); }
+  function renderDenoms(rate, from, to) {
+    var tb = $("denomBody"); if (!tb) return;
+    var df = $("denomFrom"); if (df) df.textContent = from;
+    var dt = $("denomTo"); if (dt) dt.textContent = to;
+    var rows = [1, 5, 10, 20, 50, 100, 500, 1000];
+    tb.innerHTML = "";
+    rows.forEach(function (a) {
+      var tr = document.createElement("tr");
+      var td1 = document.createElement("td"); td1.textContent = fmtMoney(a, from);
+      var td2 = document.createElement("td"); td2.textContent = fmtMoney(a * rate, to);
+      tr.appendChild(td1); tr.appendChild(td2); tb.appendChild(tr);
+    });
+  }
+  function showResult(data, amount, cached, fetchedAt) {
+    var from = fromSel.value, to = toSel.value;
+    var rate = data.rates[to];
+    if (typeof rate !== "number" || !isFinite(rate) || rate <= 0) throw new Error("No rate was returned for " + from + " → " + to + ".");
+    var out = amount * rate;
+    lastRate = { from: from, to: to, rate: rate, date: data.date, cached: cached, fetchedAt: fetchedAt || Date.now() };
+    document.querySelectorAll(".mk-from").forEach(function (el) { el.textContent = from; });
+    document.querySelectorAll(".mk-to").forEach(function (el) { el.textContent = to; });
+    $("resultBox").style.display = "block";
+    $("rateLine").textContent = "1 " + from + " = " + rate.toLocaleString("en-US", { maximumFractionDigits: 6 }) + " " + to;
+    $("bigResult").textContent = fmtMoney(amount, from) + " = " + fmtMoney(out, to);
+    $("invLine").textContent = "Inverse: 1 " + to + " = " + (1 / rate).toLocaleString("en-US", { maximumFractionDigits: 6 }) + " " + from;
+    if (cached) {
+      $("sourceLine").textContent = "Cached rates from " + data.date + " (fetched " + ageText(fetchedAt) + ") — indicative only, not live. Fresh rates need a connection. Press Refresh rates to retry.";
+      $("statusLine").textContent = "Showing cached rates from " + data.date + " — press Refresh rates to retry live rates.";
+    } else {
+      $("sourceLine").textContent = "Rate date: " + data.date + " · Source: Frankfurter API (European Central Bank reference rates) · Mid-market rate — your bank will add a margin.";
+      $("statusLine").textContent = "Live rate loaded (" + data.date + ").";
+    }
+    renderDenoms(rate, from, to);
+  }
   function convert(force) {
     clearError();
-    var amount = parseFloat($("amountInput").value);
+    if ($("amountInput").value.trim() === "") { $("statusLine").textContent = "Type an amount above, then press Convert."; return; }
+    var amount = amountValue();
     if (!isFinite(amount) || amount < 0) { showError("Enter an amount of 0 or more."); return; }
     var from = fromSel.value, to = toSel.value;
     if (from === to) {
@@ -368,29 +562,34 @@ table.facts td{color:var(--text2)}
       $("invLine").textContent = "Same currency — no conversion needed.";
       $("sourceLine").textContent = "No rate needed for identical currencies.";
       $("statusLine").textContent = "Same currency selected.";
+      lastRate = { from: from, to: to, rate: 1, date: "", cached: false, fetchedAt: Date.now() };
+      document.querySelectorAll(".mk-from").forEach(function (el) { el.textContent = from; });
+      document.querySelectorAll(".mk-to").forEach(function (el) { el.textContent = to; });
+      renderDenoms(1, from, to);
       return;
     }
     $("convertBtn").disabled = true;
     fetchRates(from, force).then(function (data) {
-      var rate = data.rates[to];
-      if (typeof rate !== "number" || !isFinite(rate) || rate <= 0) throw new Error("No rate was returned for " + from + " → " + to + ".");
-      var out = amount * rate;
-      $("resultBox").style.display = "block";
-      $("rateLine").textContent = "1 " + from + " = " + rate.toLocaleString("en-US", { maximumFractionDigits: 6 }) + " " + to;
-      $("bigResult").textContent = fmtMoney(amount, from) + " = " + fmtMoney(out, to);
-      $("invLine").textContent = "Inverse: 1 " + to + " = " + (1 / rate).toLocaleString("en-US", { maximumFractionDigits: 6 }) + " " + from;
-      $("sourceLine").textContent = "Rate date: " + data.date + " · Source: Frankfurter API (European Central Bank reference rates) · Mid-market rate — your bank will add a margin.";
-      $("statusLine").textContent = "Live rate loaded (" + data.date + ").";
+      showResult(data, amount, false, 0);
     }).catch(function (err) {
+      var c = loadCache();
+      if (c && c.data && c.data.base === from && typeof c.data.rates[to] === "number") {
+        try { clearError(); showResult(c.data, amount, true, c.fetchedAt); return; }
+        catch (e) { /* cached data unusable for this pair — fall through to the error */ }
+      }
       cache = null;
       $("resultBox").style.display = "none";
-      showError("Live rates unavailable right now — the Frankfurter rate service did not respond (" + (err && err.message ? err.message : err) + "). No conversion is shown, because a stale rate would be misleading. Check your connection and press Refresh rates to try again.");
+      showError("Live rates unavailable right now — the Frankfurter rate service did not respond (" + (err && err.message ? err.message : err) + "). No cached rates are saved for this pair yet. Check your connection and press Refresh rates to try again.");
       $("statusLine").textContent = "Rates unavailable — nothing shown.";
     }).finally(function () { $("convertBtn").disabled = false; });
   }
   $("convertBtn").addEventListener("click", function () { convert(false); });
   $("refreshBtn").addEventListener("click", function () { convert(true); toast("Rates refreshed."); });
-  $("amountInput").addEventListener("input", function () { convert(false); });
+  $("amountInput").addEventListener("input", function () {
+    fmtAmountInput();
+    try { this.setSelectionRange(this.value.length, this.value.length); } catch (e) {}
+    convert(false);
+  });
   fromSel.addEventListener("change", function () { convert(false); });
   toSel.addEventListener("change", function () { convert(false); });
   $("swapBtn").addEventListener("click", function () {
@@ -403,6 +602,31 @@ table.facts td{color:var(--text2)}
       toSel.value = chip.getAttribute("data-to");
       convert(false);
     });
+  });
+  $("mkGo").addEventListener("click", function () {
+    var out = $("mkOut");
+    if (!lastRate) { out.textContent = "Convert an amount above first — the calculator needs the mid-market rate for your pair."; return; }
+    var amt = parseFloat($("mkAmount").value.replace(/,/g, ""));
+    var quote = parseFloat($("mkQuote").value.replace(/,/g, ""));
+    if (!isFinite(amt) || amt <= 0) { out.textContent = "Enter an amount above 0 in the calculator."; return; }
+    if (!isFinite(quote) || quote <= 0) { out.textContent = "Enter the rate you were quoted — the number of " + lastRate.to + " you get for 1 " + lastRate.from + "."; return; }
+    var mid = amt * lastRate.rate;
+    var got = amt * quote;
+    var gap = mid - got;
+    var pct = (1 - quote / lastRate.rate) * 100;
+    if (gap <= 0) {
+      out.textContent = "At the mid-market rate " + fmtMoney(amt, lastRate.from) + " = " + fmtMoney(mid, lastRate.to) + ". Your quoted rate gives " + fmtMoney(got, lastRate.to) + " — that is as good as, or better than, mid-market. Take it.";
+    } else {
+      out.textContent = "At the mid-market rate " + fmtMoney(amt, lastRate.from) + " = " + fmtMoney(mid, lastRate.to) + ". At your quoted rate you get " + fmtMoney(got, lastRate.to) + " — the gap is " + fmtMoney(gap, lastRate.to) + ", a " + pct.toFixed(1) + "% markup." + (lastRate.cached ? " (Mid-market rate is cached from " + lastRate.date + " — indicative only.)" : "");
+    }
+  });
+  $("mkAmount").addEventListener("input", function () {
+    var raw = this.value.replace(/,/g, "").replace(/[^0-9.]/g, "");
+    var parts = raw.split(".");
+    if (parts.length > 2) raw = parts[0] + "." + parts.slice(1).join("");
+    parts = raw.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.value = parts.join(".");
   });
   convert(false);
 })();

@@ -20,18 +20,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is the color picker from image really free?",
+      "name": "How do I pick a colour from an image?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Upload and sample as many images as you like \u2014 no signup, no watermark, no upload. Everything runs in your browser."
+        "text": "Upload, drag-and-drop or paste (Ctrl/Cmd+V) the image into an image colour picker, hover to see the magnifier, click the pixel — the HEX, RGB, HSL and HSV appear instantly with a copy button each."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I find the HEX code of a colour in a photo?",
+      "name": "Can I pick a colour from a screenshot on my phone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Upload the photo, click the spot with the colour you want, and the HEX code appears with a one-click copy button. The eyedropper reads the exact pixel, not a nearby average."
+        "text": "Yes — take the screenshot, open this picker page, choose the image from your photo library (or share it to the browser), pinch to zoom, tap to lock the colour. HEIC iPhone photos are auto-converted on some tools; if yours is not accepted, export it as JPG first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the hex not match what Photoshop or Figma shows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the image carries a wide-gamut profile (Display P3, the phone default): the hex is a clipped sRGB approximation. Screen calibration, colour-management settings and JPEG compression can also shift values by a step or two."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a whole palette from one image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — press “Extract palette from image” and this tool shows the six most common colours, with each colour's share of the picture. Click one to load it, then copy its HEX, RGB, HSL or CSS variable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my image uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — the image is decoded in the browser via canvas (getImageData), the pixels are read locally, and nothing is sent or stored."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the color picker from image really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Upload and sample as many images as you like — no signup, no watermark, no upload. Everything runs in your browser."
       }
     },
     {
@@ -44,26 +76,58 @@
     },
     {
       "@type": "Question",
-      "name": "Does this work on my phone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Tap a spot in the image and the code is copied just like on a computer. The magnifier is not shown on touch screens, so zoom into the image first when you need a small detail."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Can it pick a colour from my screen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No \u2014 this page samples an uploaded image only. In Chrome or Edge you can use the built-in DevTools eyedropper for colours on a web page; otherwise take a screenshot and upload it here."
+        "text": "No — this page samples an uploaded image only. In Chrome or Edge you can use the built-in DevTools eyedropper for colours on a web page; otherwise take a screenshot and upload it here. The screen eyedropper API is Chromium-only, with no Firefox or Safari support."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my image uploaded to a server?",
+      "name": "How do the loupe, zoom and arrow keys work together?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The image is loaded and processed right in your browser. It is not uploaded for colour sampling, and the session ends when you close the page."
+        "text": "Hover to see the magnifier (a 9×9 pixel area, tighter at higher zoom), zoom to 2× or 4× for a small detail, then use the arrow keys to nudge one pixel at a time — Shift + arrow jumps 10 pixels — and press Enter to lock the colour. Click the image first to give it keyboard focus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which colour formats do I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEX, RGB, RGBA, HSL, HSV, CMYK (an estimate, not print-accurate), OKLCH and LAB, all live-linked from the same pixel, plus a CSS variable line (--color: #…;) to paste into a stylesheet. Every format has its own copy button."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is this colour called?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every picked colour shows its closest named colour underneath the codes, with how close the match is. Names are nearest-match labels from a list of common named colours — only the 148 CSS names are exact, so trust the HEX code when the match is distant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pick the dominant colour of an image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the palette extractor lists colours by share, so the first colour is the most common one in the picture. Pick a few pixels from the largest flat areas and compare if you want to confirm it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my image downscaled before sampling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Very large images are downscaled to 1600 px before sampling so the page stays fast. The sampled pixel is the one in the shown image, so for a tiny detail, crop the photo first and upload the crop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do nearby pixels give different codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because photos are not flat colour. JPEG compression, soft edges, noise and lighting mean the pixel under your cursor is often a few shades off from the one next to it. The eyedropper reads the exact pixel you click — no averaging — so click a few different spots in the same area and compare them under Recent picks."
       }
     }
   ]
@@ -195,15 +259,23 @@ table.facts td{color:var(--text2)}
       <h1>Color Picker from Image — Free</h1>
       <p>Upload any photo, click any pixel and get its exact colour — HEX, RGB and HSL, ready to copy. No signup, nothing uploaded.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This page reads colours from <strong>an uploaded image only</strong> — it cannot sample your screen or other apps. JPEG photos vary pixel to pixel, so click a few nearby spots and compare. Very large images are downscaled to 1600 px before sampling.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Screen eyedropper works in Chrome/Edge/Brave/Opera only — on Safari/Firefox, screenshot and upload instead. Sampled values are sRGB; a Display P3 photo's hex is a clipped approximation. CMYK is an estimate, not print-accurate. This page reads colours from <strong>an uploaded image only</strong> — it cannot sample your screen or other apps. JPEG photos vary pixel to pixel, so click a few nearby spots and compare. Very large images are downscaled to 1600 px before sampling.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Pick from image">
         <h2>Your image</h2>
         <label class="flabel" for="imgFile">Choose an image</label>
         <input type="file" id="imgFile" accept="image/*">
         <p class="trust" id="origInfo">No image chosen yet. Tip: click a flat area of colour, not an edge.</p>
-        <div class="canvas-wrap" style="margin-top:14px"><canvas id="imgCanvas" width="520" height="360" style="background:var(--bg2)"></canvas></div>
+        <div class="canvas-wrap" style="margin-top:14px"><canvas id="imgCanvas" width="520" height="360" tabindex="0" style="background:var(--bg2)" aria-label="Uploaded image — use arrow keys to nudge one pixel at a time"></canvas></div>
+        <div class="actions" style="margin-top:12px" id="zoomRow">
+          <span class="flabel" style="margin:0">Zoom:</span>
+          <button type="button" class="chip" data-zoom="1" aria-pressed="true">1×</button>
+          <button type="button" class="chip" data-zoom="2" aria-pressed="false">2×</button>
+          <button type="button" class="chip" data-zoom="4" aria-pressed="false">4×</button>
+        </div>
+        <p class="trust">Loupe + zoom + arrow keys, together: hover to see the magnifier, zoom in for a small detail, then use the arrow keys to nudge one pixel at a time (Shift + arrow = 10 pixels) and press Enter to lock the colour. Click the image first to give it keyboard focus.</p>
         <p class="meta-line" id="hoverLine">Hover over the image to preview a colour — click to pick it.</p>
+        <p class="trust">Your image is decoded in the browser via canvas — nothing is sent or stored.</p>
       </div>
       <div class="bc-panel" aria-label="Picked colour">
         <h2>Picked colour</h2>
@@ -214,11 +286,27 @@ table.facts td{color:var(--text2)}
         <div class="out-row"><span class="lab">HEX</span><code id="hexOut">—</code><button type="button" data-copy="hexOut">Copy</button></div>
         <div class="out-row"><span class="lab">RGB</span><code id="rgbOut">—</code><button type="button" data-copy="rgbOut">Copy</button></div>
         <div class="out-row"><span class="lab">HSL</span><code id="hslOut">—</code><button type="button" data-copy="hslOut">Copy</button></div>
+        <div class="out-row"><span class="lab">RGBA</span><code id="rgbaOut">—</code><button type="button" data-copy="rgbaOut">Copy</button></div>
+        <div class="out-row"><span class="lab">HSV</span><code id="hsvOut">—</code><button type="button" data-copy="hsvOut">Copy</button></div>
+        <div class="out-row"><span class="lab">CMYK</span><code id="cmykOut">—</code><button type="button" data-copy="cmykOut">Copy</button></div>
+        <div class="out-row"><span class="lab">OKLCH</span><code id="oklchOut">—</code><button type="button" data-copy="oklchOut">Copy</button></div>
+        <div class="out-row"><span class="lab">LAB</span><code id="labOut">—</code><button type="button" data-copy="labOut">Copy</button></div>
+        <p class="trust" id="colorName">Closest named colour: —</p>
+        <div class="code-block" id="cssVarOut">--color: #888888;</div>
+        <div class="actions"><button type="button" class="btn alt" id="copyVar">Copy CSS variable</button></div>
         <p class="meta-line" id="pixelLine" style="text-align:left">No pixel picked yet.</p>
+        <h2 style="margin-top:18px">Dominant palette</h2>
+        <div class="actions"><button type="button" class="btn alt" id="paletteBtn">Extract palette from image</button></div>
+        <div class="swatch-row" id="palette"></div>
+        <p class="trust">The six most common colours in the image, with each colour's share of the picture. Click one to load it as the picked colour.</p>
         <h2 style="margin-top:18px">Recent picks</h2>
         <div class="swatch-row" id="recent"></div>
-        <p class="trust">Click a recent swatch to copy its HEX code.</p>
+        <p class="trust">Click a recent swatch to copy its HEX code. Recent picks are kept in this browser and survive reloads.</p>
       </div>
+    </div>
+    <div class="share-box">
+      <h2>The colour family</h2>
+      <p class="share-line">Picked a colour you like? Build with it in the <a href="/tools/color-picker">Color Picker</a> (tints, shades, harmonies, contrast) or blend it into a gradient in the <a href="/tools/gradient-generator">Gradient Generator</a> — copy the HEX across.</p>
     </div>
     <div class="share-box"><h2>Share this tool</h2><p class="share-line">Click any pixel in a photo and get its exact colour — HEX and RGB, free.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Click%20any%20pixel%20in%20a%20photo%20and%20get%20its%20exact%20colour%20%E2%80%94%20HEX%20and%20RGB%2C%20free.&amp;url=https%3A//pixdetector.vercel.app/tools/color-picker-from-image" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/color-picker-from-image" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Click%20any%20pixel%20in%20a%20photo%20and%20get%20its%20exact%20colour%20%E2%80%94%20HEX%20and%20RGB%2C%20free.%20https%3A//pixdetector.vercel.app/tools/color-picker-from-image" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
@@ -236,24 +324,36 @@ table.facts td{color:var(--text2)}
         <div class="step"><span class="num">STEP 2</span><h3>Click the colour</h3><p>Hover to preview with the magnifier, then click the exact pixel. The HEX, RGB and HSL appear instantly.</p></div>
         <div class="step"><span class="num">STEP 3</span><h3>Copy and use it</h3><p>Click Copy next to HEX, RGB or HSL and paste it into CSS, Figma, Canva or your brand notes.</p></div>
       </div>
+      <h2 style="margin-top:28px">Hitting the exact pixel: loupe, zoom and arrow keys</h2>
+      <p>On a thin letter edge, an icon or pixel art, a bare eyedropper shows only the colour under the cursor — click, check, re-click. This page combines the three precision aids: the magnifier shows a 9×9 pixel area (tighter at higher zoom) with the centre pixel outlined, the zoom buttons enlarge the image 2× or 4×, and the arrow keys nudge the sample one pixel at a time (Shift + arrow jumps 10). No top-5 image picker in our research owned all three end to end; this page does, and the magnifier, zoom and nudging all move the same sample point, so what you see is what gets copied.</p>
+      <h2 style="margin-top:28px">Getting a whole palette from one image</h2>
+      <p>Press "Extract palette from image" and the tool counts the colours in the picture (grouped into buckets on the canvas copy, in your browser) and shows the six most common, each with its share of the picture. Export is by copying: click a palette colour to load it, then copy its HEX, RGB, HSL or CSS variable. The palette is the most frequent colours, not a design judgement — a busy photo can give you its background rather than its subject, so pick the colours that matter and ignore the rest.</p>
       <h2 style="margin-top:28px">Why do nearby pixels give different codes?</h2>
       <p>Because photos are not flat colour. JPEG compression, soft edges, noise and lighting mean the pixel under your cursor is often a few shades off from the one next to it. The eyedropper reads the exact pixel you click — no averaging — so click a few different spots in the same area and compare them under Recent picks. For a brand colour, pick from a large flat region (a logo block, a solid background) rather than an edge or a gradient. If you are matching paint, treat the code as a rough guide: cameras shift colours through white balance and compression, and the screen you are looking at shifts them again.</p>
       <h2 style="margin-top:28px">Image picker vs screen eyedropper — which do I need?</h2>
       <p>Use this page when the colour lives in a file: a photo, a screenshot, a logo. If the colour is on a live web page, Chrome and Edge have a built-in eyedropper in DevTools — open DevTools (F12), inspect an element, click the colour swatch in the Styles panel — but it only works on colours inside the current page, and the EyeDropper API behind it is Chromium-only, with no Firefox or Safari support. For a colour in a PDF or another app, take a screenshot and upload it here: that works in every browser.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
+      <details class="faq"><summary>How do I pick a colour from an image?</summary><p>Upload, drag-and-drop or paste (Ctrl/Cmd+V) the image into an image colour picker, hover to see the magnifier, click the pixel — the HEX, RGB, HSL and HSV appear instantly with a copy button each.</p></details>
+      <details class="faq"><summary>Can I pick a colour from a screenshot on my phone?</summary><p>Yes — take the screenshot, open this picker page, choose the image from your photo library (or share it to the browser), pinch to zoom, tap to lock the colour. HEIC iPhone photos are auto-converted on some tools; if yours is not accepted, export it as JPG first.</p></details>
+      <details class="faq"><summary>Why does the hex not match what Photoshop or Figma shows?</summary><p>Usually the image carries a wide-gamut profile (Display P3, the phone default): the hex is a clipped sRGB approximation. Screen calibration, colour-management settings and JPEG compression can also shift values by a step or two.</p></details>
+      <details class="faq"><summary>Can I get a whole palette from one image?</summary><p>Yes — press “Extract palette from image” and this tool shows the six most common colours, with each colour's share of the picture. Click one to load it, then copy its HEX, RGB, HSL or CSS variable.</p></details>
+      <details class="faq"><summary>Is my image uploaded to a server?</summary><p>No — the image is decoded in the browser via canvas (getImageData), the pixels are read locally, and nothing is sent or stored.</p></details>
       <details class="faq"><summary>Is the color picker from image really free?</summary><p>Yes. Upload and sample as many images as you like — no signup, no watermark, no upload. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>How do I find the HEX code of a colour in a photo?</summary><p>Upload the photo, click the spot with the colour you want, and the HEX code appears with a one-click copy button. The eyedropper reads the exact pixel, not a nearby average.</p></details>
       <details class="faq"><summary>Why does the colour from a photo look different from real life?</summary><p>Cameras change colours through lighting, white balance and compression. The eyedropper reads the browser-decoded image, so click a few spots and compare them. For paint matching, treat the code as a rough guide.</p></details>
-      <details class="faq"><summary>Does this work on my phone?</summary><p>Yes. Tap a spot in the image and the code is copied just like on a computer. The magnifier is not shown on touch screens, so zoom into the image first when you need a small detail.</p></details>
-      <details class="faq"><summary>Can it pick a colour from my screen?</summary><p>No — this page samples an uploaded image only. In Chrome or Edge you can use the built-in DevTools eyedropper for colours on a web page; otherwise take a screenshot and upload it here.</p></details>
-      <details class="faq"><summary>Is my image uploaded to a server?</summary><p>No. The image is loaded and processed right in your browser. It is not uploaded for colour sampling, and the session ends when you close the page.</p></details>
-      
+      <details class="faq"><summary>Can it pick a colour from my screen?</summary><p>No — this page samples an uploaded image only. In Chrome or Edge you can use the built-in DevTools eyedropper for colours on a web page; otherwise take a screenshot and upload it here. The screen eyedropper API is Chromium-only, with no Firefox or Safari support.</p></details>
+      <details class="faq"><summary>How do the loupe, zoom and arrow keys work together?</summary><p>Hover to see the magnifier (a 9×9 pixel area, tighter at higher zoom), zoom to 2× or 4× for a small detail, then use the arrow keys to nudge one pixel at a time — Shift + arrow jumps 10 pixels — and press Enter to lock the colour. Click the image first to give it keyboard focus.</p></details>
+      <details class="faq"><summary>Which colour formats do I get?</summary><p>HEX, RGB, RGBA, HSL, HSV, CMYK (an estimate, not print-accurate), OKLCH and LAB, all live-linked from the same pixel, plus a CSS variable line (--color: #…;) to paste into a stylesheet. Every format has its own copy button.</p></details>
+      <details class="faq"><summary>What is this colour called?</summary><p>Every picked colour shows its closest named colour underneath the codes, with how close the match is. Names are nearest-match labels from a list of common named colours — only the 148 CSS names are exact, so trust the HEX code when the match is distant.</p></details>
+      <details class="faq"><summary>Can I pick the dominant colour of an image?</summary><p>Yes — the palette extractor lists colours by share, so the first colour is the most common one in the picture. Pick a few pixels from the largest flat areas and compare if you want to confirm it.</p></details>
+      <details class="faq"><summary>Why is my image downscaled before sampling?</summary><p>Very large images are downscaled to 1600 px before sampling so the page stays fast. The sampled pixel is the one in the shown image, so for a tiny detail, crop the photo first and upload the crop.</p></details>
+      <details class="faq"><summary>Why do nearby pixels give different codes?</summary><p>Because photos are not flat colour. JPEG compression, soft edges, noise and lighting mean the pixel under your cursor is often a few shades off from the one next to it. The eyedropper reads the exact pixel you click — no averaging — so click a few different spots in the same area and compare them under Recent picks.</p></details>
+            
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
-      <p><strong>How do I get a whole palette from an image?</strong> This tool picks one pixel at a time — click several representative spots and build the palette from your recent picks.</p>
+      <p><strong>How do I get a whole palette from an image?</strong> Press "Extract palette from image" — the six most common colours appear with each colour's share of the picture. Or pick one pixel at a time and build the palette from your recent picks.</p>
       <p><strong>What is the difference between HEX and RGB?</strong> Both describe the same colour. RGB uses three numbers from 0 to 255, while HEX writes the same numbers in hexadecimal after a hash — rgb(255, 87, 51) is #FF5733.</p>
-      <p><strong>Can I pick the dominant colour of an image?</strong> Not automatically here. Pick a few pixels from the largest flat areas and compare — the colour that repeats most is the dominant one.</p>
+      <p><strong>Can I pick the dominant colour of an image?</strong> Yes — the palette extractor lists colours by share, so the first colour is the most common one in the picture. Pick a few pixels from the largest flat areas and compare if you want to confirm it.</p>
       <p><strong>Why is my picked colour slightly off from the design file?</strong> The image may have been compressed or re-saved. Sample from the original file, not a screenshot of a screenshot, for the truest code.</p>
     </div>
     <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker" class="related-card"><h4>🎨 Color Picker</h4><p>HEX, RGB & HSL codes</p></a><a href="/tools/color-contrast-checker" class="related-card"><h4>◐ Contrast Checker</h4><p>WCAG AA/AAA check</p></a><a href="/tools/image-resizer" class="related-card"><h4>📐 Image Resizer</h4><p>Resize images free</p></a><a href="/tools/color-mixer" class="related-card"><h4>🎨 Color Mixer</h4><p>Blend two colours</p></a></div></div>
@@ -299,6 +399,55 @@ table.facts td{color:var(--text2)}
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   var img = null, dispW = 0, dispH = 0, scale = 1, origName = "image";
+  var zoom = 1, lastDx = -1, lastDy = -1, lastHex = "";
+  function rgbToHsv(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min, h = 0;
+    if (d !== 0) {
+      if (max === r) h = ((g - b) / d) % 6; else if (max === g) h = (b - r) / d + 2; else h = (r - g) / d + 4;
+      h *= 60; if (h < 0) h += 360;
+    }
+    return [Math.round(h), Math.round((max === 0 ? 0 : d / max) * 100), Math.round(max * 100)];
+  }
+  function rgbToCmyk(r, g, b) {
+    var k = 1 - Math.max(r, g, b) / 255;
+    if (k === 1) return [0, 0, 0, 100];
+    return [Math.round((1 - r / 255 - k) / (1 - k) * 100), Math.round((1 - g / 255 - k) / (1 - k) * 100), Math.round((1 - b / 255 - k) / (1 - k) * 100), Math.round(k * 100)];
+  }
+  function rgbToOklch(r, g, b) {
+    function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    var R = lin(r), G = lin(g), B = lin(b);
+    var l = 0.4122214708 * R + 0.5363325363 * G + 0.1803000000 * B;
+    var m = 0.2119034982 * R + 0.6806995451 * G + 0.0883024619 * B;
+    var s = 0.0883024619 * R + 0.1191947798 * G + 0.9503041 * B;
+    l = Math.cbrt(l); m = Math.cbrt(m); s = Math.cbrt(s);
+    var L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
+    var a = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s;
+    var bb = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
+    var C = Math.sqrt(a * a + bb * bb);
+    var h = Math.atan2(bb, a) * 180 / Math.PI; if (h < 0) h += 360;
+    return [L, C, h];
+  }
+  function rgbToLab(r, g, b) {
+    function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    var R = lin(r), G = lin(g), B = lin(b);
+    var X = (0.4124 * R + 0.3576 * G + 0.1805 * B) / 0.95047;
+    var Y = 0.2126 * R + 0.7152 * G + 0.0722 * B;
+    var Z = (0.0193 * R + 0.1192 * G + 0.9505 * B) / 1.08883;
+    function f(t) { return t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116; }
+    var fx = f(X), fy = f(Y), fz = f(Z);
+    return [Math.round((116 * fy - 16) * 10) / 10, Math.round(500 * (fx - fy) * 10) / 10, Math.round(200 * (fy - fz) * 10) / 10];
+  }
+  var NAMED = [["Black",0,0,0],["White",255,255,255],["Red",255,0,0],["Lime",0,255,0],["Blue",0,0,255],["Yellow",255,255,0],["Cyan",0,255,255],["Magenta",255,0,255],["Silver",192,192,192],["Gray",128,128,128],["Maroon",128,0,0],["Olive",128,128,0],["Green",0,128,0],["Purple",128,0,128],["Teal",0,128,128],["Navy",0,0,128],["Orange",255,165,0],["Pink",255,192,203],["Brown",165,42,42],["Gold",255,215,0],["Beige",245,245,220],["Coral",255,127,80],["Salmon",250,128,114],["Khaki",240,230,140],["Indigo",75,0,130],["Violet",238,130,238],["Lavender",230,230,250],["Crimson",220,20,60],["Steel Blue",70,130,180],["Sky Blue",135,206,235],["Royal Blue",65,105,225],["Dodger Blue",30,144,255],["Forest Green",34,139,34],["Sea Green",46,139,87],["Lime Green",50,205,50],["Olive Drab",107,142,35],["Tomato",255,99,71],["Orange Red",255,69,0],["Deep Pink",255,20,147],["Hot Pink",255,105,180],["Medium Violet Red",199,21,133],["Dark Orchid",153,50,204],["Slate Blue",106,90,205],["Dark Slate Gray",47,79,79],["Chocolate",210,105,30],["Sandy Brown",244,164,96],["Peach Puff",255,218,185],["Ivory",255,255,240],["Mint Cream",245,255,250],["Honeydew",240,255,240],["Alice Blue",240,248,255],["Snow",255,250,250],["Firebrick",178,34,34],["Dark Red",139,0,0],["Medium Blue",0,0,205],["Dark Green",0,100,0],["Dark Cyan",0,139,139],["Turquoise",64,224,208],["Aquamarine",127,255,212],["Spring Green",0,255,127],["Chartreuse",127,255,0],["Yellow Green",154,205,50],["Tan",210,180,140],["Peru",205,133,63],["Sienna",160,82,45],["Plum",221,160,221],["Orchid",218,112,214],["Thistle",216,191,216]];
+  function closestName(r, g, b) {
+    var best = null, bestD = Infinity;
+    NAMED.forEach(function (n) {
+      var d = Math.sqrt((r - n[1]) * (r - n[1]) + (g - n[2]) * (g - n[2]) + (b - n[3]) * (b - n[3]));
+      if (d < bestD) { bestD = d; best = n[0]; }
+    });
+    var closeness = bestD < 12 ? "very close" : bestD < 45 ? "close" : bestD < 95 ? "approximate" : "distant — the nearest name only";
+    return best + " (" + closeness + " match)";
+  }
   function hexOf(r, g, b) { function p(n) { var s = n.toString(16); return s.length === 1 ? "0" + s : s; } return "#" + p(r) + p(g) + p(b); }
   function rgbToHsl(r, g, b) {
     r /= 255; g /= 255; b /= 255;
@@ -316,41 +465,108 @@ table.facts td{color:var(--text2)}
   function showColor(r, g, b, x, y) {
     var hex = hexOf(r, g, b).toUpperCase();
     var hsl = rgbToHsl(r, g, b);
+    var hsv = rgbToHsv(r, g, b);
+    var cmyk = rgbToCmyk(r, g, b);
+    var oklch = rgbToOklch(r, g, b);
+    var lab = rgbToLab(r, g, b);
+    lastHex = hex;
     $("hexOut").textContent = hex;
     $("rgbOut").textContent = "rgb(" + r + ", " + g + ", " + b + ")";
     $("hslOut").textContent = "hsl(" + hsl[0] + ", " + hsl[1] + "%, " + hsl[2] + "%)";
+    $("rgbaOut").textContent = "rgba(" + r + ", " + g + ", " + b + ", 1)";
+    $("hsvOut").textContent = "hsv(" + hsv[0] + ", " + hsv[1] + "%, " + hsv[2] + "%)";
+    $("cmykOut").textContent = "cmyk(" + cmyk.join("%, ") + "%) — estimate";
+    $("oklchOut").textContent = "oklch(" + (Math.round(oklch[0] * 100) / 100) + " " + (Math.round(oklch[1] * 1000) / 1000) + " " + Math.round(oklch[2]) + ")";
+    $("labOut").textContent = "lab(" + lab[0] + "% " + lab[1] + " " + lab[2] + ")";
+    $("colorName").textContent = "Closest named colour: " + closestName(r, g, b) + " — names are nearest-match labels from a list of common named colours.";
+    $("cssVarOut").textContent = "--color: " + hex + ";";
     $("bigSwatch").style.background = hex;
     if (typeof x === "number") $("pixelLine").textContent = "Pixel " + x + ", " + y + " of " + dispW + "×" + dispH + " — " + hex + ".";
+  }
+  function samplePixel(dx, dy, commit) {
+    if (!img) return;
+    var cv = $("imgCanvas");
+    if (dx < 0 || dy < 0 || dx >= cv.width || dy >= cv.height) return;
+    lastDx = dx; lastDy = dy;
+    var ctx = cv.getContext("2d");
+    var d = ctx.getImageData(dx, dy, 1, 1).data;
+    var loupe = $("loupe"), lctx = loupe.getContext("2d");
+    lctx.imageSmoothingEnabled = false;
+    var n = zoom === 1 ? 9 : zoom === 2 ? 5 : 3;
+    var half = Math.floor(n / 2);
+    var sx = Math.max(0, Math.min(cv.width - n, dx - half)), sy = Math.max(0, Math.min(cv.height - n, dy - half));
+    lctx.drawImage(cv, sx, sy, n, n, 0, 0, 90, 90);
+    var cell = 90 / n;
+    lctx.strokeStyle = "rgba(255,255,255,.9)"; lctx.lineWidth = 2;
+    lctx.strokeRect(Math.floor((dx - sx) * cell), Math.floor((dy - sy) * cell), cell, cell);
+    lctx.strokeStyle = "rgba(0,0,0,.45)"; lctx.lineWidth = 1;
+    for (var gx = 0; gx <= n; gx++) { lctx.beginPath(); lctx.moveTo(gx * cell, 0); lctx.lineTo(gx * cell, 90); lctx.stroke(); lctx.beginPath(); lctx.moveTo(0, gx * cell); lctx.lineTo(90, gx * cell); lctx.stroke(); }
+    var nx = Math.round(dx / scale), ny = Math.round(dy / scale);
+    showColor(d[0], d[1], d[2], nx, ny);
+    $("hoverLine").textContent = "Pixel " + nx + ", " + ny + " — " + hexOf(d[0], d[1], d[2]).toUpperCase() + (commit ? " — picked. Arrow keys nudge, Enter locks." : " — click to pick it, or use arrow keys to nudge.");
+    if (commit) addRecent(hexOf(d[0], d[1], d[2]));
   }
   function sampleAt(clientX, clientY, commit) {
     if (!img) return;
     var cv = $("imgCanvas"), rect = cv.getBoundingClientRect();
     var dx = Math.floor((clientX - rect.left) / rect.width * cv.width);
     var dy = Math.floor((clientY - rect.top) / rect.height * cv.height);
-    if (dx < 0 || dy < 0 || dx >= cv.width || dy >= cv.height) return;
-    var ctx = cv.getContext("2d");
-    var d = ctx.getImageData(dx, dy, 1, 1).data;
-    var loupe = $("loupe"), lctx = loupe.getContext("2d");
-    lctx.imageSmoothingEnabled = false;
-    var sx = Math.max(0, Math.min(cv.width - 9, dx - 4)), sy = Math.max(0, Math.min(cv.height - 9, dy - 4));
-    lctx.drawImage(cv, sx, sy, 9, 9, 0, 0, 90, 90);
-    lctx.strokeStyle = "rgba(255,255,255,.9)"; lctx.lineWidth = 2;
-    lctx.strokeRect(35, 35, 20, 20);
-    var nx = Math.round(dx / scale), ny = Math.round(dy / scale);
-    showColor(d[0], d[1], d[2], nx, ny);
-    $("hoverLine").textContent = "Hovering pixel " + nx + ", " + ny + " — " + hexOf(d[0], d[1], d[2]).toUpperCase() + (commit ? " — clicked, copied below." : " — click to pick it.");
-    if (commit) addRecent(hexOf(d[0], d[1], d[2]));
+    samplePixel(dx, dy, commit);
   }
   function addRecent(hex) {
+    hex = hex.toUpperCase();
+    var stored = [];
+    try { stored = JSON.parse(localStorage.getItem("pd-image-recent") || "[]"); } catch (e) { stored = []; }
+    stored = stored.filter(function (h) { return h !== hex; });
+    stored.unshift(hex);
+    try { localStorage.setItem("pd-image-recent", JSON.stringify(stored.slice(0, 12))); } catch (e) {}
+    renderRecent();
+  }
+  function renderRecent() {
     var box = $("recent");
-    var btn = document.createElement("button");
-    btn.type = "button"; btn.className = "swatch"; btn.style.background = hex;
-    btn.title = hex.toUpperCase(); btn.setAttribute("aria-label", "Recent pick " + hex);
-    btn.addEventListener("click", function () {
-      if (navigator.clipboard) navigator.clipboard.writeText(hex.toUpperCase()).then(function () { toast(hex.toUpperCase() + " copied."); });
+    box.innerHTML = "";
+    var stored = [];
+    try { stored = JSON.parse(localStorage.getItem("pd-image-recent") || "[]"); } catch (e) { stored = []; }
+    stored.slice(0, 12).forEach(function (hex) {
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "swatch"; btn.style.background = hex;
+      btn.title = hex; btn.setAttribute("aria-label", "Recent pick " + hex);
+      btn.addEventListener("click", function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(hex).then(function () { toast(hex + " copied."); });
+      });
+      box.appendChild(btn);
     });
-    box.insertBefore(btn, box.firstChild);
-    while (box.children.length > 8) box.removeChild(box.lastChild);
+  }
+  function extractPalette() {
+    if (!img) { toast("Upload an image first."); return; }
+    var cv = $("imgCanvas"), ctx = cv.getContext("2d");
+    var data = ctx.getImageData(0, 0, cv.width, cv.height).data;
+    var buckets = {}, total = 0;
+    for (var i = 0; i < data.length; i += 16) {
+      if (data[i + 3] < 128) continue;
+      var key = ((data[i] >> 4) << 8) | ((data[i + 1] >> 4) << 4) | (data[i + 2] >> 4);
+      if (!buckets[key]) buckets[key] = { n: 0, r: 0, g: 0, b: 0 };
+      buckets[key].n++; buckets[key].r += data[i]; buckets[key].g += data[i + 1]; buckets[key].b += data[i + 2];
+      total++;
+    }
+    var top = Object.keys(buckets).map(function (k) { return buckets[k]; }).sort(function (a, b) { return b.n - a.n; }).slice(0, 6);
+    var box = $("palette"); box.innerHTML = "";
+    if (!top.length || !total) { toast("Could not read colours from that image."); return; }
+    top.forEach(function (bk) {
+      var r = Math.round(bk.r / bk.n), g = Math.round(bk.g / bk.n), b = Math.round(bk.b / bk.n);
+      var hex = hexOf(r, g, b).toUpperCase();
+      var share = Math.round(bk.n / total * 100);
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "swatch"; btn.style.background = hex;
+      btn.title = hex + " — " + share + "% of the image"; btn.setAttribute("aria-label", "Palette colour " + hex + ", " + share + " percent");
+      btn.addEventListener("click", function () { showColor(r, g, b); toast(hex + " loaded (" + share + "% of the image)."); });
+      box.appendChild(btn);
+      var lab = document.createElement("span");
+      lab.style.cssText = "font-size:12px;color:var(--text2);align-self:center";
+      lab.textContent = share + "%";
+      box.appendChild(lab);
+    });
+    toast("Palette extracted — the six most common colours.");
   }
   $("imgFile").addEventListener("change", function () {
     var f = this.files[0]; if (!f) return;
@@ -381,6 +597,34 @@ table.facts td{color:var(--text2)}
   var cv = $("imgCanvas");
   cv.addEventListener("mousemove", function (ev) { sampleAt(ev.clientX, ev.clientY, false); });
   cv.addEventListener("click", function (ev) { sampleAt(ev.clientX, ev.clientY, true); });
+  cv.addEventListener("keydown", function (ev) {
+    if (lastDx < 0) return;
+    var step = ev.shiftKey ? 10 : 1, used = true;
+    if (ev.key === "ArrowLeft") samplePixel(lastDx - step, lastDy, false);
+    else if (ev.key === "ArrowRight") samplePixel(lastDx + step, lastDy, false);
+    else if (ev.key === "ArrowUp") samplePixel(lastDx, lastDy - step, false);
+    else if (ev.key === "ArrowDown") samplePixel(lastDx, lastDy + step, false);
+    else if (ev.key === "Enter") { if (lastHex) { addRecent(lastHex); toast(lastHex + " locked and saved to recent picks."); } }
+    else used = false;
+    if (used) ev.preventDefault();
+  });
+  $("zoomRow").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    zoom = parseInt(b.getAttribute("data-zoom"), 10);
+    document.querySelectorAll("#zoomRow .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    if (img) {
+      cv.style.width = (cv.width * zoom) + "px";
+      cv.style.maxWidth = zoom > 1 ? "none" : "";
+      if (lastDx >= 0) samplePixel(lastDx, lastDy, false);
+    }
+  });
+  $("paletteBtn").addEventListener("click", extractPalette);
+  $("copyVar").addEventListener("click", function () {
+    var text = $("cssVarOut").textContent;
+    if (text === "--color: #888888;") { toast("Pick a colour first."); return; }
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { toast(text + " copied."); });
+  });
+  renderRecent();
   cv.addEventListener("touchstart", function (ev) { ev.preventDefault(); sampleAt(ev.touches[0].clientX, ev.touches[0].clientY, true); }, { passive: false });
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {

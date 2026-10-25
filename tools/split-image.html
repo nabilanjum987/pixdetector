@@ -28,10 +28,50 @@
     },
     {
       "@type": "Question",
+      "name": "How do I split an image for Instagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload a photo, choose the 3\u00d73 preset to get nine tiles (3:4 shape by default, since Instagram's profile grid shows 3:4 tiles since 2025), download the ZIP, then post in reverse order \u2014 tile 01 first, tile 09 last."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "In what order do I upload the tiles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reverse order: Instagram places each new post at the top-left and pushes older ones along, so the last tile you upload is the top-left one. This tool numbers the files in posting order \u2014 tile 01 is the bottom-right piece you post first, tile 09 is the top-left piece you post last."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size should the original image be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At least 3240\u00d73240 pixels for a 3\u00d73 grid, so each tile is a crisp 1080\u00d71080. For the current 3:4 grid, 3240\u00d74050 is the recommended source, giving 1080\u00d71440 tiles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What grid should I use for a carousel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 row \u00d7 up to 10 columns \u2014 Instagram carousels are a single row of slides. A panorama uses 1\u00d73 or more; upload the tiles left to right as one multi-image post."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What grid do I use for a 3\u00d73 Instagram puzzle?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Use 3 columns and 3 rows. Post the tiles in the numbered order the tool gives you: tile 01 first (bottom-right) and tile 09 last (top-left), all in one session, or the grid shifts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I split an image in half?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set the grid to 1 column \u00d7 2 rows for a horizontal cut, or 2 columns \u00d7 1 row for a vertical cut \u2014 two tiles, one split line."
       }
     },
     {
@@ -48,6 +88,38 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No. Each tile is a direct crop of the original pixels, so it keeps the quality of that part of the photo. Tiles only look soft if the source image was already small for the grid you chose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I split an image into unequal parts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with this tool \u2014 it cuts equal tiles only, and has no draggable cut lines. To get unequal parts, crop the photo into the sections you want first (our free crop tool), then split each section."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my grid look wrong on my profile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the upload order (post tile 01 first, tile 09 last) or the tile shape: since 2025 the grid shows 3:4 tiles, so square-cut tiles get their sides trimmed. Re-split with the 3:4 tile shape and post in the numbered order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download only some tiles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 every tile has its own Download button, so you can save just the ones you want. There is no select-multiple mode; use the ZIP download for all tiles at once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a grid split and a carousel split?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A grid split cuts a square image into rows and columns for the profile grid; a carousel split cuts a wide image into a single row of slides that read as one panorama when swiped."
       }
     },
     {
@@ -83,7 +155,7 @@
     {
       "@type": "HowToStep",
       "name": "Pick rows and columns",
-      "text": "Use a preset like 3\u00d73 or type your own grid, up to 10\u00d710."
+      "text": "Use a preset like 3\u00d73 or type your own grid, up to 10\u00d710. Tiles default to the 3:4 shape of the current Instagram grid; square is the legacy option."
     },
     {
       "@type": "HowToStep",
@@ -162,6 +234,13 @@ table.facts{width:100%;border-collapse:collapse;font-size:13px}
 table.facts th,table.facts td{border:1px solid var(--border);padding:9px 10px;text-align:left;vertical-align:top;line-height:1.6}
 table.facts th{color:var(--text);background:var(--bg2)}
 table.facts td{color:var(--text2)}
+.warn{color:#f59e0b;font-size:14px;margin-top:10px;line-height:1.7}
+.mockup{margin-top:14px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.mockup-head{background:var(--bg2);padding:10px 14px;font-size:13px;font-weight:700;color:var(--text2);border-bottom:1px solid var(--border)}
+.mockup-grid{display:grid;gap:2px;background:var(--border);padding:2px}
+.mockup-cell{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bg2)}
+.mockup-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.mockup-cell span{position:absolute;left:4px;top:4px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:2px 7px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media(max-width:720px){.steps{grid-template-columns:1fr}}
 .step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
@@ -195,13 +274,14 @@ table.facts td{color:var(--text2)}
       <h1>Split Image into Tiles — Free</h1>
       <p>Cut one photo into equal rows and columns for Instagram grids, carousels, posters and puzzles. Download every tile at once as a ZIP.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> <strong>Max grid is 10 × 10 (100 tiles)</strong>, and tiles are cut from your image at its original resolution — output is PNG, JPG or WebP. A small photo split 10 ways gives 10 small, soft tiles; start with a large, sharp image (at least 3240 px wide for a 3×3 Instagram grid).</div>
+    <div class="note"><strong>Honest limits — read first:</strong> This tool <strong>cuts what you give it — it does not invent pixels and it does not choose the best crop for you</strong>. A split is a mechanical cut, not a design decision: a face, logo or word that falls on a cut line stays cut unless you re-crop first. This tool cuts an <strong>equal grid only</strong> — it has no draggable cut lines, so check the preview and move your subject away from the lines before you split. <strong>Max grid is 10 × 10 (100 tiles)</strong>, and tiles are cut from your image at its original resolution — output is PNG, JPG or WebP. A small photo split 10 ways gives 10 small, soft tiles; start with a large, sharp image (at least 3240 px wide for a 3×3 Instagram grid).</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Split settings">
         <h2>Your image</h2>
         <label class="flabel" for="imgFile">Choose an image</label>
         <input type="file" id="imgFile" accept="image/*">
         <p class="trust" id="origInfo">No image chosen yet.</p>
+        <p class="trust">For crisp tiles: <strong>3240×3240 px</strong> for a 3×3 grid (1080×1080 per tile) or <strong>3240×4050 px</strong> for 3:4 tiles (1080×1440 per tile). Splitting never adds pixels — a small source gives small, soft tiles.</p>
         <span class="flabel" style="margin-top:16px">Presets</span>
         <div class="chips" id="presetChips">
           <button type="button" class="chip" data-c="3" data-r="3">Instagram grid 3×3</button>
@@ -213,6 +293,14 @@ table.facts td{color:var(--text2)}
         <div class="grid2" style="margin-top:16px">
           <div><label class="flabel" for="colsInput">Columns (1–10)</label><input type="number" id="colsInput" min="1" max="10" value="3"></div>
           <div><label class="flabel" for="rowsInput">Rows (1–10)</label><input type="number" id="rowsInput" min="1" max="10" value="3"></div>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="shapeSelect">Tile shape — Instagram's profile grid (since 2025)</label>
+          <select id="shapeSelect">
+            <option value="3:4" selected>3:4 — current Instagram grid (default)</option>
+            <option value="1:1">1:1 square — legacy grid</option>
+          </select>
+          <p class="trust">Since 2025 the Instagram profile grid shows 3:4 rectangles, not squares — square tiles get their sides trimmed in the grid view. With 3:4 selected, your photo is centre-cropped to the grid's shape before cutting (nothing is stretched); pick 1:1 only if you want the old square puzzle look.</p>
         </div>
         <div style="margin-top:16px">
           <label class="flabel" for="fmtSelect">Tile format</label>
@@ -232,6 +320,12 @@ table.facts td{color:var(--text2)}
         <h2>Preview</h2>
         <div class="canvas-wrap"><img class="preview-img" id="previewImg" alt="Image preview with grid lines" hidden><div id="gridOverlay" style="position:absolute;inset:0;pointer-events:none;display:none"></div></div>
         <p class="meta-line" id="metaLine">Upload an image to see the grid lines here.</p>
+        <p class="warn" id="seamNudge" hidden></p>
+        <div class="mockup" id="mockupBox" hidden>
+          <div class="mockup-head">Profile preview — how Instagram will show the grid</div>
+          <div class="mockup-grid" id="mockupGrid"></div>
+          <p class="meta-line" style="padding:0 12px 12px">Newest post goes top-left, so the last tile you post sits top-left and tile 01 sits bottom-right. Post in the numbered order, 01 first.</p>
+        </div>
         <div class="tile-grid" id="tileGrid"></div>
       </div>
     </div>
@@ -252,18 +346,30 @@ table.facts td{color:var(--text2)}
         <div class="step"><span class="num">STEP 3</span><h3>Download the ZIP</h3><p>Click Split image, then Download all as ZIP. Tiles are numbered in posting order — post tile 01 first, the bottom-right piece.</p></div>
       </div>
       <h2 style="margin-top:28px">What grid should I use for Instagram?</h2>
-      <p>For a profile puzzle, use <strong>3 columns × 3 rows</strong> and post the tiles in the numbered order, bottom-right first and top-left last, in one session with no other posts in between — every new post shifts the grid. For a swipeable carousel, use <strong>1 row × 3 columns</strong> and upload left to right. Keep faces and text away from the cut lines, because the seams fall exactly where the grid says. Instagram's profile grid now shows 3:4 rectangles, so square tiles get their sides trimmed in the grid view — the full tile still shows when someone taps the post.</p>
+      <p>For a profile puzzle, use <strong>3 columns × 3 rows</strong> with the <strong>3:4 tile shape</strong> — that is the default on this page, because Instagram's profile grid has shown 3:4 rectangles since 2025. Square 1080×1080 tiles still work, but their sides get trimmed in the grid view; the full tile only shows when someone taps the post. Start from a source of <strong>3240×4050 px</strong> for 3:4 tiles (3240×3240 px if you insist on square). Post the tiles in the numbered order, bottom-right first and top-left last, in one session with no other posts in between — every new post shifts the grid.</p>
+      <h2 style="margin-top:28px">Carousel mode — one row, not a grid</h2>
+      <p>A carousel split is different from a grid split: it cuts a wide photo into a <strong>single row of slides</strong> (1 row × 3 columns, up to 1×10 here) that read as one panorama when swiped. Upload the tiles left to right as one multi-image post. The tile numbers are your posting order for grids; for a carousel, slide 1 is the leftmost piece. One carousel-posting tip from the tool pages: carousels are reported to send stronger engagement signals than single images because each swipe, save, share and comment is counted separately — that is a vendor claim from the carousel tool pages, not something we measured.</p>
+      <h2 style="margin-top:28px">Crop to a multiple of your grid first — the hairline seam</h2>
+      <p>When your photo's dimensions do not divide evenly by the grid, the tile size is rounded to a whole pixel and the leftover fraction lands as a hairline mismatch along the last row or column. The fix is to crop or resize the source to a multiple of the grid first — for a 3×3 split, dimensions divisible by three (for example 3240×3240). This page checks your image after upload and tells you the nearest clean size; use our <a href="/tools/crop-image">free crop tool</a> to get there before you split.</p>
       <h2 style="margin-top:28px">Will splitting make my photo blurry?</h2>
       <p>Splitting itself adds no blur: each tile is a direct crop of the original pixels. What makes tiles look soft is starting too small. A 1080 px photo cut 3×3 gives 360 px tiles, which look soft when Instagram shows them at 1080 px. Start with a photo at least three times the tile size you want. PNG tiles are lossless but bigger; JPG at 92% quality is the practical choice for posting, and WebP is smallest where it is accepted.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq"><summary>Is this image splitter really free?</summary><p>Yes. Split as many images as you like and download every tile as a ZIP — no signup, no watermark, no upload. Everything runs in your browser.</p></details>
+      <details class="faq"><summary>How do I split an image for Instagram?</summary><p>Upload a photo, choose the 3×3 preset to get nine tiles (3:4 shape by default, since Instagram's profile grid shows 3:4 tiles since 2025), download the ZIP, then post in reverse order — tile 01 first, tile 09 last.</p></details>
+      <details class="faq"><summary>In what order do I upload the tiles?</summary><p>Reverse order: Instagram places each new post at the top-left and pushes older ones along, so the last tile you upload is the top-left one. This tool numbers the files in posting order — tile 01 is the bottom-right piece you post first, tile 09 is the top-left piece you post last.</p></details>
+      <details class="faq"><summary>What size should the original image be?</summary><p>At least 3240×3240 pixels for a 3×3 grid, so each tile is a crisp 1080×1080. For the current 3:4 grid, 3240×4050 is the recommended source, giving 1080×1440 tiles.</p></details>
+      <details class="faq"><summary>What grid should I use for a carousel?</summary><p>1 row × up to 10 columns — Instagram carousels are a single row of slides. A panorama uses 1×3 or more; upload the tiles left to right as one multi-image post.</p></details>
       <details class="faq"><summary>What grid do I use for a 3×3 Instagram puzzle?</summary><p>Use 3 columns and 3 rows. Post the tiles in the numbered order the tool gives you: tile 01 first (bottom-right) and tile 09 last (top-left), all in one session, or the grid shifts.</p></details>
+      <details class="faq"><summary>How do I split an image in half?</summary><p>Set the grid to 1 column × 2 rows for a horizontal cut, or 2 columns × 1 row for a vertical cut — two tiles, one split line.</p></details>
       <details class="faq"><summary>What is the biggest grid I can split into?</summary><p>10 columns by 10 rows — 100 tiles. Most people need far fewer: 3×3 for a profile grid, 1×3 for a carousel, 2×2 for four equal parts.</p></details>
       <details class="faq"><summary>Will the tiles lose quality?</summary><p>No. Each tile is a direct crop of the original pixels, so it keeps the quality of that part of the photo. Tiles only look soft if the source image was already small for the grid you chose.</p></details>
+      <details class="faq"><summary>Can I split an image into unequal parts?</summary><p>Not with this tool — it cuts equal tiles only, and has no draggable cut lines. To get unequal parts, crop the photo into the sections you want first (our free crop tool), then split each section.</p></details>
+      <details class="faq"><summary>Why does my grid look wrong on my profile?</summary><p>Usually the upload order (post tile 01 first, tile 09 last) or the tile shape: since 2025 the grid shows 3:4 tiles, so square-cut tiles get their sides trimmed. Re-split with the 3:4 tile shape and post in the numbered order.</p></details>
+      <details class="faq"><summary>Can I download only some tiles?</summary><p>Yes — every tile has its own Download button, so you can save just the ones you want. There is no select-multiple mode; use the ZIP download for all tiles at once.</p></details>
+      <details class="faq"><summary>What is the difference between a grid split and a carousel split?</summary><p>A grid split cuts a square image into rows and columns for the profile grid; a carousel split cuts a wide image into a single row of slides that read as one panorama when swiped.</p></details>
       <details class="faq"><summary>Is my photo uploaded to a server?</summary><p>No. The image is read and cut in your browser with the canvas element. Nothing is uploaded, stored or shared.</p></details>
       <details class="faq"><summary>Should I download PNG, JPG or WebP tiles?</summary><p>Use JPG for posting to Instagram and social apps (small files, universal). Use PNG when you need lossless quality, and WebP for the smallest files on websites that accept it.</p></details>
-      
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>How do I split an image into 4 equal parts?</strong> Set 2 columns and 2 rows, then download the ZIP — you get four equal tiles.</p>
@@ -320,18 +426,44 @@ table.facts td{color:var(--text2)}
     var r = Math.max(1, Math.min(10, parseInt($("rowsInput").value, 10) || 1));
     $("colsInput").value = c; $("rowsInput").value = r; return { c: c, r: r };
   }
+  function cropRect() {
+    var g = clampGrid();
+    var tw = 3, th = 4;
+    if ($("shapeSelect").value === "1:1") { tw = 1; th = 1; }
+    var want = (g.c * tw) / (g.r * th);
+    var have = origW / origH;
+    var cw = origW, ch = origH, cx = 0, cy = 0;
+    if (have > want) { cw = Math.round(origH * want); cx = Math.round((origW - cw) / 2); }
+    else if (have < want) { ch = Math.round(origW / want); cy = Math.round((origH - ch) / 2); }
+    return { x: cx, y: cy, w: cw, h: ch };
+  }
+  function updateSeam() {
+    if (!img) return;
+    var g = clampGrid(), rect = cropRect();
+    var el = $("seamNudge");
+    var dw = rect.w % g.c, dh = rect.h % g.r;
+    if (dw === 0 && dh === 0) { el.hidden = true; return; }
+    var nw = rect.w - dw, nh = rect.h - dh;
+    el.hidden = false;
+    el.innerHTML = "This image is " + rect.w + "×" + rect.h + " — not evenly divisible by " + g.c + "×" + g.r + ", so the last row or column will be up to 1 px off (a hairline seam). Crop to a multiple of your grid first — e.g. " + nw + "×" + nh + " — with our <a href=\"/tools/crop-image\">free crop tool</a>, then split.";
+  }
   function drawOverlay() {
     if (!img) return;
     var g = clampGrid();
+    var rect = cropRect();
     var ov = $("gridOverlay");
     var im = $("previewImg");
     ov.style.display = "block";
-    ov.style.left = im.offsetLeft + "px"; ov.style.top = im.offsetTop + "px";
-    ov.style.width = im.offsetWidth + "px"; ov.style.height = im.offsetHeight + "px";
+    ov.style.left = (im.offsetLeft + rect.x / origW * im.offsetWidth) + "px";
+    ov.style.top = (im.offsetTop + rect.y / origH * im.offsetHeight) + "px";
+    ov.style.width = (rect.w / origW * im.offsetWidth) + "px";
+    ov.style.height = (rect.h / origH * im.offsetHeight) + "px";
     ov.style.backgroundImage = "linear-gradient(to right, rgba(0,229,255,.9) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,229,255,.9) 1px, transparent 1px)";
     ov.style.backgroundSize = (100 / g.c) + "% 100%, 100% " + (100 / g.r) + "%";
-    var tw = Math.round(origW / g.c), th = Math.round(origH / g.r);
-    $("metaLine").textContent = "Original: " + origW + "×" + origH + " → " + g.c + "×" + g.r + " grid, " + (g.c * g.r) + " tiles of about " + tw + "×" + th + " px each.";
+    var tw = Math.round(rect.w / g.c), th = Math.round(rect.h / g.r);
+    var shapeTxt = $("shapeSelect").value === "1:1" ? "1:1 square tiles" : "3:4 tiles";
+    $("metaLine").textContent = "Original: " + origW + "×" + origH + " → " + shapeTxt + " from a " + rect.w + "×" + rect.h + " centre crop → " + g.c + "×" + g.r + " grid, " + (g.c * g.r) + " tiles of about " + tw + "×" + th + " px each.";
+    updateSeam();
   }
   $("imgFile").addEventListener("change", function () {
     var f = this.files[0]; if (!f) return;
@@ -345,7 +477,7 @@ table.facts td{color:var(--text2)}
         img = im; origW = im.naturalWidth; origH = im.naturalHeight;
         $("origInfo").textContent = "Original: " + f.name + " — " + origW + "×" + origH;
         $("previewImg").src = reader.result; $("previewImg").hidden = false;
-        $("splitBtn").disabled = false; tiles = []; $("tileGrid").innerHTML = ""; $("zipBtn").disabled = true;
+        $("splitBtn").disabled = false; tiles = []; $("tileGrid").innerHTML = ""; $("zipBtn").disabled = true; $("mockupBox").hidden = true;
         setTimeout(drawOverlay, 60);
       };
       im.onerror = function () { var e = $("errorBox"); e.hidden = false; e.textContent = "Could not read that image. Try a JPG, PNG or WebP file."; };
@@ -361,13 +493,27 @@ table.facts td{color:var(--text2)}
   });
   $("colsInput").addEventListener("input", drawOverlay);
   $("rowsInput").addEventListener("input", drawOverlay);
+  $("shapeSelect").addEventListener("change", drawOverlay);
   $("qInput").addEventListener("input", function () { $("qOut").textContent = this.value + "%"; });
   window.addEventListener("resize", drawOverlay);
   function tileBounds(g, idx) {
+    var rect = cropRect();
     var col = idx % g.c, row = Math.floor(idx / g.c);
-    var x0 = Math.round(col * origW / g.c), x1 = Math.round((col + 1) * origW / g.c);
-    var y0 = Math.round(row * origH / g.r), y1 = Math.round((row + 1) * origH / g.r);
+    var x0 = rect.x + Math.round(col * rect.w / g.c), x1 = rect.x + Math.round((col + 1) * rect.w / g.c);
+    var y0 = rect.y + Math.round(row * rect.h / g.r), y1 = rect.y + Math.round((row + 1) * rect.h / g.r);
     return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+  }
+  function renderMockup(g) {
+    var box = $("mockupBox"), grid = $("mockupGrid");
+    grid.style.gridTemplateColumns = "repeat(" + g.c + ", 1fr)";
+    grid.innerHTML = "";
+    tiles.forEach(function (t, idx) {
+      var cell = document.createElement("div"); cell.className = "mockup-cell";
+      var im2 = document.createElement("img"); im2.src = t.canvas.toDataURL("image/png"); im2.alt = "Grid position " + (idx + 1);
+      var b = document.createElement("span"); b.textContent = "#" + (tiles.length - idx);
+      cell.appendChild(im2); cell.appendChild(b); grid.appendChild(cell);
+    });
+    box.hidden = false;
   }
   function fmtExt() { var f = $("fmtSelect").value; return f === "image/png" ? "png" : f === "image/jpeg" ? "jpg" : "webp"; }
   function renderTile(idx, g, cb) {
@@ -386,11 +532,12 @@ table.facts td{color:var(--text2)}
     for (var i = 0; i < total; i++) {
       (function (idx) {
         renderTile(idx, g, function (cv) {
-          var name = origName + "-tile-" + String(idx + 1).padStart(2, "0") + "." + fmtExt();
+          var postNo = total - idx;
+          var name = origName + "-tile-" + String(postNo).padStart(2, "0") + "." + fmtExt();
           tiles[idx] = { canvas: cv, name: name };
           var card = document.createElement("div"); card.className = "tile-card";
-          var thumb = document.createElement("img"); thumb.src = cv.toDataURL("image/png"); thumb.alt = "Tile " + (idx + 1);
-          var p = document.createElement("p"); p.textContent = "Tile " + (idx + 1) + " of " + total;
+          var thumb = document.createElement("img"); thumb.src = cv.toDataURL("image/png"); thumb.alt = "Tile " + postNo + " (post #" + postNo + ")";
+          var p = document.createElement("p"); p.textContent = "Tile " + String(postNo).padStart(2, "0") + " — post #" + postNo + " of " + total;
           var btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Download";
           btn.addEventListener("click", function () {
             cv.toBlob(function (blob) {
@@ -403,7 +550,7 @@ table.facts td{color:var(--text2)}
           var slot = document.createElement("div"); slot.id = "tile-slot-" + idx;
           grid.appendChild(slot); slot.replaceWith(card);
           done++;
-          if (done === total) { $("zipBtn").disabled = false; toast(total + " tiles ready — download the ZIP or single tiles."); }
+          if (done === total) { $("zipBtn").disabled = false; renderMockup(g); toast(total + " tiles ready — download the ZIP or single tiles."); }
         });
       })(i);
     }

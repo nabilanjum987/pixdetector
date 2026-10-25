@@ -28,10 +28,18 @@
     },
     {
       "@type": "Question",
-      "name": "What is a good Flesch Reading Ease score?",
+      "name": "What is a good readability score?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For general web content, 60–70 is standard — easy for most adults to read. Above 70 is very easy and ideal for a broad audience; below 50 is difficult and suits academic or technical content. Most blogs and marketing pages aim for 60–70."
+        "text": "A Flesch Reading Ease score of 60\u201370 (\u201cplain English\u201d, 8th\u20139th grade) for general web content; above 70 is very easy, below 50 is difficult and suits academic or technical text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good Flesch-Kincaid grade level?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grade 8 or lower for the average adult reader in the US; grade 4 for younger students or ESL readers; grade 12 for technical writing and advanced readers."
       }
     },
     {
@@ -39,7 +47,39 @@
       "name": "What is the difference between Flesch Reading Ease and Flesch-Kincaid grade?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Both use the same inputs — sentence length and syllables per word — but give different outputs. Flesch Reading Ease is a 0–100 score where higher means easier. Flesch-Kincaid gives a US school grade: 8.0 means about an 8th-grade reading level. They cannot be converted into each other, so compare scores from the same formula."
+        "text": "Both use the same inputs \u2014 sentence length and syllables per word \u2014 but give different outputs. Flesch Reading Ease is a 0\u2013100 score where higher means easier. Flesch-Kincaid gives a US school grade: 8.0 means about an 8th-grade reading level. They cannot be converted into each other, so compare scores from the same formula."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Gunning Fog Index?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An estimate of the years of education needed to read a text: 0.4 \u00d7 (words per sentence + percentage of complex words, i.e. words with 3+ syllables). Under 10 is easy, 10\u201312 ideal for most audiences, 13\u201316 fairly difficult."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the SMOG Index?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A grade-level estimate (Simplified Measure of Gobbledygook) often considered more accurate for longer texts; it was designed for 30 sentences, so short texts give unreliable SMOG scores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I improve my readability score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shorten sentences (aim for 15\u201320 words average), swap long words for short ones (\u201cutilise\u201d \u2192 \u201cuse\u201d), use active voice, break up paragraphs, use bullet points and headings. The biggest single improvement comes from breaking long sentences in two."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What readability score do bestselling authors have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As reported in readability guides (not measured by this tool): Hemingway at Grade 4\u20135, J.K. Rowling at Grade 5\u20136, Stephen King at Grade 6\u20137, James Patterson at Grade 3\u20134, Dan Brown at Grade 6. The pattern cited: successful authors write at a lower grade level than most aspiring authors."
       }
     },
     {
@@ -52,6 +92,30 @@
     },
     {
       "@type": "Question",
+      "name": "Why do different readability checkers give different scores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Different formulas count different things (syllables vs characters vs complex words) and even the same formula is implemented differently across tools \u2014 scores for the same text can differ by two or three grade levels. Read the range across formulas, not one number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a readability score be negative or over 100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 the formulas are not clamped: 6 words / 15 syllables / 1 sentence computes to a Flesch score of \u221210.76. A negative or over-100 score means the text is too short to score, not that the writing is broken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between readability and legibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Readability is how easily you can follow and understand the whole text (sentence/word length, structure); legibility is how easily you can distinguish individual letters and words (font, size, contrast, spacing). A text can be perfectly legible and still hard to read."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does a better readability score help my Google ranking?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -60,10 +124,18 @@
     },
     {
       "@type": "Question",
+      "name": "Does a good readability score mean readers will understand my text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 the score measures sentence and word length, not comprehension. Short nonsense sentences score as highly readable; prior knowledge, structure, motivation and context all affect real understanding."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does the checker work for non-English text?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — honestly, it does not. The Flesch formulas and the syllable rules are calibrated for English. Scores for non-English or heavily mixed-language text can be misleading, and this tool does not switch to language-specific formulas."
+        "text": "No \u2014 honestly, it does not. The Flesch formulas and the syllable rules are calibrated for English. Scores for non-English or heavily mixed-language text can be misleading, and this tool does not switch to language-specific formulas."
       }
     }
   ]
@@ -168,18 +240,28 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <h1>Free Readability Checker</h1>
       <p>Paste your text and get a Flesch Reading Ease score, a Flesch-Kincaid grade level, and word, sentence and syllable counts — instantly, free, with no signup and nothing uploaded.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This checker is <strong>formula-based, not an AI judgement of quality</strong>. It counts sentence length and syllables — it cannot judge accuracy, tone, or whether your advice is any good. Scores are <strong>unreliable under about 100 words</strong>, and the formulas are calibrated for English only, so non-English text can mislead.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> This checker is <strong>formula-based, not an AI judgement of quality</strong>. The formulas measure sentence length and word length — <strong>not comprehension</strong>. They cannot judge accuracy, tone, or whether your advice is any good. Short sentences with short words score as highly readable even when they are nonsense: &ldquo;Mike eats your cat gun now!&rdquo; is both highly readable and utterly incomprehensible. Scores are <strong>unreliable under about 100 words</strong>, and the formulas are calibrated for English only, so non-English text can mislead. Use the score to find heavy sentences — then test with a real reader.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Readability input">
         <h2>Your text</h2>
         <label class="flabel" for="rdInput">Paste your text (aim for 100+ words for a stable score)</label>
         <textarea id="rdInput" rows="10" spellcheck="false">The cat sat on the mat. It was a warm day, and the sun was bright. The children played in the garden. They ran fast and laughed a lot. The dog barked at the birds in the tree. Everyone was happy.</textarea>
+        <div style="margin-top:16px">
+          <label class="flabel" for="rdTarget">Who are you writing for?</label>
+          <select id="rdTarget">
+            <option value="general" selected>General public — target Flesch 60–70 (grade 8 or lower)</option>
+            <option value="kids">Kids &amp; ESL readers — target Flesch 80+ (grade 5 or lower)</option>
+            <option value="academic">Academic &amp; technical readers — target Flesch 30–50 (grade 12–16)</option>
+          </select>
+        </div>
         <div class="actions">
           <button type="button" class="btn" id="rdAnalyze">Check readability</button>
           <button type="button" class="btn alt" id="rdSample">Try a sample</button>
           <button type="button" class="btn alt" id="rdClear">Clear</button>
+          <button type="button" class="btn alt" id="rdBaseline">Save as baseline</button>
         </div>
         <p class="trust">Live update as you type. Your text never leaves this page.</p>
+        <p class="trust" id="rdBaseLine"></p>
       </div>
       <div class="bc-panel" aria-label="Readability results">
         <h2>Your score</h2>
@@ -192,7 +274,15 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <div class="score-cell"><div class="v" id="rdSyll">0</div><div class="l">Syllables</div></div>
           <div class="score-cell"><div class="v" id="rdWps">—</div><div class="l">Words / sentence</div></div>
           <div class="score-cell"><div class="v" id="rdRead">—</div><div class="l">Reading time</div></div>
+          <div class="score-cell"><div class="v" id="rdFog">—</div><div class="l">Gunning Fog</div></div>
+          <div class="score-cell"><div class="v" id="rdSmog">—</div><div class="l">SMOG grade</div></div>
+          <div class="score-cell"><div class="v" id="rdCli">—</div><div class="l">Coleman-Liau</div></div>
+          <div class="score-cell"><div class="v" id="rdAri">—</div><div class="l">Automated Readability Index</div></div>
+          <div class="score-cell"><div class="v" id="rdAvg">—</div><div class="l">Average grade (all formulas)</div></div>
         </div>
+        <p class="trust" id="rdRange">All five grade formulas on one screen — read the range, not one number. They count different things, so they disagree; that is normal.</p>
+        <p class="trust" id="rdTargetVerdict"></p>
+        <div id="rdLong"></div>
         <p class="err" id="rdWarn" hidden></p>
         <p class="trust" id="rdTip"></p>
       </div>
@@ -230,6 +320,24 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <tr><td>0–30</td><td>Very difficult — graduate level</td><td>Legal and specialist papers</td></tr>
         </tbody>
       </table>
+      <h2>Same text, different scores — why the formulas disagree</h2>
+      <p>Every formula on this page reads the same text and gives a different grade, and that is expected. Flesch and Flesch-Kincaid count syllables per word; Gunning Fog counts words with three or more syllables (its formula: 0.4 × (words per sentence + percentage of complex words)); SMOG counts polysyllables across 30 sentences; Coleman-Liau counts letters instead of syllables; the Automated Readability Index counts characters and words per sentence. Different inputs, different grades — scores for the same text can differ by two or three grade levels, and even the same formula is implemented differently across tools. The honest way to read this page is the range across all five formulas, not any single number. The formulas come from published work — Flesch (1948), Kincaid et al. (1975), McLaughlin's SMOG (1969), Coleman &amp; Liau (1975) — and they were built for mid-20th-century American technical documents and training manuals, calibrated on English texts. That history is also why a Caribbean idiom or an Indigenous storytelling cadence can register as &ldquo;hard to read&rdquo;: the algorithm flags difference as difficulty. Surface metrics miss what actually drives comprehension — cohesion, logic and context.</p>
+      <h2>The Hemingway benchmark — what a grade level feels like</h2>
+      <p>Grade levels are abstract until you anchor them to writers people know. The numbers below are <strong>reported benchmarks from readability guides, not measurements made by this tool</strong> — they are the comparison set quoted across guides (hmdpublishing.com; naturalwrite.com, citing Shane Snow's Contently analysis of Hemingway):</p>
+      <table class="facts">
+        <thead><tr><th>Writer / work</th><th>Reported grade level</th></tr></thead>
+        <tbody>
+          <tr><td>Ernest Hemingway — <em>The Old Man and the Sea</em></td><td>Grade 4 (Flesch-Kincaid); Hemingway generally Grade 4–6</td></tr>
+          <tr><td>James Patterson</td><td>Grade 3–4</td></tr>
+          <tr><td>J.K. Rowling</td><td>Grade 5–6</td></tr>
+          <tr><td>Dan Brown</td><td>Grade 6</td></tr>
+          <tr><td>Stephen King</td><td>Grade 6–7</td></tr>
+          <tr><td><em>Time</em> magazine</td><td>Grade 10</td></tr>
+        </tbody>
+      </table>
+      <p>The pattern the guides point to: successful authors write at a lower grade level than most aspiring authors. Simple is not dumbed down — it is the level that lets the most readers through.</p>
+      <h2>Before / after — check the rewrite, not just the text</h2>
+      <p>Paste your draft, press <strong>Save as baseline</strong>, then edit the longest sentences and swap the longest words and watch the score move. A rewrite that actually made the text easier to follow shows up as a higher Flesch score and a lower grade — if the numbers barely move, the edit was cosmetic. The longest sentences in your text are listed under your score, with their word counts, so you know exactly which ones to split first.</p>
       <h2>How to improve your readability score</h2>
       <p>Only two things move the formulas: average sentence length and average syllables per word. Split any sentence over 20–25 words into two — cutting average sentence length from 22 words to 16 lifts Flesch Reading Ease by about 9 points. Swap multi-syllable words for short ones: use instead of utilize, help instead of facilitate, show instead of demonstrate, about instead of approximately. Use active voice — “the study found results” is shorter than “results were found by the study” — and break paragraphs longer than four sentences into two. Then re-check: compare the new score with the baseline rather than guessing. Remember the limit: a formula cannot tell you whether your argument is clear, your facts are right, or your tone fits your reader — a grade-6 text with a weak argument still loses readers.</p>
       <!-- FAQ -->
@@ -239,20 +347,56 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 <p>Yes. Paste as much text as you like, free, with no signup and no account. Everything runs in your browser, so your text is never uploaded or stored.</p>
 </details>
       <details class="faq">
-<summary>What is a good Flesch Reading Ease score?</summary>
-<p>For general web content, 60–70 is standard — easy for most adults to read. Above 70 is very easy and ideal for a broad audience; below 50 is difficult and suits academic or technical content. Most blogs and marketing pages aim for 60–70.</p>
+<summary>What is a good readability score?</summary>
+<p>A Flesch Reading Ease score of 60–70 ("plain English", 8th–9th grade) for general web content; above 70 is very easy, below 50 is difficult and suits academic or technical text.</p>
+</details>
+      <details class="faq">
+<summary>What is a good Flesch-Kincaid grade level?</summary>
+<p>Grade 8 or lower for the average adult reader in the US; grade 4 for younger students or ESL readers; grade 12 for technical writing and advanced readers.</p>
 </details>
       <details class="faq">
 <summary>What is the difference between Flesch Reading Ease and Flesch-Kincaid grade?</summary>
 <p>Both use the same inputs — sentence length and syllables per word — but give different outputs. Flesch Reading Ease is a 0–100 score where higher means easier. Flesch-Kincaid gives a US school grade: 8.0 means about an 8th-grade reading level. They cannot be converted into each other, so compare scores from the same formula.</p>
 </details>
       <details class="faq">
+<summary>What is the Gunning Fog Index?</summary>
+<p>An estimate of the years of education needed to read a text: 0.4 × (words per sentence + percentage of complex words, i.e. words with 3+ syllables). Under 10 is easy, 10–12 ideal for most audiences, 13–16 fairly difficult.</p>
+</details>
+      <details class="faq">
+<summary>What is the SMOG Index?</summary>
+<p>A grade-level estimate (Simplified Measure of Gobbledygook) often considered more accurate for longer texts; it was designed for 30 sentences, so short texts give unreliable SMOG scores.</p>
+</details>
+      <details class="faq">
+<summary>How do I improve my readability score?</summary>
+<p>Shorten sentences (aim for 15–20 words average), swap long words for short ones ("utilise" → "use"), use active voice, break up paragraphs, use bullet points and headings. The biggest single improvement comes from breaking long sentences in two.</p>
+</details>
+      <details class="faq">
+<summary>What readability score do bestselling authors have?</summary>
+<p>As reported in readability guides (not measured by this tool): Hemingway at Grade 4–5, J.K. Rowling at Grade 5–6, Stephen King at Grade 6–7, James Patterson at Grade 3–4, Dan Brown at Grade 6. The pattern cited: successful authors write at a lower grade level than most aspiring authors.</p>
+</details>
+      <details class="faq">
 <summary>How many words do I need for a reliable score?</summary>
 <p>At least 100 words. With very short text, one sentence or one long word changes the result a lot, and the SMOG formula was designed for 30 sentences. This tool warns you when your text is under 100 words.</p>
 </details>
       <details class="faq">
+<summary>Why do different readability checkers give different scores?</summary>
+<p>Different formulas count different things (syllables vs characters vs complex words) and even the same formula is implemented differently across tools — scores for the same text can differ by two or three grade levels. Read the range across formulas, not one number.</p>
+</details>
+      <details class="faq">
+<summary>Can a readability score be negative or over 100?</summary>
+<p>Yes — the formulas are not clamped: 6 words / 15 syllables / 1 sentence computes to a Flesch score of −10.76. A negative or over-100 score means the text is too short to score, not that the writing is broken.</p>
+</details>
+      <details class="faq">
+<summary>What is the difference between readability and legibility?</summary>
+<p>Readability is how easily you can follow and understand the whole text (sentence/word length, structure); legibility is how easily you can distinguish individual letters and words (font, size, contrast, spacing). A text can be perfectly legible and still hard to read.</p>
+</details>
+      <details class="faq">
 <summary>Does a better readability score help my Google ranking?</summary>
 <p>Google does not use readability scores as a direct ranking factor. But easier-to-read content keeps readers on the page longer and gets shared more, which helps indirectly. The score is a writing aid, not an SEO trick.</p>
+</details>
+      <details class="faq">
+<summary>Does a good readability score mean readers will understand my text?</summary>
+<p>No — the score measures sentence and word length, not comprehension. Short nonsense sentences score as highly readable; prior knowledge, structure, motivation and context all affect real understanding.</p>
 </details>
       <details class="faq">
 <summary>Does the checker work for non-English text?</summary>
@@ -327,29 +471,68 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     if (ease >= 30) return "Difficult — college level. Technical or academic text.";
     return "Very difficult — graduate level. Only right for a specialist audience.";
   }
+  var baseline = null;
+  function escHtml(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function targetVerdict(ease) {
+    var t = $("rdTarget").value;
+    if (t === "kids") return ease >= 80 ? "On target for kids & ESL readers (Flesch 80+)." : "Below target for kids & ESL readers (Flesch 80+): shorten sentences and swap long words.";
+    if (t === "academic") return (ease >= 30 && ease <= 50) ? "On target for academic & technical readers (Flesch 30–50)." : "Outside the academic & technical band (Flesch 30–50) — for a specialist audience that is fine, but check it is deliberate.";
+    return (ease >= 60 && ease <= 70) ? "On target for a general audience (Flesch 60–70)." : (ease > 70 ? "Easier than the general-audience target (Flesch 60–70) — fine for a broad audience." : "Below target for a general audience (Flesch 60–70): split the longest sentences.");
+  }
   function analyze() {
     var text = $("rdInput").value;
     var words = text.trim() ? text.trim().split(/\s+/).filter(function (w) { return /[A-Za-z]/.test(w); }) : [];
     var sentences = text.split(/[.!?]+/).filter(function (s) { return s.trim().length > 0; });
-    var syll = 0;
-    words.forEach(function (w) { syll += syllables(w); });
+    var syll = 0, complex = 0, letters = 0;
+    words.forEach(function (w) { var n = syllables(w); syll += n; if (n >= 3) complex++; letters += w.replace(/[^A-Za-z]/g, "").length; });
     var w = words.length, s = Math.max(1, sentences.length);
     $("rdWords").textContent = w;
     $("rdSent").textContent = sentences.length;
     $("rdSyll").textContent = syll;
     if (w < 10) {
       $("rdEase").textContent = "—"; $("rdGrade").textContent = "—"; $("rdWps").textContent = "—"; $("rdRead").textContent = "—";
+      $("rdFog").textContent = "—"; $("rdSmog").textContent = "—"; $("rdCli").textContent = "—"; $("rdAri").textContent = "—"; $("rdAvg").textContent = "—";
       $("rdBand").textContent = "Type at least 10 words to get a score — and 100+ words for a stable one.";
+      $("rdRange").textContent = "All five grade formulas on one screen — read the range, not one number. They count different things, so they disagree; that is normal.";
+      $("rdTargetVerdict").textContent = ""; $("rdLong").innerHTML = "";
       $("rdTip").textContent = ""; $("rdWarn").hidden = true;
       return;
     }
     var wps = w / s, spw = syll / w;
     var ease = 206.835 - 1.015 * wps - 84.6 * spw;
     var grade = 0.39 * wps + 11.8 * spw - 15.59;
+    var fog = 0.4 * (wps + 100 * complex / w);
+    var smog = 1.0430 * Math.sqrt(complex * (30 / s)) + 3.1291;
+    var cli = 0.0588 * (letters / w * 100) - 0.296 * (s / w * 100) - 15.8;
+    var ari = 4.71 * (letters / w) + 0.5 * wps - 21.43;
+    var grades = [grade, fog, smog, cli, ari];
+    var avg = grades.reduce(function (a, b) { return a + b; }, 0) / grades.length;
+    var lo = Math.min.apply(null, grades), hi = Math.max.apply(null, grades);
     $("rdEase").textContent = Math.round(ease);
     $("rdGrade").textContent = grade.toFixed(1);
     $("rdWps").textContent = wps.toFixed(1);
     $("rdRead").textContent = Math.max(1, Math.round(w / 200)) + " min";
+    $("rdFog").textContent = fog.toFixed(1);
+    $("rdSmog").textContent = smog.toFixed(1);
+    $("rdCli").textContent = cli.toFixed(1);
+    $("rdAri").textContent = ari.toFixed(1);
+    $("rdAvg").textContent = avg.toFixed(1);
+    $("rdRange").textContent = "Grade range across the five formulas: " + lo.toFixed(1) + " – " + hi.toFixed(1) + " (average " + avg.toFixed(1) + "). Read the range, not one number — the formulas count different things, so they disagree.";
+    $("rdTargetVerdict").textContent = targetVerdict(ease);
+    var scored = sentences.map(function (sn) {
+      var n = sn.trim().split(/\s+/).filter(Boolean).length;
+      return { t: sn.trim(), n: n };
+    }).filter(function (x) { return x.n > 0; }).sort(function (a, b) { return b.n - a.n; }).slice(0, 3);
+    var lh = "";
+    scored.forEach(function (x) {
+      var preview = x.t.length > 70 ? x.t.slice(0, 70) + "…" : x.t;
+      lh += "<p class=\"trust\">\u201c" + escHtml(preview) + "\u201d — <strong>" + x.n + " words.</strong> " + (x.n > 20 ? "Split this one in two." : "Longest in this text — fine as it is.") + "</p>";
+    });
+    $("rdLong").innerHTML = scored.length ? "<p class=\"flabel\" style=\"margin-top:14px\">Longest sentences — fix these first</p>" + lh : "";
+    if (baseline) {
+      var d = Math.round(ease - baseline.ease);
+      $("rdBaseLine").textContent = "Baseline: Flesch " + baseline.ease + " (grade " + baseline.grade + ") → now Flesch " + Math.round(ease) + " (grade " + grade.toFixed(1) + ") — " + (d >= 0 ? "+" : "") + d + " points.";
+    }
     $("rdBand").textContent = band(ease);
     $("rdWarn").hidden = w >= 100;
     if (w < 100) $("rdWarn").textContent = "Only " + w + " words — this score is shaky. One long sentence or one long word moves it a lot. Paste 100+ words for a stable result.";
@@ -362,6 +545,14 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
   var t;
   $("rdInput").addEventListener("input", function () { clearTimeout(t); t = setTimeout(analyze, 150); });
   $("rdAnalyze").addEventListener("click", analyze);
+  $("rdTarget").addEventListener("change", analyze);
+  $("rdBaseline").addEventListener("click", function () {
+    var e = $("rdEase").textContent, g = $("rdGrade").textContent;
+    if (e === "—") { toast("Type at least 10 words first, then save a baseline."); return; }
+    baseline = { ease: parseInt(e, 10), grade: g };
+    $("rdBaseLine").textContent = "Baseline saved: Flesch " + e + " (grade " + g + "). Edit the text and watch the score move.";
+    toast("Baseline saved — now edit and re-check.");
+  });
   $("rdSample").addEventListener("click", function () {
     $("rdInput").value = "Good writing is clear writing. Short sentences help the reader. Long words slow people down. If you want more people to read your work, keep it simple. Say one thing at a time. Then say the next thing. Your reader will thank you for it, and they will come back for more.";
     analyze(); toast("Sample loaded — try editing it and watch the score move.");

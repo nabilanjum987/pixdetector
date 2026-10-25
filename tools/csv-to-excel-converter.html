@@ -28,10 +28,42 @@
     },
     {
       "@type": "Question",
+      "name": "How do I convert a CSV file to Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the CSV here (or paste the text), check the preview grid, set any column types that need forcing to Text, and download the .xlsx \u2014 or in Excel use Data > Get Data > From Text/CSV and set column types before loading."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Why does Excel delete the leading zeros in my CSV?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because Excel guesses that a cell full of digits is a number, and numbers do not keep leading zeros — so 01234 becomes 1234 and a long order ID becomes 1.05E+14. This converter keeps values that start with a zero as text, so 01234 stays 01234 in the .xlsx, while ordinary numbers are stored as real numbers you can sum."
+        "text": "Because Excel guesses that a cell full of digits is a number, and numbers do not keep leading zeros \u2014 so 01234 becomes 1234 and a long order ID becomes 1.05E+14. This converter keeps values that start with a zero as text, so 01234 stays 01234 in the .xlsx, while ordinary numbers are stored as real numbers you can sum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Excel turn my long numbers into scientific notation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Excel stores at most 15 digits of precision and displays longer digit strings in exponential form; format the column as Text before the data lands, or the digits are lost. This converter writes digit-heavy values as text automatically, and the per-column picker lets you force any column to Text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my CSV open with everything in one column?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Excel expected a different separator than the file uses \u2014 common with European semicolon files. Re-import and set the delimiter by hand, or pick the delimiter here (Auto-detect, comma, semicolon, tab, pipe or a custom character)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between CSV and XLSX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV is plain text \u2014 rows and commas, no formatting, formulas or sheets. XLSX is a real workbook with formatting, formulas, multiple sheets and types."
       }
     },
     {
@@ -39,7 +71,7 @@
       "name": "Does it make a real .xlsx file?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The download is a genuine Excel workbook (.xlsx) that opens in Excel, Google Sheets, LibreOffice and Apple Numbers — not a CSV file renamed to .xlsx. Numbers are stored as real numbers, and the first row becomes the header row when you tick that option."
+        "text": "Yes. The download is a genuine Excel workbook (.xlsx) that opens in Excel, Google Sheets, LibreOffice and Apple Numbers \u2014 not a CSV file renamed to .xlsx. Numbers are stored as real numbers, and the first row becomes the header row when you tick that option."
       }
     },
     {
@@ -52,10 +84,50 @@
     },
     {
       "@type": "Question",
+      "name": "Why does Excel change my dates when I open a CSV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Excel guesses the type of every value and turns date-like strings into dates in the local format; importing with the column set to Text keeps the string unchanged. This converter keeps dates as text by default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep my formatting when converting CSV to Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no formatting in a CSV to keep \u2014 you add it after conversion (header colours, bold headers, freeze panes). This converter writes plain data with correct types; add formatting in Excel after opening the workbook."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert multiple CSV files into one Excel workbook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This converter handles one file per run. Convert each CSV to its own .xlsx, then copy the sheets into one workbook in Excel \u2014 or import each CSV into its own sheet directly in Excel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does converting CSV to Excel work without Excel installed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 this browser converter reads the file locally and downloads a real .xlsx you can open in Excel, Google Sheets, LibreOffice or Numbers later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \u201cExcel-safe numbers\u201d mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A converter option that writes digit-heavy values (IDs, phone numbers, zip codes) as text so Excel cannot reformat them into scientific notation or strip zeros. This converter does it automatically for leading-zero and very long values, and the per-column Text picker forces it for any column."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "How big a CSV can I convert?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Everyday exports — thousands of rows — convert instantly. Very large files with hundreds of thousands of rows still work but take longer and use more memory, so on a phone keep it to smaller files. Excel itself caps a sheet at 1,048,576 rows."
+        "text": "Everyday exports \u2014 thousands of rows \u2014 convert instantly. Very large files with hundreds of thousands of rows still work but take longer and use more memory, so on a phone keep it to smaller files. Excel itself caps a sheet at 1,048,576 rows."
       }
     },
     {
@@ -169,8 +241,9 @@ table.facts td{color:var(--text2)}
     </div>
     <div class="tool-page-header">
       <h1>CSV to Excel Converter</h1>
-      <p>Turn a CSV export into a real Excel workbook — free, in your browser. No signup, no upload, no ads.</p>
+      <p>Your zip codes keep their zeros. Convert a CSV export into a real Excel workbook — 01234 stays 01234, long order IDs stay out of scientific notation, and 3/8 stays 3/8 instead of becoming 08-Mar. Free, in your browser. No signup, no upload, no ads.</p>
     </div>
+    <div class="note" style="background:#eef6ff;border-color:#3b82f6;color:#1e3a5f"><strong>Need a read-only PDF instead?</strong> <a href="/tools/convert-csv-to-pdf" style="color:#1d4ed8;font-weight:700">Convert CSV to PDF &rarr;</a> — same file, same in-browser parser, printable table instead of a workbook. Both pages share one CSV parser, so delimiter handling and text-mode protection behave the same on either page.</div>
     <div class="note"><strong>Honest limits — read first:</strong> You get a <strong>real .xlsx file</strong> with headers and numbers stored as real numbers you can sum. Values that start with a zero (zip codes, phone numbers, SKUs like 01234) are kept as <strong>text</strong> so the zero survives; dates are kept as text too, so Excel cannot reformat them. No formulas, colours or charts are added — this converts your data, it does not restyle it. Very large files are slower on phones.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="CSV to Excel converter">
@@ -190,7 +263,10 @@ table.facts td{color:var(--text2)}
                 <option value=",">Comma (,)</option>
                 <option value=";">Semicolon (;)</option>
                 <option value="&#9;">Tab</option>
+                <option value="|">Pipe (|)</option>
+                <option value="custom">Custom…</option>
               </select>
+              <input type="text" id="customDelim" maxlength="1" placeholder="Custom delimiter character" style="margin-top:8px;display:none" aria-label="Custom delimiter character">
             </div>
             <div>
               <label class="flabel" for="sheetName">Sheet name</label>
@@ -201,7 +277,10 @@ table.facts td{color:var(--text2)}
             </div>
           </div>
           <label class="checkrow"><input type="checkbox" id="headerChk" checked> First row is a header row</label>
+          <div id="colTypes" style="margin-top:12px"></div>
+          <p class="trust">Set a column to <strong>Text</strong> and its values are written exactly as typed — no zero-stripping, no scientific notation, no date guessing. <strong>Number</strong> stores real numbers you can sum; <strong>Date</strong> keeps the string as written; <strong>Auto</strong> uses the converter's default rules (leading-zero and very long values stay text).</p>
           <div class="preview" id="previewBox"></div>
+          <p class="trust">Preview shows the first 8 rows. Click any cell to fix a value before downloading — edits apply to the workbook.</p>
           <div class="actions">
             <button type="button" class="btn" id="convBtn">Download .xlsx</button>
             <button type="button" class="btn alt" id="resetBtn">Choose a different file</button>
@@ -226,6 +305,7 @@ table.facts td{color:var(--text2)}
           <tr><td>0555123456 (phone)</td><td>Becomes 555123456</td><td>Kept as text</td></tr>
           <tr><td>49.99 (price)</td><td>Stays a number — fine</td><td>Stored as a real number, so SUM works</td></tr>
           <tr><td>2024-03-15 (date)</td><td>Reformatted to your locale</td><td>Kept as text, exactly as written</td></tr>
+          <tr><td>3/8 (fraction)</td><td>Becomes 08-Mar — a date you never typed</td><td>Kept as text: 3/8</td></tr>
         </table>
         <p class="trust">The damage happens the moment Excel opens a CSV by double-clicking: it guesses every column's type and rewrites the data. Converting to .xlsx first, with the types decided properly, is the fix — and it is also why you should never save the changed CSV back over the original.</p>
       </div>
@@ -253,7 +333,11 @@ table.facts td{color:var(--text2)}
       <h2>How to convert CSV to Excel in 3 steps</h2>
       <p><strong>Step 1:</strong> upload your CSV — comma, semicolon or tab separated; it is read in your browser and never uploaded. <strong>Step 2:</strong> check the preview of the first rows, set the delimiter if Auto-detect got it wrong, and tick "First row is a header row" if your file has column names. <strong>Step 3:</strong> press Download .xlsx and open the workbook in Excel or Google Sheets.</p>
       <h2>Numbers, leading zeros and dates — the exact rules</h2>
-      <p>Ordinary numbers like 49.99 or 1200 become real numbers in the workbook, so SUM, AVERAGE and sorting work. A value that starts with a zero (01234, 0555123456) or is too long to be a safe number (a 15-digit order ID) stays as text, so nothing is lost. Dates stay as text exactly as written, so Excel cannot flip 03/04 into April 3rd or March 4th depending on your locale. If you do want a column treated differently, the honest answer is that this converter makes one sensible choice per cell — for full control, use Excel's import wizard instead.</p>
+      <p>Ordinary numbers like 49.99 or 1200 become real numbers in the workbook, so SUM, AVERAGE and sorting work. A value that starts with a zero (01234, 0555123456) or is too long to be a safe number (a 15-digit order ID) stays as text, so nothing is lost. Dates stay as text exactly as written, so Excel cannot flip 03/04 into April 3rd or March 4th depending on your locale. If a whole column needs a different rule, use the <strong>per-column type picker</strong> above the preview: set the column to Text, Number, Date or Auto before you download — that is the same choice Microsoft's own import wizard asks for, built into the preview grid. For full control beyond that, use Excel's import wizard instead.</p>
+      <h2>What formatting does the .xlsx get?</h2>
+      <p>None, honestly — a CSV carries no formatting, formulas or multiple sheets, so the workbook is your data plus the type decisions above: real numbers where they belong, text where they must stay text. If you want bold headers, frozen panes or filters, add them in Excel after opening the file (select the header row, then View → Freeze Panes, and Data → Filter). What you do get, guaranteed, is a real .xlsx — not a legacy .xls and not a CSV renamed to .xlsx — that opens in Excel 2007+, Google Sheets, LibreOffice and Apple Numbers.</p>
+      <h2>Same parser, two exports</h2>
+      <p>This page and our <a href="/tools/convert-csv-to-pdf">CSV to PDF converter</a> share the same in-browser CSV parser: delimiter auto-detection, quoted-field and multi-line handling, and the text-mode protection that keeps leading zeros and long IDs intact are identical on both. A file that previews correctly here previews the same way there — the only difference is the output: a workbook you can edit, or a read-only PDF you can print and share.</p>
       <h2>When a CSV is the wrong tool entirely</h2>
       <p>CSV is a transfer format, not a working format. If you keep opening the same CSV, editing it and saving it back, you will lose data sooner or later — Excel rewrites types on every open. Convert once to .xlsx and work in the workbook from then on. Keep the original CSV as the backup, untouched.</p>
       <!-- FAQ -->
@@ -263,8 +347,24 @@ table.facts td{color:var(--text2)}
         <p>Yes. Convert as many CSV files as you like, free, with no signup, no upload and no watermark. The file is converted in your browser and the .xlsx downloads straight to your device.</p>
       </details>
       <details class="faq">
+        <summary>How do I convert a CSV file to Excel?</summary>
+        <p>Upload the CSV here, check the preview grid, set any column types that need forcing to Text, and download the .xlsx — or in Excel use Data &gt; Get Data &gt; From Text/CSV and set column types before loading.</p>
+      </details>
+      <details class="faq">
         <summary>Why does Excel delete the leading zeros in my CSV?</summary>
         <p>Because Excel guesses that a cell full of digits is a number, and numbers do not keep leading zeros — so 01234 becomes 1234 and a long order ID becomes 1.05E+14. This converter keeps values that start with a zero as text, so 01234 stays 01234 in the .xlsx, while ordinary numbers are stored as real numbers you can sum.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does Excel turn my long numbers into scientific notation?</summary>
+        <p>Excel stores at most 15 digits of precision and displays longer digit strings in exponential form; format the column as Text before the data lands, or the digits are lost. This converter writes digit-heavy values as text automatically, and the per-column picker lets you force any column to Text.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does my CSV open with everything in one column?</summary>
+        <p>Excel expected a different separator than the file uses — common with European semicolon files. Re-import and set the delimiter by hand, or pick the delimiter here (Auto-detect, comma, semicolon, tab, pipe or a custom character).</p>
+      </details>
+      <details class="faq">
+        <summary>What is the difference between CSV and XLSX?</summary>
+        <p>CSV is plain text — rows and commas, no formatting, formulas or sheets. XLSX is a real workbook with formatting, formulas, multiple sheets and types.</p>
       </details>
       <details class="faq">
         <summary>Does it make a real .xlsx file?</summary>
@@ -273,6 +373,26 @@ table.facts td{color:var(--text2)}
       <details class="faq">
         <summary>What if my CSV uses semicolons instead of commas?</summary>
         <p>That is common in European exports, where the comma is the decimal separator. Pick Semicolon in the delimiter menu, or leave it on Auto and the tool detects the delimiter from the first lines. Tab-separated files work the same way.</p>
+      </details>
+      <details class="faq">
+        <summary>Why does Excel change my dates when I open a CSV?</summary>
+        <p>Excel guesses the type of every value and turns date-like strings into dates in the local format; importing with the column set to Text keeps the string unchanged. This converter keeps dates as text by default.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I keep my formatting when converting CSV to Excel?</summary>
+        <p>There is no formatting in a CSV to keep — you add it after conversion (header colours, bold headers, freeze panes). This converter writes plain data with correct types; add formatting in Excel after opening the workbook.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert multiple CSV files into one Excel workbook?</summary>
+        <p>This converter handles one file per run. Convert each CSV to its own .xlsx, then copy the sheets into one workbook in Excel — or import each CSV into its own sheet directly in Excel.</p>
+      </details>
+      <details class="faq">
+        <summary>Does converting CSV to Excel work without Excel installed?</summary>
+        <p>Yes — this browser converter reads the file locally and downloads a real .xlsx you can open in Excel, Google Sheets, LibreOffice or Numbers later.</p>
+      </details>
+      <details class="faq">
+        <summary>What does “Excel-safe numbers” mean?</summary>
+        <p>A converter option that writes digit-heavy values (IDs, phone numbers, zip codes) as text so Excel cannot reformat them into scientific notation or strip zeros. This converter does it automatically for leading-zero and very long values, and the per-column Text picker forces it for any column.</p>
       </details>
       <details class="faq">
         <summary>How big a CSV can I convert?</summary>
@@ -357,7 +477,7 @@ table.facts td{color:var(--text2)}
   }
   function detectDelim(text) {
     var head = text.split(/\r?\n/).slice(0, 5).join("\n");
-    var counts = { ",": 0, ";": 0, "\t": 0 };
+    var counts = { ",": 0, ";": 0, "\t": 0, "|": 0 };
     var inQ = false;
     for (var i = 0; i < head.length; i++) {
       var c = head[i];
@@ -369,6 +489,26 @@ table.facts td{color:var(--text2)}
     return bestN > 0 ? best : ",";
   }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  var colTypes = [];
+  function renderTypePickers() {
+    if (!rows) return;
+    var ncols = Math.max.apply(null, rows.map(function (r) { return r.length; }));
+    while (colTypes.length < ncols) colTypes.push("auto");
+    colTypes.length = ncols;
+    var header = $("headerChk").checked;
+    var html = "";
+    for (var c = 0; c < ncols; c++) {
+      var name = (header && rows[0] && rows[0][c] !== undefined && rows[0][c] !== "") ? rows[0][c] : ("Column " + (c + 1));
+      html += "<label class=\"flabel\" style=\"display:inline-block;margin:0 14px 8px 0\">" + esc(name) + "<br><select data-col=\"" + c + "\" class=\"colTypeSel\" style=\"width:auto;min-width:110px\">" +
+        ["auto", "text", "number", "date"].map(function (t) {
+          return "<option value=\"" + t + "\"" + (colTypes[c] === t ? " selected" : "") + ">" + t.charAt(0).toUpperCase() + t.slice(1) + "</option>";
+        }).join("") + "</select></label>";
+    }
+    $("colTypes").innerHTML = html;
+    Array.prototype.forEach.call(document.querySelectorAll(".colTypeSel"), function (sel) {
+      sel.addEventListener("change", function () { colTypes[parseInt(sel.getAttribute("data-col"), 10)] = sel.value; });
+    });
+  }
   function renderPreview() {
     if (!rows) return;
     var show = rows.slice(0, 8);
@@ -381,20 +521,31 @@ table.facts td{color:var(--text2)}
         h += "</tr></thead><tbody>";
       } else {
         h += "<tr>";
-        for (var c2 = 0; c2 < cols; c2++) h += "<td>" + esc(r[c2] !== undefined ? r[c2] : "") + "</td>";
+        for (var c2 = 0; c2 < cols; c2++) h += "<td contenteditable=\"true\" data-r=\"" + ri + "\" data-c=\"" + c2 + "\">" + esc(r[c2] !== undefined ? r[c2] : "") + "</td>";
         h += "</tr>";
       }
     });
     if (!header) h = "<table><tbody>" + h.replace(/^<table><thead><tr>/, "");
     h += "</tbody></table>";
     $("previewBox").innerHTML = h;
+    renderTypePickers();
+    Array.prototype.forEach.call($("previewBox").querySelectorAll("td[contenteditable]"), function (td) {
+      td.addEventListener("input", function () {
+        var ri = parseInt(td.getAttribute("data-r"), 10), ci = parseInt(td.getAttribute("data-c"), 10);
+        if (rows[ri]) rows[ri][ci] = td.textContent;
+      });
+    });
     var ncols = Math.max.apply(null, rows.map(function (r) { return r.length; }));
     $("fileInfo").textContent = fileName + ".csv — " + rows.length + " rows × " + ncols + " columns. Preview shows the first 8 rows.";
   }
-  function reparse(text) {
+  function currentDelim(text) {
     var d = $("delimSel").value;
-    if (d === "auto") d = detectDelim(text);
-    rows = parseCSV(text, d);
+    if (d === "auto") return detectDelim(text);
+    if (d === "custom") { var c = $("customDelim").value; return c ? c.charAt(0) : ","; }
+    return d;
+  }
+  function reparse(text) {
+    rows = parseCSV(text, currentDelim(text));
     renderPreview();
   }
   var rawText = "";
@@ -413,7 +564,11 @@ table.facts td{color:var(--text2)}
     reader.onerror = function () { showError("Could not read that file. Try a plain .csv file."); };
     reader.readAsText(f);
   });
-  $("delimSel").addEventListener("change", function () { if (rawText) reparse(rawText); });
+  $("delimSel").addEventListener("change", function () {
+    $("customDelim").style.display = $("delimSel").value === "custom" ? "block" : "none";
+    if (rawText) reparse(rawText);
+  });
+  $("customDelim").addEventListener("input", function () { if (rawText) reparse(rawText); });
   $("headerChk").addEventListener("change", renderPreview);
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -427,9 +582,15 @@ table.facts td{color:var(--text2)}
     $("progressFill").style.width = Math.round(p * 100) + "%";
     $("progressText").textContent = text;
   }
-  function toCell(v) {
+  function toCell(v, ci) {
     if (v === "" || v === null || v === undefined) return "";
     var t = String(v).trim();
+    var forced = (ci !== undefined && colTypes[ci]) ? colTypes[ci] : "auto";
+    if (forced === "text" || forced === "date") return String(v);
+    if (forced === "number") {
+      var nn = Number(t.replace(/[\s,]/g, ""));
+      return (t !== "" && isFinite(nn)) ? nn : String(v);
+    }
     if (/^-?0\d/.test(t)) return t;
     if (/^-?\d{16,}$/.test(t.replace(/[\s,]/g, ""))) return t;
     if (/^-?\d+(\.\d+)?$/.test(t)) {
@@ -449,7 +610,7 @@ table.facts td{color:var(--text2)}
       setProgress(0.5, "Building your workbook…");
       var header = $("headerChk").checked;
       var data = rows.map(function (r, ri) {
-        return r.map(function (v) { return (ri === 0 && header) ? v : toCell(v); });
+        return r.map(function (v, ci) { return (ri === 0 && header) ? v : toCell(v, ci); });
       });
       var ws = XLSX.utils.aoa_to_sheet(data.length ? data : [[""]]);
       var wb = XLSX.utils.book_new();
@@ -469,7 +630,7 @@ table.facts td{color:var(--text2)}
   });
   $("resetBtn").addEventListener("click", function () {
     if (busy) return;
-    fileInput.value = ""; rows = null; rawText = "";
+    fileInput.value = ""; rows = null; rawText = ""; colTypes = []; $("colTypes").innerHTML = "";
     $("fileInfo").textContent = "No file chosen yet.";
     $("optionsBlock").style.display = "none"; $("resultBox").style.display = "none"; $("progressWrap").style.display = "none";
     clearError();

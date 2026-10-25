@@ -20,18 +20,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is adding a frame to a photo really free?",
+      "name": "How do I add a frame to a photo online for free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Frame as many photos as you like and download them \u2014 no signup, no watermark, no upload. Everything runs in your browser."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will the frame cover or crop part of my photo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The frame is added around the outside: the canvas grows by the frame width on every side, so no part of the original photo is covered or cropped."
+        "text": "Upload the photo, pick a frame style, set thickness and colour, preview and download. No install and no account on this tool. Export PNG for sharp edges, JPEG for smaller files."
       }
     },
     {
@@ -39,31 +31,111 @@
       "name": "How do I stop Instagram from cropping my photo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pad it with a frame into a ratio Instagram accepts \u2014 4:5 (1080\u00d71350) for feed posts or square (1080\u00d71080). The whole photo then sits inside the frame and Instagram has nothing left to cut."
+        "text": "Pad the canvas with a border to bring the image to an accepted ratio, 1:1, 4:5 or 3:4, before uploading. The whole photo stays intact inside the frame. This tool's Pad to Instagram size buttons do exactly that."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the Polaroid preset?",
+      "name": "What is the best border colour for Instagram?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A white frame with a much taller bottom edge, like an instant-camera print. It suits portraits and casual shots; the extra bottom space is where a caption would traditionally go."
+        "text": "White is the default gallery look; black suits moody or dark photos; a colour sampled from the photo itself gives the most cohesion. There is no single right answer, so match the feed, not the photo alone."
       }
     },
     {
       "@type": "Question",
-      "name": "Do rounded corners work in JPG?",
+      "name": "How thick should a photo border be?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The corners are rounded in the preview, but JPG has no transparency, so the corners are filled white on export. Download as PNG if you want genuinely transparent rounded corners."
+        "text": "3–5% of the image width is a sensible starting point; under about 2% reads as an accident. Keep the same proportion across a set. This tool has a button that sets the width to 4% of your photo's width."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my photo uploaded to a server?",
+      "name": "Does adding a border reduce photo quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your photo is framed in your browser with the canvas element. Nothing is uploaded, stored or shared."
+        "text": "Adding the border does not. Instagram's upload does: it re-encodes everything as JPEG at up to 1080 pixels wide. Export at full resolution so the downscale starts from more detail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add a white border without cropping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, that is the point: the border adds pixels around the original image instead of cutting into it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a frame and a border?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In these tools the words are interchangeable. A border is a solid edge; a frame is the same edge plus a style, such as a Polaroid bottom, a mat, a shadow or rounded corners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a Polaroid-style photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A white frame with a noticeably thicker bottom edge, optionally with a caption in the bottom space. On this tool, turn on the Polaroid style and type the caption in the caption box."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add a border to a photo on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool works in your phone's browser, and apps like Snapseed and VSCO add borders free on-phone. For print, do it on desktop where pixel dimensions are controllable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my framed photo still get cropped in the profile grid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possibly. The profile grid is 3:4 since January 2025, so a 4:5 post loses a little width and a square post loses a lot. Only a 3:4 post fills the grid exactly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free — will there be a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On this tool, yes: free, no watermark, no account, full resolution. It varies elsewhere: Kapwing watermarks all free-account exports, FrameLoom watermarks without a licence, and Instasize-family apps watermark unless you follow their account. Check before you edit, not after."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do my photos get uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On this tool, no. Processing happens locally in the browser via canvas, so your photos never leave your device. Tools that do not say this have not been verified either way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size should a framed photo be for Instagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Square 1080×1080, portrait 1080×1350 (4:5), story or reel 1080×1920 (9:16). This tool's Pad to Instagram size buttons pad to these ratios without cropping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add a border to multiple photos at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this tool: it processes one image at a time. For a consistent set, reuse the same colour and thickness values on each image. Batch framing is an open gap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What file format should I download?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PNG for sharp edges, transparency (circle or shadow exports) or print; JPEG for the smallest file for social; WebP for web use."
       }
     }
   ]
@@ -83,7 +155,7 @@
     {
       "@type": "HowToStep",
       "name": "Set the frame",
-      "text": "Pick a preset or set the width, colour and corner radius. Polaroid adds a taller bottom edge."
+      "text": "Pick a preset or set the width, colour and corner radius. Polaroid adds a taller bottom edge with an optional caption; pad to 1:1, 4:5, 3:4 or 9:16 for Instagram."
     },
     {
       "@type": "HowToStep",
@@ -193,9 +265,9 @@ table.facts td{color:var(--text2)}
     </div>
     <div class="tool-page-header">
       <h1>Add Frame to Photo — Free</h1>
-      <p>Put a clean frame around any photo — pick the colour, the width and the corner radius, then download it. No signup, no upload.</p>
+      <p>Free. No watermark. No account. Full resolution. Put a clean frame around any photo — pick the colour, the width and the corner radius, then download it.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> The frame is <strong>added around your photo, not drawn over it</strong> — your picture is never covered or cropped. Rounded corners export with transparency only as PNG; JPG fills the corners white. Very thick frames on small photos can dwarf the picture, so keep the width under about a tenth of the photo's shortest side.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> The frame is <strong>added around your photo, not drawn over it</strong> — your picture is never covered or cropped. Rounded corners export with transparency only as PNG; JPG fills the corners white. Very thick frames on small photos can dwarf the picture, so keep the width under about a tenth of the photo's shortest side. <strong>Exported files do not carry the original photo's EXIF or location metadata</strong> — canvas export strips it, so the download is clean but the camera data is gone.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Frame settings">
         <h2>Your photo</h2>
@@ -206,13 +278,26 @@ table.facts td{color:var(--text2)}
         <div class="chips" id="presetChips">
           <button type="button" class="chip" data-w="40" data-c="#ffffff" data-r="0">White gallery</button>
           <button type="button" class="chip" data-w="24" data-c="#111111" data-r="0">Thin black</button>
+          <button type="button" class="chip" data-w="60" data-c="#111111" data-r="0">Black gallery</button>
+          <button type="button" class="chip" data-w="12" data-c="#ffffff" data-r="0">Minimal</button>
+          <button type="button" class="chip" data-w="100" data-c="#111111" data-r="0">Bold</button>
+          <button type="button" class="chip" data-w="50" data-c="#e8dcc8" data-r="8">Vintage</button>
           <button type="button" class="chip" data-w="60" data-c="#ffffff" data-r="16" data-p="1">Polaroid</button>
           <button type="button" class="chip" data-w="30" data-c="#d4af37" data-r="0">Gold</button>
           <button type="button" class="chip" data-w="50" data-c="#f5f5f0" data-r="24">Rounded off-white</button>
         </div>
+        <span class="flabel" style="margin-top:16px">Pad to Instagram size (adds frame colour around the photo, never crops)</span>
+        <div class="chips" id="ratioChips">
+          <button type="button" class="chip" data-ratio="original" aria-pressed="true">Original shape</button>
+          <button type="button" class="chip" data-ratio="1:1" aria-pressed="false">1:1 square</button>
+          <button type="button" class="chip" data-ratio="4:5" aria-pressed="false">4:5 portrait</button>
+          <button type="button" class="chip" data-ratio="3:4" aria-pressed="false">3:4 grid</button>
+          <button type="button" class="chip" data-ratio="9:16" aria-pressed="false">9:16 story</button>
+        </div>
         <div style="margin-top:16px">
           <label class="flabel" for="wInput">Frame width: <span id="wOut">40 px</span></label>
           <input type="range" id="wInput" min="0" max="200" value="40">
+          <p class="trust" style="margin-top:8px">3–5% of the image width is a sensible starting point; under ~2% reads as an accident rather than a decision. <button type="button" class="chip" id="pctBtn">Set width to 4% of photo width</button></p>
         </div>
         <div style="margin-top:16px">
           <label class="flabel" for="rInput">Rounded corners: <span id="rOut">0 px</span></label>
@@ -224,6 +309,17 @@ table.facts td{color:var(--text2)}
         </div>
         <div style="margin-top:16px">
           <button type="button" class="toggle" id="polaroidBtn" aria-pressed="false">📸 Polaroid style (taller bottom)</button>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="captionInput">Polaroid caption (only used with Polaroid style)</label>
+          <input type="text" id="captionInput" maxlength="60" placeholder="e.g. Summer 2026" spellcheck="false">
+        </div>
+        <div style="margin-top:16px">
+          <button type="button" class="toggle" id="matBtn" aria-pressed="false">🖼️ Double frame (inner mat)</button>
+        </div>
+        <div style="margin-top:16px">
+          <label class="flabel" for="matColorInput">Inner mat colour (only used with Double frame)</label>
+          <div style="display:flex;gap:10px;align-items:center"><input type="color" id="matColorInput" value="#ffffff"><input type="text" id="matHexInput" value="#ffffff" maxlength="7" spellcheck="false"></div>
         </div>
         <div style="margin-top:16px">
           <label class="flabel" for="fmtSelect">Download format</label>
@@ -258,17 +354,34 @@ table.facts td{color:var(--text2)}
         <div class="step"><span class="num">STEP 3</span><h3>Download it</h3><p>Choose PNG, JPG or WebP and save the framed photo at full original resolution.</p></div>
       </div>
       <h2 style="margin-top:28px">Which frame stops Instagram cropping?</h2>
-      <p>Instagram shows feed posts at 4:5 (1080×1350), square (1080×1080) and 3:4 in the profile grid. A white or black frame that pads your photo into one of those shapes is the classic no-crop fix: the whole photo stays visible inside a canvas Instagram will not crop further. For a clean gallery look, use a white frame about 40 px wide on a large photo and keep the same width across a set of posts so the profile looks consistent. A blurred-background border blends better than a solid one on busy photos, but this tool keeps it simple — a solid colour frame is the look that works for prints, portfolios and product shots as well as social posts.</p>
+      <p>Instagram shows feed posts at 4:5 (1080×1350) and square (1080×1080), and the profile grid moved to 3:4 in January 2025. A frame that pads your photo into one of those shapes is the classic no-crop fix: the whole photo stays visible inside a canvas Instagram will not crop further — use the "Pad to Instagram size" buttons above (1:1, 4:5, 3:4 or 9:16 for stories). But watch the grid: a 3:4 post fills the profile grid exactly, a 4:5 post loses a little width there, and a square post loses a lot. If the grid matters to you, pad to 3:4. For a clean gallery look, use a white frame about 40 px wide on a large photo and keep the same width across a set of posts so the profile looks consistent.</p>
       <h2 style="margin-top:28px">What colour frame should I choose?</h2>
       <p>White is the safe default: it gives a gallery finish, makes colours pop and suits every subject. Black is stronger and suits dramatic or night photos. For a deliberate look, sample a secondary colour from inside the photo — pulling a tone from the background into the frame ties the whole image together. Gold (try #D4AF37) suits certificates and formal portraits. Avoid a frame colour that is almost the same as the photo's edge colour: it blurs the boundary and the frame disappears.</p>
+      <h2 style="margin-top:28px">Nine looks on one screen — and the ones still missing</h2>
+      <p>The presets above cover White gallery, Black gallery, Polaroid with a caption, Double frame with an inner mat, Vintage (a warm off-white), Minimal (a thin white edge), Bold (a very wide black edge), Gold and Rounded off-white. Two looks are <strong>not</strong> built here yet: a <strong>Film edge</strong> (sprocket-hole strip) and a <strong>Gradient</strong> frame (two colours blending across the border) — this tool fills the frame with one solid colour, so those need a different editor.</p>
+      <h2 style="margin-top:28px">Colour from the photo itself</h2>
+      <p>This tool has no eyedropper: you cannot click the photo to sample a colour. The workaround is to sample a tone in your phone's photo editor or any colour-picker app, copy the hex code, and paste it into the hex box next to the colour picker. A colour taken from inside the photo — a background tone, not the brightest colour — gives the most cohesion.</p>
+      <h2 style="margin-top:28px">Circle avatars, shadows and blurred borders</h2>
+      <p>Three things this tool does <strong>not</strong> do: it does not crop to a true circle avatar, it does not add a drop shadow, and it does not fill the border with a blurred copy of the photo. Rounded corners with a PNG export give you transparent corners, which is close to a circle look on a square photo, but for a genuine circular profile picture or a soft shadow, export the PNG and finish in another editor. A blurred-background border blends better than a solid one on busy photos, but it is not built here — solid colour only.</p>
+      <h2 style="margin-top:28px">Full resolution, formats and metadata</h2>
+      <p>The preview is scaled to fit the screen; the download is the full original resolution — the frame is added at the photo's real pixel size, never downscaled. Download PNG for sharp edges, transparency or print; JPG for the smallest file for social; WebP for web use. One honest catch: canvas export strips the original photo's EXIF and location metadata, so the download is clean but the camera data is gone.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is adding a frame to a photo really free?</summary><p>Yes. Frame as many photos as you like and download them — no signup, no watermark, no upload. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>Will the frame cover or crop part of my photo?</summary><p>No. The frame is added around the outside: the canvas grows by the frame width on every side, so no part of the original photo is covered or cropped.</p></details>
-      <details class="faq"><summary>How do I stop Instagram from cropping my photo?</summary><p>Pad it with a frame into a ratio Instagram accepts — 4:5 (1080×1350) for feed posts or square (1080×1080). The whole photo then sits inside the frame and Instagram has nothing left to cut.</p></details>
-      <details class="faq"><summary>What is the Polaroid preset?</summary><p>A white frame with a much taller bottom edge, like an instant-camera print. It suits portraits and casual shots; the extra bottom space is where a caption would traditionally go.</p></details>
-      <details class="faq"><summary>Do rounded corners work in JPG?</summary><p>The corners are rounded in the preview, but JPG has no transparency, so the corners are filled white on export. Download as PNG if you want genuinely transparent rounded corners.</p></details>
-      <details class="faq"><summary>Is my photo uploaded to a server?</summary><p>No. Your photo is framed in your browser with the canvas element. Nothing is uploaded, stored or shared.</p></details>
+      <details class="faq"><summary>How do I add a frame to a photo online for free?</summary><p>Upload the photo, pick a frame style, set thickness and colour, preview and download. No install and no account on this tool. Export PNG for sharp edges, JPEG for smaller files.</p></details>
+      <details class="faq"><summary>How do I stop Instagram from cropping my photo?</summary><p>Pad the canvas with a border to bring the image to an accepted ratio, 1:1, 4:5 or 3:4, before uploading. The whole photo stays intact inside the frame. This tool's Pad to Instagram size buttons do exactly that.</p></details>
+      <details class="faq"><summary>What is the best border colour for Instagram?</summary><p>White is the default gallery look; black suits moody or dark photos; a colour sampled from the photo itself gives the most cohesion. There is no single right answer, so match the feed, not the photo alone.</p></details>
+      <details class="faq"><summary>How thick should a photo border be?</summary><p>3–5% of the image width is a sensible starting point; under about 2% reads as an accident. Keep the same proportion across a set. This tool has a button that sets the width to 4% of your photo's width.</p></details>
+      <details class="faq"><summary>Does adding a border reduce photo quality?</summary><p>Adding the border does not. Instagram's upload does: it re-encodes everything as JPEG at up to 1080 pixels wide. Export at full resolution so the downscale starts from more detail.</p></details>
+      <details class="faq"><summary>Can I add a white border without cropping?</summary><p>Yes, that is the point: the border adds pixels around the original image instead of cutting into it.</p></details>
+      <details class="faq"><summary>What is the difference between a frame and a border?</summary><p>In these tools the words are interchangeable. A border is a solid edge; a frame is the same edge plus a style, such as a Polaroid bottom, a mat, a shadow or rounded corners.</p></details>
+      <details class="faq"><summary>How do I make a Polaroid-style photo?</summary><p>A white frame with a noticeably thicker bottom edge, optionally with a caption in the bottom space. On this tool, turn on the Polaroid style and type the caption in the caption box.</p></details>
+      <details class="faq"><summary>Can I add a border to a photo on my phone?</summary><p>Yes. This tool works in your phone's browser, and apps like Snapseed and VSCO add borders free on-phone. For print, do it on desktop where pixel dimensions are controllable.</p></details>
+      <details class="faq"><summary>Will my framed photo still get cropped in the profile grid?</summary><p>Possibly. The profile grid is 3:4 since January 2025, so a 4:5 post loses a little width and a square post loses a lot. Only a 3:4 post fills the grid exactly.</p></details>
+      <details class="faq"><summary>Is it free — will there be a watermark?</summary><p>On this tool, yes: free, no watermark, no account, full resolution. It varies elsewhere: Kapwing watermarks all free-account exports, FrameLoom watermarks without a licence, and Instasize-family apps watermark unless you follow their account. Check before you edit, not after.</p></details>
+      <details class="faq"><summary>Do my photos get uploaded to a server?</summary><p>On this tool, no. Processing happens locally in the browser via canvas, so your photos never leave your device. Tools that do not say this have not been verified either way.</p></details>
+      <details class="faq"><summary>What size should a framed photo be for Instagram?</summary><p>Square 1080×1080, portrait 1080×1350 (4:5), story or reel 1080×1920 (9:16). This tool's Pad to Instagram size buttons pad to these ratios without cropping.</p></details>
+      <details class="faq"><summary>Can I add a border to multiple photos at once?</summary><p>Not on this tool: it processes one image at a time. For a consistent set, reuse the same colour and thickness values on each image. Batch framing is an open gap.</p></details>
+      <details class="faq"><summary>What file format should I download?</summary><p>PNG for sharp edges, transparency (circle or shadow exports) or print; JPEG for the smallest file for social; WebP for web use.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -319,7 +432,7 @@ table.facts td{color:var(--text2)}
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
-  var img = null, origW = 0, origH = 0, origName = "photo", polaroid = false;
+  var img = null, origW = 0, origH = 0, origName = "photo", polaroid = false, mat = false, padRatio = "original";
   function roundRectPath(ctx, x, y, w, h, r) {
     r = Math.min(r, w / 2, h / 2);
     ctx.beginPath();
@@ -332,25 +445,62 @@ table.facts td{color:var(--text2)}
     var extraBottom = polaroid ? Math.round(Math.max(bw * 2.5, origH * 0.12)) : 0;
     return { bw: bw, bottom: bw + extraBottom };
   }
+  function framedSize() {
+    var d = dims();
+    return { W: origW + d.bw * 2, H: origH + d.bw + d.bottom, bw: d.bw, bottom: d.bottom, extra: d.bottom - d.bw };
+  }
+  function paddedSize(W, H) {
+    if (padRatio === "original" || !img) return { PW: W, PH: H, ox: 0, oy: 0 };
+    var parts = padRatio.split(":");
+    var rw = parseInt(parts[0], 10), rh = parseInt(parts[1], 10);
+    var PW = W, PH = H;
+    if (W / H > rw / rh) { PH = Math.round(W * rh / rw); } else { PW = Math.round(H * rw / rh); }
+    return { PW: PW, PH: PH, ox: Math.round((PW - W) / 2), oy: Math.round((PH - H) / 2) };
+  }
+  function drawFramed(ctx, ox, oy, s) {
+    var f = framedSize();
+    var r = (parseInt($("rInput").value, 10) || 0) * s;
+    var bw = f.bw * s;
+    var W = f.W * s, H = f.H * s;
+    ctx.save();
+    roundRectPath(ctx, ox, oy, W, H, r);
+    ctx.fillStyle = $("colorInput").value; ctx.fill();
+    if (mat) {
+      var mw = bw / 2;
+      ctx.save();
+      roundRectPath(ctx, ox + mw, oy + mw, W - mw * 2, bw + origH * s, Math.max(0, r - mw));
+      ctx.fillStyle = $("matColorInput").value; ctx.fill();
+      ctx.restore();
+    }
+    ctx.save();
+    roundRectPath(ctx, ox + bw, oy + bw, origW * s, origH * s, Math.max(0, r - bw));
+    ctx.clip();
+    ctx.drawImage(img, ox + bw, oy + bw, origW * s, origH * s);
+    ctx.restore();
+    if (polaroid) {
+      var cap = ($("captionInput").value || "").trim();
+      if (cap) {
+        var fontPx = Math.max(8, Math.round(f.extra * s * 0.32));
+        ctx.fillStyle = "#333333";
+        ctx.font = "600 " + fontPx + "px 'DM Sans',sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(cap, ox + W / 2, oy + bw + origH * s + (f.extra * s) / 2);
+      }
+    }
+    ctx.restore();
+  }
   function render() {
     var cv = $("prevCanvas"), ctx = cv.getContext("2d");
     ctx.clearRect(0, 0, cv.width, cv.height);
     if (!img) { ctx.fillStyle = "#8888a8"; ctx.font = "15px 'DM Sans',sans-serif"; ctx.textAlign = "center"; ctx.fillText("Upload a photo to preview the frame.", cv.width / 2, cv.height / 2); return; }
-    var d = dims(), r = parseInt($("rInput").value, 10) || 0;
-    var scale = Math.min(1, (cv.width - 16) / (origW + d.bw * 2), (cv.height - 16) / (origH + d.bw + d.bottom));
-    var W = Math.round((origW + d.bw * 2) * scale), H = Math.round((origH + d.bw + d.bottom) * scale);
-    var ox = Math.round((cv.width - W) / 2), oy = Math.round((cv.height - H) / 2);
-    var bwS = d.bw * scale, rS = r * scale;
-    ctx.save();
-    roundRectPath(ctx, ox, oy, W, H, rS);
-    ctx.fillStyle = $("colorInput").value; ctx.fill();
-    ctx.save();
-    roundRectPath(ctx, ox + bwS, oy + bwS, Math.round(origW * scale), Math.round(origH * scale), Math.max(0, rS - bwS));
-    ctx.clip();
-    ctx.drawImage(img, ox + bwS, oy + bwS, Math.round(origW * scale), Math.round(origH * scale));
-    ctx.restore(); ctx.restore();
-    var totalW = origW + d.bw * 2, totalH = origH + d.bw + d.bottom;
-    $("metaLine").textContent = "Original: " + origW + "×" + origH + " → Framed: " + totalW + "×" + totalH + " (frame " + d.bw + " px" + (polaroid ? ", Polaroid bottom" : "") + ").";
+    var f = framedSize();
+    var p = paddedSize(f.W, f.H);
+    var scale = Math.min(1, (cv.width - 16) / p.PW, (cv.height - 16) / p.PH);
+    var ox = Math.round((cv.width - p.PW * scale) / 2), oy = Math.round((cv.height - p.PH * scale) / 2);
+    if (p.PW !== f.W || p.PH !== f.H) { ctx.fillStyle = $("colorInput").value; ctx.fillRect(ox, oy, Math.round(p.PW * scale), Math.round(p.PH * scale)); }
+    drawFramed(ctx, ox + Math.round(p.ox * scale), oy + Math.round(p.oy * scale), scale);
+    $("metaLine").textContent = "Original: " + origW + "×" + origH + " → Framed: " + f.W + "×" + f.H + (p.PW !== f.W || p.PH !== f.H ? " → Padded " + p.PW + "×" + p.PH + " (" + padRatio + ")" : "") + " (frame " + f.bw + " px" + (polaroid ? ", Polaroid bottom" : "") + (mat ? ", double mat" : "") + ").";
   }
   $("imgFile").addEventListener("change", function () {
     var f = this.files[0]; if (!f) return;
@@ -390,28 +540,45 @@ table.facts td{color:var(--text2)}
     this.setAttribute("aria-pressed", polaroid ? "true" : "false");
     render();
   });
+  $("captionInput").addEventListener("input", render);
+  $("matBtn").addEventListener("click", function () {
+    mat = !mat;
+    this.setAttribute("aria-pressed", mat ? "true" : "false");
+    render();
+  });
+  $("matColorInput").addEventListener("input", function () { $("matHexInput").value = this.value; render(); });
+  $("matHexInput").addEventListener("input", function () {
+    if (/^#[0-9a-fA-F]{6}$/.test(this.value)) { $("matColorInput").value = this.value; render(); }
+  });
+  $("ratioChips").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".chip"); if (!b) return;
+    padRatio = b.getAttribute("data-ratio");
+    document.querySelectorAll("#ratioChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+    render();
+  });
+  $("pctBtn").addEventListener("click", function () {
+    if (!img) { toast("Upload a photo first — the width is set from its size."); return; }
+    var w = Math.max(4, Math.round(origW * 0.04));
+    $("wInput").value = w; $("wOut").textContent = w + " px";
+    render();
+  });
   $("dlBtn").addEventListener("click", function () {
     if (!img) return;
-    var d = dims(), r = parseInt($("rInput").value, 10) || 0;
-    var W = origW + d.bw * 2, H = origH + d.bw + d.bottom;
-    var cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    var f = framedSize();
+    var p = paddedSize(f.W, f.H);
+    var cv = document.createElement("canvas"); cv.width = p.PW; cv.height = p.PH;
     var ctx = cv.getContext("2d");
     var fmt = $("fmtSelect").value;
-    if (fmt === "image/jpeg") { ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, W, H); }
-    roundRectPath(ctx, 0, 0, W, H, r);
-    if (fmt !== "image/jpeg" || r === 0) { ctx.fillStyle = $("colorInput").value; ctx.fill(); }
-    else { ctx.save(); ctx.fillStyle = $("colorInput").value; ctx.fill(); ctx.restore(); }
-    ctx.save();
-    roundRectPath(ctx, d.bw, d.bw, origW, origH, Math.max(0, r - d.bw));
-    ctx.clip(); ctx.drawImage(img, d.bw, d.bw);
-    ctx.restore();
+    if (fmt === "image/jpeg") { ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, p.PW, p.PH); }
+    else if (p.PW !== f.W || p.PH !== f.H) { ctx.fillStyle = $("colorInput").value; ctx.fillRect(0, 0, p.PW, p.PH); }
+    drawFramed(ctx, p.ox, p.oy, 1);
     var ext = fmt === "image/png" ? "png" : fmt === "image/jpeg" ? "jpg" : "webp";
     cv.toBlob(function (blob) {
       if (!blob) { toast("Export failed in this browser."); return; }
       var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
       a.download = origName + "-framed." + ext; document.body.appendChild(a); a.click();
       setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
-      toast("Framed photo downloaded (" + W + "×" + H + ").");
+      toast("Framed photo downloaded (" + p.PW + "×" + p.PH + ").");
     }, fmt, 0.92);
   });
   render();

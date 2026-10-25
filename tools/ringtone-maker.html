@@ -23,7 +23,7 @@
       "name": "Is this ringtone maker really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Make as many ringtones as you like, free, with no signup, no upload and no watermark. Everything runs in your browser and the ringtone downloads straight to your device."
+        "text": "Yes. Make as many ringtones as you like, free, with no signup, no upload and no watermark. Everything runs in your browser and the ringtone downloads straight to your device. There is no export-duration limit and no watermark \u2014 the limits other \u201cfree\u201d tools impose at the last step are absent here."
       }
     },
     {
@@ -31,7 +31,7 @@
       "name": "Can I make an iPhone ringtone here?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Halfway. This page trims your song and exports an MP3 or WAV, but iPhones only accept ringtones as .m4r files, and no browser can create a .m4r. Export the clip here, then use free GarageBand on your iPhone to turn it into a ringtone — the steps are in the guide below."
+        "text": "Halfway. This page trims your song and exports an MP3 or WAV, but iPhones only accept ringtones as .m4r files, and no browser can create a .m4r. Export the clip here, then use free GarageBand on your iPhone to turn it into a ringtone \u2014 the steps are in the guide below."
       }
     },
     {
@@ -39,7 +39,15 @@
       "name": "How long should a ringtone be?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "30 seconds or less. iPhones ignore ringtones longer than 40 seconds, and most people answer or miss the call within 30 seconds anyway. Pick the chorus or the catchiest 15 to 30 seconds of the song."
+        "text": "30 seconds or less. iPhones cap ringtones at 30 seconds in Settings, and most people answer or miss the call within 30 seconds anyway. Pick the chorus or the catchiest 15 to 30 seconds of the song."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert MP3 to M4R for iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a Mac: import the MP3 in the Music app and use File > Convert > Create AAC Version to make an .m4a, rename the extension to .m4r in Finder, drag it onto the iPhone in Finder and sync. Or export from GarageBand as a ringtone on the phone itself. Do not just rename an MP3 to .m4r \u2014 that changes the name, not the file."
       }
     },
     {
@@ -47,7 +55,15 @@
       "name": "Why won't my ringtone show up on my iPhone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Almost always one of three things: the clip is longer than 40 seconds, the file is an MP3 renamed to .m4r instead of a real .m4r, or the transfer did not complete. Keep the clip under 30 seconds, make a real .m4r through GarageBand, and check the file name ends in exactly .m4r — not .m4r.m4a."
+        "text": "Almost always one of three things: the clip is longer than 30 seconds, the file is an MP3 renamed to .m4r instead of a real .m4r, or the transfer did not complete. Keep the clip at 30 seconds or under, make a real .m4r through GarageBand or the Finder rename step, and look under Settings > Sounds & Haptics > Ringtone \u2014 not in Music or Files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is there no ringtone option for a file in Files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is normal \u2014 Files does not move audio into the ringtone picker. Import the file into GarageBand and export it as a ringtone."
       }
     },
     {
@@ -55,7 +71,63 @@
       "name": "Can I use a song from YouTube or Spotify as a ringtone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only if you have the audio file itself. Streaming songs and DRM-protected downloads cannot be turned into ringtones — the file is locked. Use an MP3 or WAV you own and can copy, then trim it here."
+        "text": "Only if you have the audio file itself. Streaming songs and DRM-protected downloads cannot be turned into ringtones \u2014 the file is locked. Use an MP3 or WAV you own and can copy, then trim it here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use an Apple Music song as a ringtone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No if it is DRM-protected \u2014 protected tracks stay dimmed in GarageBand and cannot be used. Use a file you own or a song you created."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a ringtone from a video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 extract the audio first (for example, a video-to-MP3 step), then trim it in the ringtone maker. This tool does not extract audio from video files and cannot pull audio from a YouTube link directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I set a custom ringtone on Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Download the trimmed MP3, save it to the Ringtones folder, then pick it in Settings > Sound > Phone ringtone \u2014 or long-press the file in your file manager and tap Set as ringtone. You can also assign a tone directly to a contact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a ringtone from my own voice recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 record in your phone's voice recorder app, upload the recording file here, trim it, and export; keep it under 30 seconds for iPhone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format should a ringtone be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP3 or WAV for Android; .m4r (AAC in an .m4r wrapper) for iPhone. A browser tool exports MP3/WAV \u2014 .m4r needs the GarageBand or Finder rename step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do free ringtone makers add a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This one does not \u2014 no watermark, no ads, no sign-up, no export-duration limit. Some free tools do watermark their exports or limit export length, so check the audio export specifically before trusting \u201cfree\u201d."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a ringtone without a computer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes on iPhone with GarageBand (phone-only, no cables) and on Android with a ringtone app; a browser tool on the phone works for the trim, but iPhone still needs GarageBand to install the result."
       }
     },
     {
@@ -151,6 +223,9 @@ audio{width:100%;margin-top:12px}
 .checkrow input{accent-color:var(--accent)}
 canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-top:12px;cursor:pointer}
 .warn{color:#f59e0b;font-size:14px;margin-top:10px;line-height:1.7}
+.ok{color:#34d399;font-size:14px;margin-top:10px;line-height:1.7;font-weight:600}
+.guide-step{font-size:14px;color:var(--text2);line-height:1.8;margin:6px 0}
+.guide-step strong{color:var(--text)}
 .twin{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 </style>
 </head>
@@ -177,7 +252,7 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
       <h1>Ringtone Maker Free</h1>
       <p>Turn any song into a ringtone — trim the best 30 seconds, add fades, download free. No signup, no upload, no ads.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Export is <strong>MP3 or WAV only</strong>. iPhone <strong>.m4r is NOT possible in the browser</strong> — no website can create a real .m4r file, so the iPhone step needs free GarageBand (steps below). Keep clips <strong>30 seconds or under</strong>: iPhones ignore ringtones over 40 seconds. MP3 export appears only if your browser can encode MP3; WAV always works.</div>
+    <div class="note"><strong>iPhone users — read this first:</strong> this tool makes an <strong>MP3 or WAV ringtone</strong>. iPhone ringtones must be <strong>.m4r, and .m4r cannot be made in a browser</strong> — no website can create a real .m4r file. The fix takes two minutes and is free: <strong>GarageBand on your phone</strong> (steps below), or on a Mac convert the clip to AAC (.m4a), <strong>rename .m4a to .m4r in Finder and sync</strong> it to the phone. Do not just rename an MP3 to .m4r — that changes the name, not the file, and the iPhone will not list it. <strong>Free, really free:</strong> no export-duration limit, no watermark, no account — the exact limits other &ldquo;free&rdquo; ringtone tools impose at the last step are absent here. Keep clips <strong>30 seconds or under</strong>: iPhone ringtones are capped at 30 seconds in Settings, and a longer clip errors or is shortened. MP3 export appears only if your browser can encode MP3; WAV always works.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Ringtone maker">
         <h2>Your song</h2>
@@ -201,7 +276,8 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
               <input type="number" id="endTime" min="0" step="0.01" value="30" aria-label="End time in seconds">
             </div>
           </div>
-          <p class="warn" id="lenWarn" hidden>⚠️ This clip is over 30 seconds — iPhones ignore ringtones longer than 40 seconds. Shorten it to 30 seconds or less.</p>
+          <p class="warn" id="lenWarn" hidden>⚠️ This clip is over 30 seconds — iPhone ringtones are capped at 30 seconds in Settings, and a longer clip errors or is shortened. Shorten it to 30 seconds or less.</p>
+          <p class="ok" id="lenCheck" hidden>✓ 30 seconds or under — iPhone-ready length.</p>
           <div class="chips" style="margin-top:12px">
             <button type="button" class="chip" id="presetFirst">First 30s</button>
             <button type="button" class="chip" id="presetMid">Middle 30s (chorus)</button>
@@ -209,6 +285,11 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
           </div>
           <label class="checkrow"><input type="checkbox" id="fadeIn" checked> Fade in (smooth start)</label>
           <label class="checkrow"><input type="checkbox" id="fadeOut" checked> Fade out (smooth end)</label>
+          <div style="margin-top:12px">
+            <label class="flabel" for="volInput">Volume: <span id="volOut">100%</span></label>
+            <input type="range" id="volInput" min="10" max="150" value="100">
+            <p class="trust">Applied to the preview, the WAV export and the MP3 export. Useful when the original recording is quiet.</p>
+          </div>
           <div class="actions">
             <button type="button" class="btn" id="playBtn">▶ Play selection</button>
             <button type="button" class="btn alt" id="playFullBtn">Play full song</button>
@@ -230,6 +311,10 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
           <tr><td>Alarm / notification</td><td>Same MP3 works — pick it under Settings → Sound → Alarm sound or Notification sound instead.</td></tr>
         </table>
         <p class="trust">Do not just rename an MP3 to .m4r — that changes the name, not the file, and the iPhone will not list it as a ringtone. The file must really be an AAC (.m4r) file, which only GarageBand, Finder/iTunes or a desktop converter can produce.</p>
+        <h2 style="margin-top:20px">Ringtone, alarm or notification — same clip, different job</h2>
+        <p class="trust">This page exports one audio file; you choose what it becomes when you save it. On Android, save the MP3 into the <strong>Ringtones</strong> folder for calls, <strong>Alarms</strong> for the alarm clock, or <strong>Notifications</strong> for message sounds — then pick it under Settings → Sound. On iPhone, GarageBand's Ringtone export puts the clip in the ringtone list, and the same list is used for alarms. A voice recording works the same way: record it in your phone's voice recorder app, upload the file here, trim it and download it.</p>
+        <h2 style="margin-top:20px">Video files — not accepted here</h2>
+        <p class="trust">This tool trims audio files (MP3, WAV, M4A, OGG). It does not extract audio from video: if your sound is in an MP4 or MOV, convert the video to an audio file first (a video-to-MP3 step), then upload the audio here. It also cannot pull audio from a YouTube link — you need the audio file itself, a file you own.</p>
       </div>
     </div>
     <div class="share-box">
@@ -246,23 +331,30 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: your favourite song is three minutes long, and your phone wants 30 seconds</h2>
-      <p>Everyone has tried this: you want the chorus of your favourite song as your ringtone, and the phone makes it hard. On iPhone the trouble starts before you even trim — the phone only accepts .m4r files, iTunes hides the "Create AAC Version" option when the import setting is wrong, and a file renamed from .mp3 to .m4r by hand simply never appears in the ringtone list. Worse, clips over 40 seconds are silently ignored, so people do the whole dance and hear nothing when a call comes in. On Android the format is easy, but most "free ringtone maker" apps are ad-heavy, push subscriptions, or want your contacts. And the ringtone sites that do work in a browser often charge, watermark, or upload your song to a server. What people actually want is plain: cut the best part of a song they own, keep it short, and get a file their phone accepts — without an app install, a subscription, or a surprise.</p>
+      <p>Everyone has tried this: you want the chorus of your favourite song as your ringtone, and the phone makes it hard. On iPhone the trouble starts before you even trim — the phone only accepts .m4r files, iTunes hides the "Create AAC Version" option when the import setting is wrong, and a file renamed from .mp3 to .m4r by hand simply never appears in the ringtone list. Worse, clips over 30 seconds are capped in Settings and a longer selection errors or is shortened, so people do the whole dance and hear nothing when a call comes in. On Android the format is easy, but most "free ringtone maker" apps are ad-heavy, push subscriptions, or want your contacts. And the ringtone sites that do work in a browser often charge, watermark, or upload your song to a server. What people actually want is plain: cut the best part of a song they own, keep it short, and get a file their phone accepts — without an app install, a subscription, or a surprise.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I make a ringtone from a song for free?</h2>
       <p>Upload your song here, drag the sliders to the best 15 to 30 seconds — usually the chorus — tick fade in and fade out, preview it, and download the ringtone as MP3 or WAV. Android phones accept the MP3 directly as a ringtone. On iPhone, save the clip to Files and use free GarageBand to turn it into a ringtone, because browsers cannot create .m4r files.</p>
-      <p>A ringtone is a short audio clip, usually 15 to 30 seconds, that a phone plays when a call comes in. Android accepts MP3 files directly, while iPhone only accepts AAC audio in a file ending .m4r, capped at 40 seconds. Trimming means cutting the song down to that short section; the fades keep the clip from starting or ending with an abrupt cut.</p>
+      <p>A ringtone is a short audio clip, usually 15 to 30 seconds, that a phone plays when a call comes in. Android accepts MP3 files directly, while iPhone only accepts AAC audio in a file ending .m4r, capped at 30 seconds. Trimming means cutting the song down to that short section; the fades keep the clip from starting or ending with an abrupt cut.</p>
       <!-- HOW TO -->
       <h2>How to make a ringtone in 3 steps</h2>
       <p><strong>Step 1:</strong> upload your song — MP3, WAV, M4A or OGG, a file you own; it never leaves your device. <strong>Step 2:</strong> pick the best 30 seconds with the sliders or the First / Middle / Last 30s buttons, keep it at 30 seconds or under, and tick fade in and fade out. <strong>Step 3:</strong> play the selection to check it, then download the MP3 or WAV ringtone and set it on your phone.</p>
-      <h2>Getting it onto an iPhone, step by step</h2>
-      <p>Download the trimmed clip here, then save it into the Files app on your iPhone. Open GarageBand (free from the App Store), start a new Audio Recorder song, tap the loop icon, import the clip from Files, then tap Share and choose Ringtone. GarageBand converts the clip to a real .m4r and adds it to Settings → Sounds &amp; Haptics → Ringtone. This one extra step is the only honest way to get a custom ringtone onto an iPhone without a computer — any site claiming to download a ready .m4r straight from the browser is not telling the truth.</p>
+      <h2>Getting it onto your phone — step by step</h2>
+      <h3 style="margin-top:18px">Android</h3>
+      <p class="guide-step"><strong>Step 1:</strong> download the trimmed MP3 here. <strong>Step 2:</strong> save it to the Ringtones folder (your file manager usually offers &ldquo;Set as ringtone&rdquo; on a long-press). <strong>Step 3:</strong> go to Settings → Sound → Phone ringtone → My Sounds and pick it. For an alarm or notification, save it to the Alarms or Notifications folder instead and pick it under Alarm sound or Notification sound. You can also assign a tone to one contact from the contact's page in your phone app.</p>
+      <h3 style="margin-top:18px">iPhone — GarageBand (no computer)</h3>
+      <p class="guide-step"><strong>Step 1:</strong> download the trimmed clip here and save it into the Files app on your iPhone. <strong>Step 2:</strong> open GarageBand (free from the App Store) and start a new Audio Recorder song. <strong>Step 3:</strong> tap the loop icon, import the clip from Files, and drag it onto the timeline. <strong>Step 4:</strong> tap the down-arrow → My Songs, long-press the song, tap Share → Ringtone, name it, and tap Export. <strong>Step 5:</strong> pick it in Settings → Sounds &amp; Haptics → Ringtone. GarageBand makes the real .m4r for you — this is the only honest way to get a custom ringtone onto an iPhone without a computer. Any site claiming to download a ready .m4r straight from the browser is not telling the truth.</p>
+      <h3 style="margin-top:18px">iPhone — Finder on a Mac (no GarageBand)</h3>
+      <p class="guide-step"><strong>Step 1:</strong> download the trimmed MP3 here. <strong>Step 2:</strong> in the Music app, import the MP3 and use File → Convert → Create AAC Version to make an .m4a file. <strong>Step 3:</strong> in Finder, rename the .m4a file's extension to .m4r (Finder will ask you to confirm — say yes). <strong>Step 4:</strong> connect the iPhone, open it in Finder, and drag the .m4r file onto the phone, then sync. <strong>Step 5:</strong> pick it in Settings → Sounds &amp; Haptics → Ringtone.</p>
+      <h3 style="margin-top:18px">Why won't my ringtone show up?</h3>
+      <p class="guide-step">Check the clip length first — <strong>30 seconds or less</strong>; a longer clip errors or is shortened. Then look in the right place: <strong>Settings → Sounds &amp; Haptics → Ringtone</strong>, not in Music or Files — Files does not move audio into the ringtone picker. If the file is an MP3 renamed to .m4r by hand, it will never appear: it must be a real AAC .m4r from GarageBand or the Finder step. And if the song is a DRM-protected Apple Music track, it stays dimmed in GarageBand and cannot be used — use a file you own.</p>
       <h2>Picking the right 30 seconds</h2>
       <p>The chorus is almost always the right choice — it is the part everyone recognises in two seconds. Start the clip a beat before the chorus hits so the ringtone does not begin mid-word, and let the fade-out soften the ending instead of cutting the music dead. A 15-second clip works fine too, and it is safer if your phone only rings briefly before going to voicemail.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
         <summary>Is this ringtone maker really free?</summary>
-        <p>Yes. Make as many ringtones as you like, free, with no signup, no upload and no watermark. Everything runs in your browser and the ringtone downloads straight to your device.</p>
+        <p>Yes. Make as many ringtones as you like, free, with no signup, no upload and no watermark. Everything runs in your browser and the ringtone downloads straight to your device. There is no export-duration limit and no watermark — the limits other "free" tools impose at the last step are absent here.</p>
       </details>
       <details class="faq">
         <summary>Can I make an iPhone ringtone here?</summary>
@@ -270,15 +362,51 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
       </details>
       <details class="faq">
         <summary>How long should a ringtone be?</summary>
-        <p>30 seconds or less. iPhones ignore ringtones longer than 40 seconds, and most people answer or miss the call within 30 seconds anyway. Pick the chorus or the catchiest 15 to 30 seconds of the song.</p>
+        <p>30 seconds or less. iPhones cap ringtones at 30 seconds in Settings, and most people answer or miss the call within 30 seconds anyway. Pick the chorus or the catchiest 15 to 30 seconds of the song.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert MP3 to M4R for iPhone?</summary>
+        <p>On a Mac: import the MP3 in the Music app and use File &gt; Convert &gt; Create AAC Version to make an .m4a, rename the extension to .m4r in Finder, drag it onto the iPhone in Finder and sync. Or export from GarageBand as a ringtone on the phone itself. Do not just rename an MP3 to .m4r — that changes the name, not the file.</p>
       </details>
       <details class="faq">
         <summary>Why won't my ringtone show up on my iPhone?</summary>
-        <p>Almost always one of three things: the clip is longer than 40 seconds, the file is an MP3 renamed to .m4r instead of a real .m4r, or the transfer did not complete. Keep the clip under 30 seconds, make a real .m4r through GarageBand, and check the file name ends in exactly .m4r — not .m4r.m4a.</p>
+        <p>Almost always one of three things: the clip is longer than 30 seconds, the file is an MP3 renamed to .m4r instead of a real .m4r, or the transfer did not complete. Keep the clip at 30 seconds or under, make a real .m4r through GarageBand or the Finder rename step, and look under Settings &gt; Sounds &amp; Haptics &gt; Ringtone — not in Music or Files.</p>
+      </details>
+      <details class="faq">
+        <summary>Why is there no ringtone option for a file in Files?</summary>
+        <p>That is normal — Files does not move audio into the ringtone picker. Import the file into GarageBand and export it as a ringtone.</p>
       </details>
       <details class="faq">
         <summary>Can I use a song from YouTube or Spotify as a ringtone?</summary>
         <p>Only if you have the audio file itself. Streaming songs and DRM-protected downloads cannot be turned into ringtones — the file is locked. Use an MP3 or WAV you own and can copy, then trim it here.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I use an Apple Music song as a ringtone?</summary>
+        <p>No if it is DRM-protected — protected tracks stay dimmed in GarageBand and cannot be used. Use a file you own or a song you created.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a ringtone from a video?</summary>
+        <p>Yes — extract the audio first (for example, a video-to-MP3 step), then trim it in the ringtone maker. This tool does not extract audio from video files and cannot pull audio from a YouTube link directly.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I set a custom ringtone on Android?</summary>
+        <p>Download the trimmed MP3, save it to the Ringtones folder, then pick it in Settings &gt; Sound &gt; Phone ringtone — or long-press the file in your file manager and tap Set as ringtone. You can also assign a tone directly to a contact.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a ringtone from my own voice recording?</summary>
+        <p>Yes — record in your phone's voice recorder app, upload the recording file here, trim it, and export; keep it under 30 seconds for iPhone.</p>
+      </details>
+      <details class="faq">
+        <summary>What format should a ringtone be?</summary>
+        <p>MP3 or WAV for Android; .m4r (AAC in an .m4r wrapper) for iPhone. A browser tool exports MP3/WAV — .m4r needs the GarageBand or Finder rename step.</p>
+      </details>
+      <details class="faq">
+        <summary>Do free ringtone makers add a watermark?</summary>
+        <p>This one does not — no watermark, no ads, no sign-up, no export-duration limit. Some free tools do watermark their exports or limit export length, so check the audio export specifically before trusting "free".</p>
+      </details>
+      <details class="faq">
+        <summary>Can I make a ringtone without a computer?</summary>
+        <p>Yes on iPhone with GarageBand (phone-only, no cables) and on Android with a ringtone app; a browser tool on the phone works for the trim, but iPhone still needs GarageBand to install the result.</p>
       </details>
       <details class="faq">
         <summary>Is my audio uploaded anywhere?</summary>
@@ -366,6 +494,7 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
     startTime.value = s0.toFixed(2); endTime.value = s1.toFixed(2);
     startOut.textContent = fmt(s0); endOut.textContent = fmt(s1);
     $("lenWarn").hidden = (s1 - s0) <= 30;
+    $("lenCheck").hidden = (s1 - s0) > 30;
     drawWave();
   }
   fileInput.addEventListener("change", function () {
@@ -400,6 +529,7 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
     endRange.value = Math.min(buffer.duration, s1).toFixed(2);
     syncUI();
   }
+  $("volInput").addEventListener("input", function () { $("volOut").textContent = this.value + "%"; });
   $("presetFirst").addEventListener("click", function () { if (buffer) setRange(0, Math.min(30, buffer.duration)); });
   $("presetMid").addEventListener("click", function () { if (!buffer) return; var mid = buffer.duration / 2; setRange(Math.max(0, mid - 15), Math.min(buffer.duration, mid + 15)); });
   $("presetLast").addEventListener("click", function () { if (buffer) setRange(Math.max(0, buffer.duration - 30), buffer.duration); });
@@ -410,13 +540,14 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
     var s0 = full ? 0 : parseFloat(startRange.value), s1 = full ? buffer.duration : parseFloat(endRange.value);
     if (s1 <= s0) { toast("End time must be after start time."); return; }
     src = actx.createBufferSource(); src.buffer = buffer;
-    var g = actx.createGain(); g.gain.value = 1;
+    var g = actx.createGain(); g.gain.value = volLevel();
     src.connect(g); g.connect(actx.destination);
     src.start(0, s0, s1 - s0);
     toast(full ? "Playing full song…" : "Playing ringtone…");
   }
   $("playBtn").addEventListener("click", function () { playSelection(false); });
   $("playFullBtn").addEventListener("click", function () { playSelection(true); });
+  function volLevel() { var v = $("volInput"); return v ? parseFloat(v.value) / 100 : 1; }
   function encodeWAV(buf, s0, s1, doFadeIn, doFadeOut) {
     var rate = buf.sampleRate, ch = buf.numberOfChannels;
     var start = Math.floor(s0 * rate), end = Math.min(buf.length, Math.floor(s1 * rate));
@@ -429,10 +560,11 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
     v.setUint32(24, rate, true); v.setUint32(28, rate * ch * 2, true); v.setUint16(32, ch * 2, true);
     v.setUint16(34, 16, true); wstr(36, "data"); v.setUint32(40, len * ch * 2, true);
     var fade = Math.min(len, Math.floor(rate * 0.05));
+    var vol = volLevel();
     for (var c = 0; c < ch; c++) {
       var d = buf.getChannelData(c);
       for (var i = 0; i < len; i++) {
-        var val = d[start + i];
+        var val = d[start + i] * vol;
         if (doFadeIn && i < fade) val *= i / fade;
         if (doFadeOut && i > len - fade) val *= (len - i) / fade;
         v.setInt16(44 + (i * ch + c) * 2, Math.max(-1, Math.min(1, val)) * 32767, true);
@@ -460,7 +592,9 @@ canvas.wave{width:100%;height:140px;background:var(--bg2);border:1px solid var(-
     try {
       var ctx2 = ensureCtx();
       var dest = ctx2.createMediaStreamDestination();
-      var s = ctx2.createBufferSource(); s.buffer = buffer; s.connect(dest);
+      var s = ctx2.createBufferSource(); s.buffer = buffer;
+      var mg = ctx2.createGain(); mg.gain.value = volLevel();
+      s.connect(mg); mg.connect(dest);
       var rec = new MediaRecorder(dest.stream, { mimeType: "audio/mpeg" });
       var chunks = [];
       rec.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };

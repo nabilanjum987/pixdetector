@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this fancy text generator free?",
+      "name": "What is a fancy text generator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Type your text, copy any style, and download all styles as a .txt file — free, with no signup, no credits and no watermark."
+        "text": "An online tool that converts regular text into special Unicode characters that look like different fonts, real Unicode symbols, not images or custom fonts, so you can copy and paste them into social bios, messages and game names."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does my fancy text show as empty boxes?",
+      "name": "Is fancy text a real font?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The boxes (called tofu) appear when the viewing device has no glyph for that Unicode character. It looks fine on your phone and broken on an older Android because glyph coverage differs by device. Bold and italic work on the most devices — switch to them if a style shows as boxes."
+        "text": "No. It is character substitution: each letter is swapped for a different Unicode character that looks styled, for example plain a (U+0061) becomes bold a (U+1D41A). No font file is installed and no formatting is applied."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use fancy text in my Instagram bio or TikTok name?",
+      "name": "Will the styled text break if I paste it somewhere?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In most cases, yes for bios, captions and display names — Instagram, TikTok, Discord, WhatsApp and most games accept standard Unicode there. Usernames and handles are stricter: most only allow plain letters, numbers and a few symbols, so a fancy username is usually rejected."
+        "text": "Generally no. They are real Unicode characters, so they survive copy-paste. The exception is apps that actively strip special characters, which is uncommon."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I download these as real fonts for Photoshop or Canva?",
+      "name": "Will it display correctly on all devices?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. These are Unicode characters, not font files, so they cannot be installed in Photoshop, Canva or Word. For design work, use our Font Generator's real-font PNG download instead."
+        "text": "Popular styles, script, bold, italic and double-struck, work on virtually every modern phone, tablet and computer. Exotic styles may show as blank squares on very old devices. This tool labels every style Safe, Usually safe or May show as boxes."
       }
     },
     {
       "@type": "Question",
-      "name": "Will fancy text work in games like PUBG or Free Fire?",
+      "name": "Why do some symbols show as boxes or question marks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Often, yes — many games accept Unicode in player names and it is a popular way to stand out in lobbies. Some games restrict special characters in the account username specifically, so if one style is rejected, try a simpler one like bold or small caps."
+        "text": "The app, browser or device does not support that Unicode character yet. It is a device limitation, not a problem with the text. Switching to a mainstream style like bold or italic almost always fixes it."
       }
     },
     {
       "@type": "Question",
-      "name": "Is fancy text safe to copy and paste?",
+      "name": "Why does my fancy text disappear or turn plain when I save?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, technically — it is plain Unicode text, with no code and nothing to install. The real catches are cosmetic: it can inflate character counts, read badly to screen readers, and occasionally get flagged by spam filters."
+        "text": "Some fields normalise input. Usernames and handles accept letters, numbers, periods and underscores only; hashtags strip unusual characters. If it reverted after saving, the field never supported it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I style my Instagram username?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Usernames accept letters, numbers, periods and underscores only. The display name and bio are where decorative characters live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on Instagram and TikTok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Instagram bios, captions and comments accept Unicode, and so does TikTok. Generate, copy, paste directly into the app, and check it on another phone if you can."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use fancy text for game names?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PUBG, Free Fire, Fortnite and many others accept Unicode in player names. A few games restrict special characters in the account username specifically; if one style is rejected, try a simpler one like bold or small caps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to copy and paste fancy text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Technically yes. Standard Unicode characters, no code, no links, no hidden content, so it cannot infect a device or account. The real catches are cosmetic: inflated character counts, bad screen-reader reading, occasional spam-filter flags."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is fancy text accessible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Poorly. Screen readers read each styled letter by its full Unicode name, for example mathematical bold capital A. Use it for one short line, never for the sentence that tells people what you do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will Google find my fancy text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Styled text does not match plain-text search, and Google does not treat double-struck Hello as the word Hello. Never put keywords in fancy characters in HTML headings, body copy or meta tags. Keep the plain-text original beside every copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does using fancy text break Instagram's rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is ordinary Unicode text, not a hack, and millions of accounts use it. The risk is not a ban, it is being harder to find."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many text styles are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool has 15 styles. Other tools claim more, OpenL 100+, UltraTextGen 90+, Stylicode 130+, but those counts are vendor claims, not independently verified."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this fancy text generator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Completely free, no account, no daily limit, no watermark on anything you copy. Type your text, copy any style, and download all styles as a .txt file with the plain-text original on the first line."
       }
     }
   ]
@@ -83,7 +155,7 @@
     {
       "@type": "HowToStep",
       "name": "Pick a style and copy it",
-      "text": "Find a style you like and press its Copy button, or add a decoration."
+      "text": "Find a style you like, check its safety label, and press its Copy button, or add a decoration. Run the Bella test on your name first if you use script, fraktur or double-struck."
     },
     {
       "@type": "HowToStep",
@@ -143,6 +215,20 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .light{width:64px;height:64px;border-radius:50%;background:var(--bg3);border:2px solid var(--border2);margin:10px auto}
 .light.on{background:var(--accent);box-shadow:0 0 30px var(--accent)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.safety{font-size:11px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.safety.safe{background:#065f46;color:#a7f3d0}
+.safety.usually{background:#78350f;color:#fde68a}
+.safety.boxes{background:#7f1d1d;color:#fecaca}
+.scount{font-size:12px;color:var(--text2);white-space:nowrap}
+.mock-profile{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;max-width:420px;margin:14px auto 0;text-align:center}
+.mock-avatar{width:72px;height:72px;border-radius:50%;background:var(--accent);color:#000;font-family:'Syne',sans-serif;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.mock-name{font-size:18px;font-weight:700;word-break:break-all}
+.mock-handle{font-size:13px;color:var(--text2);margin-top:2px}
+.mock-bio{font-size:14px;color:var(--text2);line-height:1.7;margin-top:10px}
+.mock-stats{display:flex;justify-content:center;gap:22px;margin-top:12px;font-size:13px;color:var(--text2)}
+.mock-stats strong{color:var(--text)}
+.bella-ok{color:#34d399}
+.bella-bad{color:#f87171}
 </style>
 </head>
 <body>
@@ -168,12 +254,13 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <h1>Free Fancy Text Generator</h1>
       <p>Type once and get bold, script, bubble, gothic and more — copy any style and paste it into Instagram, TikTok, Discord or WhatsApp. Free, no signup, no watermark.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> These styles are <strong>Unicode characters, not real font files</strong>. They <strong>cannot be downloaded or installed</strong> for Photoshop, Canva or Word, they are <strong>rejected by fields that only accept plain letters</strong> (most usernames), and <strong>screen readers read them badly or skip them</strong>. Some styles show as empty boxes on older phones. Bold and italic work on the most devices.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Unicode styles, not fonts — the output is <strong>styled Unicode characters</strong>. Some platforms and older devices show them as boxes. <strong>Screen readers read each letter by its full Unicode name.</strong> Styled text is <strong>invisible to search</strong>. Style one line, keep the rest plain. Bold and italic are the safest styles; fraktur, script and double-struck are the most likely to break on older devices.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Fancy text generator">
         <h2>Type your text</h2>
         <label class="flabel" for="ftInput">Your text</label>
         <input type="text" id="ftInput" value="Hello World" autocomplete="off" spellcheck="false">
+        <p class="trust" style="margin-top:10px"><span class="safety safe">Safe</span> works on the most devices &nbsp;·&nbsp; <span class="safety usually">Usually safe</span> fine on modern phones &nbsp;·&nbsp; <span class="safety boxes">May show as boxes</span> most likely to break on older Android. The number next to each style is its character count.</p>
         <div id="ftList" style="margin-top:18px"></div>
         <div class="actions">
           <button type="button" class="btn alt" id="ftCopyAll">Copy all styles (.txt)</button>
@@ -186,6 +273,30 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <div id="ftDeco" style="margin-top:12px"></div>
         <p class="trust" style="margin-top:14px"><strong>Keep it readable:</strong> style one or two words, not a whole paragraph. A full bio in script letters is hard to read, hard to search, and unreadable to screen readers.</p>
       </div>
+    </div>
+    <div class="bc-panel" aria-label="Bella test" style="margin-bottom:8px">
+      <h2>The Bella test — does your name break any style?</h2>
+      <p class="trust" style="margin-top:0">Lazy generators break names: script broke on capitals B, E, F, H, I, L, M and R, fraktur on C, H, I, R, Z, double-struck on C, H, N, P, Q, R, Z, and italic on lowercase h — 24 missing Unicode characters in total. This tool maps all 24 correctly. Type a name and check every style at once.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px">
+        <input type="text" id="bellaInput" value="Bella" autocomplete="off" spellcheck="false" style="max-width:280px">
+        <button type="button" class="btn" id="bellaGo">Test my name</button>
+      </div>
+      <div id="bellaOut" style="margin-top:14px;font-size:14px;line-height:1.9"></div>
+      <p class="trust">This check verifies the Unicode code points are real characters. It cannot check your friend's phone font — an assigned character can still show as a box on a very old device. Bold and italic are the safest.</p>
+    </div>
+    <div class="bc-panel" aria-label="Profile preview" style="margin-bottom:8px">
+      <h2>Preview it on a profile</h2>
+      <p class="trust" style="margin-top:0">See your text as an Instagram display name before you copy it. The bio stays in plain text — that is the part people search for.</p>
+      <label class="flabel" for="mockStyle" style="margin-top:12px">Style to preview</label>
+      <select id="mockStyle" style="max-width:280px"></select>
+      <div class="mock-profile">
+        <div class="mock-avatar" id="mockAvatar">H</div>
+        <div class="mock-name" id="mockName">Hello World</div>
+        <div class="mock-handle">@yourhandle</div>
+        <div class="mock-stats"><span><strong>128</strong> posts</span><span><strong>1,204</strong> followers</span><span><strong>312</strong> following</span></div>
+        <p class="mock-bio">Your bio line here — keep it in plain text so people can find you.</p>
+      </div>
+      <p class="trust" style="text-align:center">Mockup only — the follower counts are sample numbers, not real data.</p>
     </div>
     <div class="share-box">
       <h2>Share this tool</h2>
@@ -209,34 +320,82 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <h2>How to use the fancy text generator</h2>
       <p><strong>Step 1:</strong> type your name, bio or caption in the box. <strong>Step 2:</strong> scroll the styles, find one you like, and press Copy — or add a decoration like ✦ stars ✦. <strong>Step 3:</strong> paste it where you want it, and check it on another phone if you can, because older devices may show empty boxes.</p>
       <h2>Which style works best where?</h2>
-      <p>Bold and italic are the safest choices: they exist on the most devices and read most clearly. Script and cursive look best for names and short bios, but they are harder to read in long captions. Bubble and square styles stand out in headings — but most username fields reject them outright, so test before you commit. Small caps and monospace give a clean, technical look. If a style shows as boxes on your friend's phone, switch to bold: it is the one style almost every device renders.</p>
+      <p>Bold and italic are the safest choices: they exist on the most devices and read most clearly. Script and cursive look best for names and short bios, but they are harder to read in long captions. Bubble and square styles stand out in headings — but most username fields reject them outright, so test before you commit. Small caps and monospace give a clean, technical look. If a style shows as boxes on your friend's phone, switch to bold: it is the one style almost every device renders. Every style on this page carries a safety label — Safe, Usually safe, or May show as boxes — and the Bella test above checks your exact name against all 24 known missing Unicode characters.</p>
+      <h2>Where it works — per platform</h2>
+      <p>Not every field accepts styled text. The table below is the short version — check the result in the app before you commit, because if it reverted after saving, the field never supported it.</p>
+      <table class="facts">
+        <tr><th>Place</th><th>Styled text</th></tr>
+        <tr><td>Instagram bio</td><td>✓ Works — display name and bio accept Unicode</td></tr>
+        <tr><td>TikTok bio</td><td>✓ Works — bio and display name accept Unicode</td></tr>
+        <tr><td>Discord</td><td>✓ Works — display names and messages accept Unicode</td></tr>
+        <tr><td>WhatsApp</td><td>✓ Works — status and messages accept Unicode</td></tr>
+        <tr><td>Instagram username</td><td>✗ No — handles accept letters, numbers, periods and underscores only</td></tr>
+        <tr><td>TikTok username</td><td>✗ No — handles accept letters, numbers, periods and underscores only</td></tr>
+        <tr><td>Hashtags</td><td>✗ No — hashtags strip or reject unusual characters</td></tr>
+      </table>
       <h2>Keep it readable — and searchable</h2>
       <p>Styled text looks fun, but it has real costs. Screen readers read styled letters by their Unicode names or skip them, so a fully styled bio can be unreadable to blind and low-vision people — keep your name and the important words in plain text, and use styled text as decoration around them. Search works the same way: styled words do not match plain-text searches, so a bio written entirely in bubble letters will not be found when someone searches your name. And remember the character count: some styled letters count as two characters, so a long styled caption can hit Instagram's 2,200-character limit sooner than you expect.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-<summary>Is this fancy text generator free?</summary>
-<p>Yes. Type your text, copy any style, and download all styles as a .txt file — free, with no signup, no credits and no watermark.</p>
+<summary>What is a fancy text generator?</summary>
+<p>An online tool that converts regular text into special Unicode characters that look like different fonts, real Unicode symbols, not images or custom fonts, so you can copy and paste them into social bios, messages and game names.</p>
 </details>
       <details class="faq">
-<summary>Why does my fancy text show as empty boxes?</summary>
-<p>The boxes (called tofu) appear when the viewing device has no glyph for that Unicode character. It looks fine on your phone and broken on an older Android because glyph coverage differs by device. Bold and italic work on the most devices — switch to them if a style shows as boxes.</p>
+<summary>Is fancy text a real font?</summary>
+<p>No. It is character substitution: each letter is swapped for a different Unicode character that looks styled, for example plain a (U+0061) becomes bold a (U+1D41A). No font file is installed and no formatting is applied.</p>
 </details>
       <details class="faq">
-<summary>Can I use fancy text in my Instagram bio or TikTok name?</summary>
-<p>In most cases, yes for bios, captions and display names — Instagram, TikTok, Discord, WhatsApp and most games accept standard Unicode there. Usernames and handles are stricter: most only allow plain letters, numbers and a few symbols, so a fancy username is usually rejected.</p>
+<summary>Will the styled text break if I paste it somewhere?</summary>
+<p>Generally no. They are real Unicode characters, so they survive copy-paste. The exception is apps that actively strip special characters, which is uncommon.</p>
 </details>
       <details class="faq">
-<summary>Can I download these as real fonts for Photoshop or Canva?</summary>
-<p>No. These are Unicode characters, not font files, so they cannot be installed in Photoshop, Canva or Word. For design work, use our Font Generator's real-font PNG download instead.</p>
+<summary>Will it display correctly on all devices?</summary>
+<p>Popular styles, script, bold, italic and double-struck, work on virtually every modern phone, tablet and computer. Exotic styles may show as blank squares on very old devices. This tool labels every style Safe, Usually safe or May show as boxes.</p>
 </details>
       <details class="faq">
-<summary>Will fancy text work in games like PUBG or Free Fire?</summary>
-<p>Often, yes — many games accept Unicode in player names and it is a popular way to stand out in lobbies. Some games restrict special characters in the account username specifically, so if one style is rejected, try a simpler one like bold or small caps.</p>
+<summary>Why do some symbols show as boxes or question marks?</summary>
+<p>The app, browser or device does not support that Unicode character yet. It is a device limitation, not a problem with the text. Switching to a mainstream style like bold or italic almost always fixes it.</p>
 </details>
       <details class="faq">
-<summary>Is fancy text safe to copy and paste?</summary>
-<p>Yes, technically — it is plain Unicode text, with no code and nothing to install. The real catches are cosmetic: it can inflate character counts, read badly to screen readers, and occasionally get flagged by spam filters.</p>
+<summary>Why does my fancy text disappear or turn plain when I save?</summary>
+<p>Some fields normalise input. Usernames and handles accept letters, numbers, periods and underscores only; hashtags strip unusual characters. If it reverted after saving, the field never supported it.</p>
+</details>
+      <details class="faq">
+<summary>Can I style my Instagram username?</summary>
+<p>No. Usernames accept letters, numbers, periods and underscores only. The display name and bio are where decorative characters live.</p>
+</details>
+      <details class="faq">
+<summary>Does it work on Instagram and TikTok?</summary>
+<p>Yes. Instagram bios, captions and comments accept Unicode, and so does TikTok. Generate, copy, paste directly into the app, and check it on another phone if you can.</p>
+</details>
+      <details class="faq">
+<summary>Can I use fancy text for game names?</summary>
+<p>Yes. PUBG, Free Fire, Fortnite and many others accept Unicode in player names. A few games restrict special characters in the account username specifically; if one style is rejected, try a simpler one like bold or small caps.</p>
+</details>
+      <details class="faq">
+<summary>Is it safe to copy and paste fancy text?</summary>
+<p>Technically yes. Standard Unicode characters, no code, no links, no hidden content, so it cannot infect a device or account. The real catches are cosmetic: inflated character counts, bad screen-reader reading, occasional spam-filter flags.</p>
+</details>
+      <details class="faq">
+<summary>Is fancy text accessible?</summary>
+<p>Poorly. Screen readers read each styled letter by its full Unicode name, for example mathematical bold capital A. Use it for one short line, never for the sentence that tells people what you do.</p>
+</details>
+      <details class="faq">
+<summary>Will Google find my fancy text?</summary>
+<p>No. Styled text does not match plain-text search, and Google does not treat double-struck Hello as the word Hello. Never put keywords in fancy characters in HTML headings, body copy or meta tags. Keep the plain-text original beside every copy.</p>
+</details>
+      <details class="faq">
+<summary>Does using fancy text break Instagram's rules?</summary>
+<p>No. It is ordinary Unicode text, not a hack, and millions of accounts use it. The risk is not a ban, it is being harder to find.</p>
+</details>
+      <details class="faq">
+<summary>How many text styles are available?</summary>
+<p>This tool has 15 styles. Other tools claim more, OpenL 100+, UltraTextGen 90+, Stylicode 130+, but those counts are vendor claims, not independently verified.</p>
+</details>
+      <details class="faq">
+<summary>Is this fancy text generator free to use?</summary>
+<p>Yes. Completely free, no account, no daily limit, no watermark on anything you copy. Type your text, copy any style, and download all styles as a .txt file with the plain-text original on the first line.</p>
 </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -288,35 +447,45 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
-  function mapRange(text, base) {
+  // Unicode's Mathematical Alphanumeric Symbols block has 24 holes: code points
+  // that look like they should exist but are unassigned, so they render as boxes.
+  // Script holes are handled by SCRIPT_EX below; these are the rest.
+  var FRAKTUR_EX = { C: "ℭ", H: "ℌ", I: "ℑ", R: "ℜ", Z: "ℨ" };
+  var DOUBLESTRUCK_EX = { C: "ℂ", H: "ℍ", N: "ℕ", P: "ℙ", Q: "ℚ", R: "ℝ", Z: "ℤ" };
+  var ITALIC_EX = { h: "ℎ" };
+  // The 24 unassigned code points, used by the Bella test below. If any style
+  // ever emits one of these, that letter renders as a box.
+  var UNICODE_HOLES = [0x1D455, 0x1D49D, 0x1D4A0, 0x1D4A1, 0x1D4A3, 0x1D4A4, 0x1D4A7, 0x1D4A8, 0x1D4AD, 0x1D4BA, 0x1D4BC, 0x1D4C4, 0x1D506, 0x1D50B, 0x1D50C, 0x1D515, 0x1D51D, 0x1D53A, 0x1D53F, 0x1D545, 0x1D547, 0x1D548, 0x1D549, 0x1D551];
+  function mapRange(text, base, ex, digitBase) {
     var out = "";
     for (var i = 0; i < text.length; i++) {
-      var c = text.charCodeAt(i);
+      var ch = text[i], c = text.charCodeAt(i);
+      if (ex && ex[ch]) { out += ex[ch]; continue; }
       if (c >= 65 && c <= 90) out += String.fromCodePoint(base + (c - 65));
       else if (c >= 97 && c <= 122) out += String.fromCodePoint(base + 26 + (c - 97));
-      else if (c >= 48 && c <= 57) out += String.fromCodePoint(base + 52 + (c - 48));
-      else out += text[i];
+      else if (c >= 48 && c <= 57 && digitBase) out += String.fromCodePoint(digitBase + (c - 48));
+      else out += ch;
     }
     return out;
   }
   var SMALLCAPS = { a: "ᴀ", b: "ʙ", c: "ᴄ", d: "ᴅ", e: "ᴇ", f: "ғ", g: "ɢ", h: "ʜ", i: "ɪ", j: "ᴊ", k: "ᴋ", l: "ʟ", m: "ᴍ", n: "ɴ", o: "ᴏ", p: "ᴘ", q: "ǫ", r: "ʀ", s: "s", t: "ᴛ", u: "ᴜ", v: "ᴠ", w: "ᴡ", x: "x", y: "ʏ", z: "ᴢ" };
   var SCRIPT_EX = { B: "ℬ", E: "ℰ", F: "ℱ", H: "ℋ", I: "ℐ", L: "ℒ", M: "ℳ", R: "ℛ", e: "ℯ", g: "ℊ", o: "ℴ" };
   var STYLES = [
-    { name: "Bold", fn: function (t) { return mapRange(t, 0x1D400); } },
-    { name: "Italic", fn: function (t) { return mapRange(t, 0x1D434); } },
-    { name: "Bold italic", fn: function (t) { return mapRange(t, 0x1D468); } },
-    { name: "Script / cursive", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var ch = t[i]; if (SCRIPT_EX[ch]) o += SCRIPT_EX[ch]; else { var c = t.charCodeAt(i); if (c >= 65 && c <= 90) o += String.fromCodePoint(0x1D49C + (c - 65)); else if (c >= 97 && c <= 122) o += String.fromCodePoint(0x1D4B6 + (c - 97)); else o += ch; } } return o; } },
-    { name: "Bold script", fn: function (t) { return mapRange(t, 0x1D4D0); } },
-    { name: "Fraktur / gothic", fn: function (t) { return mapRange(t, 0x1D504); } },
-    { name: "Double-struck", fn: function (t) { return mapRange(t, 0x1D538); } },
-    { name: "Monospace", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 65 && c <= 90) o += String.fromCodePoint(0x1D670 + (c - 65)); else if (c >= 97 && c <= 122) o += String.fromCodePoint(0x1D68A + (c - 97)); else if (c >= 48 && c <= 57) o += String.fromCodePoint(0x1D7F6 + (c - 48)); else o += t[i]; } return o; } },
-    { name: "Sans bold", fn: function (t) { return mapRange(t, 0x1D5D4); } },
-    { name: "Small caps", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var ch = t[i].toLowerCase(); o += SMALLCAPS[ch] || t[i]; } return o; } },
-    { name: "Bubble", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 97 && c <= 122) o += String.fromCodePoint(0x24D0 + (c - 97)); else if (c >= 65 && c <= 90) o += String.fromCodePoint(0x24B6 + (c - 65)); else if (c >= 48 && c <= 57) o += String.fromCodePoint(c === 48 ? 0x24EA : 0x2460 + (c - 49)); else o += t[i]; } return o; } },
-    { name: "Square", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 97 && c <= 122) o += String.fromCodePoint(0x1F130 + (c - 97)); else if (c >= 65 && c <= 90) o += String.fromCodePoint(0x1F130 + (c - 65)); else o += t[i]; } return o; } },
-    { name: "Fullwidth", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 33 && c <= 126) o += String.fromCodePoint(0xFF01 + (c - 33)); else if (c === 32) o += "　"; else o += t[i]; } return o; } },
-    { name: "Strikethrough", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) o += t[i] + "̶"; return o; } },
-    { name: "Underline", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) o += t[i] + "̳"; return o; } }
+    { name: "Bold", safe: "safe", fn: function (t) { return mapRange(t, 0x1D400, null, 0x1D7CE); } },
+    { name: "Italic", safe: "safe", fn: function (t) { return mapRange(t, 0x1D434, ITALIC_EX); } },
+    { name: "Bold italic", safe: "safe", fn: function (t) { return mapRange(t, 0x1D468); } },
+    { name: "Script / cursive", safe: "boxes", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var ch = t[i]; if (SCRIPT_EX[ch]) o += SCRIPT_EX[ch]; else { var c = t.charCodeAt(i); if (c >= 65 && c <= 90) o += String.fromCodePoint(0x1D49C + (c - 65)); else if (c >= 97 && c <= 122) o += String.fromCodePoint(0x1D4B6 + (c - 97)); else o += ch; } } return o; } },
+    { name: "Bold script", safe: "boxes", fn: function (t) { return mapRange(t, 0x1D4D0); } },
+    { name: "Fraktur / gothic", safe: "boxes", fn: function (t) { return mapRange(t, 0x1D504, FRAKTUR_EX); } },
+    { name: "Double-struck", safe: "boxes", fn: function (t) { return mapRange(t, 0x1D538, DOUBLESTRUCK_EX, 0x1D7D8); } },
+    { name: "Monospace", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 65 && c <= 90) o += String.fromCodePoint(0x1D670 + (c - 65)); else if (c >= 97 && c <= 122) o += String.fromCodePoint(0x1D68A + (c - 97)); else if (c >= 48 && c <= 57) o += String.fromCodePoint(0x1D7F6 + (c - 48)); else o += t[i]; } return o; } },
+    { name: "Sans bold", safe: "safe", fn: function (t) { return mapRange(t, 0x1D5D4, null, 0x1D7EC); } },
+    { name: "Small caps", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var ch = t[i].toLowerCase(); o += SMALLCAPS[ch] || t[i]; } return o; } },
+    { name: "Bubble", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 97 && c <= 122) o += String.fromCodePoint(0x24D0 + (c - 97)); else if (c >= 65 && c <= 90) o += String.fromCodePoint(0x24B6 + (c - 65)); else if (c >= 48 && c <= 57) o += String.fromCodePoint(c === 48 ? 0x24EA : 0x2460 + (c - 49)); else o += t[i]; } return o; } },
+    { name: "Square", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 97 && c <= 122) o += String.fromCodePoint(0x1F130 + (c - 97)); else if (c >= 65 && c <= 90) o += String.fromCodePoint(0x1F130 + (c - 65)); else o += t[i]; } return o; } },
+    { name: "Fullwidth", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); if (c >= 33 && c <= 126) o += String.fromCodePoint(0xFF01 + (c - 33)); else if (c === 32) o += "　"; else o += t[i]; } return o; } },
+    { name: "Strikethrough", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) o += t[i] + "̶"; return o; } },
+    { name: "Underline", safe: "usually", fn: function (t) { var o = ""; for (var i = 0; i < t.length; i++) o += t[i] + "̳"; return o; } }
   ];
   var DECOS = [
     ["Stars", function (t) { return "✦ " + t + " ✦"; }],
@@ -327,15 +496,30 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     ["Waves", function (t) { return "〜 " + t + " 〜"; }]
   ];
   var list = $("ftList"), decoBox = $("ftDeco");
+  function safetyLabel(safe) { return safe === "safe" ? "Safe" : safe === "usually" ? "Usually safe" : "May show as boxes"; }
+  (function addPlainRow() {
+    var row = document.createElement("div"); row.className = "style-row";
+    var n = document.createElement("span"); n.className = "sname"; n.textContent = "Plain text";
+    var badge = document.createElement("span"); badge.className = "safety safe"; badge.textContent = "Safe";
+    var o = document.createElement("span"); o.className = "sout"; o.id = "ftPlain";
+    var cnt = document.createElement("span"); cnt.className = "scount"; cnt.id = "ftPlainCount";
+    var b = document.createElement("button"); b.type = "button"; b.className = "btn alt"; b.textContent = "Copy";
+    b.addEventListener("click", function () {
+      if (navigator.clipboard) navigator.clipboard.writeText($("ftInput").value || "Hello World").then(function () { toast("Plain text copied."); }, function () { toast("Copy was blocked."); });
+    });
+    row.appendChild(n); row.appendChild(badge); row.appendChild(o); row.appendChild(cnt); row.appendChild(b); list.appendChild(row);
+  })();
   STYLES.forEach(function (s) {
     var row = document.createElement("div"); row.className = "style-row";
     var n = document.createElement("span"); n.className = "sname"; n.textContent = s.name;
+    var badge = document.createElement("span"); badge.className = "safety " + s.safe; badge.textContent = safetyLabel(s.safe);
     var o = document.createElement("span"); o.className = "sout"; o.dataset.style = s.name;
+    var cnt = document.createElement("span"); cnt.className = "scount";
     var b = document.createElement("button"); b.type = "button"; b.className = "btn alt"; b.textContent = "Copy";
     b.addEventListener("click", function () {
       if (navigator.clipboard) navigator.clipboard.writeText(o.textContent).then(function () { toast(s.name + " style copied."); }, function () { toast("Copy was blocked — select the text and copy it manually."); });
     });
-    row.appendChild(n); row.appendChild(o); row.appendChild(b); list.appendChild(row);
+    row.appendChild(n); row.appendChild(badge); row.appendChild(o); row.appendChild(cnt); row.appendChild(b); list.appendChild(row);
   });
   DECOS.forEach(function (d) {
     var row = document.createElement("div"); row.className = "style-row";
@@ -349,15 +533,55 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
   });
   function render() {
     var v = $("ftInput").value || "Hello World";
-    var outs = list.querySelectorAll(".sout");
-    STYLES.forEach(function (s, i) { try { outs[i].textContent = s.fn(v); } catch (e) { outs[i].textContent = v; } });
+    var outs = list.querySelectorAll(".sout[data-style]");
+    STYLES.forEach(function (s, i) { try { outs[i].textContent = s.fn(v); } catch (e) { outs[i].textContent = v; } var c = outs[i].parentNode.querySelector(".scount"); if (c) c.textContent = Array.from(outs[i].textContent).length + " chars"; });
     var douts = decoBox.querySelectorAll(".sout");
     DECOS.forEach(function (d, i) { douts[i].textContent = d[1](v); });
+    var plain = $("ftPlain"); if (plain) plain.textContent = v;
+    var pc = $("ftPlainCount"); if (pc) pc.textContent = Array.from(v).length + " chars";
+    renderMock();
   }
+  function bellaCheck(name) {
+    var results = [];
+    STYLES.forEach(function (s) {
+      var out = name;
+      try { out = s.fn(name); } catch (e) { out = name; }
+      var bad = [];
+      Array.from(out).forEach(function (ch) { if (UNICODE_HOLES.indexOf(ch.codePointAt(0)) !== -1) bad.push(ch); });
+      results.push({ name: s.name, broken: bad });
+    });
+    return results;
+  }
+  function runBella() {
+    var name = ($("bellaInput").value || "").trim() || "Bella";
+    var res = bellaCheck(name);
+    var bad = res.filter(function (r) { return r.broken.length; });
+    var box = $("bellaOut"); box.innerHTML = "";
+    var p = document.createElement("p");
+    if (!bad.length) { p.className = "bella-ok"; p.textContent = "✓ All " + res.length + " styles render \"" + name + "\" with no broken letters. Every character maps to a real Unicode code point."; }
+    else { p.className = "bella-bad"; p.textContent = "⚠ " + bad.length + " style(s) break \"" + name + "\":"; }
+    box.appendChild(p);
+    bad.forEach(function (r) { var q = document.createElement("p"); q.className = "bella-bad"; q.textContent = r.name + " — broken letters: " + r.broken.join(", "); box.appendChild(q); });
+    var note = document.createElement("p"); note.className = "trust"; note.textContent = "Checked " + res.length + " styles for the 24 known missing Unicode characters.";
+    box.appendChild(note);
+  }
+  var mockSel = $("mockStyle");
+  STYLES.forEach(function (s) { var o = document.createElement("option"); o.value = s.name; o.textContent = s.name; mockSel.appendChild(o); });
+  function renderMock() {
+    var v = $("ftInput").value || "Hello World";
+    var s = null;
+    STYLES.forEach(function (x) { if (x.name === mockSel.value) s = x; });
+    if (!s) s = STYLES[0];
+    var styled = v; try { styled = s.fn(v); } catch (e) { styled = v; }
+    $("mockName").textContent = styled;
+    $("mockAvatar").textContent = ((v.trim()[0] || "H")).toUpperCase();
+  }
+  mockSel.addEventListener("change", renderMock);
+  $("bellaGo").addEventListener("click", runBella);
   $("ftInput").addEventListener("input", render);
   $("ftCopyAll").addEventListener("click", function () {
     var v = $("ftInput").value || "Hello World";
-    var lines = STYLES.map(function (s) { try { return s.name + ": " + s.fn(v); } catch (e) { return s.name + ": " + v; } });
+    var lines = ["Original (plain text): " + v].concat(STYLES.map(function (s) { try { return s.name + ": " + s.fn(v); } catch (e) { return s.name + ": " + v; } }));
     var blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
     var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "fancy-text.txt";
     document.body.appendChild(a); a.click();
@@ -367,6 +591,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
   $("copyLink").addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); });
   $("copyShareLine").addEventListener("click", function () { if (navigator.clipboard) navigator.clipboard.writeText(document.querySelector(".share-line").textContent).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); });
   render();
+  runBella();
 })();
 </script>
 </body>

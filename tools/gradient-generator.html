@@ -20,26 +20,50 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How do I make a CSS gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick linear, radial or conic; set two or more colour stops with positions (0–100%); set the angle (linear) or shape and centre (radial); copy the CSS, for example background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my gradient look grey/muddy in the middle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers interpolate in sRGB by default, and the straight line between far-apart hues passes through grey — blue to yellow midpoints at about #808080. Fix it by interpolating in oklch (this page's toggle, on by default), adding a middle stop (for example pink between purple and orange), or picking neighbouring hues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between linear, radial and conic gradients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Linear blends along a straight line or angle; radial radiates from a centre point (circle or ellipse); conic sweeps around a centre point like a pie chart or colour wheel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fix gradient banding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add more intermediate stops in a perceptual space (OKLCH), then layer a faint noise or dither texture over the gradient — a low-opacity noise pattern breaks up visible bands without changing the colours. This tool has no built-in noise control, so add the noise layer in your own CSS or image editor."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is this gradient generator really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Build and export as many gradients as you like \u2014 no signup, no watermark, no upload. Everything runs in your browser."
+        "text": "Yes. Build and export as many gradients as you like — no signup, no watermark, no upload. Everything runs in your browser."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does my gradient have a grey middle?",
+      "name": "What does the OKLCH toggle do?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Browsers blend in sRGB by default, and the line between opposite colours passes through grey. Add a bright middle stop, pick colours closer in hue, or interpolate in OKLCH with linear-gradient(in oklch \u2026)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between linear and radial gradients?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A linear gradient blends along a straight line at an angle you set. A radial gradient blends outward from a centre point, like a glow. Both use the same colour stops."
+        "text": "It changes the copied CSS to blend in OKLCH instead of sRGB, so the middle of the blend stays vivid instead of going grey. The CSS has a plain sRGB line first as a fallback for older browsers, then the OKLCH line. The PNG download stays sRGB, because canvas gradients cannot carry OKLCH interpolation."
       }
     },
     {
@@ -47,7 +71,7 @@
       "name": "How many colour stops can I add?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Up to 5 stops here \u2014 enough for almost every real design. Two or three colours is the sweet spot; more than that usually looks busy."
+        "text": "Up to 5 stops here — enough for almost every real design. Two or three colours is the sweet spot; more than that usually looks busy."
       }
     },
     {
@@ -63,7 +87,47 @@
       "name": "Can I make a transparent gradient?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes in the CSS by hand \u2014 use an 8-digit hex or rgba() value in a stop. This tool's stops are solid colours; fade to the same colour at zero alpha rather than the transparent keyword, or the middle goes grey."
+        "text": "Yes in the CSS by hand — use an 8-digit hex or rgba() value in a stop. This tool's stops are solid colours; fade to the same colour at zero alpha rather than the transparent keyword, or the middle goes grey."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What angle should a hero gradient use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "90° (left to right) and 135° (diagonal) are the most common. 180° runs top to bottom and suits overlays on photos. For conic gradients the angle is the starting point of the sweep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use a gradient on a button?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the CSS as the button's background value. Keep the text contrast at 4.5:1 against the lightest part of the gradient — the five-point checker above shows the ratio at both ends, the middle and the quarter-points."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I animate a gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly in CSS, but you can animate the background position of a large gradient. This tool exports a static gradient only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a gradient from a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload a photo in the “Gradient from a photo” box and its three most common colours become your gradient stops. It is read in your browser via canvas — nothing is sent or stored. Nudge the stops by hand after importing, since a busy photo can give you its background rather than its subject."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check text contrast on a gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check it at five points across the gradient — the endpoints, the midpoint and the two quarter-points — not at one average. This page's checker does that against white and black text, with the WCAG AA verdict per point. A gradient only passes if the text colour passes at every point you place text on."
       }
     }
   ]
@@ -195,7 +259,7 @@ table.facts td{color:var(--text2)}
       <h1>Free Gradient Generator</h1>
       <p>Build a smooth gradient — add colour stops, set the angle, pick linear or radial — then copy the CSS or download a PNG.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> The CSS this page copies is a <strong>plain sRGB gradient</strong>, the browser default. Blends between opposite colours (blue to yellow) can go grey in the middle — add a bright middle stop to fix it. The PNG download is a flat 1200×675 snapshot, not a scalable gradient.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Gradients blend in sRGB by default, so blends between opposite colours (blue to yellow) can go grey in the middle. This page's <strong>OKLCH toggle is on by default</strong> — it keeps the middle vivid, with a plain sRGB line above it as a fallback for older browsers. The PNG download is a flat 1200×675 sRGB snapshot, not a scalable gradient, and it cannot carry the OKLCH interpolation. Sampled values are sRGB; a Display P3 photo's hex is a clipped approximation. CMYK is an estimate, not print-accurate.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Gradient settings">
         <h2>Your gradient</h2>
@@ -204,6 +268,11 @@ table.facts td{color:var(--text2)}
         <div class="chips" id="typeChips">
           <button type="button" class="chip" data-type="linear" aria-pressed="true">Linear</button>
           <button type="button" class="chip" data-type="radial" aria-pressed="false">Radial</button>
+          <button type="button" class="chip" data-type="conic" aria-pressed="false">Conic</button>
+        </div>
+        <div style="margin-top:16px">
+          <label class="checkrow"><input type="checkbox" id="oklchChk" checked> Interpolate in OKLCH — vivid middle, sRGB fallback included</label>
+          <p class="trust">sRGB blends through grey — OKLCH travels around the hue wheel. With this on, the copied CSS has a plain sRGB line first (older browsers use it) and the OKLCH line second.</p>
         </div>
         <div style="margin-top:16px" id="angleRow">
           <label class="flabel" for="angleInput">Angle: <span id="angleOut">90°</span></label>
@@ -213,6 +282,11 @@ table.facts td{color:var(--text2)}
           <span class="flabel">Colour stops (2–5)</span>
           <div id="stopList"></div>
           <div class="actions"><button type="button" class="btn alt" id="addStop">+ Add colour stop</button></div>
+        </div>
+        <div style="margin-top:16px">
+          <span class="flabel">Gradient from a photo</span>
+          <input type="file" id="imgFile" accept="image/*">
+          <p class="trust">Upload a photo and its three most common colours become your gradient stops. The image is read in your browser via canvas — nothing is sent or stored.</p>
         </div>
         <span class="flabel" style="margin-top:16px">Presets</span>
         <div class="chips" id="presetChips">
@@ -229,10 +303,19 @@ table.facts td{color:var(--text2)}
         <div class="actions">
           <button type="button" class="btn" id="copyCss">Copy CSS</button>
           <button type="button" class="btn alt" id="dlPng">Download PNG (1200×675)</button>
+          <button type="button" class="btn alt" id="undoBtn">↩ Undo</button>
+          <button type="button" class="btn alt" id="shareBtn">Copy share link</button>
         </div>
-        <p class="trust">Paste the CSS as a <code>background</code> value on any element — a hero, a button, a card. The PNG is the same gradient as a flat image.</p>
+        <p class="trust">Paste the CSS as a <code>background</code> value on any element — a hero, a button, a card. The PNG is the same gradient as a flat sRGB image (canvas gradients cannot carry OKLCH interpolation). The share link encodes the full gradient — type, angle, stops and the OKLCH setting.</p>
+        <h2 style="margin-top:18px">Contrast across the gradient</h2>
+        <div id="contrast5"></div>
+        <p class="trust">Checked at five points — both ends, the middle and the two quarter-points — against white and black text. A gradient only passes if the text colour passes at every point you actually place text on.</p>
         <p class="err" id="errorBox" role="alert" hidden></p>
       </div>
+    </div>
+    <div class="share-box">
+      <h2>The colour family</h2>
+      <p class="share-line">Need the colours first? Pick one in the <a href="/tools/color-picker">Color Picker</a> or sample one from a photo in the <a href="/tools/color-picker-from-image">Color Picker from Image</a> — then paste its HEX in as a stop here.</p>
     </div>
     <div class="share-box"><h2>Share this tool</h2><p class="share-line">Build gradients free — colour stops, angle, linear or radial. Copy the CSS or grab a PNG.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Build%20gradients%20free%20%E2%80%94%20colour%20stops%2C%20angle%2C%20linear%20or%20radial.%20Copy%20the%20CSS%20or%20grab%20a%20PNG.&amp;url=https%3A//pixdetector.vercel.app/tools/gradient-generator" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/gradient-generator" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Build%20gradients%20free%20%E2%80%94%20colour%20stops%2C%20angle%2C%20linear%20or%20radial.%20Copy%20the%20CSS%20or%20grab%20a%20PNG.%20https%3A//pixdetector.vercel.app/tools/gradient-generator" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
@@ -252,20 +335,34 @@ table.facts td{color:var(--text2)}
       </div>
       <h2 style="margin-top:28px">Why does my gradient look grey or muddy in the middle?</h2>
       <p>Browsers interpolate gradients in sRGB by default, and the straight line between two opposite colours in RGB space passes through grey — blue (#0000FF) to yellow (#FFFF00) has a midpoint of roughly #808080, literally grey. The fixes, in order: <strong>add a middle stop</strong> with a bright colour between them, which forces the blend through that colour instead of grey; <strong>pick colours closer in hue</strong>; or <strong>interpolate in OKLCH</strong> with <code>linear-gradient(in oklch to right, …)</code>, which follows the perceptual colour wheel and stays vivid (supported in current Chrome, Edge, Firefox and Safari — older browsers ignore the line, so keep a plain sRGB gradient above it as a fallback). A second grey culprit is transparency: the keyword <code>transparent</code> is transparent black, so fading to it passes through grey — fade to the same colour at zero alpha instead, like <code>rgba(0, 0, 0, 0)</code> for black.</p>
-      <h2 style="margin-top:28px">Linear or radial — which one?</h2>
-      <p>Linear gradients suit backgrounds, buttons and overlays: a 90° or 135° diagonal is the classic hero background. Radial gradients suit glows, spotlights and vignettes — a light centre fading outward. Keep it to two or three colours: gradients with many unrelated colours look busy. For text over a gradient, check the contrast at the gradient's worst spot, not its average — run the pair through the <a href="/tools/color-contrast-checker">Color Contrast Checker</a>.</p>
+      <h2 style="margin-top:28px">Linear, radial or conic — which one?</h2>
+      <p>Linear gradients suit backgrounds, buttons and overlays: a 90° or 135° diagonal is the classic hero background. Radial gradients suit glows, spotlights and vignettes — a light centre fading outward. Conic gradients sweep around a centre point like a pie chart or colour wheel, and suit dials, wheels and pie-style fills. Keep it to two or three colours: gradients with many unrelated colours look busy. For text over a gradient, check the contrast at five points across it — the checker above does exactly that — not its average; run the exact pair through the <a href="/tools/color-contrast-checker">Color Contrast Checker</a> before you ship it.</p>
+      <h2 style="margin-top:28px">How the OKLCH toggle fixes the grey middle</h2>
+      <p>With the toggle on, the copied CSS is two lines: a plain sRGB gradient first, then the same gradient with <code>in oklch</code> after the gradient name. Browsers that understand OKLCH use the second line and blend around the hue wheel, so blue to yellow stays vivid instead of passing through grey; older browsers ignore the line they do not understand and fall back to the sRGB one. That is why the toggle is on by default here — the fallback makes it safe to leave on. One caveat: the PNG download is drawn on a canvas, which blends in sRGB only, so a downloaded PNG will not show the OKLCH improvement — use the CSS on a website to get it.</p>
+      <h2 style="margin-top:28px">How do I fix gradient banding?</h2>
+      <p>Banding is the visible stepping on a long, subtle gradient. Add more intermediate stops in a perceptual space (OKLCH) so each step is smaller, then layer a faint noise or dither texture over the gradient — a low-opacity noise pattern breaks up the visible bands without changing the colours. This tool has no built-in noise control: if you see banding, add a middle stop here, then add the noise layer in your own CSS or image editor.</p>
+      <h2 style="margin-top:28px">Gradient from a photo</h2>
+      <p>Upload a photo above and the tool reads its three most common colours (by counting colour buckets on a small canvas copy, in your browser) and sets them as gradient stops. It is a quick start, not a palette-AI: the colours are the most frequent ones in the photo, so a busy photo can give you its background rather than its subject. Nudge the stops by hand after importing.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
+      <details class="faq"><summary>How do I make a CSS gradient?</summary><p>Pick linear, radial or conic; set two or more colour stops with positions (0–100%); set the angle (linear) or shape and centre (radial); copy the CSS, for example background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);.</p></details>
+      <details class="faq"><summary>Why does my gradient look grey/muddy in the middle?</summary><p>Browsers interpolate in sRGB by default, and the straight line between far-apart hues passes through grey — blue to yellow midpoints at about #808080. Fix it by interpolating in oklch (this page's toggle, on by default), adding a middle stop (for example pink between purple and orange), or picking neighbouring hues.</p></details>
+      <details class="faq"><summary>What is the difference between linear, radial and conic gradients?</summary><p>Linear blends along a straight line or angle; radial radiates from a centre point (circle or ellipse); conic sweeps around a centre point like a pie chart or colour wheel.</p></details>
+      <details class="faq"><summary>How do I fix gradient banding?</summary><p>Add more intermediate stops in a perceptual space (OKLCH), then layer a faint noise or dither texture over the gradient — a low-opacity noise pattern breaks up visible bands without changing the colours. This tool has no built-in noise control, so add the noise layer in your own CSS or image editor.</p></details>
       <details class="faq"><summary>Is this gradient generator really free?</summary><p>Yes. Build and export as many gradients as you like — no signup, no watermark, no upload. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>Why does my gradient have a grey middle?</summary><p>Browsers blend in sRGB by default, and the line between opposite colours passes through grey. Add a bright middle stop, pick colours closer in hue, or interpolate in OKLCH with linear-gradient(in oklch …).</p></details>
-      <details class="faq"><summary>What is the difference between linear and radial gradients?</summary><p>A linear gradient blends along a straight line at an angle you set. A radial gradient blends outward from a centre point, like a glow. Both use the same colour stops.</p></details>
+      <details class="faq"><summary>What does the OKLCH toggle do?</summary><p>It changes the copied CSS to blend in OKLCH instead of sRGB, so the middle of the blend stays vivid instead of going grey. The CSS has a plain sRGB line first as a fallback for older browsers, then the OKLCH line. The PNG download stays sRGB, because canvas gradients cannot carry OKLCH interpolation.</p></details>
       <details class="faq"><summary>How many colour stops can I add?</summary><p>Up to 5 stops here — enough for almost every real design. Two or three colours is the sweet spot; more than that usually looks busy.</p></details>
       <details class="faq"><summary>Should I use the CSS or the PNG download?</summary><p>Use the CSS for websites: it stays sharp at any size and adds no image weight. Use the PNG for slides, documents and social posts where CSS is not available.</p></details>
       <details class="faq"><summary>Can I make a transparent gradient?</summary><p>Yes in the CSS by hand — use an 8-digit hex or rgba() value in a stop. This tool's stops are solid colours; fade to the same colour at zero alpha rather than the transparent keyword, or the middle goes grey.</p></details>
-      
+      <details class="faq"><summary>What angle should a hero gradient use?</summary><p>90° (left to right) and 135° (diagonal) are the most common. 180° runs top to bottom and suits overlays on photos. For conic gradients the angle is the starting point of the sweep.</p></details>
+      <details class="faq"><summary>How do I use a gradient on a button?</summary><p>Paste the CSS as the button's background value. Keep the text contrast at 4.5:1 against the lightest part of the gradient — the five-point checker above shows the ratio at both ends, the middle and the quarter-points.</p></details>
+      <details class="faq"><summary>Can I animate a gradient?</summary><p>Not directly in CSS, but you can animate the background position of a large gradient. This tool exports a static gradient only.</p></details>
+      <details class="faq"><summary>How do I make a gradient from a photo?</summary><p>Upload a photo in the “Gradient from a photo” box and its three most common colours become your gradient stops. It is read in your browser via canvas — nothing is sent or stored. Nudge the stops by hand after importing, since a busy photo can give you its background rather than its subject.</p></details>
+      <details class="faq"><summary>How do I check text contrast on a gradient?</summary><p>Check it at five points across the gradient — the endpoints, the midpoint and the two quarter-points — not at one average. This page's checker does that against white and black text, with the WCAG AA verdict per point. A gradient only passes if the text colour passes at every point you place text on.</p></details>
+            
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
-      <p><strong>What angle should a hero gradient use?</strong> 90° (left to right) and 135° (diagonal) are the most common. 180° runs top to bottom and suits overlays on photos.</p>
+      <p><strong>What angle should a hero gradient use?</strong> 90° (left to right) and 135° (diagonal) are the most common. 180° runs top to bottom and suits overlays on photos. For conic gradients the angle is the starting point of the sweep.</p>
       <p><strong>How do I use a gradient on a button?</strong> Paste the CSS as the button's background value. Keep the text contrast at 4.5:1 against the lightest part of the gradient.</p>
       <p><strong>Why does my gradient look different in Figma?</strong> Figma and browsers interpolate colour differently. Trust the browser preview here — it is what your visitors will see.</p>
       <p><strong>Can I animate a gradient?</strong> Not directly in CSS, but you can animate the background position of a large gradient. This tool exports a static gradient only.</p>
@@ -312,18 +409,58 @@ table.facts td{color:var(--text2)}
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
-  var type = "linear", angle = 90;
+  var type = "linear", angle = 90, oklchOn = true;
   var stops = [{ color: "#ff6b6b", pos: 0 }, { color: "#4ecdc4", pos: 100 }];
-  function cssText() {
+  var history = [];
+  function pushHistory() {
+    history.push(JSON.stringify({ type: type, angle: angle, stops: stops, oklch: oklchOn }));
+    if (history.length > 30) history.shift();
+  }
+  function gradValue(space) {
     var parts = stops.slice().sort(function (a, b) { return a.pos - b.pos; })
       .map(function (s) { return s.color.toUpperCase() + " " + s.pos + "%"; }).join(", ");
-    return type === "linear"
-      ? "background: linear-gradient(" + angle + "deg, " + parts + ");"
-      : "background: radial-gradient(circle, " + parts + ");";
+    var pre = (oklchOn && space === "oklch") ? "in oklch, " : "";
+    if (type === "linear") return "linear-gradient(" + pre + angle + "deg, " + parts + ")";
+    if (type === "radial") return "radial-gradient(" + pre + "circle, " + parts + ")";
+    return "conic-gradient(" + pre + "from " + angle + "deg, " + parts + ")";
+  }
+  function cssText() {
+    if (!oklchOn) return "background: " + gradValue("srgb") + ";";
+    return "background: " + gradValue("srgb") + ";\nbackground: " + gradValue("oklch") + ";";
+  }
+  function hexToRgb(h) { h = h.replace("#", ""); return [parseInt(h.substr(0, 2), 16), parseInt(h.substr(2, 2), 16), parseInt(h.substr(4, 2), 16)]; }
+  function relLum(r, g, b) {
+    function f(c) { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  }
+  function sampleAt(p) {
+    var sorted = stops.slice().sort(function (a, b) { return a.pos - b.pos; });
+    if (p <= sorted[0].pos) return hexToRgb(sorted[0].color);
+    if (p >= sorted[sorted.length - 1].pos) return hexToRgb(sorted[sorted.length - 1].color);
+    for (var i = 0; i < sorted.length - 1; i++) {
+      if (p >= sorted[i].pos && p <= sorted[i + 1].pos) {
+        var t = (p - sorted[i].pos) / (sorted[i + 1].pos - sorted[i].pos || 1);
+        var a = hexToRgb(sorted[i].color), b = hexToRgb(sorted[i + 1].color);
+        return [Math.round(a[0] + (b[0] - a[0]) * t), Math.round(a[1] + (b[1] - a[1]) * t), Math.round(a[2] + (b[2] - a[2]) * t)];
+      }
+    }
+    return hexToRgb(sorted[0].color);
+  }
+  function renderContrast5() {
+    var box = $("contrast5"); if (!box) return;
+    var rows = [0, 25, 50, 75, 100].map(function (p) {
+      var rgb = sampleAt(p), lum = relLum(rgb[0], rgb[1], rgb[2]);
+      var cw = (1.05) / (lum + 0.05), cb = (lum + 0.05) / 0.05;
+      function v(r) { return r >= 4.5 ? "AA ✓" : r >= 3 ? "large only" : "fails"; }
+      return "<tr><td>" + p + "%</td><td>rgb(" + rgb.join(", ") + ")</td><td>" + (Math.round(cw * 100) / 100) + ":1 " + v(cw) + "</td><td>" + (Math.round(cb * 100) / 100) + ":1 " + v(cb) + "</td></tr>";
+    }).join("");
+    box.innerHTML = '<table class="facts"><thead><tr><th>Point</th><th>Colour (sRGB sample)</th><th>White text</th><th>Black text</th></tr></thead><tbody>' + rows + "</tbody></table>";
   }
   function render() {
     var css = cssText();
-    $("gradPreview").style.background = css.replace(/^background:\s*/, "").replace(/;$/, "");
+    $("gradPreview").style.background = gradValue(oklchOn ? "oklch" : "srgb");
+    $("cssOut").textContent = css;
+    renderContrast5();
     $("cssOut").textContent = css;
     var list = $("stopList"); list.innerHTML = "";
     stops.forEach(function (s, i) {
@@ -337,15 +474,17 @@ table.facts td{color:var(--text2)}
       var rm = document.createElement("button"); rm.type = "button"; rm.className = "rm"; rm.textContent = "×"; rm.title = "Remove stop";
       rm.addEventListener("click", function () {
         if (stops.length <= 2) { toast("A gradient needs at least 2 stops."); return; }
+        pushHistory();
         stops.splice(i, 1); render();
       });
       row.appendChild(col); row.appendChild(rng); row.appendChild(num); row.appendChild(rm);
       list.appendChild(row);
     });
-    $("angleRow").style.display = type === "linear" ? "" : "none";
+    $("angleRow").style.display = type === "radial" ? "none" : "";
   }
   $("typeChips").addEventListener("click", function (ev) {
     var b = ev.target.closest(".chip"); if (!b) return;
+    pushHistory();
     type = b.getAttribute("data-type");
     document.querySelectorAll("#typeChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
     render();
@@ -353,6 +492,7 @@ table.facts td{color:var(--text2)}
   $("angleInput").addEventListener("input", function () { angle = parseInt(this.value, 10); $("angleOut").textContent = angle + "°"; render(); });
   $("addStop").addEventListener("click", function () {
     if (stops.length >= 5) { toast("Maximum 5 stops."); return; }
+    pushHistory();
     var sorted = stops.slice().sort(function (a, b) { return a.pos - b.pos; });
     var mid = 50, widest = 0;
     for (var i = 0; i < sorted.length - 1; i++) {
@@ -364,6 +504,7 @@ table.facts td{color:var(--text2)}
   });
   $("presetChips").addEventListener("click", function (ev) {
     var b = ev.target.closest(".chip"); if (!b) return;
+    pushHistory();
     var cols = b.getAttribute("data-stops").split(",");
     stops = cols.map(function (c, i) { return { color: c, pos: cols.length === 1 ? 0 : Math.round(i * 100 / (cols.length - 1)) }; });
     render();
@@ -381,6 +522,8 @@ table.facts td{color:var(--text2)}
       var dx = Math.cos(rad), dy = Math.sin(rad);
       var cx = 600, cy = 337.5, half = Math.abs(600 * dx) + Math.abs(337.5 * dy);
       g = ctx.createLinearGradient(cx - dx * half, cy - dy * half, cx + dx * half, cy + dy * half);
+    } else if (type === "conic") {
+      g = ctx.createConicGradient((angle - 90) * Math.PI / 180, 600, 337.5);
     } else {
       g = ctx.createRadialGradient(600, 337.5, 0, 600, 337.5, Math.max(600, 337.5));
     }
@@ -393,6 +536,75 @@ table.facts td{color:var(--text2)}
       toast("Gradient PNG downloaded.");
     }, "image/png");
   });
+  $("oklchChk").addEventListener("change", function () { pushHistory(); oklchOn = this.checked; render(); });
+  $("undoBtn").addEventListener("click", function () {
+    var last = history.pop();
+    if (!last) { toast("Nothing to undo."); return; }
+    var snap = JSON.parse(last);
+    type = snap.type; angle = snap.angle; stops = snap.stops; oklchOn = snap.oklch;
+    $("oklchChk").checked = oklchOn;
+    $("angleInput").value = angle; $("angleOut").textContent = angle + "°";
+    document.querySelectorAll("#typeChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-type") === type ? "true" : "false"); });
+    render(); toast("Undone.");
+  });
+  $("shareBtn").addEventListener("click", function () {
+    var params = new URLSearchParams();
+    params.set("t", type); params.set("a", String(angle)); params.set("o", oklchOn ? "1" : "0");
+    params.set("s", stops.slice().sort(function (a, b) { return a.pos - b.pos; }).map(function (s2) { return s2.color.replace("#", "") + "@" + s2.pos; }).join(","));
+    var url = location.origin + location.pathname + "#g=" + params.toString();
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { toast("Share link copied — it encodes the full gradient."); });
+  });
+  $("imgFile").addEventListener("change", function () {
+    var f = this.files[0]; if (!f) return;
+    if (!/^image\//.test(f.type)) { toast("Please choose an image file."); return; }
+    var reader = new FileReader();
+    reader.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        var cv = document.createElement("canvas"); cv.width = 32; cv.height = 32;
+        var ctx = cv.getContext("2d"); ctx.drawImage(im, 0, 0, 32, 32);
+        var data = ctx.getImageData(0, 0, 32, 32).data;
+        var buckets = {};
+        for (var i = 0; i < data.length; i += 4) {
+          var key = ((data[i] >> 4) << 8) | ((data[i + 1] >> 4) << 4) | (data[i + 2] >> 4);
+          if (!buckets[key]) buckets[key] = { n: 0, r: 0, g: 0, b: 0 };
+          buckets[key].n++; buckets[key].r += data[i]; buckets[key].g += data[i + 1]; buckets[key].b += data[i + 2];
+        }
+        var top = Object.keys(buckets).map(function (k) { return buckets[k]; }).sort(function (a, b) { return b.n - a.n; }).slice(0, 3);
+        if (!top.length) { toast("Could not read colours from that image."); return; }
+        function hx(n) { var s2 = Math.round(n).toString(16); return s2.length === 1 ? "0" + s2 : s2; }
+        pushHistory();
+        stops = top.map(function (bk, idx) {
+          var r = bk.r / bk.n, g = bk.g / bk.n, b = bk.b / bk.n;
+          return { color: "#" + hx(r) + hx(g) + hx(b), pos: top.length === 1 ? 0 : Math.round(idx * 100 / (top.length - 1)) };
+        });
+        render(); toast("Gradient built from your photo's most common colours.");
+      };
+      im.onerror = function () { toast("Could not read that image. Try a JPG, PNG or WebP file."); };
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(f);
+  });
+  (function loadFromHash() {
+    if (!location.hash || location.hash.indexOf("#g=") !== 0) return;
+    try {
+      var params = new URLSearchParams(location.hash.slice(3));
+      var t = params.get("t"), a = params.get("a"), o = params.get("o"), s2 = params.get("s");
+      if (t && (t === "linear" || t === "radial" || t === "conic")) type = t;
+      if (a !== null && !isNaN(parseInt(a, 10))) angle = Math.max(0, Math.min(360, parseInt(a, 10)));
+      if (o !== null) oklchOn = o === "1";
+      if (s2) {
+        var parsed = s2.split(",").map(function (part) {
+          var bits = part.split("@");
+          return { color: "#" + bits[0], pos: parseInt(bits[1], 10) || 0 };
+        }).filter(function (st) { return /^#[0-9a-fA-F]{6}$/.test(st.color); });
+        if (parsed.length >= 2 && parsed.length <= 5) stops = parsed;
+      }
+      $("oklchChk").checked = oklchOn;
+      $("angleInput").value = angle; $("angleOut").textContent = angle + "°";
+      document.querySelectorAll("#typeChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-type") === type ? "true" : "false"); });
+    } catch (e) { /* ignore a bad share link; defaults stand */ }
+  })();
   render();
 
   $("copyLink").addEventListener("click", function () {

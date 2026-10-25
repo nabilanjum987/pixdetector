@@ -20,50 +20,122 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is converting CSV to PDF free here?",
+      "name": "How do I convert a CSV file to PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Convert as many CSV files as you like, free, with no signup, no upload and no watermark. The PDF is built in your browser and downloads straight to your device."
+        "text": "Upload the CSV here, check the preview, then press Download PDF. Or open the file in Excel or Google Sheets, set the print layout, and export as PDF from the file menu."
       }
     },
     {
       "@type": "Question",
-      "name": "What does the PDF look like?",
+      "name": "Is the CSV to PDF converter free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A simple, clean table: one header row in bold, then your data rows, repeated across pages as needed. Wide tables switch to landscape automatically. It is a plain printable table — not a designed report."
+        "text": "Yes — free, with no account, no watermark and no limit on the number of files you convert. Server tools cap the free tier instead: Zamzar's free CSV-to-PDF tier is capped at 1 MB and Aspose's at 2 MB without signing in (caps from a comparison of those tools, 25 Oct 2026)."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my formatting preserved in the PDF?",
+      "name": "Why convert CSV to PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — and that is the honest limit of this tool. A CSV file carries no formatting at all: no colours, fonts, bold cells or formulas. The PDF keeps your data and your column order, nothing more. Very long cell text is cut short so the table stays readable."
+        "text": "PDFs preserve the layout, look the same on every device, are easy to email, print and archive, and stop accidental edits — for reports, customer lists, inventory exports and financial data."
       }
     },
     {
       "@type": "Question",
-      "name": "What if my CSV has more than six columns?",
+      "name": "How do I convert CSV to PDF without losing formatting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The PDF switches to landscape orientation automatically so each column gets more room. With very many columns the text still gets small, because a printed page is only so wide — for wide data, the Excel version is usually the better choice."
+        "text": "A CSV has no formatting to preserve — you create the format first, in the converter's layout options (paper size, orientation, text size, stripes, gridlines, title) or in a spreadsheet app, then export using print settings so the PDF matches the page layout."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I print the PDF or share it by email?",
+      "name": "Why are columns cut off in my PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The download is a standard PDF that opens in any PDF reader, prints normally, and attaches to an email like any other file. That is the whole point of converting: a CSV is hard to read and easy to break, while a PDF looks the same everywhere."
+        "text": "The table is wider than the page. Fix it with landscape orientation, smaller text, or a converter that shrinks wide tables instead of cutting them — this tool does all three, and its column picker lets you drop columns you do not need. Very long cell text is still cut short with an ellipsis, but no column is dropped silently."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my data uploaded anywhere?",
+      "name": "How do I repeat the header row on every page of the PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your CSV never leaves your device. It is parsed and drawn into a PDF entirely in your browser, and nothing is stored after you close the page."
+        "text": "Here, tick “Repeat the header on every page” — it is on by default, with “First row is a header row” beside it. In Excel, use Page Layout, then Print Titles; in Google Sheets, freeze the header row, then export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert CSV to PDF on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this converter works in any mobile browser on iPhone or Android; no installation is needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert multiple CSV files to PDF at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool converts one CSV per run — run each file separately, free, with no limit. Smallpdf reserves batch conversion for its Pro plan, while some newer tools make one PDF with a bookmark per file or a ZIP of PDFs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when converting CSV to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the tool. Upload tools hold the file on a server briefly — Smallpdf encrypts with TLS and auto-deletes after one hour. In-browser tools like this one never send it: your CSV is parsed and drawn into a PDF on your device, and nothing is stored."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CSV to PDF keep formulas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a CSV holds only values, and those are what get printed. Formulas, cell colours, fonts and column widths from a spreadsheet are not in the file, so none of them can carry over."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert CSV to PDF on Mac?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a browser converter like this one — no install — or open the CSV in Numbers or Google Sheets, set the print layout, and export or download it as PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best way to convert a wide CSV with many columns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use landscape orientation, smaller text, and a converter that shrinks or splits instead of cutting — or drop the columns you do not need with a column picker before converting. This tool shrinks the text, switches to landscape automatically, and has a column picker."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert CSV to PDF in Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — open or import the CSV, go to Page Layout (print area, scale to fit, print titles), then File, Export, Create PDF/XPS, or Save As PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert CSV to PDF in Google Sheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload the file to Drive, open it with Sheets, fix the separator via File, Import if the columns split wrong, freeze the header row, then use File, Print (landscape, fit to width, gridlines off) and export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert the PDF back to a spreadsheet later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — PDF-to-Excel converters exist, including our own PDF to Excel converter. The round trip is lossy (layout, not the original data), so keep the CSV as the raw-data master."
       }
     }
   ]
@@ -169,9 +241,9 @@ table.facts td{color:var(--text2)}
     </div>
     <div class="tool-page-header">
       <h1>Convert CSV to PDF</h1>
-      <p>Turn a CSV file into a clean, printable PDF table — free, in your browser. No signup, no upload, no ads.</p>
+      <p>Every column fits — turn a CSV file into a clean, printable PDF table, free, in your browser. No signup, no upload, no ads. Wide tables are shrunk to fit or switched to landscape, never cut off at the edge.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> The PDF is a <strong>basic table layout</strong>: bold header row, plain data rows, landscape when the table is wide. <strong>Complex formatting is not preserved</strong> — a CSV carries no colours, fonts, bold cells or formulas at all, so there is nothing to preserve. Very long cell text is cut short to keep the table readable. If you need to keep working with the data, convert to <a href="/tools/csv-to-excel-converter">Excel</a> instead.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> A readable table, not a spreadsheet — no formulas, formatting or sheets carry over, because a CSV contains none of them. The PDF is read-only; keep your CSV as the master. <strong>Every column fits:</strong> wide tables are shrunk to fit (smaller text, automatic landscape) — never silently cut off — though very long cell text is cut short with an ellipsis so columns stay readable. If you need to keep working with the data, convert to <a href="/tools/csv-to-excel-converter">Excel</a> instead.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="CSV to PDF converter">
         <h2>Your CSV file</h2>
@@ -190,6 +262,7 @@ table.facts td{color:var(--text2)}
                 <option value=",">Comma (,)</option>
                 <option value=";">Semicolon (;)</option>
                 <option value="&#9;">Tab</option>
+                <option value="|">Pipe (|)</option>
               </select>
             </div>
             <div>
@@ -197,11 +270,45 @@ table.facts td{color:var(--text2)}
               <select id="sizeSel">
                 <option value="a4" selected>A4</option>
                 <option value="letter">Letter (US)</option>
+                <option value="legal">Legal</option>
+                <option value="a3">A3</option>
               </select>
             </div>
           </div>
           <label class="checkrow"><input type="checkbox" id="headerChk" checked> First row is a header row</label>
+          <label class="checkrow"><input type="checkbox" id="repeatChk" checked> Repeat the header on every page</label>
+          <div class="twin" style="margin-top:14px">
+            <div>
+              <label class="flabel" for="orientSel">Orientation</label>
+              <select id="orientSel">
+                <option value="auto" selected>Auto (landscape when wide)</option>
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+              </select>
+            </div>
+            <div>
+              <label class="flabel" for="textSel">Text size</label>
+              <select id="textSel">
+                <option value="auto" selected>Auto (shrinks for wide tables)</option>
+                <option value="small">Small</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:14px">
+            <label class="flabel" for="titleInput">PDF title (optional — printed at the top of the first page)</label>
+            <input type="text" id="titleInput" placeholder="e.g. March orders" spellcheck="false" style="width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none">
+          </div>
+          <label class="checkrow"><input type="checkbox" id="stripesChk" checked> Striped rows</label>
+          <label class="checkrow"><input type="checkbox" id="gridChk" checked> Gridlines</label>
+          <label class="checkrow"><input type="checkbox" id="pageNumChk" checked> Page numbers</label>
+          <div id="colPickerWrap" style="display:none;margin-top:14px">
+            <span class="flabel">Columns in the PDF — untick any column to leave it out</span>
+            <div class="chips" id="colPicker"></div>
+            <p class="trust">Dropping columns you do not need is the quickest fix for a wide table.</p>
+          </div>
           <div class="preview" id="previewBox"></div>
+          <p class="trust">Preview shows the first 8 rows, exactly as they will appear — check the layout here, before you download. One CSV per run: to convert several files, run each one separately (free, no limit).</p>
           <div class="actions">
             <button type="button" class="btn" id="convBtn">Download PDF</button>
             <button type="button" class="btn alt" id="resetBtn">Choose a different file</button>
@@ -232,6 +339,10 @@ table.facts td{color:var(--text2)}
       </div>
     </div>
     <div class="share-box">
+      <h2>Need an editable spreadsheet instead? <a href="/tools/csv-to-excel-converter">Convert CSV to Excel &rarr;</a></h2>
+      <p class="share-line">Same CSV, two outputs — pick Excel to work with the data (sort, sum, filter, edit it), pick PDF to share, print or archive it. The PDF is read-only; the Excel file keeps the numbers usable.</p>
+    </div>
+    <div class="share-box">
       <h2>Share this tool</h2>
       <p class="share-line">I converted a CSV to a printable PDF free in my browser — no signup, no upload.</p>
       <div class="share-btns">
@@ -257,31 +368,77 @@ table.facts td{color:var(--text2)}
       <p>PDF is right when the data needs to be read, printed, emailed or archived exactly as it is: a price list, a class roster, an order summary, a report for a meeting. PDF is wrong when the data still needs to be worked with — sorted, summed, filtered or edited. A PDF is a picture of a table, not a table. For that, convert the same CSV to <a href="/tools/csv-to-excel-converter">Excel</a> instead, where the numbers stay real numbers.</p>
       <h2>Why the layout is simple on purpose</h2>
       <p>A CSV carries no formatting at all, so a converter that promises to "preserve your formatting" is promising something impossible. This tool does the honest thing: it draws the data cleanly, repeats the header on every page, switches wide tables to landscape, and cuts very long cells short so the table stays readable. If your data needs a designed report with colours and charts, that is a job for a spreadsheet program, not a converter.</p>
+      <h2>Every column fits — how it works</h2>
+      <p>The mechanism is shrink-to-fit, and it is visible in the preview before you download. When a table is wide, this tool shrinks the text (from 9pt down to 7pt), switches to landscape automatically (or when you choose it), and shortens very long cells with an ellipsis — so every column lands on the page. It does not split one wide table across two pages side by side, and it never drops a column silently: if a column is in your CSV, it is in the PDF unless you untick it in the column picker. Check the preview's first 8 rows — if the text looks too small there, drop a column or two before downloading.</p>
+      <h2>Delimiters, encoding and quoted cells</h2>
+      <p>The delimiter (comma, semicolon, tab or pipe) is auto-detected from the first few rows, and you can override it by hand if the file lands in one column — the classic sign of a semicolon file read as comma-separated. Files are read as UTF-8, and quoted cells are parsed properly: a comma inside quotes stays inside the cell, line breaks inside quotes stay inside the cell, and doubled quotes become one quote. If your file uses a different encoding and characters look wrong, re-save it as UTF-8 before converting.</p>
+      <h2>Leading zeros and long IDs stay intact</h2>
+      <p>Values are printed exactly as they appear in the CSV — as text, never re-typed as numbers. A zip code of 01234 stays 01234, and a long order ID is never turned into scientific notation, because this tool never guesses a cell's type the way a spreadsheet program does on opening. That is the same protection our <a href="/tools/csv-to-excel-converter">CSV to Excel converter</a> applies, carried over to the PDF.</p>
+      <h2>Your data never leaves your device</h2>
+      <p>This tool parses the CSV and draws the PDF entirely in your browser — nothing is uploaded, nothing is stored. That matters for customer lists, financial exports and inventory: server converters hold your file, even briefly. Smallpdf encrypts uploads with TLS and auto-deletes them after one hour; Zamzar's free CSV-to-PDF tier is capped at 1 MB and Aspose's at 2 MB without signing in (caps from a comparison of those tools, 25 Oct 2026). Here there is no cap to hit and no server copy to delete, because there is no server copy at all.</p>
+      <h2>Multiple files</h2>
+      <p>This tool converts one CSV per run. To turn several files into PDFs, run each one separately — free, with no limit on the number of runs. Some server tools do several files in one batch but charge for it (Smallpdf reserves batch conversion for its Pro plan), so the free route here is one file at a time.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq">
-        <summary>Is converting CSV to PDF free here?</summary>
-        <p>Yes. Convert as many CSV files as you like, free, with no signup, no upload and no watermark. The PDF is built in your browser and downloads straight to your device.</p>
+        <summary>How do I convert a CSV file to PDF?</summary>
+        <p>Upload the CSV here, check the preview, then press Download PDF. Or open the file in Excel or Google Sheets, set the print layout, and export as PDF from the file menu.</p>
       </details>
       <details class="faq">
-        <summary>What does the PDF look like?</summary>
-        <p>A simple, clean table: one header row in bold, then your data rows, repeated across pages as needed. Wide tables switch to landscape automatically. It is a plain printable table — not a designed report.</p>
+        <summary>Is the CSV to PDF converter free?</summary>
+        <p>Yes — free, with no account, no watermark and no limit on the number of files you convert. Server tools cap the free tier instead: Zamzar's free CSV-to-PDF tier is capped at 1 MB and Aspose's at 2 MB without signing in (caps from a comparison of those tools, 25 Oct 2026).</p>
       </details>
       <details class="faq">
-        <summary>Is my formatting preserved in the PDF?</summary>
-        <p>No — and that is the honest limit of this tool. A CSV file carries no formatting at all: no colours, fonts, bold cells or formulas. The PDF keeps your data and your column order, nothing more. Very long cell text is cut short so the table stays readable.</p>
+        <summary>Why convert CSV to PDF?</summary>
+        <p>PDFs preserve the layout, look the same on every device, are easy to email, print and archive, and stop accidental edits — for reports, customer lists, inventory exports and financial data.</p>
       </details>
       <details class="faq">
-        <summary>What if my CSV has more than six columns?</summary>
-        <p>The PDF switches to landscape orientation automatically so each column gets more room. With very many columns the text still gets small, because a printed page is only so wide — for wide data, the Excel version is usually the better choice.</p>
+        <summary>How do I convert CSV to PDF without losing formatting?</summary>
+        <p>A CSV has no formatting to preserve — you create the format first, in the converter's layout options (paper size, orientation, text size, stripes, gridlines, title) or in a spreadsheet app, then export using print settings so the PDF matches the page layout.</p>
       </details>
       <details class="faq">
-        <summary>Can I print the PDF or share it by email?</summary>
-        <p>Yes. The download is a standard PDF that opens in any PDF reader, prints normally, and attaches to an email like any other file. That is the whole point of converting: a CSV is hard to read and easy to break, while a PDF looks the same everywhere.</p>
+        <summary>Why are columns cut off in my PDF?</summary>
+        <p>The table is wider than the page. Fix it with landscape orientation, smaller text, or a converter that shrinks wide tables instead of cutting them — this tool does all three, and its column picker lets you drop columns you do not need. Very long cell text is still cut short with an ellipsis, but no column is dropped silently.</p>
       </details>
       <details class="faq">
-        <summary>Is my data uploaded anywhere?</summary>
-        <p>No. Your CSV never leaves your device. It is parsed and drawn into a PDF entirely in your browser, and nothing is stored after you close the page.</p>
+        <summary>How do I repeat the header row on every page of the PDF?</summary>
+        <p>Here, tick “Repeat the header on every page” — it is on by default, with “First row is a header row” beside it. In Excel, use Page Layout, then Print Titles; in Google Sheets, freeze the header row, then export.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert CSV to PDF on my phone?</summary>
+        <p>Yes — this converter works in any mobile browser on iPhone or Android; no installation is needed.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert multiple CSV files to PDF at once?</summary>
+        <p>This tool converts one CSV per run — run each file separately, free, with no limit. Smallpdf reserves batch conversion for its Pro plan, while some newer tools make one PDF with a bookmark per file or a ZIP of PDFs.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my data safe when converting CSV to PDF?</summary>
+        <p>It depends on the tool. Upload tools hold the file on a server briefly — Smallpdf encrypts with TLS and auto-deletes after one hour. In-browser tools like this one never send it: your CSV is parsed and drawn into a PDF on your device, and nothing is stored.</p>
+      </details>
+      <details class="faq">
+        <summary>Does CSV to PDF keep formulas?</summary>
+        <p>No — a CSV holds only values, and those are what get printed. Formulas, cell colours, fonts and column widths from a spreadsheet are not in the file, so none of them can carry over.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert CSV to PDF on Mac?</summary>
+        <p>Use a browser converter like this one — no install — or open the CSV in Numbers or Google Sheets, set the print layout, and export or download it as PDF.</p>
+      </details>
+      <details class="faq">
+        <summary>What is the best way to convert a wide CSV with many columns?</summary>
+        <p>Use landscape orientation, smaller text, and a converter that shrinks or splits instead of cutting — or drop the columns you do not need with a column picker before converting. This tool shrinks the text, switches to landscape automatically, and has a column picker.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert CSV to PDF in Excel?</summary>
+        <p>Yes — open or import the CSV, go to Page Layout (print area, scale to fit, print titles), then File, Export, Create PDF/XPS, or Save As PDF.</p>
+      </details>
+      <details class="faq">
+        <summary>How do I convert CSV to PDF in Google Sheets?</summary>
+        <p>Upload the file to Drive, open it with Sheets, fix the separator via File, Import if the columns split wrong, freeze the header row, then use File, Print (landscape, fit to width, gridlines off) and export.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I convert the PDF back to a spreadsheet later?</summary>
+        <p>Yes — PDF-to-Excel converters exist, including our own PDF to Excel converter. The round trip is lossy (layout, not the original data), so keep the CSV as the raw-data master.</p>
       </details>
 
       <!-- RELATED QUESTIONS -->
@@ -357,7 +514,7 @@ table.facts td{color:var(--text2)}
   }
   function detectDelim(text) {
     var head = text.split(/\r?\n/).slice(0, 5).join("\n");
-    var counts = { ",": 0, ";": 0, "\t": 0 };
+    var counts = { ",": 0, ";": 0, "\t": 0, "|": 0 };
     var inQ = false;
     for (var i = 0; i < head.length; i++) {
       var c = head[i];
@@ -369,27 +526,59 @@ table.facts td{color:var(--text2)}
     return bestN > 0 ? best : ",";
   }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  var hiddenCols = {};
+  function visCols() {
+    if (!rows) return [];
+    var n = Math.max.apply(null, rows.map(function (r) { return r.length; }));
+    var v = [];
+    for (var c = 0; c < n; c++) if (!hiddenCols[c]) v.push(c);
+    if (!v.length) { for (var c2 = 0; c2 < n; c2++) v.push(c2); }
+    return v;
+  }
+  function renderColPicker() {
+    var box = $("colPicker");
+    box.innerHTML = "";
+    if (!rows) return;
+    var n = Math.max.apply(null, rows.map(function (r) { return r.length; }));
+    var header = $("headerChk").checked;
+    for (var c = 0; c < n; c++) {
+      (function (ci) {
+        var label = (header && rows[0] && rows[0][ci]) ? rows[0][ci] : ("Column " + (ci + 1));
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "chip"; b.textContent = label;
+        b.setAttribute("aria-pressed", hiddenCols[ci] ? "false" : "true");
+        b.addEventListener("click", function () {
+          if (hiddenCols[ci]) delete hiddenCols[ci]; else hiddenCols[ci] = true;
+          b.setAttribute("aria-pressed", hiddenCols[ci] ? "false" : "true");
+          renderPreview();
+        });
+        box.appendChild(b);
+      })(c);
+    }
+    $("colPickerWrap").style.display = "";
+  }
   function renderPreview() {
     if (!rows) return;
+    var vis = visCols();
     var show = rows.slice(0, 8);
-    var cols = Math.max.apply(null, show.map(function (r) { return r.length; }));
     var header = $("headerChk").checked;
     var h = "<table>";
     show.forEach(function (r, ri) {
       var tag = (ri === 0 && header) ? "th" : "td";
       h += "<tr>";
-      for (var c = 0; c < cols; c++) h += "<" + tag + ">" + esc(r[c] !== undefined ? r[c] : "") + "</" + tag + ">";
+      vis.forEach(function (c) { h += "<" + tag + ">" + esc(r[c] !== undefined ? r[c] : "") + "</" + tag + ">"; });
       h += "</tr>";
     });
     h += "</table>";
     $("previewBox").innerHTML = h;
-    var ncols = Math.max.apply(null, rows.map(function (r) { return r.length; }));
-    $("fileInfo").textContent = fileName + ".csv — " + rows.length + " rows × " + ncols + " columns. Preview shows the first 8 rows.";
+    $("fileInfo").textContent = fileName + ".csv — " + rows.length + " rows × " + vis.length + " of " + Math.max.apply(null, rows.map(function (r) { return r.length; })) + " columns in the PDF. Preview shows the first 8 rows.";
   }
   function reparse() {
     var d = $("delimSel").value;
     if (d === "auto") d = detectDelim(rawText);
     rows = parseCSV(rawText, d);
+    hiddenCols = {};
+    renderColPicker();
     renderPreview();
   }
   fileInput.addEventListener("change", function () {
@@ -408,7 +597,7 @@ table.facts td{color:var(--text2)}
     reader.readAsText(f);
   });
   $("delimSel").addEventListener("change", function () { if (rawText) reparse(); });
-  $("headerChk").addEventListener("change", renderPreview);
+  $("headerChk").addEventListener("change", function () { if (rawText) { renderColPicker(); renderPreview(); } });
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
       var s = document.createElement("script");
@@ -436,20 +625,35 @@ table.facts td{color:var(--text2)}
       if (!jspdfReady) { await loadScript("../js/jspdf.umd.min.js"); jspdfReady = true; }
       if (typeof window.jspdf === "undefined" || !window.jspdf.jsPDF) throw new Error("The PDF engine did not start. Reload the page and try again.");
       setProgress(0.4, "Drawing your table…");
-      var ncols = Math.max.apply(null, rows.map(function (r) { return r.length; }));
-      var landscape = ncols > 6;
+      var vis = visCols();
+      var ncols = vis.length;
+      var orientSel = $("orientSel").value;
+      var landscape = orientSel === "landscape" || (orientSel === "auto" && ncols > 6);
       var pdf = new window.jspdf.jsPDF({ orientation: landscape ? "landscape" : "portrait", unit: "mm", format: $("sizeSel").value });
       var pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
-      var margin = 10, rowH = 7, fontSize = ncols > 8 ? 7 : ncols > 5 ? 8 : 9;
+      var margin = 10;
+      var textSel = $("textSel").value;
+      var fontSize = textSel === "small" ? 7 : textSel === "large" ? 10 : (ncols > 8 ? 7 : ncols > 5 ? 8 : 9);
+      var rowH = fontSize >= 10 ? 9 : 7;
+      var stripes = $("stripesChk").checked, gridlines = $("gridChk").checked;
+      var pageNums = $("pageNumChk").checked, repeatHeader = $("repeatChk").checked;
+      var titleText = ($("titleInput").value || "").trim();
       pdf.setFontSize(fontSize);
       var colW = (pageW - margin * 2) / ncols;
       var header = $("headerChk").checked;
       var y = margin;
+      function cellVal(r, ci) { var v = rows[r][vis[ci]]; return v === undefined || v === null ? "" : v; }
+      if (titleText) {
+        pdf.setFont("helvetica", "bold"); pdf.setFontSize(14); pdf.setTextColor(18, 18, 28);
+        pdf.text(titleText, pageW / 2, y + 5, { align: "center" });
+        pdf.setFontSize(fontSize); pdf.setTextColor(40, 40, 55); pdf.setFont("helvetica", "normal");
+        y += 9;
+      }
       function drawHeaderRow() {
         pdf.setFillColor(18, 18, 28); pdf.setTextColor(240, 240, 248); pdf.setFont("helvetica", "bold");
         pdf.rect(margin, y, pageW - margin * 2, rowH, "F");
         for (var c = 0; c < ncols; c++) {
-          pdf.text(fitText(pdf, rows[0][c] !== undefined ? rows[0][c] : "", colW - 2), margin + c * colW + 1, y + 5);
+          pdf.text(fitText(pdf, cellVal(0, c), colW - 2), margin + c * colW + 1, y + rowH - 2);
         }
         pdf.setTextColor(40, 40, 55); pdf.setFont("helvetica", "normal");
         y += rowH;
@@ -459,27 +663,28 @@ table.facts td{color:var(--text2)}
       var page = 1;
       for (var i = start; i < rows.length; i++) {
         if (y + rowH > pageH - margin - 8) {
-          pdf.setFontSize(8); pdf.setTextColor(130, 130, 150);
-          pdf.text("Page " + page, pageW - margin, pageH - 5, { align: "right" });
+          if (pageNums) { pdf.setFontSize(8); pdf.setTextColor(130, 130, 150); pdf.text("Page " + page, pageW - margin, pageH - 5, { align: "right" }); }
           pdf.addPage();
           page++;
           y = margin;
-          if (header) drawHeaderRow();
+          if (header && repeatHeader) drawHeaderRow();
         }
-        if (i % 2 === 0) { pdf.setFillColor(245, 245, 250); pdf.rect(margin, y, pageW - margin * 2, rowH, "F"); }
-        pdf.setDrawColor(220, 220, 230);
-        pdf.rect(margin, y, pageW - margin * 2, rowH, "S");
+        if (stripes && i % 2 === 0) { pdf.setFillColor(245, 245, 250); pdf.rect(margin, y, pageW - margin * 2, rowH, "F"); }
+        if (gridlines) { pdf.setDrawColor(220, 220, 230); pdf.rect(margin, y, pageW - margin * 2, rowH, "S"); }
         for (var c2 = 0; c2 < ncols; c2++) {
-          pdf.text(fitText(pdf, rows[i][c2] !== undefined ? rows[i][c2] : "", colW - 2), margin + c2 * colW + 1, y + 5);
+          pdf.text(fitText(pdf, cellVal(i, c2), colW - 2), margin + c2 * colW + 1, y + rowH - 2);
         }
         y += rowH;
       }
+      if (pageNums) {
+        pdf.setFontSize(8); pdf.setTextColor(130, 130, 150);
+        pdf.text("Page " + page, pageW - margin, pageH - 5, { align: "right" });
+      }
       pdf.setFontSize(8); pdf.setTextColor(130, 130, 150);
-      pdf.text("Page " + page, pageW - margin, pageH - 5, { align: "right" });
       pdf.text(fileName + ".csv  ·  " + rows.length + " rows × " + ncols + " columns", margin, pageH - 5);
       setProgress(0.9, "Downloading…");
       pdf.save(fileName + ".pdf");
-      $("resultText").innerHTML = "Converted <strong>" + rows.length + " rows × " + ncols + " columns</strong> into a " + (landscape ? "landscape" : "portrait") + " PDF table" + (header ? " with the header repeated on every page" : "") + ". Long cell text was cut short to keep the table readable.";
+      $("resultText").innerHTML = "Converted <strong>" + rows.length + " rows × " + ncols + " columns</strong> into a " + (landscape ? "landscape" : "portrait") + " PDF table" + (header && repeatHeader ? " with the header repeated on every page" : "") + ". Long cell text was cut short to keep the table readable.";
       $("resultBox").style.display = "block";
       toast("PDF downloaded");
     } catch (e) {
@@ -491,7 +696,8 @@ table.facts td{color:var(--text2)}
   });
   $("resetBtn").addEventListener("click", function () {
     if (busy) return;
-    fileInput.value = ""; rows = null; rawText = "";
+    fileInput.value = ""; rows = null; rawText = ""; hiddenCols = {};
+    $("colPickerWrap").style.display = "none";
     $("fileInfo").textContent = "No file chosen yet.";
     $("optionsBlock").style.display = "none"; $("resultBox").style.display = "none"; $("progressWrap").style.display = "none";
     clearError();

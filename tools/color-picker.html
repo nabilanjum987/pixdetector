@@ -20,34 +20,50 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "What is a HEX colour code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three bytes in hexadecimal: #3da5ff is red 3d (61), green a5 (165), blue ff (255); 256 levels per channel, 16.7 million combinations. Shorthand #f0c expands to #ff00cc; an 8-digit hex adds alpha (#3da5ff80 is about 50% opacity). HEX and RGB are the same colour in different notation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get the HEX code of a colour on my screen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Chrome, Edge, Brave or Opera, use this page's “Pick from screen” eyedropper and click the pixel. In Safari or Firefox, take a screenshot and upload or paste it into an image colour picker instead — the screen API is Chromium-only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are HEX and RGB the same colour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the same sRGB value, different notation. HSL is the same colour expressed as hue, saturation and lightness, which is nicer for building lighter and darker variants by hand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What contrast ratio do I need for text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG AA asks for 4.5:1 for normal body text and 3:1 for large text (roughly 18pt and up); AAA is 7:1. Check the pairing, not the colour alone — this page shows the ratio against white and black as you pick."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What colour is this HEX code / what is its name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the code here and the page shows the closest named colour and how close the match is — for example #4682B4 is closest to Steel Blue. Names are nearest-match labels, not exact identities; only the 148 CSS names are exact."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is this color picker really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Pick and copy as many colours as you like \u2014 no signup, no ads in the way, no upload. Everything runs in your browser."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between HEX and RGB?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "They describe the same colour in different notation. RGB uses three numbers from 0 to 255; HEX writes those same numbers in hexadecimal after a hash. #3B82F6 and rgb(59, 130, 246) are the identical colour."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can this picker get a colour from an image?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No \u2014 this page picks colours from a wheel and swatches. To sample a colour from a photo or screenshot, use the Color Picker from Image, which reads the exact pixel you click."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is HSL good for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "HSL describes a colour as hue, saturation and lightness, which matches how people think about colour. To make a colour lighter, raise the lightness; to mute it, lower the saturation \u2014 no hex maths needed."
+        "text": "Yes. Pick and copy as many colours as you like — no signup, no ads in the way, no upload. Everything runs in your browser."
       }
     },
     {
@@ -55,7 +71,23 @@
       "name": "How do I use a picked colour in CSS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Copy the HEX value and paste it as a CSS value, for example color: #3B82F6; or background: #3B82F6;. The RGB and HSL values paste the same way."
+        "text": "Copy the HEX value and paste it as a CSS value, for example color: #3B82F6; or background: #3B82F6;. The RGB and HSL values paste the same way, and the CSS variable line (--color: #3B82F6;) lets you reuse one colour across a stylesheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this picker get a colour from an image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — this page picks colours from a wheel and swatches. To sample a colour from a photo or screenshot, use the Color Picker from Image, which reads the exact pixel you click."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is HSL good for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HSL describes a colour as hue, saturation and lightness, which matches how people think about colour. To make a colour lighter, raise the lightness; to mute it, lower the saturation — no hex maths needed."
       }
     },
     {
@@ -63,7 +95,39 @@
       "name": "Does the picker work on my phone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Drag the square and the hue slider with your finger, or type a HEX code. The copy buttons work on mobile browsers too."
+        "text": "Yes. Drag the square and the hue slider with your finger, or type a HEX code. The copy buttons work on mobile browsers too. The screen eyedropper does not work on phones — screenshot the colour and upload it to the Color Picker from Image instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save colours for later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — press “Save this colour” and it is kept in this browser and survives reloads. Recent colours are saved automatically too; click a saved swatch to load it, or a recent one to copy its HEX."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the tints, shades and harmonies for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tints are your colour mixed toward white and shades toward black — five of each here. Harmonies are colours that sit in a fixed relationship to your hue: complementary (opposite), analogous (neighbours) and triadic (a third of the wheel apart). Click any of them to load it as your colour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my colour look different in print?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Screens use RGB light; printers use CMYK ink, and a bright screen colour often prints duller. The CMYK readout here is an estimate, not print-accurate — convert properly before sending work to print. Sampled values are sRGB, so a Display P3 photo's hex is a clipped approximation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 8-digit HEX code for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a HEX code with opacity built in: the last two digits are the alpha channel, FF for fully opaque down to 00 for fully transparent. Use the opacity slider above, then copy the HEX8 or RGBA value for fades and overlays."
       }
     }
   ]
@@ -195,7 +259,7 @@ table.facts td{color:var(--text2)}
       <h1>Free Color Picker</h1>
       <p>Pick any colour and copy its HEX, RGB and HSL codes in one click. Swatches, tints and shades included — no signup, instant.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This page <strong>picks colours — it does not extract them from images</strong>. To grab a colour from a photo, use the sibling <a href="/tools/color-picker-from-image">Color Picker from Image</a> instead. Colours here are screen (sRGB) colours; print work needs a CMYK conversion.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Screen eyedropper works in Chrome/Edge/Brave/Opera only — on Safari/Firefox, screenshot and upload instead. Sampled values are sRGB; a Display P3 photo's hex is a clipped approximation. CMYK is an estimate, not print-accurate. This page picks colours from a wheel and swatches — it does not extract them from images; to grab a colour from a photo, use the sibling <a href="/tools/color-picker-from-image">Color Picker from Image</a> instead.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Pick a colour">
         <h2>Pick a colour</h2>
@@ -212,6 +276,12 @@ table.facts td{color:var(--text2)}
         <div class="swatch-row" id="swatches"></div>
         <div style="margin-top:16px">
           <button type="button" class="btn alt" id="randomBtn">🎲 Random colour</button>
+          <button type="button" class="btn alt" id="eyeBtn">🎯 Pick from screen</button>
+        </div>
+        <p class="trust" id="eyeNote">Pick from screen uses the browser eyedropper (Chrome/Edge/Brave/Opera only). On Safari or Firefox it is not available — take a screenshot and upload it to the <a href="/tools/color-picker-from-image">Color Picker from Image</a> instead.</p>
+        <div style="margin-top:16px">
+          <label class="flabel" for="alphaInput">Opacity: <span id="alphaOut">100%</span></label>
+          <input type="range" id="alphaInput" min="0" max="100" value="100">
         </div>
       </div>
       <div class="bc-panel" aria-label="Your colour">
@@ -220,10 +290,35 @@ table.facts td{color:var(--text2)}
         <div class="out-row"><span class="lab">HEX</span><code id="hexOut">#3B82F6</code><button type="button" data-copy="hexOut">Copy</button></div>
         <div class="out-row"><span class="lab">RGB</span><code id="rgbOut">rgb(59, 130, 246)</code><button type="button" data-copy="rgbOut">Copy</button></div>
         <div class="out-row"><span class="lab">HSL</span><code id="hslOut">hsl(217, 91%, 60%)</code><button type="button" data-copy="hslOut">Copy</button></div>
+        <div class="out-row"><span class="lab">HEX8</span><code id="hex8Out">#3B82F6FF</code><button type="button" data-copy="hex8Out">Copy</button></div>
+        <div class="out-row"><span class="lab">RGBA</span><code id="rgbaOut">rgba(59, 130, 246, 1)</code><button type="button" data-copy="rgbaOut">Copy</button></div>
+        <div class="out-row"><span class="lab">HSV</span><code id="hsvOut">hsv(217, 91%, 96%)</code><button type="button" data-copy="hsvOut">Copy</button></div>
+        <div class="out-row"><span class="lab">CMYK</span><code id="cmykOut">cmyk(76%, 47%, 0%, 4%) — estimate</code><button type="button" data-copy="cmykOut">Copy</button></div>
+        <div class="out-row"><span class="lab">OKLCH</span><code id="oklchOut">oklch(0.65 0.14 257)</code><button type="button" data-copy="oklchOut">Copy</button></div>
+        <div class="out-row"><span class="lab">LAB</span><code id="labOut">lab(54% 11 -51)</code><button type="button" data-copy="labOut">Copy</button></div>
+        <p class="trust" id="colorName">Closest named colour: —</p>
+        <div class="code-block" id="cssVarOut">--color: #3B82F6;</div>
+        <div class="actions"><button type="button" class="btn alt" id="copyVar">Copy CSS variable</button></div>
         <h2 style="margin-top:18px">Tints &amp; shades</h2>
         <div class="swatch-row" id="tints"></div>
         <p class="trust">Click any tint or shade to load it as your colour.</p>
+        <h2 style="margin-top:18px">Harmonies</h2>
+        <div class="swatch-row" id="harmonies"></div>
+        <p class="trust" id="harmonyNote">Complementary, analogous and triadic colours built from your hue — click one to load it.</p>
+        <h2 style="margin-top:18px">Contrast check</h2>
+        <p class="trust" id="contrastOut">Checking contrast…</p>
+        <p class="trust">WCAG AA asks for 4.5:1 for normal text and 3:1 for large text. Check the pairing, not the colour alone — run the exact pair through the <a href="/tools/color-contrast-checker">Color Contrast Checker</a> before you ship it.</p>
+        <h2 style="margin-top:18px">Saved swatches</h2>
+        <div class="swatch-row" id="saved"></div>
+        <div class="actions"><button type="button" class="btn alt" id="saveBtn">＋ Save this colour</button></div>
+        <p class="trust">Saved swatches are kept in this browser (local storage) and survive reloads. Click one to load it; click a recent swatch below to copy its HEX.</p>
+        <h2 style="margin-top:18px">Recent colours</h2>
+        <div class="swatch-row" id="recent"></div>
       </div>
+    </div>
+    <div class="share-box">
+      <h2>The colour family</h2>
+      <p class="share-line">This page picks a colour. <a href="/tools/color-picker-from-image">Color Picker from Image</a> samples one from a photo, and the <a href="/tools/gradient-generator">Gradient Generator</a> blends two or more into a CSS gradient. Saved swatches here are per-page; copy the HEX to carry a colour across.</p>
     </div>
     <div class="share-box"><h2>Share this tool</h2><p class="share-line">Pick any colour free and copy its HEX, RGB and HSL codes in one click.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Pick%20any%20colour%20free%20and%20copy%20its%20HEX%2C%20RGB%20and%20HSL%20codes%20in%20one%20click.&amp;url=https%3A//pixdetector.vercel.app/tools/color-picker" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/color-picker" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Pick%20any%20colour%20free%20and%20copy%20its%20HEX%2C%20RGB%20and%20HSL%20codes%20in%20one%20click.%20https%3A//pixdetector.vercel.app/tools/color-picker" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
@@ -248,24 +343,43 @@ table.facts td{color:var(--text2)}
           <tr><td><strong>HEX</strong></td><td><code>#3B82F6</code></td><td>CSS, HTML and most design tools — the web default, short and copy-safe.</td></tr>
           <tr><td><strong>RGB</strong></td><td><code>rgb(59, 130, 246)</code></td><td>Code that works with channels, canvas APIs and graphics libraries.</td></tr>
           <tr><td><strong>HSL</strong></td><td><code>hsl(217, 91%, 60%)</code></td><td>Adjusting a colour by feel — lightness and saturation are plain numbers.</td></tr>
+          <tr><td><strong>HEX 8-digit</strong></td><td><code>#3B82F6FF</code></td><td>HEX plus opacity — the last two digits are the alpha channel (FF is fully opaque).</td></tr>
+          <tr><td><strong>RGBA</strong></td><td><code>rgba(59, 130, 246, 1)</code></td><td>RGB with an alpha (opacity) value from 0 to 1 — the format for fades and overlays.</td></tr>
+          <tr><td><strong>HSV / HSB</strong></td><td><code>hsv(217, 91%, 96%)</code></td><td>Hue, saturation, value — the picker's own coordinates; the square you drag is saturation × value.</td></tr>
+          <tr><td><strong>CMYK</strong></td><td><code>cmyk(76%, 47%, 0%, 4%)</code></td><td>Print — an estimate only, not print-accurate. Convert properly before sending work to print.</td></tr>
+          <tr><td><strong>OKLCH / LAB</strong></td><td><code>oklch(0.65 0.14 257)</code></td><td>Perceptual formats — lightness that matches how the eye sees it; the modern choice for gradients and design tokens.</td></tr>
+          <tr><td><strong>CSS variable</strong></td><td><code>--color: #3B82F6;</code></td><td>One line to paste into a stylesheet and reuse as <code>var(--color)</code> everywhere.</td></tr>
         </tbody>
       </table>
+      <p>Every format above is live-linked: change the colour once and all of them update together, each with its own copy button.</p>
+      <h2 style="margin-top:28px">Pick from screen — and its limit</h2>
+      <p>The "Pick from screen" button uses the browser's EyeDropper API, which exists in Chrome, Edge, Brave and Opera only. In Safari or Firefox the button tells you so instead of failing silently — take a screenshot of the colour and upload it to the <a href="/tools/color-picker-from-image">Color Picker from Image</a>, which works in every browser. Sampled values are sRGB; a Display P3 photo's hex is a clipped approximation of the original colour.</p>
+      <h2 style="margin-top:28px">What is this colour called?</h2>
+      <p>Every picked colour shows its closest named colour underneath the codes, with how close the match is. Names are nearest-match labels from a list of common named colours — only the 148 CSS names are exact identities, so a close match is a useful label, not a proof that the colour "is" that name. If the match is distant, trust the HEX code, not the name.</p>
       <h2 style="margin-top:28px">How do I build a palette from one colour?</h2>
       <p>Start with your base colour, then use the tints and shades row: five lighter versions (mixed toward white) and five darker versions (mixed toward black) of the same hue. A practical palette is one base colour, one or two tints for backgrounds, and one dark shade for text. Before you ship text in any of those colours, run the pair through the <a href="/tools/color-contrast-checker">Color Contrast Checker</a> — WCAG asks for at least 4.5:1 for normal text and 3:1 for large text, and a pretty tint often fails that test.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
+      <details class="faq"><summary>What is a HEX colour code?</summary><p>Three bytes in hexadecimal: #3da5ff is red 3d (61), green a5 (165), blue ff (255); 256 levels per channel, 16.7 million combinations. Shorthand #f0c expands to #ff00cc; an 8-digit hex adds alpha (#3da5ff80 is about 50% opacity). HEX and RGB are the same colour in different notation.</p></details>
+      <details class="faq"><summary>How do I get the HEX code of a colour on my screen?</summary><p>In Chrome, Edge, Brave or Opera, use this page's “Pick from screen” eyedropper and click the pixel. In Safari or Firefox, take a screenshot and upload or paste it into an image colour picker instead — the screen API is Chromium-only.</p></details>
+      <details class="faq"><summary>Are HEX and RGB the same colour?</summary><p>Yes — the same sRGB value, different notation. HSL is the same colour expressed as hue, saturation and lightness, which is nicer for building lighter and darker variants by hand.</p></details>
+      <details class="faq"><summary>What contrast ratio do I need for text?</summary><p>WCAG AA asks for 4.5:1 for normal body text and 3:1 for large text (roughly 18pt and up); AAA is 7:1. Check the pairing, not the colour alone — this page shows the ratio against white and black as you pick.</p></details>
+      <details class="faq"><summary>What colour is this HEX code / what is its name?</summary><p>Paste the code here and the page shows the closest named colour and how close the match is — for example #4682B4 is closest to Steel Blue. Names are nearest-match labels, not exact identities; only the 148 CSS names are exact.</p></details>
       <details class="faq"><summary>Is this color picker really free?</summary><p>Yes. Pick and copy as many colours as you like — no signup, no ads in the way, no upload. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>What is the difference between HEX and RGB?</summary><p>They describe the same colour in different notation. RGB uses three numbers from 0 to 255; HEX writes those same numbers in hexadecimal after a hash. #3B82F6 and rgb(59, 130, 246) are the identical colour.</p></details>
+      <details class="faq"><summary>How do I use a picked colour in CSS?</summary><p>Copy the HEX value and paste it as a CSS value, for example color: #3B82F6; or background: #3B82F6;. The RGB and HSL values paste the same way, and the CSS variable line (--color: #3B82F6;) lets you reuse one colour across a stylesheet.</p></details>
       <details class="faq"><summary>Can this picker get a colour from an image?</summary><p>No — this page picks colours from a wheel and swatches. To sample a colour from a photo or screenshot, use the Color Picker from Image, which reads the exact pixel you click.</p></details>
       <details class="faq"><summary>What is HSL good for?</summary><p>HSL describes a colour as hue, saturation and lightness, which matches how people think about colour. To make a colour lighter, raise the lightness; to mute it, lower the saturation — no hex maths needed.</p></details>
-      <details class="faq"><summary>How do I use a picked colour in CSS?</summary><p>Copy the HEX value and paste it as a CSS value, for example color: #3B82F6; or background: #3B82F6;. The RGB and HSL values paste the same way.</p></details>
-      <details class="faq"><summary>Does the picker work on my phone?</summary><p>Yes. Drag the square and the hue slider with your finger, or type a HEX code. The copy buttons work on mobile browsers too.</p></details>
-      
+      <details class="faq"><summary>Does the picker work on my phone?</summary><p>Yes. Drag the square and the hue slider with your finger, or type a HEX code. The copy buttons work on mobile browsers too. The screen eyedropper does not work on phones — screenshot the colour and upload it to the Color Picker from Image instead.</p></details>
+      <details class="faq"><summary>Can I save colours for later?</summary><p>Yes — press “Save this colour” and it is kept in this browser and survives reloads. Recent colours are saved automatically too; click a saved swatch to load it, or a recent one to copy its HEX.</p></details>
+      <details class="faq"><summary>What are the tints, shades and harmonies for?</summary><p>Tints are your colour mixed toward white and shades toward black — five of each here. Harmonies are colours that sit in a fixed relationship to your hue: complementary (opposite), analogous (neighbours) and triadic (a third of the wheel apart). Click any of them to load it as your colour.</p></details>
+      <details class="faq"><summary>Why does my colour look different in print?</summary><p>Screens use RGB light; printers use CMYK ink, and a bright screen colour often prints duller. The CMYK readout here is an estimate, not print-accurate — convert properly before sending work to print. Sampled values are sRGB, so a Display P3 photo's hex is a clipped approximation.</p></details>
+      <details class="faq"><summary>What is the 8-digit HEX code for?</summary><p>It is a HEX code with opacity built in: the last two digits are the alpha channel, FF for fully opaque down to 00 for fully transparent. Use the opacity slider above, then copy the HEX8 or RGBA value for fades and overlays.</p></details>
+            
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
-      <p><strong>How do I find the name of a colour?</strong> This tool gives you codes, not names — a hex code has no built-in name, so note the code itself in your palette.</p>
+      <p><strong>How do I find the name of a colour?</strong> This page shows the closest named colour under the codes, with how close the match is. Names are nearest-match labels, not exact identities — trust the HEX code when the match is distant.</p>
       <p><strong>What is the shorthand hex form?</strong> #FA3 expands to #FFAA33 by doubling each digit. It only works when both digits of each pair match, so most real colours cannot use it.</p>
-      <p><strong>Can I save colours for later?</strong> Not on this page — copy the codes into your notes or stylesheet. The tints and shades row rebuilds from any colour you paste back in.</p>
+      <p><strong>Can I save colours for later?</strong> Yes — press "Save this colour" and it is kept in this browser, surviving reloads. Recent colours are saved automatically too. The tints and shades row rebuilds from any colour you paste back in.</p>
       <p><strong>Why does my colour look different in print?</strong> Screens use RGB light; printers use CMYK ink. A bright screen colour often prints duller — convert to CMYK before sending work to print.</p>
     </div>
     <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker-from-image" class="related-card"><h4>🎯 Color Picker from Image</h4><p>Pick colours from photos</p></a><a href="/tools/color-mixer" class="related-card"><h4>🎨 Color Mixer</h4><p>Blend two colours</p></a><a href="/tools/gradient-generator" class="related-card"><h4>🌈 Gradient Generator</h4><p>Build gradients free</p></a><a href="/tools/color-contrast-checker" class="related-card"><h4>◐ Contrast Checker</h4><p>WCAG AA/AAA check</p></a></div></div>
@@ -311,6 +425,63 @@ table.facts td{color:var(--text2)}
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   var hsv = { h: 217, s: 0.91, v: 0.96 };
+  var alpha = 1;
+  function rgbToCmyk(r, g, b) {
+    var k = 1 - Math.max(r, g, b) / 255;
+    if (k === 1) return [0, 0, 0, 100];
+    return [Math.round((1 - r / 255 - k) / (1 - k) * 100), Math.round((1 - g / 255 - k) / (1 - k) * 100), Math.round((1 - b / 255 - k) / (1 - k) * 100), Math.round(k * 100)];
+  }
+  function rgbToOklch(r, g, b) {
+    function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    var R = lin(r), G = lin(g), B = lin(b);
+    var l = 0.4122214708 * R + 0.5363325363 * G + 0.1803000000 * B;
+    var m = 0.2119034982 * R + 0.6806995451 * G + 0.0883024619 * B;
+    var s = 0.0883024619 * R + 0.1191947798 * G + 0.9503041 * B;
+    l = Math.cbrt(l); m = Math.cbrt(m); s = Math.cbrt(s);
+    var L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
+    var a = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s;
+    var bb = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
+    var C = Math.sqrt(a * a + bb * bb);
+    var h = Math.atan2(bb, a) * 180 / Math.PI; if (h < 0) h += 360;
+    return [L, C, h];
+  }
+  function rgbToLab(r, g, b) {
+    function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    var R = lin(r), G = lin(g), B = lin(b);
+    var X = (0.4124 * R + 0.3576 * G + 0.1805 * B) / 0.95047;
+    var Y = 0.2126 * R + 0.7152 * G + 0.0722 * B;
+    var Z = (0.0193 * R + 0.1192 * G + 0.9505 * B) / 1.08883;
+    function f(t) { return t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116; }
+    var fx = f(X), fy = f(Y), fz = f(Z);
+    return [Math.round((116 * fy - 16) * 10) / 10, Math.round(500 * (fx - fy) * 10) / 10, Math.round(200 * (fy - fz) * 10) / 10];
+  }
+  function hslToRgb(h, s, l) {
+    s /= 100; l /= 100;
+    var c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = l - c / 2, r, g, b;
+    if (h < 60) { r = c; g = x; b = 0; } else if (h < 120) { r = x; g = c; b = 0; }
+    else if (h < 180) { r = 0; g = c; b = x; } else if (h < 240) { r = 0; g = x; b = c; }
+    else if (h < 300) { r = x; g = 0; b = c; } else { r = c; g = 0; b = x; }
+    return [Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255)];
+  }
+  function relLum(r, g, b) {
+    function f(c) { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+    return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+  }
+  function contrastRatio(l1, l2) { var a = Math.max(l1, l2), b = Math.min(l1, l2); return (a + 0.05) / (b + 0.05); }
+  var NAMED = [["Black",0,0,0],["White",255,255,255],["Red",255,0,0],["Lime",0,255,0],["Blue",0,0,255],["Yellow",255,255,0],["Cyan",0,255,255],["Magenta",255,0,255],["Silver",192,192,192],["Gray",128,128,128],["Maroon",128,0,0],["Olive",128,128,0],["Green",0,128,0],["Purple",128,0,128],["Teal",0,128,128],["Navy",0,0,128],["Orange",255,165,0],["Pink",255,192,203],["Brown",165,42,42],["Gold",255,215,0],["Beige",245,245,220],["Coral",255,127,80],["Salmon",250,128,114],["Khaki",240,230,140],["Indigo",75,0,130],["Violet",238,130,238],["Lavender",230,230,250],["Crimson",220,20,60],["Steel Blue",70,130,180],["Sky Blue",135,206,235],["Royal Blue",65,105,225],["Dodger Blue",30,144,255],["Forest Green",34,139,34],["Sea Green",46,139,87],["Lime Green",50,205,50],["Olive Drab",107,142,35],["Tomato",255,99,71],["Orange Red",255,69,0],["Deep Pink",255,20,147],["Hot Pink",255,105,180],["Medium Violet Red",199,21,133],["Dark Orchid",153,50,204],["Slate Blue",106,90,205],["Dark Slate Gray",47,79,79],["Chocolate",210,105,30],["Sandy Brown",244,164,96],["Peach Puff",255,218,185],["Ivory",255,255,240],["Mint Cream",245,255,250],["Honeydew",240,255,240],["Alice Blue",240,248,255],["Snow",255,250,250],["Firebrick",178,34,34],["Dark Red",139,0,0],["Medium Blue",0,0,205],["Dark Green",0,100,0],["Dark Cyan",0,139,139],["Turquoise",64,224,208],["Aquamarine",127,255,212],["Spring Green",0,255,127],["Chartreuse",127,255,0],["Yellow Green",154,205,50],["Tan",210,180,140],["Peru",205,133,63],["Sienna",160,82,45],["Plum",221,160,221],["Orchid",218,112,214],["Thistle",216,191,216]];
+  function closestName(r, g, b) {
+    var best = null, bestD = Infinity;
+    NAMED.forEach(function (n) {
+      var d = Math.sqrt((r - n[1]) * (r - n[1]) + (g - n[2]) * (g - n[2]) + (b - n[3]) * (b - n[3]));
+      if (d < bestD) { bestD = d; best = n[0]; }
+    });
+    var closeness = bestD < 12 ? "very close" : bestD < 45 ? "close" : bestD < 95 ? "approximate" : "distant — the nearest name only";
+    return best + " (" + closeness + " match)";
+  }
+  function loadSaved() { try { return JSON.parse(localStorage.getItem("pd-color-saved") || "[]"); } catch (e) { return []; } }
+  function storeSaved(list) { try { localStorage.setItem("pd-color-saved", JSON.stringify(list)); } catch (e) {} }
+  function loadRecent() { try { return JSON.parse(localStorage.getItem("pd-color-recent") || "[]"); } catch (e) { return []; } }
+  function storeRecent(list) { try { localStorage.setItem("pd-color-recent", JSON.stringify(list.slice(0, 12))); } catch (e) {} }
   function hsvToRgb(h, s, v) {
     var c = v * s, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = v - c, r, g, b;
     if (h < 60) { r = c; g = x; b = 0; } else if (h < 120) { r = x; g = c; b = 0; }
@@ -368,16 +539,67 @@ table.facts td{color:var(--text2)}
     var rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
     var hex = hexOf(rgb[0], rgb[1], rgb[2]).toUpperCase();
     var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+    var cmyk = rgbToCmyk(rgb[0], rgb[1], rgb[2]);
+    var oklch = rgbToOklch(rgb[0], rgb[1], rgb[2]);
+    var lab = rgbToLab(rgb[0], rgb[1], rgb[2]);
+    var aHex = Math.round(alpha * 255).toString(16).padStart(2, "0").toUpperCase();
     $("hexOut").textContent = hex;
     $("rgbOut").textContent = "rgb(" + rgb.join(", ") + ")";
     $("hslOut").textContent = "hsl(" + hsl[0] + ", " + hsl[1] + "%, " + hsl[2] + "%)";
+    $("hex8Out").textContent = hex + aHex;
+    $("rgbaOut").textContent = "rgba(" + rgb.join(", ") + ", " + (Math.round(alpha * 100) / 100) + ")";
+    $("hsvOut").textContent = "hsv(" + Math.round(hsv.h) + ", " + Math.round(hsv.s * 100) + "%, " + Math.round(hsv.v * 100) + "%)";
+    $("cmykOut").textContent = "cmyk(" + cmyk.join("%, ") + "%) — estimate";
+    $("oklchOut").textContent = "oklch(" + (Math.round(oklch[0] * 100) / 100) + " " + (Math.round(oklch[1] * 1000) / 1000) + " " + Math.round(oklch[2]) + ")";
+    $("labOut").textContent = "lab(" + lab[0] + "% " + lab[1] + " " + lab[2] + ")";
+    $("colorName").textContent = "Closest named colour: " + closestName(rgb[0], rgb[1], rgb[2]) + " — names are nearest-match labels from a list of common named colours.";
+    $("cssVarOut").textContent = "--color: " + hex + ";";
     $("bigSwatch").style.background = hex;
     if (!fromHex) { $("hexInput").value = hex.toLowerCase(); $("nativeInput").value = hex.toLowerCase(); }
     $("hueInput").value = Math.round(hsv.h); $("hueOut").textContent = Math.round(hsv.h) + "°";
+    $("alphaOut").textContent = Math.round(alpha * 100) + "%";
     drawSV();
     var tints = $("tints"); tints.innerHTML = "";
     for (var i = 5; i >= 1; i--) { addShade(tints, rgb, 1, i / 6, "Tint " + i); }
     for (var j = 1; j <= 5; j++) { addShade(tints, rgb, 0, j / 6, "Shade " + j); }
+    var harm = $("harmonies"); harm.innerHTML = "";
+    [[(hsl[0] + 180) % 360, "Complementary"], [(hsl[0] + 30) % 360, "Analogous +30"], [(hsl[0] + 330) % 360, "Analogous −30"], [(hsl[0] + 120) % 360, "Triadic +120"], [(hsl[0] + 240) % 360, "Triadic +240"]].forEach(function (pair) {
+      var hrgb = hslToRgb(pair[0], hsl[1], hsl[2]);
+      var hhex = hexOf(hrgb[0], hrgb[1], hrgb[2]);
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "swatch"; btn.style.background = hhex;
+      btn.title = pair[1] + " " + hhex.toUpperCase(); btn.setAttribute("aria-label", pair[1] + " " + hhex);
+      btn.addEventListener("click", function () { setFromHex(hhex); toast(pair[1] + " loaded: " + hhex.toUpperCase()); });
+      harm.appendChild(btn);
+    });
+    var lum = relLum(rgb[0], rgb[1], rgb[2]);
+    var cw = contrastRatio(lum, 1), cb = contrastRatio(lum, 0);
+    function verdict(r) { return r >= 7 ? "AAA ✓" : r >= 4.5 ? "AA ✓" : r >= 3 ? "AA large text only" : "fails AA"; }
+    $("contrastOut").innerHTML = "On white: <strong>" + (Math.round(cw * 100) / 100) + ":1</strong> (" + verdict(cw) + ") &nbsp;·&nbsp; On black: <strong>" + (Math.round(cb * 100) / 100) + ":1</strong> (" + verdict(cb) + ").";
+    renderSavedRecent();
+  }
+  function renderSavedRecent() {
+    var sv = $("saved"); if (!sv) return;
+    sv.innerHTML = "";
+    loadSaved().forEach(function (hex) {
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "swatch"; btn.style.background = hex; btn.title = hex; btn.setAttribute("aria-label", "Saved " + hex);
+      btn.addEventListener("click", function () { setFromHex(hex); });
+      sv.appendChild(btn);
+    });
+    var rc = $("recent"); rc.innerHTML = "";
+    loadRecent().forEach(function (hex) {
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "swatch"; btn.style.background = hex; btn.title = hex; btn.setAttribute("aria-label", "Recent " + hex);
+      btn.addEventListener("click", function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(hex).then(function () { toast(hex + " copied."); });
+      });
+      rc.appendChild(btn);
+    });
+  }
+  function rememberRecent(hex) {
+    var list = loadRecent().filter(function (h) { return h !== hex; });
+    list.unshift(hex); storeRecent(list);
   }
   function addShade(box, rgb, target, amt, label) {
     var r = Math.round(rgb[0] + (target * 255 - rgb[0]) * amt);
@@ -394,6 +616,8 @@ table.facts td{color:var(--text2)}
     var rgb = parseHex(hex); if (!rgb) return;
     hsv = rgbToHsv(rgb[0], rgb[1], rgb[2]);
     update(false);
+    rememberRecent(hexOf(rgb[0], rgb[1], rgb[2]).toUpperCase());
+    renderSavedRecent();
   }
   var SW = ["#000000", "#ffffff", "#ef4444", "#f97316", "#facc15", "#22c55e", "#14b8a6", "#3b82f6", "#8b5cf6", "#ec4899", "#78350f", "#64748b"];
   SW.forEach(function (hex) {
@@ -422,6 +646,22 @@ table.facts td{color:var(--text2)}
   $("randomBtn").addEventListener("click", function () {
     hsv = { h: Math.floor(Math.random() * 360), s: 0.6 + Math.random() * 0.4, v: 0.7 + Math.random() * 0.3 };
     update(false);
+  });
+  $("alphaInput").addEventListener("input", function () { alpha = parseInt(this.value, 10) / 100; update(false); });
+  $("eyeBtn").addEventListener("click", function () {
+    if (!window.EyeDropper) { $("eyeNote").textContent = "The screen eyedropper is not available in this browser (it works in Chrome, Edge, Brave and Opera only). Take a screenshot and upload it to the Color Picker from Image instead."; return; }
+    var ed = new window.EyeDropper();
+    ed.open().then(function (res) { if (res && res.sRGBHex) setFromHex(res.sRGBHex); }).catch(function () { toast("Eyedropper cancelled."); });
+  });
+  $("saveBtn").addEventListener("click", function () {
+    var hex = $("hexOut").textContent;
+    var list = loadSaved().filter(function (h) { return h !== hex; });
+    list.unshift(hex); storeSaved(list.slice(0, 12));
+    renderSavedRecent(); toast(hex + " saved.");
+  });
+  $("copyVar").addEventListener("click", function () {
+    var text = $("cssVarOut").textContent;
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { toast(text + " copied."); });
   });
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {

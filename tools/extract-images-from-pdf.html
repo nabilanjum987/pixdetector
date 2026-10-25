@@ -31,7 +31,7 @@
       "name": "Does it extract embedded images or render pages to images?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It extracts embedded images only \u2014 the picture files stored inside the PDF. It does not render whole pages to images. Vector drawings and text have no image file to extract."
+        "text": "It extracts embedded images only — the picture files stored inside the PDF. It does not render whole pages to images. Vector drawings and text have no image file to extract."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "Will the images be full quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Images are saved at the original resolution stored in the PDF, with no recompression \u2014 much better than a screenshot."
+        "text": "Yes. Images are saved at the original resolution stored in the PDF, with no recompression — much better than a screenshot."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "Can I download all the images at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Press \u201cDownload all as ZIP\u201d to take every extracted image in a single ZIP file, or download images one by one from the gallery."
+        "text": "Yes. Press “Download all as ZIP” to take every extracted image in a single ZIP file, or download images one by one from the gallery."
       }
     },
     {
@@ -64,6 +64,78 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No. The PDF is read entirely in your browser using pdf.js. Nothing is uploaded, stored, or shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I extract images from a scanned PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only as whole pages: a scan is one big image per page, so extraction returns the page itself, not separate photos inside it. Scanned PDFs usually extract well — one image per page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I extract images from a PDF on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a browser extractor and save the images to your Photos library. This page works in a mobile browser — upload the PDF, pick the images from the gallery, and download them one by one or as a ZIP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on how many images I can extract for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the tool. Sejda’s free tier caps at 3 tasks an hour, 50 MB and 200 pages; PDF2GO runs on credits. This page has no task cap and no download limit — everything runs in your browser. One dated guide reported iLovePDF’s free image extraction stopping after a few downloads, but that report is old and not verified current."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format are the extracted images?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually JPG. Extraction returns the image in the format the author embedded — most often JPEG, sometimes PNG, and scan formats for scanned pages. This tool saves JPEG streams as JPG and other embedded formats as PNG."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I extract images from a password-protected PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally no on free tools — remove the password first, or use the password if you have it. This tool will tell you if the file is protected instead of failing silently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I extract images from a PDF with Python?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With PyPDF2 or PyMuPDF: read the page’s /XObject resources, find the /Subtype /Image objects, and write the bytes out. It is the developer route, widely shared in code guides — this page is the no-code version of the same job."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my extraction give me dozens of tiny images?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A designed page embeds many small assets — icons, strokes, logos, background pieces — alongside the photos. Use the gallery’s size display to pick out the real photos, or convert the whole page to JPG if you want the layout kept whole."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I extract images and keep the page layout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — extraction is the opposite of layout: it pulls the pieces out. If you want the page as it looks, convert the page to JPG instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do extracted images have watermarks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No on the tools checked — this page never adds a watermark, and the extracted images are the originals as stored. Watermarks on free tools apply to edited or converted outputs, not to extracted images."
       }
     }
   ]
@@ -152,6 +224,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -215,6 +292,24 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>An image displayed at 5 cm wide on the page may be a 3,000-pixel-wide original squeezed down — extraction recovers the full 3,000 pixels, while a screenshot only captures what is on your screen. Extracted images are saved at the exact resolution stored in the file, with no recompression on the way out. That is why designers and researchers extract instead of screenshotting: the extracted file is the original asset, not a photo of a screen.</p>
       <h2>What if no images are found?</h2>
       <p>Three things are usually true. First, the document may be text-only — reports and letters often have no embedded images at all. Second, the pictures may be vector graphics (logos and charts drawn with lines), which have no image file to extract. Third, the PDF may be damaged or password-protected, in which case the tool says so instead of failing silently. Very small images — icons, bullets, decorative lines — are extracted too, so a long gallery with tiny entries is normal for a designed document. And a copyright note that matters: only extract images from PDFs you own or have the right to reuse.</p>
+      <h2>Extract images vs convert pages — pick the right one</h2>
+      <p>This is the most common mistake in this category: people pick “extract images” and get a fragmented design page, or pick “convert pages to JPG” and get whole pages with text and margins instead of the photos. The two jobs are opposites.</p>
+      <table class="tbl">
+        <tr><th></th><th>Extract embedded images (this tool)</th><th>Convert whole pages to JPG</th></tr>
+        <tr><td>What you get</td><td>Only the embedded photos and graphics, as standalone files</td><td>One picture per page — text, margins and headers included</td></tr>
+        <tr><td>Quality</td><td>The original stored resolution, no recompression</td><td>Whatever resolution you render at</td></tr>
+        <tr><td>Designed pages</td><td>Fragments into loose pieces — icons, strokes, background bits</td><td>Keeps the layout whole</td></tr>
+        <tr><td>Scanned pages</td><td>One whole-page image per page</td><td>One picture per page, same result</td></tr>
+        <tr><td>Best for</td><td>Recovering a photo, logo or scan from a PDF</td><td>Sharing or printing a page exactly as it looks</td></tr>
+      </table>
+      <h2>Why did I get dozens of tiny images?</h2>
+      <p>A designed page embeds many small assets alongside the photos — icons, strokes, logos, background pieces. Extraction pulls them all out, so a long gallery with tiny entries is normal for a designed document, not a bug. If that is what happened, you probably wanted the page converted to JPG instead, which keeps the layout whole. The gallery on this page shows each image’s page and size, so you can spot the 150-pixel logo before downloading it — and remember, extraction returns what the author embedded and nothing better: a low-resolution logo comes out low-resolution, and no tool can invent pixels that were never there.</p>
+      <h2>Part of a PDF toolkit</h2>
+      <p>Extraction is one job in a small PDF toolkit on this site. If you need to fix more than the images, open the <a href="/tools/pdf-editor">PDF Editor</a> — add text, sign, rotate and reorder pages, all in your browser. If pages are sideways, fix them first with <a href="/tools/rotate-pdf">Rotate PDF</a>.</p>
+
+
+
+
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq"><summary>Is this image extractor really free?</summary><p>Yes. Extract and download as many images as you like with no signup, no payment and no download limit. Everything runs in your browser.</p></details>
@@ -223,6 +318,15 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <details class="faq"><summary>Can I download all the images at once?</summary><p>Yes. Press “Download all as ZIP” to take every extracted image in a single ZIP file, or download images one by one from the gallery.</p></details>
       <details class="faq"><summary>Why were no images found in my PDF?</summary><p>The document may be text-only, its pictures may be vector drawings rather than embedded images, or the PDF may be damaged or password-protected. The tool says which case it is instead of failing silently.</p></details>
       <details class="faq"><summary>Is my PDF uploaded to a server?</summary><p>No. The PDF is read entirely in your browser using pdf.js. Nothing is uploaded, stored, or shared.</p></details>
+      <details class="faq"><summary>Can I extract images from a scanned PDF?</summary><p>Only as whole pages: a scan is one big image per page, so extraction returns the page itself, not separate photos inside it. Scanned PDFs usually extract well — one image per page.</p></details>
+      <details class="faq"><summary>How do I extract images from a PDF on my phone?</summary><p>Use a browser extractor and save the images to your Photos library. This page works in a mobile browser — upload the PDF, pick the images from the gallery, and download them one by one or as a ZIP.</p></details>
+      <details class="faq"><summary>Is there a limit on how many images I can extract for free?</summary><p>It depends on the tool. Sejda’s free tier caps at 3 tasks an hour, 50 MB and 200 pages; PDF2GO runs on credits. This page has no task cap and no download limit — everything runs in your browser. One dated guide reported iLovePDF’s free image extraction stopping after a few downloads, but that report is old and not verified current.</p></details>
+      <details class="faq"><summary>What format are the extracted images?</summary><p>Usually JPG. Extraction returns the image in the format the author embedded — most often JPEG, sometimes PNG, and scan formats for scanned pages. This tool saves JPEG streams as JPG and other embedded formats as PNG.</p></details>
+      <details class="faq"><summary>Can I extract images from a password-protected PDF?</summary><p>Generally no on free tools — remove the password first, or use the password if you have it. This tool will tell you if the file is protected instead of failing silently.</p></details>
+      <details class="faq"><summary>How do I extract images from a PDF with Python?</summary><p>With PyPDF2 or PyMuPDF: read the page’s /XObject resources, find the /Subtype /Image objects, and write the bytes out. It is the developer route, widely shared in code guides — this page is the no-code version of the same job.</p></details>
+      <details class="faq"><summary>Why did my extraction give me dozens of tiny images?</summary><p>A designed page embeds many small assets — icons, strokes, logos, background pieces — alongside the photos. Use the gallery’s size display to pick out the real photos, or convert the whole page to JPG if you want the layout kept whole.</p></details>
+      <details class="faq"><summary>Can I extract images and keep the page layout?</summary><p>No — extraction is the opposite of layout: it pulls the pieces out. If you want the page as it looks, convert the page to JPG instead.</p></details>
+      <details class="faq"><summary>Do extracted images have watermarks?</summary><p>No on the tools checked — this page never adds a watermark, and the extracted images are the originals as stored. Watermarks on free tools apply to edited or converted outputs, not to extracted images.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

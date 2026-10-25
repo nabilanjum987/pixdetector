@@ -23,7 +23,7 @@
       "name": "Is this watermark tool really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Watermark as many images as you like \u2014 no signup, no export cap, and no watermark of ours added on top. Everything runs in your browser."
+        "text": "Yes. Watermark as many images as you like — no signup, no export cap, and no watermark of ours added on top. Everything runs in your browser."
       }
     },
     {
@@ -31,7 +31,7 @@
       "name": "Does a watermark stop people stealing my photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No \u2014 honestly, nothing does. A watermark is a deterrent: it stops casual reuse and keeps your name on the image if it is shared. A corner mark can be cropped out; a tiled mark is much harder to remove."
+        "text": "No — honestly, nothing does. A watermark is a deterrent: it stops casual reuse and keeps your name on the image if it is shared. A corner mark can be cropped out; a tiled mark is much harder to remove."
       }
     },
     {
@@ -39,12 +39,12 @@
       "name": "What opacity should I use for a watermark?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Between 20% and 40% usually reads clearly without wrecking the image. For a single mark, 50% is a good starting point; for tiled marks, go lower, around 25%."
+        "text": "20–40% for subtle branding; 50–70% tiled for client proofs; 40–60% tiled for stock previews. There is no single correct value — preview at the size the image will actually be displayed."
       }
     },
     {
       "@type": "Question",
-      "name": "Text or logo \u2014 which watermark is better?",
+      "name": "Text or logo — which watermark is better?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A logo at low opacity looks most professional and is harder to fake. Text works fine for quick proofs, drafts and a copyright notice. Use your logo for anything public."
@@ -55,7 +55,7 @@
       "name": "Can I tile the watermark across the whole image?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 switch on tiled mode and the text repeats diagonally across the entire photo, like stock-photo previews. That is the strongest protection this tool offers."
+        "text": "Yes — switch on tiled mode and the text repeats diagonally across the entire photo, like stock-photo previews. That is the strongest protection this tool offers."
       }
     },
     {
@@ -64,6 +64,78 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No. The watermark is drawn onto your image in your browser with the canvas element. Nothing is uploaded, stored or shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where should I place a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bottom-right is the most common spot for branding and least distracting; centre or tiled across the frame is hardest to crop out. Avoid corners that social-media interface elements cover — and put some part of the mark on your subject, not in empty space beside it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add a logo as a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — upload a transparent PNG logo; the transparency is preserved. A JPG logo will stamp a white box onto the photo. In this tool the logo replaces the text watermark — pick one or the other for each image."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will watermarking reduce image quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — the watermark is composited on top of the original pixels. The image is re-saved in the format you choose, so the file size can differ from the original; pick PNG for lossless quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I watermark many images at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this page — it watermarks one image at a time. Batch tools apply the same settings to many images and hand back a ZIP; settle your settings on one image here, then use a batch tool for a set of twenty or more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add text and a logo to the same image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this tool — uploading a logo replaces the text watermark. Multi-layer tools let you add a logo plus a name plus a URL and position each separately; here, choose the one mark that matters most for the image."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should the watermark say?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your name, brand, website, or a copyright line such as “© Your Name”. Keep it short — a name or domain reads at small sizes; a full copyright sentence does not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I watermark photos I post on social media?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the goal: for branding and attribution, a small corner mark; for proofs or pre-payment previews, a tiled mark. Many photographers watermark social posts but show clean images on their own website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a watermark be removed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — with Photoshop’s Content-Aware fill, free AI removers or phone apps, often in seconds. That is why this page never promises theft-proofing: a watermark is friction and a credit line, not a lock. A tiled mark across the whole frame is the hardest to remove cleanly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is removing someone else’s watermark legal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Removing a watermark from someone else’s copyrighted image without authorisation may constitute copyright infringement. Commenters on removal tutorials routinely call it theft — this tool only adds watermarks, it never removes them."
       }
     }
   ]
@@ -168,6 +240,11 @@ table.facts td{color:var(--text2)}
 .step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
 .step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
 .step p{font-size:14px;color:var(--text2);line-height:1.7}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -271,17 +348,41 @@ table.facts td{color:var(--text2)}
         <div class="step"><span class="num">STEP 3</span><h3>Download it</h3><p>Pick PNG, JPG or WebP and save the watermarked image at full original resolution.</p></div>
       </div>
       <h2 style="margin-top:28px">Where should a watermark go?</h2>
-      <p>Put some part of the mark <strong>on your subject</strong>, not in empty space beside it — a mark floating in a corner is cropped out in one click, while a mark touching the subject is hard to clone away without damaging the photo. For client proofs and pre-payment previews, use <strong>tiled mode</strong>: the text repeats diagonally across the whole image, the pattern stock sites use, and no clean area is left to cut. Keep the opacity between 20% and 40% for tiled marks — low enough that the photo still reads clearly, high enough that nobody can reuse it without the mark showing. A logo at low opacity looks the most professional; plain text is fine for quick proofs and internal drafts.</p>
+      <p>Put some part of the mark <strong>on your subject</strong>, not in empty space beside it — a mark floating in a corner is cropped out in one click, while a mark touching the subject is hard to clone away without damaging the photo. For client proofs and pre-payment previews, use <strong>tiled mode</strong>: the text repeats diagonally across the whole image, the pattern stock sites use, and no clean area is left to cut. Keep the opacity in the range that fits the job — 20–40% for branding, up to 50–70% for client proofs (see the table below) — low enough that the photo still reads clearly, high enough that nobody can reuse it without the mark showing. A logo at low opacity looks the most professional; plain text is fine for quick proofs and internal drafts.</p>
       <h2 style="margin-top:28px">What a watermark can and cannot do</h2>
       <p>A watermark deters casual reuse and gives your work a credit line if it is shared — a stolen watermarked image still carries your name, which is free advertising of a sort. It does not prove ownership in court on its own, and it does not stop a determined thief: marks can be cloned out and images can be re-shot. For real protection, pair the watermark with the invisible evidence: embed your name and copyright in the image metadata, keep the high-resolution original private and share only a smaller watermarked version, and register valuable work with your country's copyright office if you want to claim damages.</p>
+      <h2>Opacity and placement by use case</h2>
+      <p>There is no single correct opacity — the guides all publish the same table, and this tool’s controls map straight onto it. Preview at the size the image will actually be displayed: a mark that looks balanced on a 4,000-pixel export is a smudge on the 600-pixel version a social platform serves.</p>
+      <table class="tbl">
+        <tr><th>Use case</th><th>Placement</th><th>Opacity</th><th>Tiled?</th></tr>
+        <tr><td>Branding / social posts</td><td>Bottom-right corner</td><td>20–40%</td><td>No</td></tr>
+        <tr><td>Client proofs / pre-payment previews</td><td>Across the frame</td><td>50–70%</td><td>Yes</td></tr>
+        <tr><td>Stock previews</td><td>Across the frame</td><td>40–60%</td><td>Yes</td></tr>
+        <tr><td>Product photos (Etsy / Shopify)</td><td>Bottom-right or centre</td><td>20–40%</td><td>Optional</td></tr>
+      </table>
+      <h2>Using a logo? Use a transparent PNG</h2>
+      <p>The most common beginner mistake is uploading a JPG logo: it stamps a visible white rectangle onto the photo. Use a PNG with a real transparent background — the transparency is preserved and the logo sits cleanly on the image. If your logo has a white box behind it in the preview, that is the file, not the tool: re-export the logo as a transparent PNG and upload it again.</p>
+      <h2>About watermark removal</h2>
+      <p>The other side of this keyword is removal tutorials — reels showing Photoshop and AI tools stripping watermarks in seconds — and the comments under them are overwhelmingly condemnatory: viewers call removal theft, and photographers reply that a mark is the only credit line they have. This page is for adding watermarks only. It does not offer removal, and it does not imply it: the mark this tool draws is baked into the downloaded file, and the tool cannot take a mark off — yours or anyone else’s. Keep your unwatermarked original safe, because the watermarked file cannot be un-watermarked here.</p>
+
+
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq"><summary>Is this watermark tool really free?</summary><p>Yes. Watermark as many images as you like — no signup, no export cap, and no watermark of ours added on top. Everything runs in your browser.</p></details>
       <details class="faq"><summary>Does a watermark stop people stealing my photos?</summary><p>No — honestly, nothing does. A watermark is a deterrent: it stops casual reuse and keeps your name on the image if it is shared. A corner mark can be cropped out; a tiled mark is much harder to remove.</p></details>
-      <details class="faq"><summary>What opacity should I use for a watermark?</summary><p>Between 20% and 40% usually reads clearly without wrecking the image. For a single mark, 50% is a good starting point; for tiled marks, go lower, around 25%.</p></details>
+      <details class="faq"><summary>What opacity should I use for a watermark?</summary><p>20–40% for subtle branding; 50–70% tiled for client proofs; 40–60% tiled for stock previews. There is no single correct value — preview at the size the image will actually be displayed.</p></details>
       <details class="faq"><summary>Text or logo — which watermark is better?</summary><p>A logo at low opacity looks most professional and is harder to fake. Text works fine for quick proofs, drafts and a copyright notice. Use your logo for anything public.</p></details>
       <details class="faq"><summary>Can I tile the watermark across the whole image?</summary><p>Yes — switch on tiled mode and the text repeats diagonally across the entire photo, like stock-photo previews. That is the strongest protection this tool offers.</p></details>
       <details class="faq"><summary>Is my image uploaded to a server?</summary><p>No. The watermark is drawn onto your image in your browser with the canvas element. Nothing is uploaded, stored or shared.</p></details>
+      <details class="faq"><summary>Where should I place a watermark?</summary><p>Bottom-right is the most common spot for branding and least distracting; centre or tiled across the frame is hardest to crop out. Avoid corners that social-media interface elements cover — and put some part of the mark on your subject, not in empty space beside it.</p></details>
+      <details class="faq"><summary>Can I add a logo as a watermark?</summary><p>Yes — upload a transparent PNG logo; the transparency is preserved. A JPG logo will stamp a white box onto the photo. In this tool the logo replaces the text watermark — pick one or the other for each image.</p></details>
+      <details class="faq"><summary>Will watermarking reduce image quality?</summary><p>No — the watermark is composited on top of the original pixels. The image is re-saved in the format you choose, so the file size can differ from the original; pick PNG for lossless quality.</p></details>
+      <details class="faq"><summary>Can I watermark many images at once?</summary><p>Not on this page — it watermarks one image at a time. Batch tools apply the same settings to many images and hand back a ZIP; settle your settings on one image here, then use a batch tool for a set of twenty or more.</p></details>
+      <details class="faq"><summary>Can I add text and a logo to the same image?</summary><p>Not on this tool — uploading a logo replaces the text watermark. Multi-layer tools let you add a logo plus a name plus a URL and position each separately; here, choose the one mark that matters most for the image.</p></details>
+      <details class="faq"><summary>What should the watermark say?</summary><p>Your name, brand, website, or a copyright line such as “© Your Name”. Keep it short — a name or domain reads at small sizes; a full copyright sentence does not.</p></details>
+      <details class="faq"><summary>Should I watermark photos I post on social media?</summary><p>It depends on the goal: for branding and attribution, a small corner mark; for proofs or pre-payment previews, a tiled mark. Many photographers watermark social posts but show clean images on their own website.</p></details>
+      <details class="faq"><summary>Can a watermark be removed?</summary><p>Yes — with Photoshop’s Content-Aware fill, free AI removers or phone apps, often in seconds. That is why this page never promises theft-proofing: a watermark is friction and a credit line, not a lock. A tiled mark across the whole frame is the hardest to remove cleanly.</p></details>
+      <details class="faq"><summary>Is removing someone else’s watermark legal?</summary><p>Removing a watermark from someone else’s copyrighted image without authorisation may constitute copyright infringement. Commenters on removal tutorials routinely call it theft — this tool only adds watermarks, it never removes them.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

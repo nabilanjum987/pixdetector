@@ -28,42 +28,114 @@
     },
     {
       "@type": "Question",
-      "name": "How do I find the error in my JSON?",
+      "name": "What is a JSON formatter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Press Format or Validate. If the JSON is invalid, the status line shows the exact line and column of the first error, the line is shown with a caret (^) under the problem character, and the most likely cause is named — usually a trailing comma, single quotes, an unquoted key, a comment, or a Python-style True/None."
+        "text": "A tool that takes raw, compressed JSON and reformats it with consistent indentation and line breaks so it is easy to read, review, and debug. Also called a beautifier or pretty printer."
       }
     },
     {
       "@type": "Question",
-      "name": "Does it auto-fix broken JSON?",
+      "name": "What is the difference between format, minify, and validate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — honestly, it does not. This tool points at the error and tells you the likely cause, but you fix it yourself. Auto-repair tools guess at ambiguous fixes (single quotes, unquoted keys, comments), and a tool that silently picks one can produce a file that parses but no longer means what you intended. A trailing comma has exactly one correct fix; most other errors do not."
+        "text": "Format means pretty-print for reading; minify means compress to one line for smallest size; validate means confirm the syntax is correct. This tool does all three — validation happens every time you press Format."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my JSON uploaded to a server?",
+      "name": "How do I fix invalid JSON?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Everything runs in your browser with the built-in JSON parser. Your data — configs, tokens, API responses, customer data — never leaves your device, which is why it is safe to paste a sensitive payload here. The same warning applies to any online formatter: if it uploads your data, do not paste secrets into it."
+        "text": "Find the first error and fix that one thing — the parser stops at the first error, so fix and revalidate one at a time. The usual culprits are a trailing comma, single quotes, an unquoted key, a comment, or a Python-style True or None. This tool shows the line, the column and the likely cause."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between formatting and minifying?",
+      "name": "Why is my JSON invalid — trailing comma?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Formatting (beautifying) adds indentation and line breaks so JSON is easy to read. Minifying removes all whitespace outside strings, compressing it to a single line for transport. This tool does both from the same input."
+        "text": "JSON does not allow a comma after the last item in an object or array, even though JavaScript does. Delete it. It is the single most common JSON error."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I sort the keys?",
+      "name": "Can JSON use single quotes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Choose “Sort keys A–Z” and every object's keys are ordered alphabetically, recursively. That makes diffs between two API responses stable and easy to compare."
+        "text": "No. Keys and string values must use double quotes — no exceptions. JavaScript allows both; JSON only allows double quotes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I put comments in JSON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — JSON has no comment syntax. Neither // single-line comments nor /* */ block comments are valid anywhere in a JSON document. Use JSONC in your editor if you need comments, but strip them before sending to an API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between JSON and a JavaScript object?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A JavaScript object allows single quotes, unquoted keys, trailing commas, comments, undefined and NaN. JSON allows none of those — it is a strict subset of JavaScript object syntax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I format JSON in the browser console?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste it into JSON.parse('...') — the error message tells you the exact character position where it broke. Or use python3 -m json.tool or jq . in the terminal. This page is the same idea with a friendlier error: line, column and likely cause."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I minify JSON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remove all unnecessary whitespace — one click in a formatter. Minify for production payloads, format for reading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to paste JSON into an online formatter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if it runs client-side. Nothing you paste here is uploaded — this tool uses the browser's built-in JSON parser, which matters when the payload contains API keys, customer records, or internal responses. If a page does not say processing is local, do not paste secrets into it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is JSONPath?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A query language to extract values from JSON — for example, pull one field out of a large response without copying the whole blob. This tool does not have a JSONPath filter; use it to format and validate, then query the result elsewhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What indent should I use — 2 spaces or 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2-space indent is the most common. Tabs are fine too. What matters is consistency — mixed indentation makes diffs unreadable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a formatter fix my JSON automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only mechanical errors: trailing commas, single quotes, unquoted keys, missing brackets. It cannot fix wrong values, wrong structure, or missing data — that is your data, not syntax. This tool does not auto-fix at all: it points at the first error and tells you the likely cause, and you fix it yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"Unexpected token }\" mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually a trailing comma or a missing value before the closing brace — the parser found } where it expected another property or value. Check the character just before the }."
       }
     }
   ]
@@ -232,31 +304,82 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <tr><td>Wrong true/false/null</td><td>{ "x": True }</td><td>Use lowercase true, false, null</td></tr>
         </tbody>
       </table>
+      <h2>JSON vs a JavaScript object — spot the differences</h2>
+      <p>A JavaScript object literal and JSON look almost identical, which is why so much invalid JSON starts life as copied JavaScript. JSON is a strict subset: a JS object allows single quotes, unquoted keys, trailing commas, comments, undefined and NaN. JSON allows none of those. Same object, two syntaxes:</p>
+      <table class="facts">
+        <thead><tr><th>Feature</th><th>JavaScript object — valid</th><th>JSON — invalid</th></tr></thead>
+        <tbody>
+          <tr><td>Quotes</td><td>Single or double quotes</td><td>Double quotes only, for keys and string values</td></tr>
+          <tr><td>Keys</td><td>Unquoted keys allowed: { name: "Ava" }</td><td>Every key must be quoted: { "name": "Ava" }</td></tr>
+          <tr><td>Trailing comma</td><td>Allowed since ES5</td><td>Not allowed — kills the whole file</td></tr>
+          <tr><td>Comments</td><td>// and /* */ allowed</td><td>No comment syntax at all</td></tr>
+          <tr><td>Values</td><td>undefined, NaN, Infinity allowed</td><td>Use null or a number instead</td></tr>
+          <tr><td>Booleans</td><td>true / false</td><td>true / false — but not Python's True / False / None</td></tr>
+        </tbody>
+      </table>
+      <h2>Format JSON without a website</h2>
+      <p>If you would rather not paste a payload into any web page at all, the same check runs locally. In a browser console, paste the JSON into <code>JSON.parse('...')</code> — the error message tells you the exact character position where it broke. In a terminal, <code>python3 -m json.tool</code> pretty-prints a file, and <code>jq .</code> does the same with far more power. This page is the same idea with a friendlier error: the line, the column, and the likely cause, instead of a bare parser message.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq">
+<details class="faq">
 <summary>Is this JSON formatter free?</summary>
 <p>Yes. Format, validate and minify as much JSON as you like, free, with no signup, no account and no limits.</p>
 </details>
-      <details class="faq">
-<summary>How do I find the error in my JSON?</summary>
-<p>Press Format or Validate. If the JSON is invalid, the status line shows the exact line and column of the first error, the line is shown with a caret (^) under the problem character, and the most likely cause is named — usually a trailing comma, single quotes, an unquoted key, a comment, or a Python-style True/None.</p>
+<details class="faq">
+<summary>What is a JSON formatter?</summary>
+<p>A tool that takes raw, compressed JSON and reformats it with consistent indentation and line breaks so it is easy to read, review, and debug. Also called a beautifier or pretty printer.</p>
 </details>
-      <details class="faq">
-<summary>Does it auto-fix broken JSON?</summary>
-<p>No — honestly, it does not. This tool points at the error and tells you the likely cause, but you fix it yourself. Auto-repair tools guess at ambiguous fixes (single quotes, unquoted keys, comments), and a tool that silently picks one can produce a file that parses but no longer means what you intended. A trailing comma has exactly one correct fix; most other errors do not.</p>
+<details class="faq">
+<summary>What is the difference between format, minify, and validate?</summary>
+<p>Format means pretty-print for reading; minify means compress to one line for smallest size; validate means confirm the syntax is correct. This tool does all three — validation happens every time you press Format.</p>
 </details>
-      <details class="faq">
-<summary>Is my JSON uploaded to a server?</summary>
-<p>No. Everything runs in your browser with the built-in JSON parser. Your data — configs, tokens, API responses, customer data — never leaves your device, which is why it is safe to paste a sensitive payload here. The same warning applies to any online formatter: if it uploads your data, do not paste secrets into it.</p>
+<details class="faq">
+<summary>How do I fix invalid JSON?</summary>
+<p>Find the first error and fix that one thing — the parser stops at the first error, so fix and revalidate one at a time. The usual culprits are a trailing comma, single quotes, an unquoted key, a comment, or a Python-style True or None. This tool shows the line, the column and the likely cause.</p>
 </details>
-      <details class="faq">
-<summary>What is the difference between formatting and minifying?</summary>
-<p>Formatting (beautifying) adds indentation and line breaks so JSON is easy to read. Minifying removes all whitespace outside strings, compressing it to a single line for transport. This tool does both from the same input.</p>
+<details class="faq">
+<summary>Why is my JSON invalid — trailing comma?</summary>
+<p>JSON does not allow a comma after the last item in an object or array, even though JavaScript does. Delete it. It is the single most common JSON error.</p>
 </details>
-      <details class="faq">
-<summary>Can I sort the keys?</summary>
-<p>Yes. Choose “Sort keys A–Z” and every object's keys are ordered alphabetically, recursively. That makes diffs between two API responses stable and easy to compare.</p>
+<details class="faq">
+<summary>Can JSON use single quotes?</summary>
+<p>No. Keys and string values must use double quotes — no exceptions. JavaScript allows both; JSON only allows double quotes.</p>
+</details>
+<details class="faq">
+<summary>Can I put comments in JSON?</summary>
+<p>No — JSON has no comment syntax. Neither // single-line comments nor /* */ block comments are valid anywhere in a JSON document. Use JSONC in your editor if you need comments, but strip them before sending to an API.</p>
+</details>
+<details class="faq">
+<summary>What is the difference between JSON and a JavaScript object?</summary>
+<p>A JavaScript object allows single quotes, unquoted keys, trailing commas, comments, undefined and NaN. JSON allows none of those — it is a strict subset of JavaScript object syntax.</p>
+</details>
+<details class="faq">
+<summary>How do I format JSON in the browser console?</summary>
+<p>Paste it into JSON.parse(&#x27;...&#x27;) — the error message tells you the exact character position where it broke. Or use python3 -m json.tool or jq . in the terminal. This page is the same idea with a friendlier error: line, column and likely cause.</p>
+</details>
+<details class="faq">
+<summary>How do I minify JSON?</summary>
+<p>Remove all unnecessary whitespace — one click in a formatter. Minify for production payloads, format for reading.</p>
+</details>
+<details class="faq">
+<summary>Is it safe to paste JSON into an online formatter?</summary>
+<p>Only if it runs client-side. Nothing you paste here is uploaded — this tool uses the browser&#x27;s built-in JSON parser, which matters when the payload contains API keys, customer records, or internal responses. If a page does not say processing is local, do not paste secrets into it.</p>
+</details>
+<details class="faq">
+<summary>What is JSONPath?</summary>
+<p>A query language to extract values from JSON — for example, pull one field out of a large response without copying the whole blob. This tool does not have a JSONPath filter; use it to format and validate, then query the result elsewhere.</p>
+</details>
+<details class="faq">
+<summary>What indent should I use — 2 spaces or 4?</summary>
+<p>2-space indent is the most common. Tabs are fine too. What matters is consistency — mixed indentation makes diffs unreadable.</p>
+</details>
+<details class="faq">
+<summary>Can a formatter fix my JSON automatically?</summary>
+<p>Only mechanical errors: trailing commas, single quotes, unquoted keys, missing brackets. It cannot fix wrong values, wrong structure, or missing data — that is your data, not syntax. This tool does not auto-fix at all: it points at the first error and tells you the likely cause, and you fix it yourself.</p>
+</details>
+<details class="faq">
+<summary>What does &quot;Unexpected token }&quot; mean?</summary>
+<p>Usually a trailing comma or a missing value before the closing brace — the parser found } where it expected another property or value. Check the character just before the }.</p>
 </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

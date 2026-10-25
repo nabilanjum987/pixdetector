@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Color Mixer — Blend Two Colours Online</title>
-<meta name="description" content="Mix two colours free — slide the ratio, see the result and every shade between. Copy the HEX in one click. No signup, instant.">
-<meta name="keywords" content="color mixer, colour mixer, mix two colors, blend colors online, color blender, midpoint color">
+<meta name="description" content="Mix colours free — paint and light modes, named artist paints, reverse recipes and batch quantities. No signup, instant.">
+<meta name="keywords" content="color mixer, colour mixer, paint color mixer, mix two colors, blend colors online, color blender, what colors make green, color mixing calculator">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/color-mixer">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/color-mixer">
 <meta property="og:title" content="Free Color Mixer — Blend Two Colours Online">
-<meta property="og:description" content="Mix two colours free — slide the ratio, see the result and every shade between. Copy the HEX in one click. No signup, instant.">
+<meta property="og:description" content="Mix colours free — paint and light modes, named artist paints, reverse recipes and batch quantities. No signup, instant.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -18,54 +18,21 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is this color mixer really free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Mix as many colour pairs as you like \u2014 no signup, no ads in the way, no upload. Everything runs in your browser."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What colour do blue and yellow make?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mixed as light on a screen, they head toward a greyish neutral \u2014 this tool's RGB mode shows that. Mixed as paint, they head toward green. The two kinds of mixing follow different rules, so check which one you mean."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I find the midpoint between two colours?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Set the ratio slider to 50/50. The result is the exact halfway blend, with its HEX code ready to copy. The shade strip below shows the steps on either side too."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I mix more than two colours?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool mixes two at a time. For three, mix the first two, copy the result, paste it in as colour A and mix with the third."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this an accurate paint mixing simulator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No \u2014 it is a close visual guide for screen colours, not a physical model of pigments. Real paints vary by brand and pigment load, so test the mix on paper before committing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which blend mode should I use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use Light (RGB) when you want the literal screen average. Use Hue blend (HSL) when the midpoint looks muddy \u2014 it travels around the colour wheel, so blue to yellow passes through green instead of grey."
-      }
-    }
+    { "@type": "Question", "name": "What colours make green?", "acceptedAnswer": { "@type": "Answer", "text": "Blue + yellow paint makes green. In light, blue + yellow makes white — the two systems disagree, so say which one you mean. In this tool, switch to Paint mode and mix blue and yellow to see green; Light mode shows the screen answer instead." } },
+    { "@type": "Question", "name": "What colours make purple?", "acceptedAnswer": { "@type": "Answer", "text": "Red + blue in principle — but a warm red + blue gives a dull purple-brown (artincontext.org's example, Cadmium Red Light + Ultramarine Blue, is #4F3C3D). For a clean violet, use a cool red such as Quinacridone Magenta with blue." } },
+    { "@type": "Question", "name": "What colours make brown?", "acceptedAnswer": { "@type": "Answer", "text": "Mix complementary colours — red + green — or all three primaries together, then darken the result toward black. One social-media peer answer puts it even shorter: 'Red black'." } },
+    { "@type": "Question", "name": "What colours make orange?", "acceptedAnswer": { "@type": "Answer", "text": "Red + yellow paint. Artincontext.org's worked example is Cadmium Red Light + Cadmium Yellow Medium = #F16A1D. In this tool's Paint mode the same two paints mix to a very close vivid orange." } },
+    { "@type": "Question", "name": "Why do blue and yellow make green in paint but white on a screen?", "acceptedAnswer": { "@type": "Answer", "text": "Paint pigments absorb light — the mix reflects only the green both pigments let through. Screen colours are light that adds up: blue + yellow light together contain red, green and blue, which we see as white. Paint is subtractive, light is additive." } },
+    { "@type": "Question", "name": "What happens if you mix all the colours together?", "acceptedAnswer": { "@type": "Answer", "text": "Paint: a dark muddy brown or black. Printing ink (CMY): dark grey or near-black. Light (RGB): white. More paint means darker and duller; more light means brighter." } },
+    { "@type": "Question", "name": "How do I mix colours to get skin tone?", "acceptedAnswer": { "@type": "Answer", "text": "Start with balanced primaries (red, yellow, blue) plus white to adjust the value, then nudge warmer or cooler. Skin tones are the match painters find hardest — the Golden mixer posts single out skin tones as the case where a photo-to-recipe tool helps most." } },
+    { "@type": "Question", "name": "How do I calculate paint mixing ratios?", "acceptedAnswer": { "@type": "Answer", "text": "Set parts per paint: 3 parts white + 1 part blue is 75% white and 25% blue. For a target colour, use the reverse tab on this page — enter the HEX and it calculates the ratio for you. For a wall, the batch calculator below turns the ratio into millilitres per paint." } },
+    { "@type": "Question", "name": "Can a colour mixer replace a physical colour mixing chart?", "acceptedAnswer": { "@type": "Answer", "text": "As a dynamic guide, yes — the makers of one mixer describe it as 'faster, more flexible, and more comprehensive than a static chart'. That is a vendor claim, not independently verified. It does not replace a swatch test: acrylics dry darker and brands differ, so test the mix on paper before buying paint." } },
+    { "@type": "Question", "name": "Why does my digital mix look muddy or grey?", "acceptedAnswer": { "@type": "Answer", "text": "Simple RGB averaging pulls the blend through grey territory — blue to yellow averages to grey, not green. Mix in OKLab (a perceptual space) instead, or add a middle stop or colour rather than averaging straight across. This page's Light mode offers sRGB, Linear and OKLab so you can see the difference." } },
+    { "@type": "Question", "name": "What is the difference between mixing paint and mixing light?", "acceptedAnswer": { "@type": "Answer", "text": "Paint is subtractive: each pigment absorbs wavelengths, so more pigment means darker and duller. Light is additive: more light means brighter, and all three primaries at full strength make white. That is why the same two colours can give opposite answers." } },
+    { "@type": "Question", "name": "How do I make a lighter tint or darker shade of a colour?", "acceptedAnswer": { "@type": "Answer", "text": "Add white for a tint and black for a shade. The tints and shades row under the result shows both in steps — click any step to copy it. In Paint mode, mix in Titanium White or Ivory Black as a real paint in the recipe instead of just lightening the screen colour." } },
+    { "@type": "Question", "name": "Can I mix colours for a wall or furniture before buying paint?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for planning: blend two base shades, adjust the tint or shade, and use the batch calculator to turn the ratio into millilitres per paint. But the on-screen result is an approximation — real paint depends on the base, pigment and manufacturer, so test a swatch first." } },
+    { "@type": "Question", "name": "What is a colour mixer or colour combiner?", "acceptedAnswer": { "@type": "Answer", "text": "A tool that shows the colour you get when you combine two or more colours in certain amounts. 'Colour combiner' is the same thing with several colours at once. This page mixes two colours at a time; mix the result with a third colour to combine three." } },
+    { "@type": "Question", "name": "Can I save or share my mix?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Save up to 12 mixes in your browser, copy a share link that reopens the exact mix (colours, ratio, mode), or download a PNG recipe card with the ratio and codes. Saved mixes never leave your device." } }
   ]
 }
 </script>
@@ -75,21 +42,10 @@
   "@type": "HowTo",
   "name": "How to mix two colours",
   "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Pick two colours",
-      "text": "Use the swatches or type HEX codes for colour A and colour B."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Slide the ratio",
-      "text": "Drag the slider \u2014 50/50 is the midpoint. Try the hue-blend mode for smoother results."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Copy the result",
-      "text": "Copy the HEX, RGB or HSL, or click any step in the shade strip."
-    }
+    { "@type": "HowToStep", "name": "Pick two colours", "text": "Use the swatches, type HEX codes, or pick a named artist paint from the list under each colour." },
+    { "@type": "HowToStep", "name": "Choose paint or light", "text": "Paint mode simulates pigments (blue + yellow = green). Light mode averages screen colours — pick sRGB, Linear, OKLab or Hue blend inside it." },
+    { "@type": "HowToStep", "name": "Slide the ratio", "text": "Drag the slider — 50/50 is the midpoint. The steps strip shows every shade between the two colours." },
+    { "@type": "HowToStep", "name": "Copy, save or share", "text": "Copy the HEX, RGB or HSL, save the mix in your browser, or download a PNG recipe card." }
   ]
 }
 </script>
@@ -168,10 +124,29 @@ table.facts td{color:var(--text2)}
 .step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
 .step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
 .step p{font-size:14px;color:var(--text2);line-height:1.7}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.mode-switch{display:flex;gap:8px;margin-bottom:16px}
+.mode-switch .toggle{flex:1;padding:11px 14px;font-size:14px;font-weight:700;text-align:center}
+.mode-switch .toggle[aria-pressed="true"]{background:var(--accent);color:#000;border-color:var(--accent)}
+.paint-pick{margin-top:10px}
+.paint-pick select{font-size:14px}
+.recipe-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.recipe-card .r-swatches{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.recipe-card .r-sw{width:44px;height:44px;border-radius:8px;border:1px solid var(--border2)}
+.recipe-card p{font-size:14px;line-height:1.7;margin:0;color:var(--text2)}
+.recipe-card p strong{color:var(--text)}
+.saved-item{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.saved-item .sw{width:30px;height:30px;border-radius:7px;border:1px solid var(--border2);flex:none}
+.saved-item .meta{flex:1;font-size:13px;color:var(--text2);line-height:1.5}
+.saved-item .meta strong{color:var(--text);font-size:14px}
+.saved-item button{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:6px 11px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="/" class="logo">Pix<span>Detector</span></a>
@@ -183,7 +158,6 @@ table.facts td{color:var(--text2)}
     <div class="nav-badge">FREE</div>
   </div>
 </nav>
-
 <div class="tool-page">
   <div class="tool-page-inner">
     <div class="breadcrumb">
@@ -193,86 +167,182 @@ table.facts td{color:var(--text2)}
     </div>
     <div class="tool-page-header">
       <h1>Free Color Mixer</h1>
-      <p>Blend two colours at any ratio — slide, see the result and every shade in between, then copy the HEX. No signup, instant.</p>
+      <p>Blend two colours at any ratio — paint mode or light mode, named artist paints, reverse recipes and batch quantities. No signup, instant.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> The blend is <strong>screen colour maths, not real paint</strong>: mixing blue and yellow here gives a greyish tone, while real paint gives green. Use it to find midpoints and tints between brand colours, not to predict what two tubes of paint will do.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> this mixer blends colours <strong>on screen</strong>. Paint mode simulates pigments — your brand, base paint, layer thickness, glazing and drying will shift the real result, so <strong>test a swatch</strong> before buying paint (acrylics dry slightly darker). Light mode averages light, which is different physics from paint. The mixer answers "what do these colours make together" — it does not design a colour scheme, match a brand identity, or promise the tube will look like the swatch.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Mix colours">
         <h2>Your two colours</h2>
+        <div class="mode-switch" role="group" aria-label="Mixing system">
+          <button type="button" class="toggle" id="sysLight" aria-pressed="true">💡 Light — screen colours</button>
+          <button type="button" class="toggle" id="sysPaint" aria-pressed="false">🎨 Paint — pigments</button>
+        </div>
+        <p class="trust" id="sysNote" style="margin-top:0">Light mode averages screen colours (RGB). Blue + yellow light heads toward a greyish neutral — switch to Paint to see the pigment answer.</p>
         <div class="grid2">
           <div>
             <label class="flabel" for="colorA">Colour A</label>
             <div style="display:flex;gap:10px;align-items:center"><input type="color" id="colorA" value="#3b82f6"><input type="text" id="hexA" value="#3b82f6" maxlength="7" spellcheck="false"></div>
+            <div class="paint-pick"><select id="paintA" aria-label="Named paint for colour A"><option value="">— or pick a named paint —</option></select></div>
           </div>
           <div>
             <label class="flabel" for="colorB">Colour B</label>
             <div style="display:flex;gap:10px;align-items:center"><input type="color" id="colorB" value="#facc15"><input type="text" id="hexB" value="#facc15" maxlength="7" spellcheck="false"></div>
+            <div class="paint-pick"><select id="paintB" aria-label="Named paint for colour B"><option value="">— or pick a named paint —</option></select></div>
           </div>
         </div>
         <div style="margin-top:16px">
           <label class="flabel" for="ratioInput">Mix ratio: <span id="ratioOut">50% A + 50% B</span></label>
           <input type="range" id="ratioInput" min="0" max="100" value="50">
         </div>
-        <div style="margin-top:16px">
-          <label class="flabel" for="modeSelect">Blend mode</label>
-          <select id="modeSelect"><option value="rgb">Light (RGB) — how screens mix</option><option value="hsl">Hue blend (HSL) — smoother midpoints</option></select>
+        <div style="margin-top:16px" id="modeWrap">
+          <label class="flabel" for="modeSelect">Mixing mode (light)</label>
+          <select id="modeSelect">
+            <option value="srgb">sRGB average — the plain screen average</option>
+            <option value="linear">Linear RGB — brighter, truer midpoints</option>
+            <option value="oklab">OKLab — perceptual, least muddy</option>
+            <option value="additive">Additive light — lamps added together</option>
+            <option value="hsl">Hue blend (HSL) — travels around the wheel</option>
+          </select>
         </div>
         <div class="actions">
           <button type="button" class="btn alt" id="swapBtn">⇄ Swap colours</button>
           <button type="button" class="btn alt" id="midBtn">Set to 50 / 50</button>
+          <button type="button" class="btn alt" id="demoBtn">Try red + green</button>
         </div>
+        <p class="trust">Red + green reads differently in every mode — #FFFF00 additive, #808000 sRGB, #BCBC00 linear, #D0A800 OKLab. Press "Try red + green", then switch modes to watch it change.</p>
       </div>
       <div class="bc-panel" aria-label="Mixed colour">
         <h2>Mixed colour</h2>
-        <div class="big-swatch" id="bigSwatch" style="background:#a8a87e"></div>
-        <div class="out-row"><span class="lab">HEX</span><code id="hexOut">#A8A87E</code><button type="button" data-copy="hexOut">Copy</button></div>
-        <div class="out-row"><span class="lab">RGB</span><code id="rgbOut">rgb(168, 168, 126)</code><button type="button" data-copy="rgbOut">Copy</button></div>
-        <div class="out-row"><span class="lab">HSL</span><code id="hslOut">hsl(60, 16%, 58%)</code><button type="button" data-copy="hslOut">Copy</button></div>
-        <h2 style="margin-top:18px">Every shade between</h2>
+        <div class="big-swatch" id="bigSwatch" style="background:#9ba786"></div>
+        <div class="out-row"><span class="lab">HEX</span><code id="hexOut">#9BA786</code><button type="button" data-copy="hexOut">Copy</button></div>
+        <div class="out-row"><span class="lab">RGB</span><code id="rgbOut">rgb(155, 167, 134)</code><button type="button" data-copy="rgbOut">Copy</button></div>
+        <div class="out-row"><span class="lab">HSL</span><code id="hslOut">hsl(82, 16%, 59%)</code><button type="button" data-copy="hslOut">Copy</button></div>
+        <h2 style="margin-top:18px">Every shade between — 11 steps</h2>
         <div class="swatch-row" id="steps"></div>
         <p class="trust">Click any step to copy its HEX code.</p>
+        <h2 style="margin-top:18px">Tints &amp; shades of the result</h2>
+        <div class="swatch-row" id="tints"></div>
+        <p class="trust">Lighter steps mix the result toward white, darker steps toward black. Click any step to copy it.</p>
       </div>
     </div>
-    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Mix two colours free — slide the ratio and copy every shade in between.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Mix%20two%20colours%20free%20%E2%80%94%20slide%20the%20ratio%20and%20copy%20every%20shade%20in%20between.&amp;url=https%3A//pixdetector.vercel.app/tools/color-mixer" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/color-mixer" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Mix%20two%20colours%20free%20%E2%80%94%20slide%20the%20ratio%20and%20copy%20every%20shade%20in%20between.%20https%3A//pixdetector.vercel.app/tools/color-mixer" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Reverse colour search">
+        <h2>Reverse: which colours make this colour?</h2>
+        <p class="trust" style="margin-top:0">Enter a target HEX and get up to 3 paint recipes from this page's 12-paint palette, with parts, percentages and a ΔE closeness score (below 2 is hard to see even side by side; above 10 is clearly different). A starting point — test a swatch.</p>
+        <div style="display:flex;gap:10px;align-items:center">
+          <input type="color" id="targetColor" value="#81a033" aria-label="Target colour picker">
+          <input type="text" id="targetHex" value="#81a033" maxlength="7" spellcheck="false" aria-label="Target HEX code">
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="reverseBtn">Find recipes</button>
+          <button type="button" class="btn alt" id="targetFromMix">Use current mix as target</button>
+        </div>
+        <div id="reverseResults" style="margin-top:14px"></div>
+        <p class="trust">No recipe here? Pick the colour from a photo first: sample it in the <a href="/tools/color-picker-from-image">Color Picker from Image</a>, then paste its HEX above.</p>
+      </div>
+      <div class="bc-panel" aria-label="Batch quantities and saved mixes">
+        <h2>Batch quantities (paint)</h2>
+        <p class="trust" style="margin-top:0">Planning a wall or a piece of furniture? Enter the total batch size and the current ratio turns into millilitres per paint.</p>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <label class="flabel" for="batchMl" style="margin:0">Total batch</label>
+          <input type="number" id="batchMl" value="1000" min="10" max="100000" step="10" style="max-width:140px" aria-label="Total batch size in millilitres">
+          <span style="font-size:14px;color:var(--text2)">ml</span>
+        </div>
+        <p style="font-size:15px;line-height:1.8;margin-top:12px" id="batchOut">—</p>
+        <h2 style="margin-top:18px">Save &amp; share this mix</h2>
+        <div class="actions" style="margin-top:0">
+          <button type="button" class="btn" id="saveMixBtn">Save this mix</button>
+          <button type="button" class="btn alt" id="shareMixBtn">Copy share link</button>
+          <button type="button" class="btn alt" id="recipeBtn">Download PNG recipe card</button>
+        </div>
+        <p class="trust">The share link reopens this exact mix — colours, ratio and mode. Saved mixes (up to 12) live only in your browser.</p>
+        <div id="savedList" style="margin-top:12px"></div>
+      </div>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Mix two colours free — paint or light mode, named paints, reverse recipes and batch quantities.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Mix%20two%20colours%20free%20%E2%80%94%20paint%20or%20light%20mode%2C%20named%20paints%2C%20reverse%20recipes%20and%20batch%20quantities.&amp;url=https%3A//pixdetector.vercel.app/tools/color-mixer" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/color-mixer" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Mix%20two%20colours%20free%20%E2%80%94%20paint%20or%20light%20mode%2C%20named%20paints%2C%20reverse%20recipes%20and%20batch%20quantities.%20https%3A//pixdetector.vercel.app/tools/color-mixer" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
       <!-- PROBLEM -->
-      <h2>The problem: what is halfway between these two colours?</h2>
-      <p>Brand work runs on this question. You have two brand colours and need the midpoint for a hover state, a tint for a background, or a smooth ramp of five shades for a chart — and guessing the hex in between never lands right. The confusion is worse because "mixing" means two different things: painters mix blue and yellow and get green, while screens mix blue and yellow light and get a greyish neutral. Forum threads are full of people surprised by exactly that, and of developers hand-computing midpoints channel by channel. What people want is a slider: set the ratio, see the result and every step between, and copy the hex that looks right.</p>
+      <h2>The problem: "I hate mixing"</h2>
+      <p>That is the exact phrase painters use in the comments under colour-mixing reels — they avoid painting because they cannot match the colour they see in a reference photo, and they buy dozens of pre-mixed tubes when a few basics plus the right ratios would do. One Instagram reel urges viewers to "stop settling for the wrong colors" and "stop wasting money on extra paints": pick a few Golden Heavy Body acrylics, set the ratios, and see the mixed colour before buying. The same frustration shows up in Facebook artist groups, where members say they "struggle with matching colors from reference photos" and that a recipe tool could help them "overcome reluctance to paint". And when a mix is made once, it usually cannot be remade — no saved ratios, no shareable link, no recipe card. What people want is a mixer that speaks paint, not just hex: named paints, parts and percentages, a recipe they can repeat, and an honest warning when the screen will lie about the tube.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I mix two colours online?</h2>
-      <p>Pick colour A and colour B here, then slide the ratio — 50/50 gives the exact midpoint, 75/25 leans toward A. The result updates live with its HEX, RGB and HSL codes, plus nine steps between the two colours that you can click to copy. It is free, with no signup, and everything runs in your browser. Remember this blends light (screen colours): blue and yellow mix toward a greyish tone here, while real paint would give green — the two kinds of mixing follow different rules.</p>
-      <p>A colour mixer blends two colours by a ratio. At 0% you get colour B, at 100% you get colour A, and every value between is a weighted average of the two. The midpoint — 50% of each — is the single most useful mix: it is the natural hover colour, the in-between step in a gradient, and the base for a tint scale.</p>
+      <p>Pick two colours, choose Paint or Light, and slide the ratio — 50/50 is the midpoint. Paint mode simulates pigments (blue + yellow makes green); Light mode averages screen colours (blue + yellow heads toward grey). The result shows HEX, RGB and HSL, with every shade between, and you can save the recipe or share it. Free, no signup.</p>
+      <p>A colour mixer blends two colours by a ratio. At 0% you get colour B, at 100% you get colour A, and every value between is a weighted blend of the two. The midpoint — 50% of each — is the single most useful mix: the natural hover colour, the in-between step in a gradient, and the base for a tint scale. Picked a colour somewhere else? Grab it in the <a href="/tools/color-picker">Color Picker</a> or sample it from a photo in the <a href="/tools/color-picker-from-image">Color Picker from Image</a>, then paste its HEX in here.</p>
       <!-- HOW TO -->
       <h2>How to mix two colours in 3 steps</h2>
       <div class="steps">
-        <div class="step"><span class="num">STEP 1</span><h3>Pick two colours</h3><p>Use the colour swatches or type HEX codes — your two brand colours, or any pair you are curious about.</p></div>
-        <div class="step"><span class="num">STEP 2</span><h3>Slide the ratio</h3><p>Drag the slider: 50/50 is the midpoint, 75/25 leans toward A. Try the hue-blend mode for smoother midpoints.</p></div>
-        <div class="step"><span class="num">STEP 3</span><h3>Copy the result</h3><p>Copy the HEX, RGB or HSL, or click any step in the shade strip to copy that shade instead.</p></div>
+        <div class="step"><span class="num">STEP 1</span><h3>Pick two colours</h3><p>Use the colour swatches, type HEX codes, or pick a named artist paint — Ultramarine Blue, Cadmium Yellow, Titanium White and nine more — from the list under each colour.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Choose paint or light</h3><p>Paint mode simulates pigments; Light mode averages screen colours, with sRGB, Linear, OKLab, Additive and Hue-blend modes inside it. The same two colours give different answers — that is the point.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Copy, save or share</h3><p>Copy the HEX, RGB or HSL, click any step in the shade strip, save the mix in your browser, or download a PNG recipe card to repeat it later.</p></div>
       </div>
-      <h2 style="margin-top:28px">Why do blue and yellow make grey here — and green in paint?</h2>
-      <p>Because screens and paint mix opposite things. Screens add light: red, green and blue light together make white, so mixing blue and yellow light averages toward a desaturated neutral. Paint subtracts light: pigments absorb some wavelengths and reflect the rest, so blue and yellow paint together reflect green. This tool mixes like a screen (RGB), with an HSL hue-blend mode that travels around the colour wheel instead — blue to yellow via hue passes through green and looks far more vivid. Neither mode predicts real paint: pigment, base and brand all change the physical result, so treat any on-screen mix as a starting point and test it on paper before buying paint.</p>
+      <h2 style="margin-top:28px">Paint vs light: why the same two colours give different answers</h2>
+      <p>Because screens and paint mix opposite things. Screens add light: red, green and blue light together make white, so mixing blue and yellow light averages toward a desaturated neutral. Paint subtracts light: pigments absorb some wavelengths and reflect the rest, so blue and yellow paint together reflect green. Mixing all paints gives a muddy brown or black; mixing all light gives white. This page's Paint mode mixes in RYB space (red-yellow-blue, the painter's primaries) as a simulation of pigment behaviour; Light mode mixes the numbers your screen actually uses. Neither mode predicts real paint exactly: pigment, base and brand all change the physical result, so treat any on-screen mix as a starting point and test it on paper before buying paint.</p>
+      <table class="tbl">
+        <tr><th>Mix</th><th>As paint (pigments)</th><th>As light (screen)</th></tr>
+        <tr><td>Blue + yellow</td><td>Green</td><td>Greyish neutral (sRGB average)</td></tr>
+        <tr><td>Red + yellow</td><td>Orange (Cadmium Red Light + Cadmium Yellow Medium ≈ #F16A1D)</td><td>Orange, brighter on screen</td></tr>
+        <tr><td>Red + blue</td><td>Dull purple-brown (warm red); clean violet needs a cool red</td><td>Purple-violet</td></tr>
+        <tr><td>All colours together</td><td>Muddy brown / black</td><td>White</td></tr>
+        <tr><td>Colour + white</td><td>Tint — lighter version of the same hue</td><td>Tint — lighter version of the same hue</td></tr>
+      </table>
+      <h2 style="margin-top:28px">The same mix, four different answers (light mode)</h2>
+      <p>Even inside Light mode, the mode matters. Red + green reads four ways depending on how the average is computed — which is why this page lets you choose instead of hiding the maths:</p>
+      <table class="tbl">
+        <tr><th>Mode</th><th>Red + green at 50/50</th><th>What it does</th></tr>
+        <tr><td>Additive light</td><td>#FFFF00 (yellow)</td><td>Adds the two lights together, as two lamps would</td></tr>
+        <tr><td>sRGB average</td><td>#808000 (olive)</td><td>Averages the screen numbers directly — the plain average</td></tr>
+        <tr><td>Linear RGB</td><td>#BCBC00</td><td>Averages in linear light, then converts back — brighter midpoints</td></tr>
+        <tr><td>OKLab</td><td>#D0A800</td><td>Averages in a perceptual space — the least muddy midpoint</td></tr>
+      </table>
+      <p>If a blend looks muddy or grey in sRGB, switch to OKLab: it travels through colours the way your eye judges them, so blue to yellow passes through green instead of grey. The Hue-blend mode does the same by travelling around the colour wheel.</p>
+      <h2 style="margin-top:28px">Named paints in this tool</h2>
+      <p>Painters think in paint names, not hex codes. The palette below is the one the reverse tab searches — twelve common artist paints, shown with their screen approximations (a screen hex is an approximation of a real pigment, not the pigment itself). Ultramarine Blue's pigment code is PB29. Strong pigments take over a mix far faster than weak ones: 1 part Phthalo Blue in 10 parts white is still clearly blue, while Yellow Ochre barely moves a mix — so the recipes favour fewer paints and simpler ratios.</p>
+      <table class="tbl">
+        <tr><th>Paint</th><th>Screen hex (approx.)</th><th>Notes</th></tr>
+        <tr><td>Titanium White</td><td>#F8F8F5</td><td>The standard white — tints without shifting hue</td></tr>
+        <tr><td>Zinc White</td><td>#F5F5F0</td><td>Cooler, more transparent white than Titanium</td></tr>
+        <tr><td>Ivory Black</td><td>#1A1A1A</td><td>Shades and greys; a little goes a long way</td></tr>
+        <tr><td>Cadmium Yellow Medium</td><td>#FFD200</td><td>Warm, strong yellow — orange with red, green with blue</td></tr>
+        <tr><td>Yellow Ochre</td><td>#CC7722</td><td>Weak, earthy yellow — muted mixes, skin tones</td></tr>
+        <tr><td>Cadmium Red Light</td><td>#E30022</td><td>Warm red — orange with yellow, dull purple with blue</td></tr>
+        <tr><td>Quinacridone Magenta</td><td>#C00060</td><td>Cool red — the one that makes a clean violet with blue</td></tr>
+        <tr><td>Ultramarine Blue (PB29)</td><td>#3045A5</td><td>Warm blue; green with yellow, violet with cool red</td></tr>
+        <tr><td>Phthalo Blue</td><td>#000F89</td><td>Very strong — dominates a mix at small ratios</td></tr>
+        <tr><td>Cerulean Blue</td><td>#2A93D4</td><td>Light, slightly green blue — skies and water</td></tr>
+        <tr><td>Viridian</td><td>#40826D</td><td>Cool transparent green</td></tr>
+        <tr><td>Burnt Sienna</td><td>#A0522D</td><td>Warm earth brown — skin tones and shadows</td></tr>
+      </table>
+      <h2 style="margin-top:28px">What colours make…? The questions people actually ask</h2>
+      <p><strong>Green:</strong> blue + yellow paint. <strong>Orange:</strong> red + yellow — Cadmium Red Light + Cadmium Yellow Medium is about #F16A1D. <strong>Purple:</strong> red + blue, but a warm red gives a dull purple-brown (#4F3C3D); use Quinacridone Magenta for a clean violet. <strong>Brown:</strong> complementary colours (red + green) or all three primaries together, then darken — one commenter put it as "red black". <strong>Pink:</strong> red + white. <strong>Skin tone:</strong> balanced primaries plus white to set the value — the hardest match, and the one where a photo-to-recipe tool helps most; sample the skin colour from the photo in the <a href="/tools/color-picker-from-image">Color Picker from Image</a> and paste the HEX into the reverse tab here. Try each pair in Paint mode above and watch the result — the steps strip shows the whole ramp, not just the endpoint.</p>
       <h2 style="margin-top:28px">What is the midpoint good for?</h2>
-      <p>Three everyday jobs. <strong>Hover states:</strong> mix a button colour 15–25% toward white or black for a hover shade that still reads as the same colour. <strong>Tints:</strong> mix toward white in steps (90/10, 80/20, 70/30) for a background scale. <strong>Gradients:</strong> the 50/50 midpoint is the colour to add as a middle stop when a two-colour gradient goes grey in the middle — see the <a href="/tools/gradient-generator">Gradient Generator</a> for the same idea in CSS form.</p>
+      <p>Three everyday jobs. <strong>Hover states:</strong> mix a button colour 15–25% toward white or black for a hover shade that still reads as the same colour. <strong>Tints:</strong> mix toward white in steps (90/10, 80/20, 70/30) for a background scale. <strong>Gradients:</strong> the 50/50 midpoint is the colour to add as a middle stop when a two-colour gradient goes grey in the middle — use it as a stop in the <a href="/tools/gradient-generator">Gradient Generator</a>. And once a mix works as text on a background, run the pair through the <a href="/tools/color-contrast-checker">Color Contrast Checker</a> — a pretty midpoint often fails the 4.5:1 test.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>Is this color mixer really free?</summary><p>Yes. Mix as many colour pairs as you like — no signup, no ads in the way, no upload. Everything runs in your browser.</p></details>
-      <details class="faq"><summary>What colour do blue and yellow make?</summary><p>Mixed as light on a screen, they head toward a greyish neutral — this tool's RGB mode shows that. Mixed as paint, they head toward green. The two kinds of mixing follow different rules, so check which one you mean.</p></details>
-      <details class="faq"><summary>How do I find the midpoint between two colours?</summary><p>Set the ratio slider to 50/50. The result is the exact halfway blend, with its HEX code ready to copy. The shade strip below shows the steps on either side too.</p></details>
-      <details class="faq"><summary>Can I mix more than two colours?</summary><p>This tool mixes two at a time. For three, mix the first two, copy the result, paste it in as colour A and mix with the third.</p></details>
-      <details class="faq"><summary>Is this an accurate paint mixing simulator?</summary><p>No — it is a close visual guide for screen colours, not a physical model of pigments. Real paints vary by brand and pigment load, so test the mix on paper before committing.</p></details>
-      <details class="faq"><summary>Which blend mode should I use?</summary><p>Use Light (RGB) when you want the literal screen average. Use Hue blend (HSL) when the midpoint looks muddy — it travels around the colour wheel, so blue to yellow passes through green instead of grey.</p></details>
-      
+      <details class="faq"><summary>What colours make green?</summary><p>Blue + yellow paint makes green. In light, blue + yellow makes white — the two systems disagree, so say which one you mean. In this tool, switch to Paint mode and mix blue and yellow to see green; Light mode shows the screen answer instead.</p></details>
+      <details class="faq"><summary>What colours make purple?</summary><p>Red + blue in principle — but a warm red + blue gives a dull purple-brown (artincontext.org's example, Cadmium Red Light + Ultramarine Blue, is #4F3C3D). For a clean violet, use a cool red such as Quinacridone Magenta with blue.</p></details>
+      <details class="faq"><summary>What colours make brown?</summary><p>Mix complementary colours — red + green — or all three primaries together, then darken the result toward black. One social-media peer answer puts it even shorter: 'Red black'.</p></details>
+      <details class="faq"><summary>What colours make orange?</summary><p>Red + yellow paint. Artincontext.org's worked example is Cadmium Red Light + Cadmium Yellow Medium = #F16A1D. In this tool's Paint mode the same two paints mix to a very close vivid orange.</p></details>
+      <details class="faq"><summary>Why do blue and yellow make green in paint but white on a screen?</summary><p>Paint pigments absorb light — the mix reflects only the green both pigments let through. Screen colours are light that adds up: blue + yellow light together contain red, green and blue, which we see as white. Paint is subtractive, light is additive.</p></details>
+      <details class="faq"><summary>What happens if you mix all the colours together?</summary><p>Paint: a dark muddy brown or black. Printing ink (CMY): dark grey or near-black. Light (RGB): white. More paint means darker and duller; more light means brighter.</p></details>
+      <details class="faq"><summary>How do I mix colours to get skin tone?</summary><p>Start with balanced primaries (red, yellow, blue) plus white to adjust the value, then nudge warmer or cooler. Skin tones are the match painters find hardest — the Golden mixer posts single out skin tones as the case where a photo-to-recipe tool helps most.</p></details>
+      <details class="faq"><summary>How do I calculate paint mixing ratios?</summary><p>Set parts per paint: 3 parts white + 1 part blue is 75% white and 25% blue. For a target colour, use the reverse tab on this page — enter the HEX and it calculates the ratio for you. For a wall, the batch calculator below turns the ratio into millilitres per paint.</p></details>
+      <details class="faq"><summary>Can a colour mixer replace a physical colour mixing chart?</summary><p>As a dynamic guide, yes — the makers of one mixer describe it as 'faster, more flexible, and more comprehensive than a static chart'. That is a vendor claim, not independently verified. It does not replace a swatch test: acrylics dry darker and brands differ, so test the mix on paper before buying paint.</p></details>
+      <details class="faq"><summary>Why does my digital mix look muddy or grey?</summary><p>Simple RGB averaging pulls the blend through grey territory — blue to yellow averages to grey, not green. Mix in OKLab (a perceptual space) instead, or add a middle stop or colour rather than averaging straight across. This page's Light mode offers sRGB, Linear and OKLab so you can see the difference.</p></details>
+      <details class="faq"><summary>What is the difference between mixing paint and mixing light?</summary><p>Paint is subtractive: each pigment absorbs wavelengths, so more pigment means darker and duller. Light is additive: more light means brighter, and all three primaries at full strength make white. That is why the same two colours can give opposite answers.</p></details>
+      <details class="faq"><summary>How do I make a lighter tint or darker shade of a colour?</summary><p>Add white for a tint and black for a shade. The tints and shades row under the result shows both in steps — click any step to copy it. In Paint mode, mix in Titanium White or Ivory Black as a real paint in the recipe instead of just lightening the screen colour.</p></details>
+      <details class="faq"><summary>Can I mix colours for a wall or furniture before buying paint?</summary><p>Yes, for planning: blend two base shades, adjust the tint or shade, and use the batch calculator to turn the ratio into millilitres per paint. But the on-screen result is an approximation — real paint depends on the base, pigment and manufacturer, so test a swatch first.</p></details>
+      <details class="faq"><summary>What is a colour mixer or colour combiner?</summary><p>A tool that shows the colour you get when you combine two or more colours in certain amounts. 'Colour combiner' is the same thing with several colours at once. This page mixes two colours at a time; mix the result with a third colour to combine three.</p></details>
+      <details class="faq"><summary>Can I save or share my mix?</summary><p>Yes. Save up to 12 mixes in your browser, copy a share link that reopens the exact mix (colours, ratio, mode), or download a PNG recipe card with the ratio and codes. Saved mixes never leave your device.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
-      <p><strong>How do I make a lighter version of a colour?</strong> Mix it with white: set colour B to #FFFFFF and slide the ratio toward white. 80% colour + 20% white is a gentle tint.</p>
+      <p><strong>How do I make a lighter version of a colour?</strong> Mix it with white: set colour B to #FFFFFF and slide the ratio toward white. 80% colour + 20% white is a gentle tint — or use the tints row under the result.</p>
       <p><strong>How do I make a darker version?</strong> Mix with black the same way — 80% colour + 20% black is a shade that still reads as the same hue.</p>
-      <p><strong>What colours make brown?</strong> Mix complementary colours, like red and green, or all three primaries together, then darken the result toward black.</p>
-      <p><strong>Can I use the mixed colour in CSS?</strong> Yes — copy the HEX and paste it as a CSS value, or copy the RGB/HSL form if your codebase uses that notation.</p>
+      <p><strong>What colours make pink?</strong> Red + white. In Paint mode, mix Cadmium Red Light with Titanium White; more white makes a paler pink.</p>
+      <p><strong>Can I use the mixed colour in CSS?</strong> Yes — copy the HEX and paste it as a CSS value, or copy the RGB/HSL form if your codebase uses that notation. A mixed colour also works as a middle stop in the <a href="/tools/gradient-generator">Gradient Generator</a>.</p>
     </div>
-    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker" class="related-card"><h4>🎨 Color Picker</h4><p>HEX, RGB & HSL codes</p></a><a href="/tools/gradient-generator" class="related-card"><h4>🌈 Gradient Generator</h4><p>Build gradients free</p></a><a href="/tools/color-contrast-checker" class="related-card"><h4>◐ Contrast Checker</h4><p>WCAG AA/AAA check</p></a><a href="/tools/color-picker-from-image" class="related-card"><h4>🎯 Color Picker from Image</h4><p>Pick colours from photos</p></a></div></div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker" class="related-card"><h4>🎨 Color Picker</h4><p>HEX, RGB &amp; HSL codes</p></a><a href="/tools/gradient-generator" class="related-card"><h4>🌈 Gradient Generator</h4><p>Build gradients free</p></a><a href="/tools/color-contrast-checker" class="related-card"><h4>◐ Contrast Checker</h4><p>WCAG AA/AAA check</p></a><a href="/tools/color-picker-from-image" class="related-card"><h4>🎯 Color Picker from Image</h4><p>Pick colours from photos</p></a></div></div>
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -305,19 +375,18 @@ table.facts td{color:var(--text2)}
   </div>
 </footer>
 <div class="toast" id="toast" role="status"></div>
-
-
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   function parseHex(v) {
-    v = v.trim().replace(/^#/, "");
+    v = (v || "").trim().replace(/^#/, "");
     if (/^[0-9a-fA-F]{3}$/.test(v)) v = v.split("").map(function (c) { return c + c; }).join("");
     if (!/^[0-9a-fA-F]{6}$/.test(v)) return null;
     return [parseInt(v.substr(0, 2), 16), parseInt(v.substr(2, 2), 16), parseInt(v.substr(4, 2), 16)];
   }
-  function hexOf(r, g, b) { function p(n) { var s = Math.round(n).toString(16); return s.length === 1 ? "0" + s : s; } return "#" + p(r) + p(g) + p(b); }
+  function clamp255(n) { return Math.max(0, Math.min(255, Math.round(n))); }
+  function hexOf(r, g, b) { function p(n) { var s = clamp255(n).toString(16); return s.length === 1 ? "0" + s : s; } return "#" + p(r) + p(g) + p(b); }
   function rgbToHsl(r, g, b) {
     r /= 255; g /= 255; b /= 255;
     var max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, h = 0, s = 0;
@@ -349,10 +418,99 @@ table.facts td{color:var(--text2)}
       return p;
     }
   }
-  function mix(t) {
-    var a = parseHex($("hexA").value), b = parseHex($("hexB").value);
-    if (!a || !b) return null;
-    if ($("modeSelect").value === "hsl") {
+  /* ---- light-mode maths ---- */
+  function srgbToLin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+  function linToSrgb(c) { return c <= 0.0031308 ? c * 12.92 : 1.055 * Math.pow(c, 1 / 2.4) - 0.055; }
+  function toOklab(r, g, b) {
+    r = srgbToLin(r); g = srgbToLin(g); b = srgbToLin(b);
+    var l = 0.4122214708 * r + 0.5363325363 * g + 0.2194810807 * b;
+    var m = 0.2119034982 * r + 0.6806995451 * g + 0.0923936022 * b;
+    var s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
+    l = Math.cbrt(l); m = Math.cbrt(m); s = Math.cbrt(s);
+    return [0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s, 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s, 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s];
+  }
+  function fromOklab(L, a, bb) {
+    var l_ = L + 0.3963377774 * a + 0.2158037573 * bb;
+    var m_ = L - 0.1055613458 * a - 0.0638541728 * bb;
+    var s_ = L - 0.0894841775 * a - 1.2914855480 * bb;
+    l_ = l_ * l_ * l_; m_ = m_ * m_ * m_; s_ = s_ * s_ * s_;
+    var r = 4.0767416621 * l_ - 3.3077115913 * m_ + 0.2309699292 * s_;
+    var g = -1.2684380046 * l_ + 2.6097574011 * m_ - 0.3413193965 * s_;
+    var b = -0.0041960863 * l_ - 0.7034186147 * m_ + 1.7076147010 * s_;
+    return [linToSrgb(r) * 255, linToSrgb(g) * 255, linToSrgb(b) * 255];
+  }
+  /* ---- paint-mode maths (RYB approximation of pigment mixing) ---- */
+  function rgb2ryb(r, g, b) {
+    var w = Math.min(r, g, b); r -= w; g -= w; b -= w;
+    var mg = Math.max(r, g, b);
+    var y = Math.min(r, g); r -= y; g -= y;
+    if (b > 0 && g > 0) { b /= 2; g /= 2; }
+    y += g; b += g;
+    var mg2 = Math.max(r, y, b);
+    if (mg2 > 0) { var n = mg / mg2; r *= n; y *= n; b *= n; }
+    r += w; y += w; b += w;
+    return [r, y, b];
+  }
+  function ryb2rgb(r, y, b) {
+    var w = Math.min(r, y, b); r -= w; y -= w; b -= w;
+    var g = Math.min(y, b); y -= g; b -= g;
+    if (b > 0 && g > 0) { b *= 2; g *= 2; }
+    r += y; g += y;
+    r += w; g += w; b += w;
+    return [r, g, b];
+  }
+  /* ---- Lab / Delta E (CIE76) for the reverse search ---- */
+  function rgbToLab(r, g, b) {
+    r = srgbToLin(r); g = srgbToLin(g); b = srgbToLin(b);
+    var x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047;
+    var y = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 1.0;
+    var z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883;
+    function f(t) { return t > 0.008856 ? Math.cbrt(t) : (7.787 * t + 16 / 116); }
+    var fx = f(x), fy = f(y), fz = f(z);
+    return [116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)];
+  }
+  function deltaE(l1, l2) {
+    var dL = l1[0] - l2[0], da = l1[1] - l2[1], db = l1[2] - l2[2];
+    return Math.sqrt(dL * dL + da * da + db * db);
+  }
+  var PAINTS = [
+    { name: "Titanium White", hex: "#F8F8F5" },
+    { name: "Zinc White", hex: "#F5F5F0" },
+    { name: "Ivory Black", hex: "#1A1A1A" },
+    { name: "Cadmium Yellow Medium", hex: "#FFD200" },
+    { name: "Yellow Ochre", hex: "#CC7722" },
+    { name: "Cadmium Red Light", hex: "#E30022" },
+    { name: "Quinacridone Magenta", hex: "#C00060" },
+    { name: "Ultramarine Blue (PB29)", hex: "#3045A5" },
+    { name: "Phthalo Blue", hex: "#000F89" },
+    { name: "Cerulean Blue", hex: "#2A93D4" },
+    { name: "Viridian", hex: "#40826D" },
+    { name: "Burnt Sienna", hex: "#A0522D" }
+  ];
+  var state = { sys: "light", mode: "srgb" };
+  function mixRgb(a, b, t) {
+    if (state.sys === "paint") {
+      var ra = rgb2ryb(a[0], a[1], a[2]), rb = rgb2ryb(b[0], b[1], b[2]);
+      var m = [ra[0] + (rb[0] - ra[0]) * t, ra[1] + (rb[1] - ra[1]) * t, ra[2] + (rb[2] - ra[2]) * t];
+      return ryb2rgb(m[0], m[1], m[2]);
+    }
+    if (state.mode === "linear") {
+      return [linToSrgb(srgbToLin(a[0]) + (srgbToLin(b[0]) - srgbToLin(a[0])) * t) * 255,
+              linToSrgb(srgbToLin(a[1]) + (srgbToLin(b[1]) - srgbToLin(a[1])) * t) * 255,
+              linToSrgb(srgbToLin(a[2]) + (srgbToLin(b[2]) - srgbToLin(a[2])) * t) * 255];
+    }
+    if (state.mode === "oklab") {
+      var oa = toOklab(a[0], a[1], a[2]), ob = toOklab(b[0], b[1], b[2]);
+      return fromOklab(oa[0] + (ob[0] - oa[0]) * t, oa[1] + (ob[1] - oa[1]) * t, oa[2] + (ob[2] - oa[2]) * t);
+    }
+    if (state.mode === "additive") {
+      // Two lamps, slider sets their relative brightness, total light constant:
+      // at 50/50 red + green the lamps add to #FFFF00.
+      return [Math.min(255, a[0] * 2 * (1 - t) + b[0] * 2 * t),
+              Math.min(255, a[1] * 2 * (1 - t) + b[1] * 2 * t),
+              Math.min(255, a[2] * 2 * (1 - t) + b[2] * 2 * t)];
+    }
+    if (state.mode === "hsl") {
       var ha = rgbToHsl(a[0], a[1], a[2]), hb = rgbToHsl(b[0], b[1], b[2]);
       var dh = hb[0] - ha[0];
       if (dh > 180) dh -= 360; if (dh < -180) dh += 360;
@@ -362,9 +520,24 @@ table.facts td{color:var(--text2)}
     }
     return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
   }
+  function currentMix(t) {
+    var a = parseHex($("hexA").value), b = parseHex($("hexB").value);
+    if (!a || !b) return null;
+    return mixRgb(a, b, t);
+  }
+  function stepButton(hex, label) {
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "swatch"; btn.style.background = hex;
+    btn.title = label + " — " + hex.toUpperCase();
+    btn.setAttribute("aria-label", label + ", " + hex);
+    btn.addEventListener("click", function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(hex.toUpperCase()).then(function () { toast(hex.toUpperCase() + " copied."); });
+    });
+    return btn;
+  }
   function update() {
     var t = 1 - parseInt($("ratioInput").value, 10) / 100;
-    var rgb = mix(t);
+    var rgb = currentMix(t);
     if (!rgb) return;
     var hex = hexOf(rgb[0], rgb[1], rgb[2]).toUpperCase();
     var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
@@ -375,32 +548,193 @@ table.facts td{color:var(--text2)}
     var pctA = parseInt($("ratioInput").value, 10);
     $("ratioOut").textContent = pctA + "% A + " + (100 - pctA) + "% B";
     var steps = $("steps"); steps.innerHTML = "";
-    for (var i = 0; i <= 8; i++) {
-      var tt = i / 8;
-      var srgb = mix(tt);
+    for (var i = 0; i <= 10; i++) {
+      var tt = i / 10;
+      var srgb = currentMix(tt);
       var shex = hexOf(srgb[0], srgb[1], srgb[2]);
-      var btn = document.createElement("button");
-      btn.type = "button"; btn.className = "swatch"; btn.style.background = shex;
-      btn.title = Math.round((1 - tt) * 100) + "% A — " + shex.toUpperCase();
-      btn.setAttribute("aria-label", "Mix step " + Math.round((1 - tt) * 100) + "% A, " + shex);
-      (function (h) {
-        btn.addEventListener("click", function () {
-          if (navigator.clipboard) navigator.clipboard.writeText(h.toUpperCase()).then(function () { toast(h.toUpperCase() + " copied."); });
-        });
-      })(shex);
-      steps.appendChild(btn);
+      steps.appendChild(stepButton(shex, "Mix step " + Math.round((1 - tt) * 100) + "% A"));
     }
+    var tints = $("tints"); tints.innerHTML = "";
+    var white = [255, 255, 255], black = [0, 0, 0];
+    [0.8, 0.6, 0.4, 0.2].forEach(function (w) {
+      var c = [rgb[0] + (white[0] - rgb[0]) * w, rgb[1] + (white[1] - rgb[1]) * w, rgb[2] + (white[2] - rgb[2]) * w];
+      tints.appendChild(stepButton(hexOf(c[0], c[1], c[2]), "Tint " + Math.round(w * 100) + "% white"));
+    });
+    tints.appendChild(stepButton(hex, "Result"));
+    [0.2, 0.4, 0.6, 0.8].forEach(function (w) {
+      var c2 = [rgb[0] + (black[0] - rgb[0]) * w, rgb[1] + (black[1] - rgb[1]) * w, rgb[2] + (black[2] - rgb[2]) * w];
+      tints.appendChild(stepButton(hexOf(c2[0], c2[1], c2[2]), "Shade " + Math.round(w * 100) + "% black"));
+    });
+    updateBatch();
+  }
+  function updateBatch() {
+    var total = parseFloat($("batchMl").value);
+    if (!total || total <= 0) { $("batchOut").textContent = "Enter a batch size above."; return; }
+    var pctA = parseInt($("ratioInput").value, 10);
+    var mlA = total * pctA / 100, mlB = total * (100 - pctA) / 100;
+    $("batchOut").innerHTML = "At " + pctA + "% A + " + (100 - pctA) + "% B in a " + total + " ml batch: <strong>" + Math.round(mlA) + " ml of A</strong> (" + (mlA / 1000).toFixed(2) + " L) + <strong>" + Math.round(mlB) + " ml of B</strong> (" + (mlB / 1000).toFixed(2) + " L).";
+  }
+  function setSystem(sys) {
+    state.sys = sys;
+    $("sysLight").setAttribute("aria-pressed", sys === "light" ? "true" : "false");
+    $("sysPaint").setAttribute("aria-pressed", sys === "paint" ? "true" : "false");
+    $("modeWrap").style.display = sys === "light" ? "" : "none";
+    $("sysNote").textContent = sys === "paint"
+      ? "Paint mode mixes in RYB space (red-yellow-blue, the painter's primaries) as a simulation of pigment behaviour. Blue + yellow makes green here — but the tube may still differ, so test a swatch."
+      : "Light mode averages screen colours (RGB). Blue + yellow light heads toward a greyish neutral — switch to Paint to see the pigment answer.";
+    update();
   }
   function syncHex(inputId, colorId) {
     var v = $(inputId).value;
     if (parseHex(v)) { $(colorId).value = v.toLowerCase().startsWith("#") ? v.toLowerCase() : "#" + v.toLowerCase(); update(); }
   }
+  function setColour(which, hex) {
+    hex = hex.toLowerCase();
+    if (which === "A") { $("colorA").value = hex; $("hexA").value = hex; }
+    else { $("colorB").value = hex; $("hexB").value = hex; }
+    update();
+  }
+  /* ---- reverse search ---- */
+  function deLabel(d) {
+    if (d < 2) return "hard to see even side by side";
+    if (d < 10) return "close — visible on a careful look";
+    return "clearly different — a starting point only";
+  }
+  function findRecipes() {
+    var target = parseHex($("targetHex").value);
+    var box = $("reverseResults");
+    if (!target) { box.innerHTML = '<p class="err">Enter a valid HEX code, for example #81A033.</p>'; return; }
+    var tLab = rgbToLab(target[0], target[1], target[2]);
+    var results = [];
+    PAINTS.forEach(function (p) {
+      var rgb = parseHex(p.hex);
+      results.push({ parts: [{ paint: p, pct: 100 }], rgb: rgb, de: deltaE(tLab, rgbToLab(rgb[0], rgb[1], rgb[2])) });
+    });
+    for (var i = 0; i < PAINTS.length; i++) {
+      for (var j = i + 1; j < PAINTS.length; j++) {
+        for (var k = 1; k <= 9; k++) {
+          var t = k / 10;
+          var rgb = (function () {
+            var a = rgb2ryb.apply(null, parseHex(PAINTS[i].hex)), b = rgb2ryb.apply(null, parseHex(PAINTS[j].hex));
+            var m = [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+            return ryb2rgb(m[0], m[1], m[2]);
+          })();
+          results.push({ parts: [{ paint: PAINTS[i], pct: Math.round((1 - t) * 100) }, { paint: PAINTS[j], pct: Math.round(t * 100) }], rgb: rgb, de: deltaE(tLab, rgbToLab(rgb[0], rgb[1], rgb[2])) });
+        }
+      }
+    }
+    results.sort(function (x, y) { return x.de - y.de; });
+    var top = [], seen = {};
+    results.forEach(function (r) {
+      if (top.length >= 3) return;
+      var key = r.parts.map(function (p) { return p.paint.name; }).sort().join("+");
+      if (seen[key]) return;
+      seen[key] = true; top.push(r);
+    });
+    var html = "";
+    top.forEach(function (r, idx) {
+      var hex = hexOf(r.rgb[0], r.rgb[1], r.rgb[2]).toUpperCase();
+      var partsText = r.parts.map(function (p) {
+        var parts = p.pct >= 100 ? "whole" : (p.pct / 10) + " part" + (p.pct / 10 === 1 ? "" : "s");
+        return p.pct >= 100 ? p.paint.name : parts + " " + p.paint.name + " (" + p.pct + "%)";
+      }).join(" + ");
+      html += '<div class="recipe-card"><div class="r-swatches"><span class="r-sw" style="background:' + hex + '"></span><div><strong>Recipe ' + (idx + 1) + '</strong> — result ' + hex + '</div></div>'
+        + "<p>" + partsText + "</p>"
+        + "<p>ΔE " + r.de.toFixed(1) + " — " + deLabel(r.de) + ". " + (r.parts.length === 1 ? "A single paint is the closest match." : "Simpler ratios are preferred where they are close.") + "</p></div>";
+    });
+    html += '<p class="trust">Recipes use this page\'s 12-paint palette and its RYB paint simulation. A ΔE below 2 is hard to see even side by side; above 10 is clearly different. Test a swatch — brand, base and drying shift the real result.</p>';
+    box.innerHTML = html;
+  }
+  /* ---- save / share / recipe card ---- */
+  function shareUrl() {
+    var u = new URL(location.href.split("?")[0].split("#")[0]);
+    u.searchParams.set("a", $("hexA").value.replace("#", ""));
+    u.searchParams.set("b", $("hexB").value.replace("#", ""));
+    u.searchParams.set("r", $("ratioInput").value);
+    u.searchParams.set("sys", state.sys);
+    u.searchParams.set("mode", $("modeSelect").value);
+    return u.toString();
+  }
+  function loadSaved() {
+    try { return JSON.parse(localStorage.getItem("pd-mixes-v1") || "[]"); } catch (e) { return []; }
+  }
+  function renderSaved() {
+    var list = loadSaved();
+    var box = $("savedList");
+    if (!list.length) { box.innerHTML = '<p class="trust">No saved mixes yet.</p>'; return; }
+    box.innerHTML = "";
+    list.forEach(function (m, idx) {
+      var div = document.createElement("div");
+      div.className = "saved-item";
+      div.innerHTML = '<span class="sw" style="background:' + m.hex + '"></span><span class="meta"><strong>' + m.hex + '</strong><br>' + m.a + " + " + m.b + " — " + m.ratio + "% A / " + (100 - m.ratio) + "% B, " + (m.sys === "paint" ? "Paint" : "Light / " + m.mode) + "</span>";
+      var loadBtn = document.createElement("button"); loadBtn.type = "button"; loadBtn.textContent = "Load";
+      loadBtn.addEventListener("click", function () {
+        setColour("A", m.a); setColour("B", m.b);
+        $("ratioInput").value = m.ratio;
+        setSystem(m.sys); $("modeSelect").value = m.mode; state.mode = m.mode;
+        update(); toast("Mix loaded.");
+      });
+      var delBtn = document.createElement("button"); delBtn.type = "button"; delBtn.textContent = "Delete";
+      delBtn.addEventListener("click", function () {
+        var l = loadSaved(); l.splice(idx, 1);
+        try { localStorage.setItem("pd-mixes-v1", JSON.stringify(l)); } catch (e) {}
+        renderSaved(); toast("Mix deleted.");
+      });
+      div.appendChild(loadBtn); div.appendChild(delBtn);
+      box.appendChild(div);
+    });
+  }
+  function downloadRecipe() {
+    var rgb = currentMix(1 - parseInt($("ratioInput").value, 10) / 100);
+    if (!rgb) return;
+    var hex = hexOf(rgb[0], rgb[1], rgb[2]).toUpperCase();
+    var pctA = parseInt($("ratioInput").value, 10);
+    var cv = document.createElement("canvas"); cv.width = 900; cv.height = 560;
+    var ctx = cv.getContext("2d");
+    ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, 900, 560);
+    ctx.fillStyle = "#111111"; ctx.font = "bold 40px sans-serif"; ctx.fillText("My colour mix", 40, 70);
+    ctx.font = "24px sans-serif"; ctx.fillStyle = "#555555";
+    ctx.fillText((state.sys === "paint" ? "Paint mode (RYB simulation)" : "Light mode — " + $("modeSelect").value) + "  •  " + pctA + "% A + " + (100 - pctA) + "% B", 40, 112);
+    function swatch(x, y, color) { ctx.fillStyle = color; ctx.fillRect(x, y, 180, 180); ctx.strokeStyle = "#cccccc"; ctx.strokeRect(x, y, 180, 180); }
+    swatch(40, 150, $("hexA").value); swatch(360, 150, $("hexB").value); swatch(680, 150, hex);
+    ctx.fillStyle = "#111111"; ctx.font = "bold 44px sans-serif";
+    ctx.fillText("+", 255, 255); ctx.fillText("=", 585, 255);
+    ctx.font = "24px sans-serif"; ctx.fillStyle = "#333333";
+    ctx.fillText($("hexA").value.toUpperCase(), 40, 365);
+    ctx.fillText($("hexB").value.toUpperCase(), 360, 365);
+    ctx.fillText(hex, 680, 365);
+    ctx.font = "bold 30px sans-serif"; ctx.fillStyle = "#111111";
+    ctx.fillText("Result: " + hex, 40, 430);
+    var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+    ctx.font = "24px sans-serif"; ctx.fillStyle = "#555555";
+    ctx.fillText("rgb(" + Math.round(rgb[0]) + ", " + Math.round(rgb[1]) + ", " + Math.round(rgb[2]) + ")   •   hsl(" + hsl[0] + ", " + hsl[1] + "%, " + hsl[2] + "%)", 40, 472);
+    ctx.fillText("pixdetector.vercel.app/tools/color-mixer", 40, 520);
+    ctx.fillStyle = "#888888"; ctx.font = "20px sans-serif";
+    ctx.fillText("Screen mix — test a swatch before buying paint.", 40, 548);
+    var a = document.createElement("a");
+    a.href = cv.toDataURL("image/png");
+    a.download = "colour-mix-" + hex.replace("#", "") + ".png";
+    a.click();
+    toast("Recipe card downloaded.");
+  }
+  /* ---- wiring ---- */
+  var paintSelA = $("paintA"), paintSelB = $("paintB");
+  PAINTS.forEach(function (p) {
+    var o1 = document.createElement("option"); o1.value = p.hex; o1.textContent = p.name + "  (" + p.hex + ")";
+    var o2 = o1.cloneNode(true);
+    paintSelA.appendChild(o1); paintSelB.appendChild(o2);
+  });
+  paintSelA.addEventListener("change", function () { if (this.value) setColour("A", this.value); });
+  paintSelB.addEventListener("change", function () { if (this.value) setColour("B", this.value); });
+  $("sysLight").addEventListener("click", function () { setSystem("light"); });
+  $("sysPaint").addEventListener("click", function () { setSystem("paint"); });
+  $("modeSelect").addEventListener("change", function () { state.mode = this.value; update(); });
   $("colorA").addEventListener("input", function () { $("hexA").value = this.value; update(); });
   $("colorB").addEventListener("input", function () { $("hexB").value = this.value; update(); });
   $("hexA").addEventListener("change", function () { syncHex("hexA", "colorA"); });
   $("hexB").addEventListener("change", function () { syncHex("hexB", "colorB"); });
   $("ratioInput").addEventListener("input", update);
-  $("modeSelect").addEventListener("change", update);
+  $("batchMl").addEventListener("input", updateBatch);
   $("swapBtn").addEventListener("click", function () {
     var ca = $("colorA").value, ha = $("hexA").value;
     $("colorA").value = $("colorB").value; $("hexA").value = $("hexB").value;
@@ -409,14 +743,39 @@ table.facts td{color:var(--text2)}
     update();
   });
   $("midBtn").addEventListener("click", function () { $("ratioInput").value = 50; update(); });
+  $("demoBtn").addEventListener("click", function () {
+    setSystem("light"); $("modeSelect").value = "srgb"; state.mode = "srgb";
+    setColour("A", "#ff0000"); setColour("B", "#00ff00");
+    $("ratioInput").value = 50; update();
+    toast("Red + green loaded — now switch the mixing mode to see it change.");
+  });
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var text = $(btn.getAttribute("data-copy")).textContent;
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { toast(text + " copied."); });
     });
   });
-  update();
-
+  $("reverseBtn").addEventListener("click", findRecipes);
+  $("targetFromMix").addEventListener("click", function () {
+    var hex = $("hexOut").textContent.toLowerCase();
+    $("targetHex").value = hex; $("targetColor").value = hex;
+    findRecipes();
+  });
+  $("targetColor").addEventListener("input", function () { $("targetHex").value = this.value; });
+  $("targetHex").addEventListener("change", function () { if (parseHex(this.value)) $("targetColor").value = this.value; });
+  $("saveMixBtn").addEventListener("click", function () {
+    var list = loadSaved();
+    var hex = $("hexOut").textContent;
+    list.unshift({ a: $("hexA").value.toLowerCase(), b: $("hexB").value.toLowerCase(), ratio: parseInt($("ratioInput").value, 10), sys: state.sys, mode: $("modeSelect").value, hex: hex });
+    list = list.slice(0, 12);
+    try { localStorage.setItem("pd-mixes-v1", JSON.stringify(list)); toast("Mix saved (" + list.length + " of 12)."); }
+    catch (e) { toast("Could not save — browser storage is unavailable."); }
+    renderSaved();
+  });
+  $("shareMixBtn").addEventListener("click", function () {
+    if (navigator.clipboard) navigator.clipboard.writeText(shareUrl()).then(function () { toast("Share link copied — it reopens this exact mix."); }, function () { toast("Copy was blocked."); });
+  });
+  $("recipeBtn").addEventListener("click", downloadRecipe);
   $("copyLink").addEventListener("click", function () {
     if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(function () { toast("Link copied."); }, function () { toast("Copy was blocked."); }); }
   });
@@ -424,6 +783,20 @@ table.facts td{color:var(--text2)}
     var line = document.querySelector(".share-line").textContent + " " + location.href;
     if (navigator.clipboard) { navigator.clipboard.writeText(line).then(function () { toast("Share line copied."); }, function () { toast("Copy was blocked."); }); }
   });
+  /* ---- open from a share link ---- */
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search);
+      var a = q.get("a"), b = q.get("b"), r = q.get("r"), sys = q.get("sys"), mode = q.get("mode");
+      if (a && parseHex(a)) setColour("A", "#" + a.replace(/^#/, ""));
+      if (b && parseHex(b)) setColour("B", "#" + b.replace(/^#/, ""));
+      if (r !== null && !isNaN(parseInt(r, 10))) $("ratioInput").value = Math.max(0, Math.min(100, parseInt(r, 10)));
+      if (sys === "paint" || sys === "light") setSystem(sys);
+      if (mode && ["srgb", "linear", "oklab", "additive", "hsl"].indexOf(mode) !== -1) { $("modeSelect").value = mode; state.mode = mode; }
+    } catch (e) {}
+  })();
+  renderSaved();
+  update();
 })();
 </script>
 </body>

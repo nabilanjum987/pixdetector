@@ -28,42 +28,114 @@
     },
     {
       "@type": "Question",
-      "name": "Can it fix text typed with Caps Lock on?",
+      "name": "What is a case converter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — that is its most common use. Paste the all-caps text, click lowercase or Sentence case, and copy the fixed version. It takes one click instead of retyping the whole block."
+        "text": "A free tool that changes the letter case of your text — lowercase to UPPERCASE, or fixing text typed with Caps Lock on — without retyping."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between Title Case and Sentence case?",
+      "name": "How do I convert text to title case?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Title Case capitalises the first letter of every word, as in a headline. Sentence case capitalises only the first letter of each sentence, as in normal body text. This tool's Title Case capitalises every word, including short ones like “of” and “the”."
+        "text": "Paste your text, click Title Case — but check which style guide you need first: AP, APA, Chicago and MLA give different outputs for the same title. Use the style picker above the buttons to apply the guide your assignment or publication follows."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Sentence case handle the pronoun “I” and proper nouns?",
+      "name": "Which words are not capitalised in title case?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — honestly, it does not. Sentence case capitalises sentence starts only. Names like “Delhi” or the pronoun “I” mid-sentence are not auto-recognised, so give the result a quick manual pass."
+        "text": "Articles (a, an, the) and short prepositions and conjunctions (and, but, or, in, of, to) stay lowercase in the middle of a title — except as the first or last word, which is always capitalised. The exact set depends on the style guide: APA capitalises words of four or more letters, while Chicago and MLA lowercase prepositions of any length."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my text uploaded to a server?",
+      "name": "What is the difference between Title Case and Capitalize Words?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Conversion runs entirely in your browser with JavaScript, so your text never leaves your device. It is safe for drafts, internal notes and anything private."
+        "text": "Title Case follows a rule — some words stay lowercase. Capitalize Words capitalises every word with no exceptions. This tool's “Simple” Title Case option is the capitalise-every-word version; the AP, APA, Chicago and MLA options apply the real rules."
       }
     },
     {
       "@type": "Question",
-      "name": "Can it convert code identifiers?",
+      "name": "What is sentence case?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. camelCase, PascalCase, snake_case and kebab-case are all built in — paste “quarterly sales report” and get quarterlySalesReport, QuarterlySalesReport, quarterly_sales_report or quarterly-sales-report in one click."
+        "text": "Sentence case capitalises the first letter of each sentence and lowercases the rest. It does not recognise proper nouns or the pronoun “I” mid-sentence, so give the result a quick manual pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is camelCase used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code identifiers — variable and function names. The first word is lowercase, each following word is capitalised, with no spaces: helloWorld."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is snake_case vs kebab-case?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "snake_case joins words with underscores (hello_world) and is the convention for Python variables and database columns. kebab-case joins words with hyphens (hello-world) and is the web convention for URLs and file names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fix text typed with Caps Lock on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste it into the converter and click lowercase or Sentence case — the standard fix, no retyping. That is the most common use of this tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Title Case follow APA or MLA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A generic converter follows neither — it capitalises every word. For APA, words of four or more letters are capitalised even if they are prepositions; for MLA and Chicago, prepositions of any length stay lowercase. This tool's style picker applies the rule you choose instead of guessing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my text uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Conversion runs entirely in your browser with JavaScript, so your text never leaves your device. It is safe for drafts, internal notes and anything private. Check the page before you trust it: if a converter does not say processing is local, do not assume it is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert only part of my text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — highlight the part you want in the input box, then click a case. Only the highlighted text changes; the rest stays as it is. With nothing highlighted, the whole box is converted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is aLtErNaTiNg cAsE for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stylised, meme-style text — alternating small and capital letters, like hElLo WoRlD. It has no practical use; it is a fun format."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Title Case and Sentence case in APA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "APA uses title case for journal and website titles in references, and sentence case — first word and proper nouns only — for article titles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert a large block of text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. There is no set limit on this tool — browser performance and device memory are the practical limits for very large text."
       }
     }
   ]
@@ -168,12 +240,22 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <h1>Free Case Converter</h1>
       <p>Fix text typed with Caps Lock on, or reformat a headline in one click — UPPERCASE, lowercase, Title Case, Sentence case and code cases. Free, no signup, nothing uploaded.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> Title Case here capitalises every word, including short words like “of” and “the” — that is a simple rule, not strict Chicago/AP title style, which lowercases short words mid-title. Sentence case capitalises sentence starts only: <strong>proper nouns like names need a manual fix afterwards</strong>. Conversion follows English casing rules and may not match German or Turkish conventions.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> Title Case has no single right answer — AP, APA, Chicago and MLA disagree on the same title, so use the style picker below and pick the guide your assignment or publication follows. “Simple” capitalises every word, which matches no style guide. Sentence case capitalises sentence starts only: <strong>proper nouns like names need a manual fix afterwards</strong>. Conversion follows English casing rules and may not match German or Turkish conventions.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Case converter input">
         <h2>Your text</h2>
         <label class="flabel" for="ccInput">Paste or type your text</label>
         <textarea id="ccInput" rows="8" spellcheck="false">the quick brown fox jumps over the lazy dog. hello world, this is a test!</textarea>
+        <div style="margin-top:14px">
+          <label class="flabel" for="ccStyle">Title Case style guide (applies to Title Case only)</label>
+          <select id="ccStyle">
+            <option value="simple" selected>Simple — capitalise every word</option>
+            <option value="ap">AP — short words under 4 letters stay lowercase</option>
+            <option value="apa">APA — words of 4+ letters capitalised</option>
+            <option value="chicago">Chicago — prepositions &amp; conjunctions stay lowercase</option>
+            <option value="mla">MLA — prepositions &amp; conjunctions stay lowercase</option>
+          </select>
+        </div>
         <div class="chips" id="ccChips" style="margin-top:14px">
           <button type="button" class="chip" data-case="upper">UPPERCASE</button>
           <button type="button" class="chip" data-case="lower">lowercase</button>
@@ -188,6 +270,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <button type="button" class="chip" data-case="inverse">InVeRsE</button>
         </div>
         <p class="trust" id="ccStats">0 words · 0 characters</p>
+        <p class="trust">Tip: highlight part of the text first and click a case — only the highlighted part changes; the rest stays as it is.</p>
       </div>
       <div class="bc-panel" aria-label="Converted result">
         <h2>Converted text</h2>
@@ -237,32 +320,81 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         </tbody>
       </table>
       <h2>Which case should I use for file names?</h2>
-      <p>kebab-case is the web convention: lowercase, hyphens, no spaces. URLs and most static hosts treat it most predictably. snake_case is the convention for Python code and database columns, camelCase for JavaScript variables, and PascalCase for classes and components. For a document title, use Title Case — but remember this tool capitalises every word, while strict style guides lowercase short words like “and”, “of” and “the” in the middle of a title; fix those few by hand if your style guide requires it.</p>
+      <p>kebab-case is the web convention: lowercase, hyphens, no spaces. URLs and most static hosts treat it most predictably. snake_case is the convention for Python code and database columns, camelCase for JavaScript variables, and PascalCase for classes and components. For a document title, use Title Case — but remember the “Simple” option capitalises every word, while real style guides lowercase short words like “and”, “of” and “the” in the middle of a title. Pick AP, APA, Chicago or MLA in the style picker above if your style guide requires that.</p>
+      <h2>Same title, four style guides — four different answers</h2>
+      <p>Ask three style guides and you get three answers — and a generic title case converter gives you a fourth, which matches none of them. Pick your guide in the style picker above and this tool applies that guide's rules. The comparison below is from textoolshub.com's title-case comparison:</p>
+      <table class="facts">
+        <thead><tr><th>Input</th><th>AP</th><th>APA</th><th>Chicago</th></tr></thead>
+        <tbody>
+          <tr><td>walking to the store</td><td>Walking To the Store</td><td>Walking to the Store</td><td>Walking to the Store</td></tr>
+          <tr><td>drive over the bridge</td><td>Drive over the Bridge</td><td>Drive Over the Bridge</td><td>Drive over the Bridge</td></tr>
+          <tr><td>mayor signs budget on tuesday</td><td>Mayor Signs Budget on Tuesday</td><td>Mayor Signs Budget on Tuesday</td><td>Mayor Signs Budget on Tuesday</td></tr>
+        </tbody>
+      </table>
+      <p>All three are correct. Only one is correct for your assignment — that is why the picker exists. The split points are the word “to” (AP capitalises it, APA and Chicago lowercase it) and four-letter prepositions like “over” (APA capitalises them, AP and Chicago lowercase them). Some guides lowercase “to” in every position, so if your publication's house style says so, follow it, not this table.</p>
+      <h2>The small-words cheat sheet</h2>
+      <p>The classic title-case errors are all small words. Articles (a, an, the) and short prepositions and conjunctions (and, but, or, in, of, to) stay lowercase in the middle of a title — except as the first or last word, which is always capitalised. The four-letter split is the trap: APA capitalises With, From and Through (four or more letters), while Chicago and MLA lowercase them. And a few words are always capitalised whatever the guide: Is, It, If and Than are a verb or a pronoun, not a minor word — so “Love It or List It” keeps It capitalised, while “The Catcher in the Rye” keeps in lowercase and “Pride and Prejudice” keeps and lowercase.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq">
+<details class="faq">
 <summary>Is this case converter free?</summary>
 <p>Yes. Convert as much text as you like, free, with no signup, no usage limits and no watermark on the output.</p>
 </details>
-      <details class="faq">
-<summary>Can it fix text typed with Caps Lock on?</summary>
-<p>Yes — that is its most common use. Paste the all-caps text, click lowercase or Sentence case, and copy the fixed version. It takes one click instead of retyping the whole block.</p>
+<details class="faq">
+<summary>What is a case converter?</summary>
+<p>A free tool that changes the letter case of your text — lowercase to UPPERCASE, or fixing text typed with Caps Lock on — without retyping.</p>
 </details>
-      <details class="faq">
-<summary>What is the difference between Title Case and Sentence case?</summary>
-<p>Title Case capitalises the first letter of every word, as in a headline. Sentence case capitalises only the first letter of each sentence, as in normal body text. This tool's Title Case capitalises every word, including short ones like “of” and “the”.</p>
+<details class="faq">
+<summary>How do I convert text to title case?</summary>
+<p>Paste your text, click Title Case — but check which style guide you need first: AP, APA, Chicago and MLA give different outputs for the same title. Use the style picker above the buttons to apply the guide your assignment or publication follows.</p>
 </details>
-      <details class="faq">
-<summary>Does Sentence case handle the pronoun “I” and proper nouns?</summary>
-<p>No — honestly, it does not. Sentence case capitalises sentence starts only. Names like “Delhi” or the pronoun “I” mid-sentence are not auto-recognised, so give the result a quick manual pass.</p>
+<details class="faq">
+<summary>Which words are not capitalised in title case?</summary>
+<p>Articles (a, an, the) and short prepositions and conjunctions (and, but, or, in, of, to) stay lowercase in the middle of a title — except as the first or last word, which is always capitalised. The exact set depends on the style guide: APA capitalises words of four or more letters, while Chicago and MLA lowercase prepositions of any length.</p>
 </details>
-      <details class="faq">
-<summary>Is my text uploaded to a server?</summary>
-<p>No. Conversion runs entirely in your browser with JavaScript, so your text never leaves your device. It is safe for drafts, internal notes and anything private.</p>
+<details class="faq">
+<summary>What is the difference between Title Case and Capitalize Words?</summary>
+<p>Title Case follows a rule — some words stay lowercase. Capitalize Words capitalises every word with no exceptions. This tool&#x27;s “Simple” Title Case option is the capitalise-every-word version; the AP, APA, Chicago and MLA options apply the real rules.</p>
 </details>
-      <details class="faq">
-<summary>Can it convert code identifiers?</summary>
-<p>Yes. camelCase, PascalCase, snake_case and kebab-case are all built in — paste “quarterly sales report” and get quarterlySalesReport, QuarterlySalesReport, quarterly_sales_report or quarterly-sales-report in one click.</p>
+<details class="faq">
+<summary>What is sentence case?</summary>
+<p>Sentence case capitalises the first letter of each sentence and lowercases the rest. It does not recognise proper nouns or the pronoun “I” mid-sentence, so give the result a quick manual pass.</p>
+</details>
+<details class="faq">
+<summary>What is camelCase used for?</summary>
+<p>Code identifiers — variable and function names. The first word is lowercase, each following word is capitalised, with no spaces: helloWorld.</p>
+</details>
+<details class="faq">
+<summary>What is snake_case vs kebab-case?</summary>
+<p>snake_case joins words with underscores (hello_world) and is the convention for Python variables and database columns. kebab-case joins words with hyphens (hello-world) and is the web convention for URLs and file names.</p>
+</details>
+<details class="faq">
+<summary>How do I fix text typed with Caps Lock on?</summary>
+<p>Paste it into the converter and click lowercase or Sentence case — the standard fix, no retyping. That is the most common use of this tool.</p>
+</details>
+<details class="faq">
+<summary>Does Title Case follow APA or MLA?</summary>
+<p>A generic converter follows neither — it capitalises every word. For APA, words of four or more letters are capitalised even if they are prepositions; for MLA and Chicago, prepositions of any length stay lowercase. This tool&#x27;s style picker applies the rule you choose instead of guessing.</p>
+</details>
+<details class="faq">
+<summary>Is my text uploaded anywhere?</summary>
+<p>No. Conversion runs entirely in your browser with JavaScript, so your text never leaves your device. It is safe for drafts, internal notes and anything private. Check the page before you trust it: if a converter does not say processing is local, do not assume it is.</p>
+</details>
+<details class="faq">
+<summary>Can I convert only part of my text?</summary>
+<p>Yes — highlight the part you want in the input box, then click a case. Only the highlighted text changes; the rest stays as it is. With nothing highlighted, the whole box is converted.</p>
+</details>
+<details class="faq">
+<summary>What is aLtErNaTiNg cAsE for?</summary>
+<p>Stylised, meme-style text — alternating small and capital letters, like hElLo WoRlD. It has no practical use; it is a fun format.</p>
+</details>
+<details class="faq">
+<summary>What is the difference between Title Case and Sentence case in APA?</summary>
+<p>APA uses title case for journal and website titles in references, and sentence case — first word and proper nouns only — for article titles.</p>
+</details>
+<details class="faq">
+<summary>Can I convert a large block of text?</summary>
+<p>Yes. There is no set limit on this tool — browser performance and device memory are the practical limits for very large text.</p>
 </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -315,12 +447,37 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
   var $ = function (id) { return document.getElementById(id); };
   function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   var mode = "title";
+  var titleStyle = "simple";
+  var ARTICLES = ["a", "an", "the"];
+  var SHORT_WORDS = ["of", "to", "in", "on", "at", "by", "for", "and", "but", "or", "nor", "so", "yet", "as", "if", "up", "out", "off", "per", "via"];
+  var PREPS_LONG = ["with", "from", "through", "over", "under", "between", "into", "after", "before", "about", "against", "among", "around", "behind", "below", "beneath", "beside", "beyond", "during", "inside", "outside", "upon", "within", "without", "across", "along", "until", "while"];
+  /* Title-case styles follow the comparison in the guide below (textoolshub.com):
+     AP capitalises "To" and lowercases four-letter prepositions like "over";
+     APA capitalises every word of 4+ letters; Chicago/MLA lowercase prepositions of any length. */
+  function titleCaseStyled(s, style) {
+    if (style === "simple") return s.toLowerCase().replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); });
+    var minor;
+    if (style === "ap") minor = ARTICLES.concat(SHORT_WORDS.filter(function (w) { return w !== "to"; }), ["over", "into", "with", "from", "upon"]);
+    else if (style === "apa") minor = ARTICLES.concat(SHORT_WORDS);
+    else minor = ARTICLES.concat(SHORT_WORDS, PREPS_LONG, ["and", "but", "or", "nor", "for", "so", "yet", "as"]);
+    var parts = s.toLowerCase().split(/(\s+)/);
+    var wordCount = 0;
+    parts.forEach(function (p) { if (/\S/.test(p)) wordCount++; });
+    var wi = 0;
+    return parts.map(function (p) {
+      if (!/\S/.test(p)) return p;
+      wi++;
+      var core = p.replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, "");
+      var cap = wi === 1 || wi === wordCount || minor.indexOf(core) === -1;
+      return cap ? p.replace(/[a-z]/, function (c) { return c.toUpperCase(); }) : p;
+    }).join("");
+  }
   function wordsOf(s) { return s.split(/[^A-Za-z0-9']+/).filter(Boolean); }
   function capWord(w) { return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(); }
   function convert(s, m) {
     if (m === "upper") return s.toUpperCase();
     if (m === "lower") return s.toLowerCase();
-    if (m === "title") return s.toLowerCase().replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); });
+    if (m === "title") return titleCaseStyled(s, titleStyle);
     if (m === "capitalized") return s.replace(/\b\w/g, function (c) { return c.toUpperCase(); });
     if (m === "sentence") {
       var out = s.toLowerCase();
@@ -356,9 +513,18 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     b.addEventListener("click", function () {
       mode = b.getAttribute("data-case");
       document.querySelectorAll("#ccChips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
-      render();
+      var ta = $("ccInput");
+      if (ta.selectionStart !== ta.selectionEnd) {
+        var a = ta.selectionStart, z = ta.selectionEnd;
+        var converted = convert(ta.value.slice(a, z), mode);
+        ta.value = ta.value.slice(0, a) + converted + ta.value.slice(z);
+        ta.setSelectionRange(a, a + converted.length);
+        render();
+        toast("Converted the highlighted part only.");
+      } else render();
     });
   });
+  $("ccStyle").addEventListener("change", function () { titleStyle = this.value; if (mode === "title") render(); });
   $("ccInput").addEventListener("input", render);
   $("ccCopy").addEventListener("click", function () {
     var t = $("ccOut").textContent;

@@ -18,12 +18,126 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "How can I find what font is used in an image?", "acceptedAnswer": { "@type": "Answer", "text": "Crop the text, upload the screenshot to a font identifier service, and label the letters it asks for. It compares your image against a large font database and suggests the closest matches, plus free lookalikes." } },
-    { "@type": "Question", "name": "How do I find the font used on a website?", "acceptedAnswer": { "@type": "Answer", "text": "Right-click the text, choose Inspect, and look at the font-family in the Styles panel of your browser's developer tools. That shows the exact font name the site loads, or the fallback stack it uses." } },
-    { "@type": "Question", "name": "Why can't a font identifier match my image?", "acceptedAnswer": { "@type": "Answer", "text": "Identifiers fail on stylised, decorative, custom or hand-lettered type, on logos with modified letters, and on low-quality or distorted images. If the font was drawn by hand or custom-made for a brand, no database has it." } },
-    { "@type": "Question", "name": "What do I do if the font I found costs money?", "acceptedAnswer": { "@type": "Answer", "text": "Look for a free lookalike: identifier results usually list similar free fonts, and font sites let you filter by free licence. Never use a paid font without buying the right licence — check whether you need a desktop, web or commercial licence." } },
-    { "@type": "Question", "name": "Can this page identify a font from my upload?", "acceptedAnswer": { "@type": "Answer", "text": "No. This page is a guide plus a small font generator, not an identifier — a browser-only page has no 900,000-font database and no OCR matching engine. Use method 1 in the guide for a real identification." } },
-    { "@type": "Question", "name": "Is there a free font identifier?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, several identifier services have free tiers. The free tiers are usually ad-heavy and ask you to label each letter manually, but they work for common fonts. Expect to try two or three services for a hard match." } }
+    {
+      "@type": "Question",
+      "name": "How can I find what font is used in an image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crop the text, upload the screenshot to a font identifier service, and label the letters it asks for. It compares your image against a large font database and suggests the closest matches, plus free lookalikes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find the font used on a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Right-click the text, choose Inspect, and look at the font-family in the Styles panel of your browser's developer tools. That shows the exact font name the site loads, or the fallback stack it uses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't a font identifier match my image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Identifiers fail on stylised, decorative, custom or hand-lettered type, on logos with modified letters, and on low-quality or distorted images. If the font was drawn by hand or custom-made for a brand, no database has it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I do if the font I found costs money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look for a free lookalike: identifier results usually list similar free fonts, and font sites let you filter by free licence. Never use a paid font without buying the right licence — check whether you need a desktop, web or commercial licence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this page identify a font from my upload?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page is a guide plus a small font generator, not an identifier — a browser-only page has no 900,000-font database and no OCR matching engine. Use method 1 in the guide for a real identification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free font identifier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, several identifier services have free tiers. The free tiers are usually ad-heavy and ask you to label each letter manually, but they work for common fonts. Expect to try two or three services for a hard match."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a font generator really changing my font?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — it swaps each letter for a look-alike Unicode character (for example, 𝐡 is U+1D421). No font file is installed and nothing is styled — the result is plain text that only looks fancy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my fancy text show as boxes (□□□)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The viewer's device has no glyph for that character — the “tofu” problem. It is the viewer's device, not the platform, so switch to a widely supported style like bold or small caps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use fancy fonts in my Instagram username (@handle)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — handles allow only plain letters, numbers, periods and underscores. Style your display name and bio instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my styled text paste into Instagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a known Instagram app quirk — paste your text into your Notes app first, copy it again from there, and then paste into Instagram."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will fancy text hurt my reach or SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it can — search cannot read styled Unicode as the plain word, so do not style keywords or hashtags you want found."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is styled text bad for accessibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes if overused — screen readers spell out character names or skip the text, so keep essential information in plain text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use fancy fonts with accented letters (é, ñ, ü)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mostly no — the styled Unicode blocks cover unaccented A–Z, a–z and 0–9 only, so accented letters fall back to plain text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many characters can I put in my Instagram bio with fancy fonts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 75 styled letters in a 150-character bio, because each styled character counts as two characters (a surrogate pair)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which styles are safest for a permanent username?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bold, double-struck and small caps — they clear most name filters. Glitch/Zalgo styles clear almost none."
+      }
+    }
   ]
 }
 </script>
@@ -62,6 +176,11 @@
 details.faq{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
 details.faq summary{font-weight:700;cursor:pointer;font-size:15px}
 details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 .share-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:24px}
 .share-box h2{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
 .share-line{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:12px}
@@ -98,10 +217,10 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: you love a font and nobody will name it</h2>
-      <p>Designers and fans hit this constantly: a poster, a logo, a video title — the lettering is perfect, and nobody can tell you what font it is. One viral video about the fonts behind a famous TV show drew 140,000 likes from people trying to name them. The usual tools frustrate in their own ways: free identifier tiers are ad-heavy and force you to label each character by hand, stylised or decorative lettering gets no match at all, and when you finally do get a name, the font often turns out to be a paid one. People want a screenshot in, a font name out, and a free lookalike if the original costs money — in seconds.</p>
+      <p>Designers and fans hit this constantly: a poster, a logo, a video title — the lettering is perfect, and nobody can tell you what font it is. The usual tools frustrate in their own ways: free identifier tiers are ad-heavy and force you to label each character by hand, stylised or decorative lettering gets no match at all, and when you finally do get a name, the font often turns out to be a paid one. People want a screenshot in, a font name out, and a free lookalike if the original costs money — in seconds.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I find what font this is? The direct answer</h2>
-      <p>There are three real ways: upload a cropped screenshot to a font identifier service, inspect the website's CSS with your browser's developer tools, or ask the designer and check the brand files. Identifiers work best on clean, standard text; inspecting CSS works only when the text is on a website; and asking the designer is the only way when the font is custom or hand-lettered. Use the method that matches where you saw the font — the guide below walks through each one.</p>
+      <p>There are three ways: upload a screenshot to a font identifier service, inspect the website's CSS with your browser's developer tools, or ask the designer and check the brand files. Identifiers work best on clean, standard text; CSS inspection works only for live web text; and asking the designer is the only way when the font is custom or hand-lettered.</p>
       <p>A font identifier is a service that compares a picture of text against a large database of fonts and returns the closest matches. It works by recognising the shapes of the letters (OCR) and measuring them against known fonts. No identifier is perfect: the bigger the database and the cleaner the image, the better the match — and a browser page on its own cannot do this at all, because it has neither the database nor the matching engine.</p>
       <!-- HOW TO -->
       <h2>How to find a font: the 3 real methods</h2>
@@ -119,6 +238,19 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       </div>
       <h2>When the font turns out to be paid</h2>
       <p>An identifier match is not a licence. Many beautiful fonts cost money, and using one without the right licence — desktop, web, or commercial — can get a project in trouble. Before you use a match, check its licence and price, then search the identifier's free alternatives or a free font library for a lookalike with the same character. For a personal project, a free lookalike is almost always good enough; for client work, buy the real font or get the lookalike approved in writing.</p>
+      <h2>Fancy text is not a real font — what that means for you</h2>
+      <p>The generator below — and every font generator — does not install a font. It swaps each letter for a look-alike Unicode character, so the "font" is just text that any app can paste. That is why it works almost everywhere, and also why it breaks in specific, predictable ways:</p>
+      <table class="tbl">
+        <tr><th>Where you paste it</th><th>What happens</th></tr>
+        <tr><td>Instagram / TikTok bio or display name</td><td>Works — style your display name and bio, never your @handle.</td></tr>
+        <tr><td>Instagram / TikTok / X @handle</td><td>Rejected — handles allow only plain letters, numbers, dots and underscores.</td></tr>
+        <tr><td>Discord display name (up to 32 characters)</td><td>Works. Discord usernames allow only lowercase letters, numbers, underscores and periods.</td></tr>
+        <tr><td>Steam profile</td><td>Accepts almost anything.</td></tr>
+        <tr><td>Roblox username</td><td>Accepts almost nothing — most styled text is rejected.</td></tr>
+        <tr><td>Search boxes and hashtags</td><td>Styled words do not match plain-text search — do not style keywords or hashtags you want found.</td></tr>
+        <tr><td>Screen readers</td><td>Readers spell out character names ("mathematical bold small a") — keep essential information in plain text.</td></tr>
+      </table>
+      <p>Two more limits worth knowing before you style a whole bio. First, a 150-character Instagram bio holds only about 75 styled letters, because each styled character counts double. Second, heavily decorated styles can show as empty boxes (□□□) on older or budget devices — bold, double-struck and small caps are the safest styles, and glitch/Zalgo is the riskiest. If pasting into the Instagram app refuses to work, paste your text into your Notes app first, copy it again from there, then paste into Instagram.</p>
       <h2>Try a similar style below</h2>
       <p>While you are here, the compact generator below gives you the same kind of styles for your own text — type once, copy a style, paste it anywhere. These are Unicode styles, not installable font files (see the <a href="/tools/font-generator">full font generator</a> for the real-font PNG download and all 15 styles).</p>
     </div>
@@ -167,6 +299,42 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <details class="faq">
         <summary>Is there a free font identifier?</summary>
         <p>Yes, several identifier services have free tiers. The free tiers are usually ad-heavy and ask you to label each letter manually, but they work for common fonts. Expect to try two or three services for a hard match.</p>
+      </details>
+      <details class="faq">
+      <summary>Is a font generator really changing my font?</summary>
+      <p>No — it swaps each letter for a look-alike Unicode character (for example, 𝐡 is U+1D421). No font file is installed and nothing is styled — the result is plain text that only looks fancy.</p>
+      </details>
+      <details class="faq">
+      <summary>Why does my fancy text show as boxes (□□□)?</summary>
+      <p>The viewer's device has no glyph for that character — the “tofu” problem. It is the viewer's device, not the platform, so switch to a widely supported style like bold or small caps.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I use fancy fonts in my Instagram username (@handle)?</summary>
+      <p>No — handles allow only plain letters, numbers, periods and underscores. Style your display name and bio instead.</p>
+      </details>
+      <details class="faq">
+      <summary>Why won't my styled text paste into Instagram?</summary>
+      <p>It is a known Instagram app quirk — paste your text into your Notes app first, copy it again from there, and then paste into Instagram.</p>
+      </details>
+      <details class="faq">
+      <summary>Will fancy text hurt my reach or SEO?</summary>
+      <p>Yes, it can — search cannot read styled Unicode as the plain word, so do not style keywords or hashtags you want found.</p>
+      </details>
+      <details class="faq">
+      <summary>Is styled text bad for accessibility?</summary>
+      <p>Yes if overused — screen readers spell out character names or skip the text, so keep essential information in plain text.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I use fancy fonts with accented letters (é, ñ, ü)?</summary>
+      <p>Mostly no — the styled Unicode blocks cover unaccented A–Z, a–z and 0–9 only, so accented letters fall back to plain text.</p>
+      </details>
+      <details class="faq">
+      <summary>How many characters can I put in my Instagram bio with fancy fonts?</summary>
+      <p>About 75 styled letters in a 150-character bio, because each styled character counts as two characters (a surrogate pair).</p>
+      </details>
+      <details class="faq">
+      <summary>Which styles are safest for a permanent username?</summary>
+      <p>Bold, double-struck and small caps — they clear most name filters. Glitch/Zalgo styles clear almost none.</p>
       </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

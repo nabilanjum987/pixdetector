@@ -31,7 +31,7 @@
       "name": "How do I rotate a PDF page?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Upload your PDF, click the page to select it, and press \u201cSelected page left\u201d or \u201cSelected page right\u201d. Each press turns the page 90 degrees. Download the fixed PDF when you are done."
+        "text": "Upload your PDF, click the page to select it, and press “Selected page left” or “Selected page right”. Each press turns the page 90 degrees. Download the fixed PDF when you are done."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "Can I rotate only one page, not the whole PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Click a page thumbnail to select it, then rotate just that page. Use \u201cAll pages\u201d only when the whole document is sideways."
+        "text": "Yes. Click a page thumbnail to select it, then rotate just that page. Use “All pages” only when the whole document is sideways."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "Can I rotate a page 180 degrees?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 press rotate twice in the same direction. Two 90-degree turns make a half turn, which fixes an upside-down page."
+        "text": "Yes — press rotate twice in the same direction. Two 90-degree turns make a half turn, which fixes an upside-down page."
       }
     },
     {
@@ -55,7 +55,7 @@
       "name": "Does rotating a PDF lose quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. A 90-degree rotation only changes the page's rotation setting. The text, images and fonts are copied unchanged, so the output is exactly as sharp as the original."
+        "text": "No. A 90-degree rotation only changes the page’s rotation setting. The text, images and fonts are copied unchanged, so the output is exactly as sharp as the original."
       }
     },
     {
@@ -64,6 +64,78 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my PDF sideways or upside down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually a scan: the scanner or phone saved the page in the wrong orientation, or the file’s rotation flag is wrong. Fix it by rotating the page inside the file — not just the view — and it stays fixed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does rotating a PDF change the file permanently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It does if the tool writes the rotation into the file — this tool, iLovePDF, Smallpdf and PDFtoPNG all save it permanently. Rotating the view in a reader does not change the file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate a PDF on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this page works in a mobile browser, and iLovePDF’s mobile app rotates individual pages or the whole file too. The sideways scan is usually discovered on the phone first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate a PDF without Adobe Acrobat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this page, Smallpdf, iLovePDF and Sejda all rotate PDFs free in the browser. Acrobat Pro’s Organize Pages is the paid route, and the free Acrobat Reader cannot rotate pages in the file at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate a PDF by a custom angle, like 45 degrees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, on rotate tools — they do 90°/180°/270° only. A custom angle is a straighten/deskew job, not a rotate job, and it needs the page re-rendered as an image."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won’t my rotated PDF stay rotated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You probably rotated the view, not the file — or you reopened the original instead of the download. This tool leaves your original unchanged and downloads a corrected copy: open the downloaded file and check that one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate a scanned PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — rotation works on scanned (image) pages exactly like text pages, since it turns the whole page. It is the ideal fix for incorrectly scanned documents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on rotating PDFs for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes on the big names: Sejda 3 tasks an hour, 50 MB, 200 pages; Smallpdf 2 tasks a day; Adobe requires sign-in to save. This page has no limit — no account, no upload, no watermark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate pages and delete pages at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this page — it rotates only. Use the PDF Editor on this site to delete or reorder pages; it rotates too, so the fix-and-trim job finishes in one place."
       }
     }
   ]
@@ -152,6 +224,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -227,14 +304,32 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Most sideways PDFs come from scanners and phone cameras. A scanner saves the page the way the paper went in, and a phone stores an orientation tag instead of turning the pixels — some apps respect the tag and some do not, so the same file can look right in one app and sideways in another. Rotating the page inside the PDF fixes it everywhere at once, because the rotation is part of the file. A related problem is the "sideways" PDF that is actually a landscape page: if the page was designed wide, rotating it makes it worse. Check the preview before you download — this tool shows every page, so you can see exactly what will change.</p>
       <h2>Does rotating a PDF lose quality?</h2>
       <p>No. A 90-degree rotation only changes the page's rotation setting — the text, images and fonts are copied unchanged into the new file. There is no re-compression and no resampling, so the output is exactly as sharp as the original. That is also why this tool only offers 90-degree steps: rotating by an arbitrary angle, like 3 degrees to straighten a crooked scan, would need the whole page to be re-rendered as an image, which does lose quality. For a crooked scan, a deskew tool is the right answer, not a rotator.</p>
+      <h2>Looking for a PDF rotator, not an image rotator</h2>
+      <p>If you searched for a PDF rotator and got image tools, you are not alone: the top results for “rotate pdf online free” are dominated by image rotators — tools that turn JPGs and PNGs, not PDF pages. This page is the other kind: it rotates the pages inside a PDF file, 90, 180 or 270 degrees, and saves the turn permanently in the file.</p>
+      <h2>Rotating the view is not rotating the file</h2>
+      <p>The most common rotate frustration is a rotation that does not stick. Rotating the view in a reader — or in your browser — changes nothing in the file: the next person who opens it sees it sideways again. The tools that matter write the rotation permanently into the file. This one does: after download, open the downloaded file, not the original — the original on your device is left unchanged, and the downloaded copy opens the right way up everywhere.</p>
+      <h2>Free-tier limits on the big names</h2>
+      <p>Rotating is a ten-second job, and the big tools still put walls around it: Adobe’s online tool makes you sign in to save the rotated file, Sejda’s free tier caps at 3 tasks an hour (50 MB / 200 pages), and Smallpdf’s 2-tasks-a-day cap applies. This page has no cap, no sign-in and no upload — the rotation runs entirely in your browser.</p>
+      <p>Need to delete a page as well as rotate it? This tool rotates only. Use the <a href="/tools/pdf-editor">PDF Editor</a> to delete or reorder pages in the same pass — it is the hub of this site’s PDF toolkit, and it links back here for rotation.</p>
+
+
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq"><summary>Is this PDF rotator really free?</summary><p>Yes. Rotate as many pages and files as you like with no signup, no payment and no watermark. Everything runs in your browser.</p></details>
       <details class="faq"><summary>How do I rotate a PDF page?</summary><p>Upload your PDF, click the page to select it, and press “Selected page left” or “Selected page right”. Each press turns the page 90 degrees. Download the fixed PDF when you are done.</p></details>
       <details class="faq"><summary>Can I rotate only one page, not the whole PDF?</summary><p>Yes. Click a page thumbnail to select it, then rotate just that page. Use “All pages” only when the whole document is sideways.</p></details>
       <details class="faq"><summary>Can I rotate a page 180 degrees?</summary><p>Yes — press rotate twice in the same direction. Two 90-degree turns make a half turn, which fixes an upside-down page.</p></details>
-      <details class="faq"><summary>Does rotating a PDF lose quality?</summary><p>No. A 90-degree rotation only changes the page's rotation setting. The text, images and fonts are copied unchanged, so the output is exactly as sharp as the original.</p></details>
+      <details class="faq"><summary>Does rotating a PDF lose quality?</summary><p>No. A 90-degree rotation only changes the page’s rotation setting. The text, images and fonts are copied unchanged, so the output is exactly as sharp as the original.</p></details>
       <details class="faq"><summary>Is my PDF uploaded to a server?</summary><p>No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared.</p></details>
+      <details class="faq"><summary>Why is my PDF sideways or upside down?</summary><p>Usually a scan: the scanner or phone saved the page in the wrong orientation, or the file’s rotation flag is wrong. Fix it by rotating the page inside the file — not just the view — and it stays fixed.</p></details>
+      <details class="faq"><summary>Does rotating a PDF change the file permanently?</summary><p>It does if the tool writes the rotation into the file — this tool, iLovePDF, Smallpdf and PDFtoPNG all save it permanently. Rotating the view in a reader does not change the file.</p></details>
+      <details class="faq"><summary>Can I rotate a PDF on my phone?</summary><p>Yes — this page works in a mobile browser, and iLovePDF’s mobile app rotates individual pages or the whole file too. The sideways scan is usually discovered on the phone first.</p></details>
+      <details class="faq"><summary>Can I rotate a PDF without Adobe Acrobat?</summary><p>Yes — this page, Smallpdf, iLovePDF and Sejda all rotate PDFs free in the browser. Acrobat Pro’s Organize Pages is the paid route, and the free Acrobat Reader cannot rotate pages in the file at all.</p></details>
+      <details class="faq"><summary>Can I rotate a PDF by a custom angle, like 45 degrees?</summary><p>No, on rotate tools — they do 90°/180°/270° only. A custom angle is a straighten/deskew job, not a rotate job, and it needs the page re-rendered as an image.</p></details>
+      <details class="faq"><summary>Why won’t my rotated PDF stay rotated?</summary><p>You probably rotated the view, not the file — or you reopened the original instead of the download. This tool leaves your original unchanged and downloads a corrected copy: open the downloaded file and check that one.</p></details>
+      <details class="faq"><summary>Can I rotate a scanned PDF?</summary><p>Yes — rotation works on scanned (image) pages exactly like text pages, since it turns the whole page. It is the ideal fix for incorrectly scanned documents.</p></details>
+      <details class="faq"><summary>Is there a limit on rotating PDFs for free?</summary><p>Yes on the big names: Sejda 3 tasks an hour, 50 MB, 200 pages; Smallpdf 2 tasks a day; Adobe requires sign-in to save. This page has no limit — no account, no upload, no watermark.</p></details>
+      <details class="faq"><summary>Can I rotate pages and delete pages at the same time?</summary><p>Not on this page — it rotates only. Use the PDF Editor on this site to delete or reorder pages; it rotates too, so the fix-and-trim job finishes in one place.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

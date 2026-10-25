@@ -36,34 +36,106 @@
     },
     {
       "@type": "Question",
-      "name": "How do I type Morse code dots and dashes?",
+      "name": "What is HELLO in Morse code?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use a period (.) for a dot and a hyphen (-) for a dash. Put a single space between letters and a slash (/) between words. The decoder also accepts the look-alike characters • and — if you paste code from elsewhere."
+        "text": "HELLO is .... . .-.. .-.. --- — H is four dots, E is one dot, L is dot-dash-dot-dot twice, and O is three dashes."
       }
     },
     {
       "@type": "Question",
-      "name": "Can it decode Morse code from a sound file?",
+      "name": "What is \"I love you\" in Morse code?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — honestly, it cannot. This translator reads dots and dashes that you type or paste. It can play a signal, but it cannot listen to one. Decoding audio needs a dedicated audio decoder that measures tone pitch and timing."
+        "text": "I love you is .. / .-.. --- ...- . / -.-- --- ..- — I is two dots, love is .-.. --- ...- ., and you is -.-- --- ..-."
       }
     },
     {
       "@type": "Question",
-      "name": "How fast is the Morse played, and can I change it?",
+      "name": "How do I translate text to Morse code?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The default is 20 WPM, and the slider goes from 5 to 40 WPM. Beginners should start at 5–10 WPM and raise the speed as each letter becomes familiar as a sound pattern."
+        "text": "Type or paste text; each letter becomes dots and dashes, letters separated by a single space, words by a slash or a longer gap. The Morse appears instantly as you type, and you can press Play to hear it."
       }
     },
     {
       "@type": "Question",
-      "name": "Which Morse code does this use?",
+      "name": "How do I decode Morse code into English?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "International Morse code as defined in ITU-R M.1677-1. American railroad Morse uses different codes and is not supported."
+        "text": "Switch to “Morse → Text”, type a period (.) for a dot and a hyphen (-) for a dash, with one space between letters and a slash (/) between words. The decoder also accepts the look-alike characters • and — if you paste code from elsewhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Morse decode show question marks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always the spacing: double spaces between letters, no spaces at all, a slash without spaces around it, a leading or trailing space, or look-alike glyphs (• / —) copied from a web page. A “?” means that group of dots and dashes is not a character in the code — check the spacing first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my Morse code decode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually run-together code with no gaps — ...---... could be SOS or VTB or several other strings. Spacing is part of the message, and no tool can be sure where letters end without it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a translator decode Morse from audio or a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — text translators read typed dots and dashes only. They can play a signal; they cannot listen to one. Decoding audio needs a dedicated audio decoder that measures tone pitch and timing, and this tool does not export MP3 or WAV either — it plays audio in the browser only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Morse code a secret code / encryption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Morse is fully reversible and offers no secrecy — anyone with the chart can decode it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast is Morse code measured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In words per minute (WPM), based on the standard word PARIS, which is 50 units long. Beginners learn at 5 WPM, amateur radio operators communicate at 13–25 WPM, and competitive operators exceed 35 WPM. This tool plays at 5–40 WPM, starting at 20 WPM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Farnsworth speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Farnsworth speed controls the spacing between letters and words separately from character speed — characters are sent fast, gaps are kept long — and it is the standard way to learn by ear. This tool does not have a separate Farnsworth control: its speed slider changes all the timing together, so start slow here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Morse code standard does this use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "International Morse code as defined in ITU-R M.1677-1. American railroad Morse uses different codes and is not supported by most web tools, including this one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What characters have no Morse code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Symbols outside the chart — # and emoji, for example. How a translator handles them differs by tool: some stop at the first one, some pass it through unchanged, some mark it #. This tool skips characters it has no code for and lists them under the result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Morse code still used today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — in amateur radio, aviation, and emergency signalling, and SOS remains the international distress signal. It is also a popular puzzle and learning tool in escape rooms, scavenger hunts and classrooms."
       }
     }
   ]
@@ -168,7 +240,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <h1>Free Morse Code Translator</h1>
       <p>Translate text to Morse code and Morse back to text — then press Play and hear it as real beeps. Free, no signup, and everything runs in your browser.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This translator reads <strong>typed dots and dashes only</strong> — it <strong>cannot decode Morse from a sound recording, a microphone, or a photo</strong>. It uses International Morse code (ITU-R M.1677-1); American railroad Morse is different and is not supported. Characters with no Morse code (!, &, #, emoji) are skipped and listed, not guessed.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> This translator reads <strong>typed dots and dashes only</strong> — it <strong>cannot decode Morse from a sound recording, a microphone, or a photo</strong>. It uses International Morse code (ITU-R M.1677-1); American railroad Morse is different and is not supported. <strong>Spacing is the message:</strong> one space between letters, a slash (/) between words — run-together code like <code>...---...</code> could be SOS or VTB, and no tool can be sure without the gaps. Characters with no Morse code (#, emoji and others) are skipped and listed, not guessed. Morse is not a secret code — anyone with the chart can read it.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Morse translator">
         <h2>Translate</h2>
@@ -176,11 +248,20 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <button type="button" class="chip" data-mode="encode" aria-pressed="true">Text → Morse</button>
           <button type="button" class="chip" data-mode="decode" aria-pressed="false">Morse → Text</button>
         </div>
+        <label class="flabel">Common phrases — tap to load</label>
+        <div class="chips" id="morsePhrases" style="margin-bottom:14px">
+          <button type="button" class="chip" data-phrase="SOS">SOS</button>
+          <button type="button" class="chip" data-phrase="HELLO">HELLO</button>
+          <button type="button" class="chip" data-phrase="I LOVE YOU">I LOVE YOU</button>
+          <button type="button" class="chip" data-phrase="THANK YOU">THANK YOU</button>
+          <button type="button" class="chip" data-phrase="HELP">HELP</button>
+        </div>
         <label class="flabel" for="morseIn" id="morseInLabel">Your text</label>
         <textarea id="morseIn" rows="5" spellcheck="false">SOS</textarea>
         <label class="flabel" for="morseOut" style="margin-top:14px">Result</label>
         <div class="result-box morse-out" id="morseOut" style="min-height:70px"></div>
         <p class="err" id="morseWarn" hidden></p>
+        <p class="ok" id="morseRoundOut" hidden></p>
         <div class="grid2" style="margin-top:14px">
           <div><label class="flabel" for="morseWpm">Speed: <span id="wpmOut">20 WPM</span></label><input type="range" id="morseWpm" min="5" max="40" value="20" style="width:100%;accent-color:var(--accent)"></div>
           <div><label class="flabel" for="morseTone">Tone: <span id="toneOut">600 Hz</span></label><input type="range" id="morseTone" min="400" max="1000" step="50" value="600" style="width:100%;accent-color:var(--accent)"></div>
@@ -190,9 +271,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <button type="button" class="btn" id="morsePlay">▶ Play audio</button>
           <button type="button" class="btn alt" id="morseStop">Stop</button>
           <button type="button" class="btn alt" id="morseCopy">Copy result</button>
+          <button type="button" class="btn alt" id="morseRound">Round-trip check</button>
           <button type="button" class="btn alt" id="morseSos">SOS example</button>
         </div>
         <p class="trust">Audio starts only when you press Play (browsers block sound until you interact). A dash is 3× as long as a dot.</p>
+        <p class="trust">Flashing-light caution: the light flashes with each beep, and above about 7 WPM a run of dots flashes faster than three times per second — the threshold at which flashing content is considered a seizure risk. If you use the light, keep the speed at 5 WPM or below, or use sound instead.</p>
       </div>
       <div class="bc-panel" aria-label="Morse alphabet">
         <h2>Morse alphabet</h2>
@@ -225,31 +308,94 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Speed is measured in words per minute (WPM), using the PARIS standard word. Beginners start around 5 WPM, casual operators work at 15–20 WPM, and skilled amateur radio operators often copy 25–40 WPM or more. This tool's slider runs from 5 to 40 WPM: start slow, learn each letter as one sound pattern rather than counting dots and dashes, and raise the speed only when the slow speed feels easy. A dash is three times as long as a dot; the gap between letters is three dot-lengths, and the gap between words is seven.</p>
       <h2>Is Morse code still used today?</h2>
       <p>Yes, though less than it once was. Amateur (ham) radio operators use it daily because a Morse signal gets through when voice cannot — it needs very little power and bandwidth. Aviation navigation beacons still identify themselves in Morse, and it remains a reliable emergency signalling method with light or sound when nothing else works. It is also a popular puzzle and learning tool: escape rooms, scavenger hunts and classroom activities all use it, which is why a translator with audio is the version people actually want.</p>
+      <h2>Spacing is the message</h2>
+      <p>Morse code is not just dots and dashes — the gaps are part of the code. A dot is 1 unit long, a dash is 3 units, the gap inside a letter is 1 unit, the gap between letters is 3 units, and the gap between words is 7 units. At a given speed, 1 unit lasts 1200 ÷ WPM milliseconds, so at 20 WPM a dot is 60 ms and a dash is 180 ms. Without those gaps, no tool can know where one letter ends and the next begins: <code>...---...</code> with no spaces could be SOS, or VTB, or several other strings. A person decodes it by guessing — and so would any translator that claimed otherwise.</p>
+      <table class="facts">
+        <thead><tr><th>Signal</th><th>Length</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td>Dot (.)</td><td>1 unit</td><td>The shortest signal</td></tr>
+          <tr><td>Dash (-)</td><td>3 units</td><td>Three times as long as a dot</td></tr>
+          <tr><td>Gap inside a letter</td><td>1 unit</td><td>Between the dots and dashes of one letter</td></tr>
+          <tr><td>Gap between letters</td><td>3 units</td><td>One space when you type it</td></tr>
+          <tr><td>Gap between words</td><td>7 units</td><td>A slash (/) when you type it</td></tr>
+        </tbody>
+      </table>
+      <h2>Why your Morse decodes as question marks</h2>
+      <p>A “?” in the result almost always means the input format is off, not that the message is broken. These are the five ways it happens, with the fix for each:</p>
+      <table class="facts">
+        <thead><tr><th>What you pasted</th><th>What the decoder shows</th><th>The fix</th></tr></thead>
+        <tbody>
+          <tr><td>Two spaces between letters: <code>...  ---  ...</code></td><td>S?O?S</td><td>Use one space between letters</td></tr>
+          <tr><td>Slash with no spaces: <code>.-/-...</code></td><td>?</td><td>Put spaces around the slash: <code>.- / -...</code></td></tr>
+          <tr><td>No gaps at all: <code>...---...</code></td><td>?</td><td>Add the gaps — without them the code cannot be decoded</td></tr>
+          <tr><td>A leading or trailing space</td><td>?S?</td><td>Trim the ends of the pasted code</td></tr>
+          <tr><td>Look-alike glyphs from a web page: <code>·· — ·</code></td><td>???</td><td>Type a period (.) and a hyphen (-); this tool also accepts • and — and converts them</td></tr>
+        </tbody>
+      </table>
+      <p>Before you trust a translation — a tattoo, a puzzle answer, a message — run the round-trip check above: encode, decode, and confirm the text comes back character for character. A missing gap can turn EMMA into something else entirely, and it still looks like a name, so it is easy to miss without the check.</p>
+      <h2>Learning Morse by ear</h2>
+      <p>The most-shared Morse content on social media is not a web tool at all — it is a learning gadget. An Instagram reel by @nuxgadgets (25 Aug 2026, 460K likes) shows a handheld Morse device with a printed code tree and LEDs lighting up as it beeps; commenters decoded the sequence as HELLO live in the comments, asked where to buy one, and said they had always thought Morse was hard but it looked easy now. The lesson transfers to this page: learn each letter as one sound pattern instead of counting dots and dashes, start at 5 WPM, and raise the speed only when the slow speed feels easy. The standard way to learn by ear is Farnsworth spacing — characters sent fast, gaps kept long — but this tool has no separate Farnsworth control: its speed slider changes all the timing together, so start slow here and treat the speed as your learning pace.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq">
+<details class="faq">
 <summary>Is this Morse code translator free?</summary>
 <p>Yes. Text to Morse, Morse to text and audio playback are completely free, with no account, no sign-up and no limits on how much you translate.</p>
 </details>
-      <details class="faq">
+<details class="faq">
 <summary>What is SOS in Morse code?</summary>
 <p>SOS is ... --- ... — dot-dot-dot, dash-dash-dash, dot-dot-dot. It is the international distress signal, chosen because it is short and hard to misread. As a distress call it is sent as one unbroken signal, with no gaps between the letters.</p>
 </details>
-      <details class="faq">
-<summary>How do I type Morse code dots and dashes?</summary>
-<p>Use a period (.) for a dot and a hyphen (-) for a dash. Put a single space between letters and a slash (/) between words. The decoder also accepts the look-alike characters • and — if you paste code from elsewhere.</p>
+<details class="faq">
+<summary>What is HELLO in Morse code?</summary>
+<p>HELLO is .... . .-.. .-.. --- — H is four dots, E is one dot, L is dot-dash-dot-dot twice, and O is three dashes.</p>
 </details>
-      <details class="faq">
-<summary>Can it decode Morse code from a sound file?</summary>
-<p>No — honestly, it cannot. This translator reads dots and dashes that you type or paste. It can play a signal, but it cannot listen to one. Decoding audio needs a dedicated audio decoder that measures tone pitch and timing.</p>
+<details class="faq">
+<summary>What is &quot;I love you&quot; in Morse code?</summary>
+<p>I love you is .. / .-.. --- ...- . / -.-- --- ..- — I is two dots, love is .-.. --- ...- ., and you is -.-- --- ..-.</p>
 </details>
-      <details class="faq">
-<summary>How fast is the Morse played, and can I change it?</summary>
-<p>The default is 20 WPM, and the slider goes from 5 to 40 WPM. Beginners should start at 5–10 WPM and raise the speed as each letter becomes familiar as a sound pattern.</p>
+<details class="faq">
+<summary>How do I translate text to Morse code?</summary>
+<p>Type or paste text; each letter becomes dots and dashes, letters separated by a single space, words by a slash or a longer gap. The Morse appears instantly as you type, and you can press Play to hear it.</p>
 </details>
-      <details class="faq">
-<summary>Which Morse code does this use?</summary>
-<p>International Morse code as defined in ITU-R M.1677-1. American railroad Morse uses different codes and is not supported.</p>
+<details class="faq">
+<summary>How do I decode Morse code into English?</summary>
+<p>Switch to “Morse → Text”, type a period (.) for a dot and a hyphen (-) for a dash, with one space between letters and a slash (/) between words. The decoder also accepts the look-alike characters • and — if you paste code from elsewhere.</p>
+</details>
+<details class="faq">
+<summary>Why does my Morse decode show question marks?</summary>
+<p>Almost always the spacing: double spaces between letters, no spaces at all, a slash without spaces around it, a leading or trailing space, or look-alike glyphs (• / —) copied from a web page. A “?” means that group of dots and dashes is not a character in the code — check the spacing first.</p>
+</details>
+<details class="faq">
+<summary>Why won&#x27;t my Morse code decode?</summary>
+<p>Usually run-together code with no gaps — ...---... could be SOS or VTB or several other strings. Spacing is part of the message, and no tool can be sure where letters end without it.</p>
+</details>
+<details class="faq">
+<summary>Can a translator decode Morse from audio or a photo?</summary>
+<p>No — text translators read typed dots and dashes only. They can play a signal; they cannot listen to one. Decoding audio needs a dedicated audio decoder that measures tone pitch and timing, and this tool does not export MP3 or WAV either — it plays audio in the browser only.</p>
+</details>
+<details class="faq">
+<summary>Is Morse code a secret code / encryption?</summary>
+<p>No. Morse is fully reversible and offers no secrecy — anyone with the chart can decode it.</p>
+</details>
+<details class="faq">
+<summary>How fast is Morse code measured?</summary>
+<p>In words per minute (WPM), based on the standard word PARIS, which is 50 units long. Beginners learn at 5 WPM, amateur radio operators communicate at 13–25 WPM, and competitive operators exceed 35 WPM. This tool plays at 5–40 WPM, starting at 20 WPM.</p>
+</details>
+<details class="faq">
+<summary>What is Farnsworth speed?</summary>
+<p>Farnsworth speed controls the spacing between letters and words separately from character speed — characters are sent fast, gaps are kept long — and it is the standard way to learn by ear. This tool does not have a separate Farnsworth control: its speed slider changes all the timing together, so start slow here.</p>
+</details>
+<details class="faq">
+<summary>Which Morse code standard does this use?</summary>
+<p>International Morse code as defined in ITU-R M.1677-1. American railroad Morse uses different codes and is not supported by most web tools, including this one.</p>
+</details>
+<details class="faq">
+<summary>What characters have no Morse code?</summary>
+<p>Symbols outside the chart — # and emoji, for example. How a translator handles them differs by tool: some stop at the first one, some pass it through unchanged, some mark it #. This tool skips characters it has no code for and lists them under the result.</p>
+</details>
+<details class="faq">
+<summary>Is Morse code still used today?</summary>
+<p>Yes — in amateur radio, aviation, and emergency signalling, and SOS remains the international distress signal. It is also a popular puzzle and learning tool in escape rooms, scavenger hunts and classrooms.</p>
 </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
@@ -392,6 +538,33 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       translate();
     });
   });
+  document.querySelectorAll("#morsePhrases .chip").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (mode !== "encode") document.querySelector('[data-mode="encode"]').click();
+      $("morseIn").value = b.getAttribute("data-phrase");
+      translate();
+    });
+  });
+  function roundTrip() {
+    var el = $("morseRoundOut");
+    el.hidden = false;
+    var input = $("morseIn").value;
+    if (!input.trim()) { el.textContent = "Type something first, then run the round-trip check."; return; }
+    if (mode === "encode") {
+      var enc = encode(input);
+      var back = decode(enc.out).out;
+      var norm = input.toUpperCase().split("").filter(function (ch) { return MORSE[ch] || ch === " "; }).join("").replace(/\s+/g, " ").trim();
+      if (back === norm) el.textContent = "Round-trip check passed: decoding the Morse gives back your exact text.";
+      else el.textContent = "Round-trip mismatch — decoded as \u201C" + back + "\u201D instead of \u201C" + norm + "\u201D. Check for characters with no Morse code or extra spaces.";
+    } else {
+      var dec = decode(input);
+      var re = encode(dec.out).out;
+      var normMorse = input.replace(/[•–—]/g, function (c) { return c === "•" ? "." : "-"; }).trim().replace(/\s+/g, " ");
+      if (re === normMorse) el.textContent = "Round-trip check passed: re-encoding the decoded text gives back your exact Morse.";
+      else el.textContent = "Round-trip mismatch — the Morse does not re-encode cleanly. Check the spacing: one space between letters, / between words.";
+    }
+  }
+  $("morseRound").addEventListener("click", roundTrip);
   $("morseIn").addEventListener("input", translate);
   $("morseWpm").addEventListener("input", function () { $("wpmOut").textContent = this.value + " WPM"; });
   $("morseTone").addEventListener("input", function () { $("toneOut").textContent = this.value + " Hz"; });

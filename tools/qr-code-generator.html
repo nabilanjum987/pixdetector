@@ -65,6 +65,78 @@
         "@type": "Answer",
         "text": "No. This generator makes a static image with no redirect and no tracking. If you need scan analytics, you need a dynamic QR service instead."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change the link after printing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only with a dynamic code. A static code’s link is part of the printed pattern — a different link needs a new code. Workaround: encode a URL on a site you control, and change where that page redirects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won’t my QR code scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually: too small, low contrast, a cropped quiet zone, too much data making a dense pattern, or a damaged or dirty print. Start black on white, at a decent size, with short content, then get fancy — and test-scan before printing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a QR code for Wi-Fi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose the WiFi type, enter the exact network name (case-sensitive), password and security type — WPA/WPA2 for most networks — then print it. Guests scan with their phone camera and join without typing. Use a guest network, not your main one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Wi-Fi QR code scan but not connect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The network name, password or security type in the code does not match the router — a typo, a capital letter, a trailing space, or a password changed after the sticker was printed. Older phones also cannot join WPA3-only networks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add my logo to a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in principle, if you use high error correction (H, which recovers about 30% of a damaged pattern) and keep the logo small — about 22% of the code’s width or less — and test-scan before printing. This tool does not add a logo itself: it keeps the pattern clean so it scans first time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much data can I put in a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 4,296 alphanumeric characters technically, but more data means a denser pattern that is harder to scan — keep URLs under about 100 characters for reliable scanning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to put my Wi-Fi password in a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anyone who scans or photographs the code has the password. Use a guest network, not your main one, and change the guest password between stays or seasons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the quiet zone and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The blank white margin around the code. Scanners need it to find the pattern — never crop it away. This tool’s downloads keep the full quiet zone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can one QR code connect guests to Wi-Fi and open my menu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — a QR code holds one thing. Print the Wi-Fi code and a menu code side by side, each labelled."
+      }
     }
   ]
 }
@@ -152,6 +224,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -252,6 +329,31 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>Error correction is spare capacity that lets a damaged code still scan. L (low) fits the most data and suits clean screens. M (medium) is the reliable default for most uses. Q or H recover more of the pattern if the print gets dirty, wet or scratched — but the pattern gets denser for the same content, so very long links may not fit at H. Rule of thumb: use M for menus and flyers, H for anything that will live outdoors or be handled roughly. And keep the quiet zone — the white margin around the code — intact. Never crop it off; scanners need it to find the code.</p>
       <h2>How big should I print a QR code?</h2>
       <p>A useful rule: the printed code should be at least one tenth as wide as the distance people scan it from. A code scanned from 50 cm across a table should be at least 5 cm wide. The PNG here exports at up to 1024 px with a full quiet zone, which stays sharp at full-page size; the SVG scales to any size at all, which is why it is the better choice for signage and packaging. Always test-scan a proof before the print run, and remember that dark code on a light background scans best — light-on-dark codes often fail.</p>
+      <h2>Static vs dynamic QR codes — pick before you print</h2>
+      <p>Every code made on this page is static. The table below is the difference that matters, because the wrong choice only shows up after printing — when a dynamic code’s subscription lapses and the printed menus, packaging or signage stop working.</p>
+      <table class="tbl">
+        <tr><th></th><th>Static (this page)</th><th>Dynamic (paid platforms)</th></tr>
+        <tr><td>Where the content lives</td><td>Inside the pattern itself</td><td>On the vendor’s server, behind a short link</td></tr>
+        <tr><td>Change the link after printing?</td><td>No — print a new code</td><td>Yes — edit the destination any time</td></tr>
+        <tr><td>Track scans?</td><td>No</td><td>Yes — scan analytics</td></tr>
+        <tr><td>Expires?</td><td>Never, as long as the destination exists</td><td>Stops working if the plan ends or a scan limit is hit</td></tr>
+        <tr><td>Cost</td><td>Free, forever, no account</td><td>Free tier with caps, then a subscription</td></tr>
+        <tr><td>Best for</td><td>Anything printed: menus, cards, posters, packaging</td><td>Links that will change, or campaigns you must measure</td></tr>
+      </table>
+      <h2>The “free” trap: codes that die when the trial ends</h2>
+      <p>This is the most shared complaint about QR generators. Many services let you create a code free, then charge to keep it alive — one viral reel warns of a $19.99-a-month charge to “keep it alive”, with every printed code stopping if a payment is missed. The named free tiers tell the same story: QR TIGER’s free plan includes 3 dynamic codes with 500 scans each, shows a QR TIGER logo popup, and its own FAQ says editable codes stop working once the plan expires. QRCodeChimp’s free plan includes 10 dynamic codes with 1,000 scans a month shared across all codes. QR Code Monkey’s free tool is static-only — its dynamic codes are a separate paid product. A static code has none of these traps, because there is no server in the middle to switch it off.</p>
+      <h2 id="wifi-qr-code">Wi-Fi QR codes — the guest-network rule</h2>
+      <p>The most copied Wi-Fi use case is a printed code taped to a fridge or a café table: guests scan it and join without typing a password. Choose the WiFi type above, enter the network name exactly as the router shows it (it is case-sensitive), the password, and the security type — WPA/WPA2 for most home networks, WEP for very old ones, or no password for an open network. The tool escapes special characters in the name and password automatically.</p>
+      <p><strong>Use a guest network, not your main one.</strong> The password is plain text inside the code — anyone who scans it, or photographs the printed code, has it. Set up a guest network on your router, put its password in the code, and change the guest password between stays or seasons. If the password changes after the sticker is printed, the code stops connecting — print a new one. And if a code scans but will not connect, the usual cause is a typo: the network name, password or security type in the code does not match the router, often a capital letter or a trailing space. Older phones also cannot join WPA3-only networks.</p>
+      <p>To make a printable sign, download the code as an SVG, print it large with the network name and a “Scan to join the Wi-Fi” label underneath, and keep the white margin around the code intact — scanners need it to find the pattern.</p>
+      <h2>Looking for a QR code maker?</h2>
+      <p>“QR code maker free” is the same tool by another name — this page is the maker: pick a type, fill in the details, download the code. No separate page, no account, no watermark. Wi-Fi codes, menu codes and link codes are all types on this one page.</p>
+      <h2>Before you print: the 5-point scan check</h2>
+      <p>Most unscannable codes fail on one of five things — check them before printing hundreds: <strong>1.</strong> Size — at least 2 cm across for close scanning, bigger for posters. <strong>2.</strong> Contrast — dark code on a light background; low-contrast brand colours fail. <strong>3.</strong> Quiet zone — never crop the white margin. <strong>4.</strong> Data density — keep URLs short (under about 100 characters scans most reliably); more data means a denser, harder-to-scan pattern. <strong>5.</strong> Test it — scan the printed proof on more than one phone before the print run.</p>
+
+
+
+
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq"><summary>Is this QR code generator really free?</summary><p>Yes. Create and download unlimited QR codes as PNG or SVG with no signup, no watermark and no scan limit. Everything runs in your browser.</p></details>
@@ -260,6 +362,15 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <details class="faq"><summary>Which error-correction level should I use?</summary><p>M (medium) is the reliable default. Use Q or H for codes that may get dirty, wet or damaged, and L when you need to fit the most text into the code.</p></details>
       <details class="faq"><summary>Should I download PNG or SVG?</summary><p>PNG for screens, messages and ordinary documents. SVG for professional printing and signage, because it stays perfectly sharp at any size.</p></details>
       <details class="faq"><summary>Can I track scans of my QR code?</summary><p>No. This generator makes a static image with no redirect and no tracking. If you need scan analytics, you need a dynamic QR service instead.</p></details>
+      <details class="faq"><summary>Can I change the link after printing?</summary><p>Only with a dynamic code. A static code’s link is part of the printed pattern — a different link needs a new code. Workaround: encode a URL on a site you control, and change where that page redirects.</p></details>
+      <details class="faq"><summary>Why won’t my QR code scan?</summary><p>Usually: too small, low contrast, a cropped quiet zone, too much data making a dense pattern, or a damaged or dirty print. Start black on white, at a decent size, with short content, then get fancy — and test-scan before printing.</p></details>
+      <details class="faq"><summary>How do I make a QR code for Wi-Fi?</summary><p>Choose the WiFi type, enter the exact network name (case-sensitive), password and security type — WPA/WPA2 for most networks — then print it. Guests scan with their phone camera and join without typing. Use a guest network, not your main one.</p></details>
+      <details class="faq"><summary>Why does my Wi-Fi QR code scan but not connect?</summary><p>The network name, password or security type in the code does not match the router — a typo, a capital letter, a trailing space, or a password changed after the sticker was printed. Older phones also cannot join WPA3-only networks.</p></details>
+      <details class="faq"><summary>Can I add my logo to a QR code?</summary><p>Yes in principle, if you use high error correction (H, which recovers about 30% of a damaged pattern) and keep the logo small — about 22% of the code’s width or less — and test-scan before printing. This tool does not add a logo itself: it keeps the pattern clean so it scans first time.</p></details>
+      <details class="faq"><summary>How much data can I put in a QR code?</summary><p>Up to 4,296 alphanumeric characters technically, but more data means a denser pattern that is harder to scan — keep URLs under about 100 characters for reliable scanning.</p></details>
+      <details class="faq"><summary>Is it safe to put my Wi-Fi password in a QR code?</summary><p>Anyone who scans or photographs the code has the password. Use a guest network, not your main one, and change the guest password between stays or seasons.</p></details>
+      <details class="faq"><summary>What is the quiet zone and why does it matter?</summary><p>The blank white margin around the code. Scanners need it to find the pattern — never crop it away. This tool’s downloads keep the full quiet zone.</p></details>
+      <details class="faq"><summary>Can one QR code connect guests to Wi-Fi and open my menu?</summary><p>No — a QR code holds one thing. Print the Wi-Fi code and a menu code side by side, each labelled.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

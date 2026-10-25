@@ -23,7 +23,7 @@
       "name": "Is this audio cutter really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Trimming is free with no sign-up, no watermark and no upload. The tool runs entirely in your browser."
+        "text": "Yes. Trimming is free with no sign-up, no watermark and no upload. The tool runs entirely in your browser and the WAV clip downloads directly."
       }
     },
     {
@@ -31,7 +31,7 @@
       "name": "Which audio formats can I cut?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MP3, WAV, M4A, OGG and other common audio formats open directly in Chrome, Edge or Firefox."
+        "text": "MP3, WAV, M4A, OGG and other common audio formats open directly in Chrome, Edge or Firefox. If a file will not load, convert it to MP3 or WAV first, or try another browser."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "Why is the exported clip a WAV file, not MP3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "WAV is lossless, so the clip keeps full quality without compression loss. Convert the WAV to MP3 in any player or editor if you need that format."
+        "text": "WAV is lossless, so the clip keeps full quality without compression loss. This browser tool does not include an MP3 encoder — convert the WAV to MP3 in any player or editor if you need that format."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "Will cutting change my audio quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cutting with re-encoding always risks some quality change. The export is lossless WAV, which avoids compression loss."
+        "text": "Cutting with re-encoding always risks some quality change. The export is lossless WAV, which avoids compression loss, but only lossless stream-copy preserves a file exactly, and that limits format and fade options."
       }
     },
     {
@@ -55,7 +55,7 @@
       "name": "Can I remove noise or add effects while cutting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. This tool is cut-only, with fades as the one extra. It has no noise removal or EQ."
+        "text": "No — this tool is cut-only, with fades as the one extra. It has no noise removal or EQ. For cleanup, use the free audio enhancer on this site, or a desktop editor for full effects."
       }
     },
     {
@@ -63,7 +63,79 @@
       "name": "Does my audio file get uploaded to a server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your file is decoded in your browser and never leaves your device."
+        "text": "No. Your file is decoded in your browser and never leaves your device. Close the tab and it is gone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a ringtone from a song?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick a 20–40 second section — the chorus works best — add a short fade in and out, and export. On iPhone, convert the clip to .m4r and sync it through Finder; the 30-second limit still applies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long can an iPhone ringtone be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apple allows up to 30 seconds. Android has no length cap, but most people keep tones under 30 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut a section out of the middle of a song?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on this page — it keeps one section and discards the rest (a trimmer). To remove a middle section, use a cutter: split at both ends of the unwanted part, delete it, and the rest stitches together. SnipSound does this, and XConvert has a separate Audio Cutter for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut audio from a video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — mp3cut.net extracts and cuts audio from video files. Or extract the audio first and then cut it on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cut multiple parts from one audio file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not here — one segment per cut, so repeat the process for each part. On SnipSound you can split as many times as you want in one session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How precise can I cut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This page shows start and end to a hundredth of a second, with exact-second boxes for fine-tuning. BeMusic shows the same 0.01-second precision with a 0.5-second minimum clip; SnipSound adds waveform zoom and keyboard nudging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this page and the other browser cutters work on mobile, and the ringtone workflows in the reels are all phone workflows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an audio cutter and an audio trimmer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A trimmer keeps one section and discards the rest; a cutter removes a section from the middle and joins what remains — the same engine, the opposite operation (XConvert's own words)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I fade in and out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this page has fade in and fade out checkboxes. MP3stack offers fade in/out plus normalise and silence trim, and SnipSound adds a crossfade between segments; simple trimmers often do not offer fades at all."
       }
     }
   ]
@@ -255,10 +327,10 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <!-- PROBLEM -->
     <h2>One cutter for every audio file you have</h2>
       <p>Audio does not come in one format. A voice note is an M4A, a song is an MP3, a recording from a proper recorder is a WAV, a clip from a messenger app is an OGG. Most cutters handle one or two of those well and make the rest awkward — upload limits, slow processing on large files, or a bare interface with no waveform, no precise times and no fade, so you are guessing where the cut lands.</p>
-      <p>The complaints are the same across formats, and they are practical, not theoretical. Re-encoding can lose quality or shift volume — one major editor's own documentation notes imports can “increase the gain slightly so that it clips” — and basic cutters offer no fine control: no waveform to see the silence before a sentence, no exact time boxes, no fade to hide an abrupt ending. Demand here is quiet and utilitarian (mostly troubleshooting docs and old forum threads rather than social buzz), which is exactly why the tool should just work: open the file, see the sound, keep the seconds you need, download. That is what this page does, for any common audio format, entirely in your browser.</p>
+      <p>The biggest job is the ringtone: cut a chorus out of a song and set it as your tone. That is where the traps are — an iPhone ringtone can only be 30 seconds long and needs converting to .m4r and syncing through Finder, while Android has no length cap. The other complaints are practical, not theoretical: re-encoding an MP3 at 128 or 192 kbps loses a little quality with each lossy pass, and basic cutters offer no fine control — no waveform to see the silence before a sentence, no exact time boxes, no fade to hide an abrupt ending. The tool should just work: open the file, see the sound, keep the seconds you need, download. That is what this page does, for any common audio format, entirely in your browser.</p>
       <p><strong>An audio cutter</strong> is a tool that trims any audio file to a chosen start and end point. This free one opens MP3, WAV, M4A, OGG and more in your browser, shows the waveform, and exports the clip as a lossless WAV file.</p>
     <!-- DIRECT ANSWER -->
-    <p><strong>Direct answer:</strong> to trim any audio file free, upload it on this page, drag the start and end points on the waveform or type exact seconds, preview the selection, add a fade in or out if you want, and download the clip as a WAV file. It works with MP3, WAV, M4A, OGG and other common formats, with no sign-up, no upload and no watermark. Export is WAV only.</p>
+    <p><strong>Direct answer:</strong> to trim any audio file free, upload it here, drag the start and end points on the waveform or type exact seconds, preview the selection, add a fade in or out, and download the clip as a WAV file. It works with MP3, WAV, M4A, OGG and other common formats, with no sign-up and no upload. Export is WAV only.</p>
     <!-- HOW TO -->
     <h2>How to trim any audio file in three steps</h2>
     <div class="steps">
@@ -278,6 +350,19 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <tr><td class="fname">OGG / Opus</td><td>Yes, in most browsers</td><td>WAV clip</td></tr>
         </tbody>
       </table>
+    <h2 style="margin-top:28px">Cutter vs trimmer — which one is this page?</h2>
+      <p>A <strong>trimmer</strong> keeps one section and discards the rest. A <strong>cutter</strong> removes a section from the middle and joins what remains — the same engine, the opposite operation (XConvert's own words). This page is a trimmer: it keeps exactly the seconds you choose. To cut a section out of the middle — an ad read out of a podcast, a wrong take out of a voice note — you need a cutter with split and delete, such as SnipSound. For MP3-only trimming, the <a href="/tools/mp3-cutter">MP3 Cutter</a> page on this site is the same family.</p>
+      <table class="formats">
+        <thead><tr><th>Tool</th><th>Export</th><th>Signup</th><th>Middle-cut</th><th>Caps</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">This page (PixDetector)</td><td>WAV only</td><td>None</td><td>No — trim one section</td><td>None stated; best in Chrome, Edge or Firefox</td></tr>
+          <tr><td class="fname">Castos</td><td>MP3 at 128 kbps</td><td>None</td><td>No — trim-only</td><td>Files up to 500 MB</td></tr>
+          <tr><td class="fname">SnipSound</td><td>MP3 / WAV / OGG / FLAC / AAC</td><td>None</td><td>Yes — split as many times as you want, with crossfade</td><td>No cap stated</td></tr>
+          <tr><td class="fname">BeMusic AI</td><td>MP3 free; WAV needs an account</td><td>None for MP3</td><td>No — one segment per cut</td><td>50 MB upload; 0.01 s precision, 0.5 s minimum clip</td></tr>
+          <tr><td class="fname">XConvert</td><td>19 input formats, many output formats</td><td>None</td><td>Yes — separate Audio Cutter page</td><td>Server-processed; files deleted after a few hours</td></tr>
+        </tbody>
+      </table>
+      <p>Competitor details are from our 25 October 2026 research run — check each tool's own page before a big job, because free tiers change.</p>
     <!-- FAQ -->
     <h2 style="margin-top:28px">FAQ</h2>
     
@@ -305,13 +390,42 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <summary>Does my audio file get uploaded to a server?</summary>
         <p>No. Your file is decoded in your browser and never leaves your device. Close the tab and it is gone.</p>
       </details>
-    <!-- RELATED QUESTIONS -->
-    <h2 style="margin-top:28px">Related questions</h2>
-    <ul class="rel-q">
-    <li><strong>What is the best free audio cutter online?</strong> — One that shows a waveform, cuts to exact seconds and exports without an account — like this page.</li>
-      <li><strong>Can I cut M4A files online?</strong> — Yes: M4A opens here in most browsers and exports as a WAV clip.</li>
-      <li><strong>How do I trim audio without losing quality?</strong> — Cut on pauses, export lossless WAV, and accept that re-encoding always risks a small change.</li>
-    </ul>
+      <details class="faq">
+      <summary>How do I make a ringtone from a song?</summary>
+      <p>Pick a 20–40 second section — the chorus works best — add a short fade in and out, and export. On iPhone, convert the clip to .m4r and sync it through Finder; the 30-second limit still applies.</p>
+      </details>
+      <details class="faq">
+      <summary>How long can an iPhone ringtone be?</summary>
+      <p>Apple allows up to 30 seconds. Android has no length cap, but most people keep tones under 30 seconds.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I cut a section out of the middle of a song?</summary>
+      <p>Not on this page — it keeps one section and discards the rest (a trimmer). To remove a middle section, use a cutter: split at both ends of the unwanted part, delete it, and the rest stitches together. SnipSound does this, and XConvert has a separate Audio Cutter for it.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I cut audio from a video?</summary>
+      <p>Yes — mp3cut.net extracts and cuts audio from video files. Or extract the audio first and then cut it on this page.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I cut multiple parts from one audio file?</summary>
+      <p>Not here — one segment per cut, so repeat the process for each part. On SnipSound you can split as many times as you want in one session.</p>
+      </details>
+      <details class="faq">
+      <summary>How precise can I cut?</summary>
+      <p>This page shows start and end to a hundredth of a second, with exact-second boxes for fine-tuning. BeMusic shows the same 0.01-second precision with a 0.5-second minimum clip; SnipSound adds waveform zoom and keyboard nudging.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I use it on my phone?</summary>
+      <p>Yes — this page and the other browser cutters work on mobile, and the ringtone workflows in the reels are all phone workflows.</p>
+      </details>
+      <details class="faq">
+      <summary>What is the difference between an audio cutter and an audio trimmer?</summary>
+      <p>A trimmer keeps one section and discards the rest; a cutter removes a section from the middle and joins what remains — the same engine, the opposite operation (XConvert's own words).</p>
+      </details>
+      <details class="faq">
+      <summary>Can I fade in and out?</summary>
+      <p>Yes — this page has fade in and fade out checkboxes. MP3stack offers fade in/out plus normalise and silence trim, and SnipSound adds a crossfade between segments; simple trimmers often do not offer fades at all.</p>
+      </details>
     </div>
     
     <div class="related-tools">

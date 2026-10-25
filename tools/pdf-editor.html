@@ -39,7 +39,7 @@
       "name": "How do I sign a PDF here?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Draw your signature on the pad, or type your name for a script-style signature, press \u201cUse this signature\u201d, then click on the page where it should go. Download the PDF and the signature is part of the file."
+        "text": "Draw your signature on the pad, or type your name for a script-style signature, press “Use this signature”, then click on the page where it should go. Download the PDF and the signature is part of the file."
       }
     },
     {
@@ -64,6 +64,78 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The signature is a visible image on the page, like a scanned handwritten signature. It is not a certified digital signature with cryptographic proof, so for contracts that need formal e-signing, use a dedicated e-signature service."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a PDF editor that is really 100% free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with a catch worth knowing: the genuinely unlimited free tools are the browser-local ones and PDF24, which independent testers found had no stated limits. Smallpdf, iLovePDF, Sejda and Adobe are free tiers with caps — 2 tasks a day, 3 tasks an hour, per-tool caps, or a sign-in wall. This page is browser-local: no account, no task cap, no watermark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a PDF editor ask me to sign in or pay to download?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The free tier is a funnel: editing is free, but the download, the second task of the day, or the real text edit is Pro. Smallpdf’s free tier allows 2 tasks a day, Sejda allows 3 an hour, and Adobe’s online editor needs an account to save. This page has no paywall at download — the full free scope is stated above the tool, before you start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit a PDF on my phone for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in the browser — this page works on a phone — but heavy text edits are slow on a small touchscreen, and some editors are built for a mouse. For a quick signature or a few words of text, a phone is fine; for long edits, use a computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fill in a PDF form online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the form, click the form fields or use the “Add text” tool to type over the blank lines, then download. This page supports typing over flat (non-interactive) forms. If the form has interactive fields, most editors — including Sejda and Adobe Fill & Sign — let you click into them directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit a scanned PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only after OCR turns the picture into text. A scan is an image, not text, so an editor can only add text on top of it. Free OCR is capped on most tools — Sejda allows 10 pages free — or is a paid feature. This editor has no OCR: use it to fill in a scanned form, not to rewrite one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit a PDF without Adobe Acrobat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — the whole free-editor category exists for this. Acrobat Pro is the paid benchmark for certified signatures, PDF/A and accessibility features, not for a quick text fix or a signature. This page does all of the quick jobs free in the browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remove text from a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whiteout covers text visually, but the text underneath stays in the file and can be copied back out. True redaction removes it from the file — some tools flatten the redaction on save so removed content cannot be recovered. This editor has no whiteout or redaction tool: it adds content, it does not remove it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add an image or logo to a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with this editor — it adds text and signatures only. Sejda, Smallpdf and Adobe let you insert images onto a page, though whether that is free depends on the tool and tier. Check before you start if the logo is the main job."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do free PDF editors add a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some do, on some tools: Smallpdf and iLovePDF watermark some free outputs, while Sejda and PDF24 do not watermark most edits, and browser-local tools never do. This page adds no watermark to your download."
       }
     }
   ]
@@ -157,6 +229,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
 .gcard .btn{padding:7px 12px;font-size:12px}
 .check-row{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);margin-top:10px}
 .check-row input{width:auto;accent-color:var(--accent)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -255,6 +332,28 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>It can add text boxes in a size and colour you choose, place a drawn or typed signature anywhere on a page, rotate pages by 90 degrees, reorder pages, and delete pages. It cannot change, delete or reflow the text that is already printed in the PDF — that text is baked into the page, and no browser editor can rewrite it as if it were a Word document. White-out is not included either: covering old text with a white box only hides it visually, it does not remove it from the file. For forms, adding text over the blank lines works well; for changing existing wording, use the <a href="/tools/pdf-to-word-converter">PDF to Word converter</a> instead.</p>
       <h2>Is my PDF private here?</h2>
       <p>Yes. The file is read with pdf.js and rebuilt with pdf-lib entirely in your browser. Nothing is uploaded, stored or shared, and there is no account that could keep a copy. That is the right setup for contracts, forms and personal documents. One honest note: a signature drawn here is an image on the page, not a certified digital signature — it looks and prints like a signature, but it does not carry the cryptographic proof a formal e-signature service provides.</p>
+      <h2>Free-tier limits: this page vs the big names</h2>
+      <p>The most common complaint about free PDF editors is the limit that appears after the work is done — the download button that suddenly asks for a sign-in, or the second file of the day that hits a daily cap. The caps below come from the vendors’ own pages and independent tester roundups gathered in October 2026. This page has none of them: no account, no daily task cap, no watermark, and no upload.</p>
+      <table class="tbl">
+        <tr><th>Editor</th><th>Free-tier limit</th><th>Can it edit existing text?</th><th>Your file</th></tr>
+        <tr><td>This page</td><td>No task cap, no watermark</td><td>No — adds text on top; cover-up only</td><td>Never uploaded</td></tr>
+        <tr><td>Smallpdf</td><td>2 tasks a day</td><td>No on free (Pro only)</td><td>Uploaded, deleted after 1 hour</td></tr>
+        <tr><td>Sejda</td><td>3 tasks an hour; 50 MB / 200 pages</td><td>Yes, within the free quota</td><td>Uploaded (desktop app avoids it)</td></tr>
+        <tr><td>iLovePDF</td><td>Per-tool caps (for example 1 split, 2 compresses)</td><td>No — Premium only</td><td>Uploaded, deleted within 2 hours</td></tr>
+        <tr><td>Adobe online</td><td>Sign-in required to save; real editing is Pro</td><td>Pro only</td><td>Uploaded</td></tr>
+        <tr><td>Xodo web</td><td>1 action a day</td><td>Not verified in the sources used here</td><td>Uploaded</td></tr>
+      </table>
+      <p>Premium prices for these services differ by source and change often, so this page does not quote them — check the vendor’s own pricing page before paying for anything.</p>
+      <h2>Fill in a form and sign it</h2>
+      <p>The most common real job for a PDF editor is a form: a tax form, a job application, a contract. Click “Add text” and type over the blank lines, or use the signature pad — draw your signature, or type your name for a script-style signature — then click where it should go. Remember the signature is a visible image on the page, like a scanned handwritten signature, not a certified digital signature with cryptographic proof.</p>
+      <h2>Scanned PDFs and whiteout, honestly</h2>
+      <p>If your PDF is a scan, the page is a picture, not text — there is no text to edit, and this editor has no OCR to turn the picture into text. Text you add sits on top of the picture, which is fine for filling in a scanned form but will not make the scan searchable. This editor also has no whiteout tool: covering old text with a white box only hides it visually — the text underneath is still in the file and can be copied back out. True redaction removes the text from the file entirely; a white box does not. And one font warning: where a white-box cover-up is used, the new text uses the editor’s font, not the original — that mismatch is the most common reason an edited PDF “looks different” after download.</p>
+      <h2>Part of a PDF toolkit</h2>
+      <p>This editor is the hub of a small PDF toolkit on this site. If a page is sideways, fix it first with the <a href="/tools/rotate-pdf">Rotate PDF</a> tool; if you need the photos out of a document, use <a href="/tools/extract-images-from-pdf">Extract Images from PDF</a> — both run in your browser the same way, with nothing uploaded.</p>
+
+
+
+
       <!-- FAQ -->
       <h2>FAQ</h2>
       <details class="faq"><summary>Is this PDF editor really free?</summary><p>Yes. Add text, sign, rotate, reorder and delete pages with no signup, no payment, no watermark and no page limit on this page. Everything runs in your browser.</p></details>
@@ -263,6 +362,15 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <details class="faq"><summary>Can I rotate or reorder pages?</summary><p>Yes. Select a page and rotate it left or right in 90-degree steps, move it up or down, or delete it. The download keeps your new page order.</p></details>
       <details class="faq"><summary>Is my PDF uploaded to a server?</summary><p>No. The PDF is read and rebuilt entirely in your browser using pdf.js and pdf-lib. Nothing is uploaded, stored, or shared.</p></details>
       <details class="faq"><summary>Is the signature legally valid?</summary><p>The signature is a visible image on the page, like a scanned handwritten signature. It is not a certified digital signature with cryptographic proof, so for contracts that need formal e-signing, use a dedicated e-signature service.</p></details>
+      <details class="faq"><summary>Is there a PDF editor that is really 100% free?</summary><p>Yes, with a catch worth knowing: the genuinely unlimited free tools are the browser-local ones and PDF24, which independent testers found had no stated limits. Smallpdf, iLovePDF, Sejda and Adobe are free tiers with caps — 2 tasks a day, 3 tasks an hour, per-tool caps, or a sign-in wall. This page is browser-local: no account, no task cap, no watermark.</p></details>
+      <details class="faq"><summary>Why does a PDF editor ask me to sign in or pay to download?</summary><p>The free tier is a funnel: editing is free, but the download, the second task of the day, or the real text edit is Pro. Smallpdf’s free tier allows 2 tasks a day, Sejda allows 3 an hour, and Adobe’s online editor needs an account to save. This page has no paywall at download — the full free scope is stated above the tool, before you start.</p></details>
+      <details class="faq"><summary>Can I edit a PDF on my phone for free?</summary><p>Yes, in the browser — this page works on a phone — but heavy text edits are slow on a small touchscreen, and some editors are built for a mouse. For a quick signature or a few words of text, a phone is fine; for long edits, use a computer.</p></details>
+      <details class="faq"><summary>How do I fill in a PDF form online?</summary><p>Open the form, click the form fields or use the “Add text” tool to type over the blank lines, then download. This page supports typing over flat (non-interactive) forms. If the form has interactive fields, most editors — including Sejda and Adobe Fill & Sign — let you click into them directly.</p></details>
+      <details class="faq"><summary>Can I edit a scanned PDF?</summary><p>Only after OCR turns the picture into text. A scan is an image, not text, so an editor can only add text on top of it. Free OCR is capped on most tools — Sejda allows 10 pages free — or is a paid feature. This editor has no OCR: use it to fill in a scanned form, not to rewrite one.</p></details>
+      <details class="faq"><summary>Can I edit a PDF without Adobe Acrobat?</summary><p>Yes — the whole free-editor category exists for this. Acrobat Pro is the paid benchmark for certified signatures, PDF/A and accessibility features, not for a quick text fix or a signature. This page does all of the quick jobs free in the browser.</p></details>
+      <details class="faq"><summary>How do I remove text from a PDF?</summary><p>Whiteout covers text visually, but the text underneath stays in the file and can be copied back out. True redaction removes it from the file — some tools flatten the redaction on save so removed content cannot be recovered. This editor has no whiteout or redaction tool: it adds content, it does not remove it.</p></details>
+      <details class="faq"><summary>Can I add an image or logo to a PDF?</summary><p>Not with this editor — it adds text and signatures only. Sejda, Smallpdf and Adobe let you insert images onto a page, though whether that is free depends on the tool and tier. Check before you start if the logo is the main job.</p></details>
+      <details class="faq"><summary>Do free PDF editors add a watermark?</summary><p>Some do, on some tools: Smallpdf and iLovePDF watermark some free outputs, while Sejda and PDF24 do not watermark most edits, and browser-local tools never do. This page adds no watermark to your download.</p></details>
       
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>

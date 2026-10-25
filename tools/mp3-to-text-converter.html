@@ -23,7 +23,7 @@
       "name": "Is this MP3 to text converter really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Live dictation is free with no minute limit, no sign-up, no watermark and no upload."
+        "text": "Yes. Live dictation is free with no minute limit, no sign-up, no watermark and no upload. There is no free-minutes counter to run out of, because nothing is processed on a server."
       }
     },
     {
@@ -31,7 +31,7 @@
       "name": "Can I upload my MP3 file here to transcribe it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. This browser tool cannot open or upload MP3 files. The workaround is to play the MP3 out loud near your microphone in a quiet room and dictate it live, in short clips."
+        "text": "No. This browser tool cannot open or upload MP3 files — that needs a server AI, which this free tool does not have. The workaround is to play the MP3 out loud near your microphone in a quiet room and dictate it live, in short clips. For long files, use a dedicated file transcriber."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "How accurate is MP3 to text by live dictation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Clean, clear speech can reach 95 to 99 percent, but accents, overlapping speakers, background noise and jargon lower accuracy. Check names and numbers before quoting."
+        "text": "Accuracy varies a lot by tool and by recording. Clean, clear speech transcribes best, but accents, overlapping speakers, background noise and jargon lower accuracy — Whisper-based tools handle many accents and languages better than older engines, so test with a 30-second sample before a long file. Check names and numbers before quoting."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "Is there a time or file limit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No minute limit and no file limit, because no file is uploaded. The practical limit is real time: a 30-minute MP3 takes 30 minutes to play through."
+        "text": "No minute limit and no file limit — because no file is uploaded. The practical limit is real time: a 30-minute MP3 takes 30 minutes to play through, so split long recordings into short clips."
       }
     },
     {
@@ -55,7 +55,7 @@
       "name": "Which browser should I use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chrome or Edge work best for live dictation."
+        "text": "Chrome or Edge work best for live dictation. If the Start button says speech recognition is unsupported, switch to Chrome or Edge on a computer or Android phone."
       }
     },
     {
@@ -63,7 +63,79 @@
       "name": "Does my MP3 leave my device?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Your MP3 is never uploaded anywhere. It plays on your own device and the transcript stays on this page until you copy or download it."
+        "text": "No. Your MP3 is never uploaded anywhere — it plays on your own device, your microphone hears it, and the transcript stays on this page until you copy or download it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert an MP3 file to text for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — upload-based converters do it: Notta, Otter and Descript have free tiers, and Whisper-based tools transcribe files. Dictation tools that only take microphone input cannot convert an MP3 file — this page is one of those, so play the MP3 near the mic instead, or use a file transcriber for long recordings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I transcribe a voice note from WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Export the voice note as an audio file (in WhatsApp, share it and save it), then upload it to an audio-to-text tool. Short voice notes also work here: play the note near your microphone in a quiet room and dictate it live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I transcribe a YouTube video to text for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use a YouTube-to-transcript tool such as Clipto.ai, or download the audio and run it through a transcription tool. YouTube's own auto-captions can also be copied as text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is audio transcription accurate for Indian accents or Hindi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Accuracy varies a lot by tool. Whisper-based tools handle many accents and languages better than older engines — test with a 30-second sample before committing to a long file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a transcript with timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — tools like Notta, Otter and Descript add timestamps and speaker labels. Simple free converters usually output plain text only, and this page outputs plain text only too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert speech to text on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Google Keyboard (Gboard) voice typing and most browser tools work on Android and iPhone. For file transcription, use an upload-based tool's mobile site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my transcript full of errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually background noise, overlapping speakers, low volume, or a strong accent. Clean audio — one speaker, quiet room — transcribes far better than a noisy recording."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I transcribe a phone call recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you have the recording as an audio file and the tool accepts uploads. Check your local recording-consent law first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I transcribe audio in Urdu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whisper-based tools support Urdu — test a short sample first, because accuracy for Urdu is lower than for English in most free tools. Language-support claims are vendor-stated, not independently verified."
       }
     }
   ]
@@ -252,11 +324,11 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <div class="tool-about">
     <!-- PROBLEM -->
     <h2>The MP3 problem: everyone wants a file transcript, free</h2>
-      <p>Ask anyone what they want from an MP3 to text converter and the answer is always the same: take this MP3 — a lecture, a voice note, an interview, a podcast — and give me accurate text, free, with no sign-up and no minute limit. Short video demos make it look instant: a file goes in, a transcript comes out in seconds. Then the real tools show their terms: the first 5–10 minutes free, then pay; a daily cap like two files a day; or an install before you can try anything.</p>
-      <p>Accuracy is the second frustration. Clean audio can hit 95–99%, but the same tools collapse on accents, overlapping speakers, background noise and jargon — and some AI transcribers hallucinate fluent text during silence, writing confident words nobody said. So here is the honest position of this page: it is a live dictation tool, not a file transcriber. It cannot open your MP3 at all. What it can do, free and without limits, is transcribe the MP3 as it plays out loud near your microphone — short clips in a quiet room work best — and that workaround is explained step by step below, with no pretence that it is the same as a server file converter.</p>
+      <p>Ask anyone what they want from an MP3 to text converter and the answer is always the same: take this MP3 — a lecture, a voice note, an interview, a podcast — and give me accurate text, free, with no sign-up and no minute limit. Short video demos make it look instant: a file goes in, a transcript comes out in seconds. Then the real tools show their terms: most “free” tools give 60–300 free minutes and then charge; some need an account or an install before you can try anything.</p>
+      <p>Accuracy is the second frustration. Accuracy varies a lot by tool: the same tools that handle clean audio well collapse on accents, overlapping speakers, background noise and jargon — and free tiers usually cap minutes or files, so long recordings do not finish. So here is the honest position of this page: it is a live dictation tool, not a file transcriber. It cannot open your MP3 at all. What it can do, free and without limits, is transcribe the MP3 as it plays out loud near your microphone — short clips in a quiet room work best — and that workaround is explained step by step below, with no pretence that it is the same as a server file converter.</p>
       <p><strong>An MP3 to text converter</strong> turns the speech inside an MP3 file into written text. This free page does it by live dictation: play the MP3 near your microphone and the tool writes down what it hears, in real time.</p>
     <!-- DIRECT ANSWER -->
-    <p><strong>Direct answer:</strong> to convert an MP3 to text free on this page, play the MP3 out loud near your microphone in a quiet room, click “Start dictation”, and let the tool transcribe the speech live — then copy or download the text. There is no sign-up, no upload and no minute cap. This browser tool cannot open or upload an MP3 file directly; for long files, a dedicated file transcriber is the right tool.</p>
+    <p><strong>Direct answer:</strong> to convert an MP3 to text free on this page, play the MP3 out loud near your microphone in a quiet room, click “Start dictation”, and let the tool transcribe the speech live, then copy or download the text. There is no sign-up, no upload and no minute cap. This browser tool cannot open or upload an MP3 file directly.</p>
     <!-- HOW TO -->
     <h2>How to convert an MP3 to text by live dictation</h2>
     <div class="steps">
@@ -274,6 +346,18 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
           <tr><td class="fname">Music or songs</td><td>Do not use this tool</td><td>Speech recognition is tuned for voice, not music.</td></tr>
         </tbody>
       </table>
+    <h2 style="margin-top:28px">Live dictation vs file transcription vs meeting tools</h2>
+      <p>These are three different products, and the confusion between them is why so many people arrive with an MP3 and find a microphone tool. The same live-dictation tool also runs on the <a href="/tools/audio-to-text-converter">Audio to Text Converter</a> page.</p>
+      <table class="formats">
+        <thead><tr><th>Kind of tool</th><th>Input</th><th>Free terms</th><th>What you get</th></tr></thead>
+        <tbody>
+          <tr><td class="fname">This page — live dictation</td><td>Microphone only</td><td>Free, no signup, no minute cap</td><td>Plain text, live, in real time. No file upload, no timestamps, no speaker labels.</td></tr>
+          <tr><td class="fname">File transcribers (Notta, Otter, Descript)</td><td>Upload MP3 / WAV / M4A</td><td>Free tiers: Notta 120 min/month, Otter 300 min/month, Descript 60 min/month; signup required</td><td>Transcript with timestamps and speaker labels.</td></tr>
+          <tr><td class="fname">Transkriptor (trial)</td><td>Upload audio</td><td>90-minute free trial, not a free tier; signup required</td><td>Transcript with summaries; its accuracy claims are vendor-stated, not verified.</td></tr>
+          <tr><td class="fname">Whisper / Whisper.cpp (open source)</td><td>Audio files, on your own computer</td><td>Free and open source</td><td>Best accuracy per Reddit consensus; needs technical setup (command line), no timestamps or speakers out of the box.</td></tr>
+        </tbody>
+      </table>
+      <p>Free-minute figures are vendor-stated, from our 25 October 2026 research run — check each tool's own page before a long recording.</p>
     <!-- FAQ -->
     <h2 style="margin-top:28px">FAQ</h2>
     
@@ -287,7 +371,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       </details>
       <details class="faq">
         <summary>How accurate is MP3 to text by live dictation?</summary>
-        <p>It depends on the recording, not just the tool. Clean, clear speech can reach 95–99%, but accents, overlapping speakers, background noise and jargon lower accuracy, and the tool can hallucinate words during silence. Check names and numbers before quoting.</p>
+        <p>Accuracy varies a lot by tool and by recording. Clean, clear speech transcribes best, but accents, overlapping speakers, background noise and jargon lower accuracy — Whisper-based tools handle many accents and languages better than older engines, so test with a 30-second sample before a long file. Check names and numbers before quoting.</p>
       </details>
       <details class="faq">
         <summary>Is there a time or file limit?</summary>
@@ -301,13 +385,42 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
         <summary>Does my MP3 leave my device?</summary>
         <p>No. Your MP3 is never uploaded anywhere — it plays on your own device, your microphone hears it, and the transcript stays on this page until you copy or download it.</p>
       </details>
-    <!-- RELATED QUESTIONS -->
-    <h2 style="margin-top:28px">Related questions</h2>
-    <ul class="rel-q">
-    <li><strong>Can I convert MP3 to text without uploading?</strong> — Yes: play the MP3 near your mic and dictate it live on this page; nothing is uploaded.</li>
-      <li><strong>How long does MP3 to text take?</strong> — Live dictation runs in real time, so a 5-minute clip takes about 5 minutes; a file transcriber is faster for long files.</li>
-      <li><strong>Will it work for voice notes?</strong> — Short voice notes work well in a quiet room; long or noisy ones are better in a dedicated file tool.</li>
-    </ul>
+      <details class="faq">
+      <summary>Can I convert an MP3 file to text for free?</summary>
+      <p>Yes — upload-based converters do it: Notta, Otter and Descript have free tiers, and Whisper-based tools transcribe files. Dictation tools that only take microphone input cannot convert an MP3 file — this page is one of those, so play the MP3 near the mic instead, or use a file transcriber for long recordings.</p>
+      </details>
+      <details class="faq">
+      <summary>How do I transcribe a voice note from WhatsApp?</summary>
+      <p>Export the voice note as an audio file (in WhatsApp, share it and save it), then upload it to an audio-to-text tool. Short voice notes also work here: play the note near your microphone in a quiet room and dictate it live.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I transcribe a YouTube video to text for free?</summary>
+      <p>Yes — use a YouTube-to-transcript tool such as Clipto.ai, or download the audio and run it through a transcription tool. YouTube's own auto-captions can also be copied as text.</p>
+      </details>
+      <details class="faq">
+      <summary>Is audio transcription accurate for Indian accents or Hindi?</summary>
+      <p>Accuracy varies a lot by tool. Whisper-based tools handle many accents and languages better than older engines — test with a 30-second sample before committing to a long file.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I get a transcript with timestamps?</summary>
+      <p>Yes — tools like Notta, Otter and Descript add timestamps and speaker labels. Simple free converters usually output plain text only, and this page outputs plain text only too.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I convert speech to text on my phone?</summary>
+      <p>Yes — Google Keyboard (Gboard) voice typing and most browser tools work on Android and iPhone. For file transcription, use an upload-based tool's mobile site.</p>
+      </details>
+      <details class="faq">
+      <summary>Why is my transcript full of errors?</summary>
+      <p>Usually background noise, overlapping speakers, low volume, or a strong accent. Clean audio — one speaker, quiet room — transcribes far better than a noisy recording.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I transcribe a phone call recording?</summary>
+      <p>Yes, if you have the recording as an audio file and the tool accepts uploads. Check your local recording-consent law first.</p>
+      </details>
+      <details class="faq">
+      <summary>Can I transcribe audio in Urdu?</summary>
+      <p>Whisper-based tools support Urdu — test a short sample first, because accuracy for Urdu is lower than for English in most free tools. Language-support claims are vendor-stated, not independently verified.</p>
+      </details>
     </div>
     
     <div class="related-tools">

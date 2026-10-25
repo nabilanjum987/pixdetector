@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Color Contrast Checker — WCAG AA/AAA</title>
-<meta name="description" content="Check any two colours free — WCAG contrast ratio with AA and AAA pass/fail for normal and large text. No signup, instant.">
-<meta name="keywords" content="color contrast checker, wcag contrast checker, contrast ratio checker, accessibility checker, aa aaa contrast">
+<meta name="description" content="Check any two colours free — WCAG ratio, all four AA/AAA thresholds, non-text 3:1, fix-it button and grey cheat-sheet. No signup.">
+<meta name="keywords" content="color contrast checker, wcag contrast checker, contrast ratio checker, accessibility checker, aa aaa contrast, 4.5 contrast ratio, non-text contrast">
 <link rel="canonical" href="https://pixdetector.vercel.app/tools/color-contrast-checker">
 <meta property="og:url" content="https://pixdetector.vercel.app/tools/color-contrast-checker">
 <meta property="og:title" content="Free Color Contrast Checker — WCAG AA/AAA">
-<meta property="og:description" content="Check any two colours free — WCAG contrast ratio with AA and AAA pass/fail for normal and large text. No signup, instant.">
+<meta property="og:description" content="Check any two colours free — WCAG ratio, all four AA/AAA thresholds, non-text 3:1, fix-it button and grey cheat-sheet. No signup.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -18,54 +18,21 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What ratio do I need to pass WCAG AA?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "4.5:1 for normal text and 3:1 for large text (24px regular, or about 19px bold) at level AA. AAA needs 7:1 for normal text and 4.5:1 for large text. UI components and icons need 3:1."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What counts as large text?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "WCAG defines large text as 18pt (24px) or larger, or 14pt (about 19px) bold and larger. Anything smaller is normal text and needs the stricter 4.5:1 ratio."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does grey text on white fail?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Light grey is close in brightness to white, so the ratio is low: #9CA3AF on white is 2.54:1, and even #767676 on white is 4.48:1 \u2014 just under AA. Use #757575 or darker for body text on white."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I check text on an image with this tool?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not reliably. This checker measures two flat colours; text over a photo sits on many colours at once, and the worst-case region is what matters. Add an overlay behind the text and test the darkest or lightest region it covers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "My brand colour fails \u2014 do I have to abandon it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Keep the hue and darken the text variant for text use, use the brand colour as an accent instead of as text, or enlarge the text so the 3:1 large-text threshold applies. The suggestion button finds a same-hue shade that passes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does passing the contrast check guarantee accessibility?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Contrast is one WCAG criterion. Colour-only meaning, keyboard focus visibility and text over images need separate checks. A pass here means the colour pair is fine \u2014 not that the whole page is accessible."
-      }
-    }
+    { "@type": "Question", "name": "What is a good color contrast ratio?", "acceptedAnswer": { "@type": "Answer", "text": "WCAG AA asks for at least 4.5:1 for normal text and 3:1 for large text. AAA asks for 7:1 for normal text and 4.5:1 for large text. The maximum possible ratio is 21:1 — black on white." } },
+    { "@type": "Question", "name": "What contrast ratio is required for WCAG AA?", "acceptedAnswer": { "@type": "Answer", "text": "4.5:1 for normal text and 3:1 for large text. UI components and meaningful graphics also need 3:1 against adjacent colours, under WCAG 2.1 criterion 1.4.11. This page checks all five verdicts at once." } },
+    { "@type": "Question", "name": "What contrast ratio is required for WCAG AAA?", "acceptedAnswer": { "@type": "Answer", "text": "7:1 for normal text and 4.5:1 for large text. Most organisations aim for AA — as Level Access puts it, AAA is not achievable or practical in all cases. AAA is the enhanced level, not the legal minimum most rules point to." } },
+    { "@type": "Question", "name": "What counts as large text for WCAG?", "acceptedAnswer": { "@type": "Answer", "text": "At least 18pt (about 24px) regular, or 14pt (about 18.66px) bold. A 20px medium-weight heading does not count, even though it feels big — it is still normal text and needs 4.5:1." } },
+    { "@type": "Question", "name": "How is the contrast ratio calculated?", "acceptedAnswer": { "@type": "Answer", "text": "From the relative luminance of each colour: linearised RGB weighted 0.2126 for red + 0.7152 for green + 0.0722 for blue. The ratio is (lighter + 0.05) / (darker + 0.05). The scale runs from 1:1 (identical colours) to 21:1 (black on white)." } },
+    { "@type": "Question", "name": "What is the difference between AA and AAA?", "acceptedAnswer": { "@type": "Answer", "text": "AA is the minimum level — the one legislation and procurement rules point to. AAA is the enhanced level. AA needs 4.5:1 for normal text and 3:1 for large text; AAA needs 7:1 for normal text and 4.5:1 for large text." } },
+    { "@type": "Question", "name": "Does this tool check for color blindness?", "acceptedAnswer": { "@type": "Answer", "text": "A plain ratio check does not — it measures contrast, not colour perception. This page adds a colour-blindness simulation (protanopia, deuteranopia, tritanopia) next to the ratio, but the simulation is an approximation. Two colours that pass can still be indistinguishable to some readers, so never use colour alone to mean something." } },
+    { "@type": "Question", "name": "What if my brand colors don't meet contrast requirements?", "acceptedAnswer": { "@type": "Answer", "text": "Use brand colours for large text, which only needs 3:1, keep high-contrast pairs for body text, or darken or lighten a shade slightly without abandoning the scheme. The Fix it for me button below does the lightness walk for you and keeps your hue." } },
+    { "@type": "Question", "name": "Does color contrast apply to buttons and icons?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. WCAG 2.1 criterion 1.4.11 requires interactive components — button boundaries, form borders, focus indicators — and meaningful graphics to be at least 3:1 against adjacent colours. The text on the button still needs 4.5:1, or 3:1 if it is large text." } },
+    { "@type": "Question", "name": "Are there exceptions to the contrast rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — logos and logotypes are exempt, as is purely decorative text, disabled controls, and incidental text inside an inactive component. But looks disabled is not the same as being disabled: if it is interactive, it must meet the threshold." } },
+    { "@type": "Question", "name": "Why is color contrast the most common accessibility violation?", "acceptedAnswer": { "@type": "Answer", "text": "Low-contrast text is the single most common accessibility failure on the web. WebAIM Million 2024 found 83.6% of home pages had at least one contrast error (cited by tuwebaccesible.es). A separate source, wcagsafe.com, cites roughly 79-81% of home pages from the annual WebAIM Million analysis — the two sources report different years and rounds, so each figure belongs with its source." } },
+    { "@type": "Question", "name": "How do I check my website's color contrast?", "acceptedAnswer": { "@type": "Answer", "text": "Use a free pair-checker like this page for two colours, your browser DevTools colour picker for live elements on the page, or an automated scanner to crawl the whole site and flag every failure. For a whole palette at once, use the bulk testing panel below." } },
+    { "@type": "Question", "name": "What is the lightest grey that passes AA on white?", "acceptedAnswer": { "@type": "Answer", "text": "#767676 at 4.54:1 — the lightest pure grey that passes AA for normal text on white. One step lighter, #777777 at 4.47:1, fails. #999999 at 2.84:1 fails even the large-text bar. The grey cheat-sheet below lists the common greys with their exact ratios." } },
+    { "@type": "Question", "name": "Does a passing contrast ratio mean my text is readable?", "acceptedAnswer": { "@type": "Answer", "text": "No. The ratio measures luminance difference only. Font size, weight, rendering, the background (photo or gradient), and the reader's vision all matter too. A very high ratio — pure black on pure white — can feel harsh, so many designers use a near-black instead while staying well above the threshold." } },
+    { "@type": "Question", "name": "Is the checker free, and do I need an account?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, free — test unlimited foreground and background pairs with no signup, and everything runs in your browser. Nothing you type is sent anywhere. If a checker gates the fix behind signup, that is the free-trap pattern: the fix should be on the page, not behind a form." } }
   ]
 }
 </script>
@@ -75,21 +42,9 @@
   "@type": "HowTo",
   "name": "How to check colour contrast",
   "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter the colours",
-      "text": "Pick the text colour and background colour, or type HEX codes."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Read the ratio",
-      "text": "The big number is the contrast ratio; the table shows AA/AAA pass or fail."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Fix what fails",
-      "text": "Darken the text, enlarge it, or use the suggestion button for a passing shade."
-    }
+    { "@type": "HowToStep", "name": "Enter the colours", "text": "Pick the text colour and background colour, or type HEX codes. Try a preset pair or a row from the grey cheat-sheet to see a common failure." },
+    { "@type": "HowToStep", "name": "Read the ratio", "text": "The big number is the contrast ratio; the table shows AA/AAA pass or fail for normal and large text, plus the 3:1 non-text check for UI components." },
+    { "@type": "HowToStep", "name": "Fix what fails", "text": "Use Fix it for me for the nearest passing shade, or the lightness slider to nudge the text colour yourself — then check the pair in the colour-blindness simulation." }
   ]
 }
 </script>
@@ -107,7 +62,8 @@
 .note strong{color:#78350f}
 .trust{font-size:14px;color:var(--text2);margin-top:10px}
 input[type=file]{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 14px}
-input[type=number],input[type=text],select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+input[type=number],input[type=text],select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 12px;outline:none}
+textarea{min-height:110px;font-family:monospace;font-size:13px;line-height:1.7;resize:vertical}
 input[type=range]{width:100%;accent-color:var(--accent)}
 input[type=color]{width:44px;height:34px;padding:0;border:1px solid var(--border2);border-radius:8px;background:none;cursor:pointer}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -168,10 +124,17 @@ table.facts td{color:var(--text2)}
 .step .num{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:1px}
 .step h3{font-family:'Syne',sans-serif;font-size:16px;margin:8px 0 6px}
 .step p{font-size:14px;color:var(--text2);line-height:1.7}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;margin:12px 0 4px}
+.tbl th,.tbl td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg2);font-weight:700}
+.tbl td{color:var(--text2)}
+.tbl td:first-child{color:var(--text);font-weight:600}
+.sim-box{border-radius:10px;border:1px solid var(--border2);padding:14px 16px;margin-bottom:10px}
+.sim-box .sim-name{font-size:13px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.mini-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="/" class="logo">Pix<span>Detector</span></a>
@@ -183,7 +146,6 @@ table.facts td{color:var(--text2)}
     <div class="nav-badge">FREE</div>
   </div>
 </nav>
-
 <div class="tool-page">
   <div class="tool-page-inner">
     <div class="breadcrumb">
@@ -193,9 +155,9 @@ table.facts td{color:var(--text2)}
     </div>
     <div class="tool-page-header">
       <h1>Free Color Contrast Checker</h1>
-      <p>Enter a text colour and a background colour — get the WCAG contrast ratio with AA and AAA pass/fail, instantly. No signup.</p>
+      <p>Enter a text colour and a background colour — get the WCAG contrast ratio with all four AA/AAA thresholds, the 3:1 non-text check, and a one-click fix. No signup.</p>
     </div>
-    <div class="note"><strong>Honest limits — read first:</strong> This tool <strong>checks the ratio — it does not fix your design</strong>. It measures two flat colours only: text over a photo, a gradient or a pattern can pass here and still be unreadable, because the background under the text is not one colour. A pass is necessary, not a guarantee of accessibility.</div>
+    <div class="note"><strong>Honest limits — read first:</strong> this checker measures <strong>luminance contrast between two flat colours</strong>. A pass does <strong>not</strong> mean colour-blind readers can tell the two colours apart, and it does <strong>not</strong> cover text over a photo or gradient — check the worst part of the background, not the average. It measures contrast, not readability: font size, weight, rendering and daylight on a phone all matter too. It tests one pair at a time (or one palette in the bulk panel below) — it does not audit a whole site.</div>
     <div class="bc-tool">
       <div class="bc-panel" aria-label="Choose colours">
         <h2>Your two colours</h2>
@@ -224,13 +186,14 @@ table.facts td{color:var(--text2)}
           <h2 style="font-size:15px;margin-bottom:8px">Live preview</h2>
           <div id="previewBox" style="border-radius:10px;border:1px solid var(--border2);padding:18px;background:#ffffff;color:#1a1a1a">
             <p style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin:0 0 6px">Headline text looks like this</p>
-            <p style="font-size:15px;margin:0">Body text at normal size. If you can read this comfortably, the pair is probably fine — the ratio below says for sure.</p>
+            <p style="font-size:15px;margin:0 0 6px">Body text at normal size. If you can read this comfortably, the pair is probably fine — the ratio below says for sure.</p>
+            <p style="font-size:12px;margin:0">Small text at 12px — captions, footnotes and labels live here, and this is where low contrast hurts first.</p>
           </div>
         </div>
       </div>
       <div class="bc-panel" aria-label="Results">
         <h2>Contrast ratio</h2>
-        <div class="ratio-big" id="ratioBig">16.10 : 1</div>
+        <div class="ratio-big" id="ratioBig">17.40 : 1</div>
         <p class="ratio-sub" id="ratioVerdict">Excellent — passes AAA for all text sizes.</p>
         <table class="facts">
           <thead><tr><th>Check</th><th>Needs</th><th>Result</th></tr></thead>
@@ -239,55 +202,145 @@ table.facts td{color:var(--text2)}
             <tr><td>AA — large text</td><td>3 : 1</td><td id="rAAL"></td></tr>
             <tr><td>AAA — normal text</td><td>7 : 1</td><td id="rAAAN"></td></tr>
             <tr><td>AAA — large text</td><td>4.5 : 1</td><td id="rAAAL"></td></tr>
-            <tr><td>UI components &amp; icons</td><td>3 : 1</td><td id="rUI"></td></tr>
+            <tr><td>UI components &amp; icons (1.4.11)</td><td>3 : 1</td><td id="rUI"></td></tr>
           </tbody>
         </table>
-        <div class="actions">
-          <button type="button" class="btn alt" id="suggestBtn">Suggest a passing text colour</button>
+        <div style="margin-top:16px">
+          <label class="flabel" for="fixTarget">Fix it for me — target level</label>
+          <select id="fixTarget">
+            <option value="4.5">AA normal text — 4.5 : 1</option>
+            <option value="7">AAA normal text — 7 : 1</option>
+            <option value="3">AA large text — 3 : 1</option>
+          </select>
         </div>
-        <p class="trust" id="suggestLine">If the pair fails, this suggests a same-hue text colour that passes AA for normal text. You still apply it to your design yourself — the checker changes nothing.</p>
+        <div class="actions">
+          <button type="button" class="btn" id="suggestBtn">Fix it for me</button>
+        </div>
+        <p class="trust" id="suggestLine">One click finds the nearest same-hue text colour that passes the chosen level, and shows the before/after pair. You still apply it to your design yourself — the checker changes nothing on your site.</p>
+        <div style="margin-top:16px">
+          <label class="flabel" for="tuneSlider">Fine-tune text lightness: <span id="tuneOut">0</span></label>
+          <input type="range" id="tuneSlider" min="-60" max="60" value="0" step="1">
+          <p class="trust" id="tuneNote">Drag to nudge the text colour lighter or darker without changing its hue — the ratio updates live, so you can walk it to the target yourself. Changing the text colour resets the slider.</p>
+        </div>
       </div>
     </div>
-    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Check any two colours free — WCAG contrast ratio with AA and AAA pass/fail.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Check%20any%20two%20colours%20free%20%E2%80%94%20WCAG%20contrast%20ratio%20with%20AA%20and%20AAA%20pass/fail.&amp;url=https%3A//pixdetector.vercel.app/tools/color-contrast-checker" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/color-contrast-checker" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Check%20any%20two%20colours%20free%20%E2%80%94%20WCAG%20contrast%20ratio%20with%20AA%20and%20AAA%20pass/fail.%20https%3A//pixdetector.vercel.app/tools/color-contrast-checker" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
+    <div class="bc-tool">
+      <div class="bc-panel" aria-label="Colour blindness simulation">
+        <h2>Colour-blindness simulation</h2>
+        <p class="trust" style="margin-top:0">A passing ratio says nothing about colour blindness — two colours that pass can still be indistinguishable to some readers. These three simulations show your exact pair as it appears under the three common types. The simulation is an approximation, not a diagnosis.</p>
+        <div id="simBoxes"></div>
+        <p class="trust">If the pair looks identical in any simulation, add something other than colour — an icon, a label, or a pattern. Red for error and green for success excludes colour-blind users on its own.</p>
+      </div>
+      <div class="bc-panel" aria-label="Text over a gradient">
+        <h2>Text over a gradient — 5-point check</h2>
+        <p class="trust" style="margin-top:0">Text over a gradient has no single ratio — it changes across the background. This checks your text colour at five points across a gradient (both ends, the middle, and the two quarter-points). Check the worst point, not the average — and add a scrim if either end fails. Built for gradients from the <a href="/tools/gradient-generator">Gradient Generator</a>.</p>
+        <div class="grid2">
+          <div>
+            <label class="flabel" for="gradText">Text colour</label>
+            <div style="display:flex;gap:10px;align-items:center"><input type="color" id="gradText" value="#1a1a1a"><input type="text" id="gradTextHex" value="#1a1a1a" maxlength="7" spellcheck="false"></div>
+          </div>
+          <div>
+            <label class="flabel" for="gradStart">Gradient start</label>
+            <div style="display:flex;gap:10px;align-items:center"><input type="color" id="gradStart" value="#3b82f6"><input type="text" id="gradStartHex" value="#3b82f6" maxlength="7" spellcheck="false"></div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <label class="flabel" for="gradEnd">Gradient end</label>
+          <div style="display:flex;gap:10px;align-items:center"><input type="color" id="gradEnd" value="#facc15"><input type="text" id="gradEndHex" value="#facc15" maxlength="7" spellcheck="false"></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn" id="gradCheckBtn">Check 5 points</button>
+        </div>
+        <div id="gradResults" style="margin-top:14px"></div>
+      </div>
+    </div>
+    <div class="bc-panel" aria-label="Bulk testing" style="margin-bottom:8px">
+      <h2>Bulk testing — validate a whole palette</h2>
+      <p class="trust" style="margin-top:0">A design system has hundreds of pairs, and single-pair checkers test one at a time. Paste one HEX per line (up to 10 each) and get the full pass/fail matrix for AA normal text (4.5:1). Everything runs in your browser.</p>
+      <div class="grid2">
+        <div>
+          <label class="flabel" for="bulkFg">Foregrounds (text colours)</label>
+          <textarea id="bulkFg" spellcheck="false">#1a1a1a
+#6b7280
+#9ca3af
+#ffffff</textarea>
+        </div>
+        <div>
+          <label class="flabel" for="bulkBg">Backgrounds</label>
+          <textarea id="bulkBg" spellcheck="false">#ffffff
+#f3f4f6
+#1e293b
+#22c55e</textarea>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="bulkBtn">Test palette</button>
+      </div>
+      <div id="bulkResults" style="margin-top:14px;overflow-x:auto"></div>
+    </div>
+    <div class="share-box"><h2>Share this tool</h2><p class="share-line">Check any two colours free — WCAG contrast ratio with AA and AAA pass/fail, a fix-it button and the grey cheat-sheet.</p><div class="share-btns"><button type="button" id="copyLink">Copy link</button><button type="button" id="copyShare">Copy share line</button><a href="https://twitter.com/intent/tweet?text=Check%20any%20two%20colours%20free%20%E2%80%94%20WCAG%20contrast%20ratio%20with%20AA%20and%20AAA%20pass/fail%2C%20a%20fix-it%20button%20and%20the%20grey%20cheat-sheet.&amp;url=https%3A//pixdetector.vercel.app/tools/color-contrast-checker" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//pixdetector.vercel.app/tools/color-contrast-checker" target="_blank" rel="noopener">Share on Facebook</a><a href="https://wa.me/?text=Check%20any%20two%20colours%20free%20%E2%80%94%20WCAG%20contrast%20ratio%20with%20AA%20and%20AAA%20pass/fail%2C%20a%20fix-it%20button%20and%20the%20grey%20cheat-sheet.%20https%3A//pixdetector.vercel.app/tools/color-contrast-checker" target="_blank" rel="noopener">Share on WhatsApp</a></div></div>
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: your brand colour fails — and you only find out in the audit</h2>
-      <p>Low-contrast text is the single most common accessibility failure on the web. The usual suspects turn up in audit after audit: light grey captions (#9CA3AF on white is 2.54:1), white text on a bright green button (2.28:1), white on a red error badge (3.76:1 — fails for normal text), pale placeholder text, and a light-mode token reused in dark mode that passes on white and fails on dark grey. Designers discover these in a Lighthouse report or an accessibility audit, long after the palette was locked — and then the question is not whether it fails, but how to fix it without throwing the brand away. What people want is a thirty-second check they can run before shipping: two colours in, a ratio and a pass/fail out, plus a concrete suggestion for the shade that would pass.</p>
+      <p>Low-contrast text is the single most common accessibility failure on the web. The usual suspects turn up in audit after audit: light grey body text that looks refined on a bright calibrated monitor and becomes unreadable on a phone in daylight; placeholder greys that are pale by design and then get misused as labels, so the information disappears for low-vision users; brand colours that fail and nobody will change them (one famous coffee brand's bag scored below 2.0 on every text pairing); and the greys that fail by a hair — #767676 passes, #777777 fails, and nobody can tell them apart by eye. Designers discover these in a Lighthouse report or an accessibility audit, long after the palette was locked. What people want is a thirty-second check they can run before shipping: two colours in, a ratio and a pass/fail out, plus a concrete suggestion for the shade that would pass. Picked a colour somewhere else? Grab it in the <a href="/tools/color-picker">Color Picker</a>, sample it from a photo in the <a href="/tools/color-picker-from-image">Color Picker from Image</a>, or mix it in the <a href="/tools/color-mixer">Color Mixer</a> — then test the pair here.</p>
       <!-- DIRECT ANSWER -->
       <h2>What contrast ratio do I need for WCAG AA?</h2>
-      <p>WCAG 2.1 level AA needs a contrast ratio of at least <strong>4.5:1 for normal text</strong> and <strong>3:1 for large text</strong> (24px and up, or about 19px bold). Level AAA needs 7:1 for normal text and 4.5:1 for large text, and UI components and icons need 3:1 against adjacent colours. Enter your text and background colours above and this page computes the ratio with the official WCAG formula and shows pass or fail for all five checks. It is free, with no signup, and everything runs in your browser. Note what it does not do: it checks the ratio only — it does not fix your design, and it only measures two flat colours.</p>
+      <p>WCAG AA needs at least 4.5:1 for normal text and 3:1 for large text (24px, or about 19px bold); AAA needs 7:1 and 4.5:1, and buttons, icons and borders need 3:1. Enter your text and background colours above and this page computes the ratio with the official formula and shows pass or fail for all five checks. Free, no signup.</p>
       <p>The contrast ratio comes from the relative luminance of the two colours — roughly, how bright each one is to the human eye — through the formula (L1 + 0.05) / (L2 + 0.05), where L1 is the lighter colour. Black on white is the maximum, 21:1. The thresholds are not rounded: 4.49:1 does not meet 4.5:1.</p>
       <!-- HOW TO -->
       <h2>How to check colour contrast in 3 steps</h2>
       <div class="steps">
-        <div class="step"><span class="num">STEP 1</span><h3>Enter the colours</h3><p>Pick the text colour and the background colour, or type HEX codes. Try a preset pair to see a common failure.</p></div>
-        <div class="step"><span class="num">STEP 2</span><h3>Read the ratio</h3><p>The big number is the contrast ratio. The table shows pass or fail for AA and AAA, normal and large text, plus UI components.</p></div>
-        <div class="step"><span class="num">STEP 3</span><h3>Fix what fails</h3><p>Darken the text, lighten the background, or enlarge the text — or use the suggestion button for a same-hue colour that passes AA.</p></div>
+        <div class="step"><span class="num">STEP 1</span><h3>Enter the colours</h3><p>Pick the text colour and the background colour, or type HEX codes. Try a preset pair or a row from the grey cheat-sheet to see a common failure.</p></div>
+        <div class="step"><span class="num">STEP 2</span><h3>Read the ratio</h3><p>The big number is the contrast ratio. The table shows pass or fail for AA and AAA, normal and large text, plus the 3:1 check for UI components and icons.</p></div>
+        <div class="step"><span class="num">STEP 3</span><h3>Fix what fails</h3><p>Press "Fix it for me" for the nearest same-hue shade that passes, or drag the lightness slider to walk the text colour to the target yourself. Then check the pair in the colour-blindness simulation.</p></div>
       </div>
+      <h2 style="margin-top:28px">The grey cheat-sheet</h2>
+      <p>The single most-shared fact in the contrast guides: the lightest pure grey that passes AA on white is #767676 at 4.54:1 — and one step lighter, #777777 at 4.47:1, fails. Users eyeball it and miss by 0.03. The table below lists the greys that trip people up, with their exact ratios. Press "Test" on any row to load that pair into the checker above.</p>
+      <table class="tbl" id="greyTable">
+        <tr><th>Grey</th><th>On</th><th>Ratio</th><th>AA normal (4.5:1)</th><th>AA large (3:1)</th><th></th></tr>
+        <tr><td>#767676</td><td>white</td><td>4.54:1</td><td>✓ Pass — lightest passing grey</td><td>✓ Pass</td><td><button type="button" class="mini-btn" data-fg="#767676" data-bg="#ffffff">Test</button></td></tr>
+        <tr><td>#777777</td><td>white</td><td>4.47:1</td><td>✗ Fail — one step too light</td><td>✓ Pass</td><td><button type="button" class="mini-btn" data-fg="#777777" data-bg="#ffffff">Test</button></td></tr>
+        <tr><td>#999999</td><td>white</td><td>2.84:1</td><td>✗ Fail</td><td>✗ Fail — even large text</td><td><button type="button" class="mini-btn" data-fg="#999999" data-bg="#ffffff">Test</button></td></tr>
+        <tr><td>#9CA3AF (Tailwind gray-400)</td><td>white</td><td>2.54:1</td><td>✗ Fail</td><td>✗ Fail</td><td><button type="button" class="mini-btn" data-fg="#9ca3af" data-bg="#ffffff">Test</button></td></tr>
+        <tr><td>#6B7280 (Tailwind gray-500)</td><td>white</td><td>4.83:1</td><td>✓ Pass</td><td>✓ Pass</td><td><button type="button" class="mini-btn" data-fg="#6b7280" data-bg="#ffffff">Test</button></td></tr>
+        <tr><td>#6B7280 (Tailwind gray-500)</td><td>gray-100 #F3F4F6</td><td>4.39:1</td><td>✗ Fail — passes on white, fails in a card</td><td>✓ Pass</td><td><button type="button" class="mini-btn" data-fg="#6b7280" data-bg="#f3f4f6">Test</button></td></tr>
+        <tr><td>#767676</td><td>#F5F5F5</td><td>4.16:1</td><td>✗ Fail — the lightest passing grey fails on off-white</td><td>✓ Pass</td><td><button type="button" class="mini-btn" data-fg="#767676" data-bg="#f5f5f5">Test</button></td></tr>
+        <tr><td>#D1D5DB (Tailwind gray-300)</td><td>white</td><td>1.47:1</td><td>✗ Fail</td><td>✗ Fail — as a form border, the field basically is not there</td><td><button type="button" class="mini-btn" data-fg="#d1d5db" data-bg="#ffffff">Test</button></td></tr>
+      </table>
+      <p>And the rule behind the table: always check text against the surface it actually sits on. A grey that passes on white can fail inside a card, and a border that is fine as decoration fails as a form field.</p>
       <h2 style="margin-top:28px">My brand colour fails. What now?</h2>
-      <p>Do not throw the palette away. Three fixes keep the brand intact: <strong>adjust lightness, not hue</strong> — keep the brand's hue and darken the text shade slightly on light backgrounds (or lighten it on dark ones); <strong>increase the text size</strong> — a pair at 3.8:1 fails AA for normal text but passes for large text at 3:1, so 24px (or 19px bold) can resolve it without changing a colour; or <strong>use the brand colour as an accent, not as text</strong> — keep it for borders, icons and backgrounds, and set the text in a darker variant of the same hue. The suggestion button below does the lightness walk for you: it keeps your hue and finds the nearest shade that passes 4.5:1. For text over a photo, none of this applies directly — the background is not one colour, so add a semi-transparent dark overlay or a solid block behind the text and test the worst-case region, not the average.</p>
+      <p>Do not throw the palette away. Three fixes keep the brand intact: <strong>adjust lightness, not hue</strong> — keep the brand's hue and darken the text shade slightly on light backgrounds (or lighten it on dark ones); <strong>increase the text size</strong> — a pair at 3.8:1 fails AA for normal text but passes for large text at 3:1, so 24px (or 19px bold) can resolve it without changing a colour; or <strong>use the brand colour as an accent, not as text</strong> — keep it for borders, icons and backgrounds, and set the text in a darker variant of the same hue. The "Fix it for me" button does the lightness walk for you: it keeps your hue and finds the nearest shade that passes your chosen level. For text over a photo, none of this applies directly — the background is not one colour, so add a semi-transparent dark overlay or a solid block behind the text and test the worst-case region, not the average.</p>
+      <h2 style="margin-top:28px">The thresholds — and the law behind them</h2>
+      <p>AA is the level legislation points to: UK public-sector regulations, the European Accessibility Act (via EN 301 549), and Section 508 in the US. Failing those thresholds is not just bad UX — it is a legal liability under the ADA and Section 508. AAA is the enhanced level; most organisations aim for AA because AAA is not achievable or practical in all cases. The non-text rule is the one people forget: since WCAG 2.1, criterion 1.4.11 requires UI components, icons, focus indicators, chart lines and checkbox outlines to be at least 3:1 against adjacent colours. And the scale of the problem is large: WebAIM Million 2024 found 83.6% of home pages had at least one contrast error (cited by tuwebaccesible.es), while wcagsafe.com cites roughly 79-81% of home pages from the annual WebAIM Million analysis — the two sources report different years and rounds, so each figure belongs with its source.</p>
       <h2 style="margin-top:28px">Does passing the ratio guarantee accessibility?</h2>
-      <p>No. Contrast is one criterion, and it is necessary but not sufficient. Colour-only meaning (red versus green with no other cue), focus visibility, and text over images all need their own checks. Automated checkers catch only a fraction of real accessibility failures — a pass here means the colour pair is fine, not that the page is accessible. It is still the fastest check you can run, and the one that catches the most common failure first.</p>
+      <p>No. Contrast is one criterion, and it is necessary but not sufficient. Colour-only meaning (red versus green with no other cue), focus visibility, and text over images all need their own checks. A passing ratio says nothing about colour blindness — two colours that pass can still be indistinguishable to some readers — which is why this page shows the simulation next to the ratio. Automated checkers catch only a fraction of real accessibility failures: a pass here means the colour pair is fine, not that the page is accessible. It is still the fastest check you can run, and the one that catches the most common failure first.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq"><summary>What ratio do I need to pass WCAG AA?</summary><p>4.5:1 for normal text and 3:1 for large text (24px regular, or about 19px bold) at level AA. AAA needs 7:1 for normal text and 4.5:1 for large text. UI components and icons need 3:1.</p></details>
-      <details class="faq"><summary>What counts as large text?</summary><p>WCAG defines large text as 18pt (24px) or larger, or 14pt (about 19px) bold and larger. Anything smaller is normal text and needs the stricter 4.5:1 ratio.</p></details>
-      <details class="faq"><summary>Why does grey text on white fail?</summary><p>Light grey is close in brightness to white, so the ratio is low: #9CA3AF on white is 2.54:1, and even #767676 on white is 4.48:1 — just under AA. Use #757575 or darker for body text on white.</p></details>
-      <details class="faq"><summary>Can I check text on an image with this tool?</summary><p>Not reliably. This checker measures two flat colours; text over a photo sits on many colours at once, and the worst-case region is what matters. Add an overlay behind the text and test the darkest or lightest region it covers.</p></details>
-      <details class="faq"><summary>My brand colour fails — do I have to abandon it?</summary><p>No. Keep the hue and darken the text variant for text use, use the brand colour as an accent instead of as text, or enlarge the text so the 3:1 large-text threshold applies. The suggestion button finds a same-hue shade that passes.</p></details>
-      <details class="faq"><summary>Does passing the contrast check guarantee accessibility?</summary><p>No. Contrast is one WCAG criterion. Colour-only meaning, keyboard focus visibility and text over images need separate checks. A pass here means the colour pair is fine — not that the whole page is accessible.</p></details>
-      
+      <details class="faq"><summary>What is a good color contrast ratio?</summary><p>WCAG AA asks for at least 4.5:1 for normal text and 3:1 for large text. AAA asks for 7:1 for normal text and 4.5:1 for large text. The maximum possible ratio is 21:1 — black on white.</p></details>
+      <details class="faq"><summary>What contrast ratio is required for WCAG AA?</summary><p>4.5:1 for normal text and 3:1 for large text. UI components and meaningful graphics also need 3:1 against adjacent colours, under WCAG 2.1 criterion 1.4.11. This page checks all five verdicts at once.</p></details>
+      <details class="faq"><summary>What contrast ratio is required for WCAG AAA?</summary><p>7:1 for normal text and 4.5:1 for large text. Most organisations aim for AA — as Level Access puts it, AAA is not achievable or practical in all cases. AAA is the enhanced level, not the legal minimum most rules point to.</p></details>
+      <details class="faq"><summary>What counts as large text for WCAG?</summary><p>At least 18pt (about 24px) regular, or 14pt (about 18.66px) bold. A 20px medium-weight heading does not count, even though it feels big — it is still normal text and needs 4.5:1.</p></details>
+      <details class="faq"><summary>How is the contrast ratio calculated?</summary><p>From the relative luminance of each colour: linearised RGB weighted 0.2126 for red + 0.7152 for green + 0.0722 for blue. The ratio is (lighter + 0.05) / (darker + 0.05). The scale runs from 1:1 (identical colours) to 21:1 (black on white).</p></details>
+      <details class="faq"><summary>What is the difference between AA and AAA?</summary><p>AA is the minimum level — the one legislation and procurement rules point to. AAA is the enhanced level. AA needs 4.5:1 for normal text and 3:1 for large text; AAA needs 7:1 for normal text and 4.5:1 for large text.</p></details>
+      <details class="faq"><summary>Does this tool check for color blindness?</summary><p>A plain ratio check does not — it measures contrast, not colour perception. This page adds a colour-blindness simulation (protanopia, deuteranopia, tritanopia) next to the ratio, but the simulation is an approximation. Two colours that pass can still be indistinguishable to some readers, so never use colour alone to mean something.</p></details>
+      <details class="faq"><summary>What if my brand colors don't meet contrast requirements?</summary><p>Use brand colours for large text, which only needs 3:1, keep high-contrast pairs for body text, or darken or lighten a shade slightly without abandoning the scheme. The Fix it for me button below does the lightness walk for you and keeps your hue.</p></details>
+      <details class="faq"><summary>Does color contrast apply to buttons and icons?</summary><p>Yes. WCAG 2.1 criterion 1.4.11 requires interactive components — button boundaries, form borders, focus indicators — and meaningful graphics to be at least 3:1 against adjacent colours. The text on the button still needs 4.5:1, or 3:1 if it is large text.</p></details>
+      <details class="faq"><summary>Are there exceptions to the contrast rules?</summary><p>Yes — logos and logotypes are exempt, as is purely decorative text, disabled controls, and incidental text inside an inactive component. But looks disabled is not the same as being disabled: if it is interactive, it must meet the threshold.</p></details>
+      <details class="faq"><summary>Why is color contrast the most common accessibility violation?</summary><p>Low-contrast text is the single most common accessibility failure on the web. WebAIM Million 2024 found 83.6% of home pages had at least one contrast error (cited by tuwebaccesible.es). A separate source, wcagsafe.com, cites roughly 79-81% of home pages from the annual WebAIM Million analysis — the two sources report different years and rounds, so each figure belongs with its source.</p></details>
+      <details class="faq"><summary>How do I check my website's color contrast?</summary><p>Use a free pair-checker like this page for two colours, your browser DevTools colour picker for live elements on the page, or an automated scanner to crawl the whole site and flag every failure. For a whole palette at once, use the bulk testing panel below.</p></details>
+      <details class="faq"><summary>What is the lightest grey that passes AA on white?</summary><p>#767676 at 4.54:1 — the lightest pure grey that passes AA for normal text on white. One step lighter, #777777 at 4.47:1, fails. #999999 at 2.84:1 fails even the large-text bar. The grey cheat-sheet below lists the common greys with their exact ratios.</p></details>
+      <details class="faq"><summary>Does a passing contrast ratio mean my text is readable?</summary><p>No. The ratio measures luminance difference only. Font size, weight, rendering, the background (photo or gradient), and the reader's vision all matter too. A very high ratio — pure black on pure white — can feel harsh, so many designers use a near-black instead while staying well above the threshold.</p></details>
+      <details class="faq"><summary>Is the checker free, and do I need an account?</summary><p>Yes, free — test unlimited foreground and background pairs with no signup, and everything runs in your browser. Nothing you type is sent anywhere. If a checker gates the fix behind signup, that is the free-trap pattern: the fix should be on the page, not behind a form.</p></details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
       <p><strong>What is the highest possible contrast ratio?</strong> 21:1 — black on white. Nothing scores higher, because the formula caps at the two extremes.</p>
-      <p><strong>Do placeholders need to pass?</strong> If placeholder text conveys essential information, yes — darken it. #9CA3AF placeholders on white are 2.9:1 and fail; #6B7280 passes at 5.74:1.</p>
+      <p><strong>Do placeholders need to pass?</strong> If placeholder text conveys essential information, yes — darken it. #9CA3AF placeholders on white are 2.54:1 and fail; #6B7280 passes at 4.83:1 on white (but only 4.39:1 on gray-100, so check the real surface).</p>
       <p><strong>Is dark mode automatically accessible?</strong> No. Recalculate every pair for the dark theme — a grey that passes on white can fail on a dark background.</p>
       <p><strong>What about WCAG 3.0 and APCA?</strong> WCAG 3.0 will replace the ratio with APCA, which weighs text size and weight more accurately. WCAG 2.1 is still the standard you are audited against today.</p>
     </div>
-    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker" class="related-card"><h4>🎨 Color Picker</h4><p>HEX, RGB & HSL codes</p></a><a href="/tools/color-picker-from-image" class="related-card"><h4>🎯 Color Picker from Image</h4><p>Pick colours from photos</p></a><a href="/tools/gradient-generator" class="related-card"><h4>🌈 Gradient Generator</h4><p>Build gradients free</p></a><a href="/tools/color-mixer" class="related-card"><h4>🎨 Color Mixer</h4><p>Blend two colours</p></a></div></div>
+    <div class="related-tools"><h2>Related Tools</h2><div class="related-grid"><a href="/tools/color-picker" class="related-card"><h4>🎨 Color Picker</h4><p>HEX, RGB &amp; HSL codes</p></a><a href="/tools/color-picker-from-image" class="related-card"><h4>🎯 Color Picker from Image</h4><p>Pick colours from photos</p></a><a href="/tools/gradient-generator" class="related-card"><h4>🌈 Gradient Generator</h4><p>Build gradients free</p></a><a href="/tools/color-mixer" class="related-card"><h4>🎨 Color Mixer</h4><p>Blend two colours</p></a></div></div>
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -320,19 +373,17 @@ table.facts td{color:var(--text2)}
   </div>
 </footer>
 <div class="toast" id="toast" role="status"></div>
-
-
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove("show"); }, 2600); }
   function parseHex(v) {
-    v = v.trim().replace(/^#/, "");
+    v = (v || "").trim().replace(/^#/, "");
     if (/^[0-9a-fA-F]{3}$/.test(v)) v = v.split("").map(function (c) { return c + c; }).join("");
     if (!/^[0-9a-fA-F]{6}$/.test(v)) return null;
     return [parseInt(v.substr(0, 2), 16), parseInt(v.substr(2, 2), 16), parseInt(v.substr(4, 2), 16)];
   }
-  function hexOf(r, g, b) { function p(n) { var s = Math.round(n).toString(16); return s.length === 1 ? "0" + s : s; } return "#" + p(r) + p(g) + p(b); }
+  function hexOf(r, g, b) { function p(n) { var s = Math.max(0, Math.min(255, Math.round(n))).toString(16); return s.length === 1 ? "0" + s : s; } return "#" + p(r) + p(g) + p(b); }
   function luminance(rgb) {
     function lin(c) { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
     return 0.2126 * lin(rgb[0]) + 0.7152 * lin(rgb[1]) + 0.0722 * lin(rgb[2]);
@@ -374,6 +425,20 @@ table.facts td{color:var(--text2)}
     }
   }
   function badge(pass) { return '<span class="badge ' + (pass ? "pass" : "fail") + '">' + (pass ? "✓ Pass" : "✗ Fail") + "</span>"; }
+  /* Colour-vision simulation (Machado et al. matrices, applied to sRGB values) */
+  var SIMS = [
+    { name: "Protanopia (red-blind)", m: [0.567, 0.433, 0, 0.558, 0.442, 0, 0, 0.242, 0.758] },
+    { name: "Deuteranopia (green-blind)", m: [0.625, 0.375, 0, 0.7, 0.3, 0, 0, 0.3, 0.7] },
+    { name: "Tritanopia (blue-blind)", m: [0.95, 0.05, 0, 0, 0.433, 0.567, 0, 0.475, 0.525] }
+  ];
+  function simulate(rgb, m) {
+    return [
+      m[0] * rgb[0] + m[1] * rgb[1] + m[2] * rgb[2],
+      m[3] * rgb[0] + m[4] * rgb[1] + m[5] * rgb[2],
+      m[6] * rgb[0] + m[7] * rgb[1] + m[8] * rgb[2]
+    ];
+  }
+  var baseFg = "#1a1a1a"; /* text colour before fine-tuning */
   function update() {
     var fg = parseHex($("fgHex").value), bg = parseHex($("bgHex").value);
     if (!fg || !bg) return;
@@ -390,30 +455,61 @@ table.facts td{color:var(--text2)}
     else if (r >= 4.5) $("ratioVerdict").textContent = "Good — passes AA for normal text and AAA for large text.";
     else if (r >= 3) $("ratioVerdict").textContent = "Weak — passes AA for large text only. Normal text fails.";
     else $("ratioVerdict").textContent = "Poor — fails even for large text. Change one of the colours.";
+    /* simulations */
+    var box = $("simBoxes");
+    box.innerHTML = "";
+    SIMS.forEach(function (sim) {
+      var sfg = simulate(fg, sim.m), sbg = simulate(bg, sim.m);
+      var sr = ratio(sfg, sbg);
+      var div = document.createElement("div");
+      div.className = "sim-box";
+      div.style.background = hexOf(sbg[0], sbg[1], sbg[2]);
+      div.style.color = hexOf(sfg[0], sfg[1], sfg[2]);
+      div.innerHTML = '<div class="sim-name">' + sim.name + " — simulated ratio " + sr.toFixed(2) + ":1 " + (sr >= 4.5 ? "✓ passes AA" : "✗ fails AA") + "</div>"
+        + '<p style="font-family:\'Syne\',sans-serif;font-size:18px;font-weight:700;margin:0 0 4px">Headline in this simulation</p>'
+        + '<p style="font-size:13px;margin:0">Body text as this reader would see the pair. Same colours, different eyes.</p>';
+      box.appendChild(div);
+    });
   }
   function syncHex(inputId, colorId) {
     var v = $(inputId).value;
     if (parseHex(v)) { $(colorId).value = v.toLowerCase().startsWith("#") ? v.toLowerCase() : "#" + v.toLowerCase(); update(); }
   }
-  $("fgColor").addEventListener("input", function () { $("fgHex").value = this.value; update(); });
+  function setPair(fgHex, bgHex) {
+    $("fgHex").value = fgHex.toLowerCase(); $("bgHex").value = bgHex.toLowerCase();
+    $("fgColor").value = fgHex.toLowerCase(); $("bgColor").value = bgHex.toLowerCase();
+    baseFg = fgHex.toLowerCase();
+    $("tuneSlider").value = 0; $("tuneOut").textContent = "0";
+    update();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  $("fgColor").addEventListener("input", function () { $("fgHex").value = this.value; baseFg = this.value; $("tuneSlider").value = 0; $("tuneOut").textContent = "0"; update(); });
   $("bgColor").addEventListener("input", function () { $("bgHex").value = this.value; update(); });
-  $("fgHex").addEventListener("change", function () { syncHex("fgHex", "fgColor"); });
+  $("fgHex").addEventListener("change", function () { syncHex("fgHex", "fgColor"); baseFg = $("fgHex").value.toLowerCase(); $("tuneSlider").value = 0; $("tuneOut").textContent = "0"; });
   $("bgHex").addEventListener("change", function () { syncHex("bgHex", "bgColor"); });
   $("swapBtn").addEventListener("click", function () {
     var f = $("fgHex").value; $("fgHex").value = $("bgHex").value; $("bgHex").value = f;
     $("fgColor").value = $("fgHex").value; $("bgColor").value = $("bgHex").value;
+    baseFg = $("fgHex").value.toLowerCase();
+    $("tuneSlider").value = 0; $("tuneOut").textContent = "0";
     update();
   });
   $("presetChips").addEventListener("click", function (ev) {
     var b = ev.target.closest(".chip"); if (!b) return;
-    $("fgHex").value = b.getAttribute("data-fg"); $("bgHex").value = b.getAttribute("data-bg");
-    $("fgColor").value = b.getAttribute("data-fg"); $("bgColor").value = b.getAttribute("data-bg");
-    update();
+    setPair(b.getAttribute("data-fg"), b.getAttribute("data-bg"));
   });
+  $("greyTable").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".mini-btn"); if (!b) return;
+    setPair(b.getAttribute("data-fg"), b.getAttribute("data-bg"));
+    toast("Pair loaded into the checker above.");
+  });
+  /* ---- Fix it for me: lightness walk to the chosen target, same hue ---- */
   $("suggestBtn").addEventListener("click", function () {
     var fg = parseHex($("fgHex").value), bg = parseHex($("bgHex").value);
     if (!fg || !bg) return;
-    if (ratio(fg, bg) >= 4.5) { $("suggestLine").textContent = "This pair already passes AA for normal text — no suggestion needed."; return; }
+    var target = parseFloat($("fixTarget").value);
+    var before = ratio(fg, bg).toFixed(2);
+    if (ratio(fg, bg) >= target) { $("suggestLine").textContent = "This pair already passes " + target.toFixed(1) + ":1 — no fix needed."; return; }
     var hsl = rgbToHsl(fg[0], fg[1], fg[2]);
     var bgLum = luminance(bg);
     var dir = bgLum > 0.5 ? -1 : 1;
@@ -421,17 +517,85 @@ table.facts td{color:var(--text2)}
     for (var step = 1; step <= 100; step++) {
       var nl = Math.max(0, Math.min(100, hsl[2] + dir * step));
       var cand = hslToRgb(hsl[0], hsl[1], nl);
-      if (ratio(cand, bg) >= 4.5) { found = cand; break; }
+      if (ratio(cand, bg) >= target) { found = cand; break; }
       if (nl === 0 || nl === 100) break;
     }
-    if (!found) { $("suggestLine").textContent = "No same-hue shade passes — try a different hue or change the background."; return; }
+    if (!found) { $("suggestLine").textContent = "No same-hue shade reaches " + target.toFixed(1) + ":1 — try a different hue or change the background."; return; }
     var hex = hexOf(found[0], found[1], found[2]).toUpperCase();
     var rr = ratio(found, bg).toFixed(2);
-    $("suggestLine").innerHTML = "Suggested text colour: <strong>" + hex + "</strong> (" + rr + ":1, passes AA normal). Same hue, lightness adjusted. <button type='button' class='btn alt' id='applySuggest' style='padding:6px 12px'>Apply it</button>";
+    $("suggestLine").innerHTML = "Before " + before + ":1 → suggested text colour <strong>" + hex + "</strong> (" + rr + ":1, passes " + target.toFixed(1) + ":1). Same hue, lightness adjusted. <button type='button' class='btn alt' id='applySuggest' style='padding:6px 12px'>Apply it</button>";
     $("applySuggest").addEventListener("click", function () {
-      $("fgHex").value = hex.toLowerCase(); $("fgColor").value = hex.toLowerCase();
-      update(); toast(hex + " applied as the text colour.");
+      setPair(hex.toLowerCase(), $("bgHex").value);
+      toast(hex + " applied as the text colour.");
     });
+  });
+  /* ---- Fine-tune lightness slider: nudge the text colour toward the target ---- */
+  $("tuneSlider").addEventListener("input", function () {
+    var delta = parseInt(this.value, 10);
+    $("tuneOut").textContent = (delta > 0 ? "+" : "") + delta;
+    var base = parseHex(baseFg);
+    if (!base) return;
+    var hsl = rgbToHsl(base[0], base[1], base[2]);
+    var nl = Math.max(0, Math.min(100, hsl[2] + delta));
+    var tuned = hslToRgb(hsl[0], hsl[1], nl);
+    var hex = hexOf(tuned[0], tuned[1], tuned[2]).toLowerCase();
+    $("fgHex").value = hex; $("fgColor").value = hex;
+    update();
+    $("tuneNote").textContent = "Text colour now " + hex.toUpperCase() + " (lightness " + hsl[2] + "% → " + nl + "%). Ratio updates live above.";
+  });
+  /* ---- Gradient 5-point check ---- */
+  function gradSync(inputId, colorId) {
+    var v = $(inputId).value;
+    if (parseHex(v)) { $(colorId).value = v.toLowerCase().startsWith("#") ? v.toLowerCase() : "#" + v.toLowerCase(); }
+  }
+  $("gradText").addEventListener("input", function () { $("gradTextHex").value = this.value; });
+  $("gradStart").addEventListener("input", function () { $("gradStartHex").value = this.value; });
+  $("gradEnd").addEventListener("input", function () { $("gradEndHex").value = this.value; });
+  $("gradTextHex").addEventListener("change", function () { gradSync("gradTextHex", "gradText"); });
+  $("gradStartHex").addEventListener("change", function () { gradSync("gradStartHex", "gradStart"); });
+  $("gradEndHex").addEventListener("change", function () { gradSync("gradEndHex", "gradEnd"); });
+  $("gradCheckBtn").addEventListener("click", function () {
+    var text = parseHex($("gradTextHex").value), s = parseHex($("gradStartHex").value), e = parseHex($("gradEndHex").value);
+    var box = $("gradResults");
+    if (!text || !s || !e) { box.innerHTML = '<p class="err">Enter valid HEX codes for the text colour and both gradient ends.</p>'; return; }
+    var rows = "";
+    [0, 25, 50, 75, 100].forEach(function (pct) {
+      var t = pct / 100;
+      var c = [s[0] + (e[0] - s[0]) * t, s[1] + (e[1] - s[1]) * t, s[2] + (e[2] - s[2]) * t];
+      var rr = ratio(text, c);
+      rows += "<tr><td>" + pct + "%</td><td>" + hexOf(c[0], c[1], c[2]).toUpperCase() + "</td><td>" + rr.toFixed(2) + ":1</td><td>" + (rr >= 4.5 ? "✓ Pass AA normal" : rr >= 3 ? "△ Pass AA large only" : "✗ Fail") + "</td></tr>";
+    });
+    box.innerHTML = '<table class="facts"><thead><tr><th>Point</th><th>Background</th><th>Ratio</th><th>Verdict</th></tr></thead><tbody>' + rows + "</tbody></table>"
+      + '<p class="trust">Judge by the worst point, not the average. If either end fails, add a scrim — a semi-transparent dark or light overlay behind the text — or darken the failing end of the gradient.</p>';
+  });
+  /* ---- Bulk testing ---- */
+  $("bulkBtn").addEventListener("click", function () {
+    function parseList(id) {
+      var out = [], seen = {};
+      $(id).value.split("\n").forEach(function (line) {
+        var h = line.trim();
+        if (!h || out.length >= 10) return;
+        var rgb = parseHex(h);
+        if (rgb && !seen[h.toLowerCase()]) { seen[h.toLowerCase()] = true; out.push({ hex: hexOf(rgb[0], rgb[1], rgb[2]).toUpperCase(), rgb: rgb }); }
+      });
+      return out;
+    }
+    var fgs = parseList("bulkFg"), bgs = parseList("bulkBg");
+    var box = $("bulkResults");
+    if (!fgs.length || !bgs.length) { box.innerHTML = '<p class="err">Enter at least one valid HEX code in each list.</p>'; return; }
+    var html = '<table class="facts"><thead><tr><th>Text \\ Background</th>';
+    bgs.forEach(function (b) { html += "<th>" + b.hex + "</th>"; });
+    html += "</tr></thead><tbody>";
+    fgs.forEach(function (f) {
+      html += "<tr><td><strong>" + f.hex + "</strong></td>";
+      bgs.forEach(function (b) {
+        var rr = ratio(f.rgb, b.rgb);
+        html += "<td>" + rr.toFixed(2) + ":1 " + (rr >= 4.5 ? "✓" : "✗") + "</td>";
+      });
+      html += "</tr>";
+    });
+    html += "</tbody></table><p class='trust'>✓ = passes AA normal text (4.5:1). ✗ = fails. Rows are text colours, columns are backgrounds.</p>";
+    box.innerHTML = html;
   });
   update();
 

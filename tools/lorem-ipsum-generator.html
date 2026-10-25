@@ -28,10 +28,66 @@
     },
     {
       "@type": "Question",
-      "name": "Why is lorem ipsum used instead of real text?",
+      "name": "What is Lorem Ipsum?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Real, meaningful text distracts people reviewing a layout — they start reading and judging the words instead of the visual design. Meaningless placeholder text keeps the focus on layout, spacing and typography, which is the whole point."
+        "text": "Placeholder or dummy text that mimics the look and rhythm of real writing but has no actual meaning. Designers use it to fill layouts and test visual hierarchy without needing final copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Lorem Ipsum mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing coherent — it is scrambled, truncated Latin, not a translatable sentence. “Lorem” itself is not a real Latin word: a printer dropped the first two letters of “dolorem”."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Lorem Ipsum come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cicero's De Finibus Bonorum et Malorum (“On the Ends of Good and Evil”), 45 BC, sections 1.10.32–1.10.33. A printer scrambled the passage in the 1500s; Latin scholar Richard McClintock traced the source in the 1980s–90s."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do designers use Lorem Ipsum instead of real text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It mimics letter frequency, word length and rhythm of real prose, so layouts look natural — but it carries no meaning to distract reviewers from the design. Real text makes reviewers read and judge the words instead of the layout, spacing and typography."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How did Lorem Ipsum become the standard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Letraset dry-transfer sheets in the 1960s printed it to demonstrate typefaces, then Aldus PageMaker in the mid-1980s shipped it in templates, and desktop publishing spread it to QuarkXPress, InDesign, and every design tool since."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Lorem Ipsum real Latin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — scrambled Latin words in sentence-like arrangements. The words are mostly real Latin; the sentences are not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Lorem Ipsum in a published website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — placeholder only for drafts and mockups. Published pages need real words for readers, screen readers and search engines. Search your built site for “lorem” before every deploy and replace every placeholder sentence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I generate Lorem Ipsum in Microsoft Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Type =LOREM() and press Enter — Word auto-generates paragraphs of standard Lorem Ipsum. =RAND(10) inserts ten paragraphs of randomised English text instead. Word's built-in trick gives a fixed standard passage with no count, theme or HTML control; a generator gives you exact counts and formats."
       }
     },
     {
@@ -39,31 +95,47 @@
       "name": "Is the generated text always different?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Each click of Generate produces a new random arrangement of words and sentence lengths from the same classic Latin word pool. The classic opener stays the same when that option is on."
+        "text": "On shuffle or regenerate tools, yes — each click produces a new random arrangement of words and sentence lengths. Each click of Generate here produces a new random arrangement from the same classic Latin word pool; the classic opener stays the same when that option is on."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use lorem ipsum in a real, published project?",
+      "name": "What is the difference between Lorem Ipsum and dummy text?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — honestly, you should not. It is intended purely as placeholder text for drafts and mockups, not as final content for a published page. Publishing a page with lorem ipsum still in place is a common mistake that looks unprofessional and can affect SEO."
+        "text": "Same thing — lorem ipsum is the most common form of dummy or placeholder text used in design."
       }
     },
     {
       "@type": "Question",
-      "name": "What does lorem ipsum actually mean?",
+      "name": "Can I get Lorem Ipsum as HTML?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nothing — it is scrambled Latin. It comes from sections 1.10.32 and 1.10.33 of Cicero's “De Finibus Bonorum et Malorum” (45 BC), altered over centuries until it became nonsensical. That is the point: it has the shape and rhythm of real prose without being readable."
+        "text": "Yes. Turn on “Wrap in HTML tags” here and each paragraph is wrapped in <p> tags, ready to paste into your markup. Copy or download the result as plain text or with the tags."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I get the output with HTML tags?",
+      "name": "What is \"greeking\"?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Turn on “Wrap in HTML tags” and each paragraph is wrapped in  tags, ready to paste into your markup. Copy or download the result as plain text or with the tags."
+        "text": "The use of placeholder text in web design is sometimes called “greeking”, meaning something incomprehensible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why not just write \"insert text here\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Repeated real words distract reviewers — they start reading and judging the words instead of the visual design. Meaningless text keeps attention on layout, spacing and typography."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make sure no Lorem Ipsum ships live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Search the built site for “lorem” before every deploy. Add it to the launch checklist — the check is one search, the embarrassment is permanent. Also replace every placeholder sentence and check screen-reader output before the page goes live."
       }
     }
   ]
@@ -213,7 +285,7 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
     <div class="tool-about">
       <!-- PROBLEM -->
       <h2>The problem: a layout with no words in it</h2>
-      <p>Designers and developers keep hitting the same small problem: the layout is ready, the real copy is not, and an empty box tells you nothing about how the page will look. Real text is the wrong filler — reviewers start reading and judging the words instead of the design — and obvious filler like “text text text” tells you nothing about how a paragraph feels at full length. The complaints are practical: generators that only give one fixed block, generators that give a random amount with no exact count, and the classic embarrassment — lorem ipsum shipped to production because nobody searched the built site before deploy. People also argue about whether placeholder text is even right: for final designs and forms, real content reveals length problems that lorem hides, and for internationalised designs, Latin filler hides the 30%+ length increase German typically brings. What people want is exact: 3 paragraphs for an article body, 1 for a card, 20 words for a button tooltip — with the classic opener on when stakeholders expect it, and HTML tags when the text goes straight into markup.</p>
+      <p>Designers and developers keep hitting the same small problem: the layout is ready, the real copy is not, and an empty box tells you nothing about how the page will look. Real text is the wrong filler — reviewers start reading and judging the words instead of the design — and obvious filler like “text text text” tells you nothing about how a paragraph feels at full length. The complaints are practical: generators that only give one fixed block, generators that give a random amount with no exact count, and the classic embarrassment — lorem ipsum shipped to production because nobody searched the built site before deploy. People also argue about whether placeholder text is even right: for final designs and forms, real content reveals length problems that lorem hides, and for internationalised designs, Latin filler hides how much longer German or French text runs. What people want is exact: 3 paragraphs for an article body, 1 for a card, 20 words for a button tooltip — with the classic opener on when stakeholders expect it, and HTML tags when the text goes straight into markup.</p>
       <!-- DIRECT ANSWER -->
       <h2>How do I generate lorem ipsum text?</h2>
       <p>Choose paragraphs, sentences or words, set how many you need (1–50), and press Generate. Turn on the classic “Lorem ipsum dolor sit amet…” opener if you want the traditional first line, and turn on HTML tags to wrap each paragraph in &lt;p&gt; tags for pasting straight into markup. Then copy the text or download it as a .txt file. It is free, with no signup, and it runs in your browser.</p><p>Lorem ipsum is placeholder text that mimics the look and rhythm of real writing without having any actual meaning. It comes from a passage by the Roman writer Cicero (45 BC), scrambled by a printer in the 1500s into a type specimen — and it has been the industry standard dummy text ever since, because it looks like real prose without distracting anyone with readable words.</p>
@@ -224,31 +296,81 @@ details.faq p{font-size:14px;color:var(--text2);line-height:1.8;margin-top:10px}
       <p>One or two paragraphs for hero sections and cards, three to five for article bodies. Generate slightly more than you need and trim — it is easier to cut filler than to generate again mid-review. For a button tooltip or a form label, generate words, not paragraphs: a single sentence is already too much. And keep the classic opener on when stakeholders expect the traditional first line; turn it off when you want a fully fresh passage.</p>
       <h2>When you should NOT use lorem ipsum</h2>
       <p>Do not use it for final designs and mockups for review — real content reveals length problems lorem hides, and an “About Us” page does not fit in three sentences. Do not use it for forms and labels, which need real words to test whether they fit, wrap or truncate. Do not use it for internationalised designs — test with the real strings instead, because Latin filler hides how much longer German or French text runs. And never ship it to production: search your built site for “lorem” before every deploy. Placeholder text is a development tool, not a design deliverable — use it to make structural decisions, then replace it with realistic content as early as possible.</p>
+      <h2>Where lorem ipsum comes from — a 2,000-year-old accident</h2>
+      <p>Lorem ipsum is scrambled Latin from Cicero's <em>De Finibus Bonorum et Malorum</em> (“On the Ends of Good and Evil”), written in 45 BC, sections 1.10.32–1.10.33. A printer scrambled the passage in the 1500s into a type specimen, and Latin scholar Richard McClintock traced the source in the 1980s–90s. Letraset dry-transfer sheets in the 1960s printed it to demonstrate typefaces, then Aldus PageMaker in the mid-1980s shipped it in its templates, and desktop publishing spread it to QuarkXPress, InDesign and every design tool since. The word “lorem” itself is not even a real Latin word: a printer dropped the first two letters of “dolorem”. That is why the passage has the shape and rhythm of real prose without being readable — which is exactly what makes it useful as filler, and exactly what makes it embarrassing when it ships.</p>
+      <h2>The pre-deploy checklist: make sure no lorem ships live</h2>
+      <p>Placeholder text belongs in wireframes, mock-ups and layout tests. Published pages need real words for readers, screen readers and search engines — a screen reader reading pseudo-Latin aloud is the accessibility version of the problem. Before every deploy, run this check:</p>
+      <table class="facts">
+        <thead><tr><th>Check</th><th>How</th></tr></thead>
+        <tbody>
+          <tr><td>Search the built site for “lorem”</td><td>One search across the built files, before every deploy — the check is one search, the embarrassment is permanent</td></tr>
+          <tr><td>Replace every placeholder sentence</td><td>Hero, cards, article bodies, footers — check the slots you filled last, not just the first</td></tr>
+          <tr><td>Check screen-reader output</td><td>Published lorem is read aloud as nonsense — confirm no placeholder text survives in the live page</td></tr>
+          <tr><td>Check forms and labels too</td><td>Buttons, tooltips and form labels need real words to test whether they fit, wrap or truncate</td></tr>
+        </tbody>
+      </table>
+      <p>Themed placeholder text exists for mockups that should read like the brand — some generators offer startup, coffee, pirate or tech flavours (pseudo-Latin mixed with words like API, repository and machine learning). This tool sticks to classic Latin: it is the version stakeholders recognise instantly as placeholder, which is the point.</p>
       <!-- FAQ -->
       <h2>FAQ</h2>
-      <details class="faq">
+<details class="faq">
 <summary>Is this lorem ipsum generator free?</summary>
 <p>Yes. Generate as much placeholder text as you like, free, with no signup, no account and no limits. Everything runs in your browser.</p>
 </details>
-      <details class="faq">
-<summary>Why is lorem ipsum used instead of real text?</summary>
-<p>Real, meaningful text distracts people reviewing a layout — they start reading and judging the words instead of the visual design. Meaningless placeholder text keeps the focus on layout, spacing and typography, which is the whole point.</p>
+<details class="faq">
+<summary>What is Lorem Ipsum?</summary>
+<p>Placeholder or dummy text that mimics the look and rhythm of real writing but has no actual meaning. Designers use it to fill layouts and test visual hierarchy without needing final copy.</p>
 </details>
-      <details class="faq">
+<details class="faq">
+<summary>What does Lorem Ipsum mean?</summary>
+<p>Nothing coherent — it is scrambled, truncated Latin, not a translatable sentence. “Lorem” itself is not a real Latin word: a printer dropped the first two letters of “dolorem”.</p>
+</details>
+<details class="faq">
+<summary>Where does Lorem Ipsum come from?</summary>
+<p>Cicero&#x27;s De Finibus Bonorum et Malorum (“On the Ends of Good and Evil”), 45 BC, sections 1.10.32–1.10.33. A printer scrambled the passage in the 1500s; Latin scholar Richard McClintock traced the source in the 1980s–90s.</p>
+</details>
+<details class="faq">
+<summary>Why do designers use Lorem Ipsum instead of real text?</summary>
+<p>It mimics letter frequency, word length and rhythm of real prose, so layouts look natural — but it carries no meaning to distract reviewers from the design. Real text makes reviewers read and judge the words instead of the layout, spacing and typography.</p>
+</details>
+<details class="faq">
+<summary>How did Lorem Ipsum become the standard?</summary>
+<p>Letraset dry-transfer sheets in the 1960s printed it to demonstrate typefaces, then Aldus PageMaker in the mid-1980s shipped it in templates, and desktop publishing spread it to QuarkXPress, InDesign, and every design tool since.</p>
+</details>
+<details class="faq">
+<summary>Is Lorem Ipsum real Latin?</summary>
+<p>No — scrambled Latin words in sentence-like arrangements. The words are mostly real Latin; the sentences are not.</p>
+</details>
+<details class="faq">
+<summary>Can I use Lorem Ipsum in a published website?</summary>
+<p>No — placeholder only for drafts and mockups. Published pages need real words for readers, screen readers and search engines. Search your built site for “lorem” before every deploy and replace every placeholder sentence.</p>
+</details>
+<details class="faq">
+<summary>How do I generate Lorem Ipsum in Microsoft Word?</summary>
+<p>Type =LOREM() and press Enter — Word auto-generates paragraphs of standard Lorem Ipsum. =RAND(10) inserts ten paragraphs of randomised English text instead. Word&#x27;s built-in trick gives a fixed standard passage with no count, theme or HTML control; a generator gives you exact counts and formats.</p>
+</details>
+<details class="faq">
 <summary>Is the generated text always different?</summary>
-<p>Yes. Each click of Generate produces a new random arrangement of words and sentence lengths from the same classic Latin word pool. The classic opener stays the same when that option is on.</p>
+<p>On shuffle or regenerate tools, yes — each click produces a new random arrangement of words and sentence lengths. Each click of Generate here produces a new random arrangement from the same classic Latin word pool; the classic opener stays the same when that option is on.</p>
 </details>
-      <details class="faq">
-<summary>Can I use lorem ipsum in a real, published project?</summary>
-<p>No — honestly, you should not. It is intended purely as placeholder text for drafts and mockups, not as final content for a published page. Publishing a page with lorem ipsum still in place is a common mistake that looks unprofessional and can affect SEO.</p>
+<details class="faq">
+<summary>What is the difference between Lorem Ipsum and dummy text?</summary>
+<p>Same thing — lorem ipsum is the most common form of dummy or placeholder text used in design.</p>
 </details>
-      <details class="faq">
-<summary>What does lorem ipsum actually mean?</summary>
-<p>Nothing — it is scrambled Latin. It comes from sections 1.10.32 and 1.10.33 of Cicero's “De Finibus Bonorum et Malorum” (45 BC), altered over centuries until it became nonsensical. That is the point: it has the shape and rhythm of real prose without being readable.</p>
+<details class="faq">
+<summary>Can I get Lorem Ipsum as HTML?</summary>
+<p>Yes. Turn on “Wrap in HTML tags” here and each paragraph is wrapped in &lt;p&gt; tags, ready to paste into your markup. Copy or download the result as plain text or with the tags.</p>
 </details>
-      <details class="faq">
-<summary>Can I get the output with HTML tags?</summary>
-<p>Yes. Turn on “Wrap in HTML tags” and each paragraph is wrapped in <p> tags, ready to paste into your markup. Copy or download the result as plain text or with the tags.</p>
+<details class="faq">
+<summary>What is &quot;greeking&quot;?</summary>
+<p>The use of placeholder text in web design is sometimes called “greeking”, meaning something incomprehensible.</p>
+</details>
+<details class="faq">
+<summary>Why not just write &quot;insert text here&quot;?</summary>
+<p>Repeated real words distract reviewers — they start reading and judging the words instead of the visual design. Meaningless text keeps attention on layout, spacing and typography.</p>
+</details>
+<details class="faq">
+<summary>How do I make sure no Lorem Ipsum ships live?</summary>
+<p>Search the built site for “lorem” before every deploy. Add it to the launch checklist — the check is one search, the embarrassment is permanent. Also replace every placeholder sentence and check screen-reader output before the page goes live.</p>
 </details>
       <!-- RELATED QUESTIONS -->
       <h2>Related questions</h2>
